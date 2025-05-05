@@ -24,7 +24,9 @@ def fetch_with_rety(url, params, headers, max_retries=3):
 
 
 def fetch_repos():
-    with open("secret.json") as json_file:
+    this_directory = os.path.dirname(os.path.abspath(__file__))
+    secret_filepath = os.path.join(this_directory, "secret.json")
+    with open(secret_filepath) as json_file:
         json_data = json.load(json_file)
         github_access_token = json_data["github_access_token"]
 
@@ -46,7 +48,7 @@ def fetch_repos():
     upper_max_page_limit = max_items_allowed_by_github / items_per_page
 
     output_dir = os.path.join(
-        os.getcwd(), "scraped_repos", str(datetime.datetime.now())
+        this_directory, "scraped_repos", str(datetime.datetime.now())
     )
 
     for queryIndex, query in enumerate(queries):

@@ -4,14 +4,16 @@ import datetime
 
 
 def extract_repo_urls():
-    scrape_dir = os.path.join(os.getcwd(), "scraped_repos")
+    this_directory = os.path.dirname(os.path.abspath(__file__))
+
+    scrape_dir = os.path.join(this_directory, "scraped_repos")
     directories = [
         name
         for name in os.listdir(scrape_dir)
         if os.path.isdir(os.path.join(scrape_dir, name))
     ]
     output_filepath = os.path.join(
-        os.getcwd(), "analyzed_repos", f"{datetime.datetime.now()}.json"
+        this_directory, "analyzed_repos", f"{datetime.datetime.now()}.json"
     )
     newest_scape_directory_name = directories[-1]
     output_urls = []
