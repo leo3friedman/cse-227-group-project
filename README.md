@@ -23,6 +23,14 @@ Run the scraper via `python3 src/scraper/scrape_repos.py`.
 - To force buckets to be recalculated pass in the flag: `--recalculate_buckets`.
 - By default the program will use the most recent file in `./src/scraper/buckets`.
 
+After running the scaper, run:
+```
+python3 src/scraper/extract_chromex.py --end 10000
+python3 src/scraper/extract_chromex.py --start 10000
+```
+To generate the json files with github repos linked with their extension urls
+(Due to the maximum request constraint hourly from the github API, please run the second command an hour after the first command)
+
 ### Output
 
 All the scraped GitHub urls can be found in `./src/scraper/extracted_urls`
