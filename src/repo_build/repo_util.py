@@ -79,6 +79,7 @@ def find_tags_with_manifest_version(repo_path, tags, desired_version):
     matching_tags = []
 
     for tag in tags:
+        print(tag)
         try:
             # Checkout the tag
             subprocess.run(['git', 'checkout', tag], cwd=repo_path, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -96,6 +97,7 @@ def find_tags_with_manifest_version(repo_path, tags, desired_version):
                     print("Check: ")
                     print((tag, actual_version, desired_version))
                     matching_tags.append(tag)
+                    break
 
         except Exception:
             pass  # skip tag on error
@@ -107,9 +109,33 @@ def find_tags_with_manifest_version(repo_path, tags, desired_version):
 
 # def checkout_git_ref(repo_path, ref_name):
 #     subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
+'''
+inputs:
+directory_of_reporistory: ex: /workspace/data/darkreader/darkreader
 
+output:
+list of directories that contain the manifest.json(top level): ex: /workspace/data/darkreader/darkreader/build/dist/chrome-mv3
+'''
+def find_directories_with_min_version(directory_of_repository):
+    matching_directories = []
+
+    for root, dirs, files in os.walk(directory_of_repository):
+        print(root)
+        if "manifest.json" in files:
+            manifest_path = os.path.join(root, "manifest.json")
+            try:
+                with open(manifest_path, "r") as f:
+                    manifest_data = json.load(f)
+                    if "minimum_chrome_version" in manifest_data:
+                        matching_directories.append(root)
+            except (json.JSONDecodeError, FileNotFoundError, PermissionError) as e:
+                print(f"Error reading {manifest_path}: {e}")
+
+    return matching_directories
 
 def build_git_ref(repo_path, ref_name, build_dir='dist'):
+    print(f"repo path: {repo_path}")
+    print(f"ref name: {ref_name}")
     # Step 1: Checkout the git reference
     subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
 
@@ -119,15 +145,18 @@ def build_git_ref(repo_path, ref_name, build_dir='dist'):
     # Step 3: Run npm build
     subprocess.run(['npm', 'run', 'build'], cwd=repo_path, check=True)
 
-    # Step 4: Find files in the build directory
-    full_build_path = os.path.join(repo_path, build_dir)
-    if not os.path.exists(full_build_path):
-        raise FileNotFoundError(f"Build directory '{full_build_path}' not found.")
+    # # Step 4: Find files in the build directory
+    
+    # full_build_path = os.path.join(repo_path, build_dir)
+    # if not os.path.exists(full_build_path):
+    #     raise FileNotFoundError(f"Build directory '{full_build_path}' not found.")
 
-    manifest_dirs = []
-    for root, _, files in os.walk(full_build_path):
-        if 'manifest.json' in files:
-            manifest_dirs.append(os.path.relpath(root, repo_path))
+    # manifest_dirs = []
+    # for root, _, files in os.walk(full_build_path):
+    #     if 'manifest.json' in files:
+    #         manifest_dirs.append(os.path.relpath(root, repo_path))
+    
+    manifest_dirs = find_directories_with_min_version(repo_path)
 
     return manifest_dirs
 

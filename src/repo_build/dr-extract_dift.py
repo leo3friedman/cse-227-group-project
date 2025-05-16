@@ -8,23 +8,24 @@ import sys
 # Unzip dark reader
 current_file = Path(__file__)
 darkreader_path = current_file.parent.parent.parent / 'data' / 'darkreader'
-zip_path = darkreader_path + "/darkreader-dist.zip"
-
+zip_path = darkreader_path / "./darkreader-dist.zip"
+print(f"zip path: {zip_path}")
 # TODO: Notice that we assume git is already pulled
-git_path = darkreader_path + './darkreader'
-
+git_path = darkreader_path / './darkreader'
+print(f"git path: {git_path}")
 ### Extract chromex and get version
 
 # Extracting chromex
+# This puts it in wherever you are running the program from
 extractname = "chromex_data"
 UTIL.unzip_and_rename_top_folder(zip_path, extractname)
 
 # Getting version number
-chromex_path = darkreader_path + "/chromex_data"
+chromex_path = "./chromex_data"
 # manifest_paths = UTIL.find_manifest_json_files(chromex_path)
 # Get first manifest (assumes there is just one in chromex)
 manifest_path = UTIL.find_manifest_json_file(chromex_path)
-
+print(f"manifest path: {manifest_path}")
 
 ## TODO: Use all targeted versions or single out best one from possible manifest_paths
 # target_versions = []
