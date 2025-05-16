@@ -97,7 +97,7 @@ def find_tags_with_manifest_version(repo_path, tags, desired_version):
                     print("Check: ")
                     print((tag, actual_version, desired_version))
                     matching_tags.append(tag)
-                    break
+                    # break
 
         except Exception:
             pass  # skip tag on error
