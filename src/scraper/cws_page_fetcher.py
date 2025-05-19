@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 import argparse
-from utils import write_html_file
-import requests
 import re
+from utils import fetch_with_rety, read_json_file, write_json_to_file, write_html_file
 
 
 def extract_html(url: str):
-    response = requests.get(url, allow_redirects=False)
+    response = fetch_with_rety(url, params=None, headers=None)
+
     if response.status_code != 200:
         raise Exception(f"Failed to fetch page: {response.status_code}")
 
@@ -23,7 +23,7 @@ def extract_users(soup):
     user_count_div = soup.find("div", class_=user_count_div_class)
     if user_count_div:
         inner_text = user_count_div.get_text()
-        match = re.search(r"([\d,]+) users", inner_text)
+        match = re.search(r"([\d,]+) user[s]?", inner_text)
         if match:
             return int(match.group(1).replace(",", ""))
     return None
@@ -45,7 +45,7 @@ def extract_rating_count(soup):
     rating_count_p = soup.find("p", class_=rating_count_p_class)
     if rating_count_p:
         inner_text = rating_count_p.get_text()
-        match = re.search(r"(\d+(\.\d)?[K]?) ratings", inner_text)
+        match = re.search(r"(\d+(\.\d)?[K]?) rating[s]?", inner_text)
         if match:
             matched_rating_count = match.group(1)
             if "K" in matched_rating_count:
@@ -90,7 +90,6 @@ def extract_metadata(soup):
     metadata["version"] = extract_version(soup)
     metadata["size"] = extract_size(soup)
     metadata["overview"] = extract_overview(soup)
-
     return metadata
 
 
@@ -98,17 +97,51 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Fetch and save a rendered Chrome Web Store page as HTML."
     )
+
     parser.add_argument(
-        "url",
+        "input_path",
         type=str,
-        help="URL of the Chrome Web Store page to fetch.",
+        help="Path of the input json file containing the URLs to scrape",
     )
+
     parser.add_argument(
         "output_path",
         type=str,
-        help="Output file path to save the rendered HTML.",
+        help="Output file path to save the parsed HTML",
+    )
+
+    parser.add_argument(
+        "--failed_urls_output_path",
+        type=str,
+        help="Output file path to save the URLs that failed to scrape",
     )
 
     args = parser.parse_args()
-    body = extract_html(args.url)
-    write_html_file(args.output_path, body)
+
+    urls_to_scrape = read_json_file(args.input_path)
+
+    scraped_metadata = list()
+    failed_urls = list()
+
+    for url_pair in urls_to_scrape:
+        repo_url = list(url_pair.keys())[0]
+        cws_urls = url_pair[repo_url]
+        scrape_result = dict()
+        scrape_result["repo_url"] = repo_url
+        scrape_result["scraped_metadata"] = list()
+        for cws_url in cws_urls:
+            try:
+                print(f"Fetching {cws_url}")
+                soup = extract_html(cws_url)
+                metadata = extract_metadata(soup)
+                metadata["cws_url"] = cws_url
+                scrape_result["scraped_metadata"].append(metadata)
+            except Exception as e:
+                print(f"Failed to fetch {cws_url}: {e}")
+                failed_urls.append(cws_url)
+        scraped_metadata.append(scrape_result)
+
+    write_json_to_file(args.output_path, scraped_metadata)
+
+    if args.failed_urls_output_path:
+        write_json_to_file(args.failed_urls_output_path, failed_urls)

@@ -10,7 +10,7 @@ class TestCwsPageFetcher(unittest.TestCase):
     def setUp(self):
         self.fixtures_dir = os.path.join(os.path.dirname(__file__), "fixtures")
 
-    def test_is_supported_on_unsupported_html(self):
+    def test_parser(self):
         dark_reader_filepath = os.path.join(self.fixtures_dir, "dark-reader-cws.html")
         dark_reader_html = read_html_file(dark_reader_filepath)
         dark_reader_soup = BeautifulSoup(dark_reader_html, "html.parser")
@@ -27,6 +27,29 @@ class TestCwsPageFetcher(unittest.TestCase):
                 "rating_count": 12300,
                 "version": "4.9.106",
                 "size": "781KiB",
+                "overview": stripped_overview,
+            },
+        )
+
+    def test_parser_2(self):
+        google_scraper_filepath = os.path.join(
+            self.fixtures_dir, "google-scraper-cws.html"
+        )
+        google_scraper_html = read_html_file(google_scraper_filepath)
+        google_scraper_soup = BeautifulSoup(google_scraper_html, "html.parser")
+        google_scraper_overview_filepath = os.path.join(
+            self.fixtures_dir, "google-scraper-cws-overview.txt"
+        )
+        google_scraper_overview = read_txt_file(google_scraper_overview_filepath)
+        stripped_overview = re.sub(r"\s+", "", google_scraper_overview)
+        self.assertDictEqual(
+            extract_metadata(google_scraper_soup),
+            {
+                "user_count": 96,
+                "rating": 3.0,
+                "rating_count": 1,
+                "version": "1.0.1",
+                "size": "6.09KiB",
                 "overview": stripped_overview,
             },
         )
