@@ -23,13 +23,17 @@ Run the scraper via `python3 src/scraper/scrape_repos.py`.
 - To force buckets to be recalculated pass in the flag: `--recalculate_buckets`.
 - By default the program will use the most recent file in `./src/scraper/buckets`.
 
-After running the scaper, run:
+To extract the chrome webstore urls from the repo urls, run:
 ```
-python3 src/scraper/extract_chromex.py --end 10000
-python3 src/scraper/extract_chromex.py --start 10000
+python3 src/scraper/extract_chromex.py --start <start_index> --end <end_index>
 ```
 To generate the json files with github repos linked with their extension urls
-(Due to the maximum request constraint hourly from the github API, please run the second command an hour after the first command)
+(Due to the maximum request constraint hourly from the github API, please run around 5000 requests hourly)
+
+After scraping all the data, run:
+```
+python3 src/scraper/combine_chrome_links.py
+```
 
 ### Output
 
@@ -37,3 +41,8 @@ All the scraped GitHub urls can be found in `./src/scraper/extracted_urls`
 
 - All the raw json responses can be found in `./src/scraper/scraped_repos`
 - Any bucket files can be found in `./src/scraper/buckets`
+
+After running combine_chrome_links.py, there will be 3 json files generated:
+- chrome_links.json: All the repo links with manifest.json included (a key component for chrome extensions) and a chrome webstore link to its extension
+- chrome_links_noext.json: All the repo links with manifest.json included but without a chrome webstore link (or a broken link)
+- chrome_links_remaining.json: All the remaining repo links (without manifest.json)
