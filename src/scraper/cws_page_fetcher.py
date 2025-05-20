@@ -1,7 +1,15 @@
 from bs4 import BeautifulSoup
 import argparse
 import re
-from utils import fetch_with_rety, read_json_file, write_json_to_file, write_html_file
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from utils import (
+    fetch_with_rety,
+    read_json_file,
+    write_json_to_file,
+    write_html_file,
+    print_progress,
+    logger,
+)
 
 
 def extract_html(url: str):
@@ -93,6 +101,24 @@ def extract_metadata(soup):
     return metadata
 
 
+def scrape_repo(repo_url: str, cws_urls: str):
+    scrape_result = dict()
+    scrape_result["repo_url"] = repo_url
+    scrape_result["scraped_metadata"] = list()
+    failed_urls = list()
+    for cws_url in cws_urls:
+        try:
+            soup = extract_html(cws_url)
+            metadata = extract_metadata(soup)
+            metadata["cws_url"] = cws_url
+            scrape_result["scraped_metadata"].append(metadata)
+        except Exception as e:
+            logger.error(f"Failed to fetch {cws_url}: {e}")
+            failed_urls.append({repo_url: cws_url})
+
+    return (scrape_result, failed_urls)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Fetch and save a rendered Chrome Web Store page as HTML."
@@ -123,23 +149,18 @@ if __name__ == "__main__":
     scraped_metadata = list()
     failed_urls = list()
 
-    for url_pair in urls_to_scrape:
-        repo_url = list(url_pair.keys())[0]
-        cws_urls = url_pair[repo_url]
-        scrape_result = dict()
-        scrape_result["repo_url"] = repo_url
-        scrape_result["scraped_metadata"] = list()
-        for cws_url in cws_urls:
-            try:
-                print(f"Fetching {cws_url}")
-                soup = extract_html(cws_url)
-                metadata = extract_metadata(soup)
-                metadata["cws_url"] = cws_url
-                scrape_result["scraped_metadata"].append(metadata)
-            except Exception as e:
-                print(f"Failed to fetch {cws_url}: {e}")
-                failed_urls.append(cws_url)
-        scraped_metadata.append(scrape_result)
+    completed = 0
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = [
+            executor.submit(scrape_repo, repo_url, cws_urls)
+            for repo_url, cws_urls in urls_to_scrape.items()
+        ]
+        for future in as_completed(futures):
+            metadata, failed = future.result()
+            scraped_metadata.append(metadata)
+            failed_urls += failed
+            completed += 1
+            print_progress(completed, len(urls_to_scrape))
 
     write_json_to_file(args.output_path, scraped_metadata)
 
