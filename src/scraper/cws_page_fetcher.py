@@ -6,7 +6,6 @@ from utils import (
     fetch_with_rety,
     read_json_file,
     write_json_to_file,
-    write_html_file,
     print_progress,
     logger,
 )
@@ -114,9 +113,50 @@ def scrape_repo(repo_url: str, cws_urls: str):
             scrape_result["scraped_metadata"].append(metadata)
         except Exception as e:
             logger.error(f"Failed to fetch {cws_url}: {e}")
-            failed_urls.append({repo_url: cws_url})
+            failed_urls.append(
+                to_failed_urls_dict(repo_url, cws_url, f"Scrape error: {str(e)}")
+            )
 
     return (scrape_result, failed_urls)
+
+
+def to_failed_urls_dict(repo_url: str, cws_url: str, error: str) -> dict:
+    return {"repo_url": repo_url, "cws_url": cws_url, "error": error}
+
+
+def clean_urls_to_scrape(urls_to_scrape: dict):
+    cleaned = dict()
+    failed_urls = list()
+    for repo_url, cws_urls in urls_to_scrape.items():
+        cleaned_urls = list()
+        for url in cws_urls:
+            cleaned_url = clean_cws_url(url)
+            if cleaned_url is not None:
+                cleaned_urls.append(cleaned_url)
+            else:
+                failed_urls.append(
+                    to_failed_urls_dict(repo_url, url, "Cleaning failed")
+                )
+
+        if len(cleaned_urls):
+            cleaned[repo_url] = cleaned_urls
+    return cleaned, failed_urls
+
+
+def clean_cws_url(url: str):
+    host_pattern = r"https?://(?:chromewebstore.google.com|chrome.google.com/webstore)(?:/u/\d+)?/detail/"
+    name_pattern = (
+        r"(?:(?:[A-Za-z0-9_\-]|%[0-9A-Fa-f]{2})+/)?"  # url safe char or % encoded char
+    )
+    name_pattern = r"(?:(?:[^/]+)/)?"
+    id_pattern = r"[a-p]{32}"
+
+    pattern = host_pattern + name_pattern + id_pattern
+    match = re.search(pattern, url)
+    if match:
+        return match.group()
+
+    return None
 
 
 if __name__ == "__main__":
@@ -142,15 +182,28 @@ if __name__ == "__main__":
         help="Output file path to save the URLs that failed to scrape",
     )
 
+    parser.add_argument(
+        "--num_workers",
+        type=int,
+        help="Number of worker threads to use for scraping",
+    )
+
     args = parser.parse_args()
 
     urls_to_scrape = read_json_file(args.input_path)
 
+    urls_to_scrape, failed_urls = clean_urls_to_scrape(urls_to_scrape)
+    print(f"Removed {len(failed_urls)} invalid URLs from dataset")
+
+    total_urls = sum(len(cws_urls) for cws_urls in urls_to_scrape.values())
+    print(f"Scraping {total_urls} URLS...")
+
     scraped_metadata = list()
-    failed_urls = list()
+
+    max_workers = args.num_workers if args.num_workers else 10
 
     completed = 0
-    with ThreadPoolExecutor(max_workers=10) as executor:
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [
             executor.submit(scrape_repo, repo_url, cws_urls)
             for repo_url, cws_urls in urls_to_scrape.items()
@@ -161,8 +214,29 @@ if __name__ == "__main__":
             failed_urls += failed
             completed += 1
             print_progress(completed, len(urls_to_scrape))
+    print()
+
+    # Remove metadata with all None values (presume extention web page is not availabel)
+    for metadata in scraped_metadata.copy():
+        repo_url = metadata["repo_url"]
+
+        for cws_metadata in metadata["scraped_metadata"].copy():
+            cws_url = cws_metadata["cws_url"]
+            del cws_metadata["cws_url"]
+            is_all_none = all(value is None for value in cws_metadata.values())
+            if is_all_none:
+                failed_urls.append(
+                    to_failed_urls_dict(repo_url, cws_url, "All metadata is None")
+                )
+                metadata["scraped_metadata"].remove(cws_metadata)
+
+        if len(metadata["scraped_metadata"]) == 0:
+            scraped_metadata.remove(metadata)
 
     write_json_to_file(args.output_path, scraped_metadata)
 
     if args.failed_urls_output_path:
         write_json_to_file(args.failed_urls_output_path, failed_urls)
+
+    print(f"Scraping completed! {len(scraped_metadata)} URLs scraped successfully.")
+    print(f"Failed URLs: {len(failed_urls)}")
