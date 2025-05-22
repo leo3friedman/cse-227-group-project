@@ -1,0 +1,26 @@
+--- ./chromex_data
++++ /workspace/cse-227-group-project/data/darkreader/darkreader/build/release/chrome-mv3
+├── file list
+│ @@ -1,8 +1,7 @@
+│  _locales
+│ -_metadata
+│  background
+│  config
+│  icons
+│  inject
+│  manifest.json
+│  ui
+│   --- ./chromex_data/manifest.json
+├── +++ /workspace/cse-227-group-project/data/darkreader/darkreader/build/release/chrome-mv3/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -91,10 +91,9 @@
+│ │      },
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "fontSettings",
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.9.103"
+│ │  }
