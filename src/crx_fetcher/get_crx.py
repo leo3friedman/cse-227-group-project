@@ -52,7 +52,6 @@ def fetch_extension_zip(
 
     Returns the full path to the saved ZIP file.
     """
-    ## Change this part if you need to change where the zip file is outputted
     ext_id = extract_id(store_url)
     output_dir = output_base_dir or os.getcwd()
     os.makedirs(output_dir, exist_ok=True)
