@@ -41,6 +41,7 @@ def strip_crx_header(crx_bytes: bytes) -> bytes:
 ## USE THIS FUNCTION FOR EXTRACTING CRX
 def fetch_extension_zip(
     store_url: str,
+    zip_filename: str = None,
     chrome_version: str = "114.0.5735.110",
     output_base_dir: str = None
 ) -> str:
@@ -51,13 +52,18 @@ def fetch_extension_zip(
 
     Returns the full path to the saved ZIP file.
     """
-    ## Change this part if you need to change where the zip file is outputted 
-    ## Or the name of the zip file
+    ## Change this part if you need to change where the zip file is outputted
     ext_id = extract_id(store_url)
-    base_dir = output_base_dir or os.getcwd()
-    output_dir = os.path.join(base_dir, 'data', 'scraped_zips')
+    output_dir = output_base_dir or os.getcwd()
     os.makedirs(output_dir, exist_ok=True)
-    zip_path = os.path.join(output_dir, f"{ext_id}.zip")
+
+    # Determine filename
+    if zip_filename:
+        filename = zip_filename if zip_filename.endswith('.zip') else f"{zip_filename}.zip"
+    else:
+        filename = f"{ext_id}.zip"
+    
+    zip_path = os.path.join(output_dir, filename)
 
     # 1) Download CRX
     download_url = make_download_url(ext_id, chrome_version)
@@ -86,6 +92,10 @@ if __name__ == "__main__":
         help="Chrome Web Store URL for the extension."
     )
     parser.add_argument(
+        "--zipname", default=None,
+        help="Desired ZIP filename (with or without .zip). If omitted, uses the extension ID."
+    )
+    parser.add_argument(
         "--version", default="114.0.5735.110",
         help="Chrome prodversion to declare (default: %(default)s)"
     )
@@ -97,11 +107,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     result_path = fetch_extension_zip(
         args.url,
+        zip_filename=args.zipname,
         chrome_version=args.version,
         output_base_dir=args.outdir
     )
     print(f"✓ Saved ZIP to {result_path}")
-
-
-
-
