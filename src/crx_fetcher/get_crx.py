@@ -4,16 +4,7 @@ import struct
 import os
 import requests
 
-# -----------------------------------------------
-# Module: crx_to_zip
-# Functions to download a Chrome extension CRX from
-# the Web Store, strip its header, and save as ZIP.
-# -----------------------------------------------
-
 def extract_id(store_url: str) -> str:
-    """
-    Extract the 32-character extension ID from a Chrome Web Store URL.
-    """
     m = re.search(r'/detail/[^/]+/([a-z]{32})', store_url)
     if not m:
         raise ValueError(f"Couldn't parse extension ID from URL: {store_url}")
@@ -21,9 +12,6 @@ def extract_id(store_url: str) -> str:
 
 
 def make_download_url(ext_id: str, chrome_version: str) -> str:
-    """
-    Build the direct-download URL for a CRX3 package using Google's update2 API.
-    """
     return (
         "https://clients2.google.com/service/update2/crx"
         f"?response=redirect&prodversion={chrome_version}"
@@ -33,10 +21,6 @@ def make_download_url(ext_id: str, chrome_version: str) -> str:
 
 
 def strip_crx_header(crx_bytes: bytes) -> bytes:
-    """
-    Given the full .crx bytes, detect v2/v3 header length, strip it,
-    and return the raw ZIP payload bytes.
-    """
     if crx_bytes[:4] != b'Cr24':
         raise RuntimeError("Not a CRX file (missing Cr24 magic)")
     version = struct.unpack_from('<I', crx_bytes, offset=4)[0]
@@ -67,6 +51,8 @@ def fetch_extension_zip(
 
     Returns the full path to the saved ZIP file.
     """
+    ## Change this part if you need to change where the zip file is outputted 
+    ## Or the name of the zip file
     ext_id = extract_id(store_url)
     base_dir = output_base_dir or os.getcwd()
     output_dir = os.path.join(base_dir, 'data', 'scraped_zips')
@@ -86,6 +72,7 @@ def fetch_extension_zip(
         f.write(zip_bytes)
 
     return zip_path
+
 
 # For standalone running, can disregard for usage
 if __name__ == "__main__":
