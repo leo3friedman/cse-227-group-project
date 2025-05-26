@@ -22,7 +22,18 @@ def get_github_releases(repo_owner, repo_name):
         'url': r['html_url']
     } for r in releases]
 
-def get_github_commits(repo_owner, repo_name, branch='main', per_page=100, max_pages=10):
+def get_default_branch(repo_owner, repo_name, headers=None):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}"
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+    return response.json()['default_branch']
+
+def get_github_commits(repo_owner, repo_name, branch=None, per_page=100, max_pages=10, token=None):
+    headers = {'Authorization': f'token {token}'} if token else None
+
+    if branch is None:
+        branch = get_default_branch(repo_owner, repo_name, headers=headers)
+
     commits = []
     for page in range(1, max_pages + 1):
         url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits"
@@ -31,7 +42,7 @@ def get_github_commits(repo_owner, repo_name, branch='main', per_page=100, max_p
             'per_page': per_page,
             'page': page
         }
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
         page_commits = response.json()
         if not page_commits:

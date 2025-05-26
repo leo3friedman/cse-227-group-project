@@ -61,10 +61,11 @@ else:
   print("No releases, using commits")
   commits = GIT_UTIL.get_github_commits(args.username, args.reponame)
   tag_versions = [c['sha'] for c in commits]
+  # print(tag_versions)
 # print("Target version: ",target_version)
 
 # possible_branches = UTIL.find_tags_with_manifest_version(git_path, tag_versions, target_versions[0])
-possible_branches = FILE_UTIL.find_tags_with_manifest_version(git_path, tag_versions, target_version)
+possible_branches = FILE_UTIL.find_refs_with_manifest_version(git_path, tag_versions, target_version)
 # print("Possible branches: ")
 # print(possible_branches)
 

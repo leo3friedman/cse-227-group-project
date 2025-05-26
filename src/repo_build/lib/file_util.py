@@ -58,45 +58,48 @@ def unzip_and_rename_top_folder(zip_path, target_dir_name, output_dir='.'):
         print(f"Unzipped and renamed to: {final_path}")
 
 
-def find_tags_with_manifest_version(repo_path, tags, desired_version):
+def find_refs_with_manifest_version(repo_path, refs, desired_version):
     if not os.path.isdir(repo_path):
         raise ValueError("Invalid repo path")
 
+    # Save original HEAD to restore it later
     original_head = subprocess.run(
-        ['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
+        ['git', 'rev-parse', 'HEAD'],
         cwd=repo_path, capture_output=True, text=True
     ).stdout.strip()
-    # subprocess.run(['git', 'checkout', original_head], cwd=repo_path, check=True)
 
-    matching_tags = []
+    matching_refs = []
 
-    for tag in tags:
-        # print(tag)
+    for ref in refs:
         try:
-            # Checkout the tag
-            subprocess.run(['git', 'checkout', '--detach', tag], cwd=repo_path, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            # Find manifest.json
+            # Checkout the ref (tag or commit SHA)
+            subprocess.run(
+                ['git', 'checkout', '--quiet', '--detach', ref],
+                cwd=repo_path, check=True,
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+
+            # Find and read manifest.json
             manifest_path = find_manifest_json_file(repo_path)
+            # print(manifest_path)
             if not manifest_path:
                 continue
 
             with open(manifest_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 actual_version = data.get('version')
+                # print(actual_version)
 
                 if actual_version == desired_version:
-                    # print("Check: ")
-                    # print((tag, actual_version, desired_version))
-                    matching_tags.append(tag)
-                    # break
+                    matching_refs.append(ref)
 
         except Exception:
-            pass  # skip tag on error
+            continue  # Skip ref on error
 
     # Restore original HEAD
-    subprocess.run(['git', 'checkout', original_head], cwd=repo_path, check=True)
+    subprocess.run(['git', 'checkout', '--quiet', original_head], cwd=repo_path, check=True)
 
-    return matching_tags
+    return matching_refs
 
 # def checkout_git_ref(repo_path, ref_name):
 #     subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
