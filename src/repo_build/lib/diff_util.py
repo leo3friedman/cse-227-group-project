@@ -36,6 +36,7 @@ def parse_diffoscope_output(diff_text, output_file_path):
 
     lines = diff_text.splitlines()
 
+    # line[4:].strip() removes "+++ " or "--- " from the beginning (so we just get file location)
     for raw_line in lines:
         # Normalize line by removing diffoscope UI characters like │ ├ etc.
         line = re.sub(r'^[\s│├┄─]*', '', raw_line)
