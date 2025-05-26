@@ -22,6 +22,30 @@ def get_github_releases(repo_owner, repo_name):
         'url': r['html_url']
     } for r in releases]
 
+def get_github_commits(repo_owner, repo_name, branch='main', per_page=100, max_pages=10):
+    commits = []
+    for page in range(1, max_pages + 1):
+        url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits"
+        params = {
+            'sha': branch,
+            'per_page': per_page,
+            'page': page
+        }
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        page_commits = response.json()
+        if not page_commits:
+            break
+        for commit in page_commits:
+            commits.append({
+                'sha': commit['sha'],
+                'author': commit['commit']['author']['name'],
+                'date': commit['commit']['author']['date'],
+                'message': commit['commit']['message'],
+                'url': commit['html_url']
+            })
+    return commits
+
 # Git clones repo
 def get_git_clone(user, repo_name, repo_location):
   repo_url = "https://github.com/" + user + "/" + repo_name + ".git"

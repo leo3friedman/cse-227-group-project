@@ -53,8 +53,14 @@ target_version = FILE_UTIL.extract_version_from_manifest(manifest_path)
 
 
 ### Get all possible releases and check which ones have correct version number
-releases = GIT_UTIL.get_github_releases("darkreader", "darkreader")
+releases = GIT_UTIL.get_github_releases(args.username, args.reponame)
 tag_versions = [r['tag_name'] for r in releases]
+if tag_versions:
+  print("Found releases")
+else:
+  print("No releases, using commits")
+  commits = GIT_UTIL.get_github_commits(args.username, args.reponame)
+  tag_versions = [c['sha'] for c in commits]
 # print("Target version: ",target_version)
 
 # possible_branches = UTIL.find_tags_with_manifest_version(git_path, tag_versions, target_versions[0])
@@ -69,7 +75,7 @@ for branch in possible_branches:
   built_locations = FILE_UTIL.build_git_ref(git_path, branch)
   min_length = sys.maxsize
   for build in built_locations:
-    release_path = git_path + "/" + build
+    release_path = build
     diff_data, diff_len = DIFF_UTIL.compare_dirs_with_diffoscope(chromex_path, release_path)
     if diff_len < min_length:
       min_length = diff_len
@@ -77,8 +83,9 @@ for branch in possible_branches:
   print((bestbuild, min_length))
 
 DIFF_UTIL.compare_dirs_with_diffoscope_recorded(chromex_path, bestbuild, args.diffoutput)
-GIT_UTIL.remove_git_repo(git_path)
 
+# Clean up
+GIT_UTIL.remove_git_repo(git_path)
 FILE_UTIL.remove_chromex(chromex_path)
 
 

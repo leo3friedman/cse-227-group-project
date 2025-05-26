@@ -27,6 +27,7 @@ def compare_dirs_with_diffoscope_recorded(path1, path2, output_path):
         stderr=subprocess.PIPE,
         text=True
     )
+    # print(result)
 
 def parse_diffoscope_output(diff_text, output_file_path):
     diff_info = []

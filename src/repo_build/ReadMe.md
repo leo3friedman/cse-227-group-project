@@ -1,0 +1,1 @@
+python dr-extract_dift.py /workspace/cse-227-group-project/data/darkreader darkreader darkreader darkreader-dist.zip ./outputs/text.txt
