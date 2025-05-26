@@ -1,10 +1,16 @@
-import requests
 import os
 import json
 import shutil
 import tempfile
 import zipfile
 import subprocess
+import argparse
+
+
+def absolute_path(path_str):
+    if not os.path.isabs(path_str):
+        raise argparse.ArgumentTypeError(f"Path '{path_str}' is not an absolute path.")
+    return path_str
 
 def find_manifest_json_files(start_path):
     manifest_files = []
@@ -34,7 +40,7 @@ def unzip_and_rename_top_folder(zip_path, target_dir_name, output_dir='.'):
     # Step 1: Extract to a temp location
     if os.path.isdir(output_dir + "/" + target_dir_name):
       shutil.rmtree(output_dir + "/" + target_dir_name)
-      print("Path replaced")
+      # print("Path replaced")
     with tempfile.TemporaryDirectory() as tmpdir:
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(tmpdir)
@@ -65,7 +71,7 @@ def find_tags_with_manifest_version(repo_path, tags, desired_version):
     matching_tags = []
 
     for tag in tags:
-        print(tag)
+        # print(tag)
         try:
             # Checkout the tag
             subprocess.run(['git', 'checkout', '--detach', tag], cwd=repo_path, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -79,8 +85,8 @@ def find_tags_with_manifest_version(repo_path, tags, desired_version):
                 actual_version = data.get('version')
 
                 if actual_version == desired_version:
-                    print("Check: ")
-                    print((tag, actual_version, desired_version))
+                    # print("Check: ")
+                    # print((tag, actual_version, desired_version))
                     matching_tags.append(tag)
                     # break
 
@@ -119,8 +125,8 @@ def find_directories_with_min_version(directory_of_repository):
     return matching_directories
 
 def build_git_ref(repo_path, ref_name):
-    print(f"repo path: {repo_path}")
-    print(f"ref name: {ref_name}")
+    # print(f"repo path: {repo_path}")
+    # print(f"ref name: {ref_name}")
     # Step 1: Checkout the git reference
     subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
 
@@ -150,6 +156,8 @@ def compare_dirs_with_diffoscope(path1, path2):
 
 def compare_dirs_with_diffoscope_recorded(path1, path2, output_path):
     # Run diffoscope and write its output directly to output_path
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    print(output_path)
     result = subprocess.run(
         ['diffoscope', '--exclude-directory-metadata=recursive',
          '--text', output_path, path1, path2],
@@ -157,3 +165,11 @@ def compare_dirs_with_diffoscope_recorded(path1, path2, output_path):
         stderr=subprocess.PIPE,
         text=True
     )
+
+
+def remove_chromex(path):
+    """
+    Removes the .git directory in the given path to uninitialize a Git repo.
+    """
+    shutil.rmtree(path)
+    print(f"Removed directory from {path}")
