@@ -26,6 +26,22 @@ def read_json_file(filepath):
         return json.load(f)
 
 
+def read_html_file(filepath):
+    with open(filepath, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def read_txt_file(filepath):
+    with open(filepath, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def write_html_file(filepath, html_data):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(html_data)
+
+
 def get_latest_file(path):
     files = [
         os.path.join(path, f)
