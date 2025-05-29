@@ -221,9 +221,10 @@ if __name__ == "__main__":
         repo_url = metadata["repo_url"]
 
         for cws_metadata in metadata["scraped_metadata"].copy():
-            cws_url = cws_metadata["cws_url"]
-            del cws_metadata["cws_url"]
-            is_all_none = all(value is None for value in cws_metadata.values())
+            cws_metadata_copy = cws_metadata.copy()
+            cws_url = cws_metadata_copy["cws_url"]
+            del cws_metadata_copy["cws_url"]
+            is_all_none = all(value is None for value in cws_metadata_copy.values())
             if is_all_none:
                 failed_urls.append(
                     to_failed_urls_dict(repo_url, cws_url, "All metadata is None")
