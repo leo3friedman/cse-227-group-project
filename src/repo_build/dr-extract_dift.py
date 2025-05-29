@@ -87,6 +87,7 @@ def extractor(github_link, path, crx_link):
 
   # Clean up
   GIT_UTIL.remove_git_repo(git_path)
+  FILE_UTIL.remove_file(zip_path)
   FILE_UTIL.remove_chromex(chromex_path)
 
 

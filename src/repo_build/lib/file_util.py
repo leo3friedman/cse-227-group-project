@@ -181,3 +181,10 @@ def remove_chromex(path):
     """
     shutil.rmtree(path)
     print(f"Removed directory from {path}")
+
+def remove_file(path):
+    """
+    Removes the file at the given path.
+    """
+    if os.path.isfile(path):
+        os.remove(path)
