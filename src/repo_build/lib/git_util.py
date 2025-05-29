@@ -1,10 +1,8 @@
 import requests
 import os
-import json
 import shutil
-import tempfile
-import zipfile
 import subprocess
+import re
 
 # Gets all releases
 def get_github_releases(repo_owner, repo_name):
@@ -76,3 +74,13 @@ def remove_git_repo(path):
         print(f"Removed Git repository from {path}")
     else:
         print(f"No Git repository found in {path}")
+
+def get_user_repo (url):
+  match = re.search(r"github\.com/([^/]+)/([^/]+)", url)
+
+  if match:
+      username = match.group(1)
+      repo = match.group(2)
+      return (username, repo)
+  else:
+      return None
