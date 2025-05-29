@@ -90,6 +90,8 @@ def extractor(github_link, path, crx_link):
     built_locations, buildable, timeout = FILE_UTIL.build_git_ref(git_path, branch)
     if len(built_locations) > 0:
       has_manifest = True
+    else:
+      continue # there is no manifest.json found --> no point in running diffoscope as chromex needs a manifest
     min_length = sys.maxsize
     # print("manifest top levels: ")
     print(built_locations)
