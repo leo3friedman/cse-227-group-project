@@ -22,7 +22,6 @@ timeout: true / false --> if just timeout of the build processes, take not of th
 '''
 
 def extractor(github_link, path, crx_link):
-  has_manifest = False
   git_output = GIT_UTIL.get_user_repo(github_link)
   if git_output == None:
     print("Failed")
@@ -81,17 +80,16 @@ def extractor(github_link, path, crx_link):
   # print("Possible branches: ")
   # print(possible_branches)
 
-  # print("Possible Branches: ")
-  # print(possible_branches)
+  print("Possible Branches: ")
+  print(possible_branches)
   bestbuild = ""
   ### 
+  buildable = False
+  timeout = False
+  target_version_match = False
   for branch in possible_branches:
     # print("Branch: ", branch)
     built_locations, buildable, timeout = FILE_UTIL.build_git_ref(git_path, branch)
-    if len(built_locations) > 0:
-      has_manifest = True
-    else:
-      continue # there is no manifest.json found --> no point in running diffoscope as chromex needs a manifest
     min_length = sys.maxsize
     # print("manifest top levels: ")
     print(built_locations)
@@ -110,7 +108,7 @@ def extractor(github_link, path, crx_link):
   GIT_UTIL.remove_git_repo(git_path)
   FILE_UTIL.remove_file(zip_path)
   FILE_UTIL.remove_chromex(chromex_path)
-  return buildable, timeout, has_manifest
+  return buildable, timeout, target_version_match
 
 
 # parser = argparse.ArgumentParser(description="Script that takes 1 absolute path, git username, git repo name, and chromex zipfile")

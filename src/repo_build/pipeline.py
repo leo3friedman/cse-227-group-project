@@ -17,11 +17,11 @@ for entry in metadata:
     scraped = entry.get("scraped_metadata", [])
     cws_url = scraped[0].get("cws_url")
 
-    buildable, timeout, has_manifest = df.extractor(repo_url, "/workspace/pipeline_output", cws_url)
+    buildable, timeout, target_version_match = df.extractor(repo_url, "/workspace/pipeline_output", cws_url)
 
     entry["buildable"] = buildable
     entry["timeout"] = timeout
-    entry["has_manifest"] = has_manifest
+    entry["target_version_match"] = target_version_match
 
 # Save updated results
 with open(output_json, 'w') as f:
