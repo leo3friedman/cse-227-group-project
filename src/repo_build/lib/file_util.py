@@ -37,25 +37,30 @@ def extract_version_from_manifest(file_path):
 
 
 def unzip_and_rename_top_folder(zip_path, target_dir_name, output_dir='.'):
-    # Step 1: Extract to a temp location
-    if os.path.isdir(output_dir + "/" + target_dir_name):
-      shutil.rmtree(output_dir + "/" + target_dir_name)
-      # print("Path replaced")
+    # Step 1: Remove existing target directory if it exists
+    final_path = os.path.join(output_dir, target_dir_name)
+    if os.path.isdir(final_path):
+        shutil.rmtree(final_path)
+
+    # Step 2: Extract to a temporary directory
     with tempfile.TemporaryDirectory() as tmpdir:
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(tmpdir)
 
-        # Step 2: Find the top-level folder
         extracted_items = os.listdir(tmpdir)
-        top_level_path = os.path.join(tmpdir, extracted_items[0])  # assumes 1 top-level item
 
-        # Step 3: Define the final destination path
-        final_path = os.path.join(output_dir, target_dir_name)
+        # If there's only one folder, move it and rename
+        if len(extracted_items) == 1 and os.path.isdir(os.path.join(tmpdir, extracted_items[0])):
+            top_level_path = os.path.join(tmpdir, extracted_items[0])
+            shutil.move(top_level_path, final_path)
+        else:
+            # Otherwise, make a new directory and move everything into it
+            os.makedirs(final_path)
+            for item in extracted_items:
+                item_path = os.path.join(tmpdir, item)
+                shutil.move(item_path, final_path)
 
-        # Step 4: Move and rename the folder
-        shutil.move(top_level_path, final_path)
-
-        print(f"Unzipped and renamed to: {final_path}")
+    print(f"Unzipped and renamed to: {final_path}")
 
 
 def find_refs_with_manifest_version(repo_path, refs, desired_version):
