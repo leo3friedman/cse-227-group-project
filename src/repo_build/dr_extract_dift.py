@@ -87,6 +87,8 @@ def extractor(github_link, path, crx_link, token=None):
   buildable = False
   timeout = False
   target_version_match = False
+  if len (possible_branches) > 0:
+    target_version_match = True
   for branch in possible_branches:
     # print("Branch: ", branch)
     built_locations, buildable, timeout = FILE_UTIL.build_git_ref(git_path, branch)
