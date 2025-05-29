@@ -2,12 +2,27 @@ import json
 from pathlib import Path
 import dr_extract_dift as df  # contains extractor()
 import os
+import shutil
 
 # Paths
 current_file = Path(__file__)
 input_json = current_file.parent.parent.parent / 'data' / 'scraped_metadata' / 'metadata.json'
 output_json = current_file.parent / 'pipeline_update.json'
 resume_log = current_file.parent / 'resume_log.txt'
+
+# Directory to clean
+pipeline_output_dir = Path("/workspace/pipeline_output")
+
+# Clean the pipeline_output directory at script start
+if pipeline_output_dir.exists() and pipeline_output_dir.is_dir():
+    for item in pipeline_output_dir.iterdir():
+        try:
+            if item.is_dir():
+                shutil.rmtree(item)
+            else:
+                item.unlink()
+        except Exception as e:
+            print(f"Warning: Failed to delete {item}: {e}")
 
 # Load metadata (resume from output if exists)
 if output_json.exists():
@@ -41,7 +56,7 @@ for i in range(start_index, len(metadata)):
         try:
             buildable, timeout, target_version_match, has_manifest = df.extractor(
                 repo_url,
-                "/workspace/pipeline_output",
+                str(pipeline_output_dir),
                 cws_url,
                 token=token
             )
