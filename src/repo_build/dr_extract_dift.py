@@ -8,7 +8,7 @@ import lib.diff_util as DIFF_UTIL
 import lib.git_crx as CRX_UTIL
 import sys
 import argparse
-
+import os
 '''
 - Output into another json file that is same as metadata.json with added pipeline data -- we will keep all the candidates and just reflect data on this
 
@@ -21,7 +21,7 @@ timeout: true / false --> if just timeout of the build processes, take not of th
 
 '''
 
-def extractor(github_link, path, crx_link):
+def extractor(github_link, path, crx_link, token=None):
   git_output = GIT_UTIL.get_user_repo(github_link)
   if git_output == None:
     print("Failed")
@@ -62,15 +62,15 @@ def extractor(github_link, path, crx_link):
   # print(target_versions[0])
   target_version = FILE_UTIL.extract_version_from_manifest(manifest_path)
 
-
+  TOKEN = token
   ### Get all possible releases and check which ones have correct version number
-  releases = GIT_UTIL.get_github_releases(username, reponame)
+  releases = GIT_UTIL.get_github_releases(username, reponame, token=TOKEN)
   tag_versions = [r['tag_name'] for r in releases]
   if tag_versions:
     print("Found releases")
   else:
     print("No releases, using commits")
-    commits = GIT_UTIL.get_github_commits(username, reponame)
+    commits = GIT_UTIL.get_github_commits(username, reponame, token=TOKEN)
     tag_versions = [c['sha'] for c in commits]
     # print(tag_versions)
   # print("Target version: ",target_version)
@@ -109,6 +109,7 @@ def extractor(github_link, path, crx_link):
   FILE_UTIL.remove_file(zip_path)
   FILE_UTIL.remove_chromex(chromex_path)
   return buildable, timeout, target_version_match
+
 
 
 # parser = argparse.ArgumentParser(description="Script that takes 1 absolute path, git username, git repo name, and chromex zipfile")
