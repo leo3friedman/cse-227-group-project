@@ -13,10 +13,17 @@ resume_log = current_file.parent / 'resume_log.txt'
 # Directory to clean
 pipeline_output_dir = Path("/workspace/pipeline_output")
 
-# Clean the pipeline_output directory at script start
+# Clean the pipeline_output directory at script start, keep the output folder though
+output_subdir = pipeline_output_dir / "output"
+
 if pipeline_output_dir.exists() and pipeline_output_dir.is_dir():
     for item in pipeline_output_dir.iterdir():
         try:
+            # Skip the "output" directory
+            if item == output_subdir:
+                continue
+            
+            # Delete directory or file
             if item.is_dir():
                 shutil.rmtree(item)
             else:
