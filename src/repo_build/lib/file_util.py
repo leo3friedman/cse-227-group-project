@@ -115,38 +115,199 @@ directory_of_reporistory: ex: /workspace/data/darkreader/darkreader
 output:
 list of directories that contain the manifest.json(top level): ex: /workspace/data/darkreader/darkreader/build/dist/chrome-mv3
 '''
-def find_directories_with_min_version(directory_of_repository):
+# def find_directories_with_min_version(directory_of_repository):
+#     matching_directories = []
+
+#     for root, dirs, files in os.walk(directory_of_repository):
+#         # print(root)
+#         if "manifest.json" in files:
+#             manifest_path = os.path.join(root, "manifest.json")
+#             try:
+#                 # with open(manifest_path, "r") as f:
+#                 #     manifest_data = json.load(f)
+#                 if "minimum_chrome_version" in manifest_data:
+#                     matching_directories.append(root)
+#             except (json.JSONDecodeError, FileNotFoundError, PermissionError) as e:
+#                 print(f"Error reading {manifest_path}: {e}")
+
+#     return matching_directories
+
+# def find_directories_with_min_version(directory_of_repository):
+#     with_min_version = []
+#     without_min_version = []
+
+#     for root, dirs, files in os.walk(directory_of_repository):
+#         if "manifest.json" in files:
+#             manifest_path = os.path.join(root, "manifest.json")
+#             try:
+#                 with open(manifest_path, "r", encoding="utf-8") as f:
+#                     manifest_data = json.load(f)
+#                 if "minimum_chrome_version" in manifest_data:
+#                     with_min_version.append(root)
+#                 else:
+#                     without_min_version.append(root)
+#             except (json.JSONDecodeError, FileNotFoundError, PermissionError) as e:
+#                 print(f"Error reading {manifest_path}: {e}")
+    
+#     return {
+#         "with_min_version": with_min_version,
+#         "without_min_version": without_min_version
+#     }
+import os
+
+def find_directories_with_manifest_json(directory_of_repository):
     matching_directories = []
 
     for root, dirs, files in os.walk(directory_of_repository):
-        # print(root)
         if "manifest.json" in files:
-            manifest_path = os.path.join(root, "manifest.json")
-            try:
-                with open(manifest_path, "r") as f:
-                    manifest_data = json.load(f)
-                    if "minimum_chrome_version" in manifest_data:
-                        matching_directories.append(root)
-            except (json.JSONDecodeError, FileNotFoundError, PermissionError) as e:
-                print(f"Error reading {manifest_path}: {e}")
+            matching_directories.append(root)
 
     return matching_directories
 
+'''
+return:
+(
+manifest_directories - list of top level directories containing a manifest.json file
+-- data if this reference is buildable
+-- data if this reference had a timeout during building
+-- 
+)
+'''
+# def build_git_ref(repo_path, ref_name):
+#     # print(f"repo path: {repo_path}")
+#     # print(f"ref name: {ref_name}")
+#     # Step 1: Checkout the git reference
+#     try:
+#         subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
+
+#         # Step 2: Run npm install
+#         subprocess.run(
+#                 ['npm', 'install'],
+#                 cwd=repo_path,
+#                 check=True,
+#                 stdout=subprocess.DEVNULL,
+#                 stderr=subprocess.DEVNULL,
+#                 timeout=120  # 2-minute timeout
+#             )
+
+#         '''
+#         # Step 2: Run npm install
+#     subprocess.run(['npm', 'install'], cwd=repo_path, check=True)
+
+#     # Step 3: Run npm build
+#     subprocess.run(['npm', 'run', 'build'], cwd=repo_path, check=True)
+#         '''
+#         # Step 3: Run npm build
+#         subprocess.run(
+#                 ['npm', 'run', 'build'],
+#                 cwd=repo_path,
+#                 check=True,
+#                 stdout=subprocess.DEVNULL,
+#                 stderr=subprocess.DEVNULL,
+#                 timeout=120  # 2-minute timeout
+#             )
+#         # will return empty array if 
+#         manifest_dirs = find_directories_with_min_version(repo_path)
+
+#         return manifest_dirs
+#     except subprocess.TimeoutExpired:
+#         print(f"[Timeout] {ref_name} took too long")
+#         return manifest_dirs
+#     except subprocess.CalledProcessError:
+#         print(f"[Commands Failed] {ref_name}")
+#         return manifest_dirs
+# def build_git_ref(repo_path, ref_name):
+#     manifest_result = {
+#         "with_min_version": [],
+#         "without_min_version": []
+#     }
+
+#     try:
+#         subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
+
+#         subprocess.run(
+#             ['npm', 'install'],
+#             cwd=repo_path,
+#             check=True,
+#             stdout=subprocess.DEVNULL,
+#             stderr=subprocess.DEVNULL,
+#             timeout=120
+#         )
+
+#         subprocess.run(
+#             ['npm', 'run', 'build'],
+#             cwd=repo_path,
+#             check=True,
+#             stdout=subprocess.DEVNULL,
+#             stderr=subprocess.DEVNULL,
+#             timeout=120
+#         )
+
+#         # Analyze manifest.json files after build
+#         manifest_result = find_directories_with_min_version(repo_path)
+
+#         return {
+#             "buildable": True,
+#             "timeout": False,
+#             "manifest_result": manifest_result
+#         }
+
+#     except subprocess.TimeoutExpired:
+#         print(f"[Timeout] {ref_name} took too long")
+#         return {
+#             "buildable": False,
+#             "timeout": True,
+#             "manifest_result": manifest_result
+#         }
+
+#     except subprocess.CalledProcessError:
+#         print(f"[Commands Failed] {ref_name}")
+#         return {
+#             "buildable": False,
+#             "timeout": False,
+#             "manifest_result": manifest_result
+#         }
+import subprocess
+
 def build_git_ref(repo_path, ref_name):
-    # print(f"repo path: {repo_path}")
-    # print(f"ref name: {ref_name}")
-    # Step 1: Checkout the git reference
-    subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
+    manifest_dirs = []
 
-    # Step 2: Run npm install
-    subprocess.run(['npm', 'install'], cwd=repo_path, check=True)
+    try:
+        subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)
 
-    # Step 3: Run npm build
-    subprocess.run(['npm', 'run', 'build'], cwd=repo_path, check=True)
-    
-    manifest_dirs = find_directories_with_min_version(repo_path)
+        subprocess.run(
+            ['npm', 'install'],
+            cwd=repo_path,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            timeout=120
+        )
 
-    return manifest_dirs
+        subprocess.run(
+            ['npm', 'run', 'build'],
+            cwd=repo_path,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            timeout=120
+        )
+
+        # Check for presence of manifest.json files
+        manifest_dirs = find_directories_with_manifest_json(repo_path)
+
+        return manifest_dirs, True, False
+
+    except subprocess.TimeoutExpired:
+        print(f"[Timeout] {ref_name} took too long")
+        manifest_dirs = find_directories_with_manifest_json(repo_path)
+        return manifest_dirs, False, True
+
+    except subprocess.CalledProcessError:
+        print(f"[Commands Failed] {ref_name}")
+        manifest_dirs = find_directories_with_manifest_json(repo_path)
+        return manifest_dirs, False, False
+
 
 
 def compare_dirs_with_diffoscope(path1, path2):
