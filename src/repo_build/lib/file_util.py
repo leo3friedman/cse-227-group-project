@@ -74,7 +74,7 @@ def find_refs_with_manifest_version(repo_path, refs, desired_version):
     ).stdout.strip()
 
     matching_refs = []
-
+    has_manifest = False
     for ref in refs:
         try:
             # Checkout the ref (tag or commit SHA)
@@ -89,7 +89,8 @@ def find_refs_with_manifest_version(repo_path, refs, desired_version):
             # print(manifest_path)
             if not manifest_path:
                 continue
-
+            # there is a manifest.json path!
+            has_manifest = True
             with open(manifest_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 actual_version = data.get('version')
@@ -104,7 +105,7 @@ def find_refs_with_manifest_version(repo_path, refs, desired_version):
     # Restore original HEAD
     subprocess.run(['git', 'checkout', '--quiet', original_head], cwd=repo_path, check=True)
 
-    return matching_refs
+    return matching_refs, has_manifest
 
 # def checkout_git_ref(repo_path, ref_name):
 #     subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)

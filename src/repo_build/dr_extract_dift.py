@@ -76,7 +76,7 @@ def extractor(github_link, path, crx_link, token=None):
   # print("Target version: ",target_version)
 
   # possible_branches = UTIL.find_tags_with_manifest_version(git_path, tag_versions, target_versions[0])
-  possible_branches = FILE_UTIL.find_refs_with_manifest_version(git_path, tag_versions, target_version)
+  possible_branches, has_manifest = FILE_UTIL.find_refs_with_manifest_version(git_path, tag_versions, target_version)
   # print("Possible branches: ")
   # print(possible_branches)
 
@@ -110,7 +110,7 @@ def extractor(github_link, path, crx_link, token=None):
   GIT_UTIL.remove_git_repo(git_path)
   FILE_UTIL.remove_file(zip_path)
   FILE_UTIL.remove_chromex(chromex_path)
-  return buildable, timeout, target_version_match
+  return buildable, timeout, target_version_match, has_manifest
 
 
 

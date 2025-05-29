@@ -39,7 +39,7 @@ for i in range(start_index, len(metadata)):
         cws_url = scraped.get("cws_url")
 
         try:
-            buildable, timeout, target_version_match = df.extractor(
+            buildable, timeout, target_version_match, has_manifest = df.extractor(
                 repo_url,
                 "/workspace/pipeline_output",
                 cws_url,
@@ -49,6 +49,7 @@ for i in range(start_index, len(metadata)):
             scraped["buildable"] = buildable
             scraped["timeout"] = timeout
             scraped["target_version_match"] = target_version_match
+            scraped["has_manifest"] = has_manifest
 
         except Exception as e:
             print(f"Error processing index {i} — {repo_url} / {cws_url}: {e}")
