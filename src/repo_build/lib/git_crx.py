@@ -3,11 +3,14 @@ import struct
 import os
 import requests
 
+import re
+
 def extract_id(store_url: str) -> str:
-    m = re.search(r'/detail/[^/]+/([a-z]{32})', store_url)
+    m = re.search(r'/detail/(?:[^/]+/)?([a-z]{32})', store_url)
     if not m:
         raise ValueError(f"Couldn't parse extension ID from URL: {store_url}")
     return m.group(1)
+
 
 
 def make_download_url(ext_id: str, chrome_version: str) -> str:
