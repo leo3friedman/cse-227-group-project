@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/url.feli.page-chrome-extension
+├── file list
+│ @@ -1,14 +1,16 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  icon.png
+│  icon_128.png
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.css.map
+│  popup.html
+│  popup.js
+│  popup.scss
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/url.feli.page-chrome-extension/images
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  logo.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/url.feli.page-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,10 +30,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Feli URL Shortener",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.6"
+│ │  }

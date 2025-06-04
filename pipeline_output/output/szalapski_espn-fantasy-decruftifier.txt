@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/espn-fantasy-decruftifier
+├── file list
+│ @@ -1,4 +1,8 @@
+│ +.git
+│  EspnDecruftifier.png
+│ -_metadata
+│ +ExampleScreenshot.PNG
+│ +LICENSE
+│ +README.md
+│  content.css
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/espn-fantasy-decruftifier/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      ],
+│ │      "description": "Improves the ESPN Fantasy GUI by removing unnecessary elements and tightening up margins, padding, and heights.",
+│ │      "icons": {
+│ │          "16": "EspnDecruftifier.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "ESPN Fantasy Decruftifier",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5"
+│ │  }

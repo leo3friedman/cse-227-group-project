@@ -1,0 +1,220 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/h264vk
+├── file list
+│ @@ -1,7 +1,7 @@
+│ -_locales
+│ -_metadata
+│ -icons
+│ +.git
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│  options.html
+│  options.js
+│ -src
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/h264vk/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,52 +2,49 @@
+│ │      "action": {
+│ │          "default_icon": {
+│ │              "128": "icons/icon128.png",
+│ │              "16": "icons/icon16.png",
+│ │              "48": "icons/icon48.png"
+│ │          },
+│ │          "default_popup": "options.html",
+│ │ -        "default_title": "h264ify"
+│ │ +        "default_title": "h264vk"
+│ │      },
+│ │      "background": {
+│ │          "service_worker": "src/service_worker.js",
+│ │          "type": "module"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": true,
+│ │              "js": [
+│ │                  "src/inject/content_script.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "*://*.youtube.com/*",
+│ │ -                "*://*.youtube-nocookie.com/*",
+│ │ -                "*://*.youtu.be/*"
+│ │ +                "*://vkvideo.ru/*",
+│ │ +                "*://*.vk.com/*"
+│ │              ],
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_extensionDescription__",
+│ │      "homepage_url": "https://github.com/erkserkserks/h264ify",
+│ │      "host_permissions": [
+│ │ -        "*://*.youtube.com/*",
+│ │ -        "*://*.youtube-nocookie.com/*",
+│ │ -        "*://*.youtu.be/*"
+│ │ +        "*://vkvideo.ru/*",
+│ │ +        "*://*.vk.com/*"
+│ │      ],
+│ │      "icons": {
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "h264ify",
+│ │ +    "name": "h264vk",
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/h264vk/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,24 +1,24 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -   <head>
+│ -      <title data-l10n-id="optionsTitle"></title>
+│ -      <style>
+│ -        ul {
+│ -          list-style: none;
+│ -          padding-left:0;
+│ -        }
+│ -        body {
+│ -        white-space:nowrap;
+│ -        }
+│ -      </style>
+│ -   </head>
+│ -   <body>
+│ -      <h1 data-l10n-id="optionsTitle"></h1>
+│ -      <ul>
+│ -         <li><input type="checkbox" id="enable" class="checkbox"><label for="enable" data-l10n-id="optionsEnable"></label></li>
+│ -         <li><input type="checkbox" id="block_60fps" class="checkbox"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label></li>
+│ -         <li><input type="checkbox" id="battery_only" class="checkbox"><label for="battery_only" data-l10n-id="optionsBatteryOnly"></label></li>
+│ -      </ul>
+│ -      <script src="options.js"></script>
+│ -   </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +   <head>
+│ +      <title data-l10n-id="optionsTitle"></title>
+│ +      <style>
+│ +        ul {
+│ +          list-style: none;
+│ +          padding-left:0;
+│ +        }
+│ +        body {
+│ +        white-space:nowrap;
+│ +        }
+│ +      </style>
+│ +   </head>
+│ +   <body>
+│ +      <h1 data-l10n-id="optionsTitle"></h1>
+│ +      <ul>
+│ +         <li><input type="checkbox" id="enable" class="checkbox"><label for="enable" data-l10n-id="optionsEnable"></label></li>
+│ +         <li><input type="checkbox" id="block_60fps" class="checkbox"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label></li>
+│ +         <li><input type="checkbox" id="battery_only" class="checkbox"><label for="battery_only" data-l10n-id="optionsBatteryOnly"></label></li>
+│ +      </ul>
+│ +      <script src="options.js"></script>
+│ +   </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/h264vk/options.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,44 +1,43 @@
+│  2f2f205361766573206f7074696f6e7320746f206368726f6d652e73746f7261
+│ -67650d0a66756e6374696f6e20736176655f6f7074696f6e732829207b0d0a20
+│ -2076617220656e61626c65203d20646f63756d656e742e676574456c656d656e
+│ -74427949642827656e61626c6527292e636865636b65643b0d0a202076617220
+│ -626c6f636b5f3630667073203d20646f63756d656e742e676574456c656d656e
+│ -74427949642827626c6f636b5f363066707327292e636865636b65643b0d0a20
+│ -2076617220626174746572795f6f6e6c79203d20646f63756d656e742e676574
+│ -456c656d656e74427949642827626174746572795f6f6e6c7927292e63686563
+│ -6b65643b0d0a20206368726f6d652e73746f726167652e6c6f63616c2e736574
+│ -287b0d0a20202020656e61626c653a20656e61626c652c0d0a20202020626c6f
+│ -636b5f36306670733a20626c6f636b5f36306670732c0d0a2020202062617474
+│ -6572795f6f6e6c793a20626174746572795f6f6e6c792c0d0a20207d293b0d0a
+│ -7d0d0a0d0a2f2f20526573746f72657320636865636b626f7820737461746520
+│ -7573696e6720746865206f7074696f6e732073746f72656420696e206368726f
+│ -6d652e73746f726167652e0d0a66756e6374696f6e20726573746f72655f6f70
+│ -74696f6e732829207b0d0a20202f2f205573652064656661756c742076616c75
+│ -6520656e61626c65203d207472756520616e6420626c6f636b5f363066707320
+│ -3d2066616c73650d0a20206368726f6d652e73746f726167652e6c6f63616c2e
+│ -676574287b0d0a20202020656e61626c653a20747275652c0d0a20202020626c
+│ -6f636b5f36306670733a2066616c73652c0d0a20202020626174746572795f6f
+│ -6e6c793a2066616c73652c0d0a20207d2c2066756e6374696f6e286f7074696f
+│ -6e7329207b0d0a20202020646f63756d656e742e676574456c656d656e744279
+│ -49642827656e61626c6527292e636865636b6564203d206f7074696f6e732e65
+│ -6e61626c653b0d0a20202020646f63756d656e742e676574456c656d656e7442
+│ -7949642827626c6f636b5f363066707327292e636865636b6564203d206f7074
+│ -696f6e732e626c6f636b5f36306670733b0d0a20202020646f63756d656e742e
+│ -676574456c656d656e74427949642827626174746572795f6f6e6c7927292e63
+│ -6865636b6564203d206f7074696f6e732e626174746572795f6f6e6c793b0d0a
+│ -20207d293b0d0a7d0d0a0d0a2f2f20526573746f7265207361766564206f7074
+│ -696f6e73207768656e20657874656e73696f6e206973206c6f616465640d0a64
+│ -6f63756d656e742e6164644576656e744c697374656e65722827444f4d436f6e
+│ -74656e744c6f61646564272c20726573746f72655f6f7074696f6e73293b0d0a
+│ -0d0a2f2f2053617665206f7074696f6e73207768656e20636865636b626f7865
+│ -732061726520636c69636b65640d0a76617220636865636b626f786573203d20
+│ -646f63756d656e742e676574456c656d656e74734279436c6173734e616d6528
+│ -27636865636b626f7827293b0d0a666f7220287661722069203d20303b206920
+│ -3c20636865636b626f7865732e6c656e6774683b20692b2b29207b0d0a202063
+│ +67650a66756e6374696f6e20736176655f6f7074696f6e732829207b0a202076
+│ +617220656e61626c65203d20646f63756d656e742e676574456c656d656e7442
+│ +7949642827656e61626c6527292e636865636b65643b0a202076617220626c6f
+│ +636b5f3630667073203d20646f63756d656e742e676574456c656d656e744279
+│ +49642827626c6f636b5f363066707327292e636865636b65643b0a2020766172
+│ +20626174746572795f6f6e6c79203d20646f63756d656e742e676574456c656d
+│ +656e74427949642827626174746572795f6f6e6c7927292e636865636b65643b
+│ +0a20206368726f6d652e73746f726167652e6c6f63616c2e736574287b0a2020
+│ +2020656e61626c653a20656e61626c652c0a20202020626c6f636b5f36306670
+│ +733a20626c6f636b5f36306670732c0a20202020626174746572795f6f6e6c79
+│ +3a20626174746572795f6f6e6c792c0a20207d293b0a7d0a0a2f2f2052657374
+│ +6f72657320636865636b626f78207374617465207573696e6720746865206f70
+│ +74696f6e732073746f72656420696e206368726f6d652e73746f726167652e0a
+│ +66756e6374696f6e20726573746f72655f6f7074696f6e732829207b0a20202f
+│ +2f205573652064656661756c742076616c756520656e61626c65203d20747275
+│ +6520616e6420626c6f636b5f3630667073203d2066616c73650a20206368726f
+│ +6d652e73746f726167652e6c6f63616c2e676574287b0a20202020656e61626c
+│ +653a20747275652c0a20202020626c6f636b5f36306670733a2066616c73652c
+│ +0a20202020626174746572795f6f6e6c793a2066616c73652c0a20207d2c2066
+│ +756e6374696f6e286f7074696f6e7329207b0a20202020646f63756d656e742e
+│ +676574456c656d656e74427949642827656e61626c6527292e636865636b6564
+│ +203d206f7074696f6e732e656e61626c653b0a20202020646f63756d656e742e
+│ +676574456c656d656e74427949642827626c6f636b5f363066707327292e6368
+│ +65636b6564203d206f7074696f6e732e626c6f636b5f36306670733b0a202020
+│ +20646f63756d656e742e676574456c656d656e74427949642827626174746572
+│ +795f6f6e6c7927292e636865636b6564203d206f7074696f6e732e6261747465
+│ +72795f6f6e6c793b0a20207d293b0a7d0a0a2f2f20526573746f726520736176
+│ +6564206f7074696f6e73207768656e20657874656e73696f6e206973206c6f61
+│ +6465640a646f63756d656e742e6164644576656e744c697374656e6572282744
+│ +4f4d436f6e74656e744c6f61646564272c20726573746f72655f6f7074696f6e
+│ +73293b0a0a2f2f2053617665206f7074696f6e73207768656e20636865636b62
+│ +6f7865732061726520636c69636b65640a76617220636865636b626f78657320
+│ +3d20646f63756d656e742e676574456c656d656e74734279436c6173734e616d
+│ +652827636865636b626f7827293b0a666f7220287661722069203d20303b2069
+│ +203c20636865636b626f7865732e6c656e6774683b20692b2b29207b0a202063
+│  6865636b626f7865735b695d2e6164644576656e744c697374656e6572282763
+│ -6c69636b272c20736176655f6f7074696f6e73290d0a7d0d0a0d0a2f2f206c31
+│ -306e0d0a666f7220286c657420656c656d656e74206f6620646f63756d656e74
+│ -2e717565727953656c6563746f72416c6c28275b646174612d6c31306e2d6964
+│ -5d272929207b0d0a2020656c656d656e742e74657874436f6e74656e74203d20
+│ -6368726f6d652e6931386e2e6765744d65737361676528656c656d656e742e64
+│ -6174617365742e6c31306e4964293b0d0a7d0d0a
+│ +6c69636b272c20736176655f6f7074696f6e73290a7d0a0a2f2f206c31306e0a
+│ +666f7220286c657420656c656d656e74206f6620646f63756d656e742e717565
+│ +727953656c6563746f72416c6c28275b646174612d6c31306e2d69645d272929
+│ +207b0a2020656c656d656e742e74657874436f6e74656e74203d206368726f6d
+│ +652e6931386e2e6765744d65737361676528656c656d656e742e646174617365
+│ +742e6c31306e4964293b0a7d0a

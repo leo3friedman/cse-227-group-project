@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-meet-webhook-extension
+├── file list
+│ @@ -1,4 +1,17 @@
+│ -_metadata
+│ -dist
+│ +.babelrc
+│ +.eslintrc.json
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.releaserc
+│ +LICENSE
+│ +README.md
+│ +jest.config.js
+│  manifest.json
+│ -public
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +public
+│ +rollup.config.js
+│ +src
+│ +tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-meet-webhook-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "public/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.2"
+│ │  }

@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/free-tab-manager
+├── file list
+│ @@ -1,9 +1,13 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.js
+│  i18n.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  panel.html
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/free-tab-manager/images
+│ ├── file list
+│ │ @@ -1,4 +1,4 @@
+│ │ +.DS_Store
+│ │  icon128.png
+│ │  icon16.png
+│ │ +icon48.png
+│ │ -icon48.png
+│ │ -placeholder.txt
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/free-tab-manager/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │          "history",
+│ │          "windows",
+│ │          "sidePanel"
+│ │      ],
+│ │      "side_panel": {
+│ │          "default_path": "panel.html"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

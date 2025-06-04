@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Twitch-on-Chat-Youtube
+├── file list
+│ @@ -1,8 +1,11 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  assets
+│  background.html
+│  init.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  style.css
+│  toy.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Twitch-on-Chat-Youtube/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,10 +47,9 @@
+│ │          "storage",
+│ │          "tabs",
+│ │          "https://api.twitch.tv/*",
+│ │          "https://api.betterttv.net/*",
+│ │          "https://api.twitchemotes.com/*",
+│ │          "https://cdn.jsdelivr.net/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5.3"
+│ │  }

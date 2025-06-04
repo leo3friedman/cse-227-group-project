@@ -1,0 +1,55 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/drupal-themer
+├── file list
+│ @@ -1,7 +1,14 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +Gruntfile.js
+│ +LICENSE.txt
+│ +README.md
+│  background.js
+│ -bower_components
+│ +bower.json
+│  content.css
+│  content.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/drupal-themer/images
+│ ├── file list
+│ │ @@ -2,10 +2,11 @@
+│ │  128-enabled.png
+│ │  16-disabled.png
+│ │  16-enabled.png
+│ │  32-disabled.png
+│ │  32-enabled.png
+│ │  64-disabled.png
+│ │  64-enabled.png
+│ │ +resize.sh
+│ │  source-disabled.png
+│ │  source-enabled.png
+│ │  source.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/drupal-themer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,15 +35,14 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Drupal themer",
+│ │      "page_action": {
+│ │          "default_icon": "/images/16-disabled.png",
+│ │          "default_title": "Enable theme debugging"
+│ │      },
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1",
+│ │      "web_accessible_resources": [
+│ │          "bower_components/jquery/dist/jquery.min.map",
+│ │          "bower_components/jquery-ui/images/*",
+│ │          "bower_components/jquery-ui/themes/redmond/images/*"
+│ │      ]
+│ │  }

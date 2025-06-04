@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Uglify
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  Releases
+│ -_metadata
+│  appIcon.png
+│  manifest.json
+│ +package-lock.json
+│  roll.js
+│  ugly.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Uglify/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "description": "Randomly Uglifies Websites You Visit, Also You Might Get Rick Roll'D. Why Does This Exist? Quarantine.",
+│ │      "icons": {
+│ │          "128": "appIcon.png",
+│ │          "16": "appIcon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Uglify",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5"
+│ │  }

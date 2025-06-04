@@ -1,0 +1,144 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/longlivetogodoc
+├── file list
+│ @@ -1,9 +1,15 @@
+│ +.git
+│ +.gitignore
+│  128.png
+│  16.png
+│  256.png
+│  32.png
+│  48.png
+│ -_metadata
+│ +Makefile
+│ +README.md
+│ +Screenshot.png
+│  go.dev.css
+│  go.dev.js
+│ -manifest.json
+│ +main.go
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/go.dev.css
+├── +++ /workspace/pipeline_output/longlivetogodoc/go.dev.css
+│ @@ -23,15 +23,16 @@
+│  }
+│  
+│  .Banner {
+│    display: none !important;
+│  }
+│  
+│  .Site-margin {
+│ -  display: none;
+│ +  max-width: initial !important;
+│ +
+│  }
+│  
+│  ul.Header-menu {
+│    display: none !important;
+│  }
+│  
+│  
+│ @@ -81,14 +82,22 @@
+│  }
+│  .UnitDetails-outline {
+│    display: none !important;
+│  }
+│  
+│  /* Index */
+│  
+│ +.Documentation-index {
+│ +  max-width: initial !important;
+│ +}
+│ +
+│ +.Documentation-overview {
+│ +  max-width: initial !important;
+│ +}
+│ +
+│  
+│  .Documentation-indexList {
+│    padding-left: 1.5rem;
+│  }
+│  .Documentation ul {
+│    padding-left: 3rem !important;
+│  }
+│ @@ -105,28 +114,33 @@
+│    font-size: 0.875rem !important;
+│    line-height: initial;
+│  
+│    color: #375eab !important;
+│  
+│  }
+│  
+│ +.UnitReadme {
+│ +  display: none !important;
+│ +}
+│ +
+│  
+│  /* Content */
+│  
+│  
+│  
+│  
+│  h2 {
+│    display: none;
+│  }
+│  
+│  .UnitDetails {
+│    display: flex !important;
+│    flex-direction: column !important;
+│  
+│ +
+│  }
+│  
+│  .UnitDetails-content {
+│    margin-top: 0 !important;
+│    padding-top: 0 !important;
+│  
+│  }
+│ @@ -161,14 +175,31 @@
+│  
+│  h3 a {
+│    font-family: Arial, sans-serif !important;
+│  
+│  }
+│  
+│  /* Content */
+│ +.UnitDetails {
+│ +  max-width: initial !important;
+│ +
+│ +}
+│ +
+│ +.Documentation section {
+│ +  max-width: inital !important;
+│ +
+│ +}
+│ +.Documentation-content {
+│ +  max-width: initial !important;
+│ +  width: initial !important;
+│ +}
+│ +.UnitDetails-content {
+│ +  max-width: initial !important;
+│ +
+│ +}
+│  
+│  .Documentation-content p {
+│    margin: 1.25rem;
+│    max-width: 50rem;
+│    display: block;
+│    margin-block-start: 1em;
+│    margin-block-end: 1em;
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/longlivetogodoc/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "16": "16.png",
+│ │          "256": "256.png",
+│ │          "32": "32.png",
+│ │          "48": "48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Long Live to godoc",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

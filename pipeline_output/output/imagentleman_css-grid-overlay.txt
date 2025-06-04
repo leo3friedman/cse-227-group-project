@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/css-grid-overlay
+├── file list
+│ @@ -1,26 +1,28 @@
+│ +.git
+│ +.gitignore
+│  128.png
+│  16.png
+│  48.png
+│  LICENSE
+│  MaterialIcons-Regular.woff2
+│  README.md
+│  Roboto-Light-Ext.woff2
+│  Roboto-Light.woff2
+│  Roboto-Medium-Ext.woff2
+│  Roboto-Medium.woff2
+│  Roboto-Regular-Ext.woff2
+│  Roboto-Regular.woff2
+│ -_metadata
+│  background.js
+│  content.js
+│  manifest.json
+│  material-components-web.min.css
+│  material-components-web.min.js
+│  off-16.png
+│  off-24.png
+│  off-32.png
+│  on-16.png
+│  on-24.png
+│  on-32.png
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/css-grid-overlay/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "name": "CSS Grid Overlay",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "11"
+│ │  }

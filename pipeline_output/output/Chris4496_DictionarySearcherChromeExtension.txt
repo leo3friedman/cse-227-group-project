@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DictionarySearcherChromeExtension
+├── file list
+│ @@ -1,4 +1,5 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DictionarySearcherChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,12 +16,12 @@
+│ │          "16": "/images/icon16.png",
+│ │          "32": "/images/icon32.png",
+│ │          "48": "/images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Dictionary Searcher",
+│ │      "permissions": [
+│ │ -        "contextMenus"
+│ │ +        "contextMenus",
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

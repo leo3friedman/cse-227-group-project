@@ -1,0 +1,86 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chromebackspaceonlinux
+├── file list
+│ @@ -1,14 +1,17 @@
+│ +.git
+│ +.gitignore
+│  128.png
+│  64.png
+│  README.md
+│ -_metadata
+│  backspace.js
+│  disabled.png
+│ +disabled.xcf
+│  enabled.png
+│  manifest.json
+│  options.css
+│  options.html
+│  options.js
+│ +package-lock.json
+│  screen.png
+│  service-worker.js
+│  utils.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chromebackspaceonlinux/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │          "open_in_tab": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.2.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.css
+├── +++ /workspace/pipeline_output/chromebackspaceonlinux/options.css
+│ @@ -1,25 +1,25 @@
+│  body {
+│  	font-family: Arial, Helvetica, sans-serif;
+│  	font-size: 13px;
+│  }
+│  
+│  img {
+│  	vertical-align: middle;
+│ -}
+│ +}
+│  
+│  .divBorder {
+│  	width: 100%;
+│  	border: 1px solid #000000;
+│ -	padding: 10px;
+│ +	padding: 30px 10px 10px 10px;
+│  }
+│  
+│  .divTitle {
+│  	position: relative;
+│ -	top: -20px;
+│ +	top: -40px;
+│  }
+│  
+│  .divTitle span {
+│  	background-color: #ffffff;
+│  }
+│  
+│  .changelog {
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/chromebackspaceonlinux/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -58,15 +58,14 @@
+│  					<table style="width: 100%;">
+│  						<tr>
+│  							<td style="width: 85%">
+│  								<span class="changelog">
+│  									Version 3.2.0 - 2024/07/21:
+│  									<ul>
+│  										<li>Added missing exceptions migration from old storage: <a href="https://github.com/noctarius/chromebackspaceonlinux/issues/51" target="_blank">https://github.com/noctarius/chromebackspaceonlinux/issues/51</a></li>
+│ -										<li>Smaller layout adjustments on the options page</li>
+│  									</ul>
+│  								</span>
+│  							</td>
+│  						</tr>
+│  						<tr>
+│  							<td style="width: 85%">
+│  								<span class="changelog">

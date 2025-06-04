@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/retwit
+├── file list
+│ @@ -1,8 +1,9 @@
+│ -_metadata
+│ +.git
+│  jquery-3.7.0.min.js
+│  manifest.json
+│  old-twitter.png
+│ +package-lock.json
+│  retwit.html
+│  retwit.png
+│  script.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/retwit/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,15 +23,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Retwit",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://twitter.com/*"
+│ │              ],
+│ │              "resources": [

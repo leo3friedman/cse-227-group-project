@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SOME_Targeting_Tool
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  SOMEReference.js
+│ -_metadata
+│ +SOME_Targeting_Tool_v1.zip
+│  background.js
+│  logo128.png
+│  manifest.json
+│ +package-lock.json
+│  privacy-policy.md
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SOME_Targeting_Tool/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Same Origin Method Execution - Targeting Tool",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "scripting",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

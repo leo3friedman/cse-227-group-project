@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/FocusBooster.github.io
+├── file list
+│ @@ -1,5 +1,6 @@
+│ -_metadata
+│ +.git
+│  content.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/FocusBooster.github.io/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      ],
+│ │      "description": "Blocks distracting websites and displays motivational quotes to help you stay focused.",
+│ │      "manifest_version": 3,
+│ │      "name": "Focus Booster",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

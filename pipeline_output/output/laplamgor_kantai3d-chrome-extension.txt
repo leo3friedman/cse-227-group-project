@@ -1,0 +1,111 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/kantai3d-chrome-extension
+├── file list
+│ @@ -1,6 +1,11 @@
+│ +.git
+│ +.gitignore
+│ +README.ja.md
+│ +README.md
+│ +README.zh-Hant.md
+│  _locales
+│ -_metadata
+│  images
+│  index.js
+│  manifest.json
+│ +package-lock.json
+│  rules_1.json
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,6 +1,6 @@
+│ │ │ -7b0d0a20202261707044657363223a207b0d0a20202020226d65737361676522
+│ │ │ -3a2022416464732033442d6c696b65206566666563747320616e64206a696767
+│ │ │ -6c65207068797369637320746f20736563726574617269657320696e205c22e8
+│ │ │ -89a6e99a8ae38193e3828ce3818fe38197e38287e38293202de889a6e38193e3
+│ │ │ -828c2d5c22284b616e74616920436f6c6c656374696f6e202d4b616e636f6c6c
+│ │ │ -652d29220d0a20207d0d0a7d
+│ │ │ +7b0a20202261707044657363223a207b0a20202020226d657373616765223a20
+│ │ │ +22416464732033442d6c696b65206566666563747320616e64206a6967676c65
+│ │ │ +207068797369637320746f20736563726574617269657320696e205c22e889a6
+│ │ │ +e99a8ae38193e3828ce3818fe38197e38287e38293202de889a6e38193e3828c
+│ │ │ +2d5c22284b616e74616920436f6c6c656374696f6e202d4b616e636f6c6c652d
+│ │ │ +29220a20207d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/ja
+│ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/ja
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/ja/messages.json
+│ │ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/ja/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,6 +1,6 @@
+│ │ │ -7b0d0a20202261707044657363223a207b0d0a20202020226d65737361676522
+│ │ │ -3a2022e3808ce889a6e99a8ae38193e3828ce3818fe38197e38287e38293202d
+│ │ │ -e889a6e38193e3828c2de3808de381aee7a798e69bb8e889a6e381ab3344e381
+│ │ │ -aee38288e38186e381aae8a696e8a69ae58ab9e69e9ce381a8e3818ae38191e3
+│ │ │ -828be4b9b3e68fbae3828ce38292e8bfbde58aa0e38197e381bee38199e38082
+│ │ │ -220d0a20207d0d0a7d
+│ │ │ +7b0a20202261707044657363223a207b0a20202020226d657373616765223a20
+│ │ │ +22e3808ce889a6e99a8ae38193e3828ce3818fe38197e38287e38293202de889
+│ │ │ +a6e38193e3828c2de3808de381aee7a798e69bb8e889a6e381ab3344e381aee3
+│ │ │ +8288e38186e381aae8a696e8a69ae58ab9e69e9ce381a8e3818ae38191e3828b
+│ │ │ +e4b9b3e68fbae3828ce38292e8bfbde58aa0e38197e381bee38199e38082220a
+│ │ │ +20207d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_CN
+│ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/zh_CN
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_CN/messages.json
+│ │ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/zh_CN/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,6 +1,5 @@
+│ │ │ -7b0d0a20202261707044657363223a207b0d0a20202020226d65737361676522
+│ │ │ -3a2022e4b8bae3808ce889a6e99a8ae38193e3828ce3818fe38197e38287e382
+│ │ │ -93202de889a6e38193e3828c2de3808d28e888b0e9989fe694b6e8978f29e79a
+│ │ │ -84e7a798e4b9a6e888b0e6b7bbe58aa0e4bbbfe7ab8be4bd93e79a84e8a786e8
+│ │ │ -a789e69588e69e9ce58f8ae883b8e983a8e789a9e79086e38082220d0a20207d
+│ │ │ -0d0a7d
+│ │ │ +7b0a20202261707044657363223a207b0a20202020226d657373616765223a20
+│ │ │ +22e4b8bae3808ce889a6e99a8ae38193e3828ce3818fe38197e38287e3829320
+│ │ │ +2de889a6e38193e3828c2de3808d28e888b0e9989fe694b6e8978f29e79a84e7
+│ │ │ +a798e4b9a6e888b0e6b7bbe58aa0e4bbbfe7ab8be4bd93e79a84e8a786e8a789
+│ │ │ +e69588e69e9ce58f8ae883b8e983a8e789a9e79086e38082220a20207d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_TW
+│ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/zh_TW
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_TW/messages.json
+│ │ ├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/_locales/zh_TW/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,6 +1,5 @@
+│ │ │ -7b0d0a20202261707044657363223a207b0d0a20202020226d65737361676522
+│ │ │ -3a2022e782bae3808ce889a6e99a8ae38193e3828ce3818fe38197e38287e382
+│ │ │ -93202de889a6e38193e3828c2de3808d28e889a6e99a8ae694b6e8978f29e79a
+│ │ │ -84e7a798e69bb8e889a6e6b7bbe58aa0e4bbbfe7ab8be9ab94e79a84e8a696e8
+│ │ │ -a6bae69588e69e9ce58f8ae883b8e983a8e789a9e79086e38082220d0a20207d
+│ │ │ -0d0a7d
+│ │ │ +7b0a20202261707044657363223a207b0a20202020226d657373616765223a20
+│ │ │ +22e782bae3808ce889a6e99a8ae38193e3828ce3818fe38197e38287e3829320
+│ │ │ +2de889a6e38193e3828c2de3808d28e889a6e99a8ae694b6e8978f29e79a84e7
+│ │ │ +a798e69bb8e889a6e6b7bbe58aa0e4bbbfe7ab8be9ab94e79a84e8a696e8a6ba
+│ │ │ +e69588e69e9ce58f8ae883b8e983a8e789a9e79086e38082220a20207d0a7d
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/kantai3d-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,15 +22,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Kantai3D",
+│ │      "permissions": [
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │      "short_name": "Kantai3D Patcher",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

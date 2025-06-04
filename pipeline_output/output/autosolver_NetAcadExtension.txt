@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NetAcadExtension
+├── file list
+│ @@ -1,9 +1,11 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  images
+│  injex.css
+│  injex.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  releases
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NetAcadExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,10 +38,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "NetAcad Assessment AutoSolver",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/releases
+├── +++ /workspace/pipeline_output/NetAcadExtension/releases
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +v1.0.0
+│ │ +v1.1.0
+│ │ -v1.0.0

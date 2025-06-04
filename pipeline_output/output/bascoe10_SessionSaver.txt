@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SessionSaver
+├── file list
+│ @@ -1,6 +1,4 @@
+│ -README.md
+│ -_metadata
+│ -assets
+│ +.git
+│ +main.js
+│  manifest.json
+│ -options.html
+│ -popup.html
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SessionSaver/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,28 +1,12 @@
+│ │  {
+│ │      "background": {
+│ │          "persistent": false,
+│ │          "scripts": [
+│ │ -            "assets/js/main.js"
+│ │ +            "main.js"
+│ │          ]
+│ │      },
+│ │ -    "description": "Save all tabs in a browsing window",
+│ │ -    "icons": {
+│ │ -        "128": "./assets/images/icon-128.png",
+│ │ -        "16": "./assets/images/icon-16.png",
+│ │ -        "32": "./assets/images/icon-32.png",
+│ │ -        "48": "./assets/images/icon-48.png"
+│ │ -    },
+│ │ +    "description": "Chrome extension that make you save a browsing session",
+│ │      "manifest_version": 2,
+│ │      "name": "Session Saver",
+│ │ -    "options_page": "options.html",
+│ │ -    "page_action": {
+│ │ -        "default_popup": "popup.html"
+│ │ -    },
+│ │ -    "permissions": [
+│ │ -        "tabs",
+│ │ -        "declarativeContent",
+│ │ -        "storage"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

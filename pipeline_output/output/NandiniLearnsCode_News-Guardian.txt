@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/News-Guardian
+├── file list
+│ @@ -1,13 +1,12 @@
+│ -Images
+│ -News Guardian.zip
+│ -News Guardian_1.zip
+│ -_metadata
+│ +.git
+│ +.gitignore
+│  background.js
+│  blocked.html
+│  content.css
+│  content.js
+│  logo.html
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/News-Guardian/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │          "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "News Guardian",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

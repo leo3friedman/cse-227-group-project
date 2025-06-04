@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Depth_Complexity_Chrome_Extension
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│  128Icon.png
+│ -Images
+│ -_metadata
+│ -bootstrap
+│ +README.md
+│ +d_c_chrome-20240619T134451Z-001.zip
+│  icon.png
+│ +icon_128.png
+│  jquery.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Depth_Complexity_Chrome_Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,10 +6,9 @@
+│ │      },
+│ │      "description": "Quick launch Depth & Complexity Icons",
+│ │      "icons": {
+│ │          "128": "128Icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Depth & Complexity Icons",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.0"
+│ │  }

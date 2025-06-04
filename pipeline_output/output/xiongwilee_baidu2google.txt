@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/baidu2google/dist
+├── file list
+│ @@ -1,6 +1,5 @@
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│  static
+│  views
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/baidu2google/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,15 +17,14 @@
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "\u7528\u8c37\u6b4c\u767e\u5ea6\u4e00\u4e0b\uff01",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2",
+│ │      "web_accessible_resources": [
+│ │          "static/css/main_index_no_login.css",
+│ │          "static/css/main_result.css",
+│ │          "icons/favicon.ico"
+│ │      ]
+│ │  }

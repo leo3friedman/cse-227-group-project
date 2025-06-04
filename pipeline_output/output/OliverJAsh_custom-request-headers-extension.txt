@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/custom-request-headers-extension
+├── file list
+│ @@ -1,6 +1,13 @@
+│ -_metadata
+│ -background.html
+│ -devtools.html
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +dist
+│ +flake.lock
+│ +flake.nix
+│  manifest.json
+│ -panel.html
+│ -static
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +public
+│ +rspack.config.mjs
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/custom-request-headers-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,17 +1,18 @@
+│ │  {
+│ │ +    "action": {
+│ │ +        "default_popup": "public/popup.html"
+│ │ +    },
+│ │      "background": {
+│ │ -        "service_worker": "static/js/background.js"
+│ │ +        "service_worker": "dist/background.js"
+│ │      },
+│ │ -    "devtools_page": "devtools.html",
+│ │      "host_permissions": [
+│ │          "<all_urls>"
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "Custom Request Headers",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/JobTools
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  bs
+│  css
+│  icon.png
+│  images
+│  index.js
+│  js
+│  lang
+│  main.html
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/JobTools/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,15 +32,14 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Find a Job",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "JobSearch",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.6.0",
+│ │      "web_accessible_resources": [
+│ │          "js/*",
+│ │          "lang/*",
+│ │          "images/*",
+│ │          "css/*",
+│ │          "bs/*"

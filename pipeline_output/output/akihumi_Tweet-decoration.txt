@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Tweet-decoration
+├── file list
+│ @@ -1,11 +1,14 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.html
+│  background.js
+│  color.js
+│  cpick.js
+│  large_icon128.png
+│  manifest.json
+│  middle_icon48.png
+│  options.html
+│ +package-lock.json
+│  preview.js
+│  small_icon16.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Tweet-decoration/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Twitter decoration",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "http://twitter.com/*",
+│ │          "https://twitter.com/*"
+│ │      ],
+│ │ -    "update_url": "http://clients2.google.com/service/update2/crx",
+│ │      "version": "2.4.2"
+│ │  }

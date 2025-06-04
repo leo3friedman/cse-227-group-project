@@ -1,0 +1,50 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-extension
+├── file list
+│ @@ -1,10 +1,17 @@
+│ -_metadata
+│ -assets
+│ -background.js
+│ -contentscript.css
+│ -contentscript.js
+│ -html
+│ -jquery-ui.css
+│ -jquery-ui.js
+│ -jquery.js
+│ -manifest.json
+│ +.editorconfig
+│ +.eslintrc.json
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.husky
+│ +.npmrc
+│ +.nvmrc
+│ +.prettierrc
+│ +README.md
+│ +manifest.json
+│ +package.json
+│ +snapshots
+│ +src
+│ +tsconfig.json
+│ +webpack.config.js
+│ +yarn.lock
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,15 +30,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Awesome Github",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "Awesome Github",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.5",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://github.com/*"
+│ │              ],
+│ │              "resources": [

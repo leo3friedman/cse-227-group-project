@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Sisterhood-ce
+├── file list
+│ @@ -1,7 +1,9 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  feminists.js
+│ -jquery.js
+│  manifest.json
+│ +package-lock.json
+│  sister.html
+│  sister.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Sisterhood-ce/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      ],
+│ │      "description": "Everytime you open a new tab you will get an entry of a woman from Wikipedia",
+│ │      "manifest_version": 2,
+│ │      "name": "Sisterhood Extension",
+│ │      "permissions": [
+│ │          "https://en.wikipedia.org/w/api.php"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }

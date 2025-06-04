@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/FreeCrosswordPuzzles-Navigation-Extension
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  fcp_nav.js
+│  fcp_nav.svg
+│ +freecrosswordpuzzles_clue_navigation_hotkeys-1.0.2.zip
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/FreeCrosswordPuzzles-Navigation-Extension/README.md
+│ @@ -1,8 +1,9 @@
+│  # Overview
+│ -Adds keyboard navigation hotkeys to crosswords on https://freecrosswordpuzzles.com.au.
+│ -* Tab/Enter to move forward a clue
+│ -* Shift + Tab/Enter to move backward a clue
+│ +This extension adds tab key shortcuts to freecrosswordpuzzles.com.au, similar to the shortcuts found in the nytimes crosswords.
+│ +
+│ +* Tab to move forward a clue
+│ +* Shift + Tab to move backwards a clue
+│  
+│  
+│  # Build for Firefox
+│  `web-ext build -o -a .`
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/FreeCrosswordPuzzles-Navigation-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,12 +16,11 @@
+│ │          }
+│ │      ],
+│ │      "description": "Adds keyboard navigation hotkeys to crosswords on https://freecrosswordpuzzles.com.au.",
+│ │      "icons": {
+│ │          "48": "icons/128.png",
+│ │          "96": "icons/128.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "Crossword Clue Navigation Hotkeys",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "FreeCrosswordPuzzles Clue Navigation Hotkeys",
+│ │      "version": "1.0.2"
+│ │  }

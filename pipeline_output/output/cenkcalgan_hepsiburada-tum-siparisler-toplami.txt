@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/hepsiburada-tum-siparisler-toplami
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  HepsiBurada-Ozel-Liste-Toplam.md
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/hepsiburada-tum-siparisler-toplami/images
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  favicon-128x128-gray.png
+│ │  favicon-128x128.png
+│ │  favicon-16x16-gray.png
+│ │  favicon-16x16.png
+│ │  favicon-32x32-gray.png
+│ │  favicon-32x32.png
+│ │  favicon-48x48-gray.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/hepsiburada-tum-siparisler-toplami/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "Hepsiburada.com T\u00fcm Sipari\u015fler Toplam\u0131",
+│ │      "permissions": [
+│ │          "declarativeContent"
+│ │      ],
+│ │      "short_name": "HBTST",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.3"
+│ │  }

@@ -1,0 +1,77 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TimeIsMoney
+├── file list
+│ @@ -1,8 +1,4 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ -background.js
+│ -contentCrawler.js
+│ -icons
+│  manifest.json
+│ -popup
+│ -styles.css
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/TimeIsMoney/README.md
+│ @@ -1,12 +1,2 @@
+│ -# TimeIsMoney
+│ -Chrome extension that converts dollar amounts in webpage to time needed to make said dollar amount given input hourly wage.
+│ -
+│ -Known Issues:
+│ -- Ranged prices such as those in Amazon aren't covered yet
+│ -- Prices divided into seperate divs aren't covered yet, for example semantic superscript tags <sup>
+│ -
+│ -Release Timeline:
+│ -- 1.1 (2/2/2019)
+│ -    - Coverage for sibling element prices
+│ -    - Coverage for ranged prices
+│ -    - Popup UI update 
+│ +# TimeIsMoney
+│ +Chrome extension that converts dollar amounts in webpage to time needed to make said dollar amount given input hourly wage.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TimeIsMoney/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,41 +1,6 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "persistent": false,
+│ │ -        "scripts": [
+│ │ -            "background.js"
+│ │ -        ]
+│ │ -    },
+│ │ -    "browser_action": {
+│ │ -        "default_icon": {
+│ │ -            "32": "icons/icon32.png"
+│ │ -        },
+│ │ -        "default_popup": "popup/popup.html",
+│ │ -        "default_title": "PriceLeft"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "contentCrawler.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "Converts dollar amounts into time for perspective",
+│ │ -    "icons": {
+│ │ -        "128": "icons/icon128.png",
+│ │ -        "16": "icons/icon16.png",
+│ │ -        "32": "icons/icon32.png",
+│ │ -        "48": "icons/icon48.png"
+│ │ -    },
+│ │ +    "description": "Chrome extension that converts dollar amounts in webpage to time needed to make said dollar amount",
+│ │      "manifest_version": 2,
+│ │      "name": "TimeIsMoney",
+│ │ -    "permissions": [
+│ │ -        "activeTab",
+│ │ -        "storage",
+│ │ -        "declarativeContent"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

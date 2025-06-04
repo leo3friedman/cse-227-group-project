@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TaskTimerChromeExtension
+├── file list
+│ @@ -1,6 +1,12 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +gulpfile.js
+│  icon.png
+│  index.html
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  scripts
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TaskTimerChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      "description": "Very easy task time counter.",
+│ │      "manifest_version": 2,
+│ │      "name": "Task Time Counter",
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

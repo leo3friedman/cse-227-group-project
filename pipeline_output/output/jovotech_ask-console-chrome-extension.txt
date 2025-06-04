@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ask-console-chrome-extension
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content.js
+│  img
+│  jquery-3.2.1.min.js
+│  jquery-ui.min.js
+│  manifest.json
+│ +package-lock.json
+│  pageIndex.js
+│  pageTest.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ask-console-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │          "48": "/img/icon_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Alexa Skills Kit Simulator Enhancer",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4"
+│ │  }

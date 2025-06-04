@@ -1,0 +1,1004 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes.
+├── file list
+│ @@ -1,11 +1,14 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  backgrounds
+│  css
+│  home.html
+│  icons
+│  js
+│  manifest.json
+│  node_modules
+│ +node_modules.zip
+│  package-lock.json
+│  package.json
+│  quotes.txt
+│   --- /workspace/pipeline_output/chromex_data/css
+├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./css
+│ │   --- /workspace/pipeline_output/chromex_data/css/style.css
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./css/style.css
+│ │ @@ -1,13 +1,15 @@
+│ │  
+│ │  @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap');
+│ │  @import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&family=Montserrat:wght@200&display=swap');
+│ │  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+│ │  @import url('http://fonts.cdnfonts.com/css/manga-temple');
+│ │  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+│ │ +
+│ │ +
+│ │  body {
+│ │      background-image: url(/backgrounds/background.jpg);
+│ │      background-size: cover ;
+│ │      background-repeat: no-repeat;
+│ │      overflow: hidden;
+│ │      position: relative;
+│ │      width: 100%;
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      "icons": {
+│ │          "128": "./icons/icon128.png",
+│ │          "16": "./icons/icon16.png",
+│ │          "48": "./icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Vagabond: Manga Theme with Musashi quotes.",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/node_modules
+├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules
+│ ├── file list
+│ │ @@ -1,7 +1,9 @@
+│ │ +.bin
+│ │ +.package-lock.json
+│ │  abstract-leveldown
+│ │  acorn
+│ │  acorn-node
+│ │  acorn-walk
+│ │  array-from
+│ │  bl
+│ │  brfs
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/abstract-leveldown
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/abstract-leveldown
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.jshintrc
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  CHANGELOG.md
+│ │ │  CONTRIBUTING.md
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  abstract
+│ │ │  abstract-chained-batch.js
+│ │ │  abstract-iterator.js
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/abstract-leveldown/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/abstract-leveldown/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/abstract-leveldown/node_modules/xtend
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/abstract-leveldown/node_modules/xtend
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,9 @@
+│ │ │ │ │ +.jshintrc
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENCE
+│ │ │ │ │  Makefile
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  mutable.js
+│ │ │ │ │  package.json
+│ │ │ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/acorn-node
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/acorn-node
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.travis.yml
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  build.js
+│ │ │  index.js
+│ │ │  lib
+│ │ │  node_modules
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/acorn-node/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/acorn-node/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/acorn-node/node_modules/xtend
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/acorn-node/node_modules/xtend
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,6 +1,7 @@
+│ │ │ │ │ +.jshintrc
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  immutable.js
+│ │ │ │ │  mutable.js
+│ │ │ │ │  package.json
+│ │ │ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/bl
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/bl
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,9 @@
+│ │ │ +.jshintrc
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  bl.js
+│ │ │  node_modules
+│ │ │  package.json
+│ │ │  test
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/bl/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/bl/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/bl/node_modules/readable-stream
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/bl/node_modules/readable-stream
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  duplex.js
+│ │ │ │ │  lib
+│ │ │ │ │  package.json
+│ │ │ │ │  passthrough.js
+│ │ │ │ │  readable.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/bl/node_modules/string_decoder
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/bl/node_modules/string_decoder
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,4 +1,5 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/brfs
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/brfs
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  bin
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/browserify-fs
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/browserify-fs
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,5 @@
+│ │ │ +.npmignore
+│ │ │  README.md
+│ │ │  example.js
+│ │ │  index.js
+│ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/buffer-equal
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/buffer-equal
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.travis.yml
+│ │ │  README.markdown
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/clone
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/clone
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  clone.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/d
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/d
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.editorconfig
+│ │ │ +.github
+│ │ │  CHANGELOG.md
+│ │ │  CHANGES
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  auto-bind.js
+│ │ │  index.js
+│ │ │  lazy.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/dash-ast
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/dash-ast
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.github
+│ │ │ +.travis.yml
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  bench
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/deep-is
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/deep-is
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,7 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.markdown
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/deferred-leveldown
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/deferred-leveldown
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,7 @@
+│ │ │ +.jshintrc
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  README.md
+│ │ │  deferred-leveldown.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/errno
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/errno
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.jshintrc
+│ │ │ +.travis.yml
+│ │ │  README.md
+│ │ │  build.js
+│ │ │  cli.js
+│ │ │  custom.js
+│ │ │  errno.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/es5-ext
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/es5-ext
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/es5-ext/promise
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/es5-ext/promise
+│ │ │ ├── file list
+│ │ │ │ @@ -1,3 +1,4 @@
+│ │ │ │  #
+│ │ │ │ +.eslintrc.json
+│ │ │ │  index.js
+│ │ │ │  lazy.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/es6-iterator
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/es6-iterator
+│ │ ├── file list
+│ │ │ @@ -1,8 +1,10 @@
+│ │ │  #
+│ │ │ +.editorconfig
+│ │ │ +.npmignore
+│ │ │  CHANGELOG.md
+│ │ │  CHANGES
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  appveyor.yml
+│ │ │  array.js
+│ │ │  for-of.js
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/es6-iterator/test
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/es6-iterator/test
+│ │ │ ├── file list
+│ │ │ │ @@ -1,8 +1,9 @@
+│ │ │ │  #
+│ │ │ │ +.eslintrc.json
+│ │ │ │  array.js
+│ │ │ │  for-of.js
+│ │ │ │  get.js
+│ │ │ │  index.js
+│ │ │ │  is-iterable.js
+│ │ │ │  string.js
+│ │ │ │  valid-iterable.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/es6-map
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/es6-map
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.lint
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  CHANGES
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  implement.js
+│ │ │  index.js
+│ │ │  is-implemented.js
+│ │ │  is-map.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/es6-symbol
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/es6-symbol
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.editorconfig
+│ │ │ +.github
+│ │ │ +.testignore
+│ │ │  CHANGELOG.md
+│ │ │  CHANGES
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  implement.js
+│ │ │  index.js
+│ │ │  is-implemented.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/estraverse
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/estraverse
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.jshintrc
+│ │ │  LICENSE.BSD
+│ │ │  README.md
+│ │ │  estraverse.js
+│ │ │  gulpfile.js
+│ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/estree-is-function
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/estree-is-function
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/event-emitter
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/event-emitter
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,11 @@
+│ │ │ +.lint
+│ │ │ +.npmignore
+│ │ │ +.testignore
+│ │ │ +.travis.yml
+│ │ │  CHANGES
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  all-off.js
+│ │ │  benchmark
+│ │ │  emit-error.js
+│ │ │  has-listeners.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/function-bind
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/function-bind
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,11 @@
+│ │ │ +.editorconfig
+│ │ │ +.eslintrc
+│ │ │ +.jscs.json
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  implementation.js
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/function-bind/test
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/function-bind/test
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1,2 @@
+│ │ │ │ +.eslintrc
+│ │ │ │  index.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/fwd-stream
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/fwd-stream
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  node_modules
+│ │ │  package.json
+│ │ │  test.js
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/fwd-stream/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/fwd-stream/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/fwd-stream/node_modules/readable-stream
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/fwd-stream/node_modules/readable-stream
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  duplex.js
+│ │ │ │ │  lib
+│ │ │ │ │  package.json
+│ │ │ │ │  passthrough.js
+│ │ │ │ │  readable.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/fwd-stream/node_modules/string_decoder
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/fwd-stream/node_modules/string_decoder
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,4 +1,5 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/get-assigned-identifiers
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/get-assigned-identifiers
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,7 @@
+│ │ │ +.travis.yml
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/idb-wrapper
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/idb-wrapper
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.editorconfig
+│ │ │ +.jshintrc
+│ │ │  CHANGELOG
+│ │ │  Gruntfile.js
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  bower.json
+│ │ │  conf.json
+│ │ │  idbstore.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/indexof
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/indexof
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.npmignore
+│ │ │  Makefile
+│ │ │  Readme.md
+│ │ │  component.json
+│ │ │  index.js
+│ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/is-core-module
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/is-core-module
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.eslintrc
+│ │ │ +.nycrc
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  core.json
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/is-object
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/is-object
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,9 @@
+│ │ │ +.npmignore
+│ │ │ +.testem.json
+│ │ │ +.travis.yml
+│ │ │  LICENCE
+│ │ │  README.md
+│ │ │  examples
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/isarray
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/isarray
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,8 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  Makefile
+│ │ │  README.md
+│ │ │  component.json
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/isbuffer
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/isbuffer
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,5 @@
+│ │ │ +.npmignore
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-blobs
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-blobs
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,8 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  node_modules
+│ │ │  package.json
+│ │ │  test
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-blobs/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-blobs/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-blobs/node_modules/readable-stream
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-blobs/node_modules/readable-stream
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  duplex.js
+│ │ │ │ │  float.patch
+│ │ │ │ │  lib
+│ │ │ │ │  package.json
+│ │ │ │ │  passthrough.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-blobs/node_modules/string_decoder
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-blobs/node_modules/string_decoder
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,4 +1,5 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-filesystem
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-filesystem
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  errno.js
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  paths.js
+│ │ │  stat.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-fix-range
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-fix-range
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-hooks
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-hooks
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-js
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-js
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.npmignore
+│ │ │  README.md
+│ │ │  collaborators.md
+│ │ │  index.js
+│ │ │  iterator.js
+│ │ │  logo.png
+│ │ │  node_modules
+│ │ │  package.json
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-js/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-js/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-js/node_modules/xtend
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-js/node_modules/xtend
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENCE
+│ │ │ │ │  Makefile
+│ │ │ │ │  README.md
+│ │ │ │ │  has-keys.js
+│ │ │ │ │  index.js
+│ │ │ │ │  mutable.js
+│ │ │ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-peek
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-peek
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-sublevel
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-sublevel
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  batch.js
+│ │ │  examples
+│ │ │  index.js
+│ │ │  node_modules
+│ │ │  package.json
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-sublevel/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-sublevel/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-sublevel/node_modules/level-fix-range
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-sublevel/node_modules/level-fix-range
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,5 +1,7 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │ +.travis.yml
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  package.json
+│ │ │ │ │  test
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-sublevel/node_modules/object-keys
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-sublevel/node_modules/object-keys
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,5 +1,7 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │ +.travis.yml
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  package.json
+│ │ │ │ │  shim.js
+│ │ │ │ │  test.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/level-sublevel/node_modules/xtend
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/level-sublevel/node_modules/xtend
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENCE
+│ │ │ │ │  Makefile
+│ │ │ │ │  README.md
+│ │ │ │ │  has-keys.js
+│ │ │ │ │  index.js
+│ │ │ │ │  mutable.js
+│ │ │ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/levelup
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/levelup
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,11 @@
+│ │ │ +.dntrc
+│ │ │ +.jshintrc
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  CHANGELOG.md
+│ │ │  CONTRIBUTING.md
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  bulk2ssd_pop.config
+│ │ │  buster.js
+│ │ │  lib
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/levelup/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/levelup/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/levelup/node_modules/prr
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/levelup/node_modules/prr
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,5 +1,8 @@
+│ │ │ │ │ +.jshintrc
+│ │ │ │ │ +.npmignore
+│ │ │ │ │ +.travis.yml
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  package.json
+│ │ │ │ │  prr.js
+│ │ │ │ │  test.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/levelup/node_modules/readable-stream
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/levelup/node_modules/readable-stream
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  duplex.js
+│ │ │ │ │  lib
+│ │ │ │ │  package.json
+│ │ │ │ │  passthrough.js
+│ │ │ │ │  readable.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/levelup/node_modules/string_decoder
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/levelup/node_modules/string_decoder
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,4 +1,5 @@
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  package.json
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/levelup/node_modules/xtend
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/levelup/node_modules/xtend
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,7 +1,9 @@
+│ │ │ │ │ +.jshintrc
+│ │ │ │ │ +.npmignore
+│ │ │ │ │  LICENCE
+│ │ │ │ │  Makefile
+│ │ │ │ │  README.md
+│ │ │ │ │  index.js
+│ │ │ │ │  mutable.js
+│ │ │ │ │  package.json
+│ │ │ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/ltgt
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/ltgt
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/minimist
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/minimist
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,7 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/next-tick
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/next-tick
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.editorconfig
+│ │ │ +.github
+│ │ │ +.lint
+│ │ │  CHANGELOG.md
+│ │ │  CHANGES
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/object-inspect
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/object-inspect
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.eslintrc
+│ │ │ +.github
+│ │ │ +.nycrc
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE
+│ │ │  example
+│ │ │  index.js
+│ │ │  package-support.json
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/object-keys
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/object-keys
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  README.md
+│ │ │  foreach.js
+│ │ │  index.js
+│ │ │  isArguments.js
+│ │ │  package.json
+│ │ │  shim.js
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/octal
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/octal
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/prr
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/prr
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,8 @@
+│ │ │ +.jshintrc
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  package.json
+│ │ │  prr.js
+│ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/quote-stream
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/quote-stream
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  bin
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/readable-stream
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/readable-stream
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.travis.yml
+│ │ │  CONTRIBUTING.md
+│ │ │  GOVERNANCE.md
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  doc
+│ │ │  duplex-browser.js
+│ │ │  duplex.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/resolve
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/resolve
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.editorconfig
+│ │ │ +.eslintrc
+│ │ │ +.github
+│ │ │  LICENSE
+│ │ │  SECURITY.md
+│ │ │  async.js
+│ │ │  bin
+│ │ │  example
+│ │ │  index.js
+│ │ │  lib
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/resolve/test
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/resolve/test
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/resolve/test/resolver
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/resolve/test/resolver
+│ │ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/resolve/test/resolver/symlinked
+│ │ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/resolve/test/resolver/symlinked
+│ │ │ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/resolve/test/resolver/symlinked/_
+│ │ │ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/resolve/test/resolver/symlinked/_
+│ │ │ │ │ │ ├── file list
+│ │ │ │ │ │ │ @@ -1 +1,2 @@
+│ │ │ │ │ │ │ -node_modules
+│ │ │ │ │ │ │ +node_modules
+│ │ │ │ │ │ │ +symlink_target
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/scope-analyzer
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/scope-analyzer
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.github
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE.md
+│ │ │  README.md
+│ │ │  bench
+│ │ │  binding.js
+│ │ │  index.js
+│ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/semver
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/semver
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.npmignore
+│ │ │  LICENSE
+│ │ │  Makefile
+│ │ │  README.md
+│ │ │  bin
+│ │ │  foot.js
+│ │ │  head.js
+│ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/shallow-copy
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/shallow-copy
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,7 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/static-eval
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/static-eval
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.travis.yml
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  security.md
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/static-module
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/static-module
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  bench
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  security.md
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/string-range
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/string-range
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,7 @@
+│ │ │ +.npmignore
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/string_decoder
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/string_decoder
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,5 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  lib
+│ │ │  package.json
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/supports-preserve-symlinks-flag
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/supports-preserve-symlinks-flag
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,10 @@
+│ │ │ +.eslintrc
+│ │ │ +.github
+│ │ │ +.nycrc
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  browser.js
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/through2
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/through2
+│ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/through2/node_modules
+│ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/through2/node_modules
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/node_modules/through2/node_modules/xtend
+│ │ │ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/through2/node_modules/xtend
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,6 +1,7 @@
+│ │ │ │ │ +.jshintrc
+│ │ │ │ │  LICENSE
+│ │ │ │ │  README.md
+│ │ │ │ │  immutable.js
+│ │ │ │ │  mutable.js
+│ │ │ │ │  package.json
+│ │ │ │ │  test.js
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/type
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/type
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.editorconfig
+│ │ │  CHANGELOG.md
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  array
+│ │ │  array-length
+│ │ │  array-like
+│ │ │  date
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/typedarray
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/typedarray
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,7 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  example
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  readme.markdown
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/typedarray-to-buffer
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/typedarray-to-buffer
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.travis.yml
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  index.js
+│ │ │  package.json
+│ │ │  test
+│ │   --- /workspace/pipeline_output/chromex_data/node_modules/xtend
+│ ├── +++ /workspace/pipeline_output/Vagabond-Manga-Theme-with-Musashi-quotes./node_modules/xtend
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.jshintrc
+│ │ │ +.npmignore
+│ │ │  LICENCE
+│ │ │  Makefile
+│ │ │  README.md
+│ │ │  has-keys.js
+│ │ │  index.js
+│ │ │  mutable.js
+│ │ │  package.json

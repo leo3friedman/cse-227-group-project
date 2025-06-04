@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gcp-console-redirect
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  rules.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gcp-console-redirect/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "https://console.cloud.google.com/*"
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "GCP Console Redirect",
+│ │      "permissions": [
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

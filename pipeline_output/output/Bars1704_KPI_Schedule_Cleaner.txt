@@ -1,0 +1,77 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/KPI_Schedule_Cleaner/dist
+├── file list
+│ @@ -1,10 +1,2 @@
+│ -KPI_Scedule_fixer.js
+│ -LICENSE
+│ -README.md
+│ -_metadata
+│ -icon-128.png
+│ -icon-16.png
+│  manifest.json
+│ -popup.css
+│ -popup.html
+│ -popup.js
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/KPI_Schedule_Cleaner/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,30 +1,46 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_icon": "icon-128.png",
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "KPI Scedule fixer"
+│ │ +        "default_icon": "src/assets/img/icon-128.png",
+│ │ +        "default_popup": "src/index.html",
+│ │ +        "default_title": "KPI Schedule fixer"
+│ │ +    },
+│ │ +    "background": {
+│ │ +        "service_worker": "src/scripts/background.js"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │ -                "KPI_Scedule_fixer.js"
+│ │ +                "src/scripts/content/oldScheduleFixer.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "*://*.rozklad.kpi.ua/*"
+│ │ +                "*://*.epi.kpi.ua/*"
+│ │ +            ],
+│ │ +            "run_at": "document_start"
+│ │ +        },
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "src/scripts/content/newScheduleFixer.js"
+│ │              ],
+│ │ -            "run_at": "document_end"
+│ │ +            "matches": [
+│ │ +                "*://*.schedule.kpi.ua/*"
+│ │ +            ],
+│ │ +            "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │ -    "description": "The extension is designed to fix KPI elective subjects problem by cleaning the scedule from unused subjects",
+│ │ +    "description": "The extension is designed to fix KPI elective subjects problem by cleaning the schedule from unused subjects",
+│ │ +    "host_permissions": [
+│ │ +        "*://*.schedule.kpi.ua/*"
+│ │ +    ],
+│ │      "icons": {
+│ │ -        "128": "icon-128.png",
+│ │ -        "16": "icon-16.png"
+│ │ +        "128": "src/assets/img/icon-128.png",
+│ │ +        "16": "src/assets/img/icon-16.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "KPI scedule fixer",
+│ │ +    "name": "KPI schedule fixer",
+│ │      "permissions": [
+│ │ -        "storage"
+│ │ +        "storage",
+│ │ +        "webRequest",
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

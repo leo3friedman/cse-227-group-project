@@ -1,0 +1,66 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/PassLok4email
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  css
+│  html
+│  img
+│  js-lib
+│  js-src
+│ -manifest.json
+│ +manifest.firefox.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/js-lib
+├── +++ /workspace/pipeline_output/PassLok4email/js-lib
+│ ├── file list
+│ │ @@ -2,9 +2,10 @@
+│ │  isaac.js
+│ │  jssteg.js
+│ │  jsstegdecoder.js
+│ │  jsstegencoder.js
+│ │  lz-string.js
+│ │  nacl-fast.js
+│ │  nacl-util.js
+│ │ +nacl.js
+│ │  purify.js
+│ │  scrypt-async.js
+│   --- /workspace/pipeline_output/chromex_data/js-src
+├── +++ /workspace/pipeline_output/PassLok4email/js-src
+│ ├── file list
+│ │ @@ -1,14 +1,16 @@
+│ │ +background.js
+│ │  bodyscript.js
+│ │  chat.js
+│ │  content.js
+│ │  crypto-sym.js
+│ │  crypto.js
+│ │  dictionary_en.js
+│ │  help.js
+│ │  imagestego.js
+│ │  keylock.js
+│ │  license.js
+│ │  localdir.js
+│ │ +nacl-util.js
+│ │  popuphead.js
+│ │  screens.js
+│ │  textstego.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/PassLok4email/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,10 +44,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "PassLok for Email",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │      "short_name": "PassLok",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

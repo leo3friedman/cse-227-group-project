@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/W3Schools-Hider
+├── file list
+│ @@ -1,10 +1,22 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  background.js
+│ +banner.psd
+│ +banner1400.png
+│ +banner440.png
+│ +banner440.psd
+│ +banner920.png
+│  contentscripts.js
+│  contentstyles.css
+│ +icon.ico
+│ +iconlarge.psd
+│  images
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│ +screenshot1.png
+│ +screenshot1.psd
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/W3Schools-Hider/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -424,10 +424,9 @@
+│ │      "options_page": "options.html",
+│ │      "page_action": {
+│ │          "default_icon": {
+│ │              "19": "images/icon19.png",
+│ │              "38": "images/icon38.png"
+│ │          }
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3"
+│ │  }

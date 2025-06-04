@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Simple-project-tasks
+├── file list
+│ @@ -1,12 +1,15 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +README.md
+│  background.js
+│ -background.min.js
+│ +drawing.svg
+│  icon.png
+│  icon128.png
+│  icon48.png
+│  jquery.js
+│  jquery.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│ -popup.min.js
+│ +screenshots
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Simple-project-tasks/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Simple Project Tasks",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "Simple Project Tasks",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.7"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/kle_extension
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/kle_extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,15 +20,14 @@
+│ │          "128": "icons/icon_128x128.png",
+│ │          "16": "icons/icon_16x16.png",
+│ │          "48": "icons/icon_48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "KLE Extension",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.keyboard-layout-editor.com/*"
+│ │              ],
+│ │              "resources": [

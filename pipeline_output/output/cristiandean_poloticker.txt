@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/poloticker
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│  css
+│  fonts
+│  img
+│  js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/poloticker/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/autobahn
+│ ├── +++ /workspace/pipeline_output/poloticker/js/autobahn
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.bower.json
+│ │ │  CHECKSUM.MD5
+│ │ │  CHECKSUM.SHA1
+│ │ │  CHECKSUM.SHA256
+│ │ │  LICENSE
+│ │ │  README.md
+│ │ │  autobahn.js
+│ │ │  autobahn.min.jgz
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/poloticker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │          "storage",
+│ │          "notifications",
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "tabs",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

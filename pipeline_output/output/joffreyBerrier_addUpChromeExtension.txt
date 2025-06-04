@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/addUpChromeExtension
+├── file list
+│ @@ -1,8 +1,11 @@
+│ +.DS_Store
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background-wrapper.js
+│  background.js
+│  dist
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/dist
+├── +++ /workspace/pipeline_output/addUpChromeExtension/dist
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  img
+│ │   --- /workspace/pipeline_output/chromex_data/dist/img
+│ ├── +++ /workspace/pipeline_output/addUpChromeExtension/dist/img
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,6 @@
+│ │ │ +.DS_Store
+│ │ │  icone.png
+│ │ │  logo-128.png
+│ │ │  logo-32.png
+│ │ │  logo-512.png
+│ │ │  logo-64.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/addUpChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "AddUp",
+│ │      "permissions": [
+│ │          "background",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "AddUp",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

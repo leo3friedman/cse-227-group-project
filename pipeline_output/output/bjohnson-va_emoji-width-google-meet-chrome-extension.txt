@@ -1,0 +1,79 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/emoji-width-google-meet-chrome-extension
+├── file list
+│ @@ -1,5 +1,8 @@
+│ +.git
+│ +.idea
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│ +publish.zip
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/emoji-width-google-meet-chrome-extension/README.md
+│ @@ -4,22 +4,18 @@
+│  to avoid accidental hand raises.
+│  
+│  ![](images/Screenshot.jpeg)
+│  
+│  ### Installation
+│  
+│  #### Install via Chrome Web Store
+│ -This extension **should** be available from:
+│ +This extension **should** be available from the CWS:
+│  - https://chrome.google.com/webstore/detail/jfehmdbdjehkghjdlaclfebhgpmikhoi
+│  
+│  #### Install by building from source
+│  Clone this repo and run:
+│  ```shell
+│ -zip -r ~/publish.zip ./*
+│ +zip ~/publish.zip ./*
+│  ```
+│  
+│  Once the file is zipped, you can drag and drop it onto the chrome://extensions 
+│ -page to install the extension.
+│ -
+│ -You can also load the unpacked project in development mode, if your browser 
+│ -doesn't support drag and drop:
+│ -- https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked
+│ +page to install the extension.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/emoji-width-google-meet-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      ],
+│ │      "description": "Increases the width of the emoji button in Google Meet to avoid accidental hand raises",
+│ │      "icons": {
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Emoji Button Width for Google Meet",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/emoji-width-google-meet-chrome-extension/scripts
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/content.js
+│ ├── +++ /workspace/pipeline_output/emoji-width-google-meet-chrome-extension/scripts/content.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,11 +1,12 @@
+│ │  76617220666f756e64203d2066616c73653b0a0a736574496e74657276616c28
+│ │  2829203d3e207b0a2020202069662028666f756e6429207b0a20202020202020
+│ │  2072657475726e3b0a202020207d0a20202020646f63756d656e742e71756572
+│ │  7953656c6563746f72416c6c2822692e676f6f676c652d6d6174657269616c2d
+│ │  69636f6e7322292e666f72456163682876203d3e207b0a20202020202020206c
+│ │  65742073203d20762e74657874436f6e74656e742e7472696d28293b0a202020
+│ │ +2020202020636f6e736f6c652e6c6f67282774657874436f6e74656e74272c20
+│ │ +73290a2020202020202020696620287320213d3d20226d6f6f642229207b0a20
+│ │ +202020202020202020202072657475726e3b0a20202020202020207d0a202020
+│ │ +2020202020762e636c6f736573742822627574746f6e22292e7374796c652e77
+│ │ +69647468203d20273130307078273b0a2020202020202020666f756e64203d20
+│ │ +747275653b0a202020207d293b0a7d2c2031303030293b0a
+│ │ -2020202020696620287320213d3d20226d6f6f642229207b0a20202020202020
+│ │ -202020202072657475726e3b0a20202020202020207d0a202020202020202076
+│ │ -2e636c6f736573742822627574746f6e22292e7374796c652e7769647468203d
+│ │ -20273130307078273b0a2020202020202020666f756e64203d20747275653b0a
+│ │ -202020207d293b0a7d2c2031303030293b0a

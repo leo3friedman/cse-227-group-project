@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Youtube-Audio-Fixer
+├── file list
+│ @@ -1,12 +1,15 @@
+│ +._StereoFixer.js
+│ +.git
+│ +LICENSE
+│ +README.md
+│  StereoFixer.css
+│  StereoFixer.js
+│ -_metadata
+│  jquery.js
+│  manifest.json
+│ -urlmatchworksonrefresh.txt
+│ +package-lock.json
+│  yt128x128.png
+│  yt16x16.png
+│  yt256x256.png
+│  yt32x32.png
+│  yt512x512.png
+│  yt64x64.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Youtube-Audio-Fixer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │          "64": "yt64x64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Youtube Audio Fixer",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

@@ -1,0 +1,70 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrom-extension
+├── file list
+│ @@ -1,12 +1,8 @@
+│ -LICENSE
+│ -README.md
+│ -_metadata
+│ -background.js
+│ -coinlogo.png
+│ +.git
+│ +.idea
+│ +contentScript.js
+│ +img
+│ +index.html
+│  manifest.json
+│ -popup.html
+│ -popup.js
+│ -settings.css
+│ -settings.html
+│ -settings.js
+│ -styles.css
+│ +package-lock.json
+│ +popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrom-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,29 +1,31 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_icon": "coinlogo.png",
+│ │ -        "default_popup": "popup.html"
+│ │ -    },
+│ │ -    "background": {
+│ │ -        "service_worker": "background.js"
+│ │ +        "default_icon": "./img/highlight.png",
+│ │ +        "default_popup": "./popup/popup.html"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "styles.css"
+│ │ +            "js": [
+│ │ +                "contentScript.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "<all_urls>"
+│ │ +                "http://*/*",
+│ │ +                "https://*/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "MicroStrategy Stock Price Tracker",
+│ │ +    "description": "\ud575\uc2ec\ub2e8\uc5b4\ub97c \ub4dc\ub798\uadf8 \ud568\uc73c\ub85c\uc368 \uac00\ub3c5\uc131\uc744 \ub192\uc774\ub2e4.",
+│ │ +    "icons": {
+│ │ +        "128": "./img/highlight.png",
+│ │ +        "16": "./img/highlight.png",
+│ │ +        "32": "./img/highlight.png",
+│ │ +        "48": "./img/highlight.png"
+│ │ +    },
+│ │      "manifest_version": 3,
+│ │ -    "name": "MicroStrategy Share Hunter",
+│ │ +    "name": "Highlighter",
+│ │      "permissions": [
+│ │ -        "action",
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

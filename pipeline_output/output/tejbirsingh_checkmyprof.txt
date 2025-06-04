@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/checkmyprof
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  bootstrap.min.css
+│  checkmyprof screenshots
+│  display.css
+│  icons
+│  institutions
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/checkmyprof/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -92,10 +92,9 @@
+│ │              "38": "icons/38x38.png"
+│ │          },
+│ │          "default_title": "CheckMyProf"
+│ │      },
+│ │      "permissions": [
+│ │          "http://www.ratemyprofessors.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.3"
+│ │  }

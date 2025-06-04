@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/FPB
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  content.js
+│  icon-128.png
+│  icon-16.png
+│  icon-48.png
+│  jquery.min.js
+│  manifest.json
+│  nav-bar.html
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/FPB/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "128": "icon-128.png",
+│ │          "16": "icon-16.png",
+│ │          "48": "icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "FPB - Remove Politics from Facebook",
+│ │      "short_name": "FPB",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3.4"
+│ │  }

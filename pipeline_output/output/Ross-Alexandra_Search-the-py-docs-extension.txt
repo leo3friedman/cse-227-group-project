@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Search-the-py-docs-extension
+├── file list
+│ @@ -1,11 +1,14 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│ +Usage Screenshots
+│  background.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Search-the-py-docs-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "webRequest",
+│ │          "*://docs.python.org/",
+│ │          "webRequestBlocking"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }

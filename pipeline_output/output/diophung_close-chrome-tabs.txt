@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/close-chrome-tabs
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  css
+│  images
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/close-chrome-tabs/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,10 +35,9 @@
+│ │          "48": "images/tabs_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Keyboard shortcuts to manage Chrome tabs",
+│ │      "options_page": "options.html",
+│ │      "permissions": [],
+│ │      "short_name": "Shortcuts to manage tabs",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3.2"
+│ │  }

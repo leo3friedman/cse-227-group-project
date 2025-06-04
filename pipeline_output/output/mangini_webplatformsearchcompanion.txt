@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/webplatformsearchcompanion
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  logo-128.png
+│  logo-16.png
+│  logo.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/webplatformsearchcompanion/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "name": "WebPlatform Search Companion",
+│ │      "omnibox": {
+│ │          "keyword": "wpd"
+│ │      },
+│ │      "permissions": [
+│ │          "http://docs.webplatform.org/*"
+│ │      ],
+│ │ -    "update_url": "http://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

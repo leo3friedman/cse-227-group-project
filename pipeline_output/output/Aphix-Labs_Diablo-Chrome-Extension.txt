@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Diablo-Chrome-Extension
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  css
+│  icons
+│  img
+│  js
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Diablo-Chrome-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,13 +23,12 @@
+│ │      "permissions": [
+│ │          "http://eu.battle.net/d3/*",
+│ │          "http://us.battle.net/d3/*",
+│ │          "http://kr.battle.net/d3/*",
+│ │          "http://tw.battle.net/d3/*",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "http://clients2.google.com/service/update2/crx",
+│ │      "version": "0.91",
+│ │      "web_accessible_resources": [
+│ │          "icons/icondiablo3.png"
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/Diablo-Chrome-Extension/src
+│ ├── file list
+│ │ @@ -1,3 +1,4 @@
+│ │ +.DS_Store
+│ │  bg
+│ │  browser_action
+│ │  options

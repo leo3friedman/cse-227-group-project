@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/remove-people-also-search-for-box
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  banner.png
+│  contentScript.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/remove-people-also-search-for-box/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -197,10 +197,9 @@
+│ │                  "https://*.google.cat/search*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Removes the annoying layout-shifting \"People also search for\" box from Google Search results.",
+│ │      "manifest_version": 3,
+│ │      "name": "Remove \"People Also Search For\" Box",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

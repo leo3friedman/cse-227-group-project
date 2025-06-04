@@ -1,0 +1,87 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/replace_url
+├── file list
+│ @@ -1,4 +1,13 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +.vscode
+│ +README.md
+│ +d_ts
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  screenshot
+│ -src
+│ +src
+│ +tsconfig.json
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/replace_url/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "options_ui": {
+│ │          "page": "./src/self/html/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/replace_url/src
+│ │   --- /workspace/pipeline_output/chromex_data/src/gen
+│ ├── +++ /workspace/pipeline_output/replace_url/src/gen
+│ │ ├── file list
+│ │ │ @@ -1,5 +1,8 @@
+│ │ │  index.bundle.js
+│ │ │ +index.bundle.js.map
+│ │ │  options.bundle.js
+│ │ │  options.bundle.js.LICENSE.txt
+│ │ │ +options.bundle.js.map
+│ │ │  options_style.bundle.js
+│ │ │ -options_style.css
+│ │ │ +options_style.css
+│ │ │ +options_style.css.map
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/gen/index.bundle.js
+│ │ ├── +++ /workspace/pipeline_output/replace_url/src/gen/index.bundle.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -3,8 +3,9 @@
+│ │ │  72656e7457696e646f773a21302c6163746976653a21307d2c28653d3e7b6368
+│ │ │  726f6d652e73746f726167652e73796e632e6765742828743d3e7b636f6e7374
+│ │ │  20723d742e73657474696e67733b6c657420633d655b305d2e75726c3b666f72
+│ │ │  286c657420653d303b653c722e6c656e6774683b652b2b297b636f6e73742074
+│ │ │  3d725b655d3b21303d3d3d742e656e61626c6564262628633d632e7265706c61
+│ │ │  6365286e65772052656745787028742e6265666f7265292c742e616674657229
+│ │ │  297d6368726f6d652e746162732e757064617465287b75726c3a637d297d2929
+│ │ │ -7d29297d29293b
+│ │ │ +7d29297d29293b0a2f2f2320736f757263654d617070696e6755524c3d696e64
+│ │ │ +65782e62756e646c652e6a732e6d6170
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/gen/options.bundle.js
+│ │ ├── +++ /workspace/pipeline_output/replace_url/src/gen/options.bundle.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -2864,8 +2864,10 @@
+│ │ │  657474696e67732c693d6e657720742872293b766f696420303d3d3d692e7365
+│ │ │  7474696e67737c7c692e726573746f7253657474696e677328292c6528646f63
+│ │ │  756d656e74292e6f6e2822636c69636b222c222e64656c657465222c2866756e
+│ │ │  6374696f6e28297b692e64656c65746553657474696e67732874686973297d29
+│ │ │  292c6528222361646422292e6f6e2822636c69636b222c2866756e6374696f6e
+│ │ │  28297b692e63726561746553657474696e677328297d29292c65282223736176
+│ │ │  6522292e6f6e2822636c69636b222c2866756e6374696f6e28297b692e736176
+│ │ │ -6553657474696e677328297d29297d29297d2928297d2928293b
+│ │ │ +6553657474696e677328297d29297d29297d2928297d2928293b0a2f2f232073
+│ │ │ +6f757263654d617070696e6755524c3d6f7074696f6e732e62756e646c652e6a
+│ │ │ +732e6d6170
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/gen/options_style.css
+│ │ ├── +++ /workspace/pipeline_output/replace_url/src/gen/options_style.css
+│ │ │ @@ -1,3 +1,5 @@
+│ │ │  .column {
+│ │ │  	text-align: center;
+│ │ │  }
+│ │ │ +
+│ │ │ +/*# sourceMappingURL=options_style.css.map*/

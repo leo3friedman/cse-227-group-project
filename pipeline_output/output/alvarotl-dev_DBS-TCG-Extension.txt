@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DBS-TCG-Extension
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -_metadata
+│ +.git
+│  assets
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DBS-TCG-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │          "128": "assets/icon_128.png",
+│ │          "16": "assets/icon_16.png",
+│ │          "32": "assets/icon_32.png",
+│ │          "48": "assets/icon_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "DBS TCG Quick Search",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.3"
+│ │  }

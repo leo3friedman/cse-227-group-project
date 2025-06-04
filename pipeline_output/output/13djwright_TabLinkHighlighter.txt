@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TabLinkHighlighter
+├── file list
+│ @@ -1,9 +1,11 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  content.js
+│  icon128.png
+│  icon48.png
+│  jscolor
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│ +tabhighlighter.final.zip
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TabLinkHighlighter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │      "name": "Tab-Link Highlighter",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "TLH",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

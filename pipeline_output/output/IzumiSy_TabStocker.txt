@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TabStocker
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│  assets
+│  html
+│  jquery
+│  js
+│  manifest.json
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TabStocker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │          "contextMenus",
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "tabs",
+│ │          "http://*/",
+│ │          "https://*/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.13.0"
+│ │  }

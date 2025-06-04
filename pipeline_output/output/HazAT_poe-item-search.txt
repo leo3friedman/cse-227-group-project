@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/poe-item-search
+├── file list
+│ @@ -1,5 +1,14 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  assets
+│  dist
+│ -manifest.json
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +scripts
+│ +src
+│ +tests
+│ +vite.config.js
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/poe-item-search/assets
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +demo.png
+│ │  logo128.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/poe-item-search/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      ],
+│ │      "description": "Paste your item from ingame into the input field to search for it.",
+│ │      "icons": {
+│ │          "128": "assets/logo128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "PoE Item Search",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

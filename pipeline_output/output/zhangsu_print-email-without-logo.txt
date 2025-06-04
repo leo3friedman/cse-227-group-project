@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/print-email-without-logo
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│  css
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/print-email-without-logo/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,13 +11,12 @@
+│ │          }
+│ │      ],
+│ │      "default_locale": "en",
+│ │      "description": "Print email content without email service provider logo for Gmail\u2122.",
+│ │      "homepage_url": "https://github.com/zhangsu/print-email-without-logo",
+│ │      "manifest_version": 2,
+│ │      "name": "Print email without logo",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.5",
+│ │      "web_accessible_resources": [
+│ │          "css/hide_logo.css"
+│ │      ]
+│ │  }

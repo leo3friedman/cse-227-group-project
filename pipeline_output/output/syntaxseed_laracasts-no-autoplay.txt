@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/laracasts-no-autoplay
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│  LICENSE
+│ +Laracasts-No-Autoplay.zip
+│  README.md
+│ -_metadata
+│  common.js
+│  images
+│  manifest.json
+│  onload.js
+│ +package-lock.json
+│  popup.html
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/laracasts-no-autoplay/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │          "16": "images/lcna_16.png",
+│ │          "32": "images/lcna_32.png",
+│ │          "48": "images/lcna_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "LaraCasts No Autoplay",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5.1"
+│ │  }

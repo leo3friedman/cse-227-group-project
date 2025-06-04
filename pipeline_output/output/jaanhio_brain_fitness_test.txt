@@ -1,0 +1,91 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/brain_fitness_test
+├── file list
+│ @@ -1,7 +1,9 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│  index.html
+│  index.js
+│  manifest.json
+│ +package-lock.json
+│  readme.md
+│  static
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/brain_fitness_test/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -6,15 +6,14 @@
+│      <meta name="theme-color" content="#000000">
+│      <link href="styles.css" rel="stylesheet">
+│      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+│        crossorigin="anonymous">
+│     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+│      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+│      <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon">
+│ -    <title>Brain Fitness Test</title>
+│    </head>
+│    <body>
+│      <div>
+│        <div class="header">
+│          <h1 id="title">Test Your Memory!</h1>
+│          <div>
+│            <p id="subheader"></p>
+│ @@ -98,15 +97,15 @@
+│          <button id="reset" class="btn btn-outline-danger">RESET</button>
+│          <button id="instruct" type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#instructions">
+│            How To Play
+│          </button>
+│        </div>
+│        <!--end of control button area-->
+│        <footer>
+│ -        <a href="https://github.com/jaanhio/brain_fitness_test" target="_blank"><i class="fab fa-github"></i></a>
+│ +        <a href="https://github.com/jaanhio/gawdisg_project1_memorygame" target="_blank"><i class="fab fa-github"></i></a>
+│        </footer>
+│      </div>
+│      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+│        crossorigin="anonymous"></script>
+│      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+│        crossorigin="anonymous"></script>
+│      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/brain_fitness_test/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -3,19 +3,18 @@
+│ │      "browser_action": {
+│ │          "default_title": "Have a good day"
+│ │      },
+│ │      "chrome_url_overrides": {
+│ │          "newtab": "index.html"
+│ │      },
+│ │      "content_security_policy": "script-src 'self' https://code.jquery.com/jquery-3.2.1.slim.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js https://use.fontawesome.com/releases/v5.0.8/js/all.js object-src 'self'",
+│ │ -    "description": "Keep your brain fit! Put your memory to the test!",
+│ │ +    "description": "Taking a break from work? Why not test your memory for awhile?",
+│ │      "icons": {
+│ │          "48": "./static/brain.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Brain Fitness Test",
+│ │ +    "name": "Test Your Memory",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/readme.md
+├── +++ /workspace/pipeline_output/brain_fitness_test/readme.md
+│ @@ -1,13 +1,12 @@
+│  # WDI Project #1: The Game
+│  
+│  This is a memory game that requires users to remember the light up sequence and input the correct sequence correctly in order to proceed to next level.
+│  
+│ -DEMO: https://jaanhio.github.io/brain_fitness_test/
+│ -Chrome extension:
+│ +DEMO: https://jaanhio.github.io/test_your_memory/
+│  
+│  Further details on project scope: https://github.com/wdi-sg/wdi-better-underdog/tree/master/project-1
+│  
+│  ---
+│  
+│  # Design process

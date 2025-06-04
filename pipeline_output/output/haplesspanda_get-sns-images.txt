@@ -1,0 +1,174 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/get-sns-images
+├── file list
+│ @@ -1,6 +1,14 @@
+│ -_metadata
+│ -dist
+│ +.git
+│ +.gitignore
+│ +.prettierrc
+│ +LICENSE
+│ +README.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│ +package.json
+│  popup.html
+│ -settings.html
+│ +settings.html
+│ +src
+│ +tsconfig.json
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/get-sns-images/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │          "open_in_tab": true,
+│ │          "page": "settings.html"
+│ │      },
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1.8"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/get-sns-images/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,42 +1,42 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -  <head>
+│ -    <style>
+│ -      body {
+│ -        font-size: 75%;
+│ -      }
+│ -    
+│ -      button {
+│ -        height: 24px;
+│ -        width: 100px;
+│ -        margin: 4px;
+│ -        display: block;
+│ -      }
+│ -      
+│ -      #autodetect, #all-options {
+│ -        display: none;
+│ -      }
+│ -      
+│ -      #see-all-options {
+│ -        text-decoration: underline;
+│ -        text-align: center;
+│ -        cursor: pointer;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <div id="autodetect">
+│ -      <button id="autodetected-button"></button>
+│ -      <div id="see-all-options" tabindex="0">See all options</div>
+│ -    </div>
+│ -    <div id="all-options">
+│ -      <button id="twitter-button">Twitter</button>
+│ -      <button id="tweetdeck-button">TweetDeck</button>
+│ -      <button id="instagram-button">Instagram</button>
+│ -      <button id="tistory-button">Tistory</button>
+│ -      <button id="naver-post-button">Naver Post</button>
+│ -      <button id="weibo-button">Weibo</button>
+│ -    </div>
+│ -    <script src="dist/popup.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +  <head>
+│ +    <style>
+│ +      body {
+│ +        font-size: 75%;
+│ +      }
+│ +    
+│ +      button {
+│ +        height: 24px;
+│ +        width: 100px;
+│ +        margin: 4px;
+│ +        display: block;
+│ +      }
+│ +      
+│ +      #autodetect, #all-options {
+│ +        display: none;
+│ +      }
+│ +      
+│ +      #see-all-options {
+│ +        text-decoration: underline;
+│ +        text-align: center;
+│ +        cursor: pointer;
+│ +      }
+│ +    </style>
+│ +  </head>
+│ +  <body>
+│ +    <div id="autodetect">
+│ +      <button id="autodetected-button"></button>
+│ +      <div id="see-all-options" tabindex="0">See all options</div>
+│ +    </div>
+│ +    <div id="all-options">
+│ +      <button id="twitter-button">Twitter</button>
+│ +      <button id="tweetdeck-button">TweetDeck</button>
+│ +      <button id="instagram-button">Instagram</button>
+│ +      <button id="tistory-button">Tistory</button>
+│ +      <button id="naver-post-button">Naver Post</button>
+│ +      <button id="weibo-button">Weibo</button>
+│ +    </div>
+│ +    <script src="dist/popup.js"></script>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/settings.html
+├── +++ /workspace/pipeline_output/get-sns-images/settings.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,23 +1,23 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -  <head>
+│ -    <style>
+│ -      textarea {
+│ -        height: 500px;
+│ -        width: 700px;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <h1>Edit schedule</h1>
+│ -    <div id="edit-schedule-section">
+│ -      <textarea id="schedule-textarea"></textarea>
+│ -      <div id="schedule-button-container">
+│ -        <button id="save-schedule-button">Save schedule</button>
+│ -      </div>
+│ -    </div>
+│ -    <h1>Saved schedule</h1>
+│ -    <div id="rendered-schedule"></div>
+│ -    <script src="dist/settings.js"></script>
+│ -  </body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +  <head>
+│ +    <style>
+│ +      textarea {
+│ +        height: 500px;
+│ +        width: 700px;
+│ +      }
+│ +    </style>
+│ +  </head>
+│ +  <body>
+│ +    <h1>Edit schedule</h1>
+│ +    <div id="edit-schedule-section">
+│ +      <textarea id="schedule-textarea"></textarea>
+│ +      <div id="schedule-button-container">
+│ +        <button id="save-schedule-button">Save schedule</button>
+│ +      </div>
+│ +    </div>
+│ +    <h1>Saved schedule</h1>
+│ +    <div id="rendered-schedule"></div>
+│ +    <script src="dist/settings.js"></script>
+│ +  </body>
+│  </html>

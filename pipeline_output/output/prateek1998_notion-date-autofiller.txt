@@ -1,0 +1,64 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/notion-date-autofiller
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ +build
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/notion-date-autofiller/README.md
+│┄ Ordering differences only
+│ @@ -1,2 +1,2 @@
+│ -# notion-date-autofiller
+│ -link: https://chrome.google.com/webstore/detail/notion-date-filler/fejlopadadjhidmmmggdkbipcpgedgjp
+│ +# notion-date-autofiller
+│ +link: https://chrome.google.com/webstore/detail/notion-date-filler/fejlopadadjhidmmmggdkbipcpgedgjp
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/notion-date-autofiller/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,26 +1,25 @@
+│ │  {
+│ │      "action": {
+│ │          "default_icon": {
+│ │ -            "128": "images/calendar-128.png",
+│ │ -            "16": "images/calendar-16.png",
+│ │ -            "32": "images/calendar-32.png",
+│ │ -            "48": "images/calendar-48.png"
+│ │ +            "128": "/images/calendar-128.png",
+│ │ +            "16": "/images/calendar-16.png",
+│ │ +            "32": "/images/calendar-32.png",
+│ │ +            "48": "/images/calendar-48.png"
+│ │          },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ -    "content_security_policy": {
+│ │ -        "object-src": "'none'",
+│ │ -        "script-src": "'self'"
+│ │ -    },
+│ │ +    "content_security_policy": "script-src 'self' 'sha256-fdAfMKZtCTRPKMRznGwonJHC++vCCrQS7XFnVrzSXAE=' 'sha256-YD8w9VLrdvqI5/tFVmpT+1337ly+e/JvPrkRxYZo/w4='; object-src 'self';",
+│ │      "description": "This Extension helps you to autofill the date in your Notion database.",
+│ │      "icons": {
+│ │ -        "128": "images/calendar-128.png",
+│ │ -        "16": "images/calendar-16.png",
+│ │ -        "32": "images/calendar-32.png",
+│ │ -        "48": "images/calendar-48.png"
+│ │ +        "128": "/images/calendar-128.png",
+│ │ +        "16": "/images/calendar-16.png",
+│ │ +        "32": "/images/calendar-32.png",
+│ │ +        "48": "/images/calendar-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Notion Date Filler",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "activeTab"
+│ │ +    ],
+│ │      "version": "1.0.2"
+│ │  }

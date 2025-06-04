@@ -1,0 +1,282 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/social_stream
+├── file list
+│ @@ -1,20 +1,73 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.htmlhintrc
+│ +.prettierrc
+│ +CNAME
+│ +LICENSE
+│ +README.md
+│  TOS.md
+│ -_metadata
+│  ai.js
+│ +ai.md
+│ +api.md
+│ +audio
+│ +automix.html
+│  background.html
+│  background.js
+│ +badwords_sample.txt
+│ +baretempate.html
+│ +battle.html
+│ +beta.html
+│ +bot.html
+│ +chatbot.html
+│  chathistory.html
+│  chathistory.js
+│ +cohost.html
+│ +confetti.html
+│ +content.html
+│ +createtestmessage.html
+│ +credits.html
+│  custom_sample.js
+│  db.js
+│ +dock.html
+│ +emotes.html
+│ +featured.html
+│ +generic.png
+│ +gif.html
+│ +goodwords_sample.txt
+│ +hype.html
+│  icons
+│ +index.html
+│  input.html
+│ +kofi.png
+│ +landing.html
+│  manifest.json
+│ +media
+│ +package-lock.json
+│ +poll.html
+│  popup.html
+│  popup.js
+│  privacy.html
+│ +sample_midi_messages.txt
+│ +sample_wss_source.html
+│ +sampleapi.html
+│ +sampleavatar.png
+│ +sampleemote.html
+│ +samplefeatured.html
+│ +sampleoverlay.html
+│ +scoreboard.html
+│ +seo.md
+│  service_worker.js
+│  settings
+│  sources
+│ +themes
+│  thirdparty
+│ -vercel.js
+│ +ticker.html
+│ +tipjar.html
+│ +tipjar_wip.html
+│ +translations
+│ +tts.html
+│ +unknown.png
+│ +vercel.js
+│ +waitlist.html
+│ +wordcloud.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/social_stream/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,14 +30,30 @@
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.bigo.tv/*"
+│ │              ]
+│ │          },
+│ │          {
+│ │              "js": [
+│ │ +                "./sources/chaturbate.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "https://chaturbate.com/*/"
+│ │ +            ]
+│ │ +        },
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "./sources/cherrytv.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "https://cherry.tv/*"
+│ │ +            ]
+│ │ +        },
+│ │ +        {
+│ │ +            "js": [
+│ │                  "./sources/beamstream.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://beamstream.gg/*/chat"
+│ │              ]
+│ │          },
+│ │          {
+│ │ @@ -369,14 +385,22 @@
+│ │                  "https://loco.gg/streamers/*",
+│ │                  "https://*.loco.com/*",
+│ │                  "https://loco.com/streamers/*"
+│ │              ]
+│ │          },
+│ │          {
+│ │              "js": [
+│ │ +                "./sources/joystick.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "https://joystick.tv/u/*/chat"
+│ │ +            ]
+│ │ +        },
+│ │ +        {
+│ │ +            "js": [
+│ │                  "./sources/rooter.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://*.rooter.gg/*"
+│ │              ]
+│ │          },
+│ │          {
+│ │ @@ -386,14 +410,22 @@
+│ │              "matches": [
+│ │                  "https://www.x.com/*",
+│ │                  "https://x.com/*"
+│ │              ]
+│ │          },
+│ │          {
+│ │              "js": [
+│ │ +                "./sources/static/claude.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "https://claude.ai/*"
+│ │ +            ]
+│ │ +        },
+│ │ +        {
+│ │ +            "js": [
+│ │                  "./sources/x.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.twitter.com/*",
+│ │                  "https://twitter.com/*",
+│ │                  "https://x.com/*/chat",
+│ │                  "https://www.x.com/*/chat"
+│ │ @@ -961,15 +993,18 @@
+│ │      "description": "Powerful tooling to engage live chat on Youtube, Twitch, Zoom, and more.",
+│ │      "homepage_url": "http://socialstream.ninja/",
+│ │      "host_permissions": [
+│ │          "http://localhost:11434/api/generate",
+│ │          "http://127.0.0.1:11434/api/generate",
+│ │          "https://zap.stream/*",
+│ │          "https://www.bigo.tv/*",
+│ │ +        "https://claude.ai/*",
+│ │          "https://*.webinargeek.com/webinar/*",
+│ │ +        "https://chaturbate.com/*/",
+│ │ +        "https://cherry.tv/*",
+│ │          "https://beamstream.gg/*/chat",
+│ │          "https://socialstream.ninja/sources/websocket/*",
+│ │          "https://socialstream.ninja/websocket/*",
+│ │          "https://cozy.tv/*",
+│ │          "https://play.afreecatv.com/*?vtype=chat",
+│ │          "https://kiwiirc.com/nextclient/*",
+│ │          "https://webchat.quakenet.org/*",
+│ │ @@ -1075,14 +1110,15 @@
+│ │          "https://www.nonolive.com/*",
+│ │          "https://www.tradingview.com/streams/*",
+│ │          "https://app.chime.aws/meetings/*",
+│ │          "https://*.loco.gg/*",
+│ │          "https://loco.gg/*",
+│ │          "https://*.loco.com/*",
+│ │          "https://loco.com/*",
+│ │ +        "https://joystick.tv/u/*/chat",
+│ │          "https://www.buzzit.ca/event/*/chat",
+│ │          "https://*.floatplane.com/popout/livechat",
+│ │          "https://www.threads.net/*",
+│ │          "https://*.bandlab.com/*",
+│ │          "https://vkplay.live/*/only-chat?*",
+│ │          "https://live.vkplay.ru/*/only-chat?*",
+│ │          "https://live.vkvideo.ru/*/only-chat",
+│ │ @@ -1125,10 +1161,9 @@
+│ │      "permissions": [
+│ │          "webNavigation",
+│ │          "notifications",
+│ │          "storage",
+│ │          "debugger",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.9.8"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/settings
+├── +++ /workspace/pipeline_output/social_stream/settings
+│ ├── file list
+│ │ @@ -1,2 +1,5 @@
+│ │ +config_0.json
+│ │ +config_linux_0.json
+│ │ +config_mac_0.json
+│ │  options.html
+│ │  options.js
+│   --- /workspace/pipeline_output/chromex_data/sources
+├── +++ /workspace/pipeline_output/social_stream/sources
+│ ├── file list
+│ │ @@ -8,31 +8,35 @@
+│ │  bilibili.js
+│ │  bilibilicom.js
+│ │  boltplus.js
+│ │  buzzit.js
+│ │  castr.js
+│ │  cbox.js
+│ │  chatroll.js
+│ │ +chaturbate.js
+│ │ +cherrytv.js
+│ │  chime.js
+│ │  chzzk.js
+│ │  circle.js
+│ │  cloudhub.js
+│ │  cozy.js
+│ │  crowdcast.js
+│ │  discord.js
+│ │  dlive.js
+│ │  estrim.js
+│ │  facebook.js
+│ │  fc2.js
+│ │  floatplane.js
+│ │  gala.js
+│ │ +graveyard
+│ │  images
+│ │  instafeed.js
+│ │  instagram.js
+│ │  jaco.js
+│ │ +joystick.js
+│ │  kick.js
+│ │  kick_new.js
+│ │  kiwiirc.js
+│ │  linkedin.js
+│ │  livepush.js
+│ │  livestorm.js
+│ │  livestream.js
+│ │   --- /workspace/pipeline_output/chromex_data/sources/images
+│ ├── +++ /workspace/pipeline_output/social_stream/sources/images
+│ │ ├── file list
+│ │ │ @@ -7,14 +7,16 @@
+│ │ │  bilibili.png
+│ │ │  bmac.png
+│ │ │  boltplus.png
+│ │ │  buzzit.png
+│ │ │  castr.png
+│ │ │  cbox.png
+│ │ │  chatroll.png
+│ │ │ +chaturbate.png
+│ │ │ +cherrytv.png
+│ │ │  chime.png
+│ │ │  chzzk.png
+│ │ │  cloudhub.png
+│ │ │  cozy.png
+│ │ │  crowdcast.png
+│ │ │  discord.png
+│ │ │  dlive.png
+│ │   --- /workspace/pipeline_output/chromex_data/sources/static
+│ ├── +++ /workspace/pipeline_output/social_stream/sources/static
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,5 @@
+│ │ │ +claude.js
+│ │ │  threads.js
+│ │ │  twitch_points.js
+│ │ │  x.js
+│ │ │  youtube.js

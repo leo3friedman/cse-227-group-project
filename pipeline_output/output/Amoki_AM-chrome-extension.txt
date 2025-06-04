@@ -1,0 +1,73 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AM-chrome-extension
+├── file list
+│ @@ -1,10 +1,7 @@
+│ -_metadata
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ +.git
+│ +icon.png
+│  jquery-2.0.3.min.js
+│  manifest.json
+│ -options.html
+│ -options.js
+│ +package-lock.json
+│  popup.html
+│ -script.js
+│ +send.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AM-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,24 +1,22 @@
+│ │  {
+│ │      "browser_action": {
+│ │ -        "default_icon": "icon48.png",
+│ │ +        "default_icon": "icon.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ -    "description": "Remote for Amoki-Music",
+│ │ -    "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ +    "description": "Remote for Amoki-Musique",
+│ │ +    "externally_connectable": {
+│ │ +        "ids": [
+│ │ +            "*"
+│ │ +        ],
+│ │ +        "matches": [
+│ │ +            "http://musique.amoki.fr/*",
+│ │ +            "http://127.0.0.1:8000/*"
+│ │ +        ]
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Amoki-Music",
+│ │ -    "options_page": "options.html",
+│ │ +    "name": "Amoki-Muisque",
+│ │      "permissions": [
+│ │ -        "tabs",
+│ │ -        "http://*/*",
+│ │ -        "https://*/*",
+│ │ -        "chrome://favicon/",
+│ │ -        "storage"
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/AM-chrome-extension/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,7 +1,10 @@
+│  <!doctype html>
+│  <html>
+│    <head>
+│ +    <title>Add your music to the queue</title>
+│ +    <style>
+│ +    </style>
+│      <script src='jquery-2.0.3.min.js'></script>
+│ -    <script src="script.js"></script>
+│ +    <script src="send.js"></script>
+│    </head>
+│  </html>

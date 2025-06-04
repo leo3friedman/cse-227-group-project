@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cloud-disk-player-helper
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.git
+│ +LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  css
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  pnacl
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cloud-disk-player-helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,15 +32,14 @@
+│ │      "icons": {
+│ │          "128": "icons/128.png",
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_clouddiskplayer_name__",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.6",
+│ │      "web_accessible_resources": [
+│ │          "icons/48.png",
+│ │          "pnacl/Release/media_player.nmf",
+│ │          "pnacl/Release/media_player.pexe"
+│ │      ]
+│ │  }

@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/slack-emoji-on-github
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  content.css
+│  content.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/slack-emoji-on-github/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,10 +32,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Slack\u7d75\u6587\u5b57onGithub",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "webRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/itso_capture
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│  background.html
+│  icons
+│  manifest.json
+│  media
+│ +package-lock.json
+│  script
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/itso_capture/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,15 +27,14 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Itsosticky screen capture",
+│ │      "permissions": [
+│ │          "<all_urls>"
+│ │      ],
+│ │      "short_name": "Itsosticky",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1",
+│ │      "web_accessible_resources": [
+│ │          "media/icon_close.svg",
+│ │          "media/icon_select.svg",
+│ │          "media/logo_itsosticky.svg"
+│ │      ]
+│ │  }

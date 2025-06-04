@@ -1,0 +1,110 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cpython-bpo-linkify
+├── file list
+│ @@ -1,16 +1,5 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ -animeGirlImages.js
+│ -css
+│ -defaultOptions.js
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ -imageReplacer.js
+│ -images
+│ -incrementImageReplace.js
+│  manifest.json
+│ -ncageImages.js
+│ -options.html
+│ -options.js
+│ -rubberDuckImages.js
+│ +package-lock.json
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/cpython-bpo-linkify/README.md
+│ @@ -1,11 +1,23 @@
+│ -You may be familiar with the brilliant Chrome extension known as Ncage, which replaces all images on webpages with pictures of the esteemed American actor Nicolas Cage. While this is humorous for a short time, victims quickly realize that they've been pranked and promptly disable the extension, ending the fun prematurely.
+│ -
+│ -Enter nCage+! This extension allows you to implement a more subtle strategy by specifying the percentage of images that you would like to be replaced, rather than bluntly replacing all images. Add this extension to a friend or co-worker's browser and laugh as Nicolas Cage randomly shows up while they browse the web. It could be days or even weeks before they realize that something is up!
+│ -
+│ -This evolution of the original concept includes a number of beneficial upgrades:
+│ -- customizable image replacement probability
+│ -- Image references that won't break over time
+│ -- Additional themed libraries. Choose from "Nicolas Cage", "Rubber Ducks", "Anime Girls", or "Censored" content.
+│ -- Improved image resizing and scaling
+│ -
+│ -You can try it here: https://chrome.google.com/webstore/detail/ncage%20/blenoallcdijagcfhdbidjiimoandabh
+│ +# cpython-bpo-linkify
+│ +
+│ +An extension that finds `bpo-NNNN` annonations and converts them to
+│ +bugs.python.org links.
+│ +
+│ +## Installation
+│ +
+│ +You can install the extension from Chrome Web Store:
+│ +
+│ +* https://chrome.google.com/webstore/detail/cpython-bpo-linkify/dgmcbbjkjieccldohpmmnpjloadhmdao
+│ +
+│ +## Features
+│ +
+│ +Currently, it works on the following pages:
+│ +
+│ +* Pull request - Example: https://github.com/python/cpython/pull/12
+│ +* Commit detail - Example: https://github.com/python/cpython/commit/331bbe6aaa74f8d28f27b79e8c6a0c35dbe9a6ab
+│ +
+│ +### Supported formats
+│ +
+│ +* `bpo-NNNN`
+│ +* `Issue #NNNN`
+│ +* `#NNNN`
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cpython-bpo-linkify/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,37 +1,18 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "service_worker": "incrementImageReplace.js"
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "css/style.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "ncageImages.js",
+│ │ -                "rubberDuckImages.js",
+│ │ -                "animeGirlImages.js",
+│ │ -                "imageReplacer.js"
+│ │ +                "src/linkify.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "run_at": "document_end"
+│ │ +                "https://github.com/python/cpython/commit/*",
+│ │ +                "https://github.com/python/cpython/pull/*"
+│ │ +            ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Prank your friends and co-workers with this extension that will replace their webpage images while they browse the internet!",
+│ │ -    "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "nCage+",
+│ │ -    "options_page": "options.html",
+│ │ -    "permissions": [
+│ │ -        "storage",
+│ │ -        "alarms"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.3.0"
+│ │ +    "description": "An extension that finds bpo-NNNN annonations and converts them to bugs.python.org links.",
+│ │ +    "homepage_url": "https://github.com/berkerpeksag/cpython-bpo-linkify",
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "cpython-bpo-linkify",
+│ │ +    "version": "0.1.0"
+│ │  }

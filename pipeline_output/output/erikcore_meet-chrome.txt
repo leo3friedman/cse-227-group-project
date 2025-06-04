@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/meet-chrome
+├── file list
+│ @@ -1,12 +1,14 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  ajax-loader.gif
+│  icon128.png
+│  icon16.png
+│  icon19.png
+│  icon48.png
+│  icon_active.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/meet-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "MeetChrome",
+│ │      "permissions": [
+│ │          "http://api.meetup.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

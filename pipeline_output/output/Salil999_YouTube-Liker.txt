@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/YouTube-Liker
+├── file list
+│ @@ -1,7 +1,9 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  content_script
+│ -icon.png
+│  icons
+│  manifest.json
+│  options
+│ +package-lock.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/YouTube-Liker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "YouTube Liker",
+│ │      "options_page": "options/options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

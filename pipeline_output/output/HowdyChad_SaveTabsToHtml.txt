@@ -1,0 +1,53 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SaveTabsToHtml
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  content-script.js
+│  html-template.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  tab-opener.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SaveTabsToHtml/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,15 +7,15 @@
+│ │          },
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "Save Tabs to HTML"
+│ │      },
+│ │      "background": {
+│ │          "service_worker": "background.js"
+│ │      },
+│ │ -    "description": "Save all open tabs to a nicely formatted HTML file. You can reopen all tabs from that saved file later.",
+│ │ +    "description": "Never lose your research tabs again! Save all open tabs to a nicely formatted HTML file. You can also open all tabs from that saved file later.",
+│ │      "host_permissions": [
+│ │          "<all_urls>"
+│ │      ],
+│ │      "icons": {
+│ │          "128": "images/icon128.png",
+│ │          "16": "images/icon16.png",
+│ │          "48": "images/icon48.png"
+│ │ @@ -25,15 +25,14 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "downloads",
+│ │          "activeTab",
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

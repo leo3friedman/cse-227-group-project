@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/snowflakes-extension
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  assets
+│  manifest.json
+│ +package-lock.json
+│  pages
+│  scripts
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/snowflakes-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,13 +18,12 @@
+│ │          "128": "assets/logo.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "SnowFlakes",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0",
+│ │      "web_accessible_resources": [
+│ │          "*.png"
+│ │      ]
+│ │  }

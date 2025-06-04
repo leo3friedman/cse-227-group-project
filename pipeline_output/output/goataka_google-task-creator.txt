@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/google-task-creator
+├── file list
+│ @@ -1,6 +1,11 @@
+│ +.git
+│ +.github
+│  LICENSE
+│ -_metadata
+│ +PRIVACY.md
+│ +README.md
+│ +README_EN.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│  screen
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/google-task-creator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "name": "Google Task Creator",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

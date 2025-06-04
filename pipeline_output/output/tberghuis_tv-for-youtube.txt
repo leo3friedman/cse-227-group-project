@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/tv-for-youtube
+├── file list
+│ @@ -1,7 +1,15 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +assets
+│  background.js
+│  content.css
+│  content.js
+│  fontawesome
+│  icons
+│ -manifest.json
+│ +inbox.txt
+│ +manifest.json
+│ +marketing.txt
+│ +package-lock.json
+│ +tv-for-youtube.zip
+│ +zip.sh
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/tv-for-youtube/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,14 +28,13 @@
+│ │      "manifest_version": 2,
+│ │      "name": "TV for Youtube",
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "https://www.youtube.com/tv"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3",
+│ │      "web_accessible_resources": [
+│ │          "fullscreen.png",
+│ │          "fontawesome/webfonts/fa-solid-900.woff2"
+│ │      ]
+│ │  }

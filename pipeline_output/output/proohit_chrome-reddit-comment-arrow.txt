@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-reddit-comment-arrow
+├── file list
+│ @@ -1,11 +1,22 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│  LICENSE.md
+│  README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  button.css
+│  content.js
+│ +global.d.ts
+│  images
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +rollup.config.mjs
+│ +set_version.py
+│ +src
+│ +tsconfig.check.json
+│ +tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-reddit-comment-arrow/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,15 +35,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extension_name__",
+│ │      "options_page": "popup.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.reddit.com/*",
+│ │                  "https://reddit.com/*",
+│ │                  "https://old.reddit.com/*"

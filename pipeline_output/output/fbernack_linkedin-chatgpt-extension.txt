@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/linkedin-chatgpt-extension
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│  content.js
+│  icon.png
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│ +store_icon.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/linkedin-chatgpt-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      ],
+│ │      "description": "Generates suggestions using ChatGPT for LinkedIn comments.",
+│ │      "manifest_version": 3,
+│ │      "name": "LinkedIDontKnowWhatToReplyAI",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.2"
+│ │  }

@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CCOfferClaimer
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CCOfferClaimer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │      "description": "Automatically accepts promotional offers from Chase and American Express automatically.",
+│ │      "icons": {
+│ │          "128": "images/icon128.png",
+│ │          "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Credit Card Offer Claimer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

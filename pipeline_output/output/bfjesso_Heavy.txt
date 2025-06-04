@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Heavy
+├── file list
+│ @@ -1,6 +1,4 @@
+│ -_metadata
+│ -audio
+│ -game
+│ -imgs
+│ +.git
+│ +README.md
+│  manifest.json
+│ -settingsMenu
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Heavy/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │          "48": "imgs/thumbnail.PNG"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Heavy Simulator",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5.0"
+│ │  }

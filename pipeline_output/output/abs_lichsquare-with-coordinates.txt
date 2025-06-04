@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/lichsquare-with-coordinates
+├── file list
+│ @@ -1,5 +1,5 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  content.js
+│ -lichsquare-icon-128.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/lichsquare-with-coordinates/README.md
+│ @@ -1,3 +1 @@
+│  lichsquare-with-coordinates
+│ -
+│ -![Lichsquare](https://github.com/abs/lichsquare-with-coordinates/assets/41166/527e6506-d1a8-488a-b76f-1dca1d806a97)
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/lichsquare-with-coordinates/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,17 +5,15 @@
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://lichess.org/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Show coordinates on each lichess.org chessboard square",
+│ │ -    "icons": {
+│ │ -        "128": "lichsquare-icon-128.png"
+│ │ -    },
+│ │ +    "description": "Show coordinates on each Lichess.org board square",
+│ │      "manifest_version": 3,
+│ │ -    "name": "Coordinates on Each Lichess Board Square",
+│ │ -    "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "Lichsquare with Coordinates Chrome Extension",
+│ │ +    "permissions": [
+│ │ +        "activeTab"
+│ │ +    ],
+│ │      "version": "1.0"
+│ │  }

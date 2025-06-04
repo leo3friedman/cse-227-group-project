@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/difywisdom
+├── file list
+│ @@ -1,12 +1,13 @@
+│ +.git
+│  README
+│ -_metadata
+│  background.js
+│  content.js
+│  icon.png
+│  icons
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/difywisdom/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -46,10 +46,9 @@
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

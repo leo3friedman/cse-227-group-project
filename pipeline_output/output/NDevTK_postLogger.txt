@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/postLogger
+├── file list
+│ @@ -1,5 +1,11 @@
+│ +.git
+│ +.github
+│  LICENSE
+│ +README.md
+│  WindowScript.js
+│ -_metadata
+│  icon48.png
+│ -manifest.json
+│ +manifest-firefox.json
+│ +manifest.json
+│ +origincheck.png
+│ +package-lock.json
+│ +preview.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/postLogger/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      ],
+│ │      "description": "Extension to log postMessage()",
+│ │      "icons": {
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "postLogger",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4"
+│ │  }

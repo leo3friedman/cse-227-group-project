@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HTML-Attribute-Value-Extension
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  execute.js
+│  icon.png
+│  lib
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HTML-Attribute-Value-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,10 +6,9 @@
+│ │      "description": "This extension finds the value of an attribute of an HTML element on the page.",
+│ │      "manifest_version": 2,
+│ │      "name": "HTML Attribute Value Finder",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

@@ -1,0 +1,109 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/colorization_chrome
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  common.js
+│  icon.png
+│  init.js
+│  main.js
+│  manifest.json
+│  off.png
+│ -on.png
+│ +on.png
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/colorization_chrome/README.md
+│┄ Ordering differences only
+│ @@ -1,15 +1,15 @@
+│ -# ติดตั้งได้ที่นี่
+│ -คลิก
+│ -https://chrome.google.com/webstore/detail/earthchie-ทำให้เว็บกลับมา/gagmhnbbnoealbgkjikehgpglhjbdkgf
+│ -
+│ -# Chrome Extension ที่ทำให้เว็บขาวดำกลับมามีสี
+│ -
+│ -หลังจากพระบาทสมเด็จพระเจ้าอยู่หัวภูมิพลอดุลยเดชสวรรคต เหล่าเว็บไซต์ในประเทศไทยต่างก็ปรับสีเว็บให้เป็นขาวดำเพื่อถวายความอาลัย
+│ -นั่นรวมไปถึงเว็บซื้อขายสินค้า เว็บอาหาร ด้วย ซึ่งการเป็นโหมดขาวดำของเว็บไซต์เหล่านี้ สร้างอุปสรรคต่อผู้เข้าชมเว็บ
+│ -ผมจึงได้จัดทำ Chrome Extension นี้ขึ้นมาเพื่อแก้ปัญหาดังกล่าว โดยไม่มีเจตนาไม่ถวายความอาลัยแต่อย่างใด
+│ -
+│ -อีกทั้ง ผมขอรณรงค์ให้เว็บไซต์ทั้งหลาย เลิกถวายความอาลัยผ่านการทำเว็บเป็นสีขาวดำ แต่เปลี่ยนไปคาดแถบถวายความอาลัยแทน
+│ -
+│ -## License
+│ -WTFPL 2.0 http://www.wtfpl.net/
+│ -
+│ +# ติดตั้งได้ที่นี่
+│ +คลิก
+│ +https://chrome.google.com/webstore/detail/earthchie-ทำให้เว็บกลับมา/gagmhnbbnoealbgkjikehgpglhjbdkgf
+│ +
+│ +# Chrome Extension ที่ทำให้เว็บขาวดำกลับมามีสี
+│ +
+│ +หลังจากพระบาทสมเด็จพระเจ้าอยู่หัวภูมิพลอดุลยเดชสวรรคต เหล่าเว็บไซต์ในประเทศไทยต่างก็ปรับสีเว็บให้เป็นขาวดำเพื่อถวายความอาลัย
+│ +นั่นรวมไปถึงเว็บซื้อขายสินค้า เว็บอาหาร ด้วย ซึ่งการเป็นโหมดขาวดำของเว็บไซต์เหล่านี้ สร้างอุปสรรคต่อผู้เข้าชมเว็บ
+│ +ผมจึงได้จัดทำ Chrome Extension นี้ขึ้นมาเพื่อแก้ปัญหาดังกล่าว โดยไม่มีเจตนาไม่ถวายความอาลัยแต่อย่างใด
+│ +
+│ +อีกทั้ง ผมขอรณรงค์ให้เว็บไซต์ทั้งหลาย เลิกถวายความอาลัยผ่านการทำเว็บเป็นสีขาวดำ แต่เปลี่ยนไปคาดแถบถวายความอาลัยแทน
+│ +
+│ +## License
+│ +WTFPL 2.0 http://www.wtfpl.net/
+│ +
+│   --- /workspace/pipeline_output/chromex_data/common.js
+├── +++ /workspace/pipeline_output/colorization_chrome/common.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,7 +1,7 @@
+│  76617220637373203d20646f63756d656e742e676574456c656d656e74427949
+│ -642827657874656e73696f6e5f677261797363616c6527293b0d0a6966282163
+│ -7373297b0d0a20202020637373203d20646f63756d656e742e63726561746545
+│ -6c656d656e7428227374796c6522293b0d0a202020206373732e6964203d2022
+│ -657874656e73696f6e5f677261797363616c65223b0d0a20202020646f63756d
+│ -656e742e686561642e617070656e644368696c6428637373293b0d0a7d0d0a63
+│ -73732e74797065203d2022746578742f637373223b
+│ +642827657874656e73696f6e5f677261797363616c6527293b0a696628216373
+│ +73297b0a20202020637373203d20646f63756d656e742e637265617465456c65
+│ +6d656e7428227374796c6522293b0a202020206373732e6964203d2022657874
+│ +656e73696f6e5f677261797363616c65223b0a20202020646f63756d656e742e
+│ +686561642e617070656e644368696c6428637373293b0a7d0a6373732e747970
+│ +65203d2022746578742f637373223b
+│   --- /workspace/pipeline_output/chromex_data/init.js
+├── +++ /workspace/pipeline_output/colorization_chrome/init.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,11 +1,11 @@
+│ -2866756e6374696f6e28297b0d0a202020200d0a202020206368726f6d652e73
+│ -746f726167652e6c6f63616c2e6765742827677261797363616c65272c206675
+│ -6e6374696f6e28726573756c74297b0d0a202020202020202067726179736361
+│ -6c65203d20726573756c742e677261797363616c65207c7c2066616c73653b0d
+│ -0a2020202020202020696628677261797363616c65297b0d0a20202020202020
+│ -20202020206373732e696e6e657248544d4c203d2022626f6479207b2066696c
+│ -7465723a20677261797363616c652831292021696d706f7274616e743b207d22
+│ -3b0d0a20202020202020207d656c73657b0d0a20202020202020202020202063
+│ -73732e696e6e657248544d4c203d202268746d6c202a2c202a207b2066696c74
+│ -65723a20696e697469616c2021696d706f7274616e743b207d223b0d0a202020
+│ -20202020207d0d0a0d0a202020207d293b0d0a202020200d0a7d2928293b
+│ +2866756e6374696f6e28297b0a202020200a202020206368726f6d652e73746f
+│ +726167652e6c6f63616c2e6765742827677261797363616c65272c2066756e63
+│ +74696f6e28726573756c74297b0a2020202020202020677261797363616c6520
+│ +3d20726573756c742e677261797363616c65207c7c2066616c73653b0a202020
+│ +2020202020696628677261797363616c65297b0a202020202020202020202020
+│ +6373732e696e6e657248544d4c203d2022626f6479207b2066696c7465723a20
+│ +677261797363616c652831292021696d706f7274616e743b207d223b0a202020
+│ +20202020207d656c73657b0a2020202020202020202020206373732e696e6e65
+│ +7248544d4c203d202268746d6c202a2c202a207b2066696c7465723a20696e69
+│ +7469616c2021696d706f7274616e743b207d223b0a20202020202020207d0a0a
+│ +202020207d293b0a202020200a7d2928293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/colorization_chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      "name": "[Earthchie] \u0e17\u0e33\u0e43\u0e2b\u0e49\u0e40\u0e27\u0e47\u0e1a\u0e01\u0e25\u0e31\u0e1a\u0e21\u0e32\u0e21\u0e35\u0e2a\u0e35",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.2"
+│ │  }

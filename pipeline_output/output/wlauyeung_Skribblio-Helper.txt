@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Skribblio-Helper
+├── file list
+│ @@ -1,8 +1,12 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  background.js
+│  content-script.js
+│  images
+│  index.html
+│  index.js
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Skribblio-Helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Skribbl.io Helper",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.5"
+│ │  }

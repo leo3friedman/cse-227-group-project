@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SendPage
+├── file list
+│ @@ -1,8 +1,11 @@
+│ +.git
+│ +.gitignore
+│ +.project
+│  LICENSE
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  sendpage.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SendPage/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0"
+│ │  }

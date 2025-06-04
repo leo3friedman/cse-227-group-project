@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cleanbook
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content-script.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cleanbook/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Cleans up Facebook page by removing unwanted posts/ads.",
+│ │      "manifest_version": 3,
+│ │      "name": "cleanbook",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.5"
+│ │  }

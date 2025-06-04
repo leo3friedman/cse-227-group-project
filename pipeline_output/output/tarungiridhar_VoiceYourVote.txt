@@ -1,0 +1,151 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/VoiceYourVote
+├── file list
+│ @@ -1,17 +1,6 @@
+│ -Spinner-1s-200px.gif
+│ -_metadata
+│ -api.html
+│ -api.js
+│ -djangoserv.py
+│ -gpt.js
+│ -gptOutput.html
+│ -gptPrompt.html
+│ -home-icon-vector.jpg
+│ +.git
+│  manifest.json
+│ -mysite
+│ -repOutput.html
+│ -startpage.css
+│ +package-lock.json
+│ +popup.js
+│  startpage.html
+│ -storage.js
+│ -voice-your-vote-banner.jpg
+│  voiceyourvote.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/VoiceYourVote/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,14 +1,10 @@
+│ │  {
+│ │      "action": {
+│ │          "default_icon": "voiceyourvote.png",
+│ │          "default_popup": "startpage.html"
+│ │      },
+│ │ -    "description": "Contact your representatives hassle free!",
+│ │ +    "description": "Base Level Extension",
+│ │      "manifest_version": 3,
+│ │      "name": "Voice Your Vote!",
+│ │ -    "permissions": [
+│ │ -        "storage"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/startpage.html
+├── +++ /workspace/pipeline_output/VoiceYourVote/startpage.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,99 +1,6 @@
+│ -<html>
+│ -  <head>
+│ -    <title>startpage</title>
+│ -    <!-- <img src="voice-your-vote-banner.jpg" alt="Website Header Image"> -->
+│ -    <link rel = "stylesheet" type = "text/css" href = "startpage.css">
+│ -  </head>
+│ -  <body>
+│ -    <div class="header">
+│ -      <button class="circle-button">
+│ -        <img src="home-icon-vector.jpg" alt="Button Image">
+│ -      </button>
+│ -      <h1>Voice Your Vote</h1>
+│ -    </div>
+│ -    <label for="FirstName">First Name:</label>
+│ -    <input type="text" id="FirstName" name="FirstName" placeholder="Jane">
+│ -    <br>
+│ -
+│ -    <label for="LastName">Last Name:</label>
+│ -    <input type="text" id="LastName" name="LastName" placeholder="Doe">
+│ -    <br>
+│ -
+│ -    <label for="Address">Address:</label>
+│ -    <input type="text" id="Address" name="Address" placeholder="123 Street Name">
+│ -    <br>
+│ -
+│ -    <label for="City">City:</label>
+│ -    <input type="text" id="City" name="City" placeholder="City">
+│ -    <br>
+│ -
+│ -    <label for="Zip">Zip Code:</label>
+│ -    <input type="text" id="Zip" name="Zip" placeholder="12345">
+│ -    <br>
+│ -
+│ -    <label for="StateNames">State: </label> 
+│ -    <select name="StateNames" id="StateNames"> 
+│ -      <option value="AL">AL</option>
+│ -      <option value="AK">AK</option>
+│ -      <option value="AZ">AZ</option>
+│ -      <option value="AR">AR</option>
+│ -      <option value="CA">CA</option>
+│ -      <option value="CO">CO</option>
+│ -      <option value="CT">CT</option>
+│ -      <option value="DE">DE</option>
+│ -      <option value="FL">FL</option>
+│ -      <option value="GA">GA</option>
+│ -      <option value="HI">HI</option>
+│ -      <option value="ID">ID</option>
+│ -      <option value="IL">IL</option>
+│ -      <option value="IN">IN</option>
+│ -      <option value="IA">IA</option>
+│ -      <option value="KS">KS</option>
+│ -      <option value="KY">KY</option>
+│ -      <option value="LA">LA</option>
+│ -      <option value="ME">ME</option>
+│ -      <option value="MD">MD</option>
+│ -      <option value="MA">MA</option>
+│ -      <option value="MI">MI</option>
+│ -      <option value="MN">MN</option>
+│ -      <option value="MS">MS</option>
+│ -      <option value="MO">MO</option>
+│ -      <option value="MT">MT</option>
+│ -      <option value="NE">NE</option>
+│ -      <option value="NV">NV</option>
+│ -      <option value="NH">NH</option>
+│ -      <option value="NJ">NJ</option>
+│ -      <option value="NM">NM</option>
+│ -      <option value="NY">NY</option>
+│ -      <option value="NC">NC</option>
+│ -      <option value="ND">ND</option>
+│ -      <option value="OH">OH</option>
+│ -      <option value="OK">OK</option>
+│ -      <option value="OR">OR</option>
+│ -      <option value="PA">PA</option>
+│ -      <option value="RI">RI</option>
+│ -      <option value="SC">SC</option>
+│ -      <option value="SD">SD</option>
+│ -      <option value="TN">TN</option>
+│ -      <option value="TX">TX</option>
+│ -      <option value="UT">UT</option>
+│ -      <option value="VT">VT</option>
+│ -      <option value="VA">VA</option>
+│ -      <option value="WA">WA</option>
+│ -      <option value="WI">WI</option>
+│ -      <option value="WV">WV</option>
+│ -      <option value="WY">WY</option>
+│ -    </select>
+│ -    <br>
+│ -    
+│ -    <div class="button-container">
+│ -      <button type="button" id="saveButt">Save</button>
+│ -      <!--<button type="button" id = "nextButt">Next</button>-->
+│ -      <button type="button" id="retrieveButt">Retrieve</button>
+│ -      <a href="repOutput.html"><button id = "nextButt">Next</button></a>
+│ -    </div> <br>
+│ -    <div class="button-container"><a href="api.html"><button id = "apiButt">Authorize</button></a></div> <br>
+│ -    
+│ -    <script src="storage.js"></script>
+│ -  </body>
+│ +<html>
+│ +  <body>
+│ +    <h1>Hello Extensions</h1>
+│ +    <script src="popup.js"></script>
+│ +  </body>
+│  </html>

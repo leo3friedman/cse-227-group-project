@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/yelp-mealpal
+├── file list
+│ @@ -1,7 +1,7 @@
+│ +.git
+│  README.md
+│  _locales
+│ -_metadata
+│ -css
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/yelp-mealpal/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,13 +31,12 @@
+│ │          "default_icon": "icons/Yelp19.png",
+│ │          "default_title": "Yelp for MealPal"
+│ │      },
+│ │      "permissions": [
+│ │          "http://api.yelp.com/v3/*",
+│ │          "https://api.yelp.com/v3/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2",
+│ │      "web_accessible_resources": [
+│ │          "icons/*"
+│ │      ]
+│ │  }

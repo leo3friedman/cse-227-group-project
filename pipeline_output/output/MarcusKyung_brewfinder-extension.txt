@@ -1,0 +1,266 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/brewfinder-extension
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +BrewFinderScreenshot.png
+│  README.md
+│ -_metadata
+│  icons
+│  index.html
+│  license.txt
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/brewfinder-extension/README.md
+│ @@ -1,20 +1,20 @@
+│  # _BrewFinder Chrome Extension_
+│  
+│  #### By _**Marcus Kyung**_
+│  
+│ -#### _This JavaScript Chrome extension allows a user to find the nearest brewery based on their location. Add this extension to your browser here: (https://chrome.google.com/webstore/detail/brewfinder/fkpeaflfbnlccciohmbeejiihnmkkcjm)._
+│ +#### _This JavaScript Chrome extension allows a user to find the nearest brewery based on their location._
+│  
+│  ## Technologies Used
+│  
+│  * _JavaScript_
+│  * _OpenBreweryDB API_
+│  
+│  ## Description
+│ -_This Google Chrome Extension displays the nearest brewery to a user based on their browser location. This extension uses the OpenBreweryDB API (https://www.openbrewerydb.org/). Icons provided by IconScout (https://iconscout.com/icons/beer). This extension is available on the Google Chrome Web Store under the name: BrewFinder._ 
+│ +_This Google Chrome Extension displays the nearest brewery to a user based on their browser location. This extension uses the OpenBreweryDB API (https://www.openbrewerydb.org/). Icons provided by IconScout (https://iconscout.com/icons/beer). This extension is available on the Google Chrome Web Store under the name: BrewFinders._ 
+│  
+│  ## Known Bugs
+│  
+│  * _No known bugs as of 7/19/2023_
+│  
+│  ## License
+│  
+│ @@ -24,8 +24,8 @@
+│  
+│  Copyright (c) [2023] [Marcus Kyung]
+│  
+│  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
+│  
+│  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+│  
+│ -THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR\ A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR\ A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/brewfinder-extension/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -3,23 +3,23 @@
+│  <head>
+│    <meta charset="UTF-8">
+│    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│    <title>BrewFinder</title>
+│    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+│    <link rel="stylesheet" href="style.css">
+│  </head>
+│ -  <body>
+│ -    <h1>BrewFinder:</h1>
+│ -    <h2>Find the nearest beer on tap!</h2>
+│ -    <h4 id="greetingDisplay"></h4>
+│ -    <div id="infoCardDisplay">
+│ -      <p id="closestBeer"></p>
+│ -      <p id="closestBeerAddress"></p>
+│ -      <div id="buttonContainer"></div>
+│ -    </div>
+│ -    <div id="loadingIndicator" class="loading">Loading...</div>
+│ -    <div>
+│ -      <p id="message"><em>Brewery info provided by OpenBreweryDB</em></p>
+│ -    </div>
+│ -    <script src="script.js"></script>
+│ -  </body>
+│ +<body>
+│ +  <h1>BrewFinder:</h1>
+│ +  <h2>Find the nearest beer on tap!</h2>
+│ +  <h4 id="greetingDisplay"></h4>
+│ +  <div id="infoCardDisplay">
+│ +    <p id="closestBeer"></p>
+│ +    <p id="closestBeerAddress"></p>
+│ +    <div id="buttonContainer"></div>
+│ +  </div>
+│ +  <div id="loadingIndicator" class="loading">Loading...</div>
+│ +  <div>
+│ +    <p id="message"><em>Brewery info provided by OpenBreweryDB</em></p>
+│ +  </div>
+│ +  <script src="script.js"></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/brewfinder-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "icons": {
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "BrewFinder",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/script.js
+├── +++ /workspace/pipeline_output/brewfinder-extension/script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -87,44 +87,36 @@
+│  2064617461203d20617761697420726573706f6e73652e6a736f6e28293b0a20
+│  20202020202020636f6e737420636c6f7365737442726577657279203d206461
+│  74615b305d2e6e616d653b0a2020202020202020636f6e737420636c6f736573
+│  744272657765727941646472657373203d20646174615b305d2e737472656574
+│  3b0a2020202020202020636f6e737420636c6f73657374427265776572795374
+│  617465203d20646174615b305d2e73746174653b0a2020202020202020636f6e
+│  737420636c6f7365737442726577657279506f7374616c436f6465203d206461
+│ -74615b305d2e706f7374616c5f636f64653b0a2020202020202020636f6e7374
+│ -20636c6f736573744265657254797065203d20646174615b305d2e6272657765
+│ -72795f747970653b0a2020202020202020636f6e737420636c6f736573744265
+│ -6572547970654669727374203d20636c6f7365737442656572547970652e6368
+│ -617241742830292e746f55707065724361736528293b0a202020202020202063
+│ -6f6e737420636c6f73657374426565725479706552657374203d20636c6f7365
+│ -737442656572547970652e736c6963652831293b0a0a2020202020202020646f
+│ -63756d656e742e676574456c656d656e74427949642822696e666f4361726444
+│ -6973706c617922292e636c6173734c6973742e6164642822696e666f43617264
+│ -22293b0a2020202020202020646f63756d656e742e676574456c656d656e7442
+│ -7949642822636c6f736573744265657222292e696e6e657248544d4c203d2063
+│ -6c6f7365737442726577657279202b2022202d2022202b20636c6f7365737442
+│ -656572547970654669727374202b20636c6f7365737442656572547970655265
+│ -73743b0a2020202020202020646f63756d656e742e676574456c656d656e7442
+│ -7949642822636c6f73657374426565724164647265737322292e696e6e657248
+│ -544d4c203d20636c6f736573744272657765727941646472657373202b20222c
+│ -2022202b20636c6f73657374427265776572795374617465202b20636c6f7365
+│ -737442726577657279506f7374616c436f64653b0a0a20202020202020206372
+│ -65617465427574746f6e732864617461293b0a2020202020202020646973706c
+│ -61794772656574696e6728293b0a0a20202020202020206c6f6164696e67496e
+│ -64696361746f722e7374796c652e646973706c6179203d20226e6f6e65223b0a
+│ -202020207d20636174636820286572726f7229207b0a2020202020202020636f
+│ -6e736f6c652e6572726f7228224572726f723a222c206572726f72293b0a2020
+│ -202020202020646f63756d656e742e676574456c656d656e7442794964282263
+│ -6c6f736573744265657222292e696e6e657248544d4c203d2022546869732065
+│ -7874656e73696f6e2068617320656e636f756e746572656420616e206572726f
+│ -722e2047656f6c6f636174696f6e206d75737420626520656e61626c65642069
+│ -6e20796f75722062726f777365722073657474696e677320666f722074686973
+│ -20657874656e73696f6e20746f20776f726b2e20526967687420636c69636b20
+│ -6f6e20657874656e73696f6e2c20636c69636b20566965772057656220506572
+│ -6d697373696f6e732c207468656e20746f67676c65204c6f636174696f6e2074
+│ -6f20416c6c6f772e223b0a0a2020202020202020636f6e7374206c6f6164696e
+│ -67496e64696361746f72203d20646f63756d656e742e676574456c656d656e74
+│ -4279496428226c6f6164696e67496e64696361746f7222293b0a202020202020
+│ -20206c6f6164696e67496e64696361746f722e7374796c652e646973706c6179
+│ -203d20226e6f6e65223b0a202020207d0a7d0a0a0a6665746368446174612829
+│ -3b0a
+│ +74615b305d2e706f7374616c5f636f64653b0a0a2020202020202020646f6375
+│ +6d656e742e676574456c656d656e74427949642822696e666f43617264446973
+│ +706c617922292e636c6173734c6973742e6164642822696e666f436172642229
+│ +3b0a2020202020202020646f63756d656e742e676574456c656d656e74427949
+│ +642822636c6f736573744265657222292e696e6e657248544d4c203d20636c6f
+│ +73657374427265776572793b0a2020202020202020646f63756d656e742e6765
+│ +74456c656d656e74427949642822636c6f736573744265657241646472657373
+│ +22292e696e6e657248544d4c203d20636c6f7365737442726577657279416464
+│ +72657373202b20222c2022202b20636c6f736573744272657765727953746174
+│ +65202b20636c6f7365737442726577657279506f7374616c436f64653b0a0a20
+│ +20202020202020637265617465427574746f6e732864617461293b0a20202020
+│ +20202020646973706c61794772656574696e6728293b0a0a2020202020202020
+│ +6c6f6164696e67496e64696361746f722e7374796c652e646973706c6179203d
+│ +20226e6f6e65223b0a202020207d20636174636820286572726f7229207b0a20
+│ +20202020202020636f6e736f6c652e6572726f7228224572726f723a222c2065
+│ +72726f72293b0a2020202020202020646f63756d656e742e676574456c656d65
+│ +6e74427949642822636c6f736573744265657222292e696e6e657248544d4c20
+│ +3d20225468697320657874656e73696f6e2068617320656e636f756e74657265
+│ +6420616e206572726f722e2047656f6c6f636174696f6e206d75737420626520
+│ +656e61626c656420696e20796f75722062726f777365722073657474696e6773
+│ +20666f72207468697320657874656e73696f6e20746f20776f726b2e20526967
+│ +687420636c69636b206f6e20657874656e73696f6e2c20636c69636b20566965
+│ +7720576562205065726d697373696f6e732c207468656e20746f67676c65204c
+│ +6f636174696f6e20746f20416c6c6f772e223b0a0a2020202020202020636f6e
+│ +7374206c6f6164696e67496e64696361746f72203d20646f63756d656e742e67
+│ +6574456c656d656e744279496428226c6f6164696e67496e64696361746f7222
+│ +293b0a20202020202020206c6f6164696e67496e64696361746f722e7374796c
+│ +652e646973706c6179203d20226e6f6e65223b0a202020207d0a7d0a0a0a6665
+│ +7463684461746128293b0a
+│   --- /workspace/pipeline_output/chromex_data/style.css
+├── +++ /workspace/pipeline_output/brewfinder-extension/style.css
+│ @@ -1,19 +1,17 @@
+│ -/* General styles */
+│  h1 {
+│ -  font-family: Verdana, Geneva, Tahoma, sans-serif;
+│ +  font-family:Verdana, Geneva, Tahoma, sans-serif;
+│  }
+│  
+│  body {
+│    width: 300px;
+│    height: 300px;
+│    background-color: #ffcc4d;
+│  }
+│  
+│ -/* Info card styles */
+│  .infoCard {
+│    background-color: white;
+│    border-radius: 5px;
+│    padding: 10px;
+│    outline: 1px solid #ffac33;
+│  }
+│  
+│ @@ -24,25 +22,20 @@
+│    outline: 1px solid #ffac33;
+│    text-align: center;
+│    margin-bottom: 0px;
+│    font-weight: bold;
+│  }
+│  
+│  .greetingStyling:hover::after {
+│ -  content: attr(data-language);
+│ +  content: attr(data-language); 
+│    display: inline;
+│    font-size: 12px;
+│    color: #777;
+│  }
+│  
+│ -#closestBeer {
+│ -  font-weight: bold;
+│ -}
+│ -
+│ -/* Button styles */
+│  #buttonContainer {
+│    display: flex;
+│  }
+│  
+│  button {
+│    background-color: #ffcc4d;
+│    outline: 1px solid #ffac33;
+│ @@ -54,24 +47,26 @@
+│    margin: 2px;
+│  }
+│  
+│  button:hover {
+│    transform: scale(1.05);
+│  }
+│  
+│ -/* Footer styles */
+│ +#closestBeer {
+│ +  font-weight: bold;
+│ +}
+│ +
+│  #message {
+│    position: fixed;
+│ -  bottom: 10px;
+│ +  bottom: 10px; 
+│    text-align: center;
+│  }
+│  
+│ -/* Loading style */
+│  .loading {
+│ -  display: none;
+│ +  display: none; 
+│    text-align: center;
+│    padding: 10px;
+│    background-color: #f1f1f1;
+│    color: #333;
+│    outline: 1px solid #ffac33;
+│    border-radius: 5px;
+│ -}
+│ +}

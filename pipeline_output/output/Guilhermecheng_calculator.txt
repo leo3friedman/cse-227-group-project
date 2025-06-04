@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/calculator
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│  Calculator.png
+│  Calculator.svg
+│  Calculator128.svg
+│  Calculator3.png
+│ -_metadata
+│ +README.md
+│  calculators.js
+│  jquery.js
+│  main.html
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│  toggle.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/calculator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      "icons": {
+│ │          "128": "Calculator3.png",
+│ │          "16": "Calculator3.png",
+│ │          "48": "Calculator3.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Calculator",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

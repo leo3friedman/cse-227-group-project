@@ -1,0 +1,54 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ivle-webcast-downloader
+├── file list
+│ @@ -1,12 +1,10 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ -cat.png
+│ -cat.svg
+│  content.js
+│  demo.png
+│ -demo2.png
+│  icon.png
+│  jquery-3.2.1.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/ivle-webcast-downloader/README.md
+│┄ Ordering differences only
+│ @@ -1,9 +1,9 @@
+│ -# ivle-webcast-downloader
+│ -![Screenshot](demo.png)
+│ -# Installation
+│ -1. Download from the Chrome store (https://chrome.google.com/webstore/detail/ivle-downloader/ekjjmlkgibkbipefpkbaapmhbolebnga)
+│ -
+│ -# Usage
+│ -1. Load a webcast normally to authenticate yourself. Then close the window.
+│ -2. Go back to webcast video list and refresh.
+│ -3. Open extension helper and links should appear here.
+│ +# ivle-webcast-downloader
+│ +![Screenshot](demo.png)
+│ +# Installation
+│ +1. Download from the Chrome store (https://chrome.google.com/webstore/detail/ivle-downloader/ekjjmlkgibkbipefpkbaapmhbolebnga)
+│ +
+│ +# Usage
+│ +1. Load a webcast normally to authenticate yourself. Then close the window.
+│ +2. Go back to webcast video list and refresh.
+│ +3. Open extension helper and links should appear here.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ivle-webcast-downloader/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "description": "This extension will download IVLE webcasts",
+│ │      "manifest_version": 2,
+│ │      "name": "IVLE Downloader",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/BoilerKeyExtension
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│ +.gitignore
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  icons
+│  jsOTP.js
+│  jsOTP.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/BoilerKeyExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,10 +30,9 @@
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "BoilerKey Helper",
+│ │      "permissions": [
+│ │          "https://api-1b9bef70.duosecurity.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.11"
+│ │  }

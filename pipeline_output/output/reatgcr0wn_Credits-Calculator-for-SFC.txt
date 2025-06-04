@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Credits-Calculator-for-SFC
+├── file list
+│ @@ -1,6 +1,11 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│ +README.md
+│  img
+│  jquery.min.js
+│  manifest.json
+│ +package-lock.json
+│ +pimage.png
+│ +script.js
+│  script.min.js
+│  test.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Credits-Calculator-for-SFC/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │              ],
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "description": "SFC\u306e\u6210\u7e3e\u8868\u30b7\u30b9\u30c6\u30e0\u306e\u6a5f\u80fd\u3092\u62e1\u5f35\u3057\u307e\u3059\u3002",
+│ │      "manifest_version": 2,
+│ │      "name": "Credits Calculator for SFC",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.4"
+│ │  }

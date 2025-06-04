@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-tab-size-manager-chrome-extension
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  images
+│  js
+│  manifest.json
+│ -options.html
+│ +options.html
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/github-tab-size-manager-chrome-extension/README.md
+│ @@ -7,15 +7,15 @@
+│  ## Screenshots
+│  ![Default Tab Size] (https://github.com/naman-gemini/github-tab-size-manager-chrome-extension/blob/master/images/tabsize%20-%208.png)
+│  ========
+│  ![Tab Size 2] (https://github.com/naman-gemini/github-tab-size-manager-chrome-extension/blob/master/images/tabsize%20-%202.png)
+│  
+│  ## Changelog
+│  v 1.5
+│ -* Added the important construct in tab-size css
+│ +* Added the `!important` construct in tab-size css
+│  
+│  v 1.4
+│  * Removed unecessary permissions
+│  * Moved google analytics code from background script to content script
+│  
+│  v 1.3
+│  * Added google analytics tracking
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-tab-size-manager-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "*://gist.github.com/*",
+│ │          "*://github.com/*",
+│ │          "tabs",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5"
+│ │  }

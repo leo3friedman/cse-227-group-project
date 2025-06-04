@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/annoyatron
+├── file list
+│ @@ -1,8 +1,11 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +background.js
+│  content.js
+│  img
+│  manifest.json
+│ +package-lock.json
+│ +package.sh
+│  popup.html
+│  sound
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/annoyatron/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,15 +18,14 @@
+│ │          "512": "/img/icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Annoyatron",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extension-lwr-build-info
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitattributes
+│  LICENSE
+│  README.md
+│ -_metadata
+│  foreground.css
+│  foreground.js
+│  logo
+│  manifest.json
+│ +package-lock.json
+│  popup
+│  service-worker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extension-lwr-build-info/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │          "48": "logo/logo-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Lightning Web Runtime (LWR) Build Info",
+│ │      "permissions": [
+│ │          "declarativeContent"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0"
+│ │  }

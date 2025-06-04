@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/video-recorder
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/lib
+├── +++ /workspace/pipeline_output/video-recorder/lib
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │ +background.js
+│ │  chrome.js
+│ │  common.js
+│ │  config.js
+│ │  runtime.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/video-recorder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Video Recorder",
+│ │      "offline_enabled": true,
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.9"
+│ │  }

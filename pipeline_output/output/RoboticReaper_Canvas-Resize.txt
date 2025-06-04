@@ -1,0 +1,52 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Canvas-Resize
+├── file list
+│ @@ -1,4 +1,6 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Canvas-Resize/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "128": "images/icon-128.png",
+│ │          "16": "images/icon-16.png",
+│ │          "32": "images/icon-32.png",
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Canvas Resize+",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/Canvas-Resize/scripts
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/content.js
+│ ├── +++ /workspace/pipeline_output/Canvas-Resize/scripts/content.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,10 +1,10 @@
+│ │ +66756e6374696f6e20726573697a6557696e646f772829207b0a20202020636f
+│ │ +6e736f6c652e6c6f67282243616e7661732046696c6520507265766965772057
+│ │ +696e646f772041646a75737465723a206368616e67696e6720646f63756d656e
+│ │ +7420707265766965772068656967687422290a0a202020206c65742070726576
+│ │ +696577203d20646f63756d656e742e676574456c656d656e7442794964282264
+│ │ +6f635f7072657669657722290a20202020707265766965772e7374796c652e68
+│ │ +6569676874203d20276175746f270a7d0a0a77696e646f772e6164644576656e
+│ │ +744c697374656e657228226c6f6164222c20726573697a6557696e646f77290a
+│ │ +77696e646f772e6164644576656e744c697374656e65722822726573697a6522
+│ │ +2c20726573697a6557696e646f77290a
+│ │ -66756e6374696f6e20726573697a6557696e646f772829207b0d0a2020202063
+│ │ -6f6e736f6c652e6c6f67282243616e7661732046696c65205072657669657720
+│ │ -57696e646f772041646a75737465723a206368616e67696e6720646f63756d65
+│ │ -6e7420707265766965772068656967687422290d0a0d0a202020206c65742070
+│ │ -726576696577203d20646f63756d656e742e676574456c656d656e7442794964
+│ │ -2822646f635f7072657669657722290d0a20202020707265766965772e737479
+│ │ -6c652e686569676874203d20276175746f270d0a7d0d0a0d0a77696e646f772e
+│ │ -6164644576656e744c697374656e657228226c6f6164222c20726573697a6557
+│ │ -696e646f77290d0a77696e646f772e6164644576656e744c697374656e657228
+│ │ -22726573697a65222c20726573697a6557696e646f77290d0a

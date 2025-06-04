@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Go-to-line
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  icons
+│  js
+│  libs
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Go-to-line/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,21 +28,20 @@
+│ │      "icons": {
+│ │          "128": "icons/icon_128.png",
+│ │          "16": "icons/icon_16.png",
+│ │          "32": "icons/icon_32.png",
+│ │          "48": "icons/icon_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Go to line",
+│ │ +    "name": "Go to line Test",
+│ │      "options_ui": {
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5"
+│ │  }

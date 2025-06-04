@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cafebazaar-apk-downloader-chrome
+├── file list
+│ @@ -1,9 +1,14 @@
+│ +.editorconfig
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│ +.screenshots
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  images
+│  injectScript.js
+│  manifest.json
+│ +package-lock.json
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cafebazaar-apk-downloader-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_appName__",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0"
+│ │  }

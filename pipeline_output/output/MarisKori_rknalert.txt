@@ -1,0 +1,69 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/rknalert
+├── file list
+│ @@ -1,10 +1,12 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  check.js
+│  images
+│  init.js
+│  lib
+│  manifest.json
+│  options
+│ +package-lock.json
+│  popup
+│  whitelist-rkn.txt
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/rknalert/images
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.gitkeep
+│ │  anim01.png
+│ │  anim02.png
+│ │  anim03.png
+│ │  circ_fishing_16.png
+│ │  circ_fishingb_16.png
+│ │  circ_gray_gray_16.png
+│ │  circ_green_green_16.png
+│   --- /workspace/pipeline_output/chromex_data/lib
+├── +++ /workspace/pipeline_output/rknalert/lib
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.gitkeep
+│ │  dns.js
+│ │  domains.js
+│ │  get_ip.js
+│ │  icon.js
+│ │  indexed_db.js
+│ │  is_site_online.js
+│ │  punycode.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/rknalert/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,10 +47,9 @@
+│ │      },
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "<all_urls>",
+│ │          "tabs"
+│ │      ],
+│ │      "short_name": "RKN Alert",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.18.9"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options
+├── +++ /workspace/pipeline_output/rknalert/options
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │ +.gitkeep
+│ │  options.html
+│ │  options.js
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/rknalert/popup
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │ +.gitkeep
+│ │  popup.html
+│ │  popup.js

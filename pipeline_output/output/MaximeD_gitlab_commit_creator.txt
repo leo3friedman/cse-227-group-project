@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gitlab_commit_creator
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  main.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gitlab_commit_creator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Gitlab commit creator",
+│ │      "permissions": [
+│ │          "*://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

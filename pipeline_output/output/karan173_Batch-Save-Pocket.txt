@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Batch-Save-Pocket
+├── file list
+│ @@ -1,7 +1,13 @@
+│ -_metadata
+│ +.git
+│ +README
+│  css
+│  html
+│  img
+│ +info.txt
+│  js
+│  libs
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│ +screenshots
+│ +webstore_overview.txt
+│ +zip_command
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Batch-Save-Pocket/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,13 +12,12 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Batch Save Pocket",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "*://getpocket.com/*"
+│ │      ],
+│ │      "short_name": "Pocket Batch",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0",
+│ │      "web_accessible_resources": [
+│ │          "html/login.html"
+│ │      ]
+│ │  }

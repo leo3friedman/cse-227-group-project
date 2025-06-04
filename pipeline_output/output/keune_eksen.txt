@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/eksen
+├── file list
+│ @@ -1,14 +1,17 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  css
+│  icon-play.png
+│  icon.png
+│  icon_128.png
+│  icon_16.png
+│  icon_32.png
+│  icon_48.png
+│  icon_96.png
+│  img
+│  js
+│  manifest.json
+│  offscreen.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/eksen/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,15 +19,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Radyo Eksen",
+│ │      "permissions": [
+│ │          "offscreen",
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

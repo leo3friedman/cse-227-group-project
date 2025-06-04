@@ -1,0 +1,101 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/einstein
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  128.png
+│  16.png
+│  48.png
+│ -_metadata
+│  background.js
+│  jquery-3.4.1.min.js
+│  manifest.json
+│ +package-lock.json
+│  scramble_page.js
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/einstein/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,12 +1,12 @@
+│ -2f2f2043616c6c6564207768656e20746865207573657220636c69636b73206f
+│ -6e207468652062726f7773657220616374696f6e2e0a6368726f6d652e62726f
+│ -77736572416374696f6e2e6f6e436c69636b65642e6164644c697374656e6572
+│ -2866756e6374696f6e2874616229207b0a202020202f2f204e6f207461627320
+│ -6f7220686f7374207065726d697373696f6e73206e6565646564210a20202020
+│ -636f6e736f6c652e6c6f6728275475726e696e672027202b207461622e75726c
+│ -202b2027207265642127293b0a202020206368726f6d652e746162732e657865
+│ -63757465536372697074287b0a202020202020202066696c653a20276a717565
+│ -72792d332e342e312e6d696e2e6a73270a202020207d293b0a0a202020206368
+│ -726f6d652e746162732e65786563757465536372697074287b0a202020202020
+│ -202066696c653a2027736372616d626c655f706167652e6a73270a202020207d
+│ -293b0a0a7d293b
+│ +0a2f2f2043616c6c6564207768656e20746865207573657220636c69636b7320
+│ +6f6e207468652062726f7773657220616374696f6e2e0a6368726f6d652e6272
+│ +6f77736572416374696f6e2e6f6e436c69636b65642e6164644c697374656e65
+│ +722866756e6374696f6e2874616229207b0a202020202f2f2053656e64206120
+│ +6d65737361676520746f2074686520616374697665207461620a202020206368
+│ +726f6d652e746162732e7175657279287b6163746976653a20747275652c2063
+│ +757272656e7457696e646f773a20747275657d2c2066756e6374696f6e287461
+│ +627329207b0a202020202020202076617220616374697665546162203d207461
+│ +62735b305d3b0a20202020202020206368726f6d652e746162732e73656e644d
+│ +657373616765286163746976655461622e69642c207b226d657373616765223a
+│ +2022636c69636b65645f62726f777365725f616374696f6e227d293b0a202020
+│ +207d293b0a7d293b0a0a0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/einstein/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,22 +4,32 @@
+│ │          "scripts": [
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │      "browser_action": {
+│ │          "default_icon": "48.png"
+│ │      },
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "jquery-3.4.1.min.js",
+│ │ +                "scramble_page.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "<all_urls>"
+│ │ +            ]
+│ │ +        }
+│ │ +    ],
+│ │      "description": "Now that you have plenty of time on our hands because of the corona virus lockdown, you may as well start exercising your brain...",
+│ │      "homepage_url": "https://github.com/tinoni/einstein",
+│ │      "icons": {
+│ │          "128": "128.png",
+│ │          "16": "16.png",
+│ │          "48": "48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Einstein",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scramble_page.js
+├── +++ /workspace/pipeline_output/einstein/scramble_page.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -14,8 +14,14 @@
+│  72657475726e20746578743b0a7d3b0a0a0a0a736372616d626c655f70616765
+│  203d2066756e6374696f6e2829207b0a20202020242827626f6479203a6e6f74
+│  287363726970742927292e636f6e74656e747328292e66696c7465722866756e
+│  6374696f6e2829207b0a202020202020202072657475726e20746869732e6e6f
+│  646554797065203d3d3d20333b0a202020207d292e7265706c61636557697468
+│  2866756e6374696f6e2829207b0a202020202020202072657475726e20736372
+│  616d626c6528746869732e6e6f646556616c7565293b0a202020207d293b0a7d
+│ -0a0a0a0a736372616d626c655f7061676528293b
+│ +0a0a0a0a0a6368726f6d652e72756e74696d652e6f6e4d6573736167652e6164
+│ +644c697374656e6572280a2020202066756e6374696f6e28726571756573742c
+│ +2073656e6465722c2073656e64526573706f6e736529207b0a20202020202020
+│ +2069662820726571756573742e6d657373616765203d3d3d2022636c69636b65
+│ +645f62726f777365725f616374696f6e222029207b0a20202020202020202020
+│ +2020736372616d626c655f7061676528293b0a20202020202020207d0a202020
+│ +207d0a293b

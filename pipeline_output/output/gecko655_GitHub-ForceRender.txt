@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/GitHub-ForceRender
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  images
+│  jquery-3.2.1.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/GitHub-ForceRender/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "GitHub Force Render",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "tabs"
+│ │      ],
+│ │      "short_name": "GFR",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0.3"
+│ │  }

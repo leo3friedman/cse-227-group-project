@@ -1,0 +1,51 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/lorem_chrome
+├── file list
+│ @@ -1,6 +1,11 @@
+│ -_metadata
+│ +.git
+│ +.github
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/lorem_chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Simple Lorem Ipsum",
+│ │      "permissions": [
+│ │          "clipboardWrite",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.2.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/lorem_chrome/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -53,15 +53,16 @@
+│        </label>
+│        <button id="buttonCopy" class="input-wrapper">Copy Text</button>
+│        <button id="buttonDefault" class="input-wrapper">Reset to Default</button>
+│      </div>
+│      <div id="result"></div>
+│      <div id="charCount-wrapper">
+│        <div>
+│ -        <span id="charCount">0</span> (<span id="charNoSpcCount">0</span>) characters (w/o whitespace)
+│ +        <span><span id="charCount">0</span> (<span id="charNoSpcCount">0</span>) characters (w/o whitespace)</span>
+│ +        <!-- <span>(exclude whitespace: )</span> -->
+│        </div>
+│        <div><span id="wordCount">0</span> words</div>
+│      </div>
+│      <div id="error"></div>
+│    </div>
+│  
+│    <script src="./popup.js" type="module"></script>

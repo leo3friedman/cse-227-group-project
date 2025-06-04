@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/bluespy
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/bluespy/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      "description": "Reveal links in Bluesky.",
+│ │      "icons": {
+│ │          "128": "./images/bluespy-128.png",
+│ │          "16": "./images/bluespy-16.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Bluespy",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.2"
+│ │  }

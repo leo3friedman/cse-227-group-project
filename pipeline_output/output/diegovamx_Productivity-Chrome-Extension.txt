@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Productivity-Chrome-Extension
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +README.md
+│  app.js
+│  flash.png
+│  index.html
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Productivity-Chrome-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,10 +1,9 @@
+│ │  {
+│ │      "action": {
+│ │          "default_icon": "flash.png",
+│ │          "default_popup": "index.html"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Productivity Extension",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

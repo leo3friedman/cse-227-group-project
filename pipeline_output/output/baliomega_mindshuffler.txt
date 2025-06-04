@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/mindshuffler
+├── file list
+│ @@ -1,10 +1,13 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│ +README.md
+│  analytics.js
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/mindshuffler/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │      "description": "Shuffle your mind with random quotes",
+│ │      "host_permissions": [
+│ │          "https://favqs.com/*"
+│ │      ],
+│ │      "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlzHOfDpGAGw2FWtjrleCX+g0dH8ntqa0qd+vMkFhFn/PR79DC9V6/3zrrqiKEoFbVRRK0uj+dtN9zTOf49mE+Qee+zfHAltgD6GZDXHsPerPN4iRuyDMUIMV2aBhunzsqKK9eWHVcJMFoc+ZFh1JRCl+dy2PEYCyYpZusFZhhl5TMQlXbypEErS/TUxXFKCPPNm8Go9mgWuYhCfC0as8pVpD5OeSsOSn94vxdJB54wDl36biT2BeLxJnUDM/TrmurJ2UZVW++0Miwt+gMtN3LAzsjFNY6poxKbi5qV1Gyjv+ji4406gn2TRSK0b7vZcC33ILy53OiM2+DYDRzqJxWQIDAQAB",
+│ │      "manifest_version": 3,
+│ │      "name": "MindShuffler",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

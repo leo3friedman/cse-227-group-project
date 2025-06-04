@@ -1,0 +1,58 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Organize-Downloads-by-Date-Chrome-Extension-master
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  bg.js
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/bg.js
+├── +++ /workspace/pipeline_output/Organize-Downloads-by-Date-Chrome-Extension-master/bg.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -17,13 +17,12 @@
+│  202f2f20636f6e666c6963745f616374696f6e207761732072656e616d656420
+│  746f20636f6e666c696374416374696f6e20696e0a202020202f2f2068747470
+│  733a2f2f6368726f6d69756d2e676f6f676c65736f757263652e636f6d2f6368
+│  726f6d69756d2f7372632f2b2f66316437383464363933386238666538653064
+│  3235376534316232363334313939326332353532630a202020202f2f20776869
+│  636820776173206669727374207069636b656420757020696e206272616e6368
+│  20313538302e0a20207d0a0a20207661722064203d206e657720446174652829
+│ -3b0a2020766172206d6f6e7468203d20642e6765744d6f6e74682829202b2031
+│ -3b202f2f20696e6465782073746172747320617420302c20736f207765206861
+│ -766520746f2061646420310a20207661722079656172203d20642e6765744675
+│ -6c6c5965617228293b0a0a2020737567676573742879656172202b20272f2720
+│ -2b206d6f6e7468202b20272f27202b206974656d2e66696c656e616d652c2027
+│ -756e69717569667927293b0a202072657475726e3b0a7d293b0a
+│ +3b0a202076617220666f6c646572203d2028273027202b20642e676574446174
+│ +652829292e736c696365282d3229202b20272d27202b2028273027202b202864
+│ +2e6765744d6f6e746828292b3129292e736c696365282d3229200a0a20207375
+│ +676765737428666f6c646572202b20222f22202b206974656d2e66696c656e61
+│ +6d652c2027756e69717569667927293b0a202072657475726e3b0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/Organize-Downloads-by-Date-Chrome-Extension-master/icons
+│ ├── file list
+│ │ @@ -1,3 +1,4 @@
+│ │  128.png
+│ │  16.png
+│ │ +48.png
+│ │ +icons
+│ │ -48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Organize-Downloads-by-Date-Chrome-Extension-master/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Organize Downloads by Date",
+│ │      "permissions": [
+│ │          "downloads"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

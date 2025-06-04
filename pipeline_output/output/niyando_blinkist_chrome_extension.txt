@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/blinkist_chrome_extension
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/blinkist_chrome_extension/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/jquery
+│ ├── +++ /workspace/pipeline_output/blinkist_chrome_extension/js/jquery
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,8 @@
+│ │ │ +.gitignore
+│ │ │  README.md
+│ │ │  bower.json
+│ │ │  component.json
+│ │ │  composer.json
+│ │ │  jquery.js
+│ │ │  jquery.min.js
+│ │ │  package.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/blinkist_chrome_extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "icons": {
+│ │          "128": "icons/f22_128.png",
+│ │          "16": "icons/f22_16.png",
+│ │          "48": "icons/f22_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Blinkist (Unofficial)",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

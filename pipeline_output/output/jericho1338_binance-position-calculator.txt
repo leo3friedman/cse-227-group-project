@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/binance-position-calculator
+├── file list
+│ @@ -1,7 +1,11 @@
+│ +.git
+│ +.gitignore
+│ +.husky
+│  LICENCE
+│  README.md
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/binance-position-calculator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,15 +25,14 @@
+│ │          "48": "icons/binance_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Binance Futures Position Calculator",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

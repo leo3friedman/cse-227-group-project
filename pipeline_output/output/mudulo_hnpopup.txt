@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/hnpopup
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon128.png
+│  icon16.png
+│  icon256.png
+│  icon48.png
+│  icon64.png
+│  main.js
+│  manifest.json
+│  manifest_ff.json
+│ +package-lock.json
+│  screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/hnpopup/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │          "16": "icon16.png",
+│ │          "256": "icon256.png",
+│ │          "48": "icon48.png",
+│ │          "64": "icon64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hacker News User Link Pop-up",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0"
+│ │  }

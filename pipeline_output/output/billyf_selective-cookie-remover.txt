@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/selective-cookie-remover
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  cookie_remover.js
+│  img
+│  lib
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/selective-cookie-remover/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "name": "Selective Cookie Remover",
+│ │      "permissions": [
+│ │          "cookies",
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.11"
+│ │  }

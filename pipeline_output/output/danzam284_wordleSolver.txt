@@ -1,0 +1,56 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wordleSolver
+├── file list
+│ @@ -1,7 +1,9 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  logo.png
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│  setup.js
+│  solve.js
+│  solve2.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wordleSolver/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │      "description": "Solves wordle games using a unique and efficient algorithm.",
+│ │      "manifest_version": 3,
+│ │      "name": "Wordle Solver",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/solve.js
+├── +++ /workspace/pipeline_output/wordleSolver/solve.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -3897,8 +3897,8 @@
+│  72642069732070726566696c6c656420616e6420737461727473207468652061
+│  6c676f726974686d202a2f0a66756e6374696f6e2073746172742829207b0a20
+│  202020726f756e64203d2063616c63756c617465526f756e6428293b0a202020
+│  2069662028726f756e64203d3d3d203029207b0a202020202020202073746172
+│  746564576974684e6f7468696e67203d20747275653b0a202020207d0a202020
+│  20666f7220286c65742069203d20303b2069203c20726f756e64202d20313b20
+│  692b2b29207b0a2020202020202020757064617465496e666f2869293b0a2020
+│ -20207d0a20202020676f28293b0a7d0a0a737461727428293b
+│ +20207d0a20202020676f28293b0a7d0a0a737461727428293b0a
+│   --- /workspace/pipeline_output/chromex_data/solve2.js
+├── +++ /workspace/pipeline_output/wordleSolver/solve2.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -4426,8 +4426,8 @@
+│  74732074686520616c676f726974686d202a2f0a66756e6374696f6e20737461
+│  72742829207b0a20202020726f756e64203d2063616c63756c617465526f756e
+│  6428293b0a2020202069662028726f756e64203d3d3d203029207b0a20202020
+│  2020202073746172746564576974684e6f7468696e67203d20747275653b0a20
+│  2020207d0a20202020666f7220286c65742069203d20303b2069203c20726f75
+│  6e64202d20313b20692b2b29207b0a2020202020202020757064617465496e66
+│  6f2869293b0a202020207d0a20202020676f28293b0a7d0a0a73746172742829
+│ -3b
+│ +3b0a

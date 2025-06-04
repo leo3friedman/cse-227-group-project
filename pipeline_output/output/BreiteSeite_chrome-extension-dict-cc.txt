@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extension-dict-cc
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│  contextMenu.js
+│  manifest.json
+│ +package-lock.json
+│  static
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extension-dict-cc/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │          "128": "static/logo128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extensionName__",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1"
+│ │  }

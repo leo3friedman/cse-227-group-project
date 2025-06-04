@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/_blank
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  disable.js
+│  disabled.png
+│  enable.js
+│  icon.png
+│  icon.svg
+│  icon128.png
+│  icon128.svg
+│  manifest.json
+│ +package-lock.json
+│  screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/_blank/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "_blank",
+│ │      "permissions": [
+│ │          "https://*/*",
+│ │          "http://*/*",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.1"
+│ │  }

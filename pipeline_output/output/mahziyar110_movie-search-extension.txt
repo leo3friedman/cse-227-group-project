@@ -1,0 +1,1016 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/movie-search-extension
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  icons
+│  images
+│  manifest.json
+│  options
+│ +package-lock.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/movie-search-extension/README.md
+│┄ Ordering differences only
+│ @@ -1,15 +1,15 @@
+│ -# Movie Search Extension
+│ -
+│ -Chrome extension to search for movies and displays related information via OMDb api. Right click on selected text and search on IMDb.<br>
+│ -Link: https://chrome.google.com/webstore/detail/imdb-movie-search/egabglmdedhdebfhabfphfkibcaceknn
+│ -
+│ -## Search for movies
+│ -
+│ -Search for any movie and display poster, year, runtime, director, cast, plot, etc. Click to see more details on IMDb.<br>
+│ -This extension uses OMDb API and you need an API key.<br>
+│ -Generate the same from https://www.omdbapi.com. A free version of the api key allows 1000 requests per day.<br>
+│ -Save the key in Extension option (chrome://extensions/ -> Details -> Extension options OR Right Click on extension -> Options)<br>
+│ -
+│ -## Right click to search IMDb
+│ -
+│ -Select any text and right click to see context menu option to search for the selected text on IMDb.<br>
+│ +# Movie Search Extension
+│ +
+│ +Chrome extension to search for movies and displays related information via OMDb api. Right click on selected text and search on IMDb.<br>
+│ +Link: https://chrome.google.com/webstore/detail/imdb-movie-search/egabglmdedhdebfhabfphfkibcaceknn
+│ +
+│ +## Search for movies
+│ +
+│ +Search for any movie and display poster, year, runtime, director, cast, plot, etc. Click to see more details on IMDb.<br>
+│ +This extension uses OMDb API and you need an API key.<br>
+│ +Generate the same from https://www.omdbapi.com. A free version of the api key allows 1000 requests per day.<br>
+│ +Save the key in Extension option (chrome://extensions/ -> Details -> Extension options OR Right Click on extension -> Options)<br>
+│ +
+│ +## Right click to search IMDb
+│ +
+│ +Select any text and right click to see context menu option to search for the selected text on IMDb.<br>
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/movie-search-extension/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,46 +1,44 @@
+│  6368726f6d652e72756e74696d652e6f6e496e7374616c6c65642e6164644c69
+│ -7374656e657228287b20726561736f6e207d29203d3e207b0d0a202069662028
+│ -726561736f6e203d3d3d206368726f6d652e72756e74696d652e4f6e496e7374
+│ -616c6c6564526561736f6e2e494e5354414c4c29207b0d0a202020206368726f
+│ -6d652e746162732e637265617465287b0d0a20202020202075726c3a20226f70
+│ -74696f6e732f6f7074696f6e732e68746d6c222c0d0a202020207d293b0d0a20
+│ -207d0d0a7d293b0d0a0d0a6368726f6d652e72756e74696d652e6f6e496e7374
+│ -616c6c65642e6164644c697374656e65722866756e6374696f6e202829207b0d
+│ -0a20206368726f6d652e636f6e746578744d656e75732e637265617465287b0d
+│ -0a2020202069643a2022736561726368494d4462222c0d0a202020207469746c
+│ -653a202253656172636820494d446220666f722027257327222c0d0a20202020
+│ -636f6e74657874733a205b2273656c656374696f6e225d2c0d0a20207d293b0d
+│ -0a7d293b0d0a0d0a6368726f6d652e636f6e746578744d656e75732e6f6e436c
+│ -69636b65642e6164644c697374656e65722866756e6374696f6e2028696e666f
+│ -2c2074616229207b0d0a202069662028696e666f2e6d656e754974656d496420
+│ -3d3d3d2022736561726368494d44622229207b0d0a2020202073656172636849
+│ -4d446228696e666f2e73656c656374696f6e54657874293b0d0a20207d0d0a7d
+│ -293b0d0a0d0a66756e6374696f6e20736561726368494d446228717565727929
+│ -207b0d0a20207661722075726c203d202268747470733a2f2f7777772e696d64
+│ -622e636f6d2f66696e643f713d22202b20656e636f6465555249436f6d706f6e
+│ -656e74287175657279293b0d0a20206368726f6d652e746162732e6372656174
+│ -65287b0d0a2020202075726c3a2075726c2c0d0a20207d293b0d0a7d0d0a0d0a
+│ -6368726f6d652e636f6d6d616e64732e6f6e436f6d6d616e642e6164644c6973
+│ -74656e6572286173796e632066756e6374696f6e2028636f6d6d616e6429207b
+│ -0d0a202069662028636f6d6d616e64203d3d3d20227365617263682d696d6462
+│ -2229207b0d0a202020206c657420726573756c743b0d0a20202020636f6e7374
+│ +7374656e657228287b20726561736f6e207d29203d3e207b0a20206966202872
+│ +6561736f6e203d3d3d206368726f6d652e72756e74696d652e4f6e496e737461
+│ +6c6c6564526561736f6e2e494e5354414c4c29207b0a202020206368726f6d65
+│ +2e746162732e637265617465287b0a20202020202075726c3a20226f7074696f
+│ +6e732f6f7074696f6e732e68746d6c222c0a202020207d293b0a20207d0a7d29
+│ +3b0a0a6368726f6d652e72756e74696d652e6f6e496e7374616c6c65642e6164
+│ +644c697374656e65722866756e6374696f6e202829207b0a20206368726f6d65
+│ +2e636f6e746578744d656e75732e637265617465287b0a2020202069643a2022
+│ +736561726368494d4462222c0a202020207469746c653a202253656172636820
+│ +494d446220666f722027257327222c0a20202020636f6e74657874733a205b22
+│ +73656c656374696f6e225d2c0a20207d293b0a7d293b0a0a6368726f6d652e63
+│ +6f6e746578744d656e75732e6f6e436c69636b65642e6164644c697374656e65
+│ +722866756e6374696f6e2028696e666f2c2074616229207b0a20206966202869
+│ +6e666f2e6d656e754974656d4964203d3d3d2022736561726368494d44622229
+│ +207b0a20202020736561726368494d446228696e666f2e73656c656374696f6e
+│ +54657874293b0a20207d0a7d293b0a0a66756e6374696f6e2073656172636849
+│ +4d446228717565727929207b0a20207661722075726c203d202268747470733a
+│ +2f2f7777772e696d64622e636f6d2f66696e643f713d22202b20656e636f6465
+│ +555249436f6d706f6e656e74287175657279293b0a20206368726f6d652e7461
+│ +62732e637265617465287b0a2020202075726c3a2075726c2c0a20207d293b0a
+│ +7d0a0a6368726f6d652e636f6d6d616e64732e6f6e436f6d6d616e642e616464
+│ +4c697374656e6572286173796e632066756e6374696f6e2028636f6d6d616e64
+│ +29207b0a202069662028636f6d6d616e64203d3d3d20227365617263682d696d
+│ +64622229207b0a202020206c657420726573756c743b0a20202020636f6e7374
+│  205b7461625d203d206177616974206368726f6d652e746162732e7175657279
+│ -287b0d0a2020202020206163746976653a20747275652c0d0a20202020202063
+│ -757272656e7457696e646f773a20747275652c0d0a202020207d293b0d0a0d0a
+│ -20202020747279207b0d0a2020202020205b7b20726573756c74207d5d203d20
+│ -6177616974206368726f6d652e736372697074696e672e657865637574655363
+│ -72697074287b0d0a20202020202020207461726765743a207b0d0a2020202020
+│ -202020202074616249643a207461622e69642c0d0a20202020202020207d2c0d
+│ -0a202020202020202066756e6374696f6e3a202829203d3e207b0d0a20202020
+│ -20202020202072657475726e2077696e646f772e67657453656c656374696f6e
+│ -28292e746f537472696e6728292e73756273747228302c203634293b0d0a2020
+│ -2020202020207d2c0d0a2020202020207d293b0d0a202020207d206361746368
+│ -20286529207b0d0a20202020202072657475726e3b202f2f2069676e6f72696e
+│ -6720616e20756e737570706f727465642070616765206c696b65206368726f6d
+│ -653a2f2f657874656e73696f6e730d0a202020207d0d0a0d0a20202020696620
+│ -2821726573756c7429207b0d0a20202020202072657475726e3b0d0a20202020
+│ -7d0d0a0d0a202020207661722075726c203d202268747470733a2f2f7777772e
+│ -696d64622e636f6d2f66696e643f713d22202b20656e636f6465555249436f6d
+│ -706f6e656e7428726573756c74293b0d0a202020206368726f6d652e74616273
+│ -2e637265617465287b0d0a20202020202075726c3a2075726c2c0d0a20202020
+│ -7d293b0d0a20207d0d0a7d293b0d0a
+│ +287b0a2020202020206163746976653a20747275652c0a202020202020637572
+│ +72656e7457696e646f773a20747275652c0a202020207d293b0a0a2020202074
+│ +7279207b0a2020202020205b7b20726573756c74207d5d203d20617761697420
+│ +6368726f6d652e736372697074696e672e65786563757465536372697074287b
+│ +0a20202020202020207461726765743a207b0a20202020202020202020746162
+│ +49643a207461622e69642c0a20202020202020207d2c0a202020202020202066
+│ +756e6374696f6e3a202829203d3e207b0a202020202020202020207265747572
+│ +6e2077696e646f772e67657453656c656374696f6e28292e746f537472696e67
+│ +28292e73756273747228302c203634293b0a20202020202020207d2c0a202020
+│ +2020207d293b0a202020207d20636174636820286529207b0a20202020202072
+│ +657475726e3b202f2f2069676e6f72696e6720616e20756e737570706f727465
+│ +642070616765206c696b65206368726f6d653a2f2f657874656e73696f6e730a
+│ +202020207d0a0a202020206966202821726573756c7429207b0a202020202020
+│ +72657475726e3b0a202020207d0a0a202020207661722075726c203d20226874
+│ +7470733a2f2f7777772e696d64622e636f6d2f66696e643f713d22202b20656e
+│ +636f6465555249436f6d706f6e656e7428726573756c74293b0a202020206368
+│ +726f6d652e746162732e637265617465287b0a20202020202075726c3a207572
+│ +6c2c0a202020207d293b0a20207d0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/movie-search-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │      },
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "scripting",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options
+├── +++ /workspace/pipeline_output/movie-search-extension/options
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.html
+│ ├── +++ /workspace/pipeline_output/movie-search-extension/options/options.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,77 +1,77 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +
+│ │ +<head>
+│ │ +	<style>
+│ │ +		body {
+│ │ +			font-family: Roboto, Helvetica, Arial, sans-serif;
+│ │ +			background-color: #0c0b00;
+│ │ +			color: white;
+│ │ +		}
+│ │ +
+│ │ +		a {
+│ │ +			color: #deb522;
+│ │ +		}
+│ │ +
+│ │ +		input {
+│ │ +			padding: 10px;
+│ │ +			width: 300px;
+│ │ +			border: 1px solid #ccc;
+│ │ +			border-radius: 5px;
+│ │ +			font-size: 16px;
+│ │ +			outline: none;
+│ │ +			margin-right: 10px;
+│ │ +		}
+│ │ +
+│ │ +		#search-btn {
+│ │ +			font-size: 16px;
+│ │ +		}
+│ │ +
+│ │ +		button {
+│ │ +			background-color: #deb522;
+│ │ +			border: none;
+│ │ +			border-radius: 5px;
+│ │ +			cursor: pointer;
+│ │ +			padding: 10px;
+│ │ +			color: white;
+│ │ +		}
+│ │ +
+│ │ +		button:active {
+│ │ +			background-color: #ffa500;
+│ │ +			/* change to a different color when clicked */
+│ │ +			color: black;
+│ │ +			/* change the text color to make it visible */
+│ │ +		}
+│ │ +
+│ │ +		button:focus {
+│ │ +			outline: none;
+│ │ +			/* remove the default outline */
+│ │ +			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ +			/* add a custom outline */
+│ │ +		}
+│ │ +
+│ │ +		button:active:focus {
+│ │ +			background-color: #ffa500;
+│ │ +			/* change to a different color when clicked */
+│ │ +			color: black;
+│ │ +			/* change the text color to make it visible */
+│ │ +			outline: none;
+│ │ +			/* remove the default outline */
+│ │ +			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ +			/* add a custom outline */
+│ │ +		}
+│ │ +	</style>
+│ │ +	<title>OMDb Movie Search Extension Options</title>
+│ │ +</head>
+│ │ +
+│ │ +<body>
+│ │ +	<p>Enter your OMDb API key (generated from <a href="https://www.omdbapi.com/apikey.aspx"
+│ │ +			target="_blank">https://www.omdbapi.com</a>):</p>
+│ │ +	<div style="display: flex;">
+│ │ +		<input id="api-key" type="text" placeholder="Type your API key..." />
+│ │ +		<button id="save">Save</button>
+│ │ +	</div>
+│ │ +	<script src="options.js"></script>
+│ │ +</body>
+│ │ +
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -
+│ │ -<head>
+│ │ -	<style>
+│ │ -		body {
+│ │ -			font-family: Roboto, Helvetica, Arial, sans-serif;
+│ │ -			background-color: #0c0b00;
+│ │ -			color: white;
+│ │ -		}
+│ │ -
+│ │ -		a {
+│ │ -			color: #deb522;
+│ │ -		}
+│ │ -
+│ │ -		input {
+│ │ -			padding: 10px;
+│ │ -			width: 300px;
+│ │ -			border: 1px solid #ccc;
+│ │ -			border-radius: 5px;
+│ │ -			font-size: 16px;
+│ │ -			outline: none;
+│ │ -			margin-right: 10px;
+│ │ -		}
+│ │ -
+│ │ -		#search-btn {
+│ │ -			font-size: 16px;
+│ │ -		}
+│ │ -
+│ │ -		button {
+│ │ -			background-color: #deb522;
+│ │ -			border: none;
+│ │ -			border-radius: 5px;
+│ │ -			cursor: pointer;
+│ │ -			padding: 10px;
+│ │ -			color: white;
+│ │ -		}
+│ │ -
+│ │ -		button:active {
+│ │ -			background-color: #ffa500;
+│ │ -			/* change to a different color when clicked */
+│ │ -			color: black;
+│ │ -			/* change the text color to make it visible */
+│ │ -		}
+│ │ -
+│ │ -		button:focus {
+│ │ -			outline: none;
+│ │ -			/* remove the default outline */
+│ │ -			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ -			/* add a custom outline */
+│ │ -		}
+│ │ -
+│ │ -		button:active:focus {
+│ │ -			background-color: #ffa500;
+│ │ -			/* change to a different color when clicked */
+│ │ -			color: black;
+│ │ -			/* change the text color to make it visible */
+│ │ -			outline: none;
+│ │ -			/* remove the default outline */
+│ │ -			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ -			/* add a custom outline */
+│ │ -		}
+│ │ -	</style>
+│ │ -	<title>OMDb Movie Search Extension Options</title>
+│ │ -</head>
+│ │ -
+│ │ -<body>
+│ │ -	<p>Enter your OMDb API key (generated from <a href="https://www.omdbapi.com/apikey.aspx"
+│ │ -			target="_blank">https://www.omdbapi.com</a>):</p>
+│ │ -	<div style="display: flex;">
+│ │ -		<input id="api-key" type="text" placeholder="Type your API key..." />
+│ │ -		<button id="save">Save</button>
+│ │ -	</div>
+│ │ -	<script src="options.js"></script>
+│ │ -</body>
+│ │ -
+│ │  </html>
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.js
+│ ├── +++ /workspace/pipeline_output/movie-search-extension/options/options.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,16 +1,16 @@
+│ │  646f63756d656e742e6164644576656e744c697374656e65722822444f4d436f
+│ │ +6e74656e744c6f61646564222c2066756e6374696f6e202829207b0a20202f2f
+│ │ +204c6f61642070726576696f75736c7920736176656420415049206b65790a20
+│ │ +206368726f6d652e73746f726167652e73796e632e67657428226170694b6579
+│ │ +222c2066756e6374696f6e20286461746129207b0a20202020646f63756d656e
+│ │ +742e717565727953656c6563746f722822236170692d6b657922292e76616c75
+│ │ +65203d20646174612e6170694b6579207c7c2022223b0a20207d293b0a0a2020
+│ │ +2f2f205361766520415049206b6579206f6e20627574746f6e20636c69636b0a
+│ │ +2020646f63756d656e742e717565727953656c6563746f722822237361766522
+│ │ +292e6164644576656e744c697374656e65722822636c69636b222c2066756e63
+│ │ +74696f6e202829207b0a202020206c6574206170694b6579203d20646f63756d
+│ │ +656e742e717565727953656c6563746f722822236170692d6b657922292e7661
+│ │ +6c75653b0a202020206368726f6d652e73746f726167652e73796e632e736574
+│ │ +287b206170694b65793a206170694b6579207d2c2066756e6374696f6e202829
+│ │ +207b0a20202020202077696e646f772e636c6f736528293b0a202020207d293b
+│ │ +0a20207d293b0a7d293b0a
+│ │ -6e74656e744c6f61646564222c2066756e6374696f6e202829207b0d0a20202f
+│ │ -2f204c6f61642070726576696f75736c7920736176656420415049206b65790d
+│ │ -0a20206368726f6d652e73746f726167652e73796e632e67657428226170694b
+│ │ -6579222c2066756e6374696f6e20286461746129207b0d0a20202020646f6375
+│ │ -6d656e742e717565727953656c6563746f722822236170692d6b657922292e76
+│ │ -616c7565203d20646174612e6170694b6579207c7c2022223b0d0a20207d293b
+│ │ -0d0a0d0a20202f2f205361766520415049206b6579206f6e20627574746f6e20
+│ │ -636c69636b0d0a2020646f63756d656e742e717565727953656c6563746f7228
+│ │ -22237361766522292e6164644576656e744c697374656e65722822636c69636b
+│ │ -222c2066756e6374696f6e202829207b0d0a202020206c6574206170694b6579
+│ │ -203d20646f63756d656e742e717565727953656c6563746f722822236170692d
+│ │ -6b657922292e76616c75653b0d0a202020206368726f6d652e73746f72616765
+│ │ -2e73796e632e736574287b206170694b65793a206170694b6579207d2c206675
+│ │ -6e6374696f6e202829207b0d0a20202020202077696e646f772e636c6f736528
+│ │ -293b0d0a202020207d293b0d0a20207d293b0d0a7d293b0d0a
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/movie-search-extension/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.html
+│ ├── +++ /workspace/pipeline_output/movie-search-extension/popup/popup.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,173 +1,173 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +
+│ │ +<head>
+│ │ +	<style>
+│ │ +		body {
+│ │ +			font-size: medium;
+│ │ +			font-family: Roboto, Helvetica, Arial, sans-serif;
+│ │ +			display: flex;
+│ │ +			flex-direction: column;
+│ │ +			align-items: center;
+│ │ +			background-color: #0c0b00;
+│ │ +			color: white;
+│ │ +			width: 400px;
+│ │ +		}
+│ │ +
+│ │ +		#search-form {
+│ │ +			display: flex;
+│ │ +			align-items: center;
+│ │ +			margin: 10px;
+│ │ +			font-size: large;
+│ │ +		}
+│ │ +
+│ │ +		#search-bar {
+│ │ +			padding: 10px;
+│ │ +			width: 300px;
+│ │ +			border: 1px solid #ccc;
+│ │ +			border-radius: 5px;
+│ │ +			font-size: 16px;
+│ │ +			outline: none;
+│ │ +			margin-right: 10px;
+│ │ +		}
+│ │ +
+│ │ +		#search-btn {
+│ │ +			font-size: 16px;
+│ │ +		}
+│ │ +
+│ │ +		button {
+│ │ +			background-color: #deb522;
+│ │ +			border: none;
+│ │ +			border-radius: 5px;
+│ │ +			cursor: pointer;
+│ │ +			padding: 10px;
+│ │ +			color: white;
+│ │ +		}
+│ │ +
+│ │ +		button:active {
+│ │ +			background-color: #ffa500;
+│ │ +			/* change to a different color when clicked */
+│ │ +			color: black;
+│ │ +			/* change the text color to make it visible */
+│ │ +		}
+│ │ +
+│ │ +		button:focus {
+│ │ +			outline: none;
+│ │ +			/* remove the default outline */
+│ │ +			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ +			/* add a custom outline */
+│ │ +		}
+│ │ +
+│ │ +		button:active:focus {
+│ │ +			background-color: #ffa500;
+│ │ +			/* change to a different color when clicked */
+│ │ +			color: black;
+│ │ +			/* change the text color to make it visible */
+│ │ +			outline: none;
+│ │ +			/* remove the default outline */
+│ │ +			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ +			/* add a custom outline */
+│ │ +		}
+│ │ +
+│ │ +		#main {
+│ │ +			display: none;
+│ │ +			flex-direction: row;
+│ │ +		}
+│ │ +
+│ │ +		#poster-container {
+│ │ +			display: flex;
+│ │ +			justify-content: center;
+│ │ +			margin-top: 5px;
+│ │ +		}
+│ │ +
+│ │ +		#details-container {
+│ │ +			display: flex;
+│ │ +			flex-direction: column;
+│ │ +			align-items: flex-start;
+│ │ +			justify-content: center;
+│ │ +			margin-left: 10px;
+│ │ +			width: 250px;
+│ │ +			height: 250px;
+│ │ +		}
+│ │ +
+│ │ +		#poster {
+│ │ +			height: 200px;
+│ │ +			width: 150px;
+│ │ +			border-radius: 5%;
+│ │ +		}
+│ │ +
+│ │ +		#imdb-link-text {
+│ │ +			text-decoration: inherit;
+│ │ +		}
+│ │ +
+│ │ +		#title {
+│ │ +			font-weight: bold;
+│ │ +			color: white;
+│ │ +			font-size: large;
+│ │ +		}
+│ │ +
+│ │ +		#message {
+│ │ +			display: none;
+│ │ +			align-self: flex-start;
+│ │ +			margin-left: 10px;
+│ │ +		}
+│ │ +
+│ │ +		#button-container {
+│ │ +			display: flex;
+│ │ +			flex-direction: row;
+│ │ +			justify-content: space-between;
+│ │ +			margin-top: auto;
+│ │ +			width: 100%;
+│ │ +		}
+│ │ +
+│ │ +		/* Style the scrollbar */
+│ │ +		::-webkit-scrollbar {
+│ │ +			width: 5px;
+│ │ +			background-color: #ffffff;
+│ │ +		}
+│ │ +
+│ │ +		/* Style the scrollbar thumb */
+│ │ +		::-webkit-scrollbar-thumb {
+│ │ +			background-color: #deb522;
+│ │ +			border-radius: 5px;
+│ │ +		}
+│ │ +
+│ │ +		/* Style the scrollbar track */
+│ │ +		::-webkit-scrollbar-track {
+│ │ +			background-color: #ffffff;
+│ │ +		}
+│ │ +	</style>
+│ │ +</head>
+│ │ +
+│ │ +<body>
+│ │ +	<form id="search-form">
+│ │ +		<input type="text" id="search-bar" placeholder="Search for a movie...">
+│ │ +		<button type="submit" id="search-btn">Search</button>
+│ │ +	</form>
+│ │ +	<div id="main">
+│ │ +		<div id="poster-container">
+│ │ +			<a id="imdb-link" href="" target="_blank">
+│ │ +				<img id="poster" src="../images/placeholder.png" alt="Movie poster" title="Go to IMDb">
+│ │ +			</a>
+│ │ +		</div>
+│ │ +		<div id="details-container">
+│ │ +			<div title="Go to IMDb"><a id="imdb-link-text" href="" target="_blank"><span id="title"></span></a><span
+│ │ +					id="year"></span></div>
+│ │ +			<div><span id="runtime"></span></div>
+│ │ +			<div><span id="imdb-rating"></span></div>
+│ │ +			<div><span id="director"></span></div>
+│ │ +			<div><span id="cast"></span></div>
+│ │ +			<br>
+│ │ +			<div style="overflow: auto; margin-bottom: 5px;"><span id="plot"></span></div>
+│ │ +			<div id="button-container">
+│ │ +				<button id="prev-btn" title="Previous">&lt</button>
+│ │ +				<button id="next-btn" title="Next">&gt</button>
+│ │ +			</div>
+│ │ +		</div>
+│ │ +
+│ │ +	</div>
+│ │ +	<div id="message"></div>
+│ │ +	<script src="popup.js"></script>
+│ │ +</body>
+│ │ +
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -
+│ │ -<head>
+│ │ -	<style>
+│ │ -		body {
+│ │ -			font-size: medium;
+│ │ -			font-family: Roboto, Helvetica, Arial, sans-serif;
+│ │ -			display: flex;
+│ │ -			flex-direction: column;
+│ │ -			align-items: center;
+│ │ -			background-color: #0c0b00;
+│ │ -			color: white;
+│ │ -			width: 400px;
+│ │ -		}
+│ │ -
+│ │ -		#search-form {
+│ │ -			display: flex;
+│ │ -			align-items: center;
+│ │ -			margin: 10px;
+│ │ -			font-size: large;
+│ │ -		}
+│ │ -
+│ │ -		#search-bar {
+│ │ -			padding: 10px;
+│ │ -			width: 300px;
+│ │ -			border: 1px solid #ccc;
+│ │ -			border-radius: 5px;
+│ │ -			font-size: 16px;
+│ │ -			outline: none;
+│ │ -			margin-right: 10px;
+│ │ -		}
+│ │ -
+│ │ -		#search-btn {
+│ │ -			font-size: 16px;
+│ │ -		}
+│ │ -
+│ │ -		button {
+│ │ -			background-color: #deb522;
+│ │ -			border: none;
+│ │ -			border-radius: 5px;
+│ │ -			cursor: pointer;
+│ │ -			padding: 10px;
+│ │ -			color: white;
+│ │ -		}
+│ │ -
+│ │ -		button:active {
+│ │ -			background-color: #ffa500;
+│ │ -			/* change to a different color when clicked */
+│ │ -			color: black;
+│ │ -			/* change the text color to make it visible */
+│ │ -		}
+│ │ -
+│ │ -		button:focus {
+│ │ -			outline: none;
+│ │ -			/* remove the default outline */
+│ │ -			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ -			/* add a custom outline */
+│ │ -		}
+│ │ -
+│ │ -		button:active:focus {
+│ │ -			background-color: #ffa500;
+│ │ -			/* change to a different color when clicked */
+│ │ -			color: black;
+│ │ -			/* change the text color to make it visible */
+│ │ -			outline: none;
+│ │ -			/* remove the default outline */
+│ │ -			box-shadow: 0 0 0 3px rgba(222, 181, 34, 0.4);
+│ │ -			/* add a custom outline */
+│ │ -		}
+│ │ -
+│ │ -		#main {
+│ │ -			display: none;
+│ │ -			flex-direction: row;
+│ │ -		}
+│ │ -
+│ │ -		#poster-container {
+│ │ -			display: flex;
+│ │ -			justify-content: center;
+│ │ -			margin-top: 5px;
+│ │ -		}
+│ │ -
+│ │ -		#details-container {
+│ │ -			display: flex;
+│ │ -			flex-direction: column;
+│ │ -			align-items: flex-start;
+│ │ -			justify-content: center;
+│ │ -			margin-left: 10px;
+│ │ -			width: 250px;
+│ │ -			height: 250px;
+│ │ -		}
+│ │ -
+│ │ -		#poster {
+│ │ -			height: 200px;
+│ │ -			width: 150px;
+│ │ -			border-radius: 5%;
+│ │ -		}
+│ │ -
+│ │ -		#imdb-link-text {
+│ │ -			text-decoration: inherit;
+│ │ -		}
+│ │ -
+│ │ -		#title {
+│ │ -			font-weight: bold;
+│ │ -			color: white;
+│ │ -			font-size: large;
+│ │ -		}
+│ │ -
+│ │ -		#message {
+│ │ -			display: none;
+│ │ -			align-self: flex-start;
+│ │ -			margin-left: 10px;
+│ │ -		}
+│ │ -
+│ │ -		#button-container {
+│ │ -			display: flex;
+│ │ -			flex-direction: row;
+│ │ -			justify-content: space-between;
+│ │ -			margin-top: auto;
+│ │ -			width: 100%;
+│ │ -		}
+│ │ -
+│ │ -		/* Style the scrollbar */
+│ │ -		::-webkit-scrollbar {
+│ │ -			width: 5px;
+│ │ -			background-color: #ffffff;
+│ │ -		}
+│ │ -
+│ │ -		/* Style the scrollbar thumb */
+│ │ -		::-webkit-scrollbar-thumb {
+│ │ -			background-color: #deb522;
+│ │ -			border-radius: 5px;
+│ │ -		}
+│ │ -
+│ │ -		/* Style the scrollbar track */
+│ │ -		::-webkit-scrollbar-track {
+│ │ -			background-color: #ffffff;
+│ │ -		}
+│ │ -	</style>
+│ │ -</head>
+│ │ -
+│ │ -<body>
+│ │ -	<form id="search-form">
+│ │ -		<input type="text" id="search-bar" placeholder="Search for a movie...">
+│ │ -		<button type="submit" id="search-btn">Search</button>
+│ │ -	</form>
+│ │ -	<div id="main">
+│ │ -		<div id="poster-container">
+│ │ -			<a id="imdb-link" href="" target="_blank">
+│ │ -				<img id="poster" src="../images/placeholder.png" alt="Movie poster" title="Go to IMDb">
+│ │ -			</a>
+│ │ -		</div>
+│ │ -		<div id="details-container">
+│ │ -			<div title="Go to IMDb"><a id="imdb-link-text" href="" target="_blank"><span id="title"></span></a><span
+│ │ -					id="year"></span></div>
+│ │ -			<div><span id="runtime"></span></div>
+│ │ -			<div><span id="imdb-rating"></span></div>
+│ │ -			<div><span id="director"></span></div>
+│ │ -			<div><span id="cast"></span></div>
+│ │ -			<br>
+│ │ -			<div style="overflow: auto; margin-bottom: 5px;"><span id="plot"></span></div>
+│ │ -			<div id="button-container">
+│ │ -				<button id="prev-btn" title="Previous">&lt</button>
+│ │ -				<button id="next-btn" title="Next">&gt</button>
+│ │ -			</div>
+│ │ -		</div>
+│ │ -
+│ │ -	</div>
+│ │ -	<div id="message"></div>
+│ │ -	<script src="popup.js"></script>
+│ │ -</body>
+│ │ -
+│ │  </html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.js
+│ ├── +++ /workspace/pipeline_output/movie-search-extension/popup/popup.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,159 +1,152 @@
+│ │  636f6e737420736561726368466f726d203d20646f63756d656e742e67657445
+│ │ +6c656d656e744279496428227365617263682d666f726d22293b0a636f6e7374
+│ │ +20736561726368496e707574203d20646f63756d656e742e676574456c656d65
+│ │ +6e744279496428227365617263682d62617222293b0a636f6e73742073656172
+│ │ +6368427574746f6e203d20646f63756d656e742e676574456c656d656e744279
+│ │ +496428227365617263682d62746e22293b0a636f6e7374207072657642757474
+│ │ +6f6e203d20646f63756d656e742e676574456c656d656e744279496428227072
+│ │ +65762d62746e22293b0a636f6e7374206e657874427574746f6e203d20646f63
+│ │ +756d656e742e676574456c656d656e744279496428226e6578742d62746e2229
+│ │ +3b0a636f6e7374206d657373616765203d20646f63756d656e742e676574456c
+│ │ +656d656e744279496428226d65737361676522293b0a636f6e7374206d61696e
+│ │ +203d20646f63756d656e742e676574456c656d656e744279496428226d61696e
+│ │ +22293b0a0a766172206170694b65793b0a76617220696e6465783b0a76617220
+│ │ +736561726368526573756c74733b0a766172207175657279203d2022223b0a0a
+│ │ +636f6e7374206361636865203d207b7d3b0a0a646f63756d656e742e61646445
+│ │ +76656e744c697374656e65722822444f4d436f6e74656e744c6f61646564222c
+│ │ +2066756e6374696f6e202829207b0a20206765744170694b657928293b0a0a20
+│ │ +2067657453656c65637465645465787428293b0a0a20206164644c697374656e
+│ │ +65727328293b0a7d293b0a0a66756e6374696f6e206765744170694b65792829
+│ │ +207b0a20206368726f6d652e73746f726167652e73796e632e67657428226170
+│ │ +694b6579222c2066756e6374696f6e20286461746129207b0a20202020696620
+│ │ +2821646174612e6170694b657929207b0a2020202020207365744d6573736167
+│ │ +65280a2020202020202020224e6f20415049206b657920666f756e642e20506c
+│ │ +656173652073657420616e20415049206b657920696e20746865206f7074696f
+│ │ +6e73206d656e752e20415049206b65792063616e2062652067656e6572617465
+│ │ +642066726f6d2068747470733a2f2f7777772e6f6d64626170692e636f6d2f61
+│ │ +70696b65792e61737078220a202020202020293b0a2020202020207265747572
+│ │ +6e3b0a202020207d0a202020206170694b6579203d20646174612e6170694b65
+│ │ +793b0a20207d293b0a7d0a0a66756e6374696f6e207365744d65737361676528
+│ │ +6d736729207b0a20206d6573736167652e696e6e657254657874203d206d7367
+│ │ +3b0a0a20206d6573736167652e7374796c652e646973706c6179203d2022626c
+│ │ +6f636b223b0a20206d61696e2e7374796c652e646973706c6179203d20226e6f
+│ │ +6e65223b0a7d0a0a6173796e632066756e6374696f6e2067657453656c656374
+│ │ +6564546578742829207b0a20206c657420726573756c743b0a2020636f6e7374
+│ │ +205b7461625d203d206177616974206368726f6d652e746162732e7175657279
+│ │ +287b0a202020206163746976653a20747275652c0a2020202063757272656e74
+│ │ +57696e646f773a20747275652c0a20207d293b0a0a2020747279207b0a202020
+│ │ +205b7b20726573756c74207d5d203d206177616974206368726f6d652e736372
+│ │ +697074696e672e65786563757465536372697074287b0a202020202020746172
+│ │ +6765743a207b0a202020202020202074616249643a207461622e69642c0a2020
+│ │ +202020207d2c0a20202020202066756e6374696f6e3a202829203d3e207b0a20
+│ │ +2020202020202072657475726e2077696e646f772e67657453656c656374696f
+│ │ +6e28292e746f537472696e6728292e73756273747228302c203634293b0a2020
+│ │ +202020207d2c0a202020207d293b0a20207d20636174636820286529207b0a20
+│ │ +20202072657475726e3b202f2f2069676e6f72696e6720616e20756e73757070
+│ │ +6f727465642070616765206c696b65206368726f6d653a2f2f657874656e7369
+│ │ +6f6e730a20207d0a0a20206966202821726573756c7429207b0a202020207365
+│ │ +61726368496e7075742e666f63757328293b0a2020202072657475726e3b0a20
+│ │ +207d0a0a2020736561726368496e7075742e76616c7565203d20726573756c74
+│ │ +3b0a2020736561726368496e7075742e666f63757328293b0a20207365617263
+│ │ +68427574746f6e2e636c69636b28293b0a7d0a0a66756e6374696f6e20616464
+│ │ +4c697374656e6572732829207b0a20206c6574206465626f756e636554696d65
+│ │ +6f757449643b0a0a2020736561726368496e7075742e6164644576656e744c69
+│ │ +7374656e65722822696e707574222c2066756e6374696f6e202829207b0a2020
+│ │ +2020636c65617254696d656f7574286465626f756e636554696d656f75744964
+│ │ +293b0a0a202020206465626f756e636554696d656f75744964203d2073657454
+│ │ +696d656f75742866756e6374696f6e202829207b0a20202020202068616e646c
+│ │ +6553656172636828293b0a202020207d2c2031303030293b0a20207d293b0a0a
+│ │ +2020736561726368466f726d2e6164644576656e744c697374656e6572282273
+│ │ +75626d6974222c2066756e6374696f6e20286576656e7429207b0a2020202065
+│ │ +76656e742e70726576656e7444656661756c7428293b0a2020202068616e646c
+│ │ +6553656172636828293b0a20207d293b0a0a202070726576427574746f6e2e61
+│ │ +64644576656e744c697374656e65722822636c69636b222c2068616e646c6550
+│ │ +726576427574746f6e436c69636b293b0a20206e657874427574746f6e2e6164
+│ │ +644576656e744c697374656e65722822636c69636b222c2068616e646c654e65
+│ │ +7874427574746f6e436c69636b293b0a7d0a0a66756e6374696f6e2068616e64
+│ │ +6c655365617263682829207b0a20206c6574206e65775175657279203d207365
+│ │ +61726368496e7075742e76616c75652e7472696d28293b0a0a2020696620286e
+│ │ +657751756572792e6c656e677468203d3d3d203029207b0a202020206d61696e
+│ │ +2e7374796c652e646973706c6179203d20226e6f6e65223b0a20202020726574
+│ │ +75726e3b0a20207d0a0a2020696620287175657279203d3d3d206e6577517565
+│ │ +727929207b0a2020202072657475726e3b0a20207d0a20207175657279203d20
+│ │ +6e657751756572793b0a20207365617263682871756572792c206170694b6579
+│ │ +293b0a7d0a0a66756e6374696f6e207365617263682871756572792c20617069
+│ │ +4b657929207b0a202069662028217175657279207c7c20216170694b65792920
+│ │ +7b0a2020202072657475726e3b0a20207d0a0a20207365744d65737361676528
+│ │ +60536561726368696e6720666f722022247b71756572797d2260293b0a20206c
+│ │ +65742075726c203d206068747470733a2f2f7777772e6f6d64626170692e636f
+│ │ +6d2f3f6170696b65793d247b6170694b65797d26733d247b71756572797d603b
+│ │ +0a0a202066657463682875726c290a202020202e7468656e2828726573706f6e
+│ │ +736529203d3e20726573706f6e73652e6a736f6e2829290a202020202e746865
+│ │ +6e28286461746129203d3e207b0a20202020202069662028646174612e526573
+│ │ +706f6e7365203d3d3d202246616c73652229207b0a2020202020202020736574
+│ │ +4d65737361676528646174612e4572726f72293b0a2020202020202020726574
+│ │ +75726e3b0a2020202020207d0a0a202020202020696e646578203d20303b0a20
+│ │ +2020202020736561726368526573756c7473203d205b2e2e2e646174612e5365
+│ │ +617263685d3b0a2020202020206665746368526573756c742873656172636852
+│ │ +6573756c74735b696e6465785d2e696d646249442c206170694b6579293b0a20
+│ │ +2020207d290a202020202e636174636828286572726f7229203d3e207b0a2020
+│ │ +202020207365744d657373616765286572726f72293b0a202020207d293b0a7d
+│ │ +0a0a66756e6374696f6e2068616e646c6550726576427574746f6e436c69636b
+│ │ +2829207b0a2020696e646578203d2028696e646578202d2031202b2073656172
+│ │ +6368526573756c74732e6c656e67746829202520736561726368526573756c74
+│ │ +732e6c656e6774683b0a20206665746368526573756c74287365617263685265
+│ │ +73756c74735b696e6465785d2e696d646249442c206170694b6579293b0a7d0a
+│ │ +0a66756e6374696f6e2068616e646c654e657874427574746f6e436c69636b28
+│ │ +29207b0a2020696e646578203d2028696e646578202b20312920252073656172
+│ │ +6368526573756c74732e6c656e6774683b0a20206665746368526573756c7428
+│ │ +736561726368526573756c74735b696e6465785d2e696d646249442c20617069
+│ │ +4b6579293b0a7d0a0a66756e6374696f6e207570646174655549286461746129
+│ │ +207b0a202069662028646174612e506f7374657220213d3d20224e2f41222920
+│ │ +7b0a20202020646f63756d656e742e676574456c656d656e7442794964282270
+│ │ +6f7374657222292e737263203d20646174612e506f737465723b0a20207d2065
+│ │ +6c7365207b0a20202020646f63756d656e742e676574456c656d656e74427949
+│ │ +642822706f7374657222292e737263203d20222e2e2f696d616765732f343034
+│ │ +2e706e67223b0a20207d0a202069662028646174612e5469746c6520213d3d20
+│ │ +224e2f412229207b0a20202020646f63756d656e742e676574456c656d656e74
+│ │ +4279496428227469746c6522292e696e6e657254657874203d20646174612e54
+│ │ +69746c653b0a20207d0a202069662028646174612e5965617220213d3d20224e
+│ │ +2f412229207b0a20202020646f63756d656e742e676574456c656d656e744279
+│ │ +496428227965617222292e696e6e657254657874203d20602028247b64617461
+│ │ +2e596561727d29603b0a20207d0a202069662028646174612e696d6462526174
+│ │ +696e6720213d3d20224e2f412229207b0a20202020646f63756d656e742e6765
+│ │ +74456c656d656e7442794964280a20202020202022696d64622d726174696e67
+│ │ +220a20202020292e696e6e657254657874203d2060494d446220526174696e67
+│ │ +3a20247b646174612e696d6462526174696e677d603b0a20207d0a2020696620
+│ │ +28646174612e52756e74696d6520213d3d20224e2f412229207b0a2020202064
+│ │ -6c656d656e744279496428227365617263682d666f726d22293b0d0a636f6e73
+│ │ -7420736561726368496e707574203d20646f63756d656e742e676574456c656d
+│ │ -656e744279496428227365617263682d62617222293b0d0a636f6e7374207365
+│ │ -61726368427574746f6e203d20646f63756d656e742e676574456c656d656e74
+│ │ -4279496428227365617263682d62746e22293b0d0a636f6e7374207072657642
+│ │ -7574746f6e203d20646f63756d656e742e676574456c656d656e744279496428
+│ │ -22707265762d62746e22293b0d0a636f6e7374206e657874427574746f6e203d
+│ │ -20646f63756d656e742e676574456c656d656e744279496428226e6578742d62
+│ │ -746e22293b0d0a636f6e7374206d657373616765203d20646f63756d656e742e
+│ │ -676574456c656d656e744279496428226d65737361676522293b0d0a636f6e73
+│ │ -74206d61696e203d20646f63756d656e742e676574456c656d656e7442794964
+│ │ -28226d61696e22293b0d0a0d0a766172206170694b65793b0d0a76617220696e
+│ │ -6465783b0d0a76617220736561726368526573756c74733b0d0a766172207175
+│ │ -657279203d2022223b0d0a0d0a636f6e7374206361636865203d207b7d3b0d0a
+│ │ -0d0a646f63756d656e742e6164644576656e744c697374656e65722822444f4d
+│ │ -436f6e74656e744c6f61646564222c2066756e6374696f6e202829207b0d0a20
+│ │ -206765744170694b657928293b0d0a0d0a202067657453656c65637465645465
+│ │ -787428293b0d0a0d0a20206164644c697374656e65727328293b0d0a7d293b0d
+│ │ -0a0d0a66756e6374696f6e206765744170694b65792829207b0d0a2020636872
+│ │ -6f6d652e73746f726167652e73796e632e67657428226170694b6579222c2066
+│ │ -756e6374696f6e20286461746129207b0d0a202020206966202821646174612e
+│ │ -6170694b657929207b0d0a2020202020207365744d657373616765280d0a2020
+│ │ -202020202020224e6f20415049206b657920666f756e642e20506c6561736520
+│ │ -73657420616e20415049206b657920696e20746865206f7074696f6e73206d65
+│ │ -6e752e20415049206b65792063616e2062652067656e6572617465642066726f
+│ │ -6d2068747470733a2f2f7777772e6f6d64626170692e636f6d2f6170696b6579
+│ │ -2e61737078220d0a202020202020293b0d0a20202020202072657475726e3b0d
+│ │ -0a202020207d0d0a202020206170694b6579203d20646174612e6170694b6579
+│ │ -3b0d0a20207d293b0d0a7d0d0a0d0a66756e6374696f6e207365744d65737361
+│ │ -6765286d736729207b0d0a20206d6573736167652e696e6e657254657874203d
+│ │ -206d73673b0d0a0d0a20206d6573736167652e7374796c652e646973706c6179
+│ │ -203d2022626c6f636b223b0d0a20206d61696e2e7374796c652e646973706c61
+│ │ -79203d20226e6f6e65223b0d0a7d0d0a0d0a6173796e632066756e6374696f6e
+│ │ -2067657453656c6563746564546578742829207b0d0a20206c65742072657375
+│ │ -6c743b0d0a2020636f6e7374205b7461625d203d206177616974206368726f6d
+│ │ -652e746162732e7175657279287b0d0a202020206163746976653a2074727565
+│ │ -2c0d0a2020202063757272656e7457696e646f773a20747275652c0d0a20207d
+│ │ -293b0d0a0d0a2020747279207b0d0a202020205b7b20726573756c74207d5d20
+│ │ -3d206177616974206368726f6d652e736372697074696e672e65786563757465
+│ │ -536372697074287b0d0a2020202020207461726765743a207b0d0a2020202020
+│ │ -20202074616249643a207461622e69642c0d0a2020202020207d2c0d0a202020
+│ │ -20202066756e6374696f6e3a202829203d3e207b0d0a20202020202020207265
+│ │ -7475726e2077696e646f772e67657453656c656374696f6e28292e746f537472
+│ │ -696e6728292e73756273747228302c203634293b0d0a2020202020207d2c0d0a
+│ │ -202020207d293b0d0a20207d20636174636820286529207b0d0a202020207265
+│ │ -7475726e3b202f2f2069676e6f72696e6720616e20756e737570706f72746564
+│ │ -2070616765206c696b65206368726f6d653a2f2f657874656e73696f6e730d0a
+│ │ -20207d0d0a0d0a20206966202821726573756c7429207b0d0a20202020736561
+│ │ -726368496e7075742e666f63757328293b0d0a2020202072657475726e3b0d0a
+│ │ -20207d0d0a0d0a2020736561726368496e7075742e76616c7565203d20726573
+│ │ -756c743b0d0a2020736561726368496e7075742e666f63757328293b0d0a2020
+│ │ -736561726368427574746f6e2e636c69636b28293b0d0a7d0d0a0d0a66756e63
+│ │ -74696f6e206164644c697374656e6572732829207b0d0a20206c657420646562
+│ │ -6f756e636554696d656f757449643b0d0a0d0a2020736561726368496e707574
+│ │ -2e6164644576656e744c697374656e65722822696e707574222c2066756e6374
+│ │ -696f6e202829207b0d0a20202020636c65617254696d656f7574286465626f75
+│ │ -6e636554696d656f75744964293b0d0a0d0a202020206465626f756e63655469
+│ │ -6d656f75744964203d2073657454696d656f75742866756e6374696f6e202829
+│ │ -207b0d0a20202020202068616e646c6553656172636828293b0d0a202020207d
+│ │ -2c2031303030293b0d0a20207d293b0d0a0d0a2020736561726368466f726d2e
+│ │ -6164644576656e744c697374656e657228227375626d6974222c2066756e6374
+│ │ -696f6e20286576656e7429207b0d0a202020206576656e742e70726576656e74
+│ │ -44656661756c7428293b0d0a2020202068616e646c6553656172636828293b0d
+│ │ -0a20207d293b0d0a0d0a202070726576427574746f6e2e6164644576656e744c
+│ │ -697374656e65722822636c69636b222c2068616e646c6550726576427574746f
+│ │ -6e436c69636b293b0d0a20206e657874427574746f6e2e6164644576656e744c
+│ │ -697374656e65722822636c69636b222c2068616e646c654e657874427574746f
+│ │ -6e436c69636b293b0d0a7d0d0a0d0a66756e6374696f6e2068616e646c655365
+│ │ -617263682829207b0d0a20206c6574206e65775175657279203d207365617263
+│ │ -68496e7075742e76616c75652e7472696d28293b0d0a0d0a2020696620286e65
+│ │ -7751756572792e6c656e677468203d3d3d203029207b0d0a202020206d61696e
+│ │ -2e7374796c652e646973706c6179203d20226e6f6e65223b0d0a202020207265
+│ │ -7475726e3b0d0a20207d0d0a0d0a2020696620287175657279203d3d3d206e65
+│ │ -77517565727929207b0d0a2020202072657475726e3b0d0a20207d0d0a202071
+│ │ -75657279203d206e657751756572793b0d0a2020736561726368287175657279
+│ │ -2c206170694b6579293b0d0a7d0d0a0d0a66756e6374696f6e20736561726368
+│ │ -2871756572792c206170694b657929207b0d0a20206966202821717565727920
+│ │ -7c7c20216170694b657929207b0d0a2020202072657475726e3b0d0a20207d0d
+│ │ -0a0d0a20207365744d6573736167652860536561726368696e6720666f722022
+│ │ -247b71756572797d2260293b0d0a20206c65742075726c203d20606874747073
+│ │ -3a2f2f7777772e6f6d64626170692e636f6d2f3f6170696b65793d247b617069
+│ │ -4b65797d26733d247b71756572797d603b0d0a0d0a202066657463682875726c
+│ │ -290d0a202020202e7468656e2828726573706f6e736529203d3e20726573706f
+│ │ -6e73652e6a736f6e2829290d0a202020202e7468656e28286461746129203d3e
+│ │ -207b0d0a20202020202069662028646174612e526573706f6e7365203d3d3d20
+│ │ -2246616c73652229207b0d0a20202020202020207365744d6573736167652864
+│ │ -6174612e4572726f72293b0d0a202020202020202072657475726e3b0d0a2020
+│ │ -202020207d0d0a0d0a202020202020696e646578203d20303b0d0a2020202020
+│ │ -20736561726368526573756c7473203d205b2e2e2e646174612e536561726368
+│ │ -5d3b0d0a2020202020206665746368526573756c742873656172636852657375
+│ │ -6c74735b696e6465785d2e696d646249442c206170694b6579293b0d0a202020
+│ │ -207d290d0a202020202e636174636828286572726f7229203d3e207b0d0a2020
+│ │ -202020207365744d657373616765286572726f72293b0d0a202020207d293b0d
+│ │ -0a7d0d0a0d0a66756e6374696f6e2068616e646c6550726576427574746f6e43
+│ │ -6c69636b2829207b0d0a2020696e646578203d2028696e646578202d2031202b
+│ │ -20736561726368526573756c74732e6c656e6774682920252073656172636852
+│ │ -6573756c74732e6c656e6774683b0d0a20206665746368526573756c74287365
+│ │ -61726368526573756c74735b696e6465785d2e696d646249442c206170694b65
+│ │ -79293b0d0a7d0d0a0d0a66756e6374696f6e2068616e646c654e657874427574
+│ │ -746f6e436c69636b2829207b0d0a2020696e646578203d2028696e646578202b
+│ │ -203129202520736561726368526573756c74732e6c656e6774683b0d0a202066
+│ │ -65746368526573756c7428736561726368526573756c74735b696e6465785d2e
+│ │ -696d646249442c206170694b6579293b0d0a7d0d0a0d0a66756e6374696f6e20
+│ │ -7570646174655549286461746129207b0d0a202069662028646174612e506f73
+│ │ -74657220213d3d20224e2f412229207b0d0a20202020646f63756d656e742e67
+│ │ -6574456c656d656e74427949642822706f7374657222292e737263203d206461
+│ │ -74612e506f737465723b0d0a20207d20656c7365207b0d0a20202020646f6375
+│ │ -6d656e742e676574456c656d656e74427949642822706f7374657222292e7372
+│ │ -63203d20222e2e2f696d616765732f3430342e706e67223b0d0a20207d0d0a20
+│ │ -2069662028646174612e5469746c6520213d3d20224e2f412229207b0d0a2020
+│ │ -2020646f63756d656e742e676574456c656d656e744279496428227469746c65
+│ │ -22292e696e6e657254657874203d20646174612e5469746c653b0d0a20207d0d
+│ │ -0a202069662028646174612e5965617220213d3d20224e2f412229207b0d0a20
+│ │ -202020646f63756d656e742e676574456c656d656e7442794964282279656172
+│ │ -22292e696e6e657254657874203d20602028247b646174612e596561727d2960
+│ │ -3b0d0a20207d0d0a202069662028646174612e696d6462526174696e6720213d
+│ │ -3d20224e2f412229207b0d0a20202020646f63756d656e742e676574456c656d
+│ │ -656e7442794964280d0a20202020202022696d64622d726174696e67220d0a20
+│ │ -202020292e696e6e657254657874203d2060494d446220526174696e673a2024
+│ │ -7b646174612e696d6462526174696e677d603b0d0a20207d0d0a202069662028
+│ │ -646174612e52756e74696d6520213d3d20224e2f412229207b0d0a2020202064
+│ │  6f63756d656e742e676574456c656d656e7442794964282272756e74696d6522
+│ │  292e696e6e657254657874203d206052756e74696d653a20247b646174612e52
+│ │ +756e74696d657d603b0a20207d0a202069662028646174612e4469726563746f
+│ │ +7220213d3d20224e2f412229207b0a20202020646f63756d656e742e67657445
+│ │ +6c656d656e7442794964280a202020202020226469726563746f72220a202020
+│ │ +20292e696e6e657254657874203d206044697265637465642062793a20247b64
+│ │ +6174612e4469726563746f727d603b0a20207d0a202069662028646174612e41
+│ │ +63746f727320213d3d20224e2f412229207b0a20202020646f63756d656e742e
+│ │ +676574456c656d656e744279496428226361737422292e696e6e657254657874
+│ │ +203d2060436173743a20247b646174612e4163746f72737d603b0a20207d0a20
+│ │ +2069662028646174612e506c6f7420213d3d20224e2f412229207b0a20202020
+│ │ +646f63756d656e742e676574456c656d656e74427949642822706c6f7422292e
+│ │ +696e6e657254657874203d20646174612e506c6f743b0a20207d0a0a2020646f
+│ │ +63756d656e742e676574456c656d656e7442794964280a2020202022696d6462
+│ │ +2d6c696e6b220a2020292e68726566203d206068747470733a2f2f7777772e69
+│ │ +6d64622e636f6d2f7469746c652f247b646174612e696d646249447d603b0a20
+│ │ +20646f63756d656e742e676574456c656d656e7442794964280a202020202269
+│ │ +6d64622d6c696e6b2d74657874220a2020292e68726566203d20606874747073
+│ │ +3a2f2f7777772e696d64622e636f6d2f7469746c652f247b646174612e696d64
+│ │ +6249447d603b0a0a20206d6573736167652e7374796c652e646973706c617920
+│ │ +3d20226e6f6e65223b0a20206d61696e2e7374796c652e646973706c6179203d
+│ │ +2022666c6578223b0a7d0a0a66756e6374696f6e206665746368526573756c74
+│ │ +28696d646249442c206170694b657929207b0a20206c657420696d646255726c
+│ │ +203d206068747470733a2f2f7777772e6f6d64626170692e636f6d2f3f617069
+│ │ +6b65793d247b6170694b65797d26693d247b696d646249447d26706c6f743d73
+│ │ +686f7274603b0a20206c657420646174613b0a0a20206966202863616368655b
+│ │ +696d646249445d29207b0a2020202064617461203d2063616368655b696d6462
+│ │ +49445d3b0a2020202075706461746555492864617461293b0a20207d20656c73
+│ │ +65207b0a20202020666574636828696d646255726c290a2020202020202e7468
+│ │ +656e2828726573706f6e736529203d3e20726573706f6e73652e6a736f6e2829
+│ │ +290a2020202020202e7468656e28286461746129203d3e207b0a202020202020
+│ │ +202075706461746555492864617461293b0a202020202020202063616368655b
+│ │ +696d646249445d203d20646174613b0a2020202020207d290a2020202020202e
+│ │ +636174636828286572726f7229203d3e207b0a20202020202020207365744d65
+│ │ +7373616765286572726f72293b0a2020202020207d293b0a20207d0a7d0a
+│ │ -756e74696d657d603b0d0a20207d0d0a202069662028646174612e4469726563
+│ │ -746f7220213d3d20224e2f412229207b0d0a20202020646f63756d656e742e67
+│ │ -6574456c656d656e7442794964280d0a202020202020226469726563746f7222
+│ │ -0d0a20202020292e696e6e657254657874203d20604469726563746564206279
+│ │ -3a20247b646174612e4469726563746f727d603b0d0a20207d0d0a2020696620
+│ │ -28646174612e4163746f727320213d3d20224e2f412229207b0d0a2020202064
+│ │ -6f63756d656e742e676574456c656d656e744279496428226361737422292e69
+│ │ -6e6e657254657874203d2060436173743a20247b646174612e4163746f72737d
+│ │ -603b0d0a20207d0d0a202069662028646174612e506c6f7420213d3d20224e2f
+│ │ -412229207b0d0a20202020646f63756d656e742e676574456c656d656e744279
+│ │ -49642822706c6f7422292e696e6e657254657874203d20646174612e506c6f74
+│ │ -3b0d0a20207d0d0a0d0a2020646f63756d656e742e676574456c656d656e7442
+│ │ -794964280d0a2020202022696d64622d6c696e6b220d0a2020292e6872656620
+│ │ -3d206068747470733a2f2f7777772e696d64622e636f6d2f7469746c652f247b
+│ │ -646174612e696d646249447d603b0d0a2020646f63756d656e742e676574456c
+│ │ -656d656e7442794964280d0a2020202022696d64622d6c696e6b2d7465787422
+│ │ -0d0a2020292e68726566203d206068747470733a2f2f7777772e696d64622e63
+│ │ -6f6d2f7469746c652f247b646174612e696d646249447d603b0d0a0d0a20206d
+│ │ -6573736167652e7374796c652e646973706c6179203d20226e6f6e65223b0d0a
+│ │ -20206d61696e2e7374796c652e646973706c6179203d2022666c6578223b0d0a
+│ │ -7d0d0a0d0a66756e6374696f6e206665746368526573756c7428696d64624944
+│ │ -2c206170694b657929207b0d0a20206c657420696d646255726c203d20606874
+│ │ -7470733a2f2f7777772e6f6d64626170692e636f6d2f3f6170696b65793d247b
+│ │ -6170694b65797d26693d247b696d646249447d26706c6f743d73686f7274603b
+│ │ -0d0a20206c657420646174613b0d0a0d0a20206966202863616368655b696d64
+│ │ -6249445d29207b0d0a2020202064617461203d2063616368655b696d64624944
+│ │ -5d3b0d0a2020202075706461746555492864617461293b0d0a20207d20656c73
+│ │ -65207b0d0a20202020666574636828696d646255726c290d0a2020202020202e
+│ │ -7468656e2828726573706f6e736529203d3e20726573706f6e73652e6a736f6e
+│ │ -2829290d0a2020202020202e7468656e28286461746129203d3e207b0d0a2020
+│ │ -20202020202075706461746555492864617461293b0d0a202020202020202063
+│ │ -616368655b696d646249445d203d20646174613b0d0a2020202020207d290d0a
+│ │ -2020202020202e636174636828286572726f7229203d3e207b0d0a2020202020
+│ │ -2020207365744d657373616765286572726f72293b0d0a2020202020207d293b
+│ │ -0d0a20207d0d0a7d0d0a

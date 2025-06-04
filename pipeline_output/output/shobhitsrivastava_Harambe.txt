@@ -1,0 +1,62 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Harambe
+├── file list
+│ @@ -1,8 +1,4 @@
+│ -Harambe.png
+│ +.git
+│  README.md
+│ -_metadata
+│ -background.js
+│ -injected.js
+│ -jquery-3.1.0.js
+│  manifest.json
+│ -replaceText.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Harambe/README.md
+│┄ Ordering differences only
+│ @@ -1,2 +1,2 @@
+│ -# Harambe
+│ -A simple Chrome extension that replaces certain words on the page with the word "Harambe"
+│ +# Harambe
+│ +A simple Chrome extension that replaces certain words on the page with the word "Harambe"
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Harambe/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,36 +1,5 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "persistent:": false,
+│ │ -        "scripts": [
+│ │ -            "background.js",
+│ │ -            "jquery-3.1.0.js",
+│ │ -            "replaceText.js"
+│ │ -        ]
+│ │ -    },
+│ │ -    "browser_action": {
+│ │ -        "default_title": "turn on Harambe"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "background.js",
+│ │ -                "jquery-3.1.0.js",
+│ │ -                "replaceText.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "http://*/*"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "A simple Chrome extension that replaces references to divine entities with the word \"Harambe\"",
+│ │ -    "icons": {
+│ │ -        "128": "Harambe.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "Harambe",
+│ │ -    "permissions": [
+│ │ -        "activeTab"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

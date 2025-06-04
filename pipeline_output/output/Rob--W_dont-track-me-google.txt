@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/dont-track-me-google
+├── file list
+│ @@ -1,9 +1,15 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +Makefile
+│ +README.md
+│  contentscript.js
+│  icon48.png
+│  icon64.png
+│  icon96.png
+│  main_world_script.js
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│ +screenshot.png
+│ +tools
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/dont-track-me-google/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -418,10 +418,9 @@
+│ │      "name": "Don't track me Google",
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.29"
+│ │  }

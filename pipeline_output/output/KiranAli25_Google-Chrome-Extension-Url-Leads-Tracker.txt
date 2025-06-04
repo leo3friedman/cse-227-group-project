@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Google-Chrome-Extension-Url-Leads-Tracker
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  index.html
+│  logo.png
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Google-Chrome-Extension-Url-Leads-Tracker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,13 +1,12 @@
+│ │  {
+│ │      "action": {
+│ │          "default_icon": "logo.png",
+│ │          "default_popup": "index.html"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Kool Kat URL Tracker",
+│ │ +    "name": "Lead/Job Tracker Chrome Extension",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

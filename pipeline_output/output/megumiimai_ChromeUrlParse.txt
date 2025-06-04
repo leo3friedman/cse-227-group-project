@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChromeUrlParse
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  css
+│  howto
+│  html
+│  icons
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/ChromeUrlParse/README.md
+│ @@ -5,12 +5,13 @@
+│  ### Chrome Url Parse
+│  
+│  Url Parameters Parse for Google Chrome
+│  
+│  <img src="https://github.com/megumiimai/ChromeUrlParse/blob/master/howto/use.png" width="400">
+│  
+│  ### Feature
+│ -- Url parameters parse
+│ +- Parse URL query parameters
+│  - Filter parameters key
+│  - Decode / Encode parameters value
+│ +- Edit parameter values
+│  - Delete parameters
+│  - Add parameters
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChromeUrlParse/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,10 +35,9 @@
+│ │      "name": "Url Parameter Parse",
+│ │      "permissions": [
+│ │          "http://*/",
+│ │          "https://*/",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

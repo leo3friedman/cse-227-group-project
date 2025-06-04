@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Cursor-Blink
+├── file list
+│ @@ -1,6 +1,6 @@
+│ -128.png
+│ -16.png
+│ -48.png
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Cursor-Blink/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "icons": {
+│ │          "128": "128.png",
+│ │          "16": "16.png",
+│ │          "48": "48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Remove Blink",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/styles.css
+├── +++ /workspace/pipeline_output/Cursor-Blink/styles.css
+│┄ Ordering differences only
+│ @@ -5,8 +5,8 @@
+│  .CodeMirror-cursor{
+│      cursorBlinkRate: 0 !important;
+│      visibility: visible !important;
+│  }
+│  
+│  .monaco-editor .cursors-layer .cursor {
+│      visibility: inherit !important;
+│ -}
+│ +}

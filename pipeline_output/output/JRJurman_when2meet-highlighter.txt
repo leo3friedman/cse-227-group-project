@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/when2meet-highlighter
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  inject.js
+│  manifest.json
+│  menu.js
+│ +package-lock.json
+│  when2meetIcon.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/when2meet-highlighter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,15 +8,14 @@
+│ │                  "https://www.when2meet.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Chrome Extension that allows users to visually see the indiviudal availability of people on the when2meet web app",
+│ │      "manifest_version": 3,
+│ │      "name": "when2meet-highlighter",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.when2meet.com/*"
+│ │              ],
+│ │              "resources": [

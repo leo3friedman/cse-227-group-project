@@ -1,0 +1,217 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ZendeskRefreshAgentView
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -_metadata
+│ +.git
+│  content.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/ZendeskRefreshAgentView/content.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,11 +1,10 @@
+│ -66756e6374696f6e206175746f436c69636b2829207b0d0a20206c6574206275
+│ -74746f6e52656672657368203d20646f63756d656e742e717565727953656c65
+│ -63746f72280d0a20202020275b646174612d746573742d69643d227669657773
+│ -5f76696577732d6c6973745f6865616465722d72656672657368225d270d0a20
+│ -20293b0d0a202069662028627574746f6e5265667265736829207b0d0a202020
+│ -20627574746f6e526566726573682e636c69636b28293b0d0a20207d0d0a7d0d
+│ -0a0d0a6368726f6d652e73746f726167652e73796e632e676574285b22696e74
+│ -657276616c225d2c2066756e6374696f6e2028726573756c7429207b0d0a2020
+│ -636f6e737420696e74657276616c203d20726573756c742e696e74657276616c
+│ -207c7c20353030303b0d0a2020736574496e74657276616c286175746f436c69
+│ -636b2c20696e74657276616c293b0d0a7d293b0d0a
+│ +66756e6374696f6e206175746f436c69636b2829207b0a20206c657420627574
+│ +746f6e52656672657368203d20646f63756d656e742e717565727953656c6563
+│ +746f7228275b646174612d746573742d69643d2276696577735f76696577732d
+│ +6c6973745f6865616465722d72656672657368225d27293b0a20206966202862
+│ +7574746f6e5265667265736829207b0a20202020627574746f6e526566726573
+│ +682e636c69636b28293b0a20207d0a7d0a0a6368726f6d652e73746f72616765
+│ +2e73796e632e676574285b22696e74657276616c225d2c2066756e6374696f6e
+│ +2028726573756c7429207b0a2020636f6e737420696e74657276616c203d2072
+│ +6573756c742e696e74657276616c207c7c20353030303b0a2020736574496e74
+│ +657276616c286175746f436c69636b2c20696e74657276616c293b0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ZendeskRefreshAgentView/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,11 +24,10 @@
+│ │          "48": "images/zendesk_icon_48px.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Zendesk - Atualizar p\u00e1gina do agente",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0",
+│ │      "version_name": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/ZendeskRefreshAgentView/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,56 +1,56 @@
+│ -<!DOCTYPE html>
+│ -<html lang="pt-br">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>CONFIGURAÇÕES</title>
+│ -    <style>
+│ -      html {
+│ -        width: 300px;
+│ -        height: 230px;
+│ -      }
+│ -      body {
+│ -        font-family: Arial, sans-serif;
+│ -        padding: 5px;
+│ -        text-align: center;
+│ -        background-color: #ececec;
+│ -      }
+│ -      form {
+│ -        background-color: white;
+│ -        border-radius: 15px;
+│ -        padding: 10px;
+│ -      }
+│ -      label {
+│ -        display: block;
+│ -        width: 80%;
+│ -        margin: 0px auto;
+│ -        margin-bottom: 10px;
+│ -      }
+│ -      input {
+│ -        width: 80%;
+│ -        margin: 0px auto;
+│ -        margin-bottom: 10px;
+│ -      }
+│ -      button {
+│ -        width: 50%;
+│ -        padding: 5px 10px;
+│ -        background-color: #073d2f;
+│ -        border-radius: 15px;
+│ -        color: white;
+│ -      }
+│ -      button:hover {
+│ -        background-color: #0c6950;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <img src="images/zendesk_icon_48px.png" />
+│ -    <h4>CONFIGURAÇÕES</h4>
+│ -    <form>
+│ -      <label for="interval"> Intervalo de atualização (segundos) </label>
+│ -      <input type="number" id="interval" value="5" min="1" max="60" />
+│ -      <button id="btn_save">SALVAR</button>
+│ -    </form>
+│ -    <script src="popup.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html lang="pt-br">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <title>CONFIGURAÇÕES</title>
+│ +    <style>
+│ +      html {
+│ +        width: 300px;
+│ +        height: 230px;
+│ +      }
+│ +      body {
+│ +        font-family: Arial, sans-serif;
+│ +        padding: 5px;
+│ +        text-align: center;
+│ +        background-color: #ececec;
+│ +      }
+│ +      form {
+│ +        background-color: white;
+│ +        border-radius: 15px;
+│ +        padding: 10px;
+│ +      }
+│ +      label {
+│ +        display: block;
+│ +        width: 80%;
+│ +        margin: 0px auto;
+│ +        margin-bottom: 10px;
+│ +      }
+│ +      input {
+│ +        width: 80%;
+│ +        margin: 0px auto;
+│ +        margin-bottom: 10px;
+│ +      }
+│ +      button {
+│ +        width: 50%;
+│ +        padding: 5px 10px;
+│ +        background-color: #073d2f;
+│ +        border-radius: 15px;
+│ +        color: white;
+│ +      }
+│ +      button:hover {
+│ +        background-color: #0c6950;
+│ +      }
+│ +    </style>
+│ +  </head>
+│ +  <body>
+│ +    <img src="images/zendesk_icon_48px.png" />
+│ +    <h4>CONFIGURAÇÕES</h4>
+│ +    <form>
+│ +      <label for="interval"> Intervalo de atualização (segundos) </label>
+│ +      <input type="number" id="interval" value="5" min="1" max="60" />
+│ +      <button id="btn_save">SALVAR</button>
+│ +    </form>
+│ +    <script src="popup.js"></script>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/ZendeskRefreshAgentView/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,22 +1,21 @@
+│  7661722073617665427574746f6e203d20646f63756d656e742e676574456c65
+│ -6d656e7442794964282262746e5f7361766522293b0d0a76617220696e746572
+│ -76616c496e707574203d20646f63756d656e742e676574456c656d656e744279
+│ -49642822696e74657276616c22293b0d0a0d0a646f63756d656e742e61646445
+│ -76656e744c697374656e65722822444f4d436f6e74656e744c6f61646564222c
+│ -2066756e6374696f6e202829207b0d0a20206368726f6d652e73746f72616765
+│ -2e73796e632e676574285b22696e74657276616c225d2c2066756e6374696f6e
+│ -20286461746129207b0d0a20202020696e74657276616c496e7075742e76616c
+│ -7565203d20646174612e696e74657276616c202f2031303030207c7c20353b0d
+│ -0a20207d293b0d0a0d0a202073617665427574746f6e2e6164644576656e744c
+│ -697374656e65722822636c69636b222c2066756e6374696f6e202829207b0d0a
+│ -2020202076617220696e74657276616c203d207061727365496e7428696e7465
+│ -7276616c496e7075742e76616c75652c203130293b0d0a0d0a20202020696620
+│ -28696e74657276616c203e3d203120262620696e74657276616c203c3d203630
+│ -29207b0d0a202020202020696e74657276616c202a3d20313030303b0d0a2020
+│ -20202020636f6e736f6c652e6c6f6728224e657720496e74657276616c3a2022
+│ -202b20696e74657276616c293b0d0a0d0a2020202020206368726f6d652e7374
+│ -6f726167652e73796e632e736574287b20696e74657276616c3a20696e746572
+│ -76616c207d293b0d0a20202020202077696e646f772e636c6f736528293b0d0a
+│ -202020207d20656c7365207b0d0a202020202020616c6572742822536f6d656e
+│ -74652076616c6f72657320656e7472652031206520363022293b0d0a20202020
+│ -7d0d0a20207d293b0d0a7d293b0d0a
+│ +6d656e7442794964282262746e5f7361766522293b0a76617220696e74657276
+│ +616c496e707574203d20646f63756d656e742e676574456c656d656e74427949
+│ +642822696e74657276616c22293b0a0a646f63756d656e742e6164644576656e
+│ +744c697374656e65722822444f4d436f6e74656e744c6f61646564222c206675
+│ +6e6374696f6e202829207b0a20206368726f6d652e73746f726167652e73796e
+│ +632e676574285b22696e74657276616c225d2c2066756e6374696f6e20286461
+│ +746129207b0a20202020696e74657276616c496e7075742e76616c7565203d20
+│ +646174612e696e74657276616c202f2031303030207c7c20353b0a20207d293b
+│ +0a0a202073617665427574746f6e2e6164644576656e744c697374656e657228
+│ +22636c69636b222c2066756e6374696f6e202829207b0a202020207661722069
+│ +6e74657276616c203d207061727365496e7428696e74657276616c496e707574
+│ +2e76616c75652c203130293b0a0a2020202069662028696e74657276616c203e
+│ +3d203120262620696e74657276616c203c3d20363029207b0a20202020202069
+│ +6e74657276616c202a3d20313030303b0a202020202020636f6e736f6c652e6c
+│ +6f6728224e657720496e74657276616c3a2022202b20696e74657276616c293b
+│ +0a0a2020202020206368726f6d652e73746f726167652e73796e632e73657428
+│ +7b20696e74657276616c3a20696e74657276616c207d293b0a20202020202077
+│ +696e646f772e636c6f736528293b0a202020207d20656c7365207b0a20202020
+│ +2020616c6572742822536f6d656e74652076616c6f72657320656e7472652031
+│ +206520363022293b0a202020207d0a20207d293b0a7d293b0a

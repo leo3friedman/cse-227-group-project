@@ -1,0 +1,2531 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Capital-Extension
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  home
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Capital-Extension/README.md
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,40 +1,40 @@
+│ -<div align="center">
+│ -  <img height="300px" src="https://capital.bulkbrains.com/img/capital.svg">
+│ -  <h1>Capital</h1>
+│ -  <h3>by BulkBrains</h3>
+│ -  <h3><a href="https://capital.bulkbrains.com">capital.bulkbrains.com</a></h3>
+│ -  
+│ -  <h4>Capital empowers users to search multiple sites and search engines from the one beautiful homepage.</h4>
+│ -</div>
+│ -
+│ -<br><hr><br>
+│ -
+│ -<h2>Installing</h2>
+│ -<h3>Chrome</h3>
+│ -<p>Chrome Web Store: https://chromewebstore.google.com/detail/bulkbrains-capital/ggjighkficijblekmnchneknmgmjdhon?pli=1</p>
+│ -
+│ -<h3>Edge</h3>
+│ -<p>Chrome Web Store: https://chromewebstore.google.com/detail/bulkbrains-capital/ggjighkficijblekmnchneknmgmjdhon?pli=1</p>
+│ -
+│ -<h3>Brave</h3>
+│ -<p>Chrome Web Store: https://chromewebstore.google.com/detail/bulkbrains-capital/ggjighkficijblekmnchneknmgmjdhon?pli=1</p>
+│ -
+│ -<h3>Opera</h3>
+│ -<p>Chrome Web Store: https://chromewebstore.google.com/detail/bulkbrains-capital/ggjighkficijblekmnchneknmgmjdhon?pli=1</p>
+│ -
+│ -<h3>Firefox</h3>
+│ -<p>Firefox Addons: <a href="https://addons.mozilla.org/en-US/firefox/addon/bulkbrains-capital/">https://addons.mozilla.org/en-US/firefox/addon/bulkbrains-capital/</a></p>
+│ -<p>⚠️ If using source code for firefox you must change the manifest_version to 2 instead of 3 as Firefox does not yet support manifest version 3.</p>
+│ -
+│ -<br><hr><br>
+│ -
+│ -<div align="center">
+│ -  <p>Made with ❤️ in Ireland</p><br>
+│ -  <div class="socials">
+│ -      <a target="_blank" href="https://www.youtube.com/@bulkbrains">YouTube</a> &emsp; 
+│ -      <a target="_blank" href="https://twitter.com/bulkbrainscom">X</a> &emsp; 
+│ -      <a target="_blank" href="https://www.instagram.com/bulkbrainscom/">Instagram</a> &emsp; 
+│ -      <a target="_blank" href="https://www.tiktok.com/@bulkbrains">TikTok</a>
+│ -  </div><br>
+│ -  <div>Created by <a href="https://github.com/icrann">Crann Moroney</a> (BulkBrains).</div>
+│ -</div>
+│ +<div align="center">
+│ +  <img height="300px" src="https://capital.bulkbrains.com/img/capital.svg">
+│ +  <h1>Capital</h1>
+│ +  <h3>by BulkBrains</h3>
+│ +  <h3><a href="https://capital.bulkbrains.com">capital.bulkbrains.com</a></h3>
+│ +  
+│ +  <h4>Capital empowers users to search multiple sites and search engines from the one beautiful homepage.</h4>
+│ +</div>
+│ +
+│ +<br><hr><br>
+│ +
+│ +<h2>Installing</h2>
+│ +<h3>Chrome</h3>
+│ +<p>Chrome Web Store: Coming Soon</p>
+│ +
+│ +<h3>Edge</h3>
+│ +<p>Chrome Web Store: Coming Soon</p>
+│ +
+│ +<h3>Brave</h3>
+│ +<p>Chrome Web Store: Coming Soon</p>
+│ +
+│ +<h3>Opera</h3>
+│ +<p>Chrome Web Store: Coming Soon</p>
+│ +
+│ +<h3>Firefox</h3>
+│ +<p>Firefox Addons: <a href="https://addons.mozilla.org/en-US/firefox/addon/bulkbrains-capital/">https://addons.mozilla.org/en-US/firefox/addon/bulkbrains-capital/</a></p>
+│ +<p>⚠️ If using source code for firefox you must change the manifest_version to 2 instead of 3 as Firefox does not yet support manifest version 3.</p>
+│ +
+│ +<br><hr><br>
+│ +
+│ +<div align="center">
+│ +  <p>Made with ❤️ in Ireland</p><br>
+│ +  <div class="socials">
+│ +      <a target="_blank" href="https://www.youtube.com/@bulkbrains">YouTube</a> &emsp; 
+│ +      <a target="_blank" href="https://twitter.com/bulkbrainscom">X</a> &emsp; 
+│ +      <a target="_blank" href="https://www.instagram.com/bulkbrainscom/">Instagram</a> &emsp; 
+│ +      <a target="_blank" href="https://www.tiktok.com/@bulkbrains">TikTok</a>
+│ +  </div><br>
+│ +  <div>Created by <a href="https://github.com/icrann">Crann Moroney</a> (BulkBrains).</div>
+│ +</div>
+│   --- /workspace/pipeline_output/chromex_data/home
+├── +++ /workspace/pipeline_output/Capital-Extension/home
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │  css
+│ │  img
+│ │  index.html
+│ │ +js
+│ │ +settings.html
+│ │ -js
+│ │   --- /workspace/pipeline_output/chromex_data/home/css
+│ ├── +++ /workspace/pipeline_output/Capital-Extension/home/css
+│ │ │   --- /workspace/pipeline_output/chromex_data/home/css/template.css
+│ │ ├── +++ /workspace/pipeline_output/Capital-Extension/home/css/template.css
+│ │ │ @@ -1,340 +1,288 @@
+│ │ │ -/* Main */
+│ │ │ -html, body {
+│ │ │ -    --primary: lightgreen;
+│ │ │ -    --secondary: darkslategrey;
+│ │ │ -    --secondaryA: #2f4f4f90;
+│ │ │ -    --background: rgb(35, 35, 35);
+│ │ │ -    --text: white;
+│ │ │ -
+│ │ │ -    --picAvg: ;
+│ │ │ -    --picInv: ;
+│ │ │ -
+│ │ │ -    background-color: var(--background);
+│ │ │ -    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+│ │ │ -    font-size: 16px;
+│ │ │ -    margin: 0;
+│ │ │ -    height: 100%;
+│ │ │ -    overflow-x: hidden;
+│ │ │ -    color: var(--text);
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Topnav */
+│ │ │ -nav {
+│ │ │ -    position: fixed;
+│ │ │ -    width: 100%;
+│ │ │ -    overflow: hidden;
+│ │ │ -    background-color: transparent;
+│ │ │ -    top: 0;
+│ │ │ -    z-index: 5;
+│ │ │ -}
+│ │ │ -
+│ │ │ -nav a {
+│ │ │ -    float: left;
+│ │ │ -    color: var(--primary) !important;
+│ │ │ -    text-align: center;
+│ │ │ -    padding: 25px 16px;
+│ │ │ -    text-decoration: none;
+│ │ │ -    font-size: 20px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -nav a svg rect {
+│ │ │ -    fill: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -nav a svg path {
+│ │ │ -    fill: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.topnav-centered {
+│ │ │ -    float: none;
+│ │ │ -    position: absolute;
+│ │ │ -    top: 50%;
+│ │ │ -    left: 50%;
+│ │ │ -    transform: translate(-50%, -50%);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.topnav-right {
+│ │ │ -    float: right;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Header */
+│ │ │ -header {
+│ │ │ -    background-image: url('../img/kandersteg-lake.jpg');
+│ │ │ -    height: 100%;
+│ │ │ -    width: 100%;
+│ │ │ -    background-position: center center;
+│ │ │ -    background-repeat: no-repeat;
+│ │ │ -    background-size: cover;
+│ │ │ -    position: relative;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.content {
+│ │ │ -    top: 40%;
+│ │ │ -    color: var(--primary);
+│ │ │ -    position: absolute;
+│ │ │ -    left: 50%;
+│ │ │ -    transform: translate(-50%, -50%);
+│ │ │ -    text-align: center;
+│ │ │ -    margin: 0;
+│ │ │ -    width: 100%;
+│ │ │ -}
+│ │ │ -
+│ │ │ -header .credits {
+│ │ │ -    bottom: 2px;
+│ │ │ -    color: var(--primary);
+│ │ │ -    position: absolute;
+│ │ │ -    left: 50%;
+│ │ │ -    transform: translate(-50%, -50%);
+│ │ │ -    text-align: center;
+│ │ │ -    margin: 0;
+│ │ │ -    width: 50%;
+│ │ │ -    max-width: 750px;
+│ │ │ -    background-color: var(--secondaryA);
+│ │ │ -    padding: 5px;
+│ │ │ -    border-radius: 10px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.content h1 {
+│ │ │ -    font-size: 500%;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.content h3 {
+│ │ │ -    font-size: 150%;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Remove a default style */
+│ │ │ -body a {
+│ │ │ -    text-decoration: none;
+│ │ │ -    color: inherit;
+│ │ │ -}
+│ │ │ -
+│ │ │ -body a:hover {
+│ │ │ -    text-decoration: none;
+│ │ │ -    color: inherit;
+│ │ │ -}
+│ │ │ -
+│ │ │ -body a:active {
+│ │ │ -    text-decoration: none;
+│ │ │ -    color: inherit;
+│ │ │ -}
+│ │ │ -
+│ │ │ -body a:visited {
+│ │ │ -    text-decoration: none;
+│ │ │ -    color: inherit;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Links */
+│ │ │ -.a {
+│ │ │ -    text-decoration:none;
+│ │ │ -    border-bottom: 2px solid var(--primary);
+│ │ │ -    color: inherit;
+│ │ │ -    transition-duration: 1s;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.a:hover {
+│ │ │ -    background: var(--primary);
+│ │ │ -    color: var(--secondary);
+│ │ │ -    transition-duration: 1s;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Input */
+│ │ │ -form {
+│ │ │ -    display: block;
+│ │ │ -}
+│ │ │ -
+│ │ │ -input {
+│ │ │ -    background-color: transparent;
+│ │ │ -    width: 300px;
+│ │ │ -    padding: 14px 28px;
+│ │ │ -    font-size: 16px;
+│ │ │ -    color: var(--primary);
+│ │ │ -    border: none;
+│ │ │ -    outline: none;
+│ │ │ -    border-bottom: 2px solid var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -input::placeholder {
+│ │ │ -    color: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Search */
+│ │ │ -#searchForm {
+│ │ │ -    position: absolute;
+│ │ │ -    left: 50%;
+│ │ │ -    transform: translate(-50%, 0%);
+│ │ │ -    width: 50%;
+│ │ │ -    max-width: 750px;
+│ │ │ -    background-color: var(--secondaryA);
+│ │ │ -    padding: 10px;
+│ │ │ -    border-radius: 10px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#searchBox {
+│ │ │ -    width: 100%;
+│ │ │ -    height: 40px;
+│ │ │ -    font-size: 20px;
+│ │ │ -    border: none;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.search-select-content {
+│ │ │ -    width: 100%;
+│ │ │ -    display: flex;
+│ │ │ -    justify-content: space-between;
+│ │ │ -    align-items: center;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.search-select-content a {
+│ │ │ -    width: 12.5%;
+│ │ │ -    font-size: 20px;
+│ │ │ -    color: var(--primary);
+│ │ │ -    height: 20px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.search-select-content:hover a {
+│ │ │ -    cursor: pointer;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.search-select-content a svg path {
+│ │ │ -    fill: var(--primary) !important;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.search-select-content a img {
+│ │ │ -    color: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -#go {
+│ │ │ -    all: unset;
+│ │ │ -    position: absolute;
+│ │ │ -    right: 30px;
+│ │ │ -    top: 30px;
+│ │ │ -    color: var(--primary);
+│ │ │ -    font-size: 20px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#go svg path {
+│ │ │ -    fill: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -#mic {
+│ │ │ -    all: unset;
+│ │ │ -    position: absolute;
+│ │ │ -    right: 70px;
+│ │ │ -    top: 30px;
+│ │ │ -    color: var(--primary);
+│ │ │ -    font-size: 20px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#mic svg path {
+│ │ │ -    fill: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -#go:hover {
+│ │ │ -    cursor: pointer;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#mic:hover {
+│ │ │ -    cursor: pointer;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#searchBox:-webkit-autofill,
+│ │ │ -#searchBox:-webkit-autofill:hover,
+│ │ │ -#searchBox:-webkit-autofill:focus,
+│ │ │ -#searchBox:-webkit-autofill:active {
+│ │ │ -    transition: background-color 5000s ease-in-out 0s;
+│ │ │ -    background: transparent;
+│ │ │ -    color: white;
+│ │ │ -}
+│ │ │ -
+│ │ │ -@media screen and (max-width: 700px) {
+│ │ │ -    #searchForm {
+│ │ │ -        width: 90%;
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Input */
+│ │ │ -select {
+│ │ │ -    background-color: transparent;
+│ │ │ -    width: 300px;
+│ │ │ -    padding: 14px 28px;
+│ │ │ -    font-size: 16px;
+│ │ │ -    color: var(--secondary);
+│ │ │ -    border: none;
+│ │ │ -    outline: none;
+│ │ │ -    border-bottom: 2px solid var(--secondary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.main button {
+│ │ │ -    background-color: var(--secondary);
+│ │ │ -    color: var(--primary);
+│ │ │ -    padding: 14px 28px;
+│ │ │ -    font-size: 16px;
+│ │ │ -    border: none;
+│ │ │ -    outline: none;
+│ │ │ -    border-radius: 10px;
+│ │ │ -    cursor: pointer;
+│ │ │ -    transition-duration: 0.5s;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.main button:hover {
+│ │ │ -    background-color: var(--primary);
+│ │ │ -    color: var(--secondary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Footer */
+│ │ │ -footer {
+│ │ │ -    background-color: var(--background);
+│ │ │ -    background-image: linear-gradient(rgba(255, 0, 0, 0), #257c25);
+│ │ │ -    position: relative;
+│ │ │ -    width: 100%;
+│ │ │ -    color: white !important;
+│ │ │ -}
+│ │ │ -
+│ │ │ -footer .content {
+│ │ │ -    text-align: center;
+│ │ │ -    padding-top: 30px;
+│ │ │ -    padding-bottom: 30px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -footer .socials {
+│ │ │ -    transition-duration: 0.5s;
+│ │ │ -}
+│ │ │ -
+│ │ │ -footer .socials a:hover {
+│ │ │ -    color: #257c25;
+│ │ │ -}
+│ │ │ -
+│ │ │ -footer.fix {
+│ │ │ -    position: absolute !important;
+│ │ │ -    bottom: 0 !important;
+│ │ │ -    width: 100% !important;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.footer-spacer {
+│ │ │ -    height: 189px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/* Hr */
+│ │ │ -hr {
+│ │ │ -    max-width: 400px;
+│ │ │ -    width: 75%;
+│ │ │ -    background-color: var(--accent);
+│ │ │ -    border-color: var(--accent);
+│ │ │ -    height: 1px;
+│ │ │ -    border-radius: 1px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -hr.primary {
+│ │ │ -    max-width: 500px;
+│ │ │ -    width: 100%;
+│ │ │ -    background-color: var(--primary);
+│ │ │ -    height: 2px;
+│ │ │ -    border-radius: 1px;
+│ │ │ +/* Main */
+│ │ │ +html, body {
+│ │ │ +    --primary: lightgreen;
+│ │ │ +    --secondary: darkslategrey;
+│ │ │ +    --secondaryA: #2f4f4f90;
+│ │ │ +    --background: rgb(35, 35, 35);
+│ │ │ +    --text: white;
+│ │ │ +
+│ │ │ +    --picAvg: ;
+│ │ │ +    --picInv: ;
+│ │ │ +
+│ │ │ +    background-color: var(--background);
+│ │ │ +    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+│ │ │ +    font-size: 16px;
+│ │ │ +    margin: 0;
+│ │ │ +    height: 100%;
+│ │ │ +    overflow-x: hidden;
+│ │ │ +    overflow-y: hidden;
+│ │ │ +    color: var(--text);
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* Topnav */
+│ │ │ +nav {
+│ │ │ +    position: fixed;
+│ │ │ +    width: 100%;
+│ │ │ +    overflow: hidden;
+│ │ │ +    background-color: transparent;
+│ │ │ +    top: 0;
+│ │ │ +    z-index: 5;
+│ │ │ +}
+│ │ │ +
+│ │ │ +nav a {
+│ │ │ +    float: left;
+│ │ │ +    color: var(--primary) !important;
+│ │ │ +    text-align: center;
+│ │ │ +    padding: 25px 16px;
+│ │ │ +    text-decoration: none;
+│ │ │ +    font-size: 20px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +nav a svg rect {
+│ │ │ +    fill: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +nav a svg path {
+│ │ │ +    fill: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.topnav-centered {
+│ │ │ +    float: none;
+│ │ │ +    position: absolute;
+│ │ │ +    top: 50%;
+│ │ │ +    left: 50%;
+│ │ │ +    transform: translate(-50%, -50%);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.topnav-right {
+│ │ │ +    float: right;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* Header */
+│ │ │ +header {
+│ │ │ +    background-image: url('../img/kandersteg-lake.jpg');
+│ │ │ +    height: 100%;
+│ │ │ +    width: 100%;
+│ │ │ +    background-position: center center;
+│ │ │ +    background-repeat: no-repeat;
+│ │ │ +    background-size: cover;
+│ │ │ +    position: relative;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.content {
+│ │ │ +    top: 40%;
+│ │ │ +    color: var(--primary);
+│ │ │ +    position: absolute;
+│ │ │ +    left: 50%;
+│ │ │ +    transform: translate(-50%, -50%);
+│ │ │ +    text-align: center;
+│ │ │ +    margin: 0;
+│ │ │ +    width: 100%;
+│ │ │ +}
+│ │ │ +
+│ │ │ +header .credits {
+│ │ │ +    bottom: 2px;
+│ │ │ +    color: var(--primary);
+│ │ │ +    position: absolute;
+│ │ │ +    left: 50%;
+│ │ │ +    transform: translate(-50%, -50%);
+│ │ │ +    text-align: center;
+│ │ │ +    margin: 0;
+│ │ │ +    width: 50%;
+│ │ │ +    max-width: 750px;
+│ │ │ +    background-color: var(--secondaryA);
+│ │ │ +    padding: 5px;
+│ │ │ +    border-radius: 10px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.content h1 {
+│ │ │ +    font-size: 500%;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.content h3 {
+│ │ │ +    font-size: 150%;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* Remove a default style */
+│ │ │ +body a {
+│ │ │ +    text-decoration: none;
+│ │ │ +    color: inherit;
+│ │ │ +}
+│ │ │ +
+│ │ │ +body a:hover {
+│ │ │ +    text-decoration: none;
+│ │ │ +    color: inherit;
+│ │ │ +}
+│ │ │ +
+│ │ │ +body a:active {
+│ │ │ +    text-decoration: none;
+│ │ │ +    color: inherit;
+│ │ │ +}
+│ │ │ +
+│ │ │ +body a:visited {
+│ │ │ +    text-decoration: none;
+│ │ │ +    color: inherit;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* Links */
+│ │ │ +.a {
+│ │ │ +    text-decoration:none;
+│ │ │ +    border-bottom: 2px solid var(--primary);
+│ │ │ +    color: inherit;
+│ │ │ +    transition-duration: 1s;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.a:hover {
+│ │ │ +    background: var(--primary);
+│ │ │ +    color: var(--secondary);
+│ │ │ +    transition-duration: 1s;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Input */
+│ │ │ +form {
+│ │ │ +    display: block;
+│ │ │ +}
+│ │ │ +
+│ │ │ +input {
+│ │ │ +    background-color: transparent;
+│ │ │ +    width: 300px;
+│ │ │ +    padding: 14px 28px;
+│ │ │ +    font-size: 16px;
+│ │ │ +    color: var(--primary);
+│ │ │ +    border: none;
+│ │ │ +    outline: none;
+│ │ │ +    border-bottom: 2px solid var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +input::placeholder {
+│ │ │ +    color: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* Search */
+│ │ │ +#searchForm {
+│ │ │ +    position: absolute;
+│ │ │ +    left: 50%;
+│ │ │ +    transform: translate(-50%, 0%);
+│ │ │ +    width: 50%;
+│ │ │ +    max-width: 750px;
+│ │ │ +    background-color: var(--secondaryA);
+│ │ │ +    padding: 10px;
+│ │ │ +    border-radius: 10px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#searchBox {
+│ │ │ +    width: 100%;
+│ │ │ +    height: 40px;
+│ │ │ +    font-size: 20px;
+│ │ │ +    border: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.search-select-content {
+│ │ │ +    width: 100%;
+│ │ │ +    display: flex;
+│ │ │ +    justify-content: space-between;
+│ │ │ +    align-items: center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.search-select-content a {
+│ │ │ +    width: 12.5%;
+│ │ │ +    font-size: 20px;
+│ │ │ +    color: var(--primary);
+│ │ │ +    height: 20px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.search-select-content:hover a {
+│ │ │ +    cursor: pointer;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.search-select-content a svg path {
+│ │ │ +    fill: var(--primary) !important;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.search-select-content a img {
+│ │ │ +    color: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +#go {
+│ │ │ +    all: unset;
+│ │ │ +    position: absolute;
+│ │ │ +    right: 30px;
+│ │ │ +    top: 30px;
+│ │ │ +    color: var(--primary);
+│ │ │ +    font-size: 20px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#go svg path {
+│ │ │ +    fill: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +#mic {
+│ │ │ +    all: unset;
+│ │ │ +    position: absolute;
+│ │ │ +    right: 70px;
+│ │ │ +    top: 30px;
+│ │ │ +    color: var(--primary);
+│ │ │ +    font-size: 20px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#mic svg path {
+│ │ │ +    fill: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +#go:hover {
+│ │ │ +    cursor: pointer;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#mic:hover {
+│ │ │ +    cursor: pointer;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#searchBox:-webkit-autofill,
+│ │ │ +#searchBox:-webkit-autofill:hover,
+│ │ │ +#searchBox:-webkit-autofill:focus,
+│ │ │ +#searchBox:-webkit-autofill:active {
+│ │ │ +    transition: background-color 5000s ease-in-out 0s;
+│ │ │ +    background: transparent;
+│ │ │ +    color: white;
+│ │ │ +}
+│ │ │ +
+│ │ │ +@media screen and (max-width: 700px) {
+│ │ │ +    #searchForm {
+│ │ │ +        width: 90%;
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* Input */
+│ │ │ +select {
+│ │ │ +    background-color: transparent;
+│ │ │ +    width: 300px;
+│ │ │ +    padding: 14px 28px;
+│ │ │ +    font-size: 16px;
+│ │ │ +    color: var(--secondary);
+│ │ │ +    border: none;
+│ │ │ +    outline: none;
+│ │ │ +    border-bottom: 2px solid var(--secondary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.main button {
+│ │ │ +    background-color: var(--secondary);
+│ │ │ +    color: var(--primary);
+│ │ │ +    padding: 14px 28px;
+│ │ │ +    font-size: 16px;
+│ │ │ +    border: none;
+│ │ │ +    outline: none;
+│ │ │ +    border-radius: 10px;
+│ │ │ +    cursor: pointer;
+│ │ │ +    transition-duration: 0.5s;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.main button:hover {
+│ │ │ +    background-color: var(--primary);
+│ │ │ +    color: var(--secondary);
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/home/index.html
+│ ├── +++ /workspace/pipeline_output/Capital-Extension/home/index.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,77 +1,78 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html lang="en">
+│ │ +    <head>
+│ │ +        <meta charset="UTF-8">
+│ │ +        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ │ +        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ +        <meta name="description" content="Capital - Empowers you to search multiple search engines and websites through your new powerful, non intrussive, home page">
+│ │ +
+│ │ +        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+│ │ +        <link rel="stylesheet" href="css/template.css">
+│ │ +
+│ │ +        <script src="js/dompurify.min.js"></script>
+│ │ +        <script src="js/color-thief.js"></script>
+│ │ +        <script defer src="js/pexels.js"></script>
+│ │ +        <script defer src="js/search.js"></script>
+│ │ +        <script defer src="js/time.js"></script>
+│ │ +        <script defer src="js/index.js"></script>
+│ │ +
+│ │ +        <title>Capital</title>
+│ │ +    </head>
+│ │ +    <body>
+│ │ +        <!--Topnav-->
+│ │ +        <nav>
+│ │ +            <!-- Left-aligned links (default) -->
+│ │ +            <a href="#" id="newTabBtn">
+│ │ +                <svg height="20px" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+│ │ +                    <rect x="288" width="712" height="500"/>
+│ │ +                    <path clip-rule="evenodd" d="M267.914 0L0 999.87L0.486552 1000H232.074L500.023 0H267.914Z"/>
+│ │ +                </svg>
+│ │ +                Capital
+│ │ +            </a>
+│ │ +            <a href="https://bulkbrains.com">BulkBrains</a>
+│ │ +
+│ │ +            <!-- Centered link -->
+│ │ +            <div class="topnav-centered">
+│ │ +
+│ │ +            </div>
+│ │ +
+│ │ +            <!-- Right-aligned links -->
+│ │ +            <div class="topnav-right">
+│ │ +                <a href="settings.html" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg></a>
+│ │ +                <a href="https://bulkbrains.com/account" title="Account"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
+│ │ +            </div>
+│ │ +        </nav>
+│ │ +
+│ │ +        <!--Header-->
+│ │ +        <header id="header">
+│ │ +            <div class="content">
+│ │ +                <h1 id="time"></h1>
+│ │ +                <h3 id="date"></h3>
+│ │ +                <form id="searchForm">
+│ │ +                    <input placeholder="Search the web" type="text" id="searchBox" autocomplete="off" autofocus>
+│ │ +
+│ │ +                    <div class="search-select-content">
+│ │ +                        <a title="Google"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27c3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10c5.35 0 9.25-3.67 9.25-9.09c0-1.15-.15-1.81-.15-1.81Z"/></svg></a>
+│ │ +                        <a title="Bing"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M5 3v16l3.72 2L18 15.82v-4.09L9.77 8.95l1.61 3.89L13.94 14L8.7 16.92V4.27L5 3"/></svg></a>
+│ │ +                        <a title="DuckDuckGo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12s12-5.373 12-12S18.627 0 12 0zm0 23C5.925 23 1 18.074 1 12S5.926 1 12 1s11 4.925 11 11s-4.925 11-11 11zm10.219-11c0 4.805-3.317 8.833-7.786 9.925c-.27-.521-.53-1.017-.749-1.438c.645.249 1.93.718 2.208.615c.376-.144.282-3.149-.14-3.245c-.338-.075-1.632.837-2.141 1.209l.034.156c.078.397.144.993.03 1.247c-.001.004-.002.01-.004.013a.218.218 0 0 1-.068.088c-.284.188-1.081.284-1.503.188a.516.516 0 0 1-.064-.02c-.694.396-2.01 1.109-2.25.971c-.329-.188-.377-2.676-.329-3.288c.035-.46 1.653.286 2.442.679c.174-.163.602-.272.98-.31c-.57-1.389-.99-2.977-.733-4.105c0 .002.002.002.002.002c.356.248 2.73 1.05 3.91 1.027c1.18-.024 3.114-.743 2.903-1.323c-.212-.58-2.135.51-4.142.324c-1.486-.138-1.748-.804-1.42-1.29c.414-.611 1.168.116 2.411-.256c1.245-.371 2.987-1.035 3.632-1.397c1.494-.833-.625-1.177-1.125-.947c-.474.22-2.123.637-2.889.82c.428-1.516-.603-4.149-1.757-5.3c-.376-.376-.951-.612-1.603-.736c-.25-.344-.654-.671-1.225-.977a5.772 5.772 0 0 0-3.595-.584l-.024.004l-.034.004l.004.002c-.148.028-.237.08-.357.098c.148.016.705.276 1.057.418c-.174.068-.412.108-.596.184a.828.828 0 0 0-.204.056c-.173.08-.303.375-.3.515c.84-.086 2.082-.026 2.991.246c-.644.09-1.235.258-1.661.482c-.016.008-.03.018-.048.028c-.054.02-.106.042-.152.066c-1.367.72-1.971 2.405-1.611 4.424c.323 1.824 1.665 8.088 2.29 11.064c-3.973-1.4-6.822-5.186-6.822-9.639C1.781 6.356 6.356 1.781 12 1.781S22.219 6.356 22.219 12zM9.095 9.581a.758.758 0 1 0 0 1.516a.758.758 0 0 0 0-1.516zm.338.702a.196.196 0 1 1 0-.392a.196.196 0 0 1 0 .392zm4.724-1.043a.65.65 0 1 0 0 1.299a.65.65 0 0 0 0-1.3zm.29.601a.168.168 0 1 1 0-.336a.168.168 0 0 1 0 .336zM9.313 8.146s-.571-.26-1.125.09c-.554.348-.534.704-.534.704s-.294-.656.49-.978c.786-.32 1.17.184 1.17.184zm5.236-.052s-.41-.234-.73-.23c-.654.008-.831.296-.831.296s.11-.688.945-.55a.84.84 0 0 1 .616.484z"/></svg></a>
+│ │ +                        <a title="Qwant"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M11.39 0c5.322 0 9.652 4.46 9.652 9.944c0 5.358-4.132 9.738-9.285 9.938l-.235.006h9.488L22.262 24h-9.62l-1.253-4.11c-5.321-.001-9.65-4.462-9.65-9.946S6.067 0 11.388 0zm0 3.364c-3.522 0-6.387 2.952-6.387 6.58c0 3.63 2.865 6.58 6.387 6.58c3.522 0 6.387-2.95 6.387-6.58c0-3.628-2.865-6.58-6.387-6.58z"/></svg></a>
+│ │ +                        <a title="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="m10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z"/></svg></a>
+│ │ +                        <a title="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+│ │ +                        <a title="Wikipedia"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="m14.97 18.95l-2.56-6.03c-1.02 1.99-2.14 4.08-3.1 6.03c-.01.01-.47 0-.47 0C7.37 15.5 5.85 12.1 4.37 8.68C4.03 7.84 2.83 6.5 2 6.5v-.45h5.06v.45c-.6 0-1.62.4-1.36 1.05c.72 1.54 3.24 7.51 3.93 9.03c.47-.94 1.8-3.42 2.37-4.47c-.45-.88-1.87-4.18-2.29-5c-.32-.54-1.13-.61-1.75-.61c0-.15.01-.25 0-.44l4.46.01v.4c-.61.03-1.18.24-.92.82c.6 1.24.95 2.13 1.5 3.28c.17-.34 1.07-2.19 1.5-3.16c.26-.65-.13-.91-1.21-.91c.01-.12.01-.33.01-.43c1.39-.01 3.48-.01 3.85-.02v.42c-.71.03-1.44.41-1.82.99L13.5 11.3c.18.51 1.96 4.46 2.15 4.9l3.85-8.83c-.3-.72-1.16-.87-1.5-.87v-.45l4 .03v.42c-.88 0-1.43.5-1.75 1.25c-.8 1.79-3.25 7.49-4.85 11.2h-.43Z"/></svg></a>
+│ │ +                        <a title="Amazon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21.997 18.23c0 .727-.405 2.127-1.315 2.896c-.182.14-.364.061-.284-.143c.265-.648.871-2.147.587-2.492c-.201-.262-1.031-.242-1.739-.182c-.323.041-.607.06-.827.105c-.204.016-.245-.163-.041-.303a3.09 3.09 0 0 1 .87-.428c1.15-.344 2.479-.137 2.67.083c.036.042.079.16.079.463Zm-1.922 1.294a7.426 7.426 0 0 1-.829.55c-2.122 1.275-4.871 1.943-7.258 1.943c-3.843 0-7.28-1.417-9.888-3.788c-.224-.182-.039-.446.223-.303c2.81 1.64 6.288 2.632 9.888 2.632c2.266 0 4.708-.424 7.035-1.336c.163-.061.345-.144.504-.202c.367-.165.69.242.325.504Zm-6.17-11.03c0-1.041.042-1.654-.303-2.18c-.306-.433-.833-.693-1.569-.652c-.798.044-1.655.567-1.873 1.526c-.043.22-.171.436-.437.483l-2.435-.31c-.174-.04-.439-.173-.352-.521C7.459 4.088 9.81 3.129 12.034 3h.522c1.22 0 2.788.349 3.791 1.264c1.217 1.136 1.087 2.662 1.087 4.32v3.927c0 1.178.478 1.7.958 2.314c.13.219.175.477-.044.655a77.915 77.915 0 0 1-1.917 1.654c-.175.133-.489.147-.61.045c-.77-.645-.958-1.003-1.435-1.658c-.83.871-1.527 1.352-2.356 1.613a7.038 7.038 0 0 1-1.784.216c-2.09 0-3.745-1.303-3.745-3.88c0-2.049 1.09-3.442 2.7-4.101c1.61-.66 3.95-.87 4.704-.874Zm-.477 5.192c.52-.872.477-1.586.477-3.185c-.652 0-1.306.045-1.871.178c-1.045.303-1.875.96-1.875 2.355c0 1.09.568 1.832 1.526 1.832c.132 0 .248-.016.348-.045c.67-.186 1.088-.522 1.395-1.135Z"/></svg></a>
+│ │ +                    </div>
+│ │ +
+│ │ +                    <button title="Talk" type="button" id="mic">
+│ │ +                        <svg id="micIcon" style="display: block;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 512"><path d="M192 0C139 0 96 43 96 96V256c0 53 43 96 96 96s96-43 96-96V96c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 89.1 66.2 162.7 152 174.4V464H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H216V430.4c85.8-11.7 152-85.3 152-174.4V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 70.7-57.3 128-128 128s-128-57.3-128-128V216z"/></svg>
+│ │ +                        <svg id="micMIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 640 512"><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L472.1 344.7c15.2-26 23.9-56.3 23.9-88.7V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 21.2-5.1 41.1-14.2 58.7L416 300.8V96c0-53-43-96-96-96s-96 43-96 96v54.3L38.8 5.1zM344 430.4c20.4-2.8 39.7-9.1 57.3-18.2l-43.1-33.9C346.1 382 333.3 384 320 384c-70.7 0-128-57.3-128-128v-8.7L144.7 210c-.5 1.9-.7 3.9-.7 6v40c0 89.1 66.2 162.7 152 174.4V464H248c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H344V430.4z"/></svg>
+│ │ +                    </button>
+│ │ +                    <button title="Search" type="submit" id="go"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+│ │ +                </form>
+│ │ +            </div>
+│ │ +
+│ │ +            <div class="credits">
+│ │ +                <p>Photo by <a class="a" id="photographer"></a> on <a class="a" id="imgLink">Pexels</a></p>
+│ │ +            </div>
+│ │ +        </header>
+│ │ +    </body>
+│ │ -<!DOCTYPE html>
+│ │ -<html lang="en">
+│ │ -    <head>
+│ │ -        <meta charset="UTF-8">
+│ │ -        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ │ -        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ -        <meta name="description" content="Capital - Empowers you to search multiple search engines and websites through your new powerful, non intrussive, home page">
+│ │ -
+│ │ -        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+│ │ -        <link rel="stylesheet" href="css/template.css">
+│ │ -
+│ │ -        <script src="js/dompurify.min.js"></script>
+│ │ -        <script src="js/color-thief.js"></script>
+│ │ -        <script defer src="js/pexels.js"></script>
+│ │ -        <script defer src="js/search.js"></script>
+│ │ -        <script defer src="js/time.js"></script>
+│ │ -        <script defer src="js/index.js"></script>
+│ │ -
+│ │ -        <title>Capital</title>
+│ │ -    </head>
+│ │ -    <body>
+│ │ -        <!--Topnav-->
+│ │ -        <nav>
+│ │ -            <!-- Left-aligned links (default) -->
+│ │ -            <a href="#" id="newTabBtn">
+│ │ -                <svg height="20px" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+│ │ -                    <rect x="288" width="712" height="500"/>
+│ │ -                    <path clip-rule="evenodd" d="M267.914 0L0 999.87L0.486552 1000H232.074L500.023 0H267.914Z"/>
+│ │ -                </svg>
+│ │ -                Capital
+│ │ -            </a>
+│ │ -            <a href="https://bulkbrains.com">BulkBrains</a>
+│ │ -
+│ │ -            <!-- Centered link -->
+│ │ -            <div class="topnav-centered">
+│ │ -
+│ │ -            </div>
+│ │ -
+│ │ -            <!-- Right-aligned links -->
+│ │ -            <div class="topnav-right">
+│ │ -                <a href="https://bulkbrains.com/account" title="Account"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
+│ │ -            </div>
+│ │ -        </nav>
+│ │ -
+│ │ -        <!--Header-->
+│ │ -        <header id="header">
+│ │ -            <div class="content">
+│ │ -                <h1 id="time"></h1>
+│ │ -                <h3 id="date"></h3>
+│ │ -                <form id="searchForm">
+│ │ -                    <input placeholder="Search the web" type="text" id="searchBox" autocomplete="off" autofocus>
+│ │ -
+│ │ -                    <div class="search-select-content">
+│ │ -                        <a title="Google"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27c3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10c5.35 0 9.25-3.67 9.25-9.09c0-1.15-.15-1.81-.15-1.81Z"/></svg></a>
+│ │ -                        <a title="Bing"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M5 3v16l3.72 2L18 15.82v-4.09L9.77 8.95l1.61 3.89L13.94 14L8.7 16.92V4.27L5 3"/></svg></a>
+│ │ -                        <a title="DuckDuckGo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12s12-5.373 12-12S18.627 0 12 0zm0 23C5.925 23 1 18.074 1 12S5.926 1 12 1s11 4.925 11 11s-4.925 11-11 11zm10.219-11c0 4.805-3.317 8.833-7.786 9.925c-.27-.521-.53-1.017-.749-1.438c.645.249 1.93.718 2.208.615c.376-.144.282-3.149-.14-3.245c-.338-.075-1.632.837-2.141 1.209l.034.156c.078.397.144.993.03 1.247c-.001.004-.002.01-.004.013a.218.218 0 0 1-.068.088c-.284.188-1.081.284-1.503.188a.516.516 0 0 1-.064-.02c-.694.396-2.01 1.109-2.25.971c-.329-.188-.377-2.676-.329-3.288c.035-.46 1.653.286 2.442.679c.174-.163.602-.272.98-.31c-.57-1.389-.99-2.977-.733-4.105c0 .002.002.002.002.002c.356.248 2.73 1.05 3.91 1.027c1.18-.024 3.114-.743 2.903-1.323c-.212-.58-2.135.51-4.142.324c-1.486-.138-1.748-.804-1.42-1.29c.414-.611 1.168.116 2.411-.256c1.245-.371 2.987-1.035 3.632-1.397c1.494-.833-.625-1.177-1.125-.947c-.474.22-2.123.637-2.889.82c.428-1.516-.603-4.149-1.757-5.3c-.376-.376-.951-.612-1.603-.736c-.25-.344-.654-.671-1.225-.977a5.772 5.772 0 0 0-3.595-.584l-.024.004l-.034.004l.004.002c-.148.028-.237.08-.357.098c.148.016.705.276 1.057.418c-.174.068-.412.108-.596.184a.828.828 0 0 0-.204.056c-.173.08-.303.375-.3.515c.84-.086 2.082-.026 2.991.246c-.644.09-1.235.258-1.661.482c-.016.008-.03.018-.048.028c-.054.02-.106.042-.152.066c-1.367.72-1.971 2.405-1.611 4.424c.323 1.824 1.665 8.088 2.29 11.064c-3.973-1.4-6.822-5.186-6.822-9.639C1.781 6.356 6.356 1.781 12 1.781S22.219 6.356 22.219 12zM9.095 9.581a.758.758 0 1 0 0 1.516a.758.758 0 0 0 0-1.516zm.338.702a.196.196 0 1 1 0-.392a.196.196 0 0 1 0 .392zm4.724-1.043a.65.65 0 1 0 0 1.299a.65.65 0 0 0 0-1.3zm.29.601a.168.168 0 1 1 0-.336a.168.168 0 0 1 0 .336zM9.313 8.146s-.571-.26-1.125.09c-.554.348-.534.704-.534.704s-.294-.656.49-.978c.786-.32 1.17.184 1.17.184zm5.236-.052s-.41-.234-.73-.23c-.654.008-.831.296-.831.296s.11-.688.945-.55a.84.84 0 0 1 .616.484z"/></svg></a>
+│ │ -                        <a title="Qwant"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M11.39 0c5.322 0 9.652 4.46 9.652 9.944c0 5.358-4.132 9.738-9.285 9.938l-.235.006h9.488L22.262 24h-9.62l-1.253-4.11c-5.321-.001-9.65-4.462-9.65-9.946S6.067 0 11.388 0zm0 3.364c-3.522 0-6.387 2.952-6.387 6.58c0 3.63 2.865 6.58 6.387 6.58c3.522 0 6.387-2.95 6.387-6.58c0-3.628-2.865-6.58-6.387-6.58z"/></svg></a>
+│ │ -                        <a title="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="m10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z"/></svg></a>
+│ │ -                        <a title="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+│ │ -                        <a title="Wikipedia"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="m14.97 18.95l-2.56-6.03c-1.02 1.99-2.14 4.08-3.1 6.03c-.01.01-.47 0-.47 0C7.37 15.5 5.85 12.1 4.37 8.68C4.03 7.84 2.83 6.5 2 6.5v-.45h5.06v.45c-.6 0-1.62.4-1.36 1.05c.72 1.54 3.24 7.51 3.93 9.03c.47-.94 1.8-3.42 2.37-4.47c-.45-.88-1.87-4.18-2.29-5c-.32-.54-1.13-.61-1.75-.61c0-.15.01-.25 0-.44l4.46.01v.4c-.61.03-1.18.24-.92.82c.6 1.24.95 2.13 1.5 3.28c.17-.34 1.07-2.19 1.5-3.16c.26-.65-.13-.91-1.21-.91c.01-.12.01-.33.01-.43c1.39-.01 3.48-.01 3.85-.02v.42c-.71.03-1.44.41-1.82.99L13.5 11.3c.18.51 1.96 4.46 2.15 4.9l3.85-8.83c-.3-.72-1.16-.87-1.5-.87v-.45l4 .03v.42c-.88 0-1.43.5-1.75 1.25c-.8 1.79-3.25 7.49-4.85 11.2h-.43Z"/></svg></a>
+│ │ -                        <a title="Amazon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21.997 18.23c0 .727-.405 2.127-1.315 2.896c-.182.14-.364.061-.284-.143c.265-.648.871-2.147.587-2.492c-.201-.262-1.031-.242-1.739-.182c-.323.041-.607.06-.827.105c-.204.016-.245-.163-.041-.303a3.09 3.09 0 0 1 .87-.428c1.15-.344 2.479-.137 2.67.083c.036.042.079.16.079.463Zm-1.922 1.294a7.426 7.426 0 0 1-.829.55c-2.122 1.275-4.871 1.943-7.258 1.943c-3.843 0-7.28-1.417-9.888-3.788c-.224-.182-.039-.446.223-.303c2.81 1.64 6.288 2.632 9.888 2.632c2.266 0 4.708-.424 7.035-1.336c.163-.061.345-.144.504-.202c.367-.165.69.242.325.504Zm-6.17-11.03c0-1.041.042-1.654-.303-2.18c-.306-.433-.833-.693-1.569-.652c-.798.044-1.655.567-1.873 1.526c-.043.22-.171.436-.437.483l-2.435-.31c-.174-.04-.439-.173-.352-.521C7.459 4.088 9.81 3.129 12.034 3h.522c1.22 0 2.788.349 3.791 1.264c1.217 1.136 1.087 2.662 1.087 4.32v3.927c0 1.178.478 1.7.958 2.314c.13.219.175.477-.044.655a77.915 77.915 0 0 1-1.917 1.654c-.175.133-.489.147-.61.045c-.77-.645-.958-1.003-1.435-1.658c-.83.871-1.527 1.352-2.356 1.613a7.038 7.038 0 0 1-1.784.216c-2.09 0-3.745-1.303-3.745-3.88c0-2.049 1.09-3.442 2.7-4.101c1.61-.66 3.95-.87 4.704-.874Zm-.477 5.192c.52-.872.477-1.586.477-3.185c-.652 0-1.306.045-1.871.178c-1.045.303-1.875.96-1.875 2.355c0 1.09.568 1.832 1.526 1.832c.132 0 .248-.016.348-.045c.67-.186 1.088-.522 1.395-1.135Z"/></svg></a>
+│ │ -                    </div>
+│ │ -
+│ │ -                    <button title="Talk" type="button" id="mic">
+│ │ -                        <svg id="micIcon" style="display: block;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 512"><path d="M192 0C139 0 96 43 96 96V256c0 53 43 96 96 96s96-43 96-96V96c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 89.1 66.2 162.7 152 174.4V464H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H216V430.4c85.8-11.7 152-85.3 152-174.4V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 70.7-57.3 128-128 128s-128-57.3-128-128V216z"/></svg>
+│ │ -                        <svg id="micMIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 640 512"><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L472.1 344.7c15.2-26 23.9-56.3 23.9-88.7V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 21.2-5.1 41.1-14.2 58.7L416 300.8V96c0-53-43-96-96-96s-96 43-96 96v54.3L38.8 5.1zM344 430.4c20.4-2.8 39.7-9.1 57.3-18.2l-43.1-33.9C346.1 382 333.3 384 320 384c-70.7 0-128-57.3-128-128v-8.7L144.7 210c-.5 1.9-.7 3.9-.7 6v40c0 89.1 66.2 162.7 152 174.4V464H248c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H344V430.4z"/></svg>
+│ │ -                    </button>
+│ │ -                    <button title="Search" type="submit" id="go"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+│ │ -                </form>
+│ │ -            </div>
+│ │ -
+│ │ -            <div class="credits">
+│ │ -                <p>Photo by <a class="a" id="photographer"></a> on <a class="a" id="imgLink">Pexels</a></p>
+│ │ -            </div>
+│ │ -        </header>
+│ │ -    </body>
+│ │  </html>
+│ │   --- /workspace/pipeline_output/chromex_data/home/js
+│ ├── +++ /workspace/pipeline_output/Capital-Extension/home/js
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,7 @@
+│ │ │  color-thief.js
+│ │ │  dompurify.min.js
+│ │ │  index.js
+│ │ │  pexels.js
+│ │ │  search.js
+│ │ │ +settings.js
+│ │ │  time.js
+│ │ │   --- /workspace/pipeline_output/chromex_data/home/js/dompurify.min.js
+│ │ ├── +++ /workspace/pipeline_output/Capital-Extension/home/js/dompurify.min.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -1,564 +1,564 @@
+│ │ │  2f2a2120406c6963656e736520444f4d507572696679207c2028632920437572
+│ │ │  65353320616e64206f7468657220636f6e7472696275746f7273207c2052656c
+│ │ │  656173656420756e6465722074686520417061636865206c6963656e73652032
+│ │ │  2e3020616e64204d6f7a696c6c61205075626c6963204c6963656e736520322e
+│ │ │  30207c206769746875622e636f6d2f6375726535332f444f4d5075726966792f
+│ │ │ -626c6f622f322e322e322f4c4943454e5345202a2f0d0a2166756e6374696f6e
+│ │ │ -28652c74297b226f626a656374223d3d747970656f66206578706f7274732626
+│ │ │ -22756e646566696e656422213d747970656f66206d6f64756c653f6d6f64756c
+│ │ │ -652e6578706f7274733d7428293a2266756e6374696f6e223d3d747970656f66
+│ │ │ -20646566696e652626646566696e652e616d643f646566696e652874293a2865
+│ │ │ -3d657c7c73656c66292e444f4d5075726966793d7428297d28746869732c2866
+│ │ │ -756e6374696f6e28297b2275736520737472696374223b76617220653d4f626a
+│ │ │ -6563742e6861734f776e50726f70657274792c743d4f626a6563742e73657450
+│ │ │ -726f746f747970654f662c6e3d4f626a6563742e697346726f7a656e2c723d4f
+│ │ │ -626a6563742e67657450726f746f747970654f662c6f3d4f626a6563742e6765
+│ │ │ -744f776e50726f706572747944657363726970746f722c693d4f626a6563742e
+│ │ │ -667265657a652c613d4f626a6563742e7365616c2c6c3d4f626a6563742e6372
+│ │ │ -656174652c633d22756e646566696e656422213d747970656f66205265666c65
+│ │ │ -637426265265666c6563742c733d632e6170706c792c753d632e636f6e737472
+│ │ │ -7563743b737c7c28733d66756e6374696f6e28652c742c6e297b72657475726e
+│ │ │ -20652e6170706c7928742c6e297d292c697c7c28693d66756e6374696f6e2865
+│ │ │ -297b72657475726e20657d292c617c7c28613d66756e6374696f6e2865297b72
+│ │ │ -657475726e20657d292c757c7c28753d66756e6374696f6e28652c74297b7265
+│ │ │ -7475726e206e65772846756e6374696f6e2e70726f746f747970652e62696e64
+│ │ │ -2e6170706c7928652c5b6e756c6c5d2e636f6e6361742866756e6374696f6e28
+│ │ │ -65297b69662841727261792e69734172726179286529297b666f722876617220
+│ │ │ -743d302c6e3d417272617928652e6c656e677468293b743c652e6c656e677468
+│ │ │ -3b742b2b296e5b745d3d655b745d3b72657475726e206e7d72657475726e2041
+│ │ │ -727261792e66726f6d2865297d2874292929297d293b76617220662c6d3d7828
+│ │ │ -41727261792e70726f746f747970652e666f7245616368292c643d7828417272
+│ │ │ -61792e70726f746f747970652e706f70292c703d782841727261792e70726f74
+│ │ │ -6f747970652e70757368292c673d7828537472696e672e70726f746f74797065
+│ │ │ -2e746f4c6f77657243617365292c683d7828537472696e672e70726f746f7479
+│ │ │ -70652e6d61746368292c793d7828537472696e672e70726f746f747970652e72
+│ │ │ -65706c616365292c763d7828537472696e672e70726f746f747970652e696e64
+│ │ │ -65784f66292c623d7828537472696e672e70726f746f747970652e7472696d29
+│ │ │ -2c413d78285265674578702e70726f746f747970652e74657374292c543d2866
+│ │ │ -3d547970654572726f722c66756e6374696f6e28297b666f722876617220653d
+│ │ │ -617267756d656e74732e6c656e6774682c743d41727261792865292c6e3d303b
+│ │ │ -6e3c653b6e2b2b29745b6e5d3d617267756d656e74735b6e5d3b72657475726e
+│ │ │ -207528662c74297d293b66756e6374696f6e20782865297b72657475726e2066
+│ │ │ -756e6374696f6e2874297b666f7228766172206e3d617267756d656e74732e6c
+│ │ │ -656e6774682c723d4172726179286e3e313f6e2d313a30292c6f3d313b6f3c6e
+│ │ │ -3b6f2b2b29725b6f2d315d3d617267756d656e74735b6f5d3b72657475726e20
+│ │ │ -7328652c742c72297d7d66756e6374696f6e207728652c72297b742626742865
+│ │ │ -2c6e756c6c293b666f7228766172206f3d722e6c656e6774683b6f2d2d3b297b
+│ │ │ -76617220693d725b6f5d3b69662822737472696e67223d3d747970656f662069
+│ │ │ -297b76617220613d672869293b61213d3d692626286e2872297c7c28725b6f5d
+│ │ │ -3d61292c693d61297d655b695d3d21307d72657475726e20657d66756e637469
+│ │ │ -6f6e20532874297b766172206e3d6c286e756c6c292c723d766f696420303b66
+│ │ │ -6f72287220696e2074297328652c742c5b725d292626286e5b725d3d745b725d
+│ │ │ -293b72657475726e206e7d66756e6374696f6e206b28652c74297b666f72283b
+│ │ │ -6e756c6c213d3d653b297b766172206e3d6f28652c74293b6966286e297b6966
+│ │ │ -286e2e6765742972657475726e2078286e2e676574293b6966282266756e6374
+│ │ │ -696f6e223d3d747970656f66206e2e76616c75652972657475726e2078286e2e
+│ │ │ -76616c7565297d653d722865297d72657475726e2066756e6374696f6e286529
+│ │ │ -7b72657475726e20636f6e736f6c652e7761726e282266616c6c6261636b2076
+│ │ │ -616c756520666f72222c65292c6e756c6c7d7d76617220443d69285b2261222c
+│ │ │ -2261626272222c226163726f6e796d222c2261646472657373222c2261726561
+│ │ │ -222c2261727469636c65222c226173696465222c22617564696f222c2262222c
+│ │ │ -22626469222c2262646f222c22626967222c22626c696e6b222c22626c6f636b
+│ │ │ -71756f7465222c22626f6479222c226272222c22627574746f6e222c2263616e
+│ │ │ -766173222c2263617074696f6e222c2263656e746572222c2263697465222c22
+│ │ │ -636f6465222c22636f6c222c22636f6c67726f7570222c22636f6e74656e7422
+│ │ │ -2c2264617461222c22646174616c697374222c226464222c226465636f726174
+│ │ │ -6f72222c2264656c222c2264657461696c73222c2264666e222c226469616c6f
+│ │ │ -67222c22646972222c22646976222c22646c222c226474222c22656c656d656e
+│ │ │ -74222c22656d222c226669656c64736574222c2266696763617074696f6e222c
+│ │ │ -22666967757265222c22666f6e74222c22666f6f746572222c22666f726d222c
+│ │ │ -226831222c226832222c226833222c226834222c226835222c226836222c2268
+│ │ │ -656164222c22686561646572222c226867726f7570222c226872222c2268746d
+│ │ │ -6c222c2269222c22696d67222c22696e707574222c22696e73222c226b626422
+│ │ │ -2c226c6162656c222c226c6567656e64222c226c69222c226d61696e222c226d
+│ │ │ -6170222c226d61726b222c226d617271756565222c226d656e75222c226d656e
+│ │ │ -756974656d222c226d65746572222c226e6176222c226e6f6272222c226f6c22
+│ │ │ -2c226f707467726f7570222c226f7074696f6e222c226f7574707574222c2270
+│ │ │ -222c2270696374757265222c22707265222c2270726f6772657373222c227122
+│ │ │ -2c227270222c227274222c2272756279222c2273222c2273616d70222c227365
+│ │ │ -6374696f6e222c2273656c656374222c22736861646f77222c22736d616c6c22
+│ │ │ -2c22736f75726365222c22737061636572222c227370616e222c22737472696b
+│ │ │ -65222c227374726f6e67222c227374796c65222c22737562222c2273756d6d61
+│ │ │ -7279222c22737570222c227461626c65222c2274626f6479222c227464222c22
+│ │ │ -74656d706c617465222c227465787461726561222c2274666f6f74222c227468
+│ │ │ -222c227468656164222c2274696d65222c227472222c22747261636b222c2274
+│ │ │ -74222c2275222c22756c222c22766172222c22766964656f222c22776272225d
+│ │ │ -292c453d69285b22737667222c2261222c22616c74676c797068222c22616c74
+│ │ │ -676c797068646566222c22616c74676c7970686974656d222c22616e696d6174
+│ │ │ -65636f6c6f72222c22616e696d6174656d6f74696f6e222c22616e696d617465
+│ │ │ -7472616e73666f726d222c22636972636c65222c22636c697070617468222c22
+│ │ │ -64656673222c2264657363222c22656c6c69707365222c2266696c746572222c
+│ │ │ -22666f6e74222c2267222c22676c797068222c22676c797068726566222c2268
+│ │ │ -6b65726e222c22696d616765222c226c696e65222c226c696e65617267726164
+│ │ │ -69656e74222c226d61726b6572222c226d61736b222c226d6574616461746122
+│ │ │ -2c226d70617468222c2270617468222c227061747465726e222c22706f6c7967
+│ │ │ -6f6e222c22706f6c796c696e65222c2272616469616c6772616469656e74222c
+│ │ │ -2272656374222c2273746f70222c227374796c65222c22737769746368222c22
+│ │ │ -73796d626f6c222c2274657874222c227465787470617468222c227469746c65
+│ │ │ -222c2274726566222c22747370616e222c2276696577222c22766b65726e225d
+│ │ │ -292c523d69285b226665426c656e64222c226665436f6c6f724d617472697822
+│ │ │ -2c226665436f6d706f6e656e745472616e73666572222c226665436f6d706f73
+│ │ │ -697465222c226665436f6e766f6c76654d6174726978222c2266654469666675
+│ │ │ -73654c69676874696e67222c226665446973706c6163656d656e744d6170222c
+│ │ │ -22666544697374616e744c69676874222c226665466c6f6f64222c2266654675
+│ │ │ -6e6341222c22666546756e6342222c22666546756e6347222c22666546756e63
+│ │ │ -52222c226665476175737369616e426c7572222c2266654d65726765222c2266
+│ │ │ -654d657267654e6f6465222c2266654d6f7270686f6c6f6779222c2266654f66
+│ │ │ -66736574222c226665506f696e744c69676874222c22666553706563756c6172
+│ │ │ -4c69676874696e67222c22666553706f744c69676874222c22666554696c6522
+│ │ │ -2c22666554757262756c656e6365225d292c5f3d69285b22616e696d61746522
+│ │ │ -2c22636f6c6f722d70726f66696c65222c22637572736f72222c226469736361
+│ │ │ -7264222c22666564726f70736861646f77222c226665696d616765222c22666f
+│ │ │ -6e742d66616365222c22666f6e742d666163652d666f726d6174222c22666f6e
+│ │ │ -742d666163652d6e616d65222c22666f6e742d666163652d737263222c22666f
+│ │ │ -6e742d666163652d757269222c22666f726569676e6f626a656374222c226861
+│ │ │ -746368222c22686174636870617468222c226d657368222c226d657368677261
+│ │ │ -6469656e74222c226d6573687061746368222c226d657368726f77222c226d69
+│ │ │ -7373696e672d676c797068222c22736372697074222c22736574222c22736f6c
+│ │ │ -6964636f6c6f72222c22756e6b6e6f776e222c22757365225d292c4e3d69285b
+│ │ │ -226d617468222c226d656e636c6f7365222c226d6572726f72222c226d66656e
+│ │ │ -636564222c226d66726163222c226d676c797068222c226d69222c226d6c6162
+│ │ │ -656c65647472222c226d6d756c746973637269707473222c226d6e222c226d6f
+│ │ │ -222c226d6f766572222c226d706164646564222c226d7068616e746f6d222c22
+│ │ │ -6d726f6f74222c226d726f77222c226d73222c226d7370616365222c226d7371
+│ │ │ -7274222c226d7374796c65222c226d737562222c226d737570222c226d737562
+│ │ │ -737570222c226d7461626c65222c226d7464222c226d74657874222c226d7472
+│ │ │ -222c226d756e646572222c226d756e6465726f766572225d292c4f3d69285b22
+│ │ │ -6d616374696f6e222c226d616c69676e67726f7570222c226d616c69676e6d61
+│ │ │ -726b222c226d6c6f6e67646976222c226d7363617272696573222c226d736361
+│ │ │ -727279222c226d7367726f7570222c226d737461636b222c226d736c696e6522
+│ │ │ -2c226d73726f77222c2273656d616e74696373222c22616e6e6f746174696f6e
+│ │ │ -222c22616e6e6f746174696f6e2d786d6c222c226d7072657363726970747322
+│ │ │ -2c226e6f6e65225d292c4d3d69285b222374657874225d292c4c3d69285b2261
+│ │ │ -6363657074222c22616374696f6e222c22616c69676e222c22616c74222c2261
+│ │ │ -75746f6361706974616c697a65222c226175746f636f6d706c657465222c2261
+│ │ │ -75746f70696374757265696e70696374757265222c226175746f706c6179222c
+│ │ │ -226261636b67726f756e64222c226267636f6c6f72222c22626f72646572222c
+│ │ │ -2263617074757265222c2263656c6c70616464696e67222c2263656c6c737061
+│ │ │ -63696e67222c22636865636b6564222c2263697465222c22636c617373222c22
+│ │ │ -636c656172222c22636f6c6f72222c22636f6c73222c22636f6c7370616e222c
+│ │ │ -22636f6e74726f6c73222c22636f6e74726f6c736c697374222c22636f6f7264
+│ │ │ -73222c2263726f73736f726967696e222c226461746574696d65222c22646563
+│ │ │ -6f64696e67222c2264656661756c74222c22646972222c2264697361626c6564
+│ │ │ -222c2264697361626c6570696374757265696e70696374757265222c22646973
+│ │ │ -61626c6572656d6f7465706c61796261636b222c22646f776e6c6f6164222c22
+│ │ │ -647261676761626c65222c22656e6374797065222c22656e7465726b65796869
+│ │ │ -6e74222c2266616365222c22666f72222c2268656164657273222c2268656967
+│ │ │ -6874222c2268696464656e222c2268696768222c2268726566222c2268726566
+│ │ │ -6c616e67222c226964222c22696e7075746d6f6465222c22696e746567726974
+│ │ │ -79222c2269736d6170222c226b696e64222c226c6162656c222c226c616e6722
+│ │ │ -2c226c697374222c226c6f6164696e67222c226c6f6f70222c226c6f77222c22
+│ │ │ -6d6178222c226d61786c656e677468222c226d65646961222c226d6574686f64
+│ │ │ -222c226d696e222c226d696e6c656e677468222c226d756c7469706c65222c22
+│ │ │ -6d75746564222c226e616d65222c226e6f7368616465222c226e6f76616c6964
+│ │ │ -617465222c226e6f77726170222c226f70656e222c226f7074696d756d222c22
+│ │ │ -7061747465726e222c22706c616365686f6c646572222c22706c617973696e6c
+│ │ │ -696e65222c22706f73746572222c227072656c6f6164222c2270756264617465
+│ │ │ -222c22726164696f67726f7570222c22726561646f6e6c79222c2272656c222c
+│ │ │ -227265717569726564222c22726576222c227265766572736564222c22726f6c
+│ │ │ -65222c22726f7773222c22726f777370616e222c227370656c6c636865636b22
+│ │ │ -2c2273636f7065222c2273656c6563746564222c227368617065222c2273697a
+│ │ │ -65222c2273697a6573222c227370616e222c227372636c616e67222c22737461
+│ │ │ -7274222c22737263222c22737263736574222c2273746570222c227374796c65
+│ │ │ -222c2273756d6d617279222c22746162696e646578222c227469746c65222c22
+│ │ │ -7472616e736c617465222c2274797065222c227573656d6170222c2276616c69
+│ │ │ -676e222c2276616c7565222c227769647468222c22786d6c6e73222c22736c6f
+│ │ │ -74225d292c463d69285b22616363656e742d686569676874222c22616363756d
+│ │ │ -756c617465222c226164646974697665222c22616c69676e6d656e742d626173
+│ │ │ -656c696e65222c22617363656e74222c226174747269627574656e616d65222c
+│ │ │ -2261747472696275746574797065222c22617a696d757468222c226261736566
+│ │ │ -72657175656e6379222c22626173656c696e652d7368696674222c2262656769
+│ │ │ -6e222c2262696173222c226279222c22636c617373222c22636c6970222c2263
+│ │ │ -6c697070617468756e697473222c22636c69702d70617468222c22636c69702d
+│ │ │ -72756c65222c22636f6c6f72222c22636f6c6f722d696e746572706f6c617469
+│ │ │ -6f6e222c22636f6c6f722d696e746572706f6c6174696f6e2d66696c74657273
+│ │ │ -222c22636f6c6f722d70726f66696c65222c22636f6c6f722d72656e64657269
+│ │ │ -6e67222c226378222c226379222c2264222c226478222c226479222c22646966
+│ │ │ -66757365636f6e7374616e74222c22646972656374696f6e222c22646973706c
+│ │ │ -6179222c2264697669736f72222c22647572222c22656467656d6f6465222c22
+│ │ │ -656c65766174696f6e222c22656e64222c2266696c6c222c2266696c6c2d6f70
+│ │ │ -6163697479222c2266696c6c2d72756c65222c2266696c746572222c2266696c
+│ │ │ -746572756e697473222c22666c6f6f642d636f6c6f72222c22666c6f6f642d6f
+│ │ │ -706163697479222c22666f6e742d66616d696c79222c22666f6e742d73697a65
+│ │ │ -222c22666f6e742d73697a652d61646a757374222c22666f6e742d7374726574
+│ │ │ -6368222c22666f6e742d7374796c65222c22666f6e742d76617269616e74222c
+│ │ │ -22666f6e742d776569676874222c226678222c226679222c226731222c226732
+│ │ │ -222c22676c7970682d6e616d65222c22676c797068726566222c226772616469
+│ │ │ -656e74756e697473222c226772616469656e747472616e73666f726d222c2268
+│ │ │ -6569676874222c2268726566222c226964222c22696d6167652d72656e646572
+│ │ │ -696e67222c22696e222c22696e32222c226b222c226b31222c226b32222c226b
+│ │ │ -33222c226b34222c226b65726e696e67222c226b6579706f696e7473222c226b
+│ │ │ -657973706c696e6573222c226b657974696d6573222c226c616e67222c226c65
+│ │ │ -6e67746861646a757374222c226c65747465722d73706163696e67222c226b65
+│ │ │ -726e656c6d6174726978222c226b65726e656c756e69746c656e677468222c22
+│ │ │ -6c69676874696e672d636f6c6f72222c226c6f63616c222c226d61726b65722d
+│ │ │ -656e64222c226d61726b65722d6d6964222c226d61726b65722d737461727422
+│ │ │ -2c226d61726b6572686569676874222c226d61726b6572756e697473222c226d
+│ │ │ -61726b65727769647468222c226d61736b636f6e74656e74756e697473222c22
+│ │ │ -6d61736b756e697473222c226d6178222c226d61736b222c226d65646961222c
+│ │ │ -226d6574686f64222c226d6f6465222c226d696e222c226e616d65222c226e75
+│ │ │ -6d6f637461766573222c226f6666736574222c226f70657261746f72222c226f
+│ │ │ -706163697479222c226f72646572222c226f7269656e74222c226f7269656e74
+│ │ │ -6174696f6e222c226f726967696e222c226f766572666c6f77222c227061696e
+│ │ │ -742d6f72646572222c2270617468222c22706174686c656e677468222c227061
+│ │ │ -747465726e636f6e74656e74756e697473222c227061747465726e7472616e73
+│ │ │ -666f726d222c227061747465726e756e697473222c22706f696e7473222c2270
+│ │ │ -72657365727665616c706861222c227072657365727665617370656374726174
+│ │ │ -696f222c227072696d6974697665756e697473222c2272222c227278222c2272
+│ │ │ -79222c22726164697573222c2272656678222c2272656679222c227265706561
+│ │ │ -74636f756e74222c22726570656174647572222c2272657374617274222c2272
+│ │ │ -6573756c74222c22726f74617465222c227363616c65222c2273656564222c22
+│ │ │ -73686170652d72656e646572696e67222c2273706563756c6172636f6e737461
+│ │ │ -6e74222c2273706563756c61726578706f6e656e74222c227370726561646d65
+│ │ │ -74686f64222c2273746172746f6666736574222c22737464646576696174696f
+│ │ │ -6e222c2273746974636874696c6573222c2273746f702d636f6c6f72222c2273
+│ │ │ -746f702d6f706163697479222c227374726f6b652d646173686172726179222c
+│ │ │ -227374726f6b652d646173686f6666736574222c227374726f6b652d6c696e65
+│ │ │ -636170222c227374726f6b652d6c696e656a6f696e222c227374726f6b652d6d
+│ │ │ -697465726c696d6974222c227374726f6b652d6f706163697479222c22737472
+│ │ │ -6f6b65222c227374726f6b652d7769647468222c227374796c65222c22737572
+│ │ │ -666163657363616c65222c2273797374656d6c616e6775616765222c22746162
+│ │ │ -696e646578222c2274617267657478222c2274617267657479222c227472616e
+│ │ │ -73666f726d222c22746578742d616e63686f72222c22746578742d6465636f72
+│ │ │ -6174696f6e222c22746578742d72656e646572696e67222c22746578746c656e
+│ │ │ -677468222c2274797065222c227531222c227532222c22756e69636f6465222c
+│ │ │ -2276616c756573222c2276696577626f78222c227669736962696c697479222c
+│ │ │ -2276657273696f6e222c22766572742d6164762d79222c22766572742d6f7269
+│ │ │ -67696e2d78222c22766572742d6f726967696e2d79222c227769647468222c22
+│ │ │ -776f72642d73706163696e67222c2277726170222c2277726974696e672d6d6f
+│ │ │ -6465222c22786368616e6e656c73656c6563746f72222c22796368616e6e656c
+│ │ │ -73656c6563746f72222c2278222c227831222c227832222c22786d6c6e73222c
+│ │ │ -2279222c227931222c227932222c227a222c227a6f6f6d616e6470616e225d29
+│ │ │ -2c493d69285b22616363656e74222c22616363656e74756e646572222c22616c
+│ │ │ -69676e222c22626576656c6c6564222c22636c6f7365222c22636f6c756d6e73
+│ │ │ -616c69676e222c22636f6c756d6e6c696e6573222c22636f6c756d6e7370616e
+│ │ │ -222c2264656e6f6d616c69676e222c226465707468222c22646972222c226469
+│ │ │ -73706c6179222c22646973706c61797374796c65222c22656e636f64696e6722
+│ │ │ -2c2266656e6365222c226672616d65222c22686569676874222c226872656622
+│ │ │ -2c226964222c226c617267656f70222c226c656e677468222c226c696e657468
+│ │ │ -69636b6e657373222c226c7370616365222c226c71756f7465222c226d617468
+│ │ │ -6261636b67726f756e64222c226d617468636f6c6f72222c226d61746873697a
+│ │ │ -65222c226d61746876617269616e74222c226d617873697a65222c226d696e73
+│ │ │ -697a65222c226d6f7661626c656c696d697473222c226e6f746174696f6e222c
+│ │ │ -226e756d616c69676e222c226f70656e222c22726f77616c69676e222c22726f
+│ │ │ -776c696e6573222c22726f7773706163696e67222c22726f777370616e222c22
+│ │ │ -727370616365222c227271756f7465222c227363726970746c6576656c222c22
+│ │ │ -7363726970746d696e73697a65222c2273637269707473697a656d756c746970
+│ │ │ -6c696572222c2273656c656374696f6e222c22736570617261746f72222c2273
+│ │ │ -6570617261746f7273222c227374726574636879222c22737562736372697074
+│ │ │ -7368696674222c227375707363726970747368696674222c2273796d6d657472
+│ │ │ -6963222c22766f6666736574222c227769647468222c22786d6c6e73225d292c
+│ │ │ -433d69285b22786c696e6b3a68726566222c22786d6c3a6964222c22786c696e
+│ │ │ -6b3a7469746c65222c22786d6c3a7370616365222c22786d6c6e733a786c696e
+│ │ │ -6b225d292c7a3d61282f5c7b5c7b5b5c735c535d2a7c5b5c735c535d2a5c7d5c
+│ │ │ -7d2f676d292c553d61282f3c255b5c735c535d2a7c5b5c735c535d2a253e2f67
+│ │ │ -6d292c483d61282f5e646174612d5b5c2d5c772e5c75303042372d5c75464646
+│ │ │ -465d2f292c6a3d61282f5e617269612d5b5c2d5c775d2b242f292c503d61282f
+│ │ │ -5e283f3a283f3a283f3a667c6874297470733f7c6d61696c746f7c74656c7c63
+│ │ │ -616c6c746f7c6369647c786d7070293a7c5b5e612d7a5d7c5b612d7a2b2e5c2d
+│ │ │ -5d2b283f3a5b5e612d7a2b2e5c2d3a5d7c2429292f69292c423d61282f5e283f
+│ │ │ -3a5c772b7363726970747c64617461293a2f69292c573d61282f5b5c75303030
+│ │ │ -302d5c75303032305c75303041305c75313638305c75313830455c7532303030
+│ │ │ -2d5c75323032395c75323035465c75333030305d2f67292c473d2266756e6374
+│ │ │ -696f6e223d3d747970656f662053796d626f6c26262273796d626f6c223d3d74
+│ │ │ -7970656f662053796d626f6c2e6974657261746f723f66756e6374696f6e2865
+│ │ │ -297b72657475726e20747970656f6620657d3a66756e6374696f6e2865297b72
+│ │ │ -657475726e206526262266756e6374696f6e223d3d747970656f662053796d62
+│ │ │ -6f6c2626652e636f6e7374727563746f723d3d3d53796d626f6c262665213d3d
+│ │ │ -53796d626f6c2e70726f746f747970653f2273796d626f6c223a747970656f66
+│ │ │ -20657d3b66756e6374696f6e20712865297b69662841727261792e6973417272
+│ │ │ -6179286529297b666f722876617220743d302c6e3d417272617928652e6c656e
+│ │ │ -677468293b743c652e6c656e6774683b742b2b296e5b745d3d655b745d3b7265
+│ │ │ -7475726e206e7d72657475726e2041727261792e66726f6d2865297d76617220
+│ │ │ -4b3d66756e6374696f6e28297b72657475726e22756e646566696e6564223d3d
+│ │ │ -747970656f662077696e646f773f6e756c6c3a77696e646f777d2c563d66756e
+│ │ │ -6374696f6e28652c74297b696628226f626a65637422213d3d28766f69642030
+│ │ │ -3d3d3d653f22756e646566696e6564223a47286529297c7c2266756e6374696f
+│ │ │ -6e22213d747970656f6620652e637265617465506f6c6963792972657475726e
+│ │ │ -206e756c6c3b766172206e3d6e756c6c2c723d22646174612d74742d706f6c69
+│ │ │ -63792d737566666978223b742e63757272656e745363726970742626742e6375
+│ │ │ -7272656e745363726970742e6861734174747269627574652872292626286e3d
+│ │ │ -742e63757272656e745363726970742e67657441747472696275746528722929
+│ │ │ -3b766172206f3d22646f6d707572696679222b286e3f2223222b6e3a2222293b
+│ │ │ -7472797b72657475726e20652e637265617465506f6c696379286f2c7b637265
+│ │ │ -61746548544d4c3a66756e6374696f6e2865297b72657475726e20657d7d297d
+│ │ │ -63617463682865297b72657475726e20636f6e736f6c652e7761726e28225472
+│ │ │ -7573746564547970657320706f6c69637920222b6f2b2220636f756c64206e6f
+│ │ │ -7420626520637265617465642e22292c6e756c6c7d7d3b72657475726e206675
+│ │ │ -6e6374696f6e206528297b76617220743d617267756d656e74732e6c656e6774
+│ │ │ -683e302626766f69642030213d3d617267756d656e74735b305d3f617267756d
+│ │ │ -656e74735b305d3a4b28292c6e3d66756e6374696f6e2874297b72657475726e
+│ │ │ -20652874297d3b6966286e2e76657273696f6e3d22322e322e39222c6e2e7265
+│ │ │ -6d6f7665643d5b5d2c21747c7c21742e646f63756d656e747c7c39213d3d742e
+│ │ │ -646f63756d656e742e6e6f6465547970652972657475726e206e2e6973537570
+│ │ │ -706f727465643d21312c6e3b76617220723d742e646f63756d656e742c6f3d74
+│ │ │ -2e646f63756d656e742c613d742e446f63756d656e74467261676d656e742c6c
+│ │ │ -3d742e48544d4c54656d706c617465456c656d656e742c633d742e4e6f64652c
+│ │ │ -733d742e456c656d656e742c753d742e4e6f646546696c7465722c663d742e4e
+│ │ │ -616d65644e6f64654d61702c783d766f696420303d3d3d663f742e4e616d6564
+│ │ │ -4e6f64654d61707c7c742e4d6f7a4e616d6564417474724d61703a662c593d74
+│ │ │ -2e546578742c583d742e436f6d6d656e742c243d742e444f4d5061727365722c
+│ │ │ -5a3d742e7472757374656454797065732c4a3d732e70726f746f747970652c51
+│ │ │ -3d6b284a2c22636c6f6e654e6f646522292c65653d6b284a2c226e6578745369
+│ │ │ -626c696e6722292c74653d6b284a2c226368696c644e6f64657322292c6e653d
+│ │ │ -6b284a2c22706172656e744e6f646522293b6966282266756e6374696f6e223d
+│ │ │ -3d747970656f66206c297b7661722072653d6f2e637265617465456c656d656e
+│ │ │ -74282274656d706c61746522293b72652e636f6e74656e74262672652e636f6e
+│ │ │ -74656e742e6f776e6572446f63756d656e742626286f3d72652e636f6e74656e
+│ │ │ -742e6f776e6572446f63756d656e74297d766172206f653d56285a2c72292c69
+│ │ │ -653d6f65262643653f6f652e63726561746548544d4c282222293a22222c6165
+│ │ │ -3d6f2c6c653d61652e696d706c656d656e746174696f6e2c63653d61652e6372
+│ │ │ -656174654e6f64654974657261746f722c73653d61652e637265617465446f63
+│ │ │ -756d656e74467261676d656e742c75653d722e696d706f72744e6f64652c6665
+│ │ │ -3d7b7d3b7472797b66653d53286f292e646f63756d656e744d6f64653f6f2e64
+│ │ │ -6f63756d656e744d6f64653a7b7d7d63617463682865297b7d766172206d653d
+│ │ │ -7b7d3b6e2e6973537570706f727465643d2266756e6374696f6e223d3d747970
+│ │ │ -656f66206e6526266c652626766f69642030213d3d6c652e6372656174654854
+│ │ │ -4d4c446f63756d656e74262639213d3d66653b7661722064653d7a2c70653d55
+│ │ │ -2c67653d482c68653d6a2c79653d422c76653d572c62653d502c41653d6e756c
+│ │ │ -6c2c54653d77287b7d2c5b5d2e636f6e63617428712844292c712845292c7128
+│ │ │ -52292c71284e292c71284d2929292c78653d6e756c6c2c77653d77287b7d2c5b
+│ │ │ -5d2e636f6e6361742871284c292c712846292c712849292c7128432929292c53
+│ │ │ -653d6e756c6c2c6b653d6e756c6c2c44653d21302c45653d21302c52653d2131
+│ │ │ -2c5f653d21312c4e653d21312c4f653d21312c4d653d21312c4c653d21312c46
+│ │ │ -653d21312c49653d21302c43653d21312c7a653d21302c55653d21302c48653d
+│ │ │ -21312c6a653d7b7d2c50653d77287b7d2c5b22616e6e6f746174696f6e2d786d
+│ │ │ -6c222c22617564696f222c22636f6c67726f7570222c2264657363222c22666f
+│ │ │ -726569676e6f626a656374222c2268656164222c22696672616d65222c226d61
+│ │ │ -7468222c226d69222c226d6e222c226d6f222c226d73222c226d74657874222c
+│ │ │ -226e6f656d626564222c226e6f6672616d6573222c226e6f736372697074222c
+│ │ │ -22706c61696e74657874222c22736372697074222c227374796c65222c227376
+│ │ │ -67222c2274656d706c617465222c227468656164222c227469746c65222c2276
+│ │ │ -6964656f222c22786d70225d292c42653d6e756c6c2c57653d77287b7d2c5b22
+│ │ │ -617564696f222c22766964656f222c22696d67222c22736f75726365222c2269
+│ │ │ -6d616765222c22747261636b225d292c47653d6e756c6c2c71653d77287b7d2c
+│ │ │ -5b22616c74222c22636c617373222c22666f72222c226964222c226c6162656c
+│ │ │ -222c226e616d65222c227061747465726e222c22706c616365686f6c64657222
+│ │ │ -2c2273756d6d617279222c227469746c65222c2276616c7565222c227374796c
+│ │ │ -65222c22786d6c6e73225d292c4b653d22687474703a2f2f7777772e77332e6f
+│ │ │ -72672f313939382f4d6174682f4d6174684d4c222c56653d22687474703a2f2f
+│ │ │ -7777772e77332e6f72672f323030302f737667222c59653d22687474703a2f2f
+│ │ │ -7777772e77332e6f72672f313939392f7868746d6c222c58653d59652c24653d
+│ │ │ -21312c5a653d6e756c6c2c4a653d6f2e637265617465456c656d656e74282266
+│ │ │ -6f726d22292c51653d66756e6374696f6e2865297b5a6526265a653d3d3d657c
+│ │ │ -7c28652626226f626a656374223d3d3d28766f696420303d3d3d653f22756e64
+│ │ │ -6566696e6564223a47286529297c7c28653d7b7d292c653d532865292c41653d
+│ │ │ -22414c4c4f5745445f5441475322696e20653f77287b7d2c652e414c4c4f5745
+│ │ │ -445f54414753293a54652c78653d22414c4c4f5745445f4154545222696e2065
+│ │ │ -3f77287b7d2c652e414c4c4f5745445f41545452293a77652c47653d22414444
+│ │ │ -5f5552495f534146455f4154545222696e20653f772853287165292c652e4144
+│ │ │ -445f5552495f534146455f41545452293a71652c42653d224144445f44415441
+│ │ │ -5f5552495f5441475322696e20653f772853285765292c652e4144445f444154
+│ │ │ -415f5552495f54414753293a57652c53653d22464f524249445f544147532269
+│ │ │ -6e20653f77287b7d2c652e464f524249445f54414753293a7b7d2c6b653d2246
+│ │ │ -4f524249445f4154545222696e20653f77287b7d2c652e464f524249445f4154
+│ │ │ -5452293a7b7d2c6a653d225553455f50524f46494c455322696e20652626652e
+│ │ │ -5553455f50524f46494c45532c44653d2131213d3d652e414c4c4f575f415249
+│ │ │ -415f415454522c45653d2131213d3d652e414c4c4f575f444154415f41545452
+│ │ │ -2c52653d652e414c4c4f575f554e4b4e4f574e5f50524f544f434f4c537c7c21
+│ │ │ -312c5f653d652e534146455f464f525f54454d504c415445537c7c21312c4e65
+│ │ │ -3d652e57484f4c455f444f43554d454e547c7c21312c4c653d652e5245545552
+│ │ │ -4e5f444f4d7c7c21312c46653d652e52455455524e5f444f4d5f465241474d45
+│ │ │ -4e547c7c21312c49653d2131213d3d652e52455455524e5f444f4d5f494d504f
+│ │ │ -52542c43653d652e52455455524e5f545255535445445f545950457c7c21312c
+│ │ │ -4d653d652e464f5243455f424f44597c7c21312c7a653d2131213d3d652e5341
+│ │ │ -4e4954495a455f444f4d2c55653d2131213d3d652e4b4545505f434f4e54454e
+│ │ │ -542c48653d652e494e5f504c4143457c7c21312c62653d652e414c4c4f574544
+│ │ │ -5f5552495f5245474558507c7c62652c58653d652e4e414d4553504143457c7c
+│ │ │ -59652c5f6526262845653d2131292c46652626284c653d2130292c6a65262628
+│ │ │ -41653d77287b7d2c5b5d2e636f6e6361742871284d2929292c78653d5b5d2c21
+│ │ │ -303d3d3d6a652e68746d6c262628772841652c44292c772878652c4c29292c21
+│ │ │ -303d3d3d6a652e737667262628772841652c45292c772878652c46292c772878
+│ │ │ -652c4329292c21303d3d3d6a652e73766746696c74657273262628772841652c
+│ │ │ -52292c772878652c46292c772878652c4329292c21303d3d3d6a652e6d617468
+│ │ │ -4d6c262628772841652c4e292c772878652c49292c772878652c432929292c65
+│ │ │ -2e4144445f5441475326262841653d3d3d546526262841653d5328416529292c
+│ │ │ -772841652c652e4144445f5441475329292c652e4144445f4154545226262878
+│ │ │ -653d3d3d776526262878653d5328786529292c772878652c652e4144445f4154
+│ │ │ -545229292c652e4144445f5552495f534146455f415454522626772847652c65
+│ │ │ -2e4144445f5552495f534146455f41545452292c556526262841655b22237465
+│ │ │ -7874225d3d2130292c4e652626772841652c5b2268746d6c222c226865616422
+│ │ │ -2c22626f6479225d292c41652e7461626c65262628772841652c5b2274626f64
+│ │ │ -79225d292c64656c6574652053652e74626f6479292c692626692865292c5a65
+│ │ │ -3d65297d2c65743d77287b7d2c5b226d69222c226d6f222c226d6e222c226d73
+│ │ │ -222c226d74657874225d292c74743d77287b7d2c5b22666f726569676e6f626a
+│ │ │ -656374222c2264657363222c227469746c65222c22616e6e6f746174696f6e2d
+│ │ │ -786d6c225d292c6e743d77287b7d2c45293b77286e742c52292c77286e742c5f
+│ │ │ -293b7661722072743d77287b7d2c4e293b772872742c4f293b766172206f743d
+│ │ │ -66756e6374696f6e2865297b76617220743d6e652865293b742626742e746167
+│ │ │ -4e616d657c7c28743d7b6e616d6573706163655552493a59652c7461674e616d
+│ │ │ -653a2274656d706c617465227d293b766172206e3d6728652e7461674e616d65
+│ │ │ -292c723d6728742e7461674e616d65293b696628652e6e616d65737061636555
+│ │ │ -52493d3d3d56652972657475726e20742e6e616d6573706163655552493d3d3d
+│ │ │ -59653f22737667223d3d3d6e3a742e6e616d6573706163655552493d3d3d4b65
+│ │ │ -3f22737667223d3d3d6e26262822616e6e6f746174696f6e2d786d6c223d3d3d
+│ │ │ -727c7c65745b725d293a426f6f6c65616e286e745b6e5d293b696628652e6e61
+│ │ │ -6d6573706163655552493d3d3d4b652972657475726e20742e6e616d65737061
+│ │ │ -63655552493d3d3d59653f226d617468223d3d3d6e3a742e6e616d6573706163
+│ │ │ -655552493d3d3d56653f226d617468223d3d3d6e262674745b725d3a426f6f6c
+│ │ │ -65616e2872745b6e5d293b696628652e6e616d6573706163655552493d3d3d59
+│ │ │ -65297b696628742e6e616d6573706163655552493d3d3d566526262174745b72
+│ │ │ -5d2972657475726e21313b696628742e6e616d6573706163655552493d3d3d4b
+│ │ │ -6526262165745b725d2972657475726e21313b766172206f3d77287b7d2c5b22
+│ │ │ -7469746c65222c227374796c65222c22666f6e74222c2261222c227363726970
+│ │ │ -74225d293b72657475726e2172745b6e5d2626286f5b6e5d7c7c216e745b6e5d
+│ │ │ -297d72657475726e21317d2c69743d66756e6374696f6e2865297b70286e2e72
+│ │ │ -656d6f7665642c7b656c656d656e743a657d293b7472797b652e706172656e74
+│ │ │ -4e6f64652e72656d6f76654368696c642865297d63617463682874297b747279
+│ │ │ -7b652e6f7574657248544d4c3d69657d63617463682874297b652e72656d6f76
+│ │ │ -6528297d7d7d2c61743d66756e6374696f6e28652c74297b7472797b70286e2e
+│ │ │ -72656d6f7665642c7b6174747269627574653a742e6765744174747269627574
+│ │ │ -654e6f64652865292c66726f6d3a747d297d63617463682865297b70286e2e72
+│ │ │ -656d6f7665642c7b6174747269627574653a6e756c6c2c66726f6d3a747d297d
+│ │ │ -696628742e72656d6f76654174747269627574652865292c226973223d3d3d65
+│ │ │ -26262178655b655d296966284c657c7c4665297472797b69742874297d636174
+│ │ │ -63682865297b7d656c7365207472797b742e7365744174747269627574652865
+│ │ │ -2c2222297d63617463682865297b7d7d2c6c743d66756e6374696f6e2865297b
+│ │ │ -76617220743d766f696420302c6e3d766f696420303b6966284d6529653d223c
+│ │ │ -72656d6f76653e3c2f72656d6f76653e222b653b656c73657b76617220723d68
+│ │ │ -28652c2f5e5b5c725c6e5c74205d2b2f293b6e3d722626725b305d7d76617220
+│ │ │ -693d6f653f6f652e63726561746548544d4c2865293a653b69662858653d3d3d
+│ │ │ -5965297472797b743d286e65772024292e706172736546726f6d537472696e67
+│ │ │ -28692c22746578742f68746d6c22297d63617463682865297b7d69662821747c
+│ │ │ -7c21742e646f63756d656e74456c656d656e74297b743d6c652e637265617465
+│ │ │ -446f63756d656e742858652c2274656d706c617465222c6e756c6c293b747279
+│ │ │ -7b742e646f63756d656e74456c656d656e742e696e6e657248544d4c3d24653f
+│ │ │ -22223a697d63617463682865297b7d7d76617220613d742e626f64797c7c742e
+│ │ │ -646f63756d656e74456c656d656e743b72657475726e206526266e2626612e69
+│ │ │ -6e736572744265666f7265286f2e637265617465546578744e6f6465286e292c
+│ │ │ -612e6368696c644e6f6465735b305d7c7c6e756c6c292c4e653f742e646f6375
+│ │ │ -6d656e74456c656d656e743a617d2c63743d66756e6374696f6e2865297b7265
+│ │ │ -7475726e2063652e63616c6c28652e6f776e6572446f63756d656e747c7c652c
+│ │ │ -652c752e53484f575f454c454d454e547c752e53484f575f434f4d4d454e547c
+│ │ │ -752e53484f575f544558542c6e756c6c2c2131297d2c73743d66756e6374696f
+│ │ │ -6e2865297b72657475726e21286520696e7374616e63656f6620597c7c652069
+│ │ │ -6e7374616e63656f662058292626212822737472696e67223d3d747970656f66
+│ │ │ -20652e6e6f64654e616d65262622737472696e67223d3d747970656f6620652e
+│ │ │ -74657874436f6e74656e7426262266756e6374696f6e223d3d747970656f6620
+│ │ │ -652e72656d6f76654368696c642626652e6174747269627574657320696e7374
+│ │ │ -616e63656f66207826262266756e6374696f6e223d3d747970656f6620652e72
+│ │ │ -656d6f766541747472696275746526262266756e6374696f6e223d3d74797065
+│ │ │ -6f6620652e736574417474726962757465262622737472696e67223d3d747970
+│ │ │ -656f6620652e6e616d65737061636555524926262266756e6374696f6e223d3d
+│ │ │ -747970656f6620652e696e736572744265666f7265297d2c75743d66756e6374
+│ │ │ -696f6e2865297b72657475726e226f626a656374223d3d3d28766f696420303d
+│ │ │ -3d3d633f22756e646566696e6564223a47286329293f6520696e7374616e6365
+│ │ │ -6f6620633a652626226f626a656374223d3d3d28766f696420303d3d3d653f22
+│ │ │ -756e646566696e6564223a47286529292626226e756d626572223d3d74797065
+│ │ │ -6f6620652e6e6f646554797065262622737472696e67223d3d747970656f6620
+│ │ │ -652e6e6f64654e616d657d2c66743d66756e6374696f6e28652c742c72297b6d
+│ │ │ -655b655d26266d286d655b655d2c2866756e6374696f6e2865297b652e63616c
+│ │ │ -6c286e2c742c722c5a65297d29297d2c6d743d66756e6374696f6e2865297b76
+│ │ │ -617220743d766f696420303b696628667428226265666f726553616e6974697a
+│ │ │ -65456c656d656e7473222c652c6e756c6c292c73742865292972657475726e20
+│ │ │ -69742865292c21303b6966286828652e6e6f64654e616d652c2f5b5c75303038
+│ │ │ -302d5c75464646465d2f292972657475726e2069742865292c21303b76617220
+│ │ │ -723d6728652e6e6f64654e616d65293b6966286674282275706f6e53616e6974
+│ │ │ -697a65456c656d656e74222c652c7b7461674e616d653a722c616c6c6f776564
+│ │ │ -546167733a41657d292c21757428652e6669727374456c656d656e744368696c
+│ │ │ -642926262821757428652e636f6e74656e74297c7c21757428652e636f6e7465
+│ │ │ -6e742e6669727374456c656d656e744368696c642929262641282f3c5b2f5c77
+│ │ │ -5d2f672c652e696e6e657248544d4c29262641282f3c5b2f5c775d2f672c652e
+│ │ │ -74657874436f6e74656e74292972657475726e2069742865292c21303b696628
+│ │ │ -2141655b725d7c7c53655b725d297b696628556526262150655b725d297b7661
+│ │ │ -72206f3d6e652865297c7c652e706172656e744e6f64652c693d74652865297c
+│ │ │ -7c652e6368696c644e6f6465733b6966286926266f29666f722876617220613d
+│ │ │ -692e6c656e6774682d313b613e3d303b2d2d61296f2e696e736572744265666f
+│ │ │ -7265285128695b615d2c2130292c6565286529297d72657475726e2069742865
+│ │ │ -292c21307d72657475726e206520696e7374616e63656f6620732626216f7428
+│ │ │ -65293f2869742865292c2130293a226e6f73637269707422213d3d722626226e
+│ │ │ -6f656d62656422213d3d727c7c2141282f3c5c2f6e6f287363726970747c656d
+│ │ │ -626564292f692c652e696e6e657248544d4c293f285f652626333d3d3d652e6e
+│ │ │ -6f646554797065262628743d652e74657874436f6e74656e742c743d7928742c
+│ │ │ -64652c222022292c743d7928742c70652c222022292c652e74657874436f6e74
+│ │ │ -656e74213d3d7426262870286e2e72656d6f7665642c7b656c656d656e743a65
+│ │ │ -2e636c6f6e654e6f646528297d292c652e74657874436f6e74656e743d742929
+│ │ │ -2c66742822616674657253616e6974697a65456c656d656e7473222c652c6e75
+│ │ │ -6c6c292c2131293a2869742865292c2130297d2c64743d66756e6374696f6e28
+│ │ │ -652c742c6e297b6966287a65262628226964223d3d3d747c7c226e616d65223d
+│ │ │ -3d3d74292626286e20696e206f7c7c6e20696e204a65292972657475726e2131
+│ │ │ -3b69662845652626412867652c7429293b656c73652069662844652626412868
+│ │ │ -652c7429293b656c73657b6966282178655b745d7c7c6b655b745d2972657475
+│ │ │ -726e21313b69662847655b745d293b656c736520696628412862652c79286e2c
+│ │ │ -76652c22222929293b656c7365206966282273726322213d3d74262622786c69
+│ │ │ -6e6b3a6872656622213d3d742626226872656622213d3d747c7c227363726970
+│ │ │ -74223d3d3d657c7c30213d3d76286e2c22646174613a22297c7c2142655b655d
+│ │ │ -297b6966285265262621412879652c79286e2c76652c22222929293b656c7365
+│ │ │ -206966286e2972657475726e21317d656c73653b7d72657475726e21307d2c70
+│ │ │ -743d66756e6374696f6e2865297b76617220743d766f696420302c723d766f69
+│ │ │ -6420302c6f3d766f696420302c693d766f696420303b667428226265666f7265
+│ │ │ -53616e6974697a6541747472696275746573222c652c6e756c6c293b76617220
+│ │ │ -613d652e617474726962757465733b69662861297b766172206c3d7b61747472
+│ │ │ -4e616d653a22222c6174747256616c75653a22222c6b656570417474723a2130
+│ │ │ -2c616c6c6f776564417474726962757465733a78657d3b666f7228693d612e6c
+│ │ │ -656e6774683b692d2d3b297b76617220633d743d615b695d2c733d632e6e616d
+│ │ │ -652c753d632e6e616d6573706163655552493b696628723d6228742e76616c75
+│ │ │ -65292c6f3d672873292c6c2e617474724e616d653d6f2c6c2e6174747256616c
+│ │ │ -75653d722c6c2e6b656570417474723d21302c6c2e666f7263654b6565704174
+│ │ │ -74723d766f696420302c6674282275706f6e53616e6974697a65417474726962
+│ │ │ -757465222c652c6c292c723d6c2e6174747256616c75652c216c2e666f726365
+│ │ │ -4b65657041747472262628617428732c65292c6c2e6b65657041747472292969
+│ │ │ -662841282f5c2f3e2f692c722929617428732c65293b656c73657b5f65262628
+│ │ │ -723d7928722c64652c222022292c723d7928722c70652c22202229293b766172
+│ │ │ -20663d652e6e6f64654e616d652e746f4c6f7765724361736528293b69662864
+│ │ │ -7428662c6f2c7229297472797b753f652e7365744174747269627574654e5328
+│ │ │ -752c732c72293a652e73657441747472696275746528732c72292c64286e2e72
+│ │ │ -656d6f766564297d63617463682865297b7d7d7d66742822616674657253616e
+│ │ │ -6974697a6541747472696275746573222c652c6e756c6c297d7d2c67743d6675
+│ │ │ -6e6374696f6e20652874297b766172206e3d766f696420302c723d6374287429
+│ │ │ -3b666f7228667428226265666f726553616e6974697a65536861646f77444f4d
+│ │ │ -222c742c6e756c6c293b6e3d722e6e6578744e6f646528293b29667428227570
+│ │ │ -6f6e53616e6974697a65536861646f774e6f6465222c6e2c6e756c6c292c6d74
+│ │ │ -286e297c7c286e2e636f6e74656e7420696e7374616e63656f66206126266528
+│ │ │ -6e2e636f6e74656e74292c7074286e29293b66742822616674657253616e6974
+│ │ │ -697a65536861646f77444f4d222c742c6e756c6c297d3b72657475726e206e2e
+│ │ │ -73616e6974697a653d66756e6374696f6e28652c6f297b76617220693d766f69
+│ │ │ -6420302c6c3d766f696420302c733d766f696420302c753d766f696420302c66
+│ │ │ -3d766f696420303b6966282824653d216529262628653d225c783363212d2d5c
+│ │ │ -78336522292c22737472696e6722213d747970656f6620652626217574286529
+│ │ │ -297b6966282266756e6374696f6e22213d747970656f6620652e746f53747269
+│ │ │ -6e67297468726f7720542822746f537472696e67206973206e6f742061206675
+│ │ │ -6e6374696f6e22293b69662822737472696e6722213d747970656f6628653d65
+│ │ │ -2e746f537472696e67282929297468726f77205428226469727479206973206e
+│ │ │ -6f74206120737472696e672c2061626f7274696e6722297d696628216e2e6973
+│ │ │ -537570706f72746564297b696628226f626a656374223d3d3d4728742e746f53
+│ │ │ -746174696348544d4c297c7c2266756e6374696f6e223d3d747970656f662074
+│ │ │ -2e746f53746174696348544d4c297b69662822737472696e67223d3d74797065
+│ │ │ -6f6620652972657475726e20742e746f53746174696348544d4c2865293b6966
+│ │ │ -2875742865292972657475726e20742e746f53746174696348544d4c28652e6f
+│ │ │ -7574657248544d4c297d72657475726e20657d6966284f657c7c5165286f292c
+│ │ │ -6e2e72656d6f7665643d5b5d2c22737472696e67223d3d747970656f66206526
+│ │ │ -262848653d2131292c4865293b656c7365206966286520696e7374616e63656f
+│ │ │ -66206329313d3d3d286c3d28693d6c7428225c783363212d2d2d2d5c78336522
+│ │ │ -29292e6f776e6572446f63756d656e742e696d706f72744e6f646528652c2130
+│ │ │ -29292e6e6f646554797065262622424f4459223d3d3d6c2e6e6f64654e616d65
+│ │ │ -7c7c2248544d4c223d3d3d6c2e6e6f64654e616d653f693d6c3a692e61707065
+│ │ │ -6e644368696c64286c293b656c73657b696628214c652626215f652626214e65
+│ │ │ -26262d313d3d3d652e696e6465784f6628223c22292972657475726e206f6526
+│ │ │ -2643653f6f652e63726561746548544d4c2865293a653b6966282128693d6c74
+│ │ │ -286529292972657475726e204c653f6e756c6c3a69657d6926264d6526266974
+│ │ │ -28692e66697273744368696c64293b666f7228766172206d3d63742848653f65
+│ │ │ -3a69293b733d6d2e6e6578744e6f646528293b29333d3d3d732e6e6f64655479
+│ │ │ -70652626733d3d3d757c7c6d742873297c7c28732e636f6e74656e7420696e73
+│ │ │ -74616e63656f6620612626677428732e636f6e74656e74292c70742873292c75
+│ │ │ -3d73293b696628753d6e756c6c2c48652972657475726e20653b6966284c6529
+│ │ │ -7b696628466529666f7228663d73652e63616c6c28692e6f776e6572446f6375
+│ │ │ -6d656e74293b692e66697273744368696c643b29662e617070656e644368696c
+│ │ │ -6428692e66697273744368696c64293b656c736520663d693b72657475726e20
+│ │ │ -4965262628663d75652e63616c6c28722c662c213029292c667d76617220643d
+│ │ │ -4e653f692e6f7574657248544d4c3a692e696e6e657248544d4c3b7265747572
+│ │ │ -6e205f65262628643d7928642c64652c222022292c643d7928642c70652c2220
+│ │ │ -2229292c6f65262643653f6f652e63726561746548544d4c2864293a647d2c6e
+│ │ │ -2e736574436f6e6669673d66756e6374696f6e2865297b51652865292c4f653d
+│ │ │ -21307d2c6e2e636c656172436f6e6669673d66756e6374696f6e28297b5a653d
+│ │ │ -6e756c6c2c4f653d21317d2c6e2e697356616c69644174747269627574653d66
+│ │ │ -756e6374696f6e28652c742c6e297b5a657c7c5165287b7d293b76617220723d
+│ │ │ -672865292c6f3d672874293b72657475726e20647428722c6f2c6e297d2c6e2e
+│ │ │ -616464486f6f6b3d66756e6374696f6e28652c74297b2266756e6374696f6e22
+│ │ │ -3d3d747970656f6620742626286d655b655d3d6d655b655d7c7c5b5d2c70286d
+│ │ │ -655b655d2c7429297d2c6e2e72656d6f7665486f6f6b3d66756e6374696f6e28
+│ │ │ -65297b6d655b655d262664286d655b655d297d2c6e2e72656d6f7665486f6f6b
+│ │ │ -733d66756e6374696f6e2865297b6d655b655d2626286d655b655d3d5b5d297d
+│ │ │ -2c6e2e72656d6f7665416c6c486f6f6b733d66756e6374696f6e28297b6d653d
+│ │ │ -7b7d7d2c6e7d28297d29293b0d0a2f2f2320736f757263654d617070696e6755
+│ │ │ -524c3d7075726966792e6d696e2e6a732e6d6170
+│ │ │ +626c6f622f322e322e322f4c4943454e5345202a2f0a2166756e6374696f6e28
+│ │ │ +652c74297b226f626a656374223d3d747970656f66206578706f727473262622
+│ │ │ +756e646566696e656422213d747970656f66206d6f64756c653f6d6f64756c65
+│ │ │ +2e6578706f7274733d7428293a2266756e6374696f6e223d3d747970656f6620
+│ │ │ +646566696e652626646566696e652e616d643f646566696e652874293a28653d
+│ │ │ +657c7c73656c66292e444f4d5075726966793d7428297d28746869732c286675
+│ │ │ +6e6374696f6e28297b2275736520737472696374223b76617220653d4f626a65
+│ │ │ +63742e6861734f776e50726f70657274792c743d4f626a6563742e7365745072
+│ │ │ +6f746f747970654f662c6e3d4f626a6563742e697346726f7a656e2c723d4f62
+│ │ │ +6a6563742e67657450726f746f747970654f662c6f3d4f626a6563742e676574
+│ │ │ +4f776e50726f706572747944657363726970746f722c693d4f626a6563742e66
+│ │ │ +7265657a652c613d4f626a6563742e7365616c2c6c3d4f626a6563742e637265
+│ │ │ +6174652c633d22756e646566696e656422213d747970656f66205265666c6563
+│ │ │ +7426265265666c6563742c733d632e6170706c792c753d632e636f6e73747275
+│ │ │ +63743b737c7c28733d66756e6374696f6e28652c742c6e297b72657475726e20
+│ │ │ +652e6170706c7928742c6e297d292c697c7c28693d66756e6374696f6e286529
+│ │ │ +7b72657475726e20657d292c617c7c28613d66756e6374696f6e2865297b7265
+│ │ │ +7475726e20657d292c757c7c28753d66756e6374696f6e28652c74297b726574
+│ │ │ +75726e206e65772846756e6374696f6e2e70726f746f747970652e62696e642e
+│ │ │ +6170706c7928652c5b6e756c6c5d2e636f6e6361742866756e6374696f6e2865
+│ │ │ +297b69662841727261792e69734172726179286529297b666f72287661722074
+│ │ │ +3d302c6e3d417272617928652e6c656e677468293b743c652e6c656e6774683b
+│ │ │ +742b2b296e5b745d3d655b745d3b72657475726e206e7d72657475726e204172
+│ │ │ +7261792e66726f6d2865297d2874292929297d293b76617220662c6d3d782841
+│ │ │ +727261792e70726f746f747970652e666f7245616368292c643d782841727261
+│ │ │ +792e70726f746f747970652e706f70292c703d782841727261792e70726f746f
+│ │ │ +747970652e70757368292c673d7828537472696e672e70726f746f747970652e
+│ │ │ +746f4c6f77657243617365292c683d7828537472696e672e70726f746f747970
+│ │ │ +652e6d61746368292c793d7828537472696e672e70726f746f747970652e7265
+│ │ │ +706c616365292c763d7828537472696e672e70726f746f747970652e696e6465
+│ │ │ +784f66292c623d7828537472696e672e70726f746f747970652e7472696d292c
+│ │ │ +413d78285265674578702e70726f746f747970652e74657374292c543d28663d
+│ │ │ +547970654572726f722c66756e6374696f6e28297b666f722876617220653d61
+│ │ │ +7267756d656e74732e6c656e6774682c743d41727261792865292c6e3d303b6e
+│ │ │ +3c653b6e2b2b29745b6e5d3d617267756d656e74735b6e5d3b72657475726e20
+│ │ │ +7528662c74297d293b66756e6374696f6e20782865297b72657475726e206675
+│ │ │ +6e6374696f6e2874297b666f7228766172206e3d617267756d656e74732e6c65
+│ │ │ +6e6774682c723d4172726179286e3e313f6e2d313a30292c6f3d313b6f3c6e3b
+│ │ │ +6f2b2b29725b6f2d315d3d617267756d656e74735b6f5d3b72657475726e2073
+│ │ │ +28652c742c72297d7d66756e6374696f6e207728652c72297b7426267428652c
+│ │ │ +6e756c6c293b666f7228766172206f3d722e6c656e6774683b6f2d2d3b297b76
+│ │ │ +617220693d725b6f5d3b69662822737472696e67223d3d747970656f66206929
+│ │ │ +7b76617220613d672869293b61213d3d692626286e2872297c7c28725b6f5d3d
+│ │ │ +61292c693d61297d655b695d3d21307d72657475726e20657d66756e6374696f
+│ │ │ +6e20532874297b766172206e3d6c286e756c6c292c723d766f696420303b666f
+│ │ │ +72287220696e2074297328652c742c5b725d292626286e5b725d3d745b725d29
+│ │ │ +3b72657475726e206e7d66756e6374696f6e206b28652c74297b666f72283b6e
+│ │ │ +756c6c213d3d653b297b766172206e3d6f28652c74293b6966286e297b696628
+│ │ │ +6e2e6765742972657475726e2078286e2e676574293b6966282266756e637469
+│ │ │ +6f6e223d3d747970656f66206e2e76616c75652972657475726e2078286e2e76
+│ │ │ +616c7565297d653d722865297d72657475726e2066756e6374696f6e2865297b
+│ │ │ +72657475726e20636f6e736f6c652e7761726e282266616c6c6261636b207661
+│ │ │ +6c756520666f72222c65292c6e756c6c7d7d76617220443d69285b2261222c22
+│ │ │ +61626272222c226163726f6e796d222c2261646472657373222c226172656122
+│ │ │ +2c2261727469636c65222c226173696465222c22617564696f222c2262222c22
+│ │ │ +626469222c2262646f222c22626967222c22626c696e6b222c22626c6f636b71
+│ │ │ +756f7465222c22626f6479222c226272222c22627574746f6e222c2263616e76
+│ │ │ +6173222c2263617074696f6e222c2263656e746572222c2263697465222c2263
+│ │ │ +6f6465222c22636f6c222c22636f6c67726f7570222c22636f6e74656e74222c
+│ │ │ +2264617461222c22646174616c697374222c226464222c226465636f7261746f
+│ │ │ +72222c2264656c222c2264657461696c73222c2264666e222c226469616c6f67
+│ │ │ +222c22646972222c22646976222c22646c222c226474222c22656c656d656e74
+│ │ │ +222c22656d222c226669656c64736574222c2266696763617074696f6e222c22
+│ │ │ +666967757265222c22666f6e74222c22666f6f746572222c22666f726d222c22
+│ │ │ +6831222c226832222c226833222c226834222c226835222c226836222c226865
+│ │ │ +6164222c22686561646572222c226867726f7570222c226872222c2268746d6c
+│ │ │ +222c2269222c22696d67222c22696e707574222c22696e73222c226b6264222c
+│ │ │ +226c6162656c222c226c6567656e64222c226c69222c226d61696e222c226d61
+│ │ │ +70222c226d61726b222c226d617271756565222c226d656e75222c226d656e75
+│ │ │ +6974656d222c226d65746572222c226e6176222c226e6f6272222c226f6c222c
+│ │ │ +226f707467726f7570222c226f7074696f6e222c226f7574707574222c227022
+│ │ │ +2c2270696374757265222c22707265222c2270726f6772657373222c2271222c
+│ │ │ +227270222c227274222c2272756279222c2273222c2273616d70222c22736563
+│ │ │ +74696f6e222c2273656c656374222c22736861646f77222c22736d616c6c222c
+│ │ │ +22736f75726365222c22737061636572222c227370616e222c22737472696b65
+│ │ │ +222c227374726f6e67222c227374796c65222c22737562222c2273756d6d6172
+│ │ │ +79222c22737570222c227461626c65222c2274626f6479222c227464222c2274
+│ │ │ +656d706c617465222c227465787461726561222c2274666f6f74222c22746822
+│ │ │ +2c227468656164222c2274696d65222c227472222c22747261636b222c227474
+│ │ │ +222c2275222c22756c222c22766172222c22766964656f222c22776272225d29
+│ │ │ +2c453d69285b22737667222c2261222c22616c74676c797068222c22616c7467
+│ │ │ +6c797068646566222c22616c74676c7970686974656d222c22616e696d617465
+│ │ │ +636f6c6f72222c22616e696d6174656d6f74696f6e222c22616e696d61746574
+│ │ │ +72616e73666f726d222c22636972636c65222c22636c697070617468222c2264
+│ │ │ +656673222c2264657363222c22656c6c69707365222c2266696c746572222c22
+│ │ │ +666f6e74222c2267222c22676c797068222c22676c797068726566222c22686b
+│ │ │ +65726e222c22696d616765222c226c696e65222c226c696e6561726772616469
+│ │ │ +656e74222c226d61726b6572222c226d61736b222c226d65746164617461222c
+│ │ │ +226d70617468222c2270617468222c227061747465726e222c22706f6c79676f
+│ │ │ +6e222c22706f6c796c696e65222c2272616469616c6772616469656e74222c22
+│ │ │ +72656374222c2273746f70222c227374796c65222c22737769746368222c2273
+│ │ │ +796d626f6c222c2274657874222c227465787470617468222c227469746c6522
+│ │ │ +2c2274726566222c22747370616e222c2276696577222c22766b65726e225d29
+│ │ │ +2c523d69285b226665426c656e64222c226665436f6c6f724d6174726978222c
+│ │ │ +226665436f6d706f6e656e745472616e73666572222c226665436f6d706f7369
+│ │ │ +7465222c226665436f6e766f6c76654d6174726978222c226665446966667573
+│ │ │ +654c69676874696e67222c226665446973706c6163656d656e744d6170222c22
+│ │ │ +666544697374616e744c69676874222c226665466c6f6f64222c22666546756e
+│ │ │ +6341222c22666546756e6342222c22666546756e6347222c22666546756e6352
+│ │ │ +222c226665476175737369616e426c7572222c2266654d65726765222c226665
+│ │ │ +4d657267654e6f6465222c2266654d6f7270686f6c6f6779222c2266654f6666
+│ │ │ +736574222c226665506f696e744c69676874222c22666553706563756c61724c
+│ │ │ +69676874696e67222c22666553706f744c69676874222c22666554696c65222c
+│ │ │ +22666554757262756c656e6365225d292c5f3d69285b22616e696d617465222c
+│ │ │ +22636f6c6f722d70726f66696c65222c22637572736f72222c22646973636172
+│ │ │ +64222c22666564726f70736861646f77222c226665696d616765222c22666f6e
+│ │ │ +742d66616365222c22666f6e742d666163652d666f726d6174222c22666f6e74
+│ │ │ +2d666163652d6e616d65222c22666f6e742d666163652d737263222c22666f6e
+│ │ │ +742d666163652d757269222c22666f726569676e6f626a656374222c22686174
+│ │ │ +6368222c22686174636870617468222c226d657368222c226d65736867726164
+│ │ │ +69656e74222c226d6573687061746368222c226d657368726f77222c226d6973
+│ │ │ +73696e672d676c797068222c22736372697074222c22736574222c22736f6c69
+│ │ │ +64636f6c6f72222c22756e6b6e6f776e222c22757365225d292c4e3d69285b22
+│ │ │ +6d617468222c226d656e636c6f7365222c226d6572726f72222c226d66656e63
+│ │ │ +6564222c226d66726163222c226d676c797068222c226d69222c226d6c616265
+│ │ │ +6c65647472222c226d6d756c746973637269707473222c226d6e222c226d6f22
+│ │ │ +2c226d6f766572222c226d706164646564222c226d7068616e746f6d222c226d
+│ │ │ +726f6f74222c226d726f77222c226d73222c226d7370616365222c226d737172
+│ │ │ +74222c226d7374796c65222c226d737562222c226d737570222c226d73756273
+│ │ │ +7570222c226d7461626c65222c226d7464222c226d74657874222c226d747222
+│ │ │ +2c226d756e646572222c226d756e6465726f766572225d292c4f3d69285b226d
+│ │ │ +616374696f6e222c226d616c69676e67726f7570222c226d616c69676e6d6172
+│ │ │ +6b222c226d6c6f6e67646976222c226d7363617272696573222c226d73636172
+│ │ │ +7279222c226d7367726f7570222c226d737461636b222c226d736c696e65222c
+│ │ │ +226d73726f77222c2273656d616e74696373222c22616e6e6f746174696f6e22
+│ │ │ +2c22616e6e6f746174696f6e2d786d6c222c226d70726573637269707473222c
+│ │ │ +226e6f6e65225d292c4d3d69285b222374657874225d292c4c3d69285b226163
+│ │ │ +63657074222c22616374696f6e222c22616c69676e222c22616c74222c226175
+│ │ │ +746f6361706974616c697a65222c226175746f636f6d706c657465222c226175
+│ │ │ +746f70696374757265696e70696374757265222c226175746f706c6179222c22
+│ │ │ +6261636b67726f756e64222c226267636f6c6f72222c22626f72646572222c22
+│ │ │ +63617074757265222c2263656c6c70616464696e67222c2263656c6c73706163
+│ │ │ +696e67222c22636865636b6564222c2263697465222c22636c617373222c2263
+│ │ │ +6c656172222c22636f6c6f72222c22636f6c73222c22636f6c7370616e222c22
+│ │ │ +636f6e74726f6c73222c22636f6e74726f6c736c697374222c22636f6f726473
+│ │ │ +222c2263726f73736f726967696e222c226461746574696d65222c226465636f
+│ │ │ +64696e67222c2264656661756c74222c22646972222c2264697361626c656422
+│ │ │ +2c2264697361626c6570696374757265696e70696374757265222c2264697361
+│ │ │ +626c6572656d6f7465706c61796261636b222c22646f776e6c6f6164222c2264
+│ │ │ +7261676761626c65222c22656e6374797065222c22656e7465726b657968696e
+│ │ │ +74222c2266616365222c22666f72222c2268656164657273222c226865696768
+│ │ │ +74222c2268696464656e222c2268696768222c2268726566222c22687265666c
+│ │ │ +616e67222c226964222c22696e7075746d6f6465222c22696e74656772697479
+│ │ │ +222c2269736d6170222c226b696e64222c226c6162656c222c226c616e67222c
+│ │ │ +226c697374222c226c6f6164696e67222c226c6f6f70222c226c6f77222c226d
+│ │ │ +6178222c226d61786c656e677468222c226d65646961222c226d6574686f6422
+│ │ │ +2c226d696e222c226d696e6c656e677468222c226d756c7469706c65222c226d
+│ │ │ +75746564222c226e616d65222c226e6f7368616465222c226e6f76616c696461
+│ │ │ +7465222c226e6f77726170222c226f70656e222c226f7074696d756d222c2270
+│ │ │ +61747465726e222c22706c616365686f6c646572222c22706c617973696e6c69
+│ │ │ +6e65222c22706f73746572222c227072656c6f6164222c227075626461746522
+│ │ │ +2c22726164696f67726f7570222c22726561646f6e6c79222c2272656c222c22
+│ │ │ +7265717569726564222c22726576222c227265766572736564222c22726f6c65
+│ │ │ +222c22726f7773222c22726f777370616e222c227370656c6c636865636b222c
+│ │ │ +2273636f7065222c2273656c6563746564222c227368617065222c2273697a65
+│ │ │ +222c2273697a6573222c227370616e222c227372636c616e67222c2273746172
+│ │ │ +74222c22737263222c22737263736574222c2273746570222c227374796c6522
+│ │ │ +2c2273756d6d617279222c22746162696e646578222c227469746c65222c2274
+│ │ │ +72616e736c617465222c2274797065222c227573656d6170222c2276616c6967
+│ │ │ +6e222c2276616c7565222c227769647468222c22786d6c6e73222c22736c6f74
+│ │ │ +225d292c463d69285b22616363656e742d686569676874222c22616363756d75
+│ │ │ +6c617465222c226164646974697665222c22616c69676e6d656e742d62617365
+│ │ │ +6c696e65222c22617363656e74222c226174747269627574656e616d65222c22
+│ │ │ +61747472696275746574797065222c22617a696d757468222c22626173656672
+│ │ │ +657175656e6379222c22626173656c696e652d7368696674222c22626567696e
+│ │ │ +222c2262696173222c226279222c22636c617373222c22636c6970222c22636c
+│ │ │ +697070617468756e697473222c22636c69702d70617468222c22636c69702d72
+│ │ │ +756c65222c22636f6c6f72222c22636f6c6f722d696e746572706f6c6174696f
+│ │ │ +6e222c22636f6c6f722d696e746572706f6c6174696f6e2d66696c7465727322
+│ │ │ +2c22636f6c6f722d70726f66696c65222c22636f6c6f722d72656e646572696e
+│ │ │ +67222c226378222c226379222c2264222c226478222c226479222c2264696666
+│ │ │ +757365636f6e7374616e74222c22646972656374696f6e222c22646973706c61
+│ │ │ +79222c2264697669736f72222c22647572222c22656467656d6f6465222c2265
+│ │ │ +6c65766174696f6e222c22656e64222c2266696c6c222c2266696c6c2d6f7061
+│ │ │ +63697479222c2266696c6c2d72756c65222c2266696c746572222c2266696c74
+│ │ │ +6572756e697473222c22666c6f6f642d636f6c6f72222c22666c6f6f642d6f70
+│ │ │ +6163697479222c22666f6e742d66616d696c79222c22666f6e742d73697a6522
+│ │ │ +2c22666f6e742d73697a652d61646a757374222c22666f6e742d737472657463
+│ │ │ +68222c22666f6e742d7374796c65222c22666f6e742d76617269616e74222c22
+│ │ │ +666f6e742d776569676874222c226678222c226679222c226731222c22673222
+│ │ │ +2c22676c7970682d6e616d65222c22676c797068726566222c22677261646965
+│ │ │ +6e74756e697473222c226772616469656e747472616e73666f726d222c226865
+│ │ │ +69676874222c2268726566222c226964222c22696d6167652d72656e64657269
+│ │ │ +6e67222c22696e222c22696e32222c226b222c226b31222c226b32222c226b33
+│ │ │ +222c226b34222c226b65726e696e67222c226b6579706f696e7473222c226b65
+│ │ │ +7973706c696e6573222c226b657974696d6573222c226c616e67222c226c656e
+│ │ │ +67746861646a757374222c226c65747465722d73706163696e67222c226b6572
+│ │ │ +6e656c6d6174726978222c226b65726e656c756e69746c656e677468222c226c
+│ │ │ +69676874696e672d636f6c6f72222c226c6f63616c222c226d61726b65722d65
+│ │ │ +6e64222c226d61726b65722d6d6964222c226d61726b65722d7374617274222c
+│ │ │ +226d61726b6572686569676874222c226d61726b6572756e697473222c226d61
+│ │ │ +726b65727769647468222c226d61736b636f6e74656e74756e697473222c226d
+│ │ │ +61736b756e697473222c226d6178222c226d61736b222c226d65646961222c22
+│ │ │ +6d6574686f64222c226d6f6465222c226d696e222c226e616d65222c226e756d
+│ │ │ +6f637461766573222c226f6666736574222c226f70657261746f72222c226f70
+│ │ │ +6163697479222c226f72646572222c226f7269656e74222c226f7269656e7461
+│ │ │ +74696f6e222c226f726967696e222c226f766572666c6f77222c227061696e74
+│ │ │ +2d6f72646572222c2270617468222c22706174686c656e677468222c22706174
+│ │ │ +7465726e636f6e74656e74756e697473222c227061747465726e7472616e7366
+│ │ │ +6f726d222c227061747465726e756e697473222c22706f696e7473222c227072
+│ │ │ +657365727665616c706861222c22707265736572766561737065637472617469
+│ │ │ +6f222c227072696d6974697665756e697473222c2272222c227278222c227279
+│ │ │ +222c22726164697573222c2272656678222c2272656679222c22726570656174
+│ │ │ +636f756e74222c22726570656174647572222c2272657374617274222c227265
+│ │ │ +73756c74222c22726f74617465222c227363616c65222c2273656564222c2273
+│ │ │ +686170652d72656e646572696e67222c2273706563756c6172636f6e7374616e
+│ │ │ +74222c2273706563756c61726578706f6e656e74222c227370726561646d6574
+│ │ │ +686f64222c2273746172746f6666736574222c22737464646576696174696f6e
+│ │ │ +222c2273746974636874696c6573222c2273746f702d636f6c6f72222c227374
+│ │ │ +6f702d6f706163697479222c227374726f6b652d646173686172726179222c22
+│ │ │ +7374726f6b652d646173686f6666736574222c227374726f6b652d6c696e6563
+│ │ │ +6170222c227374726f6b652d6c696e656a6f696e222c227374726f6b652d6d69
+│ │ │ +7465726c696d6974222c227374726f6b652d6f706163697479222c227374726f
+│ │ │ +6b65222c227374726f6b652d7769647468222c227374796c65222c2273757266
+│ │ │ +6163657363616c65222c2273797374656d6c616e6775616765222c2274616269
+│ │ │ +6e646578222c2274617267657478222c2274617267657479222c227472616e73
+│ │ │ +666f726d222c22746578742d616e63686f72222c22746578742d6465636f7261
+│ │ │ +74696f6e222c22746578742d72656e646572696e67222c22746578746c656e67
+│ │ │ +7468222c2274797065222c227531222c227532222c22756e69636f6465222c22
+│ │ │ +76616c756573222c2276696577626f78222c227669736962696c697479222c22
+│ │ │ +76657273696f6e222c22766572742d6164762d79222c22766572742d6f726967
+│ │ │ +696e2d78222c22766572742d6f726967696e2d79222c227769647468222c2277
+│ │ │ +6f72642d73706163696e67222c2277726170222c2277726974696e672d6d6f64
+│ │ │ +65222c22786368616e6e656c73656c6563746f72222c22796368616e6e656c73
+│ │ │ +656c6563746f72222c2278222c227831222c227832222c22786d6c6e73222c22
+│ │ │ +79222c227931222c227932222c227a222c227a6f6f6d616e6470616e225d292c
+│ │ │ +493d69285b22616363656e74222c22616363656e74756e646572222c22616c69
+│ │ │ +676e222c22626576656c6c6564222c22636c6f7365222c22636f6c756d6e7361
+│ │ │ +6c69676e222c22636f6c756d6e6c696e6573222c22636f6c756d6e7370616e22
+│ │ │ +2c2264656e6f6d616c69676e222c226465707468222c22646972222c22646973
+│ │ │ +706c6179222c22646973706c61797374796c65222c22656e636f64696e67222c
+│ │ │ +2266656e6365222c226672616d65222c22686569676874222c2268726566222c
+│ │ │ +226964222c226c617267656f70222c226c656e677468222c226c696e65746869
+│ │ │ +636b6e657373222c226c7370616365222c226c71756f7465222c226d61746862
+│ │ │ +61636b67726f756e64222c226d617468636f6c6f72222c226d61746873697a65
+│ │ │ +222c226d61746876617269616e74222c226d617873697a65222c226d696e7369
+│ │ │ +7a65222c226d6f7661626c656c696d697473222c226e6f746174696f6e222c22
+│ │ │ +6e756d616c69676e222c226f70656e222c22726f77616c69676e222c22726f77
+│ │ │ +6c696e6573222c22726f7773706163696e67222c22726f777370616e222c2272
+│ │ │ +7370616365222c227271756f7465222c227363726970746c6576656c222c2273
+│ │ │ +63726970746d696e73697a65222c2273637269707473697a656d756c7469706c
+│ │ │ +696572222c2273656c656374696f6e222c22736570617261746f72222c227365
+│ │ │ +70617261746f7273222c227374726574636879222c2273756273637269707473
+│ │ │ +68696674222c227375707363726970747368696674222c2273796d6d65747269
+│ │ │ +63222c22766f6666736574222c227769647468222c22786d6c6e73225d292c43
+│ │ │ +3d69285b22786c696e6b3a68726566222c22786d6c3a6964222c22786c696e6b
+│ │ │ +3a7469746c65222c22786d6c3a7370616365222c22786d6c6e733a786c696e6b
+│ │ │ +225d292c7a3d61282f5c7b5c7b5b5c735c535d2a7c5b5c735c535d2a5c7d5c7d
+│ │ │ +2f676d292c553d61282f3c255b5c735c535d2a7c5b5c735c535d2a253e2f676d
+│ │ │ +292c483d61282f5e646174612d5b5c2d5c772e5c75303042372d5c7546464646
+│ │ │ +5d2f292c6a3d61282f5e617269612d5b5c2d5c775d2b242f292c503d61282f5e
+│ │ │ +283f3a283f3a283f3a667c6874297470733f7c6d61696c746f7c74656c7c6361
+│ │ │ +6c6c746f7c6369647c786d7070293a7c5b5e612d7a5d7c5b612d7a2b2e5c2d5d
+│ │ │ +2b283f3a5b5e612d7a2b2e5c2d3a5d7c2429292f69292c423d61282f5e283f3a
+│ │ │ +5c772b7363726970747c64617461293a2f69292c573d61282f5b5c7530303030
+│ │ │ +2d5c75303032305c75303041305c75313638305c75313830455c75323030302d
+│ │ │ +5c75323032395c75323035465c75333030305d2f67292c473d2266756e637469
+│ │ │ +6f6e223d3d747970656f662053796d626f6c26262273796d626f6c223d3d7479
+│ │ │ +70656f662053796d626f6c2e6974657261746f723f66756e6374696f6e286529
+│ │ │ +7b72657475726e20747970656f6620657d3a66756e6374696f6e2865297b7265
+│ │ │ +7475726e206526262266756e6374696f6e223d3d747970656f662053796d626f
+│ │ │ +6c2626652e636f6e7374727563746f723d3d3d53796d626f6c262665213d3d53
+│ │ │ +796d626f6c2e70726f746f747970653f2273796d626f6c223a747970656f6620
+│ │ │ +657d3b66756e6374696f6e20712865297b69662841727261792e697341727261
+│ │ │ +79286529297b666f722876617220743d302c6e3d417272617928652e6c656e67
+│ │ │ +7468293b743c652e6c656e6774683b742b2b296e5b745d3d655b745d3b726574
+│ │ │ +75726e206e7d72657475726e2041727261792e66726f6d2865297d766172204b
+│ │ │ +3d66756e6374696f6e28297b72657475726e22756e646566696e6564223d3d74
+│ │ │ +7970656f662077696e646f773f6e756c6c3a77696e646f777d2c563d66756e63
+│ │ │ +74696f6e28652c74297b696628226f626a65637422213d3d28766f696420303d
+│ │ │ +3d3d653f22756e646566696e6564223a47286529297c7c2266756e6374696f6e
+│ │ │ +22213d747970656f6620652e637265617465506f6c6963792972657475726e20
+│ │ │ +6e756c6c3b766172206e3d6e756c6c2c723d22646174612d74742d706f6c6963
+│ │ │ +792d737566666978223b742e63757272656e745363726970742626742e637572
+│ │ │ +72656e745363726970742e6861734174747269627574652872292626286e3d74
+│ │ │ +2e63757272656e745363726970742e676574417474726962757465287229293b
+│ │ │ +766172206f3d22646f6d707572696679222b286e3f2223222b6e3a2222293b74
+│ │ │ +72797b72657475726e20652e637265617465506f6c696379286f2c7b63726561
+│ │ │ +746548544d4c3a66756e6374696f6e2865297b72657475726e20657d7d297d63
+│ │ │ +617463682865297b72657475726e20636f6e736f6c652e7761726e2822547275
+│ │ │ +73746564547970657320706f6c69637920222b6f2b2220636f756c64206e6f74
+│ │ │ +20626520637265617465642e22292c6e756c6c7d7d3b72657475726e2066756e
+│ │ │ +6374696f6e206528297b76617220743d617267756d656e74732e6c656e677468
+│ │ │ +3e302626766f69642030213d3d617267756d656e74735b305d3f617267756d65
+│ │ │ +6e74735b305d3a4b28292c6e3d66756e6374696f6e2874297b72657475726e20
+│ │ │ +652874297d3b6966286e2e76657273696f6e3d22322e322e39222c6e2e72656d
+│ │ │ +6f7665643d5b5d2c21747c7c21742e646f63756d656e747c7c39213d3d742e64
+│ │ │ +6f63756d656e742e6e6f6465547970652972657475726e206e2e697353757070
+│ │ │ +6f727465643d21312c6e3b76617220723d742e646f63756d656e742c6f3d742e
+│ │ │ +646f63756d656e742c613d742e446f63756d656e74467261676d656e742c6c3d
+│ │ │ +742e48544d4c54656d706c617465456c656d656e742c633d742e4e6f64652c73
+│ │ │ +3d742e456c656d656e742c753d742e4e6f646546696c7465722c663d742e4e61
+│ │ │ +6d65644e6f64654d61702c783d766f696420303d3d3d663f742e4e616d65644e
+│ │ │ +6f64654d61707c7c742e4d6f7a4e616d6564417474724d61703a662c593d742e
+│ │ │ +546578742c583d742e436f6d6d656e742c243d742e444f4d5061727365722c5a
+│ │ │ +3d742e7472757374656454797065732c4a3d732e70726f746f747970652c513d
+│ │ │ +6b284a2c22636c6f6e654e6f646522292c65653d6b284a2c226e657874536962
+│ │ │ +6c696e6722292c74653d6b284a2c226368696c644e6f64657322292c6e653d6b
+│ │ │ +284a2c22706172656e744e6f646522293b6966282266756e6374696f6e223d3d
+│ │ │ +747970656f66206c297b7661722072653d6f2e637265617465456c656d656e74
+│ │ │ +282274656d706c61746522293b72652e636f6e74656e74262672652e636f6e74
+│ │ │ +656e742e6f776e6572446f63756d656e742626286f3d72652e636f6e74656e74
+│ │ │ +2e6f776e6572446f63756d656e74297d766172206f653d56285a2c72292c6965
+│ │ │ +3d6f65262643653f6f652e63726561746548544d4c282222293a22222c61653d
+│ │ │ +6f2c6c653d61652e696d706c656d656e746174696f6e2c63653d61652e637265
+│ │ │ +6174654e6f64654974657261746f722c73653d61652e637265617465446f6375
+│ │ │ +6d656e74467261676d656e742c75653d722e696d706f72744e6f64652c66653d
+│ │ │ +7b7d3b7472797b66653d53286f292e646f63756d656e744d6f64653f6f2e646f
+│ │ │ +63756d656e744d6f64653a7b7d7d63617463682865297b7d766172206d653d7b
+│ │ │ +7d3b6e2e6973537570706f727465643d2266756e6374696f6e223d3d74797065
+│ │ │ +6f66206e6526266c652626766f69642030213d3d6c652e63726561746548544d
+│ │ │ +4c446f63756d656e74262639213d3d66653b7661722064653d7a2c70653d552c
+│ │ │ +67653d482c68653d6a2c79653d422c76653d572c62653d502c41653d6e756c6c
+│ │ │ +2c54653d77287b7d2c5b5d2e636f6e63617428712844292c712845292c712852
+│ │ │ +292c71284e292c71284d2929292c78653d6e756c6c2c77653d77287b7d2c5b5d
+│ │ │ +2e636f6e6361742871284c292c712846292c712849292c7128432929292c5365
+│ │ │ +3d6e756c6c2c6b653d6e756c6c2c44653d21302c45653d21302c52653d21312c
+│ │ │ +5f653d21312c4e653d21312c4f653d21312c4d653d21312c4c653d21312c4665
+│ │ │ +3d21312c49653d21302c43653d21312c7a653d21302c55653d21302c48653d21
+│ │ │ +312c6a653d7b7d2c50653d77287b7d2c5b22616e6e6f746174696f6e2d786d6c
+│ │ │ +222c22617564696f222c22636f6c67726f7570222c2264657363222c22666f72
+│ │ │ +6569676e6f626a656374222c2268656164222c22696672616d65222c226d6174
+│ │ │ +68222c226d69222c226d6e222c226d6f222c226d73222c226d74657874222c22
+│ │ │ +6e6f656d626564222c226e6f6672616d6573222c226e6f736372697074222c22
+│ │ │ +706c61696e74657874222c22736372697074222c227374796c65222c22737667
+│ │ │ +222c2274656d706c617465222c227468656164222c227469746c65222c227669
+│ │ │ +64656f222c22786d70225d292c42653d6e756c6c2c57653d77287b7d2c5b2261
+│ │ │ +7564696f222c22766964656f222c22696d67222c22736f75726365222c22696d
+│ │ │ +616765222c22747261636b225d292c47653d6e756c6c2c71653d77287b7d2c5b
+│ │ │ +22616c74222c22636c617373222c22666f72222c226964222c226c6162656c22
+│ │ │ +2c226e616d65222c227061747465726e222c22706c616365686f6c646572222c
+│ │ │ +2273756d6d617279222c227469746c65222c2276616c7565222c227374796c65
+│ │ │ +222c22786d6c6e73225d292c4b653d22687474703a2f2f7777772e77332e6f72
+│ │ │ +672f313939382f4d6174682f4d6174684d4c222c56653d22687474703a2f2f77
+│ │ │ +77772e77332e6f72672f323030302f737667222c59653d22687474703a2f2f77
+│ │ │ +77772e77332e6f72672f313939392f7868746d6c222c58653d59652c24653d21
+│ │ │ +312c5a653d6e756c6c2c4a653d6f2e637265617465456c656d656e742822666f
+│ │ │ +726d22292c51653d66756e6374696f6e2865297b5a6526265a653d3d3d657c7c
+│ │ │ +28652626226f626a656374223d3d3d28766f696420303d3d3d653f22756e6465
+│ │ │ +66696e6564223a47286529297c7c28653d7b7d292c653d532865292c41653d22
+│ │ │ +414c4c4f5745445f5441475322696e20653f77287b7d2c652e414c4c4f574544
+│ │ │ +5f54414753293a54652c78653d22414c4c4f5745445f4154545222696e20653f
+│ │ │ +77287b7d2c652e414c4c4f5745445f41545452293a77652c47653d224144445f
+│ │ │ +5552495f534146455f4154545222696e20653f772853287165292c652e414444
+│ │ │ +5f5552495f534146455f41545452293a71652c42653d224144445f444154415f
+│ │ │ +5552495f5441475322696e20653f772853285765292c652e4144445f44415441
+│ │ │ +5f5552495f54414753293a57652c53653d22464f524249445f5441475322696e
+│ │ │ +20653f77287b7d2c652e464f524249445f54414753293a7b7d2c6b653d22464f
+│ │ │ +524249445f4154545222696e20653f77287b7d2c652e464f524249445f415454
+│ │ │ +52293a7b7d2c6a653d225553455f50524f46494c455322696e20652626652e55
+│ │ │ +53455f50524f46494c45532c44653d2131213d3d652e414c4c4f575f41524941
+│ │ │ +5f415454522c45653d2131213d3d652e414c4c4f575f444154415f415454522c
+│ │ │ +52653d652e414c4c4f575f554e4b4e4f574e5f50524f544f434f4c537c7c2131
+│ │ │ +2c5f653d652e534146455f464f525f54454d504c415445537c7c21312c4e653d
+│ │ │ +652e57484f4c455f444f43554d454e547c7c21312c4c653d652e52455455524e
+│ │ │ +5f444f4d7c7c21312c46653d652e52455455524e5f444f4d5f465241474d454e
+│ │ │ +547c7c21312c49653d2131213d3d652e52455455524e5f444f4d5f494d504f52
+│ │ │ +542c43653d652e52455455524e5f545255535445445f545950457c7c21312c4d
+│ │ │ +653d652e464f5243455f424f44597c7c21312c7a653d2131213d3d652e53414e
+│ │ │ +4954495a455f444f4d2c55653d2131213d3d652e4b4545505f434f4e54454e54
+│ │ │ +2c48653d652e494e5f504c4143457c7c21312c62653d652e414c4c4f5745445f
+│ │ │ +5552495f5245474558507c7c62652c58653d652e4e414d4553504143457c7c59
+│ │ │ +652c5f6526262845653d2131292c46652626284c653d2130292c6a6526262841
+│ │ │ +653d77287b7d2c5b5d2e636f6e6361742871284d2929292c78653d5b5d2c2130
+│ │ │ +3d3d3d6a652e68746d6c262628772841652c44292c772878652c4c29292c2130
+│ │ │ +3d3d3d6a652e737667262628772841652c45292c772878652c46292c77287865
+│ │ │ +2c4329292c21303d3d3d6a652e73766746696c74657273262628772841652c52
+│ │ │ +292c772878652c46292c772878652c4329292c21303d3d3d6a652e6d6174684d
+│ │ │ +6c262628772841652c4e292c772878652c49292c772878652c432929292c652e
+│ │ │ +4144445f5441475326262841653d3d3d546526262841653d5328416529292c77
+│ │ │ +2841652c652e4144445f5441475329292c652e4144445f415454522626287865
+│ │ │ +3d3d3d776526262878653d5328786529292c772878652c652e4144445f415454
+│ │ │ +5229292c652e4144445f5552495f534146455f415454522626772847652c652e
+│ │ │ +4144445f5552495f534146455f41545452292c556526262841655b2223746578
+│ │ │ +74225d3d2130292c4e652626772841652c5b2268746d6c222c2268656164222c
+│ │ │ +22626f6479225d292c41652e7461626c65262628772841652c5b2274626f6479
+│ │ │ +225d292c64656c6574652053652e74626f6479292c692626692865292c5a653d
+│ │ │ +65297d2c65743d77287b7d2c5b226d69222c226d6f222c226d6e222c226d7322
+│ │ │ +2c226d74657874225d292c74743d77287b7d2c5b22666f726569676e6f626a65
+│ │ │ +6374222c2264657363222c227469746c65222c22616e6e6f746174696f6e2d78
+│ │ │ +6d6c225d292c6e743d77287b7d2c45293b77286e742c52292c77286e742c5f29
+│ │ │ +3b7661722072743d77287b7d2c4e293b772872742c4f293b766172206f743d66
+│ │ │ +756e6374696f6e2865297b76617220743d6e652865293b742626742e7461674e
+│ │ │ +616d657c7c28743d7b6e616d6573706163655552493a59652c7461674e616d65
+│ │ │ +3a2274656d706c617465227d293b766172206e3d6728652e7461674e616d6529
+│ │ │ +2c723d6728742e7461674e616d65293b696628652e6e616d6573706163655552
+│ │ │ +493d3d3d56652972657475726e20742e6e616d6573706163655552493d3d3d59
+│ │ │ +653f22737667223d3d3d6e3a742e6e616d6573706163655552493d3d3d4b653f
+│ │ │ +22737667223d3d3d6e26262822616e6e6f746174696f6e2d786d6c223d3d3d72
+│ │ │ +7c7c65745b725d293a426f6f6c65616e286e745b6e5d293b696628652e6e616d
+│ │ │ +6573706163655552493d3d3d4b652972657475726e20742e6e616d6573706163
+│ │ │ +655552493d3d3d59653f226d617468223d3d3d6e3a742e6e616d657370616365
+│ │ │ +5552493d3d3d56653f226d617468223d3d3d6e262674745b725d3a426f6f6c65
+│ │ │ +616e2872745b6e5d293b696628652e6e616d6573706163655552493d3d3d5965
+│ │ │ +297b696628742e6e616d6573706163655552493d3d3d566526262174745b725d
+│ │ │ +2972657475726e21313b696628742e6e616d6573706163655552493d3d3d4b65
+│ │ │ +26262165745b725d2972657475726e21313b766172206f3d77287b7d2c5b2274
+│ │ │ +69746c65222c227374796c65222c22666f6e74222c2261222c22736372697074
+│ │ │ +225d293b72657475726e2172745b6e5d2626286f5b6e5d7c7c216e745b6e5d29
+│ │ │ +7d72657475726e21317d2c69743d66756e6374696f6e2865297b70286e2e7265
+│ │ │ +6d6f7665642c7b656c656d656e743a657d293b7472797b652e706172656e744e
+│ │ │ +6f64652e72656d6f76654368696c642865297d63617463682874297b7472797b
+│ │ │ +652e6f7574657248544d4c3d69657d63617463682874297b652e72656d6f7665
+│ │ │ +28297d7d7d2c61743d66756e6374696f6e28652c74297b7472797b70286e2e72
+│ │ │ +656d6f7665642c7b6174747269627574653a742e676574417474726962757465
+│ │ │ +4e6f64652865292c66726f6d3a747d297d63617463682865297b70286e2e7265
+│ │ │ +6d6f7665642c7b6174747269627574653a6e756c6c2c66726f6d3a747d297d69
+│ │ │ +6628742e72656d6f76654174747269627574652865292c226973223d3d3d6526
+│ │ │ +262178655b655d296966284c657c7c4665297472797b69742874297d63617463
+│ │ │ +682865297b7d656c7365207472797b742e73657441747472696275746528652c
+│ │ │ +2222297d63617463682865297b7d7d2c6c743d66756e6374696f6e2865297b76
+│ │ │ +617220743d766f696420302c6e3d766f696420303b6966284d6529653d223c72
+│ │ │ +656d6f76653e3c2f72656d6f76653e222b653b656c73657b76617220723d6828
+│ │ │ +652c2f5e5b5c725c6e5c74205d2b2f293b6e3d722626725b305d7d7661722069
+│ │ │ +3d6f653f6f652e63726561746548544d4c2865293a653b69662858653d3d3d59
+│ │ │ +65297472797b743d286e65772024292e706172736546726f6d537472696e6728
+│ │ │ +692c22746578742f68746d6c22297d63617463682865297b7d69662821747c7c
+│ │ │ +21742e646f63756d656e74456c656d656e74297b743d6c652e63726561746544
+│ │ │ +6f63756d656e742858652c2274656d706c617465222c6e756c6c293b7472797b
+│ │ │ +742e646f63756d656e74456c656d656e742e696e6e657248544d4c3d24653f22
+│ │ │ +223a697d63617463682865297b7d7d76617220613d742e626f64797c7c742e64
+│ │ │ +6f63756d656e74456c656d656e743b72657475726e206526266e2626612e696e
+│ │ │ +736572744265666f7265286f2e637265617465546578744e6f6465286e292c61
+│ │ │ +2e6368696c644e6f6465735b305d7c7c6e756c6c292c4e653f742e646f63756d
+│ │ │ +656e74456c656d656e743a617d2c63743d66756e6374696f6e2865297b726574
+│ │ │ +75726e2063652e63616c6c28652e6f776e6572446f63756d656e747c7c652c65
+│ │ │ +2c752e53484f575f454c454d454e547c752e53484f575f434f4d4d454e547c75
+│ │ │ +2e53484f575f544558542c6e756c6c2c2131297d2c73743d66756e6374696f6e
+│ │ │ +2865297b72657475726e21286520696e7374616e63656f6620597c7c6520696e
+│ │ │ +7374616e63656f662058292626212822737472696e67223d3d747970656f6620
+│ │ │ +652e6e6f64654e616d65262622737472696e67223d3d747970656f6620652e74
+│ │ │ +657874436f6e74656e7426262266756e6374696f6e223d3d747970656f662065
+│ │ │ +2e72656d6f76654368696c642626652e6174747269627574657320696e737461
+│ │ │ +6e63656f66207826262266756e6374696f6e223d3d747970656f6620652e7265
+│ │ │ +6d6f766541747472696275746526262266756e6374696f6e223d3d747970656f
+│ │ │ +6620652e736574417474726962757465262622737472696e67223d3d74797065
+│ │ │ +6f6620652e6e616d65737061636555524926262266756e6374696f6e223d3d74
+│ │ │ +7970656f6620652e696e736572744265666f7265297d2c75743d66756e637469
+│ │ │ +6f6e2865297b72657475726e226f626a656374223d3d3d28766f696420303d3d
+│ │ │ +3d633f22756e646566696e6564223a47286329293f6520696e7374616e63656f
+│ │ │ +6620633a652626226f626a656374223d3d3d28766f696420303d3d3d653f2275
+│ │ │ +6e646566696e6564223a47286529292626226e756d626572223d3d747970656f
+│ │ │ +6620652e6e6f646554797065262622737472696e67223d3d747970656f662065
+│ │ │ +2e6e6f64654e616d657d2c66743d66756e6374696f6e28652c742c72297b6d65
+│ │ │ +5b655d26266d286d655b655d2c2866756e6374696f6e2865297b652e63616c6c
+│ │ │ +286e2c742c722c5a65297d29297d2c6d743d66756e6374696f6e2865297b7661
+│ │ │ +7220743d766f696420303b696628667428226265666f726553616e6974697a65
+│ │ │ +456c656d656e7473222c652c6e756c6c292c73742865292972657475726e2069
+│ │ │ +742865292c21303b6966286828652e6e6f64654e616d652c2f5b5c7530303830
+│ │ │ +2d5c75464646465d2f292972657475726e2069742865292c21303b7661722072
+│ │ │ +3d6728652e6e6f64654e616d65293b6966286674282275706f6e53616e697469
+│ │ │ +7a65456c656d656e74222c652c7b7461674e616d653a722c616c6c6f77656454
+│ │ │ +6167733a41657d292c21757428652e6669727374456c656d656e744368696c64
+│ │ │ +2926262821757428652e636f6e74656e74297c7c21757428652e636f6e74656e
+│ │ │ +742e6669727374456c656d656e744368696c642929262641282f3c5b2f5c775d
+│ │ │ +2f672c652e696e6e657248544d4c29262641282f3c5b2f5c775d2f672c652e74
+│ │ │ +657874436f6e74656e74292972657475726e2069742865292c21303b69662821
+│ │ │ +41655b725d7c7c53655b725d297b696628556526262150655b725d297b766172
+│ │ │ +206f3d6e652865297c7c652e706172656e744e6f64652c693d74652865297c7c
+│ │ │ +652e6368696c644e6f6465733b6966286926266f29666f722876617220613d69
+│ │ │ +2e6c656e6774682d313b613e3d303b2d2d61296f2e696e736572744265666f72
+│ │ │ +65285128695b615d2c2130292c6565286529297d72657475726e206974286529
+│ │ │ +2c21307d72657475726e206520696e7374616e63656f6620732626216f742865
+│ │ │ +293f2869742865292c2130293a226e6f73637269707422213d3d722626226e6f
+│ │ │ +656d62656422213d3d727c7c2141282f3c5c2f6e6f287363726970747c656d62
+│ │ │ +6564292f692c652e696e6e657248544d4c293f285f652626333d3d3d652e6e6f
+│ │ │ +646554797065262628743d652e74657874436f6e74656e742c743d7928742c64
+│ │ │ +652c222022292c743d7928742c70652c222022292c652e74657874436f6e7465
+│ │ │ +6e74213d3d7426262870286e2e72656d6f7665642c7b656c656d656e743a652e
+│ │ │ +636c6f6e654e6f646528297d292c652e74657874436f6e74656e743d7429292c
+│ │ │ +66742822616674657253616e6974697a65456c656d656e7473222c652c6e756c
+│ │ │ +6c292c2131293a2869742865292c2130297d2c64743d66756e6374696f6e2865
+│ │ │ +2c742c6e297b6966287a65262628226964223d3d3d747c7c226e616d65223d3d
+│ │ │ +3d74292626286e20696e206f7c7c6e20696e204a65292972657475726e21313b
+│ │ │ +69662845652626412867652c7429293b656c7365206966284465262641286865
+│ │ │ +2c7429293b656c73657b6966282178655b745d7c7c6b655b745d297265747572
+│ │ │ +6e21313b69662847655b745d293b656c736520696628412862652c79286e2c76
+│ │ │ +652c22222929293b656c7365206966282273726322213d3d74262622786c696e
+│ │ │ +6b3a6872656622213d3d742626226872656622213d3d747c7c22736372697074
+│ │ │ +223d3d3d657c7c30213d3d76286e2c22646174613a22297c7c2142655b655d29
+│ │ │ +7b6966285265262621412879652c79286e2c76652c22222929293b656c736520
+│ │ │ +6966286e2972657475726e21317d656c73653b7d72657475726e21307d2c7074
+│ │ │ +3d66756e6374696f6e2865297b76617220743d766f696420302c723d766f6964
+│ │ │ +20302c6f3d766f696420302c693d766f696420303b667428226265666f726553
+│ │ │ +616e6974697a6541747472696275746573222c652c6e756c6c293b7661722061
+│ │ │ +3d652e617474726962757465733b69662861297b766172206c3d7b617474724e
+│ │ │ +616d653a22222c6174747256616c75653a22222c6b656570417474723a21302c
+│ │ │ +616c6c6f776564417474726962757465733a78657d3b666f7228693d612e6c65
+│ │ │ +6e6774683b692d2d3b297b76617220633d743d615b695d2c733d632e6e616d65
+│ │ │ +2c753d632e6e616d6573706163655552493b696628723d6228742e76616c7565
+│ │ │ +292c6f3d672873292c6c2e617474724e616d653d6f2c6c2e6174747256616c75
+│ │ │ +653d722c6c2e6b656570417474723d21302c6c2e666f7263654b656570417474
+│ │ │ +723d766f696420302c6674282275706f6e53616e6974697a6541747472696275
+│ │ │ +7465222c652c6c292c723d6c2e6174747256616c75652c216c2e666f7263654b
+│ │ │ +65657041747472262628617428732c65292c6c2e6b6565704174747229296966
+│ │ │ +2841282f5c2f3e2f692c722929617428732c65293b656c73657b5f6526262872
+│ │ │ +3d7928722c64652c222022292c723d7928722c70652c22202229293b76617220
+│ │ │ +663d652e6e6f64654e616d652e746f4c6f7765724361736528293b6966286474
+│ │ │ +28662c6f2c7229297472797b753f652e7365744174747269627574654e532875
+│ │ │ +2c732c72293a652e73657441747472696275746528732c72292c64286e2e7265
+│ │ │ +6d6f766564297d63617463682865297b7d7d7d66742822616674657253616e69
+│ │ │ +74697a6541747472696275746573222c652c6e756c6c297d7d2c67743d66756e
+│ │ │ +6374696f6e20652874297b766172206e3d766f696420302c723d63742874293b
+│ │ │ +666f7228667428226265666f726553616e6974697a65536861646f77444f4d22
+│ │ │ +2c742c6e756c6c293b6e3d722e6e6578744e6f646528293b296674282275706f
+│ │ │ +6e53616e6974697a65536861646f774e6f6465222c6e2c6e756c6c292c6d7428
+│ │ │ +6e297c7c286e2e636f6e74656e7420696e7374616e63656f662061262665286e
+│ │ │ +2e636f6e74656e74292c7074286e29293b66742822616674657253616e697469
+│ │ │ +7a65536861646f77444f4d222c742c6e756c6c297d3b72657475726e206e2e73
+│ │ │ +616e6974697a653d66756e6374696f6e28652c6f297b76617220693d766f6964
+│ │ │ +20302c6c3d766f696420302c733d766f696420302c753d766f696420302c663d
+│ │ │ +766f696420303b6966282824653d216529262628653d225c783363212d2d5c78
+│ │ │ +336522292c22737472696e6722213d747970656f662065262621757428652929
+│ │ │ +7b6966282266756e6374696f6e22213d747970656f6620652e746f537472696e
+│ │ │ +67297468726f7720542822746f537472696e67206973206e6f7420612066756e
+│ │ │ +6374696f6e22293b69662822737472696e6722213d747970656f6628653d652e
+│ │ │ +746f537472696e67282929297468726f77205428226469727479206973206e6f
+│ │ │ +74206120737472696e672c2061626f7274696e6722297d696628216e2e697353
+│ │ │ +7570706f72746564297b696628226f626a656374223d3d3d4728742e746f5374
+│ │ │ +6174696348544d4c297c7c2266756e6374696f6e223d3d747970656f6620742e
+│ │ │ +746f53746174696348544d4c297b69662822737472696e67223d3d747970656f
+│ │ │ +6620652972657475726e20742e746f53746174696348544d4c2865293b696628
+│ │ │ +75742865292972657475726e20742e746f53746174696348544d4c28652e6f75
+│ │ │ +74657248544d4c297d72657475726e20657d6966284f657c7c5165286f292c6e
+│ │ │ +2e72656d6f7665643d5b5d2c22737472696e67223d3d747970656f6620652626
+│ │ │ +2848653d2131292c4865293b656c7365206966286520696e7374616e63656f66
+│ │ │ +206329313d3d3d286c3d28693d6c7428225c783363212d2d2d2d5c7833652229
+│ │ │ +292e6f776e6572446f63756d656e742e696d706f72744e6f646528652c213029
+│ │ │ +292e6e6f646554797065262622424f4459223d3d3d6c2e6e6f64654e616d657c
+│ │ │ +7c2248544d4c223d3d3d6c2e6e6f64654e616d653f693d6c3a692e617070656e
+│ │ │ +644368696c64286c293b656c73657b696628214c652626215f652626214e6526
+│ │ │ +262d313d3d3d652e696e6465784f6628223c22292972657475726e206f652626
+│ │ │ +43653f6f652e63726561746548544d4c2865293a653b6966282128693d6c7428
+│ │ │ +6529292972657475726e204c653f6e756c6c3a69657d6926264d652626697428
+│ │ │ +692e66697273744368696c64293b666f7228766172206d3d63742848653f653a
+│ │ │ +69293b733d6d2e6e6578744e6f646528293b29333d3d3d732e6e6f6465547970
+│ │ │ +652626733d3d3d757c7c6d742873297c7c28732e636f6e74656e7420696e7374
+│ │ │ +616e63656f6620612626677428732e636f6e74656e74292c70742873292c753d
+│ │ │ +73293b696628753d6e756c6c2c48652972657475726e20653b6966284c65297b
+│ │ │ +696628466529666f7228663d73652e63616c6c28692e6f776e6572446f63756d
+│ │ │ +656e74293b692e66697273744368696c643b29662e617070656e644368696c64
+│ │ │ +28692e66697273744368696c64293b656c736520663d693b72657475726e2049
+│ │ │ +65262628663d75652e63616c6c28722c662c213029292c667d76617220643d4e
+│ │ │ +653f692e6f7574657248544d4c3a692e696e6e657248544d4c3b72657475726e
+│ │ │ +205f65262628643d7928642c64652c222022292c643d7928642c70652c222022
+│ │ │ +29292c6f65262643653f6f652e63726561746548544d4c2864293a647d2c6e2e
+│ │ │ +736574436f6e6669673d66756e6374696f6e2865297b51652865292c4f653d21
+│ │ │ +307d2c6e2e636c656172436f6e6669673d66756e6374696f6e28297b5a653d6e
+│ │ │ +756c6c2c4f653d21317d2c6e2e697356616c69644174747269627574653d6675
+│ │ │ +6e6374696f6e28652c742c6e297b5a657c7c5165287b7d293b76617220723d67
+│ │ │ +2865292c6f3d672874293b72657475726e20647428722c6f2c6e297d2c6e2e61
+│ │ │ +6464486f6f6b3d66756e6374696f6e28652c74297b2266756e6374696f6e223d
+│ │ │ +3d747970656f6620742626286d655b655d3d6d655b655d7c7c5b5d2c70286d65
+│ │ │ +5b655d2c7429297d2c6e2e72656d6f7665486f6f6b3d66756e6374696f6e2865
+│ │ │ +297b6d655b655d262664286d655b655d297d2c6e2e72656d6f7665486f6f6b73
+│ │ │ +3d66756e6374696f6e2865297b6d655b655d2626286d655b655d3d5b5d297d2c
+│ │ │ +6e2e72656d6f7665416c6c486f6f6b733d66756e6374696f6e28297b6d653d7b
+│ │ │ +7d7d2c6e7d28297d29293b0a2f2f2320736f757263654d617070696e6755524c
+│ │ │ +3d7075726966792e6d696e2e6a732e6d6170
+│ │ │   --- /workspace/pipeline_output/chromex_data/home/js/index.js
+│ │ ├── +++ /workspace/pipeline_output/Capital-Extension/home/js/index.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -1,5 +1,5 @@
+│ │ │  636f6e7374206e6577546162427574746f6e203d20646f63756d656e742e6765
+│ │ │ -74456c656d656e744279496428226e657754616242746e22290d0a0d0a66756e
+│ │ │ -6374696f6e206e6577546162202829207b0d0a2020202077696e646f772e6f70
+│ │ │ -656e2822696e6465782e68746d6c222c20225f626c616e6b22290d0a7d0d0a0d
+│ │ │ -0a6e6577546162427574746f6e2e6f6e636c69636b203d206e6577546162
+│ │ │ +74456c656d656e744279496428226e657754616242746e22290a0a66756e6374
+│ │ │ +696f6e206e6577546162202829207b0a2020202077696e646f772e6f70656e28
+│ │ │ +22696e6465782e68746d6c222c20225f626c616e6b22290a7d0a0a6e65775461
+│ │ │ +62427574746f6e2e6f6e636c69636b203d206e6577546162
+│ │ │   --- /workspace/pipeline_output/chromex_data/home/js/search.js
+│ │ ├── +++ /workspace/pipeline_output/Capital-Extension/home/js/search.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -1,107 +1,115 @@
+│ │ │ -2f2f205365617263680d0a636f6e737420676f6f676c65203d20226874747073
+│ │ │ -3a2f2f676f6f676c652e636f6d2f7365617263683f713d220d0a636f6e737420
+│ │ │ -62696e67203d202268747470733a2f2f62696e672e636f6d2f7365617263683f
+│ │ │ -713d220d0a636f6e7374206475636b6475636b676f203d202268747470733a2f
+│ │ │ -2f6475636b6475636b676f2e636f6d2f3f713d220d0a636f6e7374207177616e
+│ │ │ -74203d202268747470733a2f2f7177616e742e636f6d2f3f713d220d0a636f6e
+│ │ │ -737420796f7574756265203d202268747470733a2f2f796f75747562652e636f
+│ │ │ -6d2f726573756c74733f7365617263685f71756572793d220d0a636f6e737420
+│ │ │ -74696b746f6b203d202268747470733a2f2f74696b746f6b2e636f6d2f736561
+│ │ │ -7263683f713d220d0a636f6e73742077696b697065646961203d202268747470
+│ │ │ -733a2f2f77696b6970656469612e6f72672f772f696e6465782e7068703f7365
+│ │ │ -617263683d220d0a636f6e737420616d617a6f6e203d202268747470733a2f2f
+│ │ │ -616d617a6f6e2e636f2e756b2f733f6b3d220d0a0d0a636f6e73742073656172
+│ │ │ -6368426f78203d20646f63756d656e742e676574456c656d656e744279496428
+│ │ │ -22736561726368426f7822290d0a0d0a6c657420656e67696e6542746e73203d
+│ │ │ -20646f63756d656e742e717565727953656c6563746f7228222e736561726368
+│ │ │ -2d73656c6563742d636f6e74656e7422292e717565727953656c6563746f7241
+│ │ │ -6c6c28226122290d0a0d0a666f7220286c6574206c696e6b206f6620656e6769
+│ │ │ -6e6542746e7329207b0d0a202020206c696e6b2e6164644576656e744c697374
+│ │ │ -656e65722822636c69636b222c2066756e6374696f6e2829207b0d0a20202020
+│ │ │ -202020206c6574207469746c65203d206c696e6b2e6765744174747269627574
+│ │ │ -6528227469746c6522292e746f4c6f7765724361736528290d0a202020202020
+│ │ │ -2020676f536561726368287469746c65290d0a202020207d290d0a7d0d0a0d0a
+│ │ │ -66756e6374696f6e20676f53656172636828656e67696e6529207b0d0a202020
+│ │ │ -206c65742074657874203d20656e636f6465555249436f6d706f6e656e742873
+│ │ │ -6561726368426f782e76616c7565290d0a0d0a2020202069662028656e67696e
+│ │ │ -65203d3d3d2022676f6f676c652229207b0d0a202020202020202077696e646f
+│ │ │ -772e6f70656e28676f6f676c65202b20746578742c20225f73656c6622290d0a
+│ │ │ -202020207d656c73652069662028656e67696e65203d3d3d202262696e672229
+│ │ │ -207b0d0a202020202020202077696e646f772e6f70656e2862696e67202b2074
+│ │ │ -6578742c20225f73656c6622290d0a202020207d656c73652069662028656e67
+│ │ │ -696e65203d3d3d20226475636b6475636b676f2229207b0d0a20202020202020
+│ │ │ -2077696e646f772e6f70656e286475636b6475636b676f202b20746578742c20
+│ │ │ -225f73656c6622290d0a202020207d656c73652069662028656e67696e65203d
+│ │ │ -3d3d20227177616e742229207b0d0a202020202020202077696e646f772e6f70
+│ │ │ -656e287177616e74202b20746578742c20225f73656c6622290d0a202020207d
+│ │ │ +2f2f205365617263680a636f6e737420676f6f676c65203d202268747470733a
+│ │ │ +2f2f676f6f676c652e636f6d2f7365617263683f713d220a636f6e7374206269
+│ │ │ +6e67203d202268747470733a2f2f62696e672e636f6d2f7365617263683f713d
+│ │ │ +220a636f6e7374206475636b6475636b676f203d202268747470733a2f2f6475
+│ │ │ +636b6475636b676f2e636f6d2f3f713d220a636f6e7374207177616e74203d20
+│ │ │ +2268747470733a2f2f7177616e742e636f6d2f3f713d220a636f6e737420796f
+│ │ │ +7574756265203d202268747470733a2f2f796f75747562652e636f6d2f726573
+│ │ │ +756c74733f7365617263685f71756572793d220a636f6e73742074696b746f6b
+│ │ │ +203d202268747470733a2f2f74696b746f6b2e636f6d2f7365617263683f713d
+│ │ │ +220a636f6e73742077696b697065646961203d202268747470733a2f2f77696b
+│ │ │ +6970656469612e6f72672f772f696e6465782e7068703f7365617263683d220a
+│ │ │ +636f6e737420616d617a6f6e203d202268747470733a2f2f616d617a6f6e2e63
+│ │ │ +6f2e756b2f733f6b3d220a0a636f6e737420736561726368426f78203d20646f
+│ │ │ +63756d656e742e676574456c656d656e74427949642822736561726368426f78
+│ │ │ +22290a0a6c657420656e67696e6542746e73203d20646f63756d656e742e7175
+│ │ │ +65727953656c6563746f7228222e7365617263682d73656c6563742d636f6e74
+│ │ │ +656e7422292e717565727953656c6563746f72416c6c28226122290a0a666f72
+│ │ │ +20286c6574206c696e6b206f6620656e67696e6542746e7329207b0a20202020
+│ │ │ +6c696e6b2e6164644576656e744c697374656e65722822636c69636b222c2066
+│ │ │ +756e6374696f6e2829207b0a20202020202020206c6574207469746c65203d20
+│ │ │ +6c696e6b2e67657441747472696275746528227469746c6522292e746f4c6f77
+│ │ │ +65724361736528290a2020202020202020676f536561726368287469746c6529
+│ │ │ +0a202020207d290a7d0a0a66756e6374696f6e20676f53656172636828656e67
+│ │ │ +696e6529207b0a202020206c65742074657874203d20656e636f646555524943
+│ │ │ +6f6d706f6e656e7428736561726368426f782e76616c7565290a0a2020202069
+│ │ │ +662028656e67696e65203d3d3d2022676f6f676c652229207b0a202020202020
+│ │ │ +202077696e646f772e6f70656e28676f6f676c65202b20746578742c20225f73
+│ │ │ +656c6622290a202020207d656c73652069662028656e67696e65203d3d3d2022
+│ │ │ +62696e672229207b0a202020202020202077696e646f772e6f70656e2862696e
+│ │ │ +67202b20746578742c20225f73656c6622290a202020207d656c736520696620
+│ │ │ +28656e67696e65203d3d3d20226475636b6475636b676f2229207b0a20202020
+│ │ │ +2020202077696e646f772e6f70656e286475636b6475636b676f202b20746578
+│ │ │ +742c20225f73656c6622290a202020207d656c73652069662028656e67696e65
+│ │ │ +203d3d3d20227177616e742229207b0a202020202020202077696e646f772e6f
+│ │ │ +70656e287177616e74202b20746578742c20225f73656c6622290a202020207d
+│ │ │  656c73652069662028656e67696e65203d3d3d2022796f75747562652229207b
+│ │ │ -0d0a202020202020202077696e646f772e6f70656e28796f7574756265202b20
+│ │ │ -746578742c20225f73656c6622290d0a202020207d656c73652069662028656e
+│ │ │ -67696e65203d3d3d202274696b746f6b2229207b0d0a20202020202020207769
+│ │ │ -6e646f772e6f70656e2874696b746f6b202b20746578742c20225f73656c6622
+│ │ │ -290d0a202020207d656c73652069662028656e67696e65203d3d3d202277696b
+│ │ │ -6970656469612229207b0d0a202020202020202077696e646f772e6f70656e28
+│ │ │ -77696b697065646961202b20746578742c20225f73656c6622290d0a20202020
+│ │ │ -7d656c73652069662028656e67696e65203d3d3d2022616d617a6f6e2229207b
+│ │ │ -0d0a202020202020202077696e646f772e6f70656e28616d617a6f6e202b2074
+│ │ │ -657874202b2022267461673d62756c6b627261696e7330392d3231222c20225f
+│ │ │ -73656c6622290d0a202020207d656c7365207b0d0a2020202020202020636872
+│ │ │ -6f6d652e7365617263682e7175657279287b20746578743a2074657874207d29
+│ │ │ -0d0a202020207d0d0a7d0d0a0d0a636f6e737420666f726d203d20646f63756d
+│ │ │ -656e742e676574456c656d656e74427949642822736561726368466f726d2229
+│ │ │ -0d0a636f6e737420736561726368203d20646f63756d656e742e676574456c65
+│ │ │ -6d656e74427949642822676f22290d0a636f6e7374206d696342746e203d2064
+│ │ │ -6f63756d656e742e676574456c656d656e744279496428226d696322290d0a63
+│ │ │ -6f6e7374206d696349636f6e203d20646f63756d656e742e676574456c656d65
+│ │ │ -6e744279496428226d696349636f6e22290d0a636f6e7374206d69634d49636f
+│ │ │ +0a202020202020202077696e646f772e6f70656e28796f7574756265202b2074
+│ │ │ +6578742c20225f73656c6622290a202020207d656c73652069662028656e6769
+│ │ │ +6e65203d3d3d202274696b746f6b2229207b0a202020202020202077696e646f
+│ │ │ +772e6f70656e2874696b746f6b202b20746578742c20225f73656c6622290a20
+│ │ │ +2020207d656c73652069662028656e67696e65203d3d3d202277696b69706564
+│ │ │ +69612229207b0a202020202020202077696e646f772e6f70656e2877696b6970
+│ │ │ +65646961202b20746578742c20225f73656c6622290a202020207d656c736520
+│ │ │ +69662028656e67696e65203d3d206e756c6c29207b0a20202020202020207769
+│ │ │ +6e646f772e6f70656e28676f6f676c65202b20746578742c20225f73656c6622
+│ │ │ +290a202020207d656c73652069662028656e67696e65203d3d3d2022616d617a
+│ │ │ +6f6e2229207b0a202020202020202077696e646f772e6f70656e28616d617a6f
+│ │ │ +6e202b2074657874202b2022267461673d62756c6b627261696e7330392d3231
+│ │ │ +222c20225f73656c6622290a202020207d0a7d0a0a636f6e737420666f726d20
+│ │ │ +3d20646f63756d656e742e676574456c656d656e744279496428227365617263
+│ │ │ +68466f726d22290a636f6e737420736561726368203d20646f63756d656e742e
+│ │ │ +676574456c656d656e74427949642822676f22290a636f6e7374206d69634274
+│ │ │  6e203d20646f63756d656e742e676574456c656d656e744279496428226d6963
+│ │ │ -4d49636f6e22290d0a0d0a666f726d2e6164644576656e744c697374656e6572
+│ │ │ -28227375626d6974222c2065203d3e207b0d0a20202020652e70726576656e74
+│ │ │ -44656661756c7428290d0a0d0a20202020676f53656172636828290d0a7d290d
+│ │ │ -0a0d0a6d696342746e2e6f6e636c69636b203d2066756e6374696f6e20282920
+│ │ │ -7b0d0a202020206e6176696761746f722e7765626b6974476574557365724d65
+│ │ │ -646961287b0d0a2020202020202020617564696f3a20747275652c0d0a202020
+│ │ │ -207d2c2066756e6374696f6e2873747265616d29207b0d0a2020202020202020
+│ │ │ -636f6e7374205370656563685265636f676e6974696f6e203d2077696e646f77
+│ │ │ -2e5370656563685265636f676e6974696f6e207c7c2077696e646f772e776562
+│ │ │ -6b69745370656563685265636f676e6974696f6e0d0a2020202020202020636f
+│ │ │ -6e737420737065656368203d206e6577205370656563685265636f676e697469
+│ │ │ -6f6e28290d0a0d0a2020202020202020696620286d696349636f6e2e7374796c
+│ │ │ -652e646973706c6179203d3d3d2022626c6f636b2229207b0d0a202020202020
+│ │ │ -2020202020207370656563682e737461727428290d0a20202020202020207d20
+│ │ │ -656c7365207b0d0a2020202020202020202020207370656563682e73746f7028
+│ │ │ -290d0a20202020202020207d0d0a0d0a20202020202020207370656563682e6f
+│ │ │ -6e7374617274203d2066756e6374696f6e202829207b0d0a2020202020202020
+│ │ │ -202020206d696349636f6e2e7374796c652e646973706c6179203d20226e6f6e
+│ │ │ -65220d0a2020202020202020202020206d69634d49636f6e2e7374796c652e64
+│ │ │ -6973706c6179203d2022626c6f636b220d0a20202020202020207d0d0a0d0a20
+│ │ │ -202020202020207370656563682e6f6e656e64203d2066756e6374696f6e2028
+│ │ │ -29207b0d0a2020202020202020202020206d696349636f6e2e7374796c652e64
+│ │ │ -6973706c6179203d2022626c6f636b220d0a2020202020202020202020206d69
+│ │ │ -634d49636f6e2e7374796c652e646973706c6179203d20226e6f6e65220d0a20
+│ │ │ -202020202020207d0d0a0d0a20202020202020207370656563682e6f6e726573
+│ │ │ -756c74203d2066756e6374696f6e20286576656e7429207b0d0a202020202020
+│ │ │ +22290a636f6e7374206d696349636f6e203d20646f63756d656e742e67657445
+│ │ │ +6c656d656e744279496428226d696349636f6e22290a636f6e7374206d69634d
+│ │ │ +49636f6e203d20646f63756d656e742e676574456c656d656e74427949642822
+│ │ │ +6d69634d49636f6e22290a0a666f726d2e6164644576656e744c697374656e65
+│ │ │ +7228227375626d6974222c2065203d3e207b0a20202020652e70726576656e74
+│ │ │ +44656661756c7428290a0a20202020696620286c6f63616c53746f726167652e
+│ │ │ +6765744974656d2822656e67696e652229203d3d3d20222229207b0a20202020
+│ │ │ +20202020676f536561726368282262696e6722290a202020207d656c73657b0a
+│ │ │ +2020202020202020676f536561726368286c6f63616c53746f726167652e6765
+│ │ │ +744974656d2822656e67696e652229290a202020207d0a7d290a0a6d69634274
+│ │ │ +6e2e6f6e636c69636b203d2066756e6374696f6e202829207b0a202020206e61
+│ │ │ +76696761746f722e7765626b6974476574557365724d65646961287b0a202020
+│ │ │ +2020202020617564696f3a20747275652c0a202020207d2c2066756e6374696f
+│ │ │ +6e2873747265616d29207b0a2020202020202020636f6e737420537065656368
+│ │ │ +5265636f676e6974696f6e203d2077696e646f772e5370656563685265636f67
+│ │ │ +6e6974696f6e207c7c2077696e646f772e7765626b6974537065656368526563
+│ │ │ +6f676e6974696f6e0a2020202020202020636f6e737420737065656368203d20
+│ │ │ +6e6577205370656563685265636f676e6974696f6e28290a0a20202020202020
+│ │ │ +20696620286d696349636f6e2e7374796c652e646973706c6179203d3d3d2022
+│ │ │ +626c6f636b2229207b0a2020202020202020202020207370656563682e737461
+│ │ │ +727428290a20202020202020207d20656c7365207b0a20202020202020202020
+│ │ │ +20207370656563682e73746f7028290a20202020202020207d0a0a2020202020
+│ │ │ +2020207370656563682e6f6e7374617274203d2066756e6374696f6e20282920
+│ │ │ +7b0a2020202020202020202020206d696349636f6e2e7374796c652e64697370
+│ │ │ +6c6179203d20226e6f6e65220a2020202020202020202020206d69634d49636f
+│ │ │ +6e2e7374796c652e646973706c6179203d2022626c6f636b220a202020202020
+│ │ │ +20207d0a0a20202020202020207370656563682e6f6e656e64203d2066756e63
+│ │ │ +74696f6e202829207b0a2020202020202020202020206d696349636f6e2e7374
+│ │ │ +796c652e646973706c6179203d2022626c6f636b220a20202020202020202020
+│ │ │ +20206d69634d49636f6e2e7374796c652e646973706c6179203d20226e6f6e65
+│ │ │ +220a20202020202020207d0a0a20202020202020207370656563682e6f6e7265
+│ │ │ +73756c74203d2066756e6374696f6e20286576656e7429207b0a202020202020
+│ │ │  2020202020206c65742063757272656e74203d206576656e742e726573756c74
+│ │ │ -496e6465780d0a2020202020202020202020206c6574207472616e7363726970
+│ │ │ -74203d206576656e742e726573756c74735b63757272656e745d5b305d2e7472
+│ │ │ -616e7363726970740d0a0d0a202020202020202020202020696620287472616e
+│ │ │ -7363726970742e746f4c6f7765724361736528292e7472696d2829203d3d3d20
+│ │ │ -2273746f70207265636f7264696e672229207b0d0a2020202020202020202020
+│ │ │ -20202020207370656563682e73746f7028290d0a202020202020202020202020
+│ │ │ -7d20656c7365206966202821736561726368426f782e76616c756529207b0d0a
+│ │ │ -20202020202020202020202020202020736561726368426f782e76616c756520
+│ │ │ -3d207472616e7363726970740d0a2020202020202020202020207d20656c7365
+│ │ │ -207b0d0a20202020202020202020202020202020696620287472616e73637269
+│ │ │ -70742e746f4c6f7765724361736528292e7472696d2829203d3d3d2022676f22
+│ │ │ -29207b0d0a2020202020202020202020202020202020202020666f726d2e7375
+│ │ │ -626d697428290d0a202020202020202020202020202020207d20656c73652069
+│ │ │ -6620287472616e7363726970742e746f4c6f7765724361736528292e7472696d
+│ │ │ -2829203d3d3d2022726573657420696e7075742229207b0d0a20202020202020
+│ │ │ -20202020202020202020202020736561726368426f782e76616c7565203d2022
+│ │ │ -220d0a202020202020202020202020202020207d20656c7365207b0d0a202020
+│ │ │ -2020202020202020202020202020202020736561726368426f782e76616c7565
+│ │ │ -203d207472616e7363726970740d0a202020202020202020202020202020207d
+│ │ │ -0d0a2020202020202020202020207d0d0a20202020202020207d0d0a0d0a2020
+│ │ │ -20207d2c2066756e6374696f6e2829207b0d0a2020202020202020636f6e736f
+│ │ │ -6c652e6c6f6728224572726f7220616363657373696e67206d6963726f70686f
+│ │ │ -6e6522290d0a202020207d290d0a7d
+│ │ │ +496e6465780a2020202020202020202020206c6574207472616e736372697074
+│ │ │ +203d206576656e742e726573756c74735b63757272656e745d5b305d2e747261
+│ │ │ +6e7363726970740a0a202020202020202020202020696620287472616e736372
+│ │ │ +6970742e746f4c6f7765724361736528292e7472696d2829203d3d3d20227374
+│ │ │ +6f70207265636f7264696e672229207b0a202020202020202020202020202020
+│ │ │ +207370656563682e73746f7028290a2020202020202020202020207d20656c73
+│ │ │ +65206966202821736561726368426f782e76616c756529207b0a202020202020
+│ │ │ +20202020202020202020736561726368426f782e76616c7565203d207472616e
+│ │ │ +7363726970740a2020202020202020202020207d20656c7365207b0a20202020
+│ │ │ +202020202020202020202020696620287472616e7363726970742e746f4c6f77
+│ │ │ +65724361736528292e7472696d2829203d3d3d2022676f2229207b0a20202020
+│ │ │ +20202020202020202020202020202020666f726d2e7375626d697428290a2020
+│ │ │ +20202020202020202020202020207d20656c736520696620287472616e736372
+│ │ │ +6970742e746f4c6f7765724361736528292e7472696d2829203d3d3d20227265
+│ │ │ +73657420696e7075742229207b0a202020202020202020202020202020202020
+│ │ │ +2020736561726368426f782e76616c7565203d2022220a202020202020202020
+│ │ │ +202020202020207d20656c7365207b0a20202020202020202020202020202020
+│ │ │ +20202020736561726368426f782e76616c7565203d207472616e736372697074
+│ │ │ +0a202020202020202020202020202020207d0a2020202020202020202020207d
+│ │ │ +0a20202020202020207d0a0a202020207d2c2066756e6374696f6e2829207b0a
+│ │ │ +2020202020202020636f6e736f6c652e6c6f6728224572726f72206163636573
+│ │ │ +73696e67206d6963726f70686f6e6522290a202020207d290a7d0a0a0a2f2f20
+│ │ │ +53656172636820456e67696e652044656661756c740a66756e6374696f6e2064
+│ │ │ +656661756c74456e67696e652829207b0a2020202076617220656e67696e6520
+│ │ │ +3d20646f63756d656e742e676574456c656d656e74427949642822656e67696e
+│ │ │ +6522292e76616c75650a0a20202020646f63756d656e742e636f6f6b6965203d
+│ │ │ +2022656e67696e653d22202b20656e67696e65202b20223b2065787069726573
+│ │ │ +3d5468752c2031382044656320323032342031323a30303a3030205554433b20
+│ │ │ +706174683d2f220a7d
+│ │ │   --- /workspace/pipeline_output/chromex_data/home/js/time.js
+│ │ ├── +++ /workspace/pipeline_output/Capital-Extension/home/js/time.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -1,47 +1,46 @@
+│ │ │  636f6e73742074696d65456c656d656e74203d20646f63756d656e742e676574
+│ │ │ -456c656d656e7442794964282274696d6522290d0a636f6e7374206461746545
+│ │ │ -6c656d656e74203d20646f63756d656e742e676574456c656d656e7442794964
+│ │ │ -28226461746522290d0a0d0a66756e6374696f6e206f7264696e616c53756666
+│ │ │ -6978286929207b0d0a20202020766172206a203d206920252031302c0d0a2020
+│ │ │ -2020202020206b203d20692025203130303b0d0a20202020696620286a203d3d
+│ │ │ -2031202626206b20213d20313129207b0d0a202020202020202072657475726e
+│ │ │ -2069202b20227374223b0d0a202020207d0d0a20202020696620286a203d3d20
+│ │ │ -32202626206b20213d20313229207b0d0a202020202020202072657475726e20
+│ │ │ -69202b20226e64223b0d0a202020207d0d0a20202020696620286a203d3d2033
+│ │ │ -202626206b20213d20313329207b0d0a202020202020202072657475726e2069
+│ │ │ -202b20227264223b0d0a202020207d0d0a2020202072657475726e2069202b20
+│ │ │ -227468223b0d0a7d0d0a0d0a636f6e73742064617465203d206e657720446174
+│ │ │ -6528290d0a6c657420686f7572203d20646174652e676574486f75727328290d
+│ │ │ -0a6c6574206d696e203d20646174652e6765744d696e7574657328290d0a6c65
+│ │ │ -7420736563203d20646174652e6765745365636f6e647328290d0a0d0a686f75
+│ │ │ -72203d2028686f7572203c20313029203f20223022202b20686f7572203a2068
+│ │ │ -6f75720d0a6d696e203d20286d696e203c20313029203f20223022202b206d69
+│ │ │ -6e203a206d696e0d0a736563203d2028736563203c20313029203f2022302220
+│ │ │ -2b20736563203a207365630d0a0d0a636f6e73742074696d65203d20686f7572
+│ │ │ -202b20223a22202b206d696e202b20223a22202b207365630d0a74696d65456c
+│ │ │ -656d656e742e696e6e657254657874203d2074696d650d0a0d0a766172206461
+│ │ │ -7465537472696e67203d206f7264696e616c53756666697828646174652e6765
+│ │ │ -74446174652829290d0a64617465537472696e67202b3d2027206f662027202b
+│ │ │ -20646174652e746f4c6f63616c65537472696e672827656e2d5553272c207b20
+│ │ │ -6d6f6e74683a20276c6f6e6727207d290d0a64617465537472696e67202b3d20
+│ │ │ -272027202b20646174652e67657446756c6c5965617228290d0a64617465456c
+│ │ │ -656d656e742e696e6e657254657874203d2064617465537472696e670d0a0d0a
+│ │ │ -636f6e73742067657454696d65203d202829203d3e207b0d0a20202020636f6e
+│ │ │ -73742064617465203d206e6577204461746528290d0a202020206c657420686f
+│ │ │ -7572203d20646174652e676574486f75727328290d0a202020206c6574206d69
+│ │ │ -6e203d20646174652e6765744d696e7574657328290d0a202020206c65742073
+│ │ │ -6563203d20646174652e6765745365636f6e647328290d0a0d0a20202020686f
+│ │ │ -7572203d2028686f7572203c20313029203f20223022202b20686f7572203a20
+│ │ │ -686f75720d0a202020206d696e203d20286d696e203c20313029203f20223022
+│ │ │ -202b206d696e203a206d696e0d0a20202020736563203d2028736563203c2031
+│ │ │ -3029203f20223022202b20736563203a207365630d0a0d0a20202020636f6e73
+│ │ │ -742074696d65203d20686f7572202b20223a22202b206d696e202b20223a2220
+│ │ │ -2b207365630d0a2020202074696d65456c656d656e742e696e6e657254657874
+│ │ │ -203d2074696d650d0a0d0a202020207661722064617465537472696e67203d20
+│ │ │ -6f7264696e616c53756666697828646174652e676574446174652829290d0a20
+│ │ │ -20202064617465537472696e67202b3d2027206f662027202b20646174652e74
+│ │ │ -6f4c6f63616c65537472696e672827656e2d5553272c207b206d6f6e74683a20
+│ │ │ -276c6f6e6727207d290d0a2020202064617465537472696e67202b3d20272027
+│ │ │ -202b20646174652e67657446756c6c5965617228290d0a202020206461746545
+│ │ │ -6c656d656e742e696e6e657254657874203d2064617465537472696e670d0a7d
+│ │ │ -0d0a0d0a736574496e74657276616c2867657454696d652c203130303029
+│ │ │ +456c656d656e7442794964282274696d6522290a636f6e73742064617465456c
+│ │ │ +656d656e74203d20646f63756d656e742e676574456c656d656e744279496428
+│ │ │ +226461746522290a0a66756e6374696f6e206f7264696e616c53756666697828
+│ │ │ +6929207b0a20202020766172206a203d206920252031302c0a20202020202020
+│ │ │ +206b203d20692025203130303b0a20202020696620286a203d3d203120262620
+│ │ │ +6b20213d20313129207b0a202020202020202072657475726e2069202b202273
+│ │ │ +74223b0a202020207d0a20202020696620286a203d3d2032202626206b20213d
+│ │ │ +20313229207b0a202020202020202072657475726e2069202b20226e64223b0a
+│ │ │ +202020207d0a20202020696620286a203d3d2033202626206b20213d20313329
+│ │ │ +207b0a202020202020202072657475726e2069202b20227264223b0a20202020
+│ │ │ +7d0a2020202072657475726e2069202b20227468223b0a7d0a0a636f6e737420
+│ │ │ +64617465203d206e6577204461746528290a6c657420686f7572203d20646174
+│ │ │ +652e676574486f75727328290a6c6574206d696e203d20646174652e6765744d
+│ │ │ +696e7574657328290a6c657420736563203d20646174652e6765745365636f6e
+│ │ │ +647328290a0a686f7572203d2028686f7572203c20313029203f20223022202b
+│ │ │ +20686f7572203a20686f75720a6d696e203d20286d696e203c20313029203f20
+│ │ │ +223022202b206d696e203a206d696e0a736563203d2028736563203c20313029
+│ │ │ +203f20223022202b20736563203a207365630a0a636f6e73742074696d65203d
+│ │ │ +20686f7572202b20223a22202b206d696e202b20223a22202b207365630a7469
+│ │ │ +6d65456c656d656e742e696e6e657254657874203d2074696d650a0a76617220
+│ │ │ +64617465537472696e67203d206f7264696e616c53756666697828646174652e
+│ │ │ +676574446174652829290a64617465537472696e67202b3d2027206f66202720
+│ │ │ +2b20646174652e746f4c6f63616c65537472696e672827656e2d5553272c207b
+│ │ │ +206d6f6e74683a20276c6f6e6727207d290a64617465537472696e67202b3d20
+│ │ │ +272027202b20646174652e67657446756c6c5965617228290a64617465456c65
+│ │ │ +6d656e742e696e6e657254657874203d2064617465537472696e670a0a636f6e
+│ │ │ +73742067657454696d65203d202829203d3e207b0a20202020636f6e73742064
+│ │ │ +617465203d206e6577204461746528290a202020206c657420686f7572203d20
+│ │ │ +646174652e676574486f75727328290a202020206c6574206d696e203d206461
+│ │ │ +74652e6765744d696e7574657328290a202020206c657420736563203d206461
+│ │ │ +74652e6765745365636f6e647328290a0a20202020686f7572203d2028686f75
+│ │ │ +72203c20313029203f20223022202b20686f7572203a20686f75720a20202020
+│ │ │ +6d696e203d20286d696e203c20313029203f20223022202b206d696e203a206d
+│ │ │ +696e0a20202020736563203d2028736563203c20313029203f20223022202b20
+│ │ │ +736563203a207365630a0a20202020636f6e73742074696d65203d20686f7572
+│ │ │ +202b20223a22202b206d696e202b20223a22202b207365630a2020202074696d
+│ │ │ +65456c656d656e742e696e6e657254657874203d2074696d650a0a2020202076
+│ │ │ +61722064617465537472696e67203d206f7264696e616c537566666978286461
+│ │ │ +74652e676574446174652829290a2020202064617465537472696e67202b3d20
+│ │ │ +27206f662027202b20646174652e746f4c6f63616c65537472696e672827656e
+│ │ │ +2d5553272c207b206d6f6e74683a20276c6f6e6727207d290a20202020646174
+│ │ │ +65537472696e67202b3d20272027202b20646174652e67657446756c6c596561
+│ │ │ +7228290a2020202064617465456c656d656e742e696e6e657254657874203d20
+│ │ │ +64617465537472696e670a7d0a0a736574496e74657276616c2867657454696d
+│ │ │ +652c203130303029
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/Capital-Extension/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/index.js
+│ ├── +++ /workspace/pipeline_output/Capital-Extension/js/index.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,21 +1,21 @@
+│ │  646f63756d656e742e6164644576656e744c697374656e65722822444f4d436f
+│ │ +6e74656e744c6f61646564222c2066756e6374696f6e2829207b0a2020202063
+│ │ +6f6e737420736574486f6d6570616765427574746f6e203d20646f63756d656e
+│ │ +742e676574456c656d656e74427949642822736574486f6d6570616765427574
+│ │ +746f6e22290a20202020636f6e737420676f53657474696e6773203d20646f63
+│ │ +756d656e742e676574456c656d656e74427949642822676f53657474696e6773
+│ │ +22290a0a20202020736574486f6d6570616765427574746f6e2e616464457665
+│ │ +6e744c697374656e65722827636c69636b272c2066756e6374696f6e2829207b
+│ │ +0a20202020202020206368726f6d652e746162732e7175657279287b20616374
+│ │ +6976653a20747275652c2063757272656e7457696e646f773a2074727565207d
+│ │ +2c2066756e6374696f6e287461627329207b0a20202020202020202020202063
+│ │ +68726f6d652e73746f726167652e73796e632e736574287b20686f6d65706167
+│ │ +653a20222e2e2f686f6d652f696e6465782e68746d6c22207d2c2066756e6374
+│ │ +696f6e2829207b0a2020202020202020202020206368726f6d652e746162732e
+│ │ +75706461746528746162735b305d2e69642c207b2075726c3a20222e2e2f686f
+│ │ +6d652f696e6465782e68746d6c22207d290a2020202020202020202020207d29
+│ │ +0a20202020202020207d290a202020207d290a0a20202020676f53657474696e
+│ │ +67732e6164644576656e744c697374656e65722827636c69636b272c2066756e
+│ │ +6374696f6e2829207b0a20202020202020206368726f6d652e746162732e6372
+│ │ +65617465287b2075726c3a20222e2e2f686f6d652f73657474696e67732e6874
+│ │ +6d6c22207d290a202020207d290a7d29
+│ │ -6e74656e744c6f61646564222c2066756e6374696f6e2829207b0d0a20202020
+│ │ -636f6e737420736574486f6d6570616765427574746f6e203d20646f63756d65
+│ │ -6e742e676574456c656d656e74427949642822736574486f6d65706167654275
+│ │ -74746f6e22290d0a20202020636f6e737420676f53657474696e6773203d2064
+│ │ -6f63756d656e742e676574456c656d656e74427949642822676f53657474696e
+│ │ -677322290d0a0d0a20202020736574486f6d6570616765427574746f6e2e6164
+│ │ -644576656e744c697374656e65722827636c69636b272c2066756e6374696f6e
+│ │ -2829207b0d0a20202020202020206368726f6d652e746162732e717565727928
+│ │ -7b206163746976653a20747275652c2063757272656e7457696e646f773a2074
+│ │ -727565207d2c2066756e6374696f6e287461627329207b0d0a20202020202020
+│ │ -20202020206368726f6d652e73746f726167652e73796e632e736574287b2068
+│ │ -6f6d65706167653a20222e2e2f686f6d652f696e6465782e68746d6c22207d2c
+│ │ -2066756e6374696f6e2829207b0d0a2020202020202020202020206368726f6d
+│ │ -652e746162732e75706461746528746162735b305d2e69642c207b2075726c3a
+│ │ -20222e2e2f686f6d652f696e6465782e68746d6c22207d290d0a202020202020
+│ │ -2020202020207d290d0a20202020202020207d290d0a202020207d290d0a0d0a
+│ │ -20202020676f53657474696e67732e6164644576656e744c697374656e657228
+│ │ -27636c69636b272c2066756e6374696f6e2829207b0d0a202020202020202063
+│ │ -68726f6d652e746162732e637265617465287b2075726c3a20222e2e2f686f6d
+│ │ -652f73657474696e67732e68746d6c22207d290d0a202020207d290d0a7d29
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Capital-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,13 +16,9 @@
+│ │          "16": "icons/16.png",
+│ │          "19": "icons/19.png",
+│ │          "38": "icons/38.png",
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "BulkBrains Capital",
+│ │ -    "permissions": [
+│ │ -        "search"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/Capital-Extension/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/index.css
+│ ├── +++ /workspace/pipeline_output/Capital-Extension/popup/index.css
+│ │┄ Ordering differences only
+│ │ @@ -1,28 +1,28 @@
+│ │ +body {
+│ │ +    width: 300px;
+│ │ +    height: 300px;
+│ │ +    background-color: darkslategray;
+│ │ +    color: lightgreen;
+│ │ +    text-align: center;
+│ │ +    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+│ │ +    font-size: 16px;
+│ │ +}
+│ │ +
+│ │ +button {
+│ │ +    background-color: darkslategray;
+│ │ +    color: lightgreen;
+│ │ +    border: 2px solid lightgreen;
+│ │ +    padding: 10px 20px;
+│ │ +    text-align: center;
+│ │ +    text-decoration: none;
+│ │ +    display: inline-block;
+│ │ +    font-size: 16px;
+│ │ +    margin: 4px 2px;
+│ │ +    cursor: pointer;
+│ │ +    transition-duration: 0.5s;
+│ │ +}
+│ │ +
+│ │ +button:hover {
+│ │ +    background-color: lightgreen;
+│ │ +    color: darkslategray;
+│ │ -body {
+│ │ -    width: 300px;
+│ │ -    height: 300px;
+│ │ -    background-color: darkslategray;
+│ │ -    color: lightgreen;
+│ │ -    text-align: center;
+│ │ -    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+│ │ -    font-size: 16px;
+│ │ -}
+│ │ -
+│ │ -button {
+│ │ -    background-color: darkslategray;
+│ │ -    color: lightgreen;
+│ │ -    border: 2px solid lightgreen;
+│ │ -    padding: 10px 20px;
+│ │ -    text-align: center;
+│ │ -    text-decoration: none;
+│ │ -    display: inline-block;
+│ │ -    font-size: 16px;
+│ │ -    margin: 4px 2px;
+│ │ -    cursor: pointer;
+│ │ -    transition-duration: 0.5s;
+│ │ -}
+│ │ -
+│ │ -button:hover {
+│ │ -    background-color: lightgreen;
+│ │ -    color: darkslategray;
+│ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/popup/index.html
+│ ├── +++ /workspace/pipeline_output/Capital-Extension/popup/index.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,15 +1,15 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +    <head>
+│ │ +        <title>Capital</title>
+│ │ +        <script src="../js/index.js"></script>
+│ │ +
+│ │ +        <link rel="stylesheet" href="index.css">
+│ │ +    </head>
+│ │ +    <body>
+│ │ +        <h1>Capital</h1>
+│ │ +        <button id="setHomepageButton">Set Homepage</button>
+│ │ +        <br>
+│ │ +        <button id="goSettings">Settings</button>
+│ │ +    </body>
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -    <head>
+│ │ -        <title>Capital</title>
+│ │ -        <script src="../js/index.js"></script>
+│ │ -
+│ │ -        <link rel="stylesheet" href="index.css">
+│ │ -    </head>
+│ │ -    <body>
+│ │ -        <h1>Capital</h1>
+│ │ -        <button id="setHomepageButton">Set Homepage</button>
+│ │ -        <br>
+│ │ -        <button id="goSettings">Settings</button>
+│ │ -    </body>
+│ │  </html>

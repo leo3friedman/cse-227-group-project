@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extention-json-viewer-jq/build
+├── file list
+│ @@ -1,13 +1,12 @@
+│ -5bfaca79cb0cea931db86a25db7daeda.svg
+│  LICENSE
+│ -_metadata
+│  background.js
+│  background.js.LICENSE.txt
+│  content.js
+│  content.js.LICENSE.txt
+│  jq.wasm.wasm
+│  logo128.png
+│  logo16.png
+│  logo48.png
+│  manifest.json
+│ -style.css
+│ +style.css
+│ +style.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extention-json-viewer-jq/build/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,15 +28,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "JSON viewer +jq",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.4",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

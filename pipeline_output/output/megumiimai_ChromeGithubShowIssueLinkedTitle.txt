@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChromeGithubShowIssueLinkedTitle
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  icons
+│  js
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChromeGithubShowIssueLinkedTitle/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Show GitHub Issue Linked Title",
+│ │      "permissions": [
+│ │          "declarativeContent",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }

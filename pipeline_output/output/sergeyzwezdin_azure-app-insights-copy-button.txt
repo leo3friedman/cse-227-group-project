@@ -1,0 +1,53 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/azure-app-insights-copy-button
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│  LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  assets
+│ -js
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/azure-app-insights-copy-button/_locales
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  en
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/azure-app-insights-copy-button/assets
+│ ├── file list
+│ │ @@ -1,5 +1,6 @@
+│ │  azure-app-insights-copy-button-128.png
+│ │  azure-app-insights-copy-button-16.png
+│ │  azure-app-insights-copy-button-32.png
+│ │  azure-app-insights-copy-button-48.png
+│ │ +azure-app-insights-copy-button-64.png
+│ │ +screenshot.png
+│ │ -azure-app-insights-copy-button-64.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/azure-app-insights-copy-button/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,10 +42,9 @@
+│ │      "name": "Azure App Insights Copy Button",
+│ │      "permissions": [
+│ │          "contentSettings",
+│ │          "clipboardWrite",
+│ │          "https://portal.azure.com/",
+│ │          "https://logsextension.hosting.portal.azure.net/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/azure-app-insights-copy-button/src
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  inject

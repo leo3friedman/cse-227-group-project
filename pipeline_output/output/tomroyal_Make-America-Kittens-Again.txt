@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Make-America-Kittens-Again
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│ +.gitignore
+│  Ko-fi_Blue.png
+│  README.md
+│ -_metadata
+│  jquery-3.3.1.min.js
+│  kittens
+│  maka.js
+│  maka128.png
+│  maka48.png
+│  makaoptions.html
+│  makaoptions.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Make-America-Kittens-Again/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,15 +30,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Make America Kittens Again",
+│ │      "options_page": "makaoptions.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

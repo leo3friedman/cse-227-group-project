@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cj
+├── file list
+│ @@ -1,4 +1,8 @@
+│ +.git
+│ +Annotation 2024-01-01 163647.png
+│  JSZip.js
+│ -_metadata
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│ +privacy policy
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cj/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │                  "https://www.bing.com/saves*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "bulk download images from bing image creator collection",
+│ │      "manifest_version": 3,
+│ │      "name": "bing-collection-downloader",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.1"
+│ │  }

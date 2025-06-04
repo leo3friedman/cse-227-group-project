@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/clearCache
+├── file list
+│ @@ -1,10 +1,11 @@
+│ -SmallTile.png
+│ -_metadata
+│ +.git
+│ +clearCache.png
+│ +clearCacheSS.png
+│  icon-128.png
+│  icon-16.png
+│  icon-32.png
+│  icon-48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│ -screenShot.png
+│  scripts.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/clearCache/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,23 +1,22 @@
+│ │  {
+│ │      "browser_action": {
+│ │          "default_icon": "icon-32.png",
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "Clear Cache"
+│ │      },
+│ │ -    "description": "A true one-click cache clearing button for web developers. That's it.",
+│ │ +    "description": "One click cache clear",
+│ │      "icons": {
+│ │          "128": "icon-128.png",
+│ │          "16": "icon-16.png",
+│ │          "48": "icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Clear Cache",
+│ │      "permissions": [
+│ │          "browsingData"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1",
+│ │      "web_accessible_resources": [
+│ │          "scripts.js"
+│ │      ]
+│ │  }

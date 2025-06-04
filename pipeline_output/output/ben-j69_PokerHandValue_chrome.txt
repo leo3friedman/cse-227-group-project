@@ -1,0 +1,51 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/PokerHandValue_chrome
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.DS_Store
+│ +.git
+│  Designer.png
+│  README.md
+│ -_metadata
+│  handRanks.js
+│  icon_128.png
+│  manifest.json
+│ +package-lock.json
+│  pattern_red.jpg
+│  popup.html
+│  popup.js
+│  screenshot.jpg
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/PokerHandValue_chrome/README.md
+│ @@ -1,8 +1,12 @@
+│  # PokerHandValue Chrome Extension
+│ -<img width="272" alt="Capture d’écran 2024-11-15 à 23 44 35" src="https://github.com/user-attachments/assets/7a39f812-42fa-4166-b3b8-8ef8d4c55d15">
+│ +Download: https://chromewebstore.google.com/detail/poker-hand-lookup/pebjihpangilgicojkjpehengobjoioh
+│ +
+│ +
+│ +
+│ +<img width="500" src="https://lh3.googleusercontent.com/mcm8VuDZeQG0kcr3sYagO6ICcRwb3cPenZMHMJJVBW9VggyGMfzepT8XBKm1w3-J3GcOgImXswPeiw5FCMePe8r9=s1280-w1280-h800">
+│  
+│  ## Goal
+│  Display Poker hands value, closer to 0 = better hand.
+│  
+│  Based on this chart: ![image](https://github.com/user-attachments/assets/4911e906-86c9-4819-b4f9-bd853a3c39c1)
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -utf-8
+│ │ +us-ascii
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/PokerHandValue_chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │          },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "description": "Quickly look up poker hand rankings and values for better strategy and gameplay.",
+│ │      "manifest_version": 3,
+│ │      "name": "Poker Hand Lookup",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.3"
+│ │  }

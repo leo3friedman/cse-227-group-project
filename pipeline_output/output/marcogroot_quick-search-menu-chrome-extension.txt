@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/quick-search-menu-chrome-extension
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.DS_Store
+│ +.git
+│  README.md
+│ -_metadata
+│  default-search-list.json
+│  html
+│  images
+│  manifest.json
+│  optionsscripts
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/quick-search-menu-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,15 +28,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Quick Search Menu",
+│ │      "options_page": "html/options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "extension_ids": [],
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],

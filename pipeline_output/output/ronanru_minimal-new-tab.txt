@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/minimal-new-tab
+├── file list
+│ @@ -1,6 +1,9 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  manifest.json
+│  newtab.css
+│  newtab.html
+│ -newtab.js
+│ +newtab.js
+│ +package-lock.json
+│ +screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/minimal-new-tab/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,14 +1,11 @@
+│ │  {
+│ │ -    "author": "Matvey Ryabchikov",
+│ │      "chrome_url_overrides": {
+│ │          "newtab": "newtab.html"
+│ │      },
+│ │ -    "description": "This extension displays 12 of the most visited sites on your new tab page and nothing more.",
+│ │      "manifest_version": 3,
+│ │ -    "name": "Minimal New Tab",
+│ │ +    "name": "Top Sites NewTab",
+│ │      "permissions": [
+│ │          "topSites"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

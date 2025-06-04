@@ -1,0 +1,65 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/extension
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE.txt
+│  README.md
+│ -_metadata
+│  icons
+│  manifest.json
+│  octobox.css
+│  octobox.js
+│ -package.json
+│ +package-lock.json
+│  screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,13 +1,11 @@
+│ │  {
+│ │ -    "author": "Andrew Nesbitt",
+│ │ -    "browser_specific_settings": {
+│ │ -        "gecko": {
+│ │ -            "id": "{abf2af07-72a6-450b-8aca-a985ab478330}"
+│ │ -        }
+│ │ +    "author": {
+│ │ +        "name": "Andrew Nesbitt",
+│ │ +        "url": "https://octobox.io"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "css": [
+│ │                  "octobox.css"
+│ │              ],
+│ │              "js": [
+│ │ @@ -16,28 +14,26 @@
+│ │              "matches": [
+│ │                  "*://*.github.com/*",
+│ │                  "*://octobox.io/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Integrate Octobox directly into your GitHub workflow",
+│ │ -    "homepage_url": "https://octobox.io",
+│ │      "host_permissions": [
+│ │          "*://octobox.io/*"
+│ │      ],
+│ │      "icons": {
+│ │          "48": "icons/octobox-48.png",
+│ │          "96": "icons/octobox-96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Octobox",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.github.com/*",
+│ │                  "*://octobox.io/*"
+│ │              ],

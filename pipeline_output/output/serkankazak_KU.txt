@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/KU
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +LICENSE
+│  README.md
+│ -_metadata
+│  icon.png
+│  js.js
+│  ku128.png
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/KU/README.md
+│ @@ -1,5 +1,5 @@
+│ -# KU
+│ +# KU Grades
+│  
+│ -outdated version (1.0.5): https://chrome.google.com/webstore/detail/ku-grades/penhpkgilnjmjehginoadgegkjcpfccl
+│ +https://chrome.google.com/webstore/detail/ku-grades/penhpkgilnjmjehginoadgegkjcpfccl
+│  
+│ -hopefully i will update it on store one day.
+│ +https://www.facebook.com/KusisGradeChecker
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/KU/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "https://kusis.ku.edu.tr/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.6"
+│ │  }

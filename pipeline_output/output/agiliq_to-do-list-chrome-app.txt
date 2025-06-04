@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/to-do-list-chrome-app
+├── file list
+│ @@ -1,9 +1,17 @@
+│ +.git
+│ +.travis.yml
+│  LICENSE.txt
+│ -_metadata
+│ +README.md
+│  css
+│ +grunt.js
+│  img
+│  index.html
+│  js
+│  lib
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +tests
+│ +to-do-list-screenshot.png
+│  to-do-list.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/to-do-list-chrome-app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │          "48": "to-do-list.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "To Do List",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8"
+│ │  }

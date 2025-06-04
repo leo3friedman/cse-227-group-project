@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/RK9-to-PTCGL
+├── file list
+│ @@ -1,10 +1,12 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  content.js
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  pairings.js
+│  roster.js
+│  tournament.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/RK9-to-PTCGL/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -43,10 +43,9 @@
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "32": "icon32.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Helping Hand",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

@@ -1,0 +1,52 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/todo-tab
+├── file list
+│ @@ -1,12 +1,14 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  font-awesome.min.css
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  jquery.min.js
+│  jquery.min.map
+│  manifest.json
+│ +package-lock.json
+│ +todo-tab.zip
+│  todo.css
+│  todo.html
+│  todo.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/todo-tab/README.md
+│ @@ -1,13 +1,6 @@
+│ -# SimpleNotes
+│ +# TODO
+│  
+│  Find on Chrome Web Store:
+│ -https://chrome.google.com/webstore/detail/simple-notes/ldfahoabcdgljodjddijjiknleolbcmh?hl=en-US&gl=US
+│ +---
+│  
+│ -A simple notes extension based off the Mac Notes app.
+│ -With simple notes, you can take and save notes. It's that simple.
+│ -
+│ -Other note taking apps have features of mostly little use, ones that can get in the way of usability and convenience. I have always enjoyed the simplicity of the Apple Notes app, both in design and usability, so I decided to base this extension on that app. Hope you enjoy! 
+│ -
+│ -Note: This extension does not sync with your Apple notes.
+│ -
+│ -See Screenshots and Functionality here: http://imgur.com/a/c9i1E
+│ +TODO is a minimal, no-frills todo list that replaces the New Tab page. Keep track of what you need to get done without any distractions.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/todo-tab/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "TODO",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

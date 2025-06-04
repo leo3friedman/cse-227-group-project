@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/easymute
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ -images
+│ +.git
+│ +README.md
+│ +Screenshot 2022-02-01 010622.png
+│ +Screenshot 2022-02-01 010727.png
+│ +Screenshot 2022-02-01 010821.png
+│  jquery-3.6.0.min.js
+│  manifest.json
+│ +package-lock.json
+│  tab.html
+│ -tab.js
+│ -tabs.css
+│ +tab.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/easymute/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │          "48": "/images/sound48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "EasyMute",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

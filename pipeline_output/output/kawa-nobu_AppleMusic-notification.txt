@@ -1,0 +1,49 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AppleMusic-notification
+├── file list
+│ @@ -1,19 +1,24 @@
+│ +.git
+│  LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  content.js
+│  dark_sh.css
+│  icon.png
+│  manifest.json
+│  minip.css
+│  minip.html
+│  minip.js
+│  nv_minip.css
+│  nv_minip.html
+│  nv_minip.js
+│ +package-lock.json
+│  pop_style.css
+│  popup.html
+│  popup.js
+│  svg
+│ -top_scr.js
+│ +top_scr.js
+│ +tweet.html
+│ +tweet.js
+│ +twitter.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AppleMusic-notification/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,15 +23,14 @@
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_ext_name__",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.9.4",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://music.apple.com/*",
+│ │                  "https://*.blobstore.apple.com/*",
+│ │                  "https://*.mzstatic.com/*"

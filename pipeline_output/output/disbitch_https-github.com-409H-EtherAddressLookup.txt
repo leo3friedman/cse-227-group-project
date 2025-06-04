@@ -1,0 +1,201 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup
+├── file list
+│ @@ -1,17 +1,22 @@
+│ +.eslintignore
+│ +.eslintrc.json
+│ +.git
+│ +.gitignore
+│ +.travis.yml
+│  CONTRIBUTING.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  blacklists
+│  css
+│  gulpfile.js
+│  images
+│  js
+│  manifest.json
+│ +node_modules
+│  options.html
+│  package-lock.json
+│  package.json
+│  settings.html
+│  static
+│  whitelists
+│  yarn.lock
+│   --- /workspace/pipeline_output/chromex_data/blacklists
+├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/blacklists
+│ │   --- /workspace/pipeline_output/chromex_data/blacklists/domains.json
+│ ├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/blacklists/domains.json
+│ │ ├── Pretty-printed
+│ │ │ @@ -1,68 +1,8 @@
+│ │ │  [
+│ │ │ -    "fulcrum.run",
+│ │ │ -    "stellar.org.lv",
+│ │ │ -    "accountviewer.stellar.org.lv",
+│ │ │ -    "tesla3-bonus.com",
+│ │ │ -    "brad-gift.com",
+│ │ │ -    "coinaxel.com",
+│ │ │ -    "eth-drop.club",
+│ │ │ -    "uniswap-exchange.com",
+│ │ │ -    "app.uniswap-exchange.com",
+│ │ │ -    "uniswap-exchange.eu",
+│ │ │ -    "app.uniswap-exchange.eu",
+│ │ │ -    "appunjswap.org",
+│ │ │ -    "appuniswop.link",
+│ │ │ -    "ethoff.org",
+│ │ │ -    "fulcrum.nu",
+│ │ │ -    "eth.fulcrum.nu",
+│ │ │ -    "eth-giveaway.top",
+│ │ │ -    "vit-ethx.top",
+│ │ │ -    "eth-vitya.top",
+│ │ │ -    "airdrop-bit.top",
+│ │ │ -    "cryptogifts.s3.amazonaws.com",
+│ │ │ -    "xrp-event.com",
+│ │ │ -    "cryptogifts.s3.us-east-2.amazonaws.com",
+│ │ │ -    "xrp-funds.com",
+│ │ │ -    "omisego-giveaway.blogspot.com",
+│ │ │ -    "omg-giveaway.blogspot.com",
+│ │ │ -    "uniswap-x.com",
+│ │ │ -    "app.uniswap-x.com",
+│ │ │ -    "accountviewer.stellar.org.im",
+│ │ │ -    "cdn-stellar.org",
+│ │ │ -    "go-stellar.org",
+│ │ │ -    "steliar.org",
+│ │ │ -    "stellar.org.im",
+│ │ │ -    "accountviewer.stellar.org.im",
+│ │ │ -    "stellar.org.sb",
+│ │ │ -    "accountviewer.stellar.org.sb",
+│ │ │ -    "excodus.cf",
+│ │ │ -    "exodus.cf",
+│ │ │ -    "electrume.org",
+│ │ │ -    "electrumy.org",
+│ │ │ -    "app.unjswap.org",
+│ │ │ -    "unjswap.org",
+│ │ │ -    "uniswap-org.com",
+│ │ │ -    "app.uniswap-org.com",
+│ │ │ -    "xn--niswap-hq8b.com",
+│ │ │ -    "app.xn--niswap-hq8b.com",
+│ │ │ -    "ethevent.top",
+│ │ │ -    "crypto-safe.ltd",
+│ │ │ -    "hederabit.com",
+│ │ │ -    "elonhelp.in",
+│ │ │ -    "kavbit.com",
+│ │ │ -    "xrp.ltda",
+│ │ │ -    "bovbit.com",
+│ │ │ -    "zelbit.exchange",
+│ │ │ -    "tevbit.com",
+│ │ │ -    "tocbit.com",
+│ │ │ -    "chipmixer.app",
+│ │ │ -    "app.unlswap.org",
+│ │ │ -    "unlswap.org",
+│ │ │ -    "coinbitmex.com",
+│ │ │      "exoddus.net",
+│ │ │      "buterin-gold.xyz",
+│ │ │      "etherh-vitalik.top",
+│ │ │      "check-ledger.com",
+│ │ │      "xn--uniswp-mta.com",
+│ │ │      "app.xn--uniswp-mta.com",
+│ │ │      "org-connect-wallet.com",
+│ │ │ @@ -345,14 +285,15 @@
+│ │ │      "ripplewalletapps.com",
+│ │ │      "crypteriumwalletapp.com",
+│ │ │      "trezorapp.com",
+│ │ │      "mewapp.ltd",
+│ │ │      "vladlad.com",
+│ │ │      "myetherwallewt.com",
+│ │ │      "dexapis.xyz",
+│ │ │ +    "the-blockchain.com",
+│ │ │      "arbitragecrypto.org",
+│ │ │      "theapi.pro",
+│ │ │      "elonevent.site",
+│ │ │      "trustapp.ltd",
+│ │ │      "myrthervvellanti.com",
+│ │ │      "myrthesrvvelltni.com",
+│ │ │      "guadra.com",
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -73,15 +73,14 @@
+│ │          "history"
+│ │      ],
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "EtherAddressLookup",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.23.1",
+│ │      "web_accessible_resources": [
+│ │          "images/powered-by-quiknode.png",
+│ │          "/js/workers/TwitterFakeAccount.js",
+│ │          "images/twitter/whitelisted.png",
+│ │          "images/twitter/blacklisted.png",
+│ │          "images/twitter/neutral.png",
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -10,15 +10,15 @@
+│  <div id="content">
+│      <h4 class="text-center">EtherAddressLookup</h4>
+│  
+│      <div id="ext-etheraddresslookup-bookmarks" class="ext-etheraddresslookup-center">
+│          <!--- populated by js/app/toggleBookmarks.js showBookmarks() -->
+│      </div>
+│  
+│ -    <a target="_blank" href="https://cryptoscamdb.org/report/" class="btn btn-sm btn-error"
+│ +    <a target="_blank" href="https://etherscamdb.info/report/domain/" class="btn btn-sm btn-error"
+│         id="ext-etheraddresslookup-report"><img width="16" height="16" src="images/flag.png"> Report a domain</a>
+│  
+│      <br/>
+│  
+│      <div>
+│          <ul class="ext-etheraddresslookup-nav ext-etheraddresslookup-nav-tabs" id="ext-etheraddresslookup-tab" role="tablist" style="margin-bottom: 1rem">
+│              <li class="ext-etheraddresslookup-nav-item">
+│ @@ -177,18 +177,18 @@
+│              </div>
+│          </div>
+│      </div>
+│  
+│      <div id="footer">
+│          <div class="ext-etheraddresslookup-center">
+│              <a href="/settings.html" target="_blank">More Settings</a> &mdash;
+│ -            <a href="https://cryptoscamdb.org/" target="_blank">CryptoScamDB</a> &mdash;
+│ +            <a href="https://etherscamdb.info/" target="_blank">Scam domains</a> &mdash;
+│              <a href="https://github.com/409H/EtherAddressLookup" target="_blank">GitHub</a> <br />
+│ -            <a href="https://twitter.com/EthAddrLookup" target="_blank">@EthAddrLookup</a> &mdash;
+│ -            <a href="https://twitter.com/CryptoPhishing" target="_blank">@CryptoPhishing</a>
+│ +            <a href="https://harrydenley.com/ethaddresslookup-chrome-extension-release/" target="_blank">Read Author Blog</a> &mdash;
+│ +            <a href="https://twitter.com/EthAddrLookup" target="_blank">@EthAddrLookup</a>
+│          </div>
+│  
+│          <small><strong>Version:</strong> <span id="ext-manifest_version"></span> &mdash; BETA</small> 
+│          <div id="ext-etheraddresslookup-rpc_node_details" style="display:inline;position:absolute;right:1em;">RPC Network: <span></span></div>
+│      </div>
+│  </div>
+│   --- /workspace/pipeline_output/chromex_data/static
+├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/static
+│ │   --- /workspace/pipeline_output/chromex_data/static/phishing
+│ ├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/static/phishing
+│ │ │   --- /workspace/pipeline_output/chromex_data/static/phishing/phishing.html
+│ │ ├── +++ /workspace/pipeline_output/https-github.com-409H-EtherAddressLookup/static/phishing/phishing.html
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -138,15 +138,15 @@
+│ │ │                          </ul>
+│ │ │                      </li>                         
+│ │ │                  </ul>
+│ │ │              </p>
+│ │ │          </div>
+│ │ │          <div id="donation">
+│ │ │              <h3>Donations</h3>
+│ │ │ -            <p>If you want to support development and monitoring of malicious domains and the infrastrucutre, send ETH/ERC20 tokens to: <strong><a href="https://etherscan.io/address/ethaddresslookup.harrydenley.eth" target="_blank">ethaddresslookup.harrydenley.eth</a></strong> &mdash; Thank you!</p>
+│ │ │ +            <p>If you want to support development, send ETH/ERC20 tokens to: <strong><a href="https://etherscan.io/address/ethaddresslookup.harrydenley.eth" target="_blank">ethaddresslookup.harrydenley.eth</a></strong> &mdash; Thank you!</p>
+│ │ │              <br />
+│ │ │              <img alt="QR code for donations" src="data:image/gif;base64,R0lGODlhhACEAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACEAIQAAAL/jI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuC8chQNf2jeeMvef89FP4hkQApYi89WjL4bHWTBafUmQzqgNCF9UktevkboVTLVMMDkuCFTbC9x4n3Bf6Wg6xR/TwAx9fB3h3NmgUSDiXZfCHiKGXJ9jw+MCo5Bc5WegYeXVJFIeYGcBGimkaWrbIiWao+unZOrrqGlvaCNtJ20f7Baomi3pLFlx7Guvruwt8TClnhQvtYFssvJy7rCyKDJvtrGjNXXU93V09ngqu603cdc7+rR2NDb9uyRsu5U79G3+vjrPt375k4lgFnAdQHqR3Cf2lQ8jMgrKDzxwu3FduIL6I/22+UUTX72FFkfVCYqlGjp45gxunfWyYYaK8kSFNzjT2kmOvQzpZSqyn7+CmldJmJSIqCahPkkgvDu05DGpSYkEV8nz6JQ1MlzepdsWotWZYlRodcjVbcmzTllpzuv2aU+1agWHfovV6F6xaGXmFLpXJd8TZh/psBv6Jl/Bfj4dFDBaVcm6KyF7MlIVYiWC+DZRHOv0KmCkYDp3Rfc4buvQrDap/nRadOu1mx7Ivi0Wasd1SrBvt7jGau2BU0rV9vz6pt/JwzsXhWr7YOrbka8il2xN9vBlM4riFH70+mLr269yl6o76GLhRzVJ3Fp39PX13yaGzKkV/HzbZ84oFPv8N35tzdNVGkzGGQeSXfwJiRiBIBq7HCoAK9sUWQ8r1h6Bl8oGH04L1LbYdTxtKiB1oEKJ24lQcWphgiSjS1xxrZLHX4oY0PhegB61V92Bi7GWUnSYVcuRZjhjyB1mKcTE2IEozRujgfO2B6NqQyNXoXZIwskhlkBjyRiFiyVX1HpFKjmccjhN+1yKW06G5oHsZLmfRblbJmNiB4oXZAZAi5lcemX0+KSaJYLJ5Z0yEdrTVmWUKWp6h40n66J+rMXhpZnY2OWWdhRSYhptmOnmpl9BFOVqimuIXYqWFoopkh3TGx6SKlYzoqH5ceoropz3aVutrwfm4qa2/Lvnmi2P/JtomlKSuuKyYN66pZae6JucntTF+GedVRsa667XN8nnosPxsS9m4LioaLrjRistst9LG6yqtyR4pa6+MXibntPvuie+9lKp4pbezilpurrcqnC/CBhvbaMSpaitXsHCWae6PsDa418M8ttvWtxVbXO/H79Yl8sjk8fWhkKyaV6ueH7T827PVrhoDzV7SbF1gOl9sL8ytcvsyyr5KbDKy/Gool31IOwutvweqvOW5Ni+a7b4VOx011LgS6/K/RpoKdMFrkl3vz7yiPWfbbBeW4tTqSXybtUr3qybE7wqL6t2Txhwyp3KCCuzQGl8NX5Fp922ilNa5q/a1No7t9a+Epke+Y+Ndz8vr19ZmruzAkHpIsr6EH7502Dinm/fpVtJLsKr5Yc5x4StjvKjUDbfO+Nl/P/2yw5xjanvdWev+bMKZbnsq8EELL/bwkc5tte2H4o3n7UFPvnbZeU/vONaAfk9+9jeLD3bNIyNvPexZy8wp5LPPH36euaIuv/36C7050epvnbL2dY9iqWuMAQ+IwAQqcIEMbKADHwjBCEpwghSsoAUhUAAAOw==" />
+│ │ │          </div>
+│ │ │      </div>
+│ │ │      <script src="phishing-notices.js"></script>
+│ │ │    </body>
+│ │ │  </html>

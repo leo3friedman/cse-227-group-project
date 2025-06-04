@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Zero-tags
+├── file list
+│ @@ -1,6 +1,6 @@
+│ -Logos-Large-Icons-icon.png
+│ -Scroll.png
+│ -_metadata
+│ +.git
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Zero-tags/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Zero-tags",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "http://www.zerochan.net/",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

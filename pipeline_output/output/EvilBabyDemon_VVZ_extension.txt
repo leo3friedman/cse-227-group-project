@@ -1,0 +1,132 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/VVZ_extension
+├── file list
+│ @@ -1,22 +1,27 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +ToDo.md
+│  all-button.js
+│  autofill.js
+│  background.js
+│  coursereview-links.js
+│  filter.js
+│  find_old.js
+│  helper.js
+│  icon.svg
+│  icon_128.png
+│  icon_48.png
+│  manifest.json
+│ +manifest_chrome.json
+│  on_error.js
+│ +package-lock.json
+│  page-editor.js
+│  popup.css
+│  popup.html
+│  popup.js
+│  rating.js
+│  show_more_info.js
+│ -timetable.js
+│ +timetable.js
+│ +zipExt
+│   --- /workspace/pipeline_output/chromex_data/all-button.js
+├── +++ /workspace/pipeline_output/VVZ_extension/all-button.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -26,23 +26,18 @@
+│  6f7720616c6c0a20202020202020202f2f203120436f7572736520756e697473
+│  202f204c65726e65696e68656974656e202864656661756c7429200a20202020
+│  202020202f2f203220436174616c6f6775652064617461202f204b6174616c6f
+│  67646174656e200a20202020202020202f2f203320436f7572736573202f204c
+│  656872766572616e7374616c74756e67656e0a20202020202020206966202821
+│  616c6c5461672e687265662e696e636c756465732822616e73696368743d2229
+│  29207b0a202020202020202020202020616c6c5461672e68726566202b3d2022
+│ -26616e73696368743d31223b0a20202020202020207d0a20202020202020202f
+│ -2f61637475616c6c79206d696768742062652074686520736561726368207461
+│ -670a202020202020202069662028616c6c5461672e687265662e696e636c7564
+│ -657328227365617263683d6f6e222929207b0a20202020202020202020202061
+│ -6c6c5461672e68726566203d20616c6c5461672e687265662e7265706c616365
+│ -282f7365617263683d6f6e2f2c202222293b0a20202020202020207d200a2020
+│ -20202020202069662028646f63756d656e742e55524c2e696e636c7564657328
+│ -226c616e673d656e222929207b0a202020202020202020202020616c6c546167
+│ -2e74657874436f6e74656e74203d2022416c6c223b0a20202020202020207d20
+│ -656c7365207b0a202020202020202020202020616c6c5461672e74657874436f
+│ -6e74656e74203d2022416c6c65223b0a20202020202020207d0a202020202020
+│ -2020766172206368696c64417272203d20706167696e6174696f6e2e6368696c
+│ -644e6f6465733b0a2020202020202020696620286368696c6441727220213d20
+│ -6e756c6c202626206368696c644172722e6c656e67746820213d203029207b0a
+│ -2020202020202020202020206368696c644172725b305d2e617070656e644368
+│ -696c6428616c6c546167293b0a20202020202020207d0a202020207d293b0a7d
+│ +26616e73696368743d31223b0a20202020202020207d0a202020202020202069
+│ +662028646f63756d656e742e55524c2e696e636c7564657328226c616e673d65
+│ +6e222929207b0a202020202020202020202020616c6c5461672e74657874436f
+│ +6e74656e74203d2022416c6c223b0a20202020202020207d20656c7365207b0a
+│ +202020202020202020202020616c6c5461672e74657874436f6e74656e74203d
+│ +2022416c6c65223b0a20202020202020207d0a20202020202020207661722063
+│ +68696c64417272203d20706167696e6174696f6e2e6368696c644e6f6465733b
+│ +0a2020202020202020696620286368696c6441727220213d206e756c6c202626
+│ +206368696c644172722e6c656e67746820213d203029207b0a20202020202020
+│ +20202020206368696c644172725b305d2e617070656e644368696c6428616c6c
+│ +546167293b0a20202020202020207d0a202020207d293b0a7d
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/VVZ_extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,13 +1,16 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_popup": "popup.html"
+│ │ -    },
+│ │      "background": {
+│ │ -        "service_worker": "background.js"
+│ │ +        "persistent": false,
+│ │ +        "scripts": [
+│ │ +            "background.js"
+│ │ +        ]
+│ │ +    },
+│ │ +    "browser_action": {
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "helper.js",
+│ │                  "coursereview-links.js",
+│ │                  "rating.js",
+│ │ @@ -30,26 +33,24 @@
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.red9.ethz.ch/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Better user experience on vvz.ethz.ch Features: Keep Search, Timetable Creator, filter by grading, Ratings from CourseReview",
+│ │ -    "host_permissions": [
+│ │ +    "icons": {
+│ │ +        "128": "icon.svg",
+│ │ +        "48": "icon.svg",
+│ │ +        "96": "icon.svg"
+│ │ +    },
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "vvz-coursereview",
+│ │ +    "permissions": [
+│ │ +        "cookies",
+│ │          "https://rubberducky.vsos.ethz.ch/*",
+│ │          "https://cr.vsos.ethz.ch/*",
+│ │          "https://www.vvz.ethz.ch/*",
+│ │          "https://www.vorlesungen.ethz.ch/*",
+│ │          "https://www.red9.ethz.ch/*"
+│ │      ],
+│ │ -    "icons": {
+│ │ -        "128": "icon_128.png",
+│ │ -        "48": "icon_48.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "vvz-coursereview",
+│ │ -    "permissions": [
+│ │ -        "cookies"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.6"
+│ │  }

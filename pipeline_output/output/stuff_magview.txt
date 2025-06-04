@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/magview
+├── file list
+│ @@ -1,5 +1,6 @@
+│ -_metadata
+│ +.git
+│  content-script.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/magview/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │          "128": "/images/ico128.png",
+│ │          "16": "/images/ico16.png",
+│ │          "32": "/images/ico32.png",
+│ │          "48": "/images/ico48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "MagView",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }

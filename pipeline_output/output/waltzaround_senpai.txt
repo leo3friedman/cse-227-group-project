@@ -1,0 +1,160 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/senpai
+├── file list
+│ @@ -1,11 +1,25 @@
+│ +.git
+│ +Assets
+│  README.md
+│ -_metadata
+│ -alt-devtool.html
+│ -assets
+│ -dist
+│ -index.html
+│ -index.js
+│ +background.js
+│ +haarcascade_frontalface_default.xml
+│ +icon128.png
+│ +icon16.png
+│ +icon48.png
+│ +logo.png
+│  manifest.json
+│ -package.json
+│ -scripts
+│ -test.html
+│ +noise.png
+│ +note.mp3
+│ +opencv.js
+│ +package-lock.json
+│ +permission.js
+│ +popup.html
+│ +popup.js
+│ +splash.html
+│ +splash.js
+│ +splashstyle.css
+│ +style.css
+│ +txt.wav.css
+│ +video.html
+│ +videocapture.js
+│ +videotest.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/senpai/README.md
+│ @@ -1,63 +1,2 @@
+│ -# Alt's Chrome Devtool
+│ -
+│ -> A developer tool extension for debugging your Alt flux applications
+│ -
+│ -Download the extension here:
+│ -
+│ -https://github.com/goatslacker/alt-devtool/raw/master/dist/alt-dev.crx
+│ -
+│ -## Installing
+│ -
+│ -Open up Chrome extensions. Drag the extension onto there. Accept the ridiculous permissions.
+│ -
+│ -In your alt app you'll need to use [chromeDebug](https://github.com/goatslacker/alt/blob/master/src/utils/chromeDebug.js)
+│ -
+│ -```js
+│ -var Alt = require('alt');
+│ -var alt = new Alt();
+│ -Alt.debug('alt', alt);
+│ -```
+│ -
+│ -
+│ -## Permissions
+│ -
+│ -This extension requires the ability to "Read and change all your data on the websites you visit" according to Google.
+│ -
+│ -This extension just needs some JavaScript to detect whether Alt exists on the page or not. Having access to all data on websites you visit is way more power than this extension actually needs to work. Ideally, the extension would just have access to Alt if it exists or not.
+│ -
+│ -The source code will always be included here and the extension as well should you wish to inspect it.
+│ -
+│ -
+│ -## Feedback
+│ -
+│ -If you have feedback or issues then please [file an issue](https://github.com/goatslacker/alt-devtool/issues).
+│ -
+│ -
+│ -## Screenshots
+│ -
+│ -All dispatches. Search. Rollback. Time Travel debugging.
+│ -
+│ -![Dispatches](screenshots/1.png)
+│ -
+│ -Viewing stores. Snapshots. Bootstrap. Flush.
+│ -
+│ -![Stores](screenshots/2.png)
+│ -
+│ -
+│ -## Building this yourself
+│ -
+│ -* Clone this repo to your computer
+│ -* You might need to `npm install` and `npm run build`
+│ -* Download [Chrome Apps & Extensions Developer Tool](https://chrome.google.com/webstore/detail/chrome-apps-extensions-de/ohmmkhmmmpcnpikjeljgnaoabkaalbgc) from the chrome store.
+│ -* Open the Extensions dev tool you just downloaded and click on the `Extensions` tab
+│ -* Click `Load Unpacked` and find the folder where you cloned alt-devtool
+│ -* Open it
+│ -* Remove `node_modules` folder from your directory (you technically don't have to but this is faster)
+│ -* Click `pack`
+│ -* You'll need to use a private key, you can generate your own or not use one I think
+│ -* You'll finally have a .crx file which you can then install
+│ -
+│ -
+│ -## License
+│ -
+│ -[MIT](http://josh.mit-license.org)
+│ +# senpai
+│ +anti-procrastination weapons
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/senpai/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,34 +1,25 @@
+│ │  {
+│ │      "background": {
+│ │          "scripts": [
+│ │ -            "scripts/background.js"
+│ │ +            "background.js"
+│ │          ]
+│ │      },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "scripts/hook.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "run_at": "document_start"
+│ │ -        }
+│ │ -    ],
+│ │ -    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+│ │ -    "description": "Devtools for debugging and visualizing your flux data through alt",
+│ │ -    "devtools_page": "index.html",
+│ │ +    "description": "Senpai master let you focus",
+│ │      "icons": {
+│ │ -        "128": "assets/icon128.png",
+│ │ -        "16": "assets/icon16.png",
+│ │ -        "48": "assets/icon48.png"
+│ │ +        "128": "icon128.png",
+│ │ +        "16": "icon16.png",
+│ │ +        "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "minimum_chrome_version": "10.0",
+│ │ -    "name": "Alt Devtools",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.0.1",
+│ │ -    "web_accessible_resources": [
+│ │ -        "dist/altif.js"
+│ │ -    ]
+│ │ +    "name": "Senpai",
+│ │ +    "permissions": [
+│ │ +        "webRequestBlocking",
+│ │ +        "webRequest",
+│ │ +        "activeTab",
+│ │ +        "tabs",
+│ │ +        "http://*.facebook.com/*",
+│ │ +        "https://*.facebook.com/*",
+│ │ +        "https://*.youtube.com/"
+│ │ +    ],
+│ │ +    "version": "2.0"
+│ │  }

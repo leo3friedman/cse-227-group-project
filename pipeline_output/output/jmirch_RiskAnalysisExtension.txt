@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/RiskAnalysisExtension
+├── file list
+│ @@ -1,5 +1,5 @@
+│ -RiskExtensionLargeIcon.png
+│ -RiskExtensionMediumIcon.png
+│ -_metadata
+│ +.git
+│ +README.md
+│  content.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/RiskAnalysisExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      "description": "Extension to provide analysis on Dominating12 games https://github.com/jmirch/RiskAnalysisExtension",
+│ │      "icons": {
+│ │          "128": "RiskExtensionLargeIcon.png",
+│ │          "48": "RiskExtensionMediumIcon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "D12 Analysis Extension",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.7"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/add-feed-to-slack
+├── file list
+│ @@ -1,7 +1,7 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│ -add-feed-to-slack.crx
+│  img
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/add-feed-to-slack/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,15 +38,14 @@
+│ │      "minimum_chrome_version": "99",
+│ │      "name": "Add feed to Slack",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │      "short_name": "Feed2Slack",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*/*"
+│ │              ],
+│ │              "resources": [

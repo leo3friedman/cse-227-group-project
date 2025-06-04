@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/analytics-tag-check
+├── file list
+│ @@ -1,17 +1,19 @@
+│ +.DS_Store
+│ +.git
+│  128.png
+│  LICENSE.txt
+│  README.md
+│ -_metadata
+│  background.js
+│  debug.png
+│  history.html
+│  history.js
+│  history.png
+│  icon.png
+│  images
+│  logo.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  screenshot.png
+│  style_sheet.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/analytics-tag-check/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "*://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.1"
+│ │  }

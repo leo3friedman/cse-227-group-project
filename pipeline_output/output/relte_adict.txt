@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/adict
+├── file list
+│ @@ -1,13 +1,17 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│  background.js
+│ +build.sh
+│  dictionary.js
+│  i18n.js
+│  icons
+│  lib
+│  manifest.json
+│  menu
+│ +package-lock.json
+│  popup
+│ +run.sh
+│  storage.js
+│  update_page
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/adict/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -99,10 +99,9 @@
+│ │      "name": "__MSG_extension_name__",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.0"
+│ │  }

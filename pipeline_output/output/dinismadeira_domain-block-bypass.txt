@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/domain-block-bypass
+├── file list
+│ @@ -1,7 +1,12 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  contentScript.js
+│  locked128.png
+│  manifest.json
+│ +package-lock.json
+│  unlocked128.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/domain-block-bypass/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │          "alarms",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "<all_urls>",
+│ │          "storage",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

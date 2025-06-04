@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/IncogSwitch
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.js
+│  clipart-trilby-hat-d23c.png
+│  icon.png
+│  icon128.png
+│  icon16.png
+│  icon19.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/IncogSwitch/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "IncogSwitch",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

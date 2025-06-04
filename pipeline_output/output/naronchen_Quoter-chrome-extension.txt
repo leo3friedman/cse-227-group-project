@@ -1,0 +1,65 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Quoter-chrome-extension
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│  hello.html
+│  images
+│  manifest.json
+│ +package-lock.json
+│  readme.md
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/Quoter-chrome-extension/images
+│ ├── file list
+│ │ @@ -1,5 +1,6 @@
+│ │ +.DS_Store
+│ │  quotes-128.png
+│ │  quotes-16.png
+│ │  quotes-48.png
+│ │  quotes-full.png
+│ │  quotes-small.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Quoter-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,15 +16,14 @@
+│ │      "icons": {
+│ │          "128": "images/quotes-128.png",
+│ │          "16": "images/quotes-16.png",
+│ │          "48": "images/quotes-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Gmail Quoter",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/readme.md
+├── +++ /workspace/pipeline_output/Quoter-chrome-extension/readme.md
+│ @@ -1,16 +1,17 @@
+│ -# Gmail Quoter ![Icon](images/quotes-48.png)
+│ -
+│ +# Gmail Quoter
+│  
+│  Gmail Quoter is a Chrome extension that makes quoting in Gmail easier. It allows users to select a piece of text in a Gmail thread and directly add it as a quote in the reply box, saving time and improving productivity.
+│  
+│ -# Privacy
+│ +# Privacy :lock:
+│  
+│  It does not handle/store personal or sensitive user data :sunglasses:
+│  
+│ +![Icon](images/quotes-16.png)
+│ +
+│  ## How to Install
+│  
+│  
+│  ## How to Use
+│  
+│  1. Open a Gmail thread.
+│  2. Select the text you want to quote.

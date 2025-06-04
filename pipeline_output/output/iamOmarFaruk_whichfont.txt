@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/whichfont
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  assets
+│  background.js
+│  content.js
+│  manifest.json
+│ +package-lock.json
+│  which-font.png
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/whichfont/assets
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  icons
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/whichfont/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Which Font?",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

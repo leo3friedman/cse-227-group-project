@@ -1,0 +1,464 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/trigonometry-homework-helper
+├── file list
+│ @@ -1,13 +1,16 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  LICENSE.txt
+│  README.md
+│ -_metadata
+│  assets
+│  background.js
+│  css
+│  fonts
+│  index.html
+│  jquery-2.1.4.min.js
+│  js
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/LICENSE.txt
+├── +++ /workspace/pipeline_output/trigonometry-homework-helper/LICENSE.txt
+│┄ Ordering differences only
+│ @@ -1,10 +1,10 @@
+│  The MIT License (MIT)
+│  
+│ -Copyright (c) [2015] [Owen Young & Jack Gentile]
+│ +Copyright (c) [2015] [Owen Young & Jack Gentile]
+│  
+│  Permission is hereby granted, free of charge, to any person obtaining a copy
+│  of this software and associated documentation files (the "Software"), to deal
+│  in the Software without restriction, including without limitation the rights
+│  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│  copies of the Software, and to permit persons to whom the Software is
+│  furnished to do so, subject to the following conditions:
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/trigonometry-homework-helper/README.md
+│┄ Ordering differences only
+│ @@ -1,6 +1,6 @@
+│ -# trigonometry-homework-helper
+│ -solve trig triangles
+│ -
+│ -This chrome web application solves triangles using trigonometry. This program was created by Jack Gentile and Owen Young. 
+│ -A link to the web application is here:
+│ -https://chrome.google.com/webstore/detail/trigonometry-homework-hel/kjnmdbojbjmcjoihjckkekpbfndldmnk
+│ +# trigonometry-homework-helper
+│ +solve trig triangles
+│ +
+│ +This chrome web application solves triangles using trigonometry. This program was created by Jack Gentile and Owen Young. 
+│ +A link to the web application is here:
+│ +https://chrome.google.com/webstore/detail/trigonometry-homework-hel/kjnmdbojbjmcjoihjckkekpbfndldmnk
+│   --- /workspace/pipeline_output/chromex_data/fonts
+├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts
+│ │   --- /workspace/pipeline_output/chromex_data/fonts/OFL.txt
+│ ├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts/OFL.txt
+│ │┄ Ordering differences only
+│ │ @@ -1,92 +1,92 @@
+│ │ +Copyright (c) 2011-2012, Vernon Adams (vern@newtypography.co.uk), with Reserved Font Names 'Oswald'
+│ │ +This Font Software is licensed under the SIL Open Font License, Version 1.1.
+│ │ +This license is copied below, and is also available with a FAQ at:
+│ │ +http://scripts.sil.org/OFL
+│ │ +
+│ │ +
+│ │ +-----------------------------------------------------------
+│ │ +SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+│ │ +-----------------------------------------------------------
+│ │ +
+│ │ +PREAMBLE
+│ │ +The goals of the Open Font License (OFL) are to stimulate worldwide
+│ │ +development of collaborative font projects, to support the font creation
+│ │ +efforts of academic and linguistic communities, and to provide a free and
+│ │ +open framework in which fonts may be shared and improved in partnership
+│ │ +with others.
+│ │ +
+│ │ +The OFL allows the licensed fonts to be used, studied, modified and
+│ │ +redistributed freely as long as they are not sold by themselves. The
+│ │ +fonts, including any derivative works, can be bundled, embedded, 
+│ │ +redistributed and/or sold with any software provided that any reserved
+│ │ +names are not used by derivative works. The fonts and derivatives,
+│ │ +however, cannot be released under any other type of license. The
+│ │ +requirement for fonts to remain under this license does not apply
+│ │ +to any document created using the fonts or their derivatives.
+│ │ +
+│ │ +DEFINITIONS
+│ │ +"Font Software" refers to the set of files released by the Copyright
+│ │ +Holder(s) under this license and clearly marked as such. This may
+│ │ +include source files, build scripts and documentation.
+│ │ +
+│ │ +"Reserved Font Name" refers to any names specified as such after the
+│ │ +copyright statement(s).
+│ │ +
+│ │ +"Original Version" refers to the collection of Font Software components as
+│ │ +distributed by the Copyright Holder(s).
+│ │ +
+│ │ +"Modified Version" refers to any derivative made by adding to, deleting,
+│ │ +or substituting -- in part or in whole -- any of the components of the
+│ │ +Original Version, by changing formats or by porting the Font Software to a
+│ │ +new environment.
+│ │ +
+│ │ +"Author" refers to any designer, engineer, programmer, technical
+│ │ +writer or other person who contributed to the Font Software.
+│ │ +
+│ │ +PERMISSION & CONDITIONS
+│ │ +Permission is hereby granted, free of charge, to any person obtaining
+│ │ +a copy of the Font Software, to use, study, copy, merge, embed, modify,
+│ │ +redistribute, and sell modified and unmodified copies of the Font
+│ │ +Software, subject to the following conditions:
+│ │ +
+│ │ +1) Neither the Font Software nor any of its individual components,
+│ │ +in Original or Modified Versions, may be sold by itself.
+│ │ +
+│ │ +2) Original or Modified Versions of the Font Software may be bundled,
+│ │ +redistributed and/or sold with any software, provided that each copy
+│ │ +contains the above copyright notice and this license. These can be
+│ │ +included either as stand-alone text files, human-readable headers or
+│ │ +in the appropriate machine-readable metadata fields within text or
+│ │ +binary files as long as those fields can be easily viewed by the user.
+│ │ +
+│ │ +3) No Modified Version of the Font Software may use the Reserved Font
+│ │ +Name(s) unless explicit written permission is granted by the corresponding
+│ │ +Copyright Holder. This restriction only applies to the primary font name as
+│ │ +presented to the users.
+│ │ +
+│ │ +4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+│ │ +Software shall not be used to promote, endorse or advertise any
+│ │ +Modified Version, except to acknowledge the contribution(s) of the
+│ │ +Copyright Holder(s) and the Author(s) or with their explicit written
+│ │ +permission.
+│ │ +
+│ │ +5) The Font Software, modified or unmodified, in part or in whole,
+│ │ +must be distributed entirely under this license, and must not be
+│ │ +distributed under any other license. The requirement for fonts to
+│ │ +remain under this license does not apply to any document created
+│ │ +using the Font Software.
+│ │ +
+│ │ +TERMINATION
+│ │ +This license becomes null and void if any of the above conditions are
+│ │ +not met.
+│ │ +
+│ │ +DISCLAIMER
+│ │ +THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+│ │ +EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+│ │ +MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+│ │ +OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+│ │ +COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+│ │ +INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+│ │ +DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+│ │ +FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+│ │ +OTHER DEALINGS IN THE FONT SOFTWARE.
+│ │ -Copyright (c) 2011-2012, Vernon Adams (vern@newtypography.co.uk), with Reserved Font Names 'Oswald'
+│ │ -This Font Software is licensed under the SIL Open Font License, Version 1.1.
+│ │ -This license is copied below, and is also available with a FAQ at:
+│ │ -http://scripts.sil.org/OFL
+│ │ -
+│ │ -
+│ │ ------------------------------------------------------------
+│ │ -SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+│ │ ------------------------------------------------------------
+│ │ -
+│ │ -PREAMBLE
+│ │ -The goals of the Open Font License (OFL) are to stimulate worldwide
+│ │ -development of collaborative font projects, to support the font creation
+│ │ -efforts of academic and linguistic communities, and to provide a free and
+│ │ -open framework in which fonts may be shared and improved in partnership
+│ │ -with others.
+│ │ -
+│ │ -The OFL allows the licensed fonts to be used, studied, modified and
+│ │ -redistributed freely as long as they are not sold by themselves. The
+│ │ -fonts, including any derivative works, can be bundled, embedded, 
+│ │ -redistributed and/or sold with any software provided that any reserved
+│ │ -names are not used by derivative works. The fonts and derivatives,
+│ │ -however, cannot be released under any other type of license. The
+│ │ -requirement for fonts to remain under this license does not apply
+│ │ -to any document created using the fonts or their derivatives.
+│ │ -
+│ │ -DEFINITIONS
+│ │ -"Font Software" refers to the set of files released by the Copyright
+│ │ -Holder(s) under this license and clearly marked as such. This may
+│ │ -include source files, build scripts and documentation.
+│ │ -
+│ │ -"Reserved Font Name" refers to any names specified as such after the
+│ │ -copyright statement(s).
+│ │ -
+│ │ -"Original Version" refers to the collection of Font Software components as
+│ │ -distributed by the Copyright Holder(s).
+│ │ -
+│ │ -"Modified Version" refers to any derivative made by adding to, deleting,
+│ │ -or substituting -- in part or in whole -- any of the components of the
+│ │ -Original Version, by changing formats or by porting the Font Software to a
+│ │ -new environment.
+│ │ -
+│ │ -"Author" refers to any designer, engineer, programmer, technical
+│ │ -writer or other person who contributed to the Font Software.
+│ │ -
+│ │ -PERMISSION & CONDITIONS
+│ │ -Permission is hereby granted, free of charge, to any person obtaining
+│ │ -a copy of the Font Software, to use, study, copy, merge, embed, modify,
+│ │ -redistribute, and sell modified and unmodified copies of the Font
+│ │ -Software, subject to the following conditions:
+│ │ -
+│ │ -1) Neither the Font Software nor any of its individual components,
+│ │ -in Original or Modified Versions, may be sold by itself.
+│ │ -
+│ │ -2) Original or Modified Versions of the Font Software may be bundled,
+│ │ -redistributed and/or sold with any software, provided that each copy
+│ │ -contains the above copyright notice and this license. These can be
+│ │ -included either as stand-alone text files, human-readable headers or
+│ │ -in the appropriate machine-readable metadata fields within text or
+│ │ -binary files as long as those fields can be easily viewed by the user.
+│ │ -
+│ │ -3) No Modified Version of the Font Software may use the Reserved Font
+│ │ -Name(s) unless explicit written permission is granted by the corresponding
+│ │ -Copyright Holder. This restriction only applies to the primary font name as
+│ │ -presented to the users.
+│ │ -
+│ │ -4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+│ │ -Software shall not be used to promote, endorse or advertise any
+│ │ -Modified Version, except to acknowledge the contribution(s) of the
+│ │ -Copyright Holder(s) and the Author(s) or with their explicit written
+│ │ -permission.
+│ │ -
+│ │ -5) The Font Software, modified or unmodified, in part or in whole,
+│ │ -must be distributed entirely under this license, and must not be
+│ │ -distributed under any other license. The requirement for fonts to
+│ │ -remain under this license does not apply to any document created
+│ │ -using the Font Software.
+│ │ -
+│ │ -TERMINATION
+│ │ -This license becomes null and void if any of the above conditions are
+│ │ -not met.
+│ │ -
+│ │ -DISCLAIMER
+│ │ -THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+│ │ -EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+│ │ -MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+│ │ -OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+│ │ -COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+│ │ -INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+│ │ -DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+│ │ -FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+│ │ -OTHER DEALINGS IN THE FONT SOFTWARE.
+│ │   --- /workspace/pipeline_output/chromex_data/fonts/WeblySleek_UI_Semilight
+│ ├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts/WeblySleek_UI_Semilight
+│ │ │   --- /workspace/pipeline_output/chromex_data/fonts/WeblySleek_UI_Semilight/demo-files
+│ │ ├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts/WeblySleek_UI_Semilight/demo-files
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/fonts/WeblySleek_UI_Semilight/demo-files/demo.css
+│ │ │ ├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts/WeblySleek_UI_Semilight/demo-files/demo.css
+│ │ │ │┄ Ordering differences only
+│ │ │ │ @@ -1,22 +1,22 @@
+│ │ │ │ +﻿body{margin:0px;padding:0px;font-family:Verdana,Arial;font-size:12px}
+│ │ │ │ +#wrapper{width:1000px;margin-left:auto;margin-right:auto;border:1px solid #eeeeee;border-top:0}
+│ │ │ │ +#title{float:left;width:680px;margin:20px 0 20px 20px;font-size:60px;white-space:nowrap;overflow:hidden}
+│ │ │ │ +#logo{float:right;margin:25px 20px 20px 0}
+│ │ │ │ +#logo img{border:0}
+│ │ │ │ +#menu,#footer{background:#eeeeee}
+│ │ │ │ +#menu ul{padding:0;margin:0}
+│ │ │ │ +#menu li{list-style-type:none}
+│ │ │ │ +#menu li a{padding:5px 20px 5px 20px;float:left;color:black;text-decoration:none;font-weight:bold}
+│ │ │ │ +#menu li a:hover{background:#d7d7d7}
+│ │ │ │ +#menu li.selected a{background:#002957;color:white}
+│ │ │ │ +#content{padding:20px}
+│ │ │ │ +#glyphs{float:left;margin-bottom:-20px !important}
+│ │ │ │ +#glyphs .g{width:89px;float:left;text-align:center;padding:0 3px 0 3px;border-right:1px solid #eeeeee;white-space:nowrap;overflow:hidden;margin-bottom:20px;min-height:100px}
+│ │ │ │ +.noborder{border:0 !important}
+│ │ │ │ +#glyphs p{font-size:60px;padding:0;margin:10px 0 0 0}
+│ │ │ │ +#footer {padding:5px 20px 5px 20px}
+│ │ │ │ +#footer a{color:black}
+│ │ │ │ +#copyright{float:left;white-space:nowrap;overflow:hidden;width:730px}
+│ │ │ │ +#generated{float:right}
+│ │ │ │ +#support{width:1000px;margin-left:auto;margin-right:auto;padding:5px 0 20px 40px;color:#9f9f9f}
+│ │ │ │ +.clr{clear:both}
+│ │ │ │ -﻿body{margin:0px;padding:0px;font-family:Verdana,Arial;font-size:12px}
+│ │ │ │ -#wrapper{width:1000px;margin-left:auto;margin-right:auto;border:1px solid #eeeeee;border-top:0}
+│ │ │ │ -#title{float:left;width:680px;margin:20px 0 20px 20px;font-size:60px;white-space:nowrap;overflow:hidden}
+│ │ │ │ -#logo{float:right;margin:25px 20px 20px 0}
+│ │ │ │ -#logo img{border:0}
+│ │ │ │ -#menu,#footer{background:#eeeeee}
+│ │ │ │ -#menu ul{padding:0;margin:0}
+│ │ │ │ -#menu li{list-style-type:none}
+│ │ │ │ -#menu li a{padding:5px 20px 5px 20px;float:left;color:black;text-decoration:none;font-weight:bold}
+│ │ │ │ -#menu li a:hover{background:#d7d7d7}
+│ │ │ │ -#menu li.selected a{background:#002957;color:white}
+│ │ │ │ -#content{padding:20px}
+│ │ │ │ -#glyphs{float:left;margin-bottom:-20px !important}
+│ │ │ │ -#glyphs .g{width:89px;float:left;text-align:center;padding:0 3px 0 3px;border-right:1px solid #eeeeee;white-space:nowrap;overflow:hidden;margin-bottom:20px;min-height:100px}
+│ │ │ │ -.noborder{border:0 !important}
+│ │ │ │ -#glyphs p{font-size:60px;padding:0;margin:10px 0 0 0}
+│ │ │ │ -#footer {padding:5px 20px 5px 20px}
+│ │ │ │ -#footer a{color:black}
+│ │ │ │ -#copyright{float:left;white-space:nowrap;overflow:hidden;width:730px}
+│ │ │ │ -#generated{float:right}
+│ │ │ │ -#support{width:1000px;margin-left:auto;margin-right:auto;padding:5px 0 20px 40px;color:#9f9f9f}
+│ │ │ │ -.clr{clear:both}
+│ │ │   --- /workspace/pipeline_output/chromex_data/fonts/WeblySleek_UI_Semilight/demo.html
+│ │ ├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts/WeblySleek_UI_Semilight/demo.html
+│ │ │┄ Ordering differences only
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,52 +1,52 @@
+│ │ │ -﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+│ │ │ -
+│ │ │ -<html xmlns="http://www.w3.org/1999/xhtml"> 
+│ │ │ -
+│ │ │ -  <head> 
+│ │ │ -
+│ │ │ -    <title>WeblySleek UI Semilight @font-face kit sample</title> 
+│ │ │ -    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+│ │ │ -    
+│ │ │ -    <style media="screen" type="text/css">/*<![CDATA[*/@import 'stylesheet.css';/*]]>*/</style>
+│ │ │ -    <style media="screen" type="text/css">/*<![CDATA[*/@import 'demo-files/demo.css';/*]]>*/</style>
+│ │ │ -    <style type="text/css">#title,#glyphs p{font-family:"WeblySleek UI Semilight"}</style>
+│ │ │ -
+│ │ │ - </head> 
+│ │ │ - 
+│ │ │ -<body> 
+│ │ │ -
+│ │ │ -	<div id="wrapper">
+│ │ │ -		<div id="title">
+│ │ │ -			WeblySleek UI Semilight		</div>
+│ │ │ -		<div id="logo">
+│ │ │ -			<a href="http://www.fonts2u.com" target="_blank"><img src="demo-files/fonts2u_logo.gif" width="250" height="69" alt="Fonts2u.com logo" /></a>
+│ │ │ -		</div>
+│ │ │ -		<div class="clr"></div>
+│ │ │ -
+│ │ │ -		<div id="menu">
+│ │ │ -			<ul>
+│ │ │ -				<li class="selected"><a href="#glyphs">Glyph Chart</a></li>
+│ │ │ -			<ul>
+│ │ │ -			<div class="clr"></div>
+│ │ │ -		</div>
+│ │ │ -
+│ │ │ -		<div id="content">
+│ │ │ -			
+│ │ │ -			<div id="glyphs">
+│ │ │ -				﻿<div class="g">&amp;#32;<p> </p></div>﻿<div class="g">&amp;#33;<p>!</p></div>﻿<div class="g">&amp;#34;<p>"</p></div>﻿<div class="g">&amp;#35;<p>#</p></div>﻿<div class="g">&amp;#36;<p>$</p></div>﻿<div class="g">&amp;#37;<p>%</p></div>﻿<div class="g">&amp;#38;<p>&</p></div>﻿<div class="g">&amp;#39;<p>'</p></div>﻿<div class="g">&amp;#40;<p>(</p></div>﻿<div class="g noborder">&amp;#41;<p>)</p></div><div class="clr"></div>﻿<div class="g">&amp;#42;<p>*</p></div>﻿<div class="g">&amp;#43;<p>+</p></div>﻿<div class="g">&amp;#44;<p>,</p></div>﻿<div class="g">&amp;#45;<p>-</p></div>﻿<div class="g">&amp;#46;<p>.</p></div>﻿<div class="g">&amp;#47;<p>/</p></div>﻿<div class="g">&amp;#48;<p>0</p></div>﻿<div class="g">&amp;#49;<p>1</p></div>﻿<div class="g">&amp;#50;<p>2</p></div>﻿<div class="g noborder">&amp;#51;<p>3</p></div><div class="clr"></div>﻿<div class="g">&amp;#52;<p>4</p></div>﻿<div class="g">&amp;#53;<p>5</p></div>﻿<div class="g">&amp;#54;<p>6</p></div>﻿<div class="g">&amp;#55;<p>7</p></div>﻿<div class="g">&amp;#56;<p>8</p></div>﻿<div class="g">&amp;#57;<p>9</p></div>﻿<div class="g">&amp;#58;<p>:</p></div>﻿<div class="g">&amp;#59;<p>;</p></div>﻿<div class="g">&amp;#60;<p><</p></div>﻿<div class="g noborder">&amp;#61;<p>=</p></div><div class="clr"></div>﻿<div class="g">&amp;#62;<p>></p></div>﻿<div class="g">&amp;#63;<p>?</p></div>﻿<div class="g">&amp;#64;<p>@</p></div>﻿<div class="g">&amp;#65;<p>A</p></div>﻿<div class="g">&amp;#66;<p>B</p></div>﻿<div class="g">&amp;#67;<p>C</p></div>﻿<div class="g">&amp;#68;<p>D</p></div>﻿<div class="g">&amp;#69;<p>E</p></div>﻿<div class="g">&amp;#70;<p>F</p></div>﻿<div class="g noborder">&amp;#71;<p>G</p></div><div class="clr"></div>﻿<div class="g">&amp;#72;<p>H</p></div>﻿<div class="g">&amp;#73;<p>I</p></div>﻿<div class="g">&amp;#74;<p>J</p></div>﻿<div class="g">&amp;#75;<p>K</p></div>﻿<div class="g">&amp;#76;<p>L</p></div>﻿<div class="g">&amp;#77;<p>M</p></div>﻿<div class="g">&amp;#78;<p>N</p></div>﻿<div class="g">&amp;#79;<p>O</p></div>﻿<div class="g">&amp;#80;<p>P</p></div>﻿<div class="g noborder">&amp;#81;<p>Q</p></div><div class="clr"></div>﻿<div class="g">&amp;#82;<p>R</p></div>﻿<div class="g">&amp;#83;<p>S</p></div>﻿<div class="g">&amp;#84;<p>T</p></div>﻿<div class="g">&amp;#85;<p>U</p></div>﻿<div class="g">&amp;#86;<p>V</p></div>﻿<div class="g">&amp;#87;<p>W</p></div>﻿<div class="g">&amp;#88;<p>X</p></div>﻿<div class="g">&amp;#89;<p>Y</p></div>﻿<div class="g">&amp;#90;<p>Z</p></div>﻿<div class="g noborder">&amp;#91;<p>[</p></div><div class="clr"></div>﻿<div class="g">&amp;#92;<p>\</p></div>﻿<div class="g">&amp;#93;<p>]</p></div>﻿<div class="g">&amp;#94;<p>^</p></div>﻿<div class="g">&amp;#95;<p>_</p></div>﻿<div class="g">&amp;#96;<p>`</p></div>﻿<div class="g">&amp;#97;<p>a</p></div>﻿<div class="g">&amp;#98;<p>b</p></div>﻿<div class="g">&amp;#99;<p>c</p></div>﻿<div class="g">&amp;#100;<p>d</p></div>﻿<div class="g noborder">&amp;#101;<p>e</p></div><div class="clr"></div>﻿<div class="g">&amp;#102;<p>f</p></div>﻿<div class="g">&amp;#103;<p>g</p></div>﻿<div class="g">&amp;#104;<p>h</p></div>﻿<div class="g">&amp;#105;<p>i</p></div>﻿<div class="g">&amp;#106;<p>j</p></div>﻿<div class="g">&amp;#107;<p>k</p></div>﻿<div class="g">&amp;#108;<p>l</p></div>﻿<div class="g">&amp;#109;<p>m</p></div>﻿<div class="g">&amp;#110;<p>n</p></div>﻿<div class="g noborder">&amp;#111;<p>o</p></div><div class="clr"></div>﻿<div class="g">&amp;#112;<p>p</p></div>﻿<div class="g">&amp;#113;<p>q</p></div>﻿<div class="g">&amp;#114;<p>r</p></div>﻿<div class="g">&amp;#115;<p>s</p></div>﻿<div class="g">&amp;#116;<p>t</p></div>﻿<div class="g">&amp;#117;<p>u</p></div>﻿<div class="g">&amp;#118;<p>v</p></div>﻿<div class="g">&amp;#119;<p>w</p></div>﻿<div class="g">&amp;#120;<p>x</p></div>﻿<div class="g noborder">&amp;#121;<p>y</p></div><div class="clr"></div>﻿<div class="g">&amp;#122;<p>z</p></div>﻿<div class="g">&amp;#123;<p>{</p></div>﻿<div class="g">&amp;#124;<p>|</p></div>﻿<div class="g">&amp;#125;<p>}</p></div>﻿<div class="g">&amp;#126;<p>~</p></div>﻿<div class="g">&amp;#160;<p> </p></div>﻿<div class="g">&amp;#161;<p>¡</p></div>﻿<div class="g">&amp;#162;<p>¢</p></div>﻿<div class="g">&amp;#163;<p>£</p></div>﻿<div class="g noborder">&amp;#164;<p>¤</p></div><div class="clr"></div>﻿<div class="g">&amp;#165;<p>¥</p></div>﻿<div class="g">&amp;#166;<p>¦</p></div>﻿<div class="g">&amp;#167;<p>§</p></div>﻿<div class="g">&amp;#168;<p>¨</p></div>﻿<div class="g">&amp;#169;<p>©</p></div>﻿<div class="g">&amp;#170;<p>ª</p></div>﻿<div class="g">&amp;#171;<p>«</p></div>﻿<div class="g">&amp;#172;<p>¬</p></div>﻿<div class="g">&amp;#173;<p>­</p></div>﻿<div class="g noborder">&amp;#174;<p>®</p></div><div class="clr"></div>﻿<div class="g">&amp;#175;<p>¯</p></div>﻿<div class="g">&amp;#176;<p>°</p></div>﻿<div class="g">&amp;#177;<p>±</p></div>﻿<div class="g">&amp;#178;<p>²</p></div>﻿<div class="g">&amp;#179;<p>³</p></div>﻿<div class="g">&amp;#180;<p>´</p></div>﻿<div class="g">&amp;#181;<p>µ</p></div>﻿<div class="g">&amp;#182;<p>¶</p></div>﻿<div class="g">&amp;#183;<p>·</p></div>﻿<div class="g noborder">&amp;#184;<p>¸</p></div><div class="clr"></div>﻿<div class="g">&amp;#185;<p>¹</p></div>﻿<div class="g">&amp;#186;<p>º</p></div>﻿<div class="g">&amp;#187;<p>»</p></div>﻿<div class="g">&amp;#188;<p>¼</p></div>﻿<div class="g">&amp;#189;<p>½</p></div>﻿<div class="g">&amp;#190;<p>¾</p></div>﻿<div class="g">&amp;#191;<p>¿</p></div>﻿<div class="g">&amp;#192;<p>À</p></div>﻿<div class="g">&amp;#193;<p>Á</p></div>﻿<div class="g noborder">&amp;#194;<p>Â</p></div><div class="clr"></div>﻿<div class="g">&amp;#195;<p>Ã</p></div>﻿<div class="g">&amp;#196;<p>Ä</p></div>﻿<div class="g">&amp;#197;<p>Å</p></div>﻿<div class="g">&amp;#198;<p>Æ</p></div>﻿<div class="g">&amp;#199;<p>Ç</p></div>﻿<div class="g">&amp;#200;<p>È</p></div>﻿<div class="g">&amp;#201;<p>É</p></div>﻿<div class="g">&amp;#202;<p>Ê</p></div>﻿<div class="g">&amp;#203;<p>Ë</p></div>﻿<div class="g noborder">&amp;#204;<p>Ì</p></div><div class="clr"></div>﻿<div class="g">&amp;#205;<p>Í</p></div>﻿<div class="g">&amp;#206;<p>Î</p></div>﻿<div class="g">&amp;#207;<p>Ï</p></div>﻿<div class="g">&amp;#208;<p>Ð</p></div>﻿<div class="g">&amp;#209;<p>Ñ</p></div>﻿<div class="g">&amp;#210;<p>Ò</p></div>﻿<div class="g">&amp;#211;<p>Ó</p></div>﻿<div class="g">&amp;#212;<p>Ô</p></div>﻿<div class="g">&amp;#213;<p>Õ</p></div>﻿<div class="g noborder">&amp;#214;<p>Ö</p></div><div class="clr"></div>﻿<div class="g">&amp;#215;<p>×</p></div>﻿<div class="g">&amp;#216;<p>Ø</p></div>﻿<div class="g">&amp;#217;<p>Ù</p></div>﻿<div class="g">&amp;#218;<p>Ú</p></div>﻿<div class="g">&amp;#219;<p>Û</p></div>﻿<div class="g">&amp;#220;<p>Ü</p></div>﻿<div class="g">&amp;#221;<p>Ý</p></div>﻿<div class="g">&amp;#222;<p>Þ</p></div>﻿<div class="g">&amp;#223;<p>ß</p></div>﻿<div class="g noborder">&amp;#224;<p>à</p></div><div class="clr"></div>﻿<div class="g">&amp;#225;<p>á</p></div>﻿<div class="g">&amp;#226;<p>â</p></div>﻿<div class="g">&amp;#227;<p>ã</p></div>﻿<div class="g">&amp;#228;<p>ä</p></div>﻿<div class="g">&amp;#229;<p>å</p></div>﻿<div class="g">&amp;#230;<p>æ</p></div>﻿<div class="g">&amp;#231;<p>ç</p></div>﻿<div class="g">&amp;#232;<p>è</p></div>﻿<div class="g">&amp;#233;<p>é</p></div>﻿<div class="g noborder">&amp;#234;<p>ê</p></div><div class="clr"></div>﻿<div class="g">&amp;#235;<p>ë</p></div>﻿<div class="g">&amp;#236;<p>ì</p></div>﻿<div class="g">&amp;#237;<p>í</p></div>﻿<div class="g">&amp;#238;<p>î</p></div>﻿<div class="g">&amp;#239;<p>ï</p></div>﻿<div class="g">&amp;#240;<p>ð</p></div>﻿<div class="g">&amp;#241;<p>ñ</p></div>﻿<div class="g">&amp;#242;<p>ò</p></div>﻿<div class="g">&amp;#243;<p>ó</p></div>﻿<div class="g noborder">&amp;#244;<p>ô</p></div><div class="clr"></div>﻿<div class="g">&amp;#245;<p>õ</p></div>﻿<div class="g">&amp;#246;<p>ö</p></div>﻿<div class="g">&amp;#247;<p>÷</p></div>﻿<div class="g">&amp;#248;<p>ø</p></div>﻿<div class="g">&amp;#249;<p>ù</p></div>﻿<div class="g">&amp;#250;<p>ú</p></div>﻿<div class="g">&amp;#251;<p>û</p></div>﻿<div class="g">&amp;#252;<p>ü</p></div>﻿<div class="g">&amp;#253;<p>ý</p></div>﻿<div class="g noborder">&amp;#254;<p>þ</p></div><div class="clr"></div>﻿<div class="g">&amp;#255;<p>ÿ</p></div>﻿<div class="g">&amp;#271;<p>ď</p></div>﻿<div class="g">&amp;#278;<p>Ė</p></div>﻿<div class="g">&amp;#316;<p>ļ</p></div>﻿<div class="g">&amp;#338;<p>Œ</p></div>﻿<div class="g">&amp;#339;<p>œ</p></div>﻿<div class="g">&amp;#352;<p>Š</p></div>﻿<div class="g">&amp;#353;<p>š</p></div>﻿<div class="g">&amp;#376;<p>Ÿ</p></div>﻿<div class="g noborder">&amp;#378;<p>ź</p></div><div class="clr"></div>﻿<div class="g">&amp;#379;<p>Ż</p></div>﻿<div class="g">&amp;#381;<p>Ž</p></div>﻿<div class="g">&amp;#382;<p>ž</p></div>﻿<div class="g">&amp;#402;<p>ƒ</p></div>﻿<div class="g">&amp;#539;<p>ț</p></div>﻿<div class="g">&amp;#710;<p>ˆ</p></div>﻿<div class="g">&amp;#732;<p>˜</p></div>﻿<div class="g">&amp;#1024;<p>Ѐ</p></div>﻿<div class="g">&amp;#1030;<p>І</p></div>﻿<div class="g noborder">&amp;#1037;<p>Ѝ</p></div><div class="clr"></div>﻿<div class="g">&amp;#1104;<p>ѐ</p></div>﻿<div class="g">&amp;#1117;<p>ѝ</p></div>﻿<div class="g">&amp;#7911;<p>ủ</p></div>﻿<div class="g">&amp;#7912;<p>Ứ</p></div>﻿<div class="g">&amp;#7944;<p>Ἀ</p></div>﻿<div class="g">&amp;#7971;<p>ἣ</p></div>﻿<div class="g">&amp;#8208;<p>‐</p></div>﻿<div class="g">&amp;#8211;<p>–</p></div>﻿<div class="g">&amp;#8212;<p>—</p></div>﻿<div class="g noborder">&amp;#8216;<p>‘</p></div><div class="clr"></div>﻿<div class="g">&amp;#8217;<p>’</p></div>﻿<div class="g">&amp;#8218;<p>‚</p></div>﻿<div class="g">&amp;#8220;<p>“</p></div>﻿<div class="g">&amp;#8221;<p>”</p></div>﻿<div class="g">&amp;#8222;<p>„</p></div>﻿<div class="g">&amp;#8224;<p>†</p></div>﻿<div class="g">&amp;#8225;<p>‡</p></div>﻿<div class="g">&amp;#8226;<p>•</p></div>﻿<div class="g">&amp;#8230;<p>…</p></div>﻿<div class="g noborder">&amp;#8240;<p>‰</p></div><div class="clr"></div>﻿<div class="g">&amp;#8249;<p>‹</p></div>﻿<div class="g">&amp;#8250;<p>›</p></div>﻿<div class="g">&amp;#8364;<p>€</p></div>﻿<div class="g">&amp;#8482;<p>™</p></div>﻿<div class="g">&amp;#64830;<p>﴾</p></div>﻿<div class="g">&amp;#64831;<p>﴿</p></div>			</div>
+│ │ │ -			
+│ │ │ -			<div class="clr"></div>
+│ │ │ -
+│ │ │ -		</div>
+│ │ │ -
+│ │ │ -		<div id="footer">
+│ │ │ -			<div id="copyright"><strong>WeblySleek UI Semilight</strong> | <strong>License:</strong> GNU/GPL</div>
+│ │ │ -			<div id="generated"><strong>@font-face kit</strong> by <a href="http://www.fonts2u.com" target="_blank">Fonts2u.com</a></div>
+│ │ │ -			<div class="clr"></div>
+│ │ │ -		</div>
+│ │ │ -	</div>
+│ │ │ -	<div id="support">Generated @font-face kit is compatible with western languages.</div>
+│ │ │ -
+│ │ │ -</body> 
+│ │ │ -
+│ │ │ +﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+│ │ │ +
+│ │ │ +<html xmlns="http://www.w3.org/1999/xhtml"> 
+│ │ │ +
+│ │ │ +  <head> 
+│ │ │ +
+│ │ │ +    <title>WeblySleek UI Semilight @font-face kit sample</title> 
+│ │ │ +    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+│ │ │ +    
+│ │ │ +    <style media="screen" type="text/css">/*<![CDATA[*/@import 'stylesheet.css';/*]]>*/</style>
+│ │ │ +    <style media="screen" type="text/css">/*<![CDATA[*/@import 'demo-files/demo.css';/*]]>*/</style>
+│ │ │ +    <style type="text/css">#title,#glyphs p{font-family:"WeblySleek UI Semilight"}</style>
+│ │ │ +
+│ │ │ + </head> 
+│ │ │ + 
+│ │ │ +<body> 
+│ │ │ +
+│ │ │ +	<div id="wrapper">
+│ │ │ +		<div id="title">
+│ │ │ +			WeblySleek UI Semilight		</div>
+│ │ │ +		<div id="logo">
+│ │ │ +			<a href="http://www.fonts2u.com" target="_blank"><img src="demo-files/fonts2u_logo.gif" width="250" height="69" alt="Fonts2u.com logo" /></a>
+│ │ │ +		</div>
+│ │ │ +		<div class="clr"></div>
+│ │ │ +
+│ │ │ +		<div id="menu">
+│ │ │ +			<ul>
+│ │ │ +				<li class="selected"><a href="#glyphs">Glyph Chart</a></li>
+│ │ │ +			<ul>
+│ │ │ +			<div class="clr"></div>
+│ │ │ +		</div>
+│ │ │ +
+│ │ │ +		<div id="content">
+│ │ │ +			
+│ │ │ +			<div id="glyphs">
+│ │ │ +				﻿<div class="g">&amp;#32;<p> </p></div>﻿<div class="g">&amp;#33;<p>!</p></div>﻿<div class="g">&amp;#34;<p>"</p></div>﻿<div class="g">&amp;#35;<p>#</p></div>﻿<div class="g">&amp;#36;<p>$</p></div>﻿<div class="g">&amp;#37;<p>%</p></div>﻿<div class="g">&amp;#38;<p>&</p></div>﻿<div class="g">&amp;#39;<p>'</p></div>﻿<div class="g">&amp;#40;<p>(</p></div>﻿<div class="g noborder">&amp;#41;<p>)</p></div><div class="clr"></div>﻿<div class="g">&amp;#42;<p>*</p></div>﻿<div class="g">&amp;#43;<p>+</p></div>﻿<div class="g">&amp;#44;<p>,</p></div>﻿<div class="g">&amp;#45;<p>-</p></div>﻿<div class="g">&amp;#46;<p>.</p></div>﻿<div class="g">&amp;#47;<p>/</p></div>﻿<div class="g">&amp;#48;<p>0</p></div>﻿<div class="g">&amp;#49;<p>1</p></div>﻿<div class="g">&amp;#50;<p>2</p></div>﻿<div class="g noborder">&amp;#51;<p>3</p></div><div class="clr"></div>﻿<div class="g">&amp;#52;<p>4</p></div>﻿<div class="g">&amp;#53;<p>5</p></div>﻿<div class="g">&amp;#54;<p>6</p></div>﻿<div class="g">&amp;#55;<p>7</p></div>﻿<div class="g">&amp;#56;<p>8</p></div>﻿<div class="g">&amp;#57;<p>9</p></div>﻿<div class="g">&amp;#58;<p>:</p></div>﻿<div class="g">&amp;#59;<p>;</p></div>﻿<div class="g">&amp;#60;<p><</p></div>﻿<div class="g noborder">&amp;#61;<p>=</p></div><div class="clr"></div>﻿<div class="g">&amp;#62;<p>></p></div>﻿<div class="g">&amp;#63;<p>?</p></div>﻿<div class="g">&amp;#64;<p>@</p></div>﻿<div class="g">&amp;#65;<p>A</p></div>﻿<div class="g">&amp;#66;<p>B</p></div>﻿<div class="g">&amp;#67;<p>C</p></div>﻿<div class="g">&amp;#68;<p>D</p></div>﻿<div class="g">&amp;#69;<p>E</p></div>﻿<div class="g">&amp;#70;<p>F</p></div>﻿<div class="g noborder">&amp;#71;<p>G</p></div><div class="clr"></div>﻿<div class="g">&amp;#72;<p>H</p></div>﻿<div class="g">&amp;#73;<p>I</p></div>﻿<div class="g">&amp;#74;<p>J</p></div>﻿<div class="g">&amp;#75;<p>K</p></div>﻿<div class="g">&amp;#76;<p>L</p></div>﻿<div class="g">&amp;#77;<p>M</p></div>﻿<div class="g">&amp;#78;<p>N</p></div>﻿<div class="g">&amp;#79;<p>O</p></div>﻿<div class="g">&amp;#80;<p>P</p></div>﻿<div class="g noborder">&amp;#81;<p>Q</p></div><div class="clr"></div>﻿<div class="g">&amp;#82;<p>R</p></div>﻿<div class="g">&amp;#83;<p>S</p></div>﻿<div class="g">&amp;#84;<p>T</p></div>﻿<div class="g">&amp;#85;<p>U</p></div>﻿<div class="g">&amp;#86;<p>V</p></div>﻿<div class="g">&amp;#87;<p>W</p></div>﻿<div class="g">&amp;#88;<p>X</p></div>﻿<div class="g">&amp;#89;<p>Y</p></div>﻿<div class="g">&amp;#90;<p>Z</p></div>﻿<div class="g noborder">&amp;#91;<p>[</p></div><div class="clr"></div>﻿<div class="g">&amp;#92;<p>\</p></div>﻿<div class="g">&amp;#93;<p>]</p></div>﻿<div class="g">&amp;#94;<p>^</p></div>﻿<div class="g">&amp;#95;<p>_</p></div>﻿<div class="g">&amp;#96;<p>`</p></div>﻿<div class="g">&amp;#97;<p>a</p></div>﻿<div class="g">&amp;#98;<p>b</p></div>﻿<div class="g">&amp;#99;<p>c</p></div>﻿<div class="g">&amp;#100;<p>d</p></div>﻿<div class="g noborder">&amp;#101;<p>e</p></div><div class="clr"></div>﻿<div class="g">&amp;#102;<p>f</p></div>﻿<div class="g">&amp;#103;<p>g</p></div>﻿<div class="g">&amp;#104;<p>h</p></div>﻿<div class="g">&amp;#105;<p>i</p></div>﻿<div class="g">&amp;#106;<p>j</p></div>﻿<div class="g">&amp;#107;<p>k</p></div>﻿<div class="g">&amp;#108;<p>l</p></div>﻿<div class="g">&amp;#109;<p>m</p></div>﻿<div class="g">&amp;#110;<p>n</p></div>﻿<div class="g noborder">&amp;#111;<p>o</p></div><div class="clr"></div>﻿<div class="g">&amp;#112;<p>p</p></div>﻿<div class="g">&amp;#113;<p>q</p></div>﻿<div class="g">&amp;#114;<p>r</p></div>﻿<div class="g">&amp;#115;<p>s</p></div>﻿<div class="g">&amp;#116;<p>t</p></div>﻿<div class="g">&amp;#117;<p>u</p></div>﻿<div class="g">&amp;#118;<p>v</p></div>﻿<div class="g">&amp;#119;<p>w</p></div>﻿<div class="g">&amp;#120;<p>x</p></div>﻿<div class="g noborder">&amp;#121;<p>y</p></div><div class="clr"></div>﻿<div class="g">&amp;#122;<p>z</p></div>﻿<div class="g">&amp;#123;<p>{</p></div>﻿<div class="g">&amp;#124;<p>|</p></div>﻿<div class="g">&amp;#125;<p>}</p></div>﻿<div class="g">&amp;#126;<p>~</p></div>﻿<div class="g">&amp;#160;<p> </p></div>﻿<div class="g">&amp;#161;<p>¡</p></div>﻿<div class="g">&amp;#162;<p>¢</p></div>﻿<div class="g">&amp;#163;<p>£</p></div>﻿<div class="g noborder">&amp;#164;<p>¤</p></div><div class="clr"></div>﻿<div class="g">&amp;#165;<p>¥</p></div>﻿<div class="g">&amp;#166;<p>¦</p></div>﻿<div class="g">&amp;#167;<p>§</p></div>﻿<div class="g">&amp;#168;<p>¨</p></div>﻿<div class="g">&amp;#169;<p>©</p></div>﻿<div class="g">&amp;#170;<p>ª</p></div>﻿<div class="g">&amp;#171;<p>«</p></div>﻿<div class="g">&amp;#172;<p>¬</p></div>﻿<div class="g">&amp;#173;<p>­</p></div>﻿<div class="g noborder">&amp;#174;<p>®</p></div><div class="clr"></div>﻿<div class="g">&amp;#175;<p>¯</p></div>﻿<div class="g">&amp;#176;<p>°</p></div>﻿<div class="g">&amp;#177;<p>±</p></div>﻿<div class="g">&amp;#178;<p>²</p></div>﻿<div class="g">&amp;#179;<p>³</p></div>﻿<div class="g">&amp;#180;<p>´</p></div>﻿<div class="g">&amp;#181;<p>µ</p></div>﻿<div class="g">&amp;#182;<p>¶</p></div>﻿<div class="g">&amp;#183;<p>·</p></div>﻿<div class="g noborder">&amp;#184;<p>¸</p></div><div class="clr"></div>﻿<div class="g">&amp;#185;<p>¹</p></div>﻿<div class="g">&amp;#186;<p>º</p></div>﻿<div class="g">&amp;#187;<p>»</p></div>﻿<div class="g">&amp;#188;<p>¼</p></div>﻿<div class="g">&amp;#189;<p>½</p></div>﻿<div class="g">&amp;#190;<p>¾</p></div>﻿<div class="g">&amp;#191;<p>¿</p></div>﻿<div class="g">&amp;#192;<p>À</p></div>﻿<div class="g">&amp;#193;<p>Á</p></div>﻿<div class="g noborder">&amp;#194;<p>Â</p></div><div class="clr"></div>﻿<div class="g">&amp;#195;<p>Ã</p></div>﻿<div class="g">&amp;#196;<p>Ä</p></div>﻿<div class="g">&amp;#197;<p>Å</p></div>﻿<div class="g">&amp;#198;<p>Æ</p></div>﻿<div class="g">&amp;#199;<p>Ç</p></div>﻿<div class="g">&amp;#200;<p>È</p></div>﻿<div class="g">&amp;#201;<p>É</p></div>﻿<div class="g">&amp;#202;<p>Ê</p></div>﻿<div class="g">&amp;#203;<p>Ë</p></div>﻿<div class="g noborder">&amp;#204;<p>Ì</p></div><div class="clr"></div>﻿<div class="g">&amp;#205;<p>Í</p></div>﻿<div class="g">&amp;#206;<p>Î</p></div>﻿<div class="g">&amp;#207;<p>Ï</p></div>﻿<div class="g">&amp;#208;<p>Ð</p></div>﻿<div class="g">&amp;#209;<p>Ñ</p></div>﻿<div class="g">&amp;#210;<p>Ò</p></div>﻿<div class="g">&amp;#211;<p>Ó</p></div>﻿<div class="g">&amp;#212;<p>Ô</p></div>﻿<div class="g">&amp;#213;<p>Õ</p></div>﻿<div class="g noborder">&amp;#214;<p>Ö</p></div><div class="clr"></div>﻿<div class="g">&amp;#215;<p>×</p></div>﻿<div class="g">&amp;#216;<p>Ø</p></div>﻿<div class="g">&amp;#217;<p>Ù</p></div>﻿<div class="g">&amp;#218;<p>Ú</p></div>﻿<div class="g">&amp;#219;<p>Û</p></div>﻿<div class="g">&amp;#220;<p>Ü</p></div>﻿<div class="g">&amp;#221;<p>Ý</p></div>﻿<div class="g">&amp;#222;<p>Þ</p></div>﻿<div class="g">&amp;#223;<p>ß</p></div>﻿<div class="g noborder">&amp;#224;<p>à</p></div><div class="clr"></div>﻿<div class="g">&amp;#225;<p>á</p></div>﻿<div class="g">&amp;#226;<p>â</p></div>﻿<div class="g">&amp;#227;<p>ã</p></div>﻿<div class="g">&amp;#228;<p>ä</p></div>﻿<div class="g">&amp;#229;<p>å</p></div>﻿<div class="g">&amp;#230;<p>æ</p></div>﻿<div class="g">&amp;#231;<p>ç</p></div>﻿<div class="g">&amp;#232;<p>è</p></div>﻿<div class="g">&amp;#233;<p>é</p></div>﻿<div class="g noborder">&amp;#234;<p>ê</p></div><div class="clr"></div>﻿<div class="g">&amp;#235;<p>ë</p></div>﻿<div class="g">&amp;#236;<p>ì</p></div>﻿<div class="g">&amp;#237;<p>í</p></div>﻿<div class="g">&amp;#238;<p>î</p></div>﻿<div class="g">&amp;#239;<p>ï</p></div>﻿<div class="g">&amp;#240;<p>ð</p></div>﻿<div class="g">&amp;#241;<p>ñ</p></div>﻿<div class="g">&amp;#242;<p>ò</p></div>﻿<div class="g">&amp;#243;<p>ó</p></div>﻿<div class="g noborder">&amp;#244;<p>ô</p></div><div class="clr"></div>﻿<div class="g">&amp;#245;<p>õ</p></div>﻿<div class="g">&amp;#246;<p>ö</p></div>﻿<div class="g">&amp;#247;<p>÷</p></div>﻿<div class="g">&amp;#248;<p>ø</p></div>﻿<div class="g">&amp;#249;<p>ù</p></div>﻿<div class="g">&amp;#250;<p>ú</p></div>﻿<div class="g">&amp;#251;<p>û</p></div>﻿<div class="g">&amp;#252;<p>ü</p></div>﻿<div class="g">&amp;#253;<p>ý</p></div>﻿<div class="g noborder">&amp;#254;<p>þ</p></div><div class="clr"></div>﻿<div class="g">&amp;#255;<p>ÿ</p></div>﻿<div class="g">&amp;#271;<p>ď</p></div>﻿<div class="g">&amp;#278;<p>Ė</p></div>﻿<div class="g">&amp;#316;<p>ļ</p></div>﻿<div class="g">&amp;#338;<p>Œ</p></div>﻿<div class="g">&amp;#339;<p>œ</p></div>﻿<div class="g">&amp;#352;<p>Š</p></div>﻿<div class="g">&amp;#353;<p>š</p></div>﻿<div class="g">&amp;#376;<p>Ÿ</p></div>﻿<div class="g noborder">&amp;#378;<p>ź</p></div><div class="clr"></div>﻿<div class="g">&amp;#379;<p>Ż</p></div>﻿<div class="g">&amp;#381;<p>Ž</p></div>﻿<div class="g">&amp;#382;<p>ž</p></div>﻿<div class="g">&amp;#402;<p>ƒ</p></div>﻿<div class="g">&amp;#539;<p>ț</p></div>﻿<div class="g">&amp;#710;<p>ˆ</p></div>﻿<div class="g">&amp;#732;<p>˜</p></div>﻿<div class="g">&amp;#1024;<p>Ѐ</p></div>﻿<div class="g">&amp;#1030;<p>І</p></div>﻿<div class="g noborder">&amp;#1037;<p>Ѝ</p></div><div class="clr"></div>﻿<div class="g">&amp;#1104;<p>ѐ</p></div>﻿<div class="g">&amp;#1117;<p>ѝ</p></div>﻿<div class="g">&amp;#7911;<p>ủ</p></div>﻿<div class="g">&amp;#7912;<p>Ứ</p></div>﻿<div class="g">&amp;#7944;<p>Ἀ</p></div>﻿<div class="g">&amp;#7971;<p>ἣ</p></div>﻿<div class="g">&amp;#8208;<p>‐</p></div>﻿<div class="g">&amp;#8211;<p>–</p></div>﻿<div class="g">&amp;#8212;<p>—</p></div>﻿<div class="g noborder">&amp;#8216;<p>‘</p></div><div class="clr"></div>﻿<div class="g">&amp;#8217;<p>’</p></div>﻿<div class="g">&amp;#8218;<p>‚</p></div>﻿<div class="g">&amp;#8220;<p>“</p></div>﻿<div class="g">&amp;#8221;<p>”</p></div>﻿<div class="g">&amp;#8222;<p>„</p></div>﻿<div class="g">&amp;#8224;<p>†</p></div>﻿<div class="g">&amp;#8225;<p>‡</p></div>﻿<div class="g">&amp;#8226;<p>•</p></div>﻿<div class="g">&amp;#8230;<p>…</p></div>﻿<div class="g noborder">&amp;#8240;<p>‰</p></div><div class="clr"></div>﻿<div class="g">&amp;#8249;<p>‹</p></div>﻿<div class="g">&amp;#8250;<p>›</p></div>﻿<div class="g">&amp;#8364;<p>€</p></div>﻿<div class="g">&amp;#8482;<p>™</p></div>﻿<div class="g">&amp;#64830;<p>﴾</p></div>﻿<div class="g">&amp;#64831;<p>﴿</p></div>			</div>
+│ │ │ +			
+│ │ │ +			<div class="clr"></div>
+│ │ │ +
+│ │ │ +		</div>
+│ │ │ +
+│ │ │ +		<div id="footer">
+│ │ │ +			<div id="copyright"><strong>WeblySleek UI Semilight</strong> | <strong>License:</strong> GNU/GPL</div>
+│ │ │ +			<div id="generated"><strong>@font-face kit</strong> by <a href="http://www.fonts2u.com" target="_blank">Fonts2u.com</a></div>
+│ │ │ +			<div class="clr"></div>
+│ │ │ +		</div>
+│ │ │ +	</div>
+│ │ │ +	<div id="support">Generated @font-face kit is compatible with western languages.</div>
+│ │ │ +
+│ │ │ +</body> 
+│ │ │ +
+│ │ │  </html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/fonts/WeblySleek_UI_Semilight/readme.txt
+│ │ ├── +++ /workspace/pipeline_output/trigonometry-homework-helper/fonts/WeblySleek_UI_Semilight/readme.txt
+│ │ │┄ Ordering differences only
+│ │ │ @@ -1,22 +1,22 @@
+│ │ │ -﻿Congratulations, you have successfully downloaded @font-face kit! 
+│ │ │ -
+│ │ │ -This kit is provided to you by Fonts2u.com – the largest online 
+│ │ │ -repository of free fonts for Windows and Mac.
+│ │ │ -
+│ │ │ -
+│ │ │ -How to use this @font-face kit?
+│ │ │ -
+│ │ │ -In order to embed the font into your web site, please, do the following:
+│ │ │ -
+│ │ │ -1. Upload the four font files (.ttf,.woff,.eot,.svg) and the stylesheet.css to 
+│ │ │ -    your website using your hosting account control panel or via ftp. All
+│ │ │ -    these files are available in the fontface .zip root directory.
+│ │ │ -
+│ │ │ -2. Declare the chosen font by copying the generated CSS code provided in
+│ │ │ -   @font-face kit and paste it into your main CSS file, or simply import
+│ │ │ -   it as a separate CSS.
+│ │ │ -
+│ │ │ -3. Link the embedded font with any element you like using standard CSS 
+│ │ │ -   syntax (f.e. h1 {font-family:'declared font name';}
+│ │ │ -
+│ │ │ -4. Enjoy the new font on your web site. 
+│ │ │ +﻿Congratulations, you have successfully downloaded @font-face kit! 
+│ │ │ +
+│ │ │ +This kit is provided to you by Fonts2u.com – the largest online 
+│ │ │ +repository of free fonts for Windows and Mac.
+│ │ │ +
+│ │ │ +
+│ │ │ +How to use this @font-face kit?
+│ │ │ +
+│ │ │ +In order to embed the font into your web site, please, do the following:
+│ │ │ +
+│ │ │ +1. Upload the four font files (.ttf,.woff,.eot,.svg) and the stylesheet.css to 
+│ │ │ +    your website using your hosting account control panel or via ftp. All
+│ │ │ +    these files are available in the fontface .zip root directory.
+│ │ │ +
+│ │ │ +2. Declare the chosen font by copying the generated CSS code provided in
+│ │ │ +   @font-face kit and paste it into your main CSS file, or simply import
+│ │ │ +   it as a separate CSS.
+│ │ │ +
+│ │ │ +3. Link the embedded font with any element you like using standard CSS 
+│ │ │ +   syntax (f.e. h1 {font-family:'declared font name';}
+│ │ │ +
+│ │ │ +4. Enjoy the new font on your web site.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/trigonometry-homework-helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │          "128": "assets/Device-Calculator-128.png",
+│ │          "16": "assets/Device-Calculator-16.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "minimum_chrome_version": "38",
+│ │      "name": "Trigonometry Homework Helper",
+│ │      "short_name": "TrigHelp",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.9"
+│ │  }

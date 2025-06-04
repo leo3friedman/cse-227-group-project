@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/minimal-random
+├── file list
+│ @@ -1,4 +1,6 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│  icons
+│  manifest.json
+│ -minimalrandom.js
+│ +minimalrandom.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/minimal-random/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "48": "icons/48.png",
+│ │          "64": "icons/64.png",
+│ │          "96": "icons/96.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Minimal Random",
+│ │      "short_name": "minimal-random",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

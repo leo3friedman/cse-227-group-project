@@ -1,0 +1,90 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Colorblind_Colors_Chrome_Extension
+├── file list
+│ @@ -1,7 +1,16 @@
+│ -_metadata
+│ -assets
+│ -content
+│ -icons
+│ -index.html
+│ +.git
+│ +content.js
+│ +css.css
+│ +icon-128x128.png
+│ +icon-16x16.png
+│ +icon-48x48.png
+│  manifest.json
+│ -service-worker-loader.js
+│ +package-lock.json
+│ +popup.html
+│ +popup.js
+│ +readme.md
+│ +store1final.png
+│ +store2final.png
+│ +store3final.png
+│ +store4final.png
+│ +store5final.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Colorblind_Colors_Chrome_Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,40 +1,30 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "icons/128.png",
+│ │ -            "16": "icons/16.png",
+│ │ -            "32": "icons/32.png",
+│ │ -            "64": "icons/64.png"
+│ │ -        },
+│ │ -        "default_popup": "index.html",
+│ │ -        "default_title": "Better Ctrl+F"
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │ -    "background": {
+│ │ -        "service_worker": "service-worker-loader.js",
+│ │ -        "type": "module"
+│ │ -    },
+│ │ -    "commands": {
+│ │ -        "_execute_action": {
+│ │ -            "suggested_key": {
+│ │ -                "default": "Ctrl+Shift+F",
+│ │ -                "mac": "Command+Shift+F"
+│ │ -            }
+│ │ +    "author": "JavascriptCow",
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "content.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "<all_urls>"
+│ │ +            ],
+│ │ +            "run_at": "document_end"
+│ │          }
+│ │ -    },
+│ │ -    "description": "An enhanced version of the default Ctrl+F.",
+│ │ +    ],
+│ │ +    "content_security_policy": {},
+│ │ +    "description": "Accessible high contrast color schemes for the colorblind",
+│ │      "icons": {
+│ │ -        "128": "icons/128.png",
+│ │ -        "16": "icons/16.png",
+│ │ -        "32": "icons/32.png",
+│ │ -        "64": "icons/64.png"
+│ │ +        "128": "icon-128x128.png",
+│ │ +        "16": "icon-16x16.png",
+│ │ +        "48": "icon-48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Better Ctrl+F",
+│ │ +    "name": "Contrast Colors Schemes for the Colorblind",
+│ │      "permissions": [
+│ │ -        "activeTab",
+│ │ -        "storage",
+│ │ -        "scripting"
+│ │ +        "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0.0"
+│ │ +    "version": "1.0"
+│ │  }

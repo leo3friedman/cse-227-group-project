@@ -1,0 +1,53 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Hulu-Fade-Eliminator
+├── file list
+│ @@ -1,5 +1,8 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +README.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Hulu-Fade-Eliminator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │      ],
+│ │      "description": "Hulu cosmetic changes: Remove Fade Scrims and Reduce amount of Fade over Controls / Subtitles",
+│ │      "icons": {
+│ │          "96": "images/icon96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hulu Fade Eliminator",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.4"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/styles.css
+├── +++ /workspace/pipeline_output/Hulu-Fade-Eliminator/styles.css
+│┄ Ordering differences only
+│ @@ -1,11 +1,11 @@
+│ -.FliptrayWrapper:before {
+│ -    content: "";
+│ -    background: linear-gradient(180deg, rgba(0,0,0,.0001), rgba(0,0,0,.0001) 50.0%, rgba(0,0,0,.2) 55%, rgba(0,0,0,.25) 60%) !important;
+│ -    position: absolute;
+│ -    top: 0;
+│ -    bottom: 0;
+│ -    left: 0;
+│ -    right: 0;
+│ -    margin-top: -400px;
+│ -    pointer-events: none
+│ -}
+│ +.FliptrayWrapper:before {
+│ +    content: "";
+│ +    background: linear-gradient(180deg, rgba(0,0,0,.0001), rgba(0,0,0,.0001) 50.0%, rgba(0,0,0,.2) 55%, rgba(0,0,0,.25) 60%) !important;
+│ +    position: absolute;
+│ +    top: 0;
+│ +    bottom: 0;
+│ +    left: 0;
+│ +    right: 0;
+│ +    margin-top: -400px;
+│ +    pointer-events: none
+│ +}

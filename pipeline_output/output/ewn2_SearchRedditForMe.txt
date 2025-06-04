@@ -1,0 +1,51 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SearchRedditForMe
+├── file list
+│ @@ -1,7 +1,5 @@
+│ -_metadata
+│ +.git
+│ +.idea
+│  images
+│  manifest.json
+│ -popup.html
+│ -popup.js
+│ -search.js
+│ -tabPlacer.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SearchRedditForMe/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,26 +1,19 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "chrome_style": false,
+│ │ +    "browser_action": {
+│ │          "default_icon": "images/icon_96.png",
+│ │ -        "default_popup": "popup.html",
+│ │          "default_title": "Search Reddit"
+│ │      },
+│ │ -    "background": {
+│ │ -        "service_worker": "search.js"
+│ │ -    },
+│ │ -    "description": "Uses a search engine to find results filtered to the Reddit website",
+│ │ -    "host_permissions": [
+│ │ -        "https://www.google.com/"
+│ │ -    ],
+│ │ +    "description": "Uses a search engine to look up results on Reddit as an alternative to the native Reddit search",
+│ │      "icons": {
+│ │          "48": "images/icon_48.png",
+│ │          "96": "images/icon_96.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "Search on Reddit tool",
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "Search Reddit For Me",
+│ │      "permissions": [
+│ │ -        "scripting"
+│ │ +        "search",
+│ │ +        "storage",
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

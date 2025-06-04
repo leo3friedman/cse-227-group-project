@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/backlog-task-jumper
+├── file list
+│ @@ -1,4 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│ +backlog-task-jumper.js
+│  backlog-task-jumper.min.js
+│  jquery.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/backlog-task-jumper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │              ],
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │      "description": "Useful Backlog Project 01. Quick access to tasks.",
+│ │      "manifest_version": 2,
+│ │      "name": "Backlog Task Jumper",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.7"
+│ │  }

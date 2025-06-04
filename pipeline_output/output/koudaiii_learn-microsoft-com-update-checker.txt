@@ -1,0 +1,68 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/learn-microsoft-com-update-checker
+├── file list
+│ @@ -1,11 +1,16 @@
+│ +.babelrc
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.node-version
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icons
+│  img
+│  jest.config.js
+│  manifest.json
+│ +node_modules
+│  package-lock.json
+│  package.json
+│  src
+│  tests
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/learn-microsoft-com-update-checker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "learn.microsoft.com Update Checker",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.7"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/package-lock.json
+├── +++ /workspace/pipeline_output/learn-microsoft-com-update-checker/package-lock.json
+│ ├── Pretty-printed
+│ │ @@ -4595,27 +4595,27 @@
+│ │              "dev": true,
+│ │              "integrity": "sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==",
+│ │              "resolved": "https://registry.npmjs.org/zod/-/zod-3.23.8.tgz",
+│ │              "version": "3.23.8"
+│ │          }
+│ │      },
+│ │      "lockfileVersion": 2,
+│ │ -    "name": "jp-learn-microsoft-com-update-checker",
+│ │ +    "name": "learn-microsoft-com-update-checker",
+│ │      "packages": {
+│ │          "": {
+│ │              "devDependencies": {
+│ │                  "@babel/core": "^7.25.2",
+│ │                  "@babel/preset-env": "^7.25.4",
+│ │                  "babel-jest": "^29.7.0",
+│ │                  "jest": "^29.7.0",
+│ │                  "jest-environment-jsdom": "^29.7.0",
+│ │                  "puppeteer": "^23.2.0"
+│ │              },
+│ │              "license": "MIT",
+│ │ -            "name": "jp-learn-microsoft-com-update-checker",
+│ │ +            "name": "learn-microsoft-com-update-checker",
+│ │              "version": "1.2.0"
+│ │          },
+│ │          "node_modules/@ampproject/remapping": {
+│ │              "dependencies": {
+│ │                  "@jridgewell/gen-mapping": "^0.3.5",
+│ │                  "@jridgewell/trace-mapping": "^0.3.24"
+│ │              },

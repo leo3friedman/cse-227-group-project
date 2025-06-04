@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/website-blocker-extension
+├── file list
+│ @@ -1,8 +1,10 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  blocked.html
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  soothing.jpeg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/website-blocker-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │      "name": "Website Blocker",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "webNavigation",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0"
+│ │  }

@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/LogoutRedirectorForHotmailAndOutlook
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  128xLogo.png
+│  48xLogo.png
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/LogoutRedirectorForHotmailAndOutlook/README.md
+│ @@ -1,5 +1,5 @@
+│  # LogoutRedirectorForHotmailAndOutlook
+│  Chrome extension that redirects you to the Outlook/Hotmail login page after you successfully log out of Outlook/Hotmail. This is done to avoid the MSN landing page.
+│ -This extension can be found on the Chrome Web Store once published.
+│ +This extension can be found on the Chrome Web Store at https://chrome.google.com/webstore/detail/logout-redirector-for-hot/dimljjlodblfpmkiefpchagdbnmmpgnf
+│  
+│  You may run this extension in unpacked format by downloading it from Github, setting Chrome into developer mode, clicking "Load Unpacked" and then selecting the folder you downloaded the files to.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/LogoutRedirectorForHotmailAndOutlook/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │      "description": "Redirects to the Outlook login page after logging out of Hotmail and Outlook.",
+│ │      "icons": {
+│ │          "128": "128xLogo.png",
+│ │          "48": "48xLogo.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Logout Redirector for Hotmail and Outlook",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

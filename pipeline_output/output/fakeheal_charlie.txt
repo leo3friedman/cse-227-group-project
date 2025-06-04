@@ -1,0 +1,63 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/charlie
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.git
+│ +.idea
+│ +Charlie_Logo
+│  _locales
+│ -_metadata
+│  css
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/charlie/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/jquery
+│ ├── +++ /workspace/pipeline_output/charlie/js/jquery
+│ │ ├── file list
+│ │ │ @@ -1,9 +1,8 @@
+│ │ │ +.gitignore
+│ │ │  README.md
+│ │ │  bower.json
+│ │ │  component.json
+│ │ │  composer.json
+│ │ │ -jquery-migrate.js
+│ │ │ -jquery-migrate.min.js
+│ │ │  jquery.js
+│ │ │  jquery.min.js
+│ │ │  package.json
+│ │ │   --- /workspace/pipeline_output/chromex_data/js/jquery/bower.json
+│ │ ├── +++ /workspace/pipeline_output/charlie/js/jquery/bower.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,7 +1,6 @@
+│ │ │ -7b0d0a2020226e616d65223a20226a7175657279222c0d0a2020227665727369
+│ │ │ -6f6e223a2022322e302e30222c0d0a2020226465736372697074696f6e223a20
+│ │ │ -226a517565727920636f6d706f6e656e74222c0d0a2020226b6579776f726473
+│ │ │ -223a205b0d0a20202020226a7175657279222c0d0a2020202022636f6d706f6e
+│ │ │ -656e74220d0a20205d2c0d0a20202273637269707473223a205b0d0a20202020
+│ │ │ -226a71756572792e6a73220d0a20205d2c0d0a2020226c6963656e7365223a20
+│ │ │ -224d4954220d0a7d0d0a
+│ │ │ +7b0a2020226e616d65223a20226a7175657279222c0a20202276657273696f6e
+│ │ │ +223a2022322e302e30222c0a2020226465736372697074696f6e223a20226a51
+│ │ │ +7565727920636f6d706f6e656e74222c0a2020226b6579776f726473223a205b
+│ │ │ +0a20202020226a7175657279222c0a2020202022636f6d706f6e656e74220a20
+│ │ │ +205d2c0a20202273637269707473223a205b0a20202020226a71756572792e6a
+│ │ │ +73220a20205d2c0a2020226c6963656e7365223a20224d4954220a7d0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/charlie/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,10 +32,9 @@
+│ │      "name": "Charlie - Phonetic Alphabet Helper",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "https://*/*",
+│ │          "http://*/*",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1"
+│ │  }

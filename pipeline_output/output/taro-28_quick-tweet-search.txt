@@ -1,0 +1,79 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/quick-tweet-search
+├── file list
+│ @@ -1,5 +1,13 @@
+│ -_metadata
+│ -assets
+│ -icon
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +extension
+│  index.html
+│ -manifest.json
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│ +tsconfig.json
+│ +tsconfig.node.json
+│ +vite.config.ts
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/quick-tweet-search/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,13 +1,12 @@
+│  <!DOCTYPE html>
+│  <html lang="en">
+│    <head>
+│      <meta charset="UTF-8" />
+│      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│      <title>Quick Tweet Search</title>
+│ -    <script type="module" crossorigin src="/assets/index.4a0d21e8.js"></script>
+│    </head>
+│    <body>
+│      <div id="root"></div>
+│ -    
+│ +    <script type="module" src="/src/main.tsx"></script>
+│    </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/quick-tweet-search/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,25 +1,35 @@
+│ │  {
+│ │      "action": {
+│ │          "default_icon": "icon/icon16.png",
+│ │          "default_popup": "index.html"
+│ │      },
+│ │ +    "background": {
+│ │ +        "service_worker": "assets/index.8c7cd030.js"
+│ │ +    },
+│ │      "commands": {
+│ │          "_execute_action": {
+│ │              "description": "Run extension.",
+│ │              "suggested_key": {
+│ │                  "default": "Ctrl+S",
+│ │                  "mac": "Ctrl+S"
+│ │              }
+│ │          }
+│ │      },
+│ │      "description": "Extension to quickly search tweets by Twitter user.",
+│ │ +    "host_permissions": [
+│ │ +        "<all_urls>"
+│ │ +    ],
+│ │      "icons": {
+│ │          "128": "icon/icon128.png",
+│ │          "16": "icon/icon16.png",
+│ │          "48": "icon/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Quick Tweet Search",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "activeTab",
+│ │ +        "scripting",
+│ │ +        "storage"
+│ │ +    ],
+│ │      "version": "1.0.0"
+│ │  }

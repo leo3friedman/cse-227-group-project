@@ -1,0 +1,89 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/reddit-liberation-extension
+├── file list
+│ @@ -1,11 +1,14 @@
+│ +.DS_Store
+│ +.git
+│ +.gitattributes
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  background.js
+│  content-script.js
+│  images
+│  manifest.json
+│  my-styles.css
+│  options.css
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/reddit-liberation-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,15 +19,15 @@
+│ │                  "content-script.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://*.reddit.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Stay Productive, and \u201cunreddit\u201d your addiction",
+│ │ +    "description": "Chrome extension to break the distraction loop of reddit, while still maintaining it's productive utility. works on old.reddit.com",
+│ │      "icons": {
+│ │          "128": "/images/extension_icon128.png",
+│ │          "16": "/images/extension_icon16.png",
+│ │          "32": "/images/extension_icon32.png",
+│ │          "48": "/images/extension_icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ @@ -35,10 +35,9 @@
+│ │      "options_ui": {
+│ │          "open_in_tab": false,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.4"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/reddit-liberation-extension/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -3,31 +3,31 @@
+│  <head>
+│      <title>Options</title>
+│      <link rel="stylesheet" href="options.css">
+│  </head>
+│  <body>
+│  
+│  <div id="lists">
+│ -    <h1>Reddit Liberation: Feed Blocker</h1>
+│ +    <h1>UnReddit</h1>
+│      <div id="white">
+│ -        <h2>Whitelist: subreddits or users that you would like to view (intended for productivity purposes)</h2>
+│ +        <h2>Whitelist: subreddits that you would like to view (intended for productivity purposes)</h2>
+│          <div id="whiteList">
+│              <div>
+│                  <input type="text" id="addWhiteList" name="addWhiteList">
+│                  <button id="addWhiteListButton">Add</button>
+│                  (do not include "/r/", for example: learnprogramming)
+│              </div>
+│              <!-- There will be generated buttons here -->
+│          </div>
+│      </div>
+│  
+│      <div style="height:50px"></div>
+│  
+│      <div id="black">
+│ -        <h2>Blacklist: subreddits or users that you would like to block the comments of (if you keep ending wasting time in their comments sections)</h2>
+│ +        <h2>Blacklist: subreddits that you would like to block the comments of (if you keep ending wasting time in their comments sections)</h2>
+│          <div id="blackList">
+│              <div>
+│                  <input type="text" id="addBlackList" name="addBlackList">
+│                  <button id="addBlackListButton">Add</button>
+│                  (do not include "/r/", for example: askreddit)
+│              </div>
+│              <!-- There will be generated buttons here -->

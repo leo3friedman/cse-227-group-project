@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/KillNewsFeed-LinkedIn
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  description.txt
+│  images
+│  kill.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/KillNewsFeed-LinkedIn/README.md
+│ @@ -1,2 +1,2 @@
+│  # KillNewsFeed-LinkedIn
+│ -A Chrome extension that completely eliminates Facebook's News Feed.
+│ +A Chrome extension that completely eliminates LinkedIn's News Feed.
+│   --- /workspace/pipeline_output/chromex_data/description.txt
+├── +++ /workspace/pipeline_output/KillNewsFeed-LinkedIn/description.txt
+│ @@ -1,5 +1,5 @@
+│ -Kills the LinkedIn allowing you to not get distracted. That's it. You can still check your messages and notifications, post status updates, and do everything you could do before. You just won't get distracting news feed posts anymore.
+│ +Kills the LinkedIn news feed allowing you to not get distracted. That's it. You can still check your messages and notifications, post status updates, and do everything you could do before. You just won't get distracting news feed posts anymore.
+│  
+│  No more wasting time on LinkedIn. No more getting distracted when you log on to send a message. It's that simple.
+│  
+│ -**This is heavily inspired by the all mighty Neal Wu and his KillNewsFeed he originally made for Facebook.
+│ +**This is heavily inspired by the all mighty Neal Wu and his KillNewsFeed he originally made for Facebook.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/KillNewsFeed-LinkedIn/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Saves you time by getting rid of LinkedIn news feed.",
+│ │      "manifest_version": 3,
+│ │      "name": "Kill News Feed - LinkedIn",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

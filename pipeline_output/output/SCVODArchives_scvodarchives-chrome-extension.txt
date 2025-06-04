@@ -1,0 +1,156 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/scvodarchives-chrome-extension
+├── file list
+│ @@ -1,8 +1,11 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.js
+│  css
+│  images
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  panel.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/scvodarchives-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.72"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/scvodarchives-chrome-extension/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,19 +1,19 @@
+│ -<script defer src="./js/options.min.js"></script>
+│ -<form id="options">
+│ -    <label for="thumbnail">
+│ -        <input type="checkbox" name="thumbnail" id="thumbnail" checked="checked">
+│ -        Enable Thumbnail
+│ -    </label><br/>
+│ -    <label for="nextMatch">
+│ -        <input type="checkbox" name="nextMatch" id="nextMatch" checked="checked">
+│ -        Enable Next Match (Potential Spoilers)
+│ -    </label><br/>
+│ -    <label for="playerInfo">
+│ -        <input type="checkbox" name="playerInfo" id="playerInfo" checked="checked">
+│ -        Enable Player Info
+│ -    </label><br/>
+│ -    <label for="aligulac">
+│ -        <input type="checkbox" name="aligulac" id="aligulac" checked="checked">
+│ -        Enable Match History (Potential Spoilers
+│ -    </label>
+│ +<script defer src="./js/options.min.js"></script>
+│ +<form id="options">
+│ +    <label for="thumbnail">
+│ +        <input type="checkbox" name="thumbnail" id="thumbnail" checked="checked">
+│ +        Enable Thumbnail
+│ +    </label><br/>
+│ +    <label for="nextMatch">
+│ +        <input type="checkbox" name="nextMatch" id="nextMatch" checked="checked">
+│ +        Enable Next Match (Potential Spoilers)
+│ +    </label><br/>
+│ +    <label for="playerInfo">
+│ +        <input type="checkbox" name="playerInfo" id="playerInfo" checked="checked">
+│ +        Enable Player Info
+│ +    </label><br/>
+│ +    <label for="aligulac">
+│ +        <input type="checkbox" name="aligulac" id="aligulac" checked="checked">
+│ +        Enable Match History (Potential Spoilers
+│ +    </label>
+│  </form>
+│   --- /workspace/pipeline_output/chromex_data/panel.html
+├── +++ /workspace/pipeline_output/scvodarchives-chrome-extension/panel.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,40 +1,40 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -    <title>SCVODArchives Helper Extension</title>
+│ -    <link rel="stylesheet" href="./css/style.min.css">
+│ -</head>
+│ -<body>
+│ -    <div class="loading">
+│ -        <img src="https://starcraftvods.com/images/loading.gif" alt="Loading..." title="Loading...">
+│ -    </div>
+│ -    <div class="container">
+│ -        <button id="options">Options</button>
+│ -        <div class="header">
+│ -            <a href="https://starcraftvods.com/" rel="noopener noreferrer" target="_blank">StarcraftVODs.com</a>
+│ -            <a href="https://twitch.tv/scvodarchives" rel="noopener noreferrer" target="_blank" title="Watch on Twitch"><img src="./images/twitch.png" class="social-icon"></a>
+│ -            <a href="https://twitter.com/scvodarchives" rel="noopener noreferrer" target="_blank" title="Follow on Twitter"><img src="./images/twitter.png" class="social-icon"></a>
+│ -            <a href="https://starcraftvods.com/discord" rel="noopener noreferrer" target="_blank" title="Join Discord"><img src="./images/discord.png" class="social-icon"></a>
+│ -        </div>
+│ -        <div class="info-box">
+│ -            <div class="stream-thumbnail"></div>
+│ -            <div class="title"></div>
+│ -            <div class="expansion"></div>
+│ -            <div class="liquipedia"></div>
+│ -            <div class="download"></div>
+│ -            <div class="item next"></div>
+│ -        </div>
+│ -        <div class="player player1"></div>
+│ -        <div class="player player2"></div>
+│ -        <div class="item history">
+│ -            <label for="spoilers-on">Match History (SPOILERS)</label>
+│ -            <input name="spoilers-on" id="spoilers-on" type="checkbox" role="button">
+│ -            <div class="history spoiler"></div>
+│ -        </div>
+│ -    </div>
+│ -    <script src="./js/scvodarchives.min.js" type="text/javascript"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +    <title>SCVODArchives Helper Extension</title>
+│ +    <link rel="stylesheet" href="./css/style.min.css">
+│ +</head>
+│ +<body>
+│ +    <div class="loading">
+│ +        <img src="https://starcraftvods.com/images/loading.gif" alt="Loading..." title="Loading...">
+│ +    </div>
+│ +    <div class="container">
+│ +        <button id="options">Options</button>
+│ +        <div class="header">
+│ +            <a href="https://starcraftvods.com/" rel="noopener noreferrer" target="_blank">StarcraftVODs.com</a>
+│ +            <a href="https://twitch.tv/scvodarchives" rel="noopener noreferrer" target="_blank" title="Watch on Twitch"><img src="./images/twitch.png" class="social-icon"></a>
+│ +            <a href="https://twitter.com/scvodarchives" rel="noopener noreferrer" target="_blank" title="Follow on Twitter"><img src="./images/twitter.png" class="social-icon"></a>
+│ +            <a href="https://starcraftvods.com/discord" rel="noopener noreferrer" target="_blank" title="Join Discord"><img src="./images/discord.png" class="social-icon"></a>
+│ +        </div>
+│ +        <div class="info-box">
+│ +            <div class="stream-thumbnail"></div>
+│ +            <div class="title"></div>
+│ +            <div class="expansion"></div>
+│ +            <div class="liquipedia"></div>
+│ +            <div class="download"></div>
+│ +            <div class="item next"></div>
+│ +        </div>
+│ +        <div class="player player1"></div>
+│ +        <div class="player player2"></div>
+│ +        <div class="item history">
+│ +            <label for="spoilers-on">Match History (SPOILERS)</label>
+│ +            <input name="spoilers-on" id="spoilers-on" type="checkbox" role="button">
+│ +            <div class="history spoiler"></div>
+│ +        </div>
+│ +    </div>
+│ +    <script src="./js/scvodarchives.min.js" type="text/javascript"></script>
+│ +</body>
+│  </html>

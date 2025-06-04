@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/easy-lgtm
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  css
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  templates
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/easy-lgtm/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,13 +38,12 @@
+│ │          "16": "icons/icon16.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "EASY LGTM",
+│ │      "permissions": [
+│ │          "http://suikatyan.sakura.ne.jp/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3",
+│ │      "web_accessible_resources": [
+│ │          "templates/*"
+│ │      ]
+│ │  }

@@ -1,0 +1,83 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/discogs-enhancer/node_modules/puppeteer/.local-chromium/linux-722234/chrome-linux/MEIPreload
+├── file list
+│ @@ -1,6 +1,2 @@
+│ -_metadata
+│ -css
+│ -html
+│ -img
+│ -js
+│ -manifest.json
+│ +manifest.json
+│ +preloaded_data.pb
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/discogs-enhancer/node_modules/puppeteer/.local-chromium/linux-722234/chrome-linux/MEIPreload/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,62 +1,8 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "img/icon_128.png",
+│ │ -            "16": "img/icon_16.png",
+│ │ -            "32": "img/icon_32.png",
+│ │ -            "48": "img/icon_48.png"
+│ │ -        },
+│ │ -        "default_popup": "html/popup.html",
+│ │ -        "default_title": "Discogs Enhancer"
+│ │ -    },
+│ │ -    "author": "Matthew Salcido",
+│ │ -    "background": {
+│ │ -        "service_worker": "js/extension/background.js"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "css": [
+│ │ -                "css/dark-theme.css"
+│ │ -            ],
+│ │ -            "js": [
+│ │ -                "js/extension/user-preferences.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "*://*.discogs.com/*"
+│ │ -            ],
+│ │ -            "run_at": "document_start"
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "Enhance your Discogs experience with dark themes, seller tools, price comparisons, currency conversion, powerful filters, and more!",
+│ │ -    "homepage_url": "https://www.discogs-enhancer.com",
+│ │ -    "icons": {
+│ │ -        "128": "img/icon_128.png",
+│ │ -        "16": "img/icon_16.png",
+│ │ -        "32": "img/icon_32.png",
+│ │ -        "48": "img/icon_48.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ -    "minimum_chrome_version": "88",
+│ │ -    "name": "Discogs Enhancer",
+│ │ -    "permissions": [
+│ │ -        "activeTab",
+│ │ -        "contextMenus",
+│ │ -        "scripting",
+│ │ -        "storage"
+│ │ -    ],
+│ │ -    "short_name": "Discogs Enhancer",
+│ │ +    "description": "Contains preloaded data for Media Engagement",
+│ │ +    "icons": {},
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "MEI Preload",
+│ │      "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "3.9.3",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "*://*.discogs.com/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "css/*",
+│ │ -                "js/extension/dependencies/*",
+│ │ -                "js/extension/features/*"
+│ │ -            ]
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "1.0.5.0"
+│ │  }

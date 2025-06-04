@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/leetcode-assistant-chrome-extension
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  assets
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/leetcode-assistant-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      "description": "Help you to save your time on leetcode",
+│ │      "manifest_version": 3,
+│ │      "name": "Leetcode Assistant",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0"
+│ │  }

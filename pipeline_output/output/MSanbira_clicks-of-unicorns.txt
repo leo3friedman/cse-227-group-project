@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/clicks-of-unicorns
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.DS_Store
+│ +.git
+│  README.md
+│ -_metadata
+│  content.css
+│  content.js
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  uniPhoto128.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/clicks-of-unicorns/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,11 +24,10 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Clicks of Unicorns \ud83e\udd84",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.020",
+│ │      "version_name": "1.020 migrated to manifest v3"
+│ │  }

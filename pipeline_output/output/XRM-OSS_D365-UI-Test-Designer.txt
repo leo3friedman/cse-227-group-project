@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/D365-UI-Test-Designer
+├── file list
+│ @@ -1,11 +1,13 @@
+│ -_metadata
+│ -background.js
+│ -content.js
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ -index.html
+│ -inject.js
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│ +LICENSE
+│ +PRIVACY.md
+│ +README.md
+│  manifest.json
+│ -popup.js
+│ -popup.js.LICENSE.txt
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│ +tsconfig.json
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/D365-UI-Test-Designer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,13 +27,12 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "D365-UI-Test-Designer",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.9",
+│ │      "web_accessible_resources": [
+│ │          "content.js"
+│ │      ]
+│ │  }

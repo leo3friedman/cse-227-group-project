@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Access-Alerts-
+├── file list
+│ @@ -1,14 +1,16 @@
+│ +.git
+│ +LICENSE
+│  README.txt
+│ -_metadata
+│  action.js
+│  background.js
+│  bootstrap.min.css
+│  bootstrap.min.css.map
+│  bootstrap.min.js
+│  icon
+│  jquery.min.js
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Access-Alerts-/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │          "128": "icon/icon128.png",
+│ │          "16": "icon/icon16.png",
+│ │          "48": "icon/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Access Alerts!",
+│ │      "options_page": "options.html",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

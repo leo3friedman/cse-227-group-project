@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/save-all-urls
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.idea
+│  README.md
+│ -_metadata
+│  checkbox.css
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  tabs.png
+│  zepto.min.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/save-all-urls/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │      "description": "This extension save batch of tabs as workspace.",
+│ │      "manifest_version": 3,
+│ │      "name": "save-all-urls",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

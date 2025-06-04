@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/UCSD-Silence-Fast-Forward
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│ +.gitattributes
+│  LICENSE
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  refresh.png
+│  scripts
+│ -styles
+│  ucsd-icon-128.png
+│  ucsd-icon.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/UCSD-Silence-Fast-Forward/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,15 +19,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "UCSD Podcast Silence Fast-Forward",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.6",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://podcast.ucsd.edu/*"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-profile-shortcut
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│ -github-profile-shortcut.iml
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-profile-shortcut/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │          "64": "icons/icon64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Github Profile Shortcut",
+│ │      "permissions": [
+│ │          "https://github.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0"
+│ │  }

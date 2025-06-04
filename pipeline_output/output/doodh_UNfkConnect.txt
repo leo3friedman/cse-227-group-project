@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/UNfkConnect
+├── file list
+│ @@ -1,17 +1,19 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  icon128.png
+│  icon128bw.png
+│  icon16.png
+│  icon16bw.png
+│  icon32.png
+│  icon32bw.png
+│  icon48.png
+│  icon48bw.png
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/UNfkConnect/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,10 +35,9 @@
+│ │          },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "browsingData",
+│ │          "declarativeContent"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.2"
+│ │  }

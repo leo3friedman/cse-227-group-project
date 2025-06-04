@@ -1,0 +1,85 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrommander/dist
+├── file list
+│ @@ -1,10 +1,8 @@
+│ -_metadata
+│ -background.js
+│ -cradleofsoul.mp3
+│ -icon.png
+│ -index.css
+│ -index.css.map
+│ -index.html
+│ -index.js
+│ -index.scss
+│ -manifest.json
+│ +.keep
+│ +background
+│ +foreground
+│ +icon128.png
+│ +icon16.png
+│ +icon48.png
+│ +manifest.json
+│ +popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrommander/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,17 +1,48 @@
+│ │  {
+│ │ -    "action": {},
+│ │ +    "author": "@simon0191",
+│ │      "background": {
+│ │ -        "service_worker": "background.js"
+│ │ +        "scripts": [
+│ │ +            "background/bundle.js"
+│ │ +        ]
+│ │      },
+│ │ -    "description": "Alarm/Timer for web broswing/studying",
+│ │ +    "browser_action": {
+│ │ +        "default_popup": "popup/index.html"
+│ │ +    },
+│ │ +    "commands": {
+│ │ +        "_execute_browser_action": {
+│ │ +            "description": "Open Chrommander",
+│ │ +            "suggested_key": {
+│ │ +                "chromeos": "Ctrl+Shift+P",
+│ │ +                "linux": "Ctrl+Shift+P",
+│ │ +                "mac": "MacCtrl+P",
+│ │ +                "windows": "Ctrl+Shift+P"
+│ │ +            }
+│ │ +        }
+│ │ +    },
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "foreground/bundle.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "<all_urls>"
+│ │ +            ]
+│ │ +        }
+│ │ +    ],
+│ │ +    "description": "Use Chrommander's search box to quickly jump to any opened tab or bookmark.",
+│ │      "icons": {
+│ │ -        "128": "icon.png",
+│ │ -        "16": "icon.png",
+│ │ -        "48": "icon.png"
+│ │ +        "128": "icon128.png",
+│ │ +        "16": "icon16.png",
+│ │ +        "48": "icon48.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "WebCT",
+│ │ -    "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0.0"
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "Chrommander - tab navigator",
+│ │ +    "permissions": [
+│ │ +        "activeTab",
+│ │ +        "tabs",
+│ │ +        "bookmarks",
+│ │ +        "chrome://favicon/"
+│ │ +    ],
+│ │ +    "short_name": "Chrommander",
+│ │ +    "version": "0.0.2"
+│ │  }

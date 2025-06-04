@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/les-chanceux
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.DS_Store
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  icon-128.png
+│  icon.png
+│  index.html
+│  index.js
+│  jquery-2.2.4.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/les-chanceux/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "name": "The Lucky Ones",
+│ │      "permissions": [
+│ │          "http://*/",
+│ │          "https://*/",
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.7"
+│ │  }

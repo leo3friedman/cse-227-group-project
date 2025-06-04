@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Kadai-Portal
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Kadai-Portal/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -55,10 +55,9 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "downloads",
+│ │          "activeTab",
+│ │          "contextMenus",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.6"
+│ │  }

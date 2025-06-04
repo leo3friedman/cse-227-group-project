@@ -1,0 +1,58 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Stale-News-Warning-chrome
+├── file list
+│ @@ -1,23 +1,24 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  bbc.js
+│  cnn.js
+│ -create-package
+│  dailymail.js
+│  date-check.js
+│  huffingtonpost.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  independent.js
+│  indiatimes.js
+│  jquery-2.1.4.min.js
+│  manifest.json
+│  nytimes.js
+│ +package-lock.json
+│  skynews.js
+│  stackoverflow.js
+│  telegraph.js
+│  theguardian.js
+│  timesofindia.js
+│  yahoo-uk.js
+│  yahoo.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Stale-News-Warning-chrome/README.md
+│ @@ -1,11 +1,11 @@
+│  # Stale News Warning for Chrome
+│  Stale News Warning is a Chrome extension which warns you when you are reading 
+│  an old news article.
+│  
+│  Currently supported: BBC News, CNN, Daily Mail, The Guardian, Huffington Post, 
+│  The Independent, India Times / Times of India, New York Times, Sky News (UK), 
+│ -Stack Overflow, Yahoo News, Yahoo News UK
+│ +Stack Overflow, The Telegraph, Yahoo News, Yahoo News UK
+│  
+│  # Install
+│  https://chrome.google.com/webstore/detail/stale-news-warning/leimdfebooadifmdaofhjkplmpiimlpg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Stale-News-Warning-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -147,10 +147,9 @@
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Stale News Warning",
+│ │      "short_name": "Stale News",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.11"
+│ │  }

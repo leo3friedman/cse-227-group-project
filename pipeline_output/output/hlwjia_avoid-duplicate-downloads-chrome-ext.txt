@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/avoid-duplicate-downloads-chrome-ext
+├── file list
+│ @@ -1,4 +1,5 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/avoid-duplicate-downloads-chrome-ext/README.md
+│ @@ -1,11 +1 @@
+│ -# Avoid duplicate downloads
+│ -
+│ -Tired of having filename(1)(2).pdf in your Downloads folder?
+│ -
+│ -This extension will prompt the file chooser dialog to either rename the to-be-downloaded file or overwrite the existing file.
+│ -
+│ ----
+│ -
+│ -### How to install this extension?
+│ -
+│ -https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612
+│ +# avoid-duplicate-downloads-chrome-ext
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/avoid-duplicate-downloads-chrome-ext/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │      },
+│ │      "description": "",
+│ │      "manifest_version": 3,
+│ │      "name": "Avoid Duplicate Downloads",
+│ │      "permissions": [
+│ │          "downloads"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }

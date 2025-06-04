@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TipMap
+├── file list
+│ @@ -1,9 +1,12 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  css
+│  img
+│  js
+│  manifest.json
+│  map.html
+│ +package-lock.json
+│  popup.html
+│ +store-assets
+│  test.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TipMap/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,15 +38,14 @@
+│ │      "name": "TipMap",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "contextMenus",
+│ │          "geolocation"
+│ │      ],
+│ │      "short_name": "TipMap",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.3",
+│ │      "web_accessible_resources": [
+│ │          "map.html",
+│ │          "test.html",
+│ │          "css/*",
+│ │          "js/*",
+│ │          "img/*"

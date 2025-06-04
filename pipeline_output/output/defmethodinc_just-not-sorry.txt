@@ -1,0 +1,52 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/just-not-sorry
+├── file list
+│ @@ -1,8 +1,27 @@
+│ -_metadata
+│ -background.js
+│ -bundle.js
+│ +.babelrc
+│ +.eslintignore
+│ +.eslintrc.json
+│ +.git
+│ +.git_deploy_key.enc
+│ +.github
+│ +.gitignore
+│ +.nvmrc
+│ +.prettierrc
+│ +.releaserc.json
+│ +LICENSE.md
+│ +PRIVACY.md
+│ +README.md
+│ +background
+│ +chrome-img
+│  img
+│ +include.lst
+│  just-not-sorry.css
+│  manifest.json
+│ -options.html
+│ -options.js
+│ +node_modules
+│ +options
+│ +package-lock.json
+│ +package.json
+│ +package.sh
+│ +spec
+│ +src
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/just-not-sorry/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,12 +38,11 @@
+│ │          "open_in_tab": false,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "notifications"
+│ │      ],
+│ │      "short_name": "JustNotSorry",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.4.0",
+│ │      "version_name": "2.4.0",
+│ │      "web_accessible_resources": []
+│ │  }

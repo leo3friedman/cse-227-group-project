@@ -1,0 +1,104 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Toodledo-Chrome-App
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ +.git
+│ +assets
+│  background.js
+│  icon-128.png
+│  icon-16.png
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│ +toodledo.zip
+│  window.html
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/Toodledo-Chrome-App/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,7 +1,7 @@
+│  6368726f6d652e6170702e72756e74696d652e6f6e4c61756e636865642e6164
+│ -644c697374656e65722866756e6374696f6e2829207b0d0a20206368726f6d65
+│ -2e6170702e77696e646f772e637265617465282777696e646f772e68746d6c27
+│ -2c207b0d0a20202020276f75746572426f756e6473273a207b0d0a2020202020
+│ -20277769647468273a20313330302c0d0a20202020202027686569676874273a
+│ -203830300d0a202020207d2c0d0a20202020226672616d65223a207b636f6c6f
+│ -723a202223313733633630227d2c0d0a20207d293b0d0a7d293b0d0a
+│ +644c697374656e65722866756e6374696f6e2829207b0a20206368726f6d652e
+│ +6170702e77696e646f772e637265617465282777696e646f772e68746d6c272c
+│ +207b0a20202020276f75746572426f756e6473273a207b0a2020202020202777
+│ +69647468273a20313330302c0a20202020202027686569676874273a20383030
+│ +0a202020207d2c0a20202020226672616d65223a207b636f6c6f723a20222331
+│ +3733633630227d2c0a20207d293b0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/main.js
+├── +++ /workspace/pipeline_output/Toodledo-Chrome-App/main.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,10 +1,9 @@
+│ -66756e6374696f6e2075706461746557656276696577732829207b0d0a202076
+│ -61722077656276696577203d20646f63756d656e742e717565727953656c6563
+│ -746f7228227765627669657722293b0d0a2020776562766965772e7374796c65
+│ -2e686569676874203d20646f63756d656e742e646f63756d656e74456c656d65
+│ -6e742e636c69656e74486569676874202b20227078223b0d0a20207765627669
+│ -65772e7374796c652e7769647468203d20646f63756d656e742e646f63756d65
+│ -6e74456c656d656e742e636c69656e745769647468202b20227078223b0d0a7d
+│ -3b0d0a0d0a6f6e6c6f6164203d2075706461746557656276696577733b0d0a77
+│ -696e646f772e6f6e726573697a65203d2075706461746557656276696577733b
+│ -0d0a
+│ +66756e6374696f6e2075706461746557656276696577732829207b0a20207661
+│ +722077656276696577203d20646f63756d656e742e717565727953656c656374
+│ +6f7228227765627669657722293b0a2020776562766965772e7374796c652e68
+│ +6569676874203d20646f63756d656e742e646f63756d656e74456c656d656e74
+│ +2e636c69656e74486569676874202b20227078223b0a2020776562766965772e
+│ +7374796c652e7769647468203d20646f63756d656e742e646f63756d656e7445
+│ +6c656d656e742e636c69656e745769647468202b20227078223b0a7d3b0a0a6f
+│ +6e6c6f6164203d2075706461746557656276696577733b0a77696e646f772e6f
+│ +6e726573697a65203d2075706461746557656276696577733b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Toodledo-Chrome-App/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │          "16": "icon-16.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Toodledo",
+│ │      "permissions": [
+│ │          "webview"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/window.html
+├── +++ /workspace/pipeline_output/Toodledo-Chrome-App/window.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,14 +1,14 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -  <head>
+│ -  <style type="text/css">
+│ -    body {
+│ -      margin: 0px;
+│ -    }
+│ -  </style>
+│ -  </head>
+│ -  <body>
+│ -    <webview id="toodledo" src="http://www.toodledo.com/" partition="persist:googlepluswidgets"></webview>
+│ -    <script src="main.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +  <head>
+│ +  <style type="text/css">
+│ +    body {
+│ +      margin: 0px;
+│ +    }
+│ +  </style>
+│ +  </head>
+│ +  <body>
+│ +    <webview id="toodledo" src="http://www.toodledo.com/" partition="persist:googlepluswidgets"></webview>
+│ +    <script src="main.js"></script>
+│ +  </body>
+│ +</html>

@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/tudung
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│  Screenshot 2023-05-25 at 4.06.54 PM.png
+│ -_metadata
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/tudung/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      "icons": {
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Tudung",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

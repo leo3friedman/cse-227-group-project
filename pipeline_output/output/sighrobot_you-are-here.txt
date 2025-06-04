@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/you-are-here
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  favicon.png
+│  handlers.js
+│  manifest.json
+│ +package-lock.json
+│  popup
+│  utils.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/you-are-here/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      "name": "You Are Here",
+│ │      "permissions": [
+│ │          "history",
+│ │          "tabs",
+│ │          "chrome://favicon/",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

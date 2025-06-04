@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/clickbait-remover-for-youtube
+├── file list
+│ @@ -1,6 +1,14 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +LICENSE
+│  _locales
+│ -_metadata
+│ +changelog.md
+│ +createZips.sh
+│ +firefox_manifest.json
+│  images
+│  js
+│  manifest.json
+│ -options_popup.html
+│ +options_popup.html
+│ +package-lock.json
+│ +readme.md
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/clickbait-remover-for-youtube/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │      "name": "__MSG_extensionName__",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "declarativeNetRequestWithHostAccess",
+│ │          "scripting"
+│ │      ],
+│ │      "short_name": "Clickbait Remover",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.1"
+│ │  }

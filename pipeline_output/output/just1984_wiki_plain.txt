@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wiki_plain
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  content.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wiki_plain/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Wiki Plain Text",
+│ │      "permissions": [
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/vrchat2vrclist
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.js
+│  build.ps1
+│  icon.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/vrchat2vrclist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "VRChat2VRCList",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8.0"
+│ │  }

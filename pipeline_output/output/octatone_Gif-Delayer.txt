@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Gif-Delayer
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.git
+│ +.gitmodules
+│ +.jshintrc
+│  LICENSE.md
+│  README.md
+│  _locales
+│ -_metadata
+│  background
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Gif-Delayer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -34,10 +34,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Gif Delayer",
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "*://*/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/Gif-Delayer/src
+│ ├── file list
+│ │ @@ -1,4 +0,0 @@
+│ │ -LICENSE
+│ │ -README.md
+│ │ -icons
+│ │ -inject

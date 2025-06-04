@@ -1,0 +1,104 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/a-weather-chrome-extension
+├── file list
+│ @@ -1,13 +1,14 @@
+│ -_metadata
+│ -background.js
+│ -browser-polyfill.min.js
+│ -bundle.css
+│ -bundle.js
+│ -content-script.js
+│ -favicon.png
+│ -fonts
+│ -global.css
+│ +.build
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +bower.json
+│ +gulpfile.js
+│  images
+│ -line-awesome.min.css
+│ +javascripts
+│  manifest.json
+│ -popup.html
+│ +package.json
+│ +release
+│ +scss
+│ +test
+│ +views
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/a-weather-chrome-extension/images
+│ ├── file list
+│ │ @@ -1,4 +1,4 @@
+│ │ +icon128.png
+│ │ +icon16.png
+│ │ +icon48.png
+│ │ +loader.gif
+│ │ -parrot_1.png
+│ │ -parrot_1.svg
+│ │ -parrot_2.png
+│ │ -parrot_4.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/a-weather-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,48 +1,25 @@
+│ │  {
+│ │      "background": {
+│ │ -        "persistent": true,
+│ │          "scripts": [
+│ │ -            "browser-polyfill.min.js",
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │      "browser_action": {
+│ │ -        "default_icon": "images/parrot_4.png"
+│ │ +        "default_icon": "images/icon128.png",
+│ │ +        "default_popup": "index.html"
+│ │      },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "css": [
+│ │ -                "line-awesome.min.css"
+│ │ -            ],
+│ │ -            "js": [
+│ │ -                "browser-polyfill.min.js",
+│ │ -                "content-script.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │ -    "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://apis.google.com https://www.googleapis.com https://translate.googleapis.com; object-src 'self'",
+│ │ -    "description": "Learn vocabulary with learnwithparrot.com",
+│ │ +    "description": "Shows temperature and weather conditions for your location",
+│ │      "icons": {
+│ │ -        "16": "images/parrot_1.png",
+│ │ -        "512": "images/parrot_4.png"
+│ │ +        "128": "images/icon128.png",
+│ │ +        "16": "images/icon16.png",
+│ │ +        "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "LearnWithParrot",
+│ │ +    "name": "Cool Weather",
+│ │      "permissions": [
+│ │ -        "tabs",
+│ │ -        "notifications",
+│ │ -        "storage",
+│ │ -        "contextMenus",
+│ │ -        "*://*/*"
+│ │ +        "http://a-weather.kalaus.ru/",
+│ │ +        "http://openweathermap.org/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.0.0.4",
+│ │ -    "web_accessible_resources": [
+│ │ -        "fonts/*",
+│ │ -        "images/*",
+│ │ -        "line-awesome.min.css"
+│ │ -    ]
+│ │ +    "short_name": "Cool Weather",
+│ │ +    "version": "1.3"
+│ │  }

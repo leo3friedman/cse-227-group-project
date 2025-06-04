@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ucsb_gold_calendar
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  docs
+│  img
+│  manifest.json
+│ +package-lock.json
+│  src
+│  tests
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ucsb_gold_calendar/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │          "default_popup": "docs/popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "identity",
+│ │          "notifications",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.08"
+│ │  }

@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-sicflex-print
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.css
+│  background.js
+│  content.js
+│  images
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  print.css
+│  print.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-sicflex-print/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,15 +42,14 @@
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "declarativeContent",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.6",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.sicflex.com/*"
+│ │              ],
+│ │              "resources": [

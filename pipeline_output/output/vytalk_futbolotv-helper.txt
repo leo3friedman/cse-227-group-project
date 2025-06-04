@@ -1,0 +1,66 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/futbolotv-helper
+├── file list
+│ @@ -1,8 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ -css
+│ -img
+│ -js
+│ -lib
+│ +football.js
+│ +icon.png
+│ +jquery.min.js
+│  manifest.json
+│ -tmpl
+│ +package-lock.json
+│ +popup.html
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/futbolotv-helper/README.md
+│ @@ -1,5 +1,2 @@
+│  # futbolotv-helper
+│ -Chrome extension for viewing futbolo.tv championship review page. 
+│ -It adds team list and games filter, also scrolls to nearest unplayed match.
+│ -
+│ -sample url: http://futbolo.tv/cempionatai/smscredit-lt-a-lyga-2015
+│ +Chrome extension for viewing futbolo.tv web site.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/futbolotv-helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,29 +1,21 @@
+│ │  {
+│ │      "browser_action": {
+│ │ -        "default_icon": "img/icon.png"
+│ │ +        "default_icon": "icon.png",
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "css/football.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "lib/jquery.min.js",
+│ │ -                "lib/handlebars.js",
+│ │ -                "js/football.js"
+│ │ +                "jquery.min.js",
+│ │ +                "football.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "http://www.futbolo.tv/cempionatai/*",
+│ │ -                "http://futbolo.tv/cempionatai/*"
+│ │ +                "http://www.futbolo.tv/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "This extension helps view futbolo.tv web site content in a more convinient fashion",
+│ │      "manifest_version": 2,
+│ │      "name": "futoblo.tv helper",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.1",
+│ │ -    "web_accessible_resources": [
+│ │ -        "tmpl/teambox.html"
+│ │ -    ]
+│ │ +    "version": "0.1"
+│ │  }

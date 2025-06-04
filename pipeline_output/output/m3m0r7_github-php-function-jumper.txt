@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-php-function-jumper
+├── file list
+│ @@ -1,18 +1,21 @@
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│  _locales
+│ -_metadata
+│  changelog.md
+│  config.js
+│  data
+│  docs
+│  icons
+│  index.html
+│  license
+│  main.css
+│  main.js
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  page.js
+│  readme.md
+│  services
+│  tests
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-php-function-jumper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -203,10 +203,9 @@
+│ │      "options_ui": {
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.8"
+│ │  }

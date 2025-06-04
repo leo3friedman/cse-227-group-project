@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gf-beep-enhancement
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│  content.js
+│  gf_beep128.png
+│  gf_beep16.png
+│  gf_beep48.png
+│  manifest.json
+│ +package-lock.json
+│  sounds
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gf-beep-enhancement/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,15 +15,14 @@
+│ │      "icons": {
+│ │          "128": "gf_beep128.png",
+│ │          "16": "gf_beep16.png",
+│ │          "48": "gf_beep48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "GF Beep Enhancement",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://app.glowforge.com/*"
+│ │              ],
+│ │              "resources": [

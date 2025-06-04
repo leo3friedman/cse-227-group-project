@@ -1,0 +1,99 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/2ksb-block-compatibility-check
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│  background.js
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  remove.js
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/2ksb-block-compatibility-check/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,15 +1,7 @@
+│  6368726f6d652e776562526571756573742e6f6e4265666f7265526571756573
+│  742e6164644c697374656e65722866756e6374696f6e2829207b200a09726574
+│  75726e207b63616e63656c3a20747275657d3b207d2c0a097b75726c733a205b
+│  2268747470733a2f2f326b73622e6f6e6c696e65627573696e6573732e616d65
+│  726963616e2e6564752f7374617469632f636f6d7061746962696c6974792f31
+│  2e302e352f736372697074732f6361706162696c6974792e636f6d62696e6564
+│ -2e6d696e2e6a73225d7d2c0a095b22626c6f636b696e67225d0a293b0a626f6f
+│ -6c203d2066616c73653b0a6368726f6d652e62726f77736572416374696f6e2e
+│ -6f6e436c69636b65642e6164644c697374656e6572282066756e6374696f6e28
+│ -74616229207b0a2020626f6f6c203d2021626f6f6c3b0a20206368726f6d652e
+│ -746162732e7175657279287b6163746976653a20747275652c2063757272656e
+│ -7457696e646f773a20747275657d2c2066756e6374696f6e2874616273297b0a
+│ -202020206368726f6d652e746162732e73656e644d6573736167652874616273
+│ -5b305d2e69642c207b737570706f72743a20626f6f6c7d2c2066756e6374696f
+│ -6e28726573706f6e736529207b7d293b0a20207d293b0a7d293b0a0a
+│ +2e6d696e2e6a73225d7d2c0a095b22626c6f636b696e67225d0a293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/2ksb-block-compatibility-check/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,32 +1,30 @@
+│ │  {
+│ │      "background": {
+│ │          "scripts": [
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │      "browser_action": {
+│ │ -        "default_icon": "icon.png",
+│ │ -        "default_title": "Click to toggle<br>Student Support Button"
+│ │ +        "default_icon": "icon.png"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "remove.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://2ksb.onlinebusiness.american.edu/*"
+│ │              ],
+│ │              "run_at": "document_idle"
+│ │          }
+│ │      ],
+│ │      "description": "Disables the pop-up compatability checker and the floating 'Student Support' button on each page.",
+│ │      "manifest_version": 2,
+│ │ -    "name": "2KSB - Disable System Check",
+│ │ +    "name": "2KSB - Disable System Check & Floating Support Button",
+│ │      "permissions": [
+│ │          "https://2ksb.onlinebusiness.american.edu/*",
+│ │          "webRequest",
+│ │          "webRequestBlocking"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/remove.js
+├── +++ /workspace/pipeline_output/2ksb-block-compatibility-check/remove.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,12 +1,11 @@
+│ -656c656d656e74203d20646f63756d656e742e717565727953656c6563746f72
+│ -28276469762e737570706f727427293b0a6d61696e203d20646f63756d656e74
+│ -2e717565727953656c6563746f722827646976236f6e6c696e6543616d707573
+│ -4170702e6e672d73636f706527293b0a656c656d656e742e706172656e74456c
+│ -656d656e742e72656d6f76654368696c6428656c656d656e74293b0a0a636872
+│ -6f6d652e657874656e73696f6e2e6f6e4d6573736167652e6164644c69737465
+│ -6e65722866756e6374696f6e286d73672c2073656e6465722c2073656e645265
+│ -73706f6e736529207b0a696620286d73672e737570706f7274203d3d20747275
+│ -6529207b0a20206d61696e2e617070656e644368696c6428656c656d656e7429
+│ -3b0a7d20656c736520696620286d73672e737570706f7274203d3d2066616c73
+│ -6529207b0a2020656c656d656e742e706172656e74456c656d656e742e72656d
+│ -6f76654368696c6428656c656d656e74293b0a7d0a7d293b
+│ +76617220656c656d656e74203d20646f63756d656e742e717565727953656c65
+│ +63746f7228276469762e737570706f727427293b0a656c656d656e742e706172
+│ +656e74456c656d656e742e72656d6f76654368696c6428656c656d656e74293b
+│ +0a0a6368726f6d652e776562526571756573742e6f6e4265666f726552657175
+│ +6573742e6164644c697374656e6572280a202020202020202066756e6374696f
+│ +6e2864657461696c7329207b2072657475726e207b63616e63656c3a20747275
+│ +657d3b207d2c0a20202020202020207b75726c733a205b2268747470733a2f2f
+│ +326b73622e6f6e6c696e65627573696e6573732e616d65726963616e2e656475
+│ +2f7374617469632f636f6d7061746962696c6974792f312e302e352f73637269
+│ +7074732f6361706162696c6974792e636f6d62696e65642e6d696e2e6a73225d
+│ +7d2c0a20202020202020205b22626c6f636b696e67225d293b

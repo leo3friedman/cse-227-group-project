@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gitlab-job-notifier
+├── file list
+│ @@ -1,8 +1,9 @@
+│ -_metadata
+│ +.git
+│  contentScript.js
+│  example.html
+│  image.png
+│  manifest.json
+│  notification-sound.mp3
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gitlab-job-notifier/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,15 +20,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Gitlab Job Notifier",
+│ │      "permissions": [
+│ │          "notifications",
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

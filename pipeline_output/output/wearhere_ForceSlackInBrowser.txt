@@ -1,0 +1,62 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ForceSlackInBrowser
+├── file list
+│ @@ -1,11 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  documentation
+│  force-slack-in-browser.sublime-project
+│ -force-slack-in-browser.sublime-workspace
+│  manifest.json
+│ +package-lock.json
+│  package.json
+│ -src
+│ -window-restore-solid.png
+│ -window-restore-solid.svg
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/LICENSE
+├── +++ /workspace/pipeline_output/ForceSlackInBrowser/LICENSE
+│ @@ -1,13 +1,7 @@
+│ -The extension icon is licensed as CC BY 4.0 by Font Awesome. More information here:
+│ -https://fontawesome.com/license/free
+│ -
+│ ---------
+│ -Everything else is licensed as follows:
+│ -
+│  The MIT License (MIT)
+│  
+│  Copyright (c) 2015 Jeffrey Wear
+│  
+│  Permission is hereby granted, free of charge, to any person obtaining a copy
+│  of this software and associated documentation files (the "Software"), to deal
+│  in the Software without restriction, including without limitation the rights
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ForceSlackInBrowser/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,16 +8,11 @@
+│ │              "matches": [
+│ │                  "https://*.slack.com/archives/*"
+│ │              ],
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "description": "Force Slack to open archive links in the browser not the desktop app.",
+│ │ -    "homepage_url": "https://github.com/wearhere/ForceSlackInBrowser",
+│ │ -    "icons": {
+│ │ -        "128": "window-restore-solid.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "Force Slack in Browser",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/ForceSlackInBrowser/src
+│ ├── file list
+│ │ @@ -1,2 +1 @@
+│ │ +app.js
+│ │ -app.js
+│ │ -content.js

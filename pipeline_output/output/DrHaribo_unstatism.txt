@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/unstatism
+├── file list
+│ @@ -1,10 +1,11 @@
+│ -_metadata
+│ +.git
+│  content.js
+│  flag440x280.png
+│  icon128x128.png
+│  icon16x16.png
+│  icon48x48.png
+│  manifest.json
+│ +package-lock.json
+│  promo440x280.png
+│  screenshot1.png
+│  screenshot2.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/unstatism/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │      "icons": {
+│ │          "128": "icon128x128.png",
+│ │          "16": "icon16x16.png",
+│ │          "48": "icon48x48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Unstatism",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

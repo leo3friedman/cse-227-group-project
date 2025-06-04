@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Extension-Popup-Open
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  contentscript.js
+│  get_started128.png
+│  get_started16.png
+│  get_started32.png
+│  manifest.json
+│  mycss.css
+│ +package-lock.json
+│  popup.html
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Extension-Popup-Open/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Popup Open",
+│ │      "permissions": [
+│ │          "https://www.google.com/*"
+│ │      ],
+│ │      "short_name": "Popup",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.6"
+│ │  }

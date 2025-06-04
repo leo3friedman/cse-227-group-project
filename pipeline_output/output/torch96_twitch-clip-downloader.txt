@@ -1,0 +1,67 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/twitch-clip-downloader
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -README.md
+│ -_metadata
+│ -css
+│ -images
+│ -js
+│ +.git
+│ +background.js
+│ +contentscript.js
+│ +icon128.png
+│ +icon64.png
+│  manifest.json
+│ -popup.html
+│ -versions
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/twitch-clip-downloader/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,23 +1,30 @@
+│ │  {
+│ │ -    "browser_action": {
+│ │ -        "default_icon": "images/pj_icon16.png",
+│ │ -        "default_popup": "popup.html"
+│ │ +    "background": {
+│ │ +        "scripts": [
+│ │ +            "background.js"
+│ │ +        ]
+│ │      },
+│ │ -    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+│ │ -    "description": "Stash, Retrieve & Organize links in collections called Projinks.",
+│ │ +    "browser_action": {},
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "contentscript.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "*://clips.twitch.tv/*",
+│ │ +                "*://www.twitch.tv/*"
+│ │ +            ]
+│ │ +        }
+│ │ +    ],
+│ │ +    "description": "It downloads clips from twitch.",
+│ │      "icons": {
+│ │ -        "128": "images/pj_icon128.png",
+│ │ -        "16": "images/pj_icon16.png",
+│ │ -        "48": "images/pj_icon48.png"
+│ │ +        "128": "icon128.png",
+│ │ +        "64": "icon64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Projinks (Beta)",
+│ │ +    "name": "Twitch Clip Downloader",
+│ │      "permissions": [
+│ │ -        "tabs",
+│ │ -        "storage",
+│ │ -        "clipboardWrite"
+│ │ +        "downloads"
+│ │      ],
+│ │ -    "short_name": "Projinks",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.1.6.1"
+│ │ +    "version": "0.0.1"
+│ │  }

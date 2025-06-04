@@ -1,0 +1,126 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extention-hash-generator
+├── file list
+│ @@ -1,10 +1,6 @@
+│ -_metadata
+│ -images
+│ +.git
+│  index.html
+│  manifest.json
+│ -md5.js
+│ -script.js
+│ -sha1.js
+│ -sha256.js
+│ -sha512.js
+│ -style.css
+│ +nbproject
+│ +package-lock.json
+│ +script.js
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/chrome-extention-hash-generator/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,29 +1,25 @@
+│  <!DOCTYPE html>
+│ +<!--
+│ +To change this license header, choose License Headers in Project Properties.
+│ +To change this template file, choose Tools | Templates
+│ +and open the template in the editor.
+│ +-->
+│  <html>
+│      <head>
+│          <title>Hash Generator</title>
+│          <meta charset="UTF-8">
+│          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -        <link type="text/css" rel="stylesheet" href="style.css">
+│ -        <script type="text/javascript" src="sha256.js"></script>
+│ -        <script type="text/javascript" src="sha1.js"></script>
+│ -        <script type="text/javascript" src="sha512.js"></script>
+│ -        <script type="text/javascript" src="md5.js"></script>
+│          <script type="text/javascript" src="script.js"></script>
+│      </head>
+│      <body>
+│ -        <div id="content">
+│ -            <h1>Hash Generator</h1>
+│ -            <p>Select the hash type</p>
+│ -            <select id='opcoes'>
+│ -                <option value='0'>MD5</option>
+│ -                <option value='1'>SHA-1</option>
+│ -                <option value='2'>SHA-256</option>
+│ -                <option value='3'>SHA-512</option>
+│ -            </select>
+│ -            <input id="text" type="text"/>
+│ -            <button id="btn">Generate</button>
+│ -            <div id="result"></div>
+│ -        </div>
+│ +        <h1>Hash Generator</h1>
+│ +        <p>Select the hash type</p>
+│ +        <select>
+│ +            <option value="SHA-256">SHA-256</option>
+│ +            <option value="SHA-512">SHA-512</option>
+│ +        </select>
+│ +        <input type="text"/>
+│ +        <button id="btn">Generate</button>
+│ +        
+│      </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extention-hash-generator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,16 +1,9 @@
+│ │  {
+│ │      "browser_action": {
+│ │          "default_popup": "index.html"
+│ │      },
+│ │ -    "description": "Generate MD5, SHA-1, SHA-256 and SHA-512 hashes!",
+│ │ -    "icons": {
+│ │ -        "128": "images/icon128.png",
+│ │ -        "16": "images/icon16.png",
+│ │ -        "32": "images/icon32.png",
+│ │ -        "48": "images/icon48.png"
+│ │ -    },
+│ │ +    "description": "Generate MD5, SHA-256 hashes!",
+│ │      "manifest_version": 2,
+│ │      "name": "Hash Generator",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/script.js
+├── +++ /workspace/pipeline_output/chrome-extention-hash-generator/script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,32 +1,8 @@
+│  646f63756d656e742e6164644576656e744c697374656e65722827444f4d436f
+│  6e74656e744c6f61646564272c2066756e6374696f6e28297b0a202020646f63
+│  756d656e742e717565727953656c6563746f7228272362746e27292e61646445
+│  76656e744c697374656e65722827636c69636b272c66756e6374696f6e28297b
+│ -0a202020202020202076617220696e70757454657874203d20646f63756d656e
+│ -742e676574456c656d656e744279496428227465787422292e76616c75653b0a
+│ -2020202020202020766172206f7074696f6e734c697374203d20646f63756d65
+│ -6e742e676574456c656d656e744279496428226f70636f657322293b0a202020
+│ -20202020207661722073656c65637465644f7074696f6e203d20207061727365
+│ -496e74286f7074696f6e734c6973742e6f7074696f6e735b6f7074696f6e734c
+│ -6973742e73656c6563746564496e6465785d2e76616c7565293b0a2020202020
+│ -2020207661722068657848617368203d2067656e65726174654861736828696e
+│ -707574546578742c73656c65637465644f7074696f6e293b0a20202020202020
+│ -202f2f616c6572742868657848617368293b0a20202020202020207661722072
+│ -6573756c7453656c6563746f72203d20646f63756d656e742e676574456c656d
+│ -656e74427949642822726573756c7422293b0a2020202020202020726573756c
+│ -7453656c6563746f722e696e6e657248544d4c203d20226865783a20222b2068
+│ -6578486173683b0a2020207d293b0a202020200a7d293b0a0a66756e6374696f
+│ +0a2020202020202067656e6572617465486173682827746573747474272c2774
+│ +6573746527293b0a2020207d293b0a202020200a7d293b0a0a66756e6374696f
+│  6e2067656e65726174654861736828646174612c2074797065297b0a20202020
+│ -76617220726573756c743b0a20202020737769746368287479706529207b0a20
+│ -202020202020206361736520303a2f2f6d64350a202020202020202020202020
+│ -20202020726573756c74203d206865785f6d64352864617461293b0a20202020
+│ -2020202020202020627265616b3b0a20202020202020206361736520313a2f2f
+│ -7368612d310a20202020202020202020202020202020726573756c74203d2068
+│ -65785f736861312864617461293b0a202020202020202020202020627265616b
+│ -3b0a20202020202020206361736520323a2f2f7368612d3235360a2020202020
+│ -2020202020202020202020726573756c74203d206865785f7368613235362864
+│ -617461293b0a202020202020202020202020627265616b3b0a20202020202020
+│ -206361736520333a2f2f7368612d3531320a2020202020202020202020202020
+│ -2020726573756c74203d206865785f7368613531322864617461293b0a202020
+│ -202020202020202020627265616b3b0a202020207d0a2020202072657475726e
+│ -20726573756c743b0a7d0a0a
+│ +0a202020200a7d0a0a

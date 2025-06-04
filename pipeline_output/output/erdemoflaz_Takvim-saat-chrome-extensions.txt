@@ -1,0 +1,66 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Takvim-saat-chrome-extensions
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  css
+│  images
+│  index.haml
+│  index.html
+│  js
+│  manifest.json
+│ +package-lock.json
+│  scss
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Takvim-saat-chrome-extensions/README.md
+│ @@ -1,5 +1 @@
+│ -# Takvim saat uygulaması  | chrome extensions
+│ -
+│ -yeni sekmeyi açtığınızda karşınıza gelecek olan bu sayfada anlık olarak hava durumu takvim saat gibi araçları kullanıyor olabileceksiniz
+│ -
+│ -coding @erdemoflaz
+│ +# Takvim-saat-chrome-extensions
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -utf-8
+│ │ +us-ascii
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/Takvim-saat-chrome-extensions/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,12 +1,12 @@
+│  <!DOCTYPE html>
+│  <html >
+│  <head>
+│    <meta charset="UTF-8">
+│ -  <title>Takvim / Saat / Hava Durumu | Erdem OFLAZ</title>
+│ +  <title>Takvim / Saat | Erdem OFLAZ</title>
+│    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+│  
+│    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+│    <link rel="stylesheet" href="/css/fa.css">
+│    <link rel="stylesheet" href="css/style.css">
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Takvim-saat-chrome-extensions/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,17 +2,16 @@
+│ │      "browser_action": {
+│ │          "default_icon": "images/icon16.png",
+│ │          "default_popup": "index.html"
+│ │      },
+│ │      "chrome_url_overrides": {
+│ │          "newtab": "index.html"
+│ │      },
+│ │ -    "description": "Anl\u0131k olarak takvim saat ve hava durumunu g\u00f6sterir",
+│ │ +    "description": "anl\u0131k olarak takcim saati g\u00f6sterir",
+│ │      "manifest_version": 2,
+│ │ -    "name": "Takvim / Saat / Hava Durumu",
+│ │ +    "name": "Takvim / Saat | Erdem OFLAZ",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "https://ajax.googleapis.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

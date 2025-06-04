@@ -1,0 +1,133 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DeredactieVideoExpander
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  LICENSE.MD
+│  README.MD
+│  _locales
+│ -_metadata
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/LICENSE.MD
+├── +++ /workspace/pipeline_output/DeredactieVideoExpander/LICENSE.MD
+│┄ Ordering differences only
+│ @@ -1,21 +1,21 @@
+│ -The MIT License (MIT)
+│ -
+│ -Copyright (c) [year] [fullname]
+│ -
+│ -Permission is hereby granted, free of charge, to any person obtaining a copy
+│ -of this software and associated documentation files (the "Software"), to deal
+│ -in the Software without restriction, including without limitation the rights
+│ -to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ -copies of the Software, and to permit persons to whom the Software is
+│ -furnished to do so, subject to the following conditions:
+│ -
+│ -The above copyright notice and this permission notice shall be included in all
+│ -copies or substantial portions of the Software.
+│ -
+│ -THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ -IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ -FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ -AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ -LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ -OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ +The MIT License (MIT)
+│ +
+│ +Copyright (c) [year] [fullname]
+│ +
+│ +Permission is hereby granted, free of charge, to any person obtaining a copy
+│ +of this software and associated documentation files (the "Software"), to deal
+│ +in the Software without restriction, including without limitation the rights
+│ +to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ +copies of the Software, and to permit persons to whom the Software is
+│ +furnished to do so, subject to the following conditions:
+│ +
+│ +The above copyright notice and this permission notice shall be included in all
+│ +copies or substantial portions of the Software.
+│ +
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ +IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ +FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ +AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ +LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│  SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/README.MD
+├── +++ /workspace/pipeline_output/DeredactieVideoExpander/README.MD
+│┄ Ordering differences only
+│ @@ -1,14 +1,14 @@
+│ -DEREDACTIE.BE VIDEO EXPANDER
+│ -====================================
+│ -
+│ -Author: Kevin Van den Abeele
+│ -------------------------------------
+│ -
+│ -Description:
+│ -------------------------------------
+│ -Simple chrome extension to enlarge the video player on deredactie.be
+│ -
+│ -When a video is playing an "ENLARGE VIDEO PLAYER" button will be added below the video.
+│ -When clicked this will enlarge the video player and clean up the page for an enhanced viewing experience.
+│ -
+│ +DEREDACTIE.BE VIDEO EXPANDER
+│ +====================================
+│ +
+│ +Author: Kevin Van den Abeele
+│ +------------------------------------
+│ +
+│ +Description:
+│ +------------------------------------
+│ +Simple chrome extension to enlarge the video player on deredactie.be
+│ +
+│ +When a video is playing an "ENLARGE VIDEO PLAYER" button will be added below the video.
+│ +When clicked this will enlarge the video player and clean up the page for an enhanced viewing experience.
+│ +
+│  Provided under the MIT License, see LICENSE.MD for more information.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DeredactieVideoExpander/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,13 +16,12 @@
+│ │      "icons": {
+│ │          "128": "icons/icon.png",
+│ │          "16": "icons/icon.png",
+│ │          "48": "icons/icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Deredactie.be video expander",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0",
+│ │      "web_accessible_resources": [
+│ │          "src/inject/inject.js"
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/DeredactieVideoExpander/src
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  inject
+│ │   --- /workspace/pipeline_output/chromex_data/src/inject
+│ ├── +++ /workspace/pipeline_output/DeredactieVideoExpander/src/inject
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/inject/injectLoader.js
+│ │ ├── +++ /workspace/pipeline_output/DeredactieVideoExpander/src/inject/injectLoader.js
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ │ @@ -1,7 +1,7 @@
+│ │ │  7661722073203d20646f63756d656e742e637265617465456c656d656e742827
+│ │ │ -73637269707427293b0d0a732e737263203d206368726f6d652e657874656e73
+│ │ │ -696f6e2e67657455524c2827696e6a6563742e6a7327293b0d0a28646f63756d
+│ │ │ -656e742e686561647c7c646f63756d656e742e646f63756d656e74456c656d65
+│ │ │ -6e74292e617070656e644368696c642873293b0d0a732e6f6e6c6f6164203d20
+│ │ │ -66756e6374696f6e2829207b0d0a20202020732e706172656e744e6f64652e72
+│ │ │ -656d6f76654368696c642873293b0d0a7d3b
+│ │ │ +73637269707427293b0a732e737263203d206368726f6d652e657874656e7369
+│ │ │ +6f6e2e67657455524c2827696e6a6563742e6a7327293b0a28646f63756d656e
+│ │ │ +742e686561647c7c646f63756d656e742e646f63756d656e74456c656d656e74
+│ │ │ +292e617070656e644368696c642873293b0a732e6f6e6c6f6164203d2066756e
+│ │ │ +6374696f6e2829207b0a20202020732e706172656e744e6f64652e72656d6f76
+│ │ │ +654368696c642873293b0a7d3b

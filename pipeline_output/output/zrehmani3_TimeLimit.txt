@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TimeLimit
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.DS_Store
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  css
+│  images
+│  manifest.json
+│  modal.html
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  timeLimit128.png
+│  timeLimit16.png
+│  timeLimit48.png
+│  websiteload.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TimeLimit/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -34,15 +34,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Time Limit",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

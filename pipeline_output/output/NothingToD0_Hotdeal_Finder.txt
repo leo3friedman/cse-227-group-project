@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Hotdeal_Finder
+├── file list
+│ @@ -1,8 +1,9 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Hotdeal_Finder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hotdeal Finder",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

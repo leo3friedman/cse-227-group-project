@@ -1,0 +1,441 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/dark-imaluum
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  docs
+│  logo.png
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│  style.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/dark-imaluum/README.md
+│┄ Ordering differences only
+│ @@ -1,34 +1,34 @@
+│ -# dark-imaluum
+│ -A chrome extension that dark modes i-Ma'luum website
+│ -
+│ -## 🚧 A work in progress
+│ -An attempt to inject css to [i-Ma'luum](https://imaluum.iium.edu.my/home) website to make it dark mode.
+│ -
+│ -> [!IMPORTANT]
+│ -> This project is **not** associated with the official IIUM agency!
+│ -
+│ -## 📱Screenshots
+│ -
+│ -![demo1](/docs/darkimaluum.gif)
+│ -
+│ -## 🔧 Usage
+│ -1. **Clone the repo**
+│ -   ```
+│ -   git clone https://github.com/qryskalyst20/dark-imaluum.git
+│ -   ```
+│ -   **or if you're unfamiliar with git,**
+│ -   ```
+│ -   Download as zip, then extract
+│ -   ```
+│ -
+│ -3. **Go to Chrome extension site**
+│ -   ```
+│ -   chrome://extensions
+│ -   ```
+│ -
+│ -4. **Click on `load unpacked` and select `dark-imaluum`**
+│ -   
+│ -![image](https://github.com/qryskalyst20/dark-imaluum/assets/65181897/5714c9bc-f0ba-4fca-96ff-24e1e5b8a382)
+│ -
+│ -4. **Open i-Ma'luum website and you're ready to go!**
+│ -   - Make sure the extension is turned on
+│ +# dark-imaluum
+│ +A chrome extension that dark modes i-Ma'luum website
+│ +
+│ +## 🚧 A work in progress
+│ +An attempt to inject css to [i-Ma'luum](https://imaluum.iium.edu.my/home) website to make it dark mode.
+│ +
+│ +> [!IMPORTANT]
+│ +> This project is **not** associated with the official IIUM agency!
+│ +
+│ +## 📱Screenshots
+│ +
+│ +![demo1](/docs/darkimaluum.gif)
+│ +
+│ +## 🔧 Usage
+│ +1. **Clone the repo**
+│ +   ```
+│ +   git clone https://github.com/qryskalyst20/dark-imaluum.git
+│ +   ```
+│ +   **or if you're unfamiliar with git,**
+│ +   ```
+│ +   Download as zip, then extract
+│ +   ```
+│ +
+│ +3. **Go to Chrome extension site**
+│ +   ```
+│ +   chrome://extensions
+│ +   ```
+│ +
+│ +4. **Click on `load unpacked` and select `dark-imaluum`**
+│ +   
+│ +![image](https://github.com/qryskalyst20/dark-imaluum/assets/65181897/5714c9bc-f0ba-4fca-96ff-24e1e5b8a382)
+│ +
+│ +4. **Open i-Ma'luum website and you're ready to go!**
+│ +   - Make sure the extension is turned on
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/dark-imaluum/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,11 +16,10 @@
+│ │      "description": "Turns your i-Ma'luum dark.",
+│ │      "homepage_url": "https://github.com/qryskalyst20/dark-imaluum",
+│ │      "icons": {
+│ │          "128": "logo.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Dark i-Ma'luum",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1",
+│ │      "version_name": "1.0 beta"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/style.css
+├── +++ /workspace/pipeline_output/dark-imaluum/style.css
+│┄ Ordering differences only
+│ @@ -1,127 +1,127 @@
+│ -span,
+│ -p,
+│ -b,
+│ -h1,
+│ -h2,
+│ -h3,
+│ -h4,
+│ -h5 {
+│ -  color: #f1f5f9 !important;
+│ -}
+│ -
+│ -.body-page {
+│ -  background: #18181b !important;
+│ -}
+│ -
+│ -footer {
+│ -  background: #27272a !important;
+│ -  color: #f1f5f9 !important;
+│ -}
+│ -
+│ -.content-header > .breadcrumb {
+│ -  background: transparent !important;
+│ -  color: #f1f5f9 !important;
+│ -}
+│ -
+│ -.info-box {
+│ -  background: rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ -
+│ -.breadcrumb > .active {
+│ -  color: #f1f5f9 !important;
+│ -}
+│ -
+│ -.content-header > .breadcrumb > li > a {
+│ -  color: #f1f5f9 !important;
+│ -}
+│ -
+│ -.skin-green .wrapper,
+│ -.skin-green .main-sidebar,
+│ -.skin-green .left-side {
+│ -  background: #212123 !important;
+│ -}
+│ -
+│ -.skin-green .sidebar-menu > li:hover > a,
+│ -.skin-green .sidebar-menu > li.active > a {
+│ -  background: #27272a !important;
+│ -}
+│ -
+│ -.skin-green .sidebar-menu > li > .treeview-menu {
+│ -  background: #29292b !important;
+│ -}
+│ -
+│ -.card {
+│ -  background-color: rgba(255, 255, 255, 0.1) !important;
+│ -  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+│ -  backdrop-filter: blur(20px) !important;
+│ -}
+│ -
+│ -.box-header.bg-green-gradient {
+│ -  background: #00a65a !important;
+│ -  border-radius: 16px 16px 0 0;
+│ -}
+│ -
+│ -.box.box-solid.box-shadow {
+│ -  position: relative;
+│ -  margin-bottom: 20px;
+│ -  width: 100%;
+│ -  background: rgba(255, 255, 255, 0.2) !important;
+│ -  border-radius: 16px;
+│ -  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+│ -  backdrop-filter: blur(5px) !important;
+│ -  -webkit-backdrop-filter: blur(5px);
+│ -  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+│ -}
+│ -
+│ -.box.box-primary {
+│ -  background: #27272a !important;
+│ -  border-top-color: #00a65a !important;
+│ -}
+│ -
+│ -.table > thead > tr > th,
+│ -.table > tbody > tr > th,
+│ -.table > tfoot > tr > th,
+│ -.table > thead > tr > td,
+│ -.table > tbody > tr > td,
+│ -.table > tfoot > tr > td {
+│ -  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ -
+│ -.box-header.with-border {
+│ -  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ -
+│ -.box {
+│ -  background: rgba(255, 255, 255, 0.1) !important;
+│ -  border-top: 3px solid #00a65a !important;
+│ -}
+│ -
+│ -.box.box-solid.box-shadow .box-body {
+│ -  background: rgba(255, 255, 255, 0.1) !important;
+│ -  border-top: 2px solid #00a65a !important;
+│ -  border-top-left-radius: 0;
+│ -  border-top-right-radius: 0;
+│ -  border-bottom-right-radius: 16px;
+│ -  border-bottom-left-radius: 16px;
+│ -}
+│ -
+│ -.table > thead > tr > th {
+│ -  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ -
+│ -thead {
+│ -  background: rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ -
+│ -th,
+│ -td {
+│ -  color: #f1f5f9 !important;
+│ -}
+│ -
+│ -tr:hover {
+│ -  background: rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ -
+│ -.box-footer.clearfix {
+│ -  background-color: rgba(255, 255, 255, 0.1) !important;
+│ -}
+│ +span,
+│ +p,
+│ +b,
+│ +h1,
+│ +h2,
+│ +h3,
+│ +h4,
+│ +h5 {
+│ +  color: #f1f5f9 !important;
+│ +}
+│ +
+│ +.body-page {
+│ +  background: #18181b !important;
+│ +}
+│ +
+│ +footer {
+│ +  background: #27272a !important;
+│ +  color: #f1f5f9 !important;
+│ +}
+│ +
+│ +.content-header > .breadcrumb {
+│ +  background: transparent !important;
+│ +  color: #f1f5f9 !important;
+│ +}
+│ +
+│ +.info-box {
+│ +  background: rgba(255, 255, 255, 0.1) !important;
+│ +}
+│ +
+│ +.breadcrumb > .active {
+│ +  color: #f1f5f9 !important;
+│ +}
+│ +
+│ +.content-header > .breadcrumb > li > a {
+│ +  color: #f1f5f9 !important;
+│ +}
+│ +
+│ +.skin-green .wrapper,
+│ +.skin-green .main-sidebar,
+│ +.skin-green .left-side {
+│ +  background: #212123 !important;
+│ +}
+│ +
+│ +.skin-green .sidebar-menu > li:hover > a,
+│ +.skin-green .sidebar-menu > li.active > a {
+│ +  background: #27272a !important;
+│ +}
+│ +
+│ +.skin-green .sidebar-menu > li > .treeview-menu {
+│ +  background: #29292b !important;
+│ +}
+│ +
+│ +.card {
+│ +  background-color: rgba(255, 255, 255, 0.1) !important;
+│ +  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+│ +  backdrop-filter: blur(20px) !important;
+│ +}
+│ +
+│ +.box-header.bg-green-gradient {
+│ +  background: #00a65a !important;
+│ +  border-radius: 16px 16px 0 0;
+│ +}
+│ +
+│ +.box.box-solid.box-shadow {
+│ +  position: relative;
+│ +  margin-bottom: 20px;
+│ +  width: 100%;
+│ +  background: rgba(255, 255, 255, 0.2) !important;
+│ +  border-radius: 16px;
+│ +  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+│ +  backdrop-filter: blur(5px) !important;
+│ +  -webkit-backdrop-filter: blur(5px);
+│ +  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+│ +}
+│ +
+│ +.box.box-primary {
+│ +  background: #27272a !important;
+│ +  border-top-color: #00a65a !important;
+│ +}
+│ +
+│ +.table > thead > tr > th,
+│ +.table > tbody > tr > th,
+│ +.table > tfoot > tr > th,
+│ +.table > thead > tr > td,
+│ +.table > tbody > tr > td,
+│ +.table > tfoot > tr > td {
+│ +  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+│ +}
+│ +
+│ +.box-header.with-border {
+│ +  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+│ +}
+│ +
+│ +.box {
+│ +  background: rgba(255, 255, 255, 0.1) !important;
+│ +  border-top: 3px solid #00a65a !important;
+│ +}
+│ +
+│ +.box.box-solid.box-shadow .box-body {
+│ +  background: rgba(255, 255, 255, 0.1) !important;
+│ +  border-top: 2px solid #00a65a !important;
+│ +  border-top-left-radius: 0;
+│ +  border-top-right-radius: 0;
+│ +  border-bottom-right-radius: 16px;
+│ +  border-bottom-left-radius: 16px;
+│ +}
+│ +
+│ +.table > thead > tr > th {
+│ +  border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+│ +}
+│ +
+│ +thead {
+│ +  background: rgba(255, 255, 255, 0.1) !important;
+│ +}
+│ +
+│ +th,
+│ +td {
+│ +  color: #f1f5f9 !important;
+│ +}
+│ +
+│ +tr:hover {
+│ +  background: rgba(255, 255, 255, 0.1) !important;
+│ +}
+│ +
+│ +.box-footer.clearfix {
+│ +  background-color: rgba(255, 255, 255, 0.1) !important;
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/style.js
+├── +++ /workspace/pipeline_output/dark-imaluum/style.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,40 +1,39 @@
+│  636f6e737420626f787469746c65203d20646f63756d656e742e717565727953
+│ -656c6563746f72280d0a20202273656374696f6e2e636f6e74656e7420646976
+│ -2e726f77206469762e636f6c2d6d642d363a6e74682d6368696c64283229202e
+│ -626f782e626f782d736f6c69642e626f782d736861646f77202e626f782d6865
+│ -616465722e62672d677265656e2d6772616469656e7420612068332e626f782d
+│ -7469746c65220d0a293b0d0a0d0a69662028626f787469746c6529207b0d0a20
+│ -20626f787469746c652e696e6e657248544d4c203d2022537570706f7274204d
+│ -792047697468756221223b0d0a7d0d0a0d0a636f6e737420706172656e744974
+│ -656d203d20646f63756d656e742e717565727953656c6563746f72280d0a2020
+│ -2273656374696f6e2e636f6e74656e74206469762e726f77206469762e636f6c
+│ -2d6d642d363a6e74682d6368696c64283229202e626f782e626f782d736f6c69
+│ -642e626f782d736861646f77202e626f782d626f6479220d0a293b0d0a0d0a69
+│ -662028706172656e744974656d29207b0d0a7d0d0a706172656e744974656d2e
+│ -7374796c652e646973706c6179203d2022666c6578223b0d0a706172656e7449
+│ -74656d2e7374796c652e6a757374696679436f6e74656e74203d202263656e74
+│ -6572223b0d0a706172656e744974656d2e7374796c652e616c69676e4974656d
+│ -73203d202263656e746572223b0d0a706172656e744974656d2e7374796c652e
+│ -686569676874203d20226669742d636f6e74656e74223b0d0a0d0a636f6e7374
+│ -206e65774974656d203d20646f63756d656e742e637265617465456c656d656e
+│ -7428226469762e6e65774974656d22293b0d0a6e65774974656d2e696e6e6572
+│ -48544d4c203d2060200d0a20203c6120687265663d2268747470733a2f2f6769
+│ -746875622e636f6d2f717279736b616c79737432302f6461726b2d696d616c75
+│ -756d22207461726765743d225f626c616e6b22207374796c653d22636f6c6f72
+│ -3a2077686974653b20666f6e742d7765696768743a20626f6c643b206261636b
+│ -67726f756e642d636f6c6f723a20677265656e3b2070616464696e673a203230
+│ -70783b2077696474683a206669742d636f6e74656e743b20626f726465722d72
+│ -61646975733a20313070783b223e0d0a20202020436865636b206f7574207468
+│ -6520736f7572636520636f6465206f6e20476974687562210d0a20203c2f613e
+│ -603b0d0a0d0a706172656e744974656d2e696e6e657248544d4c203d206e6577
+│ -4974656d2e696e6e657248544d4c3b0d0a0d0a636f6e737420696d616765203d
+│ -20646f63756d656e742e717565727953656c6563746f722822612e62746e2e62
+│ -672d776869746520696d6722293b0d0a0d0a69662028696d61676529207b0d0a
+│ -2020696d6167652e737263203d0d0a202020202268747470733a2f2f7062732e
+│ -7477696d672e636f6d2f6d656469612f4637664a49474b624541414f7a39493f
+│ -666f726d61743d6a7067266e616d653d736d616c6c223b0d0a7d0d0a0d0a2f2f
+│ -203c696d67207372633d2268747470733a2f2f7062732e7477696d672e636f6d
+│ -2f6d656469612f4637664a49474b624541414f7a39493f666f726d61743d6a70
+│ -67266e616d653d6c617267652220616c743d22696d616c75756d22207374796c
+│ -653d2277696474683a20313030253b206865696768743a206175746f3b20626f
+│ -726465722d7261646975733a20313070783b222f3e0d0a
+│ +656c6563746f72280a20202273656374696f6e2e636f6e74656e74206469762e
+│ +726f77206469762e636f6c2d6d642d363a6e74682d6368696c64283229202e62
+│ +6f782e626f782d736f6c69642e626f782d736861646f77202e626f782d686561
+│ +6465722e62672d677265656e2d6772616469656e7420612068332e626f782d74
+│ +69746c65220a293b0a0a69662028626f787469746c6529207b0a2020626f7874
+│ +69746c652e696e6e657248544d4c203d2022537570706f7274204d7920476974
+│ +68756221223b0a7d0a0a636f6e737420706172656e744974656d203d20646f63
+│ +756d656e742e717565727953656c6563746f72280a20202273656374696f6e2e
+│ +636f6e74656e74206469762e726f77206469762e636f6c2d6d642d363a6e7468
+│ +2d6368696c64283229202e626f782e626f782d736f6c69642e626f782d736861
+│ +646f77202e626f782d626f6479220a293b0a0a69662028706172656e74497465
+│ +6d29207b0a7d0a706172656e744974656d2e7374796c652e646973706c617920
+│ +3d2022666c6578223b0a706172656e744974656d2e7374796c652e6a75737469
+│ +6679436f6e74656e74203d202263656e746572223b0a706172656e744974656d
+│ +2e7374796c652e616c69676e4974656d73203d202263656e746572223b0a7061
+│ +72656e744974656d2e7374796c652e686569676874203d20226669742d636f6e
+│ +74656e74223b0a0a636f6e7374206e65774974656d203d20646f63756d656e74
+│ +2e637265617465456c656d656e7428226469762e6e65774974656d22293b0a6e
+│ +65774974656d2e696e6e657248544d4c203d2060200a20203c6120687265663d
+│ +2268747470733a2f2f6769746875622e636f6d2f717279736b616c7973743230
+│ +2f6461726b2d696d616c75756d22207461726765743d225f626c616e6b222073
+│ +74796c653d22636f6c6f723a2077686974653b20666f6e742d7765696768743a
+│ +20626f6c643b206261636b67726f756e642d636f6c6f723a20677265656e3b20
+│ +70616464696e673a20323070783b2077696474683a206669742d636f6e74656e
+│ +743b20626f726465722d7261646975733a20313070783b223e0a202020204368
+│ +65636b206f75742074686520736f7572636520636f6465206f6e204769746875
+│ +62210a20203c2f613e603b0a0a706172656e744974656d2e696e6e657248544d
+│ +4c203d206e65774974656d2e696e6e657248544d4c3b0a0a636f6e737420696d
+│ +616765203d20646f63756d656e742e717565727953656c6563746f722822612e
+│ +62746e2e62672d776869746520696d6722293b0a0a69662028696d6167652920
+│ +7b0a2020696d6167652e737263203d0a202020202268747470733a2f2f706273
+│ +2e7477696d672e636f6d2f6d656469612f4637664a49474b624541414f7a3949
+│ +3f666f726d61743d6a7067266e616d653d736d616c6c223b0a7d0a0a2f2f203c
+│ +696d67207372633d2268747470733a2f2f7062732e7477696d672e636f6d2f6d
+│ +656469612f4637664a49474b624541414f7a39493f666f726d61743d6a706726
+│ +6e616d653d6c617267652220616c743d22696d616c75756d22207374796c653d
+│ +2277696474683a20313030253b206865696768743a206175746f3b20626f7264
+│ +65722d7261646975733a20313070783b222f3e0a

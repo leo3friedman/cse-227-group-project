@@ -1,0 +1,161 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/radio-player
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/data
+├── +++ /workspace/pipeline_output/radio-player/data
+│ │   --- /workspace/pipeline_output/chromex_data/data/interface
+│ ├── +++ /workspace/pipeline_output/radio-player/data/interface
+│ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/index.css
+│ │ ├── +++ /workspace/pipeline_output/radio-player/data/interface/index.css
+│ │ │ @@ -31,23 +31,22 @@
+│ │ │    height: 54px;
+│ │ │    font-size: 14px;
+│ │ │    font-family: monospace;
+│ │ │    vertical-align: middle;
+│ │ │  }
+│ │ │  
+│ │ │  select {
+│ │ │ -  padding: 0;
+│ │ │    color: #333;
+│ │ │    height: 42px;
+│ │ │    outline: none;
+│ │ │    font-size: 14px;
+│ │ │  	cursor: pointer;
+│ │ │    background: #fff;
+│ │ │    font-weight: 600;
+│ │ │ -  text-indent: 5px;
+│ │ │ +  text-indent: 10px;
+│ │ │    font-family: monospace;
+│ │ │  	text-transform: capitalize;
+│ │ │    border: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │  }
+│ │ │  
+│ │ │  svg {
+│ │ │    pointer-events: none;
+│ │ │ @@ -134,18 +133,14 @@
+│ │ │    margin: 0 auto;
+│ │ │  }
+│ │ │  
+│ │ │  .container .content .block:has(.info) {
+│ │ │    border-right: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │  }
+│ │ │  
+│ │ │ -.container .content .block:has(.image) {
+│ │ │ -  max-width: 256px;
+│ │ │ -}
+│ │ │ -
+│ │ │  .container .content .block .info {
+│ │ │    border-spacing: 15px;
+│ │ │  }
+│ │ │  
+│ │ │  .container .content .block .info,
+│ │ │  .container .content .block .image {
+│ │ │    border: 0;
+│ │ │ @@ -177,14 +172,15 @@
+│ │ │  	width: 100%;
+│ │ │    max-width: calc(100vw - 425px);
+│ │ │  }
+│ │ │  
+│ │ │  .container .content .block .image {
+│ │ │    height: 100%;
+│ │ │    margin: 0 auto;
+│ │ │ +  max-width: 256px;
+│ │ │    border-spacing: 0;
+│ │ │  }
+│ │ │  
+│ │ │  .container .content .block .image tr td {
+│ │ │  	text-align: center;
+│ │ │  }
+│ │ │  
+│ │ │ @@ -207,24 +203,21 @@
+│ │ │  }
+│ │ │  
+│ │ │  .container .content .block .image svg,
+│ │ │  .container .content .footer .icon svg {
+│ │ │    fill: #f1a727;
+│ │ │  }
+│ │ │  
+│ │ │ -.container .content:has(.audio) {
+│ │ │ -  border-top: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │ -}
+│ │ │ -
+│ │ │  .container .content .audio {
+│ │ │    margin: 0 auto;
+│ │ │    padding: 10px 0;
+│ │ │    background: #fff;
+│ │ │    border-spacing: 10px 0;
+│ │ │    box-sizing: border-box;
+│ │ │ +  border-top: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │  }
+│ │ │  
+│ │ │  .container .content .audio tr td {
+│ │ │    text-align: center;
+│ │ │  }
+│ │ │  
+│ │ │  .container .content:has(.footer) {
+│ │ │ @@ -292,20 +285,14 @@
+│ │ │    vertical-align: middle;
+│ │ │    border-right: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │  }
+│ │ │  
+│ │ │  #stations {width: 250px}
+│ │ │  #countries {width: 250px}
+│ │ │  
+│ │ │ -@supports (-moz-appearance: none) {
+│ │ │ -  audio {
+│ │ │ -    height: 42px;
+│ │ │ -  }
+│ │ │ -}
+│ │ │ -
+│ │ │ -html[context="webapp"] .container .content:has(.footer) {
+│ │ │ +html[context="webapp"] .container {
+│ │ │    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │  }
+│ │ │  
+│ │ │  html[context="webapp"] .toolbar {
+│ │ │    display: none;
+│ │ │  }
+│ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/resources
+│ │ ├── +++ /workspace/pipeline_output/radio-player/data/interface/resources
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/resources/media.css
+│ │ │ ├── +++ /workspace/pipeline_output/radio-player/data/interface/resources/media.css
+│ │ │ │ @@ -3,15 +3,14 @@
+│ │ │ │      flex-flow: column;
+│ │ │ │      justify-content: flex-start;
+│ │ │ │    }
+│ │ │ │    .container .content .block:has(.info) {
+│ │ │ │      border-right: unset;
+│ │ │ │    }
+│ │ │ │    .container .content .block:has(.image) {
+│ │ │ │ -    max-width: unset;
+│ │ │ │      border-top: solid 1px rgba(0, 0, 0, 0.1);
+│ │ │ │    }
+│ │ │ │    .container .content .header {
+│ │ │ │      border-bottom: 0;
+│ │ │ │      border-spacing: 1px;
+│ │ │ │    }
+│ │ │ │    .container .content .header select {
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/radio-player/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Radio Player",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.5"
+│ │  }

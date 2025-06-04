@@ -1,0 +1,58 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/html-improver
+├── file list
+│ @@ -1,5 +1,5 @@
+│ +.git
+│  LICENSE
+│ -README.md
+│ -_metadata
+│  content.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/html-improver/content.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,11 +1,11 @@
+│ -76617220636f756e746572203d20303b0a0a76617220626c6f636b5061797761
+│ -6c6c203d2066756e6374696f6e2829207b0a202020207661722073746f727942
+│ -6f6479203d20646f63756d656e742e676574456c656d656e74734279436c6173
+│ -734e616d6528276a732d7072652d6368756e6b735f5f73746f72792d626f6479
+│ -27293b0a202020206966202873746f7279426f64792e6c656e677468203d3d20
+│ -3129207b0a202020202020202073746f7279426f64795b305d2e72656d6f7665
+│ -41747472696275746528227374796c6522293b0a202020207d0a202020200a20
+│ -20202069662028636f756e746572203c20313029207b0a202020202020202063
+│ -6f756e7465722b2b3b0a202020202020202073657454696d656f757428626c6f
+│ -636b50617977616c6c2c2033303030293b0a202020207d0a7d0a0a626c6f636b
+│ -50617977616c6c28293b
+│ +0a76617220626c6f636b50617977616c6c203d2066756e6374696f6e2829207b
+│ +0a202020207661722073746f7279426f6479203d20646f63756d656e742e6765
+│ +74456c656d656e74734279436c6173734e616d6528276a732d7072652d636875
+│ +6e6b735f5f73746f72792d626f647927293b0a202020206966202873746f7279
+│ +426f64792e6c656e677468203d3d203129207b0a20202020202020202f2f7374
+│ +6f7279426f64795b305d2e7374796c652e7669736962696c697479203d202276
+│ +697369626c65223b0a0a2020202020202020636f6e736f6c652e6c6f67282246
+│ +4f554e442122293b0a202020202020202073746f7279426f64795b305d2e7265
+│ +6d6f766541747472696275746528227374796c6522293b0a202020207d0a2020
+│ +20200a2020202073657454696d656f757428626c6f636b50617977616c6c2c20
+│ +34303030293b0a7d0a0a626c6f636b50617977616c6c28293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/html-improver/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,13 +5,12 @@
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.bizjournals.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Vastly enhances the layout of a certain website so that you can absorb more information than ever.",
+│ │ +    "description": "Chrome extension that bypasses the bizjournals paywall.",
+│ │      "manifest_version": 2,
+│ │ -    "name": "HTML improver",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "Blocks bizjournals paywall",
+│ │      "version": "0.1.0"
+│ │  }

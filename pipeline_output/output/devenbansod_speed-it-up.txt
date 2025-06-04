@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/speed-it-up
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/speed-it-up/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │      "description": "Adds a browser action that provides a way to adjust playback rate on any website",
+│ │      "manifest_version": 2,
+│ │      "name": "Speed it up",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

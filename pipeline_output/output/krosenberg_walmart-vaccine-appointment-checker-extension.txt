@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/walmart-vaccine-appointment-checker-extension
+├── file list
+│ @@ -1,4 +1,14 @@
+│ -_metadata
+│ -content.js
+│ +.babelrc
+│ +.git
+│ +.gitignore
+│ +.prettierignore
+│ +.prettierrc.json
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│ -styles.css
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│ +webpack.config.js
+│ +yarn.lock
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/walmart-vaccine-appointment-checker-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Checks all area Walmart Pharmacy locations for appointments without having to navigate to each location one at a time.",
+│ │      "manifest_version": 2,
+│ │      "name": "walmart-vaccine-appointment-checker-extension",
+│ │      "short_name": "walmart-vaccine-appointment-checker-extension",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.0"
+│ │  }

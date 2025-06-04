@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chromnitweet
+├── file list
+│ @@ -1,11 +1,20 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +LICENSE.chrome_ex_oauth
+│ +LICENSE.twitter-text
+│ +Makefile
+│ +PRIVACY
+│ +README
+│  background.html
+│  background.js
+│  chrome_ex_oauth.html
+│  chrome_ex_oauth.js
+│  chrome_ex_oauthsimple.js
+│  img
+│  manifest.json
+│  onload.js
+│ -settings.js
+│ +package-lock.json
+│ +res
+│ +settings.example.js
+│  twitter-text.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chromnitweet/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,13 +25,12 @@
+│ │      "permissions": [
+│ │          "notifications",
+│ │          "tabs",
+│ │          "https://api.twitter.com/",
+│ │          "https://*.twimg.com/"
+│ │      ],
+│ │      "short_name": "Chromnitweet",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.8.3",
+│ │      "web_accessible_resources": [
+│ │          "chrome_ex_oauth.html"
+│ │      ]
+│ │  }

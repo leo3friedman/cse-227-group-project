@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/inline-pgp
+├── file list
+│ @@ -1,7 +1,21 @@
+│ -_metadata
+│ -dist
+│ +.babelrc
+│ +.eslintignore
+│ +.eslintrc.js
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +app
+│ +base.config.js
+│ +development.config.js
+│  frame.html
+│  icon.png
+│ +icon128.png
+│ +icon96.png
+│  lib
+│ +main.config.js
+│  manifest.json
+│ -popup.html
+│ +package-lock.json
+│ +package.js
+│ +package.json
+│ +popup.html
+│ +production.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/inline-pgp/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,15 +27,14 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Inline PGP",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.2",
+│ │      "web_accessible_resources": [
+│ │          "frame.html",
+│ │          "dist/frame-build.js",
+│ │          "dist/frame-build.css"
+│ │      ]
+│ │  }

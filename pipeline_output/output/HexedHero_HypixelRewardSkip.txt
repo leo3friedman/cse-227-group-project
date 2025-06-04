@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HypixelRewardSkip
+├── file list
+│ @@ -1,9 +1,12 @@
+│ +.git
+│ +.project
+│  LICENSE
+│ +NO_PUBLISH
+│  README.md
+│ -_metadata
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  inject.js
+│  manifest.json
+│ +package-lock.json
+│  shaded
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HypixelRewardSkip/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hypixel Reward Skip",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

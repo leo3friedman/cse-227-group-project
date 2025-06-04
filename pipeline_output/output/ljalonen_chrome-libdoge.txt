@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-libdoge
+├── file list
+│ @@ -1,6 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  img
+│  libdoge.min.js
+│  manifest.json
+│ -run.js
+│ +package-lock.json
+│ +run.js
+│ +tiles
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/chrome-libdoge/img
+│ ├── file list
+│ │ @@ -1,5 +1,4 @@
+│ │  doge.png
+│ │ -doge_r.png
+│ │  icon-128.png
+│ │  icon-19.png
+│ │  icon-48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-libdoge/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │          "48": "img/icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "libdoge",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.9"
+│ │  }

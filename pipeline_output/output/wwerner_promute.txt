@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/promute
+├── file list
+│ @@ -1,8 +1,16 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.idea
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +doc
+│ +logo.png
+│ +logo.xcf
+│  logo_128.png
+│  logo_16.png
+│  logo_48.png
+│  manifest.json
+│ +package-lock.json
+│ +package.json
+│  promute.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/promute/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "icons": {
+│ │          "128": "./logo_128.png",
+│ │          "16": "./logo_16.png",
+│ │          "48": "./logo_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Promute",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.10"
+│ │  }

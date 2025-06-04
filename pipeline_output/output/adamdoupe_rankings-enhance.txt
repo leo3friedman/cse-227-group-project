@@ -1,0 +1,55 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/rankings-enhance
+├── file list
+│ @@ -1,4 +1,5 @@
+│ -_metadata
+│ +.git
+│  content-script.js
+│  manifest.json
+│ +package-lock.json
+│  rankings-enhance.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/rankings-enhance/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,15 +8,14 @@
+│ │                  "*://csrankings.org/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Enhance csrankings.org with additional features.",
+│ │      "manifest_version": 3,
+│ │      "name": "Rankings Enhance",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://csrankings.org/*"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/rankings-enhance.js
+├── +++ /workspace/pipeline_output/rankings-enhance/rankings-enhance.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -80,14 +80,14 @@
+│  74696f6e202829207b0a20202020202020202020202072657365745f73746174
+│  652874727565293b0a20202020202020202020202072657475726e2066616c73
+│  653b0a20202020202020207d0a202020207d0a5d3b0a0a2f2f205768656e2077
+│  652066697273742072756e2c207765276c6c2061646420627574746f6e732074
+│  6f20646f20776861742077652077616e740a76617220706167655f6865616465
+│  72203d20646f63756d656e742e676574456c656d656e74734279436c6173734e
+│  616d652827706167652d68656164657227295b305d3b0a0a616374696f6e732e
+│ -7265766572736528293b0a616374696f6e732e666f724561636828616374696f
+│ -6e203d3e0a202020207b0a20202020202020207661722062746e203d20646f63
+│ -756d656e742e637265617465456c656d656e742822627574746f6e22293b0a20
+│ -2020202020202062746e2e696e6e657248544d4c203d20616374696f6e2e7469
+│ -746c653b0a202020202020202062746e2e6f6e636c69636b203d20616374696f
+│ -6e2e616374696f6e3b0a2020202020202020706167655f6865616465722e7072
+│ -6570656e642862746e293b0a202020207d293b0a
+│ +666f724561636828616374696f6e203d3e0a202020207b0a2020202020202020
+│ +7661722062746e203d20646f63756d656e742e637265617465456c656d656e74
+│ +2822627574746f6e22293b0a202020202020202062746e2e696e6e657248544d
+│ +4c203d20616374696f6e2e7469746c653b0a202020202020202062746e2e6f6e
+│ +636c69636b203d20616374696f6e2e616374696f6e3b0a202020202020202070
+│ +6167655f6865616465722e70726570656e642862746e293b0a202020207d293b
+│ +0a

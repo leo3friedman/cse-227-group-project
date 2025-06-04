@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/knogs
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -_metadata
+│ +.git
+│  docs
+│  kludge.js
+│  knogs.user.js
+│  manifest.json
+│ +package-lock.json
+│  readme
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/knogs/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,14 +9,13 @@
+│ │              ],
+│ │              "run_at": "document_idle"
+│ │          }
+│ │      ],
+│ │      "description": "keyboard navigation on google search\u2122",
+│ │      "manifest_version": 2,
+│ │      "name": "knogs",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0",
+│ │      "web_accessible_resources": [
+│ │          "kludge.js",
+│ │          "docs/googleKeyboard.js"
+│ │      ]
+│ │  }

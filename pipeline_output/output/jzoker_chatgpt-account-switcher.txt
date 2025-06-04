@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chatgpt-account-switcher
+├── file list
+│ @@ -1,4 +1,7 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chatgpt-account-switcher/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      "name": "ChatGPT Account Switcher",
+│ │      "permissions": [
+│ │          "cookies",
+│ │          "storage",
+│ │          "tabs",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

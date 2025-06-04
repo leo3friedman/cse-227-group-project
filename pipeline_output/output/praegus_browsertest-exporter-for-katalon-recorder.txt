@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/browsertest-exporter-for-katalon-recorder
+├── file list
+│ @@ -1,8 +1,12 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  background.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  preview.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/browsertest-exporter-for-katalon-recorder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,23 +11,24 @@
+│ │              "16": "images/icon-16.png",
+│ │              "32": "images/icon-32.png",
+│ │              "48": "images/icon-48.png"
+│ │          },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "content_security_policy": "script-src 'self'; object-src 'self'",
+│ │ +    "default_locale": "en",
+│ │      "description": "This extension adds HSAC BrowserTest FitNesse Export to the Katalon Recorder Extension",
+│ │      "icons": {
+│ │          "128": "images/icon-128.png",
+│ │          "16": "images/icon-16.png",
+│ │          "32": "images/icon-32.png",
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "FitNesse exporter for Katalon Recorder",
+│ │ +    "name": "BrowserTest FitNesse exporter for Katalon Recorder",
+│ │      "offline_enabled": true,
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "BrowserTest Export",
+│ │      "update_url": "https://clients2.google.com/service/update2/crx",

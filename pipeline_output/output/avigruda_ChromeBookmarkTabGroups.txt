@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChromeBookmarkTabGroups
+├── file list
+│ @@ -1,4 +1,7 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  images
+│  main.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChromeBookmarkTabGroups/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │          "scripting",
+│ │          "contextMenus",
+│ │          "tabs",
+│ │          "tabGroups",
+│ │          "bookmarks",
+│ │          "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

@@ -1,0 +1,71 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wfh
+├── file list
+│ @@ -1,8 +1,13 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│  background.js
+│ +cd-large.jpg
+│ +cd-small.jpg
+│  content.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│ -script.js
+│ +script.js
+│ +website
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wfh/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,13 +18,12 @@
+│ │      "description": "Helping you work from home by making your feeds a little less addicting.",
+│ │      "manifest_version": 2,
+│ │      "name": "WFH",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.1",
+│ │      "web_accessible_resources": [
+│ │          "script.js"
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/wfh/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,9 +1,10 @@
+│  <html>
+│    <head>
+│ +    <!-- Author: ericzhong.com -->
+│      <meta charset="utf-8">
+│    </head>
+│    <style>
+│  
+│      body {
+│        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+│        font-style: normal;
+│   --- /workspace/pipeline_output/chromex_data/script.js
+├── +++ /workspace/pipeline_output/wfh/script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -62,15 +62,15 @@
+│  6f77736572732c2049450a2f2f20202077696e646f772e6f6e746f7563686d6f
+│  766520203d2070726576656e7444656661756c743b202f2f206d6f62696c650a
+│  2f2f202020646f63756d656e742e6f6e6b6579646f776e20203d207072657665
+│  6e7444656661756c74466f725363726f6c6c4b6579733b0a2f2f207d0a0a7661
+│  7220696e66696e6974655363726f6c6c203d2066616c73653b0a766172206469
+│  73745f646f776e203d20303b0a76617220646973745f7570203d20303b0a7661
+│  7220646f776e5f707265762c2075705f70726576203d2066616c73653b0a636f
+│ -6e7374207363726f6c6c466163746f72203d20312e353b202f2f206275666665
+│ +6e7374207363726f6c6c466163746f72203d20312e323b202f2f206275666665
+│  72202d20736f6d65206d617267696e206572726f72730a0a76617220696e6974
+│  69616c5f646f63486569676874203d2028646f63756d656e742e686569676874
+│  20213d3d20756e646566696e656429203f20646f63756d656e742e6865696768
+│  74203a20646f63756d656e742e626f64792e6f66667365744865696768743b0a
+│  0a76617220682c0a6465203d20646f63756d656e742e646f63756d656e74456c
+│  656d656e743b0a6966202873656c662e696e6e657248656967687429207b6820
+│  3d2077696e646f772e696e6e65724865696768743b7d0a656c73652069662028

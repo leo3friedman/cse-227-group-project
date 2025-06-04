@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/scroll-to-top-chrome-extension
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  app.js
+│  demo.gif
+│  manifest.json
+│ +package-lock.json
+│  top.png
+│  top48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/scroll-to-top-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,13 +11,12 @@
+│ │      ],
+│ │      "description": "Extension that make it so adding Scroll to top button when you start scroll to top. AKA: Pet Scroll.",
+│ │      "icons": {
+│ │          "48": "top48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Scroll to top",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3",
+│ │      "web_accessible_resources": [
+│ │          "top.png"
+│ │      ]
+│ │  }

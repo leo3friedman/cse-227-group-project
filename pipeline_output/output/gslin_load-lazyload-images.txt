@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/load-lazyload-images
+├── file list
+│ @@ -1,6 +1,6 @@
+│ -GNUmakefile
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  load-lazyload-images.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/load-lazyload-images/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      ],
+│ │      "description": "Load lazyload images automatically.",
+│ │      "host_permissions": [
+│ │          "*://*/*"
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "Load Lazyload Images",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2024.1228.0"
+│ │  }

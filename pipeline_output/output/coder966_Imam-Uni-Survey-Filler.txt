@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Imam-Uni-Survey-Filler
+├── file list
+│ @@ -1,8 +1,12 @@
+│ -_metadata
+│ +.git
+│ +CHANGELOG.md
+│ +LICENSE
+│ +README.md
+│  icon-128.png
+│  icon-16.png
+│  icon-48.png
+│  main.html
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Imam-Uni-Survey-Filler/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │          "48": "icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Imam-Uni Survey Filler",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

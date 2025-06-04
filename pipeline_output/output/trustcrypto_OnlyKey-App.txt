@@ -1,0 +1,54 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/OnlyKey-App/build/build
+├── file list
+│ @@ -1,11 +1 @@
+│ -_metadata
+│ -app.html
+│ -app.js
+│ -app.js.map
+│ -icon.png
+│ -images
+│ -manifest.json
+│ -package.json
+│ -scripts
+│ -stylesheets
+│ -vendor
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/OnlyKey-App/build/build/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,18 +4,19 @@
+│ │              "persistent": false,
+│ │              "scripts": [
+│ │                  "app.js"
+│ │              ]
+│ │          }
+│ │      },
+│ │      "icons": {
+│ │ -        "128": "images/onlykey_logo_128.png",
+│ │ -        "16": "images/onlykey_logo_16.png",
+│ │ -        "48": "images/onlykey_logo_48.png"
+│ │ +        "128": "resources/onlykey_logo_128.png",
+│ │ +        "16": "resources/onlykey_logo_16.png",
+│ │ +        "48": "resources/onlykey_logo_48.png"
+│ │      },
+│ │ +    "manifestUrl": "https://s3.amazonaws.com/onlykey-app/releases/latest/manifest.json",
+│ │      "manifest_version": 2,
+│ │      "minimum_chrome_version": "45.0.2439.3",
+│ │      "name": "OnlyKey Configuration",
+│ │      "permissions": [
+│ │          "hid",
+│ │          {
+│ │              "usbDevices": [
+│ │ @@ -26,11 +27,10 @@
+│ │                  {
+│ │                      "productId": 24828,
+│ │                      "vendorId": 7504
+│ │                  }
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "5.3.6",
+│ │      "version_name": "5.3.6"
+│ │  }

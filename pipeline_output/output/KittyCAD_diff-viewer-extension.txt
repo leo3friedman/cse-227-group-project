@@ -1,0 +1,102 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/diff-viewer-extension
+├── file list
+│ @@ -1,9 +1,20 @@
+│ -_metadata
+│ -assets
+│ -diff-viewer-2-up.jpg
+│ -diff-viewer-combined.jpg
+│ +.git
+│ +.gitattributes
+│ +.github
+│ +.gitignore
+│ +.nvmrc
+│ +.yarn
+│ +.yarnrc.yml
+│ +README.md
+│  index.html
+│ -logo192.png
+│ -logo512.png
+│  manifest.json
+│ -service-worker-loader.js
+│ +node_modules
+│ +package.json
+│ +playwright.config.ts
+│ +public
+│ +src
+│ +tests
+│ +tsconfig.json
+│ +tsconfig.node.json
+│ +vite.config.ts
+│ +yarn.lock
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/diff-viewer-extension/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,13 +1,10 @@
+│  <!DOCTYPE html>
+│  <html lang="en">
+│      <head>
+│          <title>Zoo Diff Viewer Extension</title>
+│ -      <script type="module" crossorigin src="/assets/index.html-Ez2lyxp_.js"></script>
+│ -      <link rel="modulepreload" crossorigin href="/assets/types-1DOoAU0f.js">
+│ -      <link rel="modulepreload" crossorigin href="/assets/Loading-Xv33s333.js">
+│ -      <link rel="stylesheet" crossorigin href="/assets/index-QwcegvyF.css">
+│      </head>
+│      <body>
+│          <div id="root"></div>
+│ +        <script type="module" src="/src/index.tsx"></script>
+│      </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/diff-viewer-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,21 +1,21 @@
+│ │  {
+│ │      "action": {
+│ │          "default_popup": "index.html",
+│ │          "default_title": "Open the settings"
+│ │      },
+│ │      "background": {
+│ │ -        "service_worker": "service-worker-loader.js",
+│ │ +        "service_worker": "src/chrome/background.ts",
+│ │          "type": "module"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": false,
+│ │              "js": [
+│ │ -                "assets/content.ts-loader-HGSJTpv6.js"
+│ │ +                "src/chrome/content.ts"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://github.com/*"
+│ │              ],
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │ @@ -32,24 +32,9 @@
+│ │          "48": "logo192.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Zoo Diff Viewer",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.9.0",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "https://github.com/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "assets/Loading-Xv33s333.js",
+│ │ -                "assets/types-1DOoAU0f.js",
+│ │ -                "assets/diff-_7AkVxQl.js",
+│ │ -                "assets/content.ts-pxuD9nNg.js"
+│ │ -            ],
+│ │ -            "use_dynamic_url": false
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "0.9.0"
+│ │  }

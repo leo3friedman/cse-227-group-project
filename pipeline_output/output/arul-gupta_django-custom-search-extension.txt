@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/django-custom-search-extension
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -_metadata
+│ +.git
+│  css
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/django-custom-search-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │      "icons": {
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Django Admin Custom search",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

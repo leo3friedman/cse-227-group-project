@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-unveiler
+├── file list
+│ @@ -1,9 +1,16 @@
+│ +.devcontainer
+│ +.git
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  background.js
+│  content.js
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +test
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-unveiler/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │          "https://*/*"
+│ │      ],
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

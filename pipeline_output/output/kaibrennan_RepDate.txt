@@ -1,0 +1,354 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/RepDate
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  README.md
+│  TODO.md
+│ -_metadata
+│  converter.html
+│  converterENG.html
+│  icon.png
+│  icon_128.png
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  popupENG.html
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/RepDate/README.md
+│┄ Ordering differences only
+│ @@ -1,4 +1,4 @@
+│ -# RepDate
+│ -## Download
+│ -- This application has been published in its most updated form. One can download it on the chrome web store at:
+│ +# RepDate
+│ +## Download
+│ +- This application has been published in its most updated form. One can download it on the chrome web store at:
+│  - https://chrome.google.com/webstore/detail/r%C3%A9pdate/hopdacfbcegkibmhfagggfffnbhogfag
+│   --- /workspace/pipeline_output/chromex_data/converter.html
+├── +++ /workspace/pipeline_output/RepDate/converter.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,52 +1,52 @@
+│ -<!DOCTYPE html>
+│ -<html lang="fr">
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│ -    <title>RépDate</title>
+│ -    <link rel="preconnect" href="https://fonts.googleapis.com">
+│ -    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+│ -    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+│ -    <link rel="stylesheet" href="styles.css">
+│ -</head>
+│ -<body>
+│ -    <div class = "head">
+│ -        <p><div class="title">RépDate</div><i>Votre Calendrier Républicain en Ligne</i></p>
+│ -        <div class = "nav">
+│ -            <ul>
+│ -                <li><a href="popup.html">Accueil</a></li>
+│ -                <li><a href="converter.html">Convertisseur</a></li>
+│ -            </ul>
+│ -        </div>
+│ -    </div>
+│ -
+│ -
+│ -    <p>Convertir entre les Dates Grégoriennes et Républicaines</p>
+│ -    
+│ -    <form id="dateConversionForm">
+│ -        <label for="day">Jour:</label>
+│ -        <input type="number" id="day" name="day" min="1" max="30" required><br>
+│ -
+│ -        <label for="month">Mois:</label>
+│ -        <input type="number" id="month" name="month" min="1" max="12" required><br>
+│ -
+│ -        <label for="year">Année:</label>
+│ -        <input type="number" id="year" name="year" min="1" required><br>
+│ -
+│ -        <button type="button" id="convertToRepublican">Au républicain</button>
+│ -        <button type="button" id="convertToGregorian">Au grégorien</button>
+│ -    </form>
+│ -    <p>Résultat:<div id="conv"></div></p>
+│ -    <p>Formaté:<div id="formatted"></div></p>
+│ -
+│ -
+│ -    <div class="foot">
+│ -        <a href="converterENG.html"><button type="button">English Version</button></a>
+│ -        <a href="mailto:kai.j.brennan@gmail.com?subject=Problème dans l'application de RépDate" target="_blank"><img src="images/bugreport.png" alt="Signaler un problème" style="width:15px;"></a>
+│ -        <a href="https://fr.wikipedia.org/wiki/Calendrier_r%C3%A9publicain" target="_blank"><img src="images/learnmore.png" alt="En savoir plus" style="width:15px;"></a>
+│ -        <p>© 2023 Kai Brennan & Paul Brotelande.<br>Tous droits réservés.</p><img src="images/footer.png" alt="Les armoiries héraldiques de Kai Brennan et Paul Brotelande." style="width:100px;">
+│ -    </div>
+│ -    <script src="popup.js"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="fr">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│ +    <title>RépDate</title>
+│ +    <link rel="preconnect" href="https://fonts.googleapis.com">
+│ +    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+│ +    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+│ +    <link rel="stylesheet" href="styles.css">
+│ +</head>
+│ +<body>
+│ +    <div class = "head">
+│ +        <p><div class="title">RépDate</div><i>Votre Calendrier Républicain en Ligne</i></p>
+│ +        <div class = "nav">
+│ +            <ul>
+│ +                <li><a href="popup.html">Accueil</a></li>
+│ +                <li><a href="converter.html">Convertisseur</a></li>
+│ +            </ul>
+│ +        </div>
+│ +    </div>
+│ +
+│ +
+│ +    <p>Convertir entre les Dates Grégoriennes et Républicaines</p>
+│ +    
+│ +    <form id="dateConversionForm">
+│ +        <label for="day">Jour:</label>
+│ +        <input type="number" id="day" name="day" min="1" max="30" required><br>
+│ +
+│ +        <label for="month">Mois:</label>
+│ +        <input type="number" id="month" name="month" min="1" max="12" required><br>
+│ +
+│ +        <label for="year">Année:</label>
+│ +        <input type="number" id="year" name="year" min="1" required><br>
+│ +
+│ +        <button type="button" id="convertToRepublican">Au républicain</button>
+│ +        <button type="button" id="convertToGregorian">Au grégorien</button>
+│ +    </form>
+│ +    <p>Résultat:<div id="conv"></div></p>
+│ +    <p>Formaté:<div id="formatted"></div></p>
+│ +
+│ +
+│ +    <div class="foot">
+│ +        <a href="converterENG.html"><button type="button">English Version</button></a>
+│ +        <a href="mailto:kai.j.brennan@gmail.com?subject=Problème dans l'application de RépDate" target="_blank"><img src="images/bugreport.png" alt="Signaler un problème" style="width:15px;"></a>
+│ +        <a href="https://fr.wikipedia.org/wiki/Calendrier_r%C3%A9publicain" target="_blank"><img src="images/learnmore.png" alt="En savoir plus" style="width:15px;"></a>
+│ +        <p>© 2023 Kai Brennan & Paul Brotelande.<br>Tous droits réservés.</p><img src="images/footer.png" alt="Les armoiries héraldiques de Kai Brennan et Paul Brotelande." style="width:100px;">
+│ +    </div>
+│ +    <script src="popup.js"></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/converterENG.html
+├── +++ /workspace/pipeline_output/RepDate/converterENG.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,52 +1,52 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│ -    <title>RépDate</title>
+│ -    <link rel="preconnect" href="https://fonts.googleapis.com">
+│ -    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+│ -    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+│ -    <link rel="stylesheet" href="styles.css">
+│ -</head>
+│ -<body>
+│ -    <div class = "head">
+│ -        <p><div class="title">RépDate</div><i>Your Online French Republican Calendar</i></p>
+│ -        <div class = "nav">
+│ -            <ul>
+│ -                <li><a href="popupENG.html">Home</a></li>
+│ -                <li><a href="converterENG.html">Converter</a></li>
+│ -            </ul>
+│ -        </div>
+│ -    </div>
+│ -
+│ -
+│ -    <p>Convert between Gregorian and Republican Dates</p>
+│ -    
+│ -    <form id="dateConversionForm">
+│ -        <label for="day">Day:</label>
+│ -        <input type="number" id="day" name="day" min="1" max="30" required><br>
+│ -
+│ -        <label for="month">Month:</label>
+│ -        <input type="number" id="month" name="month" min="1" max="12" required><br>
+│ -
+│ -        <label for="year">Year:</label>
+│ -        <input type="number" id="year" name="year" min="1" required><br>
+│ -
+│ -        <button type="button" id="convertToRepublican">To Republican</button>
+│ -        <button type="button" id="convertToGregorian">To Gregorian</button>
+│ -    </form>
+│ -    <p>Result:<div id="conv"></div></p>
+│ -    <p>Format:<div id="formatted"></div></p>
+│ -
+│ -
+│ -    <div class="foot">
+│ -        <a href="converter.html"><button type="button">Version Française</button></a>
+│ -        <a href="mailto:kai.j.brennan@gmail.com?subject=Problem in the RépDate Application" target="_blank"><img src="images/bugreport.png" alt="Signaler un problème" style="width:15px;"></a>
+│ -        <a href="https://fr.wikipedia.org/wiki/Calendrier_r%C3%A9publicain" target="_blank"><img src="images/learnmore.png" alt="En savoir plus" style="width:15px;"></a>
+│ -        <p>© 2023 Kai Brennan & Paul Brotelande.<br>All Rights Reserved.</p><img src="images/footer.png" alt="The coats of arms of Kai Brennan and Paul Brotelande." style="width:100px;">
+│ -    </div>
+│ -    <script src="popup.js"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│ +    <title>RépDate</title>
+│ +    <link rel="preconnect" href="https://fonts.googleapis.com">
+│ +    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+│ +    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+│ +    <link rel="stylesheet" href="styles.css">
+│ +</head>
+│ +<body>
+│ +    <div class = "head">
+│ +        <p><div class="title">RépDate</div><i>Your Online French Republican Calendar</i></p>
+│ +        <div class = "nav">
+│ +            <ul>
+│ +                <li><a href="popupENG.html">Home</a></li>
+│ +                <li><a href="converterENG.html">Converter</a></li>
+│ +            </ul>
+│ +        </div>
+│ +    </div>
+│ +
+│ +
+│ +    <p>Convert between Gregorian and Republican Dates</p>
+│ +    
+│ +    <form id="dateConversionForm">
+│ +        <label for="day">Day:</label>
+│ +        <input type="number" id="day" name="day" min="1" max="30" required><br>
+│ +
+│ +        <label for="month">Month:</label>
+│ +        <input type="number" id="month" name="month" min="1" max="12" required><br>
+│ +
+│ +        <label for="year">Year:</label>
+│ +        <input type="number" id="year" name="year" min="1" required><br>
+│ +
+│ +        <button type="button" id="convertToRepublican">To Republican</button>
+│ +        <button type="button" id="convertToGregorian">To Gregorian</button>
+│ +    </form>
+│ +    <p>Result:<div id="conv"></div></p>
+│ +    <p>Format:<div id="formatted"></div></p>
+│ +
+│ +
+│ +    <div class="foot">
+│ +        <a href="converter.html"><button type="button">Version Française</button></a>
+│ +        <a href="mailto:kai.j.brennan@gmail.com?subject=Problem in the RépDate Application" target="_blank"><img src="images/bugreport.png" alt="Signaler un problème" style="width:15px;"></a>
+│ +        <a href="https://fr.wikipedia.org/wiki/Calendrier_r%C3%A9publicain" target="_blank"><img src="images/learnmore.png" alt="En savoir plus" style="width:15px;"></a>
+│ +        <p>© 2023 Kai Brennan & Paul Brotelande.<br>All Rights Reserved.</p><img src="images/footer.png" alt="The coats of arms of Kai Brennan and Paul Brotelande." style="width:100px;">
+│ +    </div>
+│ +    <script src="popup.js"></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/RepDate/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,11 +4,10 @@
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "description": "Calendrier et horloge r\u00e9publicain fran\u00e7ais pratiques.",
+│ │      "icons": {
+│ │          "128": "icon_128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "RepDate",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "R\u00e9pDate",
+│ │      "version": "1.0.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popupENG.html
+├── +++ /workspace/pipeline_output/RepDate/popupENG.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,44 +1,44 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│ -    <title>RépDate</title>
+│ -    <link rel="preconnect" href="https://fonts.googleapis.com">
+│ -    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+│ -    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+│ -    <link rel="stylesheet" href="styles.css">
+│ -</head>
+│ -<body>
+│ -    <div class = "head">
+│ -        <p><div class="title">RépDate</div><i>Your Online French Republican Calendar</i></p>
+│ -        <div class = "nav">
+│ -            <ul>
+│ -                <li><a href="popupENG.html">Home</a></li>
+│ -                <li><a href="converterENG.html">Converter</a></li>
+│ -            </ul>
+│ -        </div>
+│ -    </div>
+│ -
+│ -    <p>Today's Republican Date</p>
+│ -
+│ -    <!--<p>Equinox test: <div id="testequinox"></div></p>-->
+│ -    <div class = "flexbox">
+│ -        <div>
+│ -            <div id="monthimage"></div>
+│ -            <p>Republican Day:<div id="repdate"></div><i><div id="symbol"></div></i><p>
+│ -            <p>Republican Time:<div id="reptemps"></div></p>
+│ -        </div>
+│ -    </div>
+│ -
+│ -
+│ -    <div class="foot">
+│ -        <a href="popup.html"><button type="button">Version Française</button></a>
+│ -        <a href="mailto:kai.j.brennan@gmail.com?subject=Problem in the RépDate Application" target="_blank"><img src="images/bugreport.png" alt="Signaler un problème" style="width:15px;"></a>
+│ -        <a href="https://fr.wikipedia.org/wiki/Calendrier_r%C3%A9publicain" target="_blank"><img src="images/learnmore.png" alt="En savoir plus" style="width:15px;"></a>
+│ -        <p>© 2023 Kai Brennan & Paul Brotelande.<br>All Rights Reserved.</p><img src="images/footer.png" alt="The coats of arms of Kai Brennan and Paul Brotelande." style="width:100px;">
+│ -    </div>
+│ -    <script src="popup.js"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│ +    <title>RépDate</title>
+│ +    <link rel="preconnect" href="https://fonts.googleapis.com">
+│ +    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+│ +    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+│ +    <link rel="stylesheet" href="styles.css">
+│ +</head>
+│ +<body>
+│ +    <div class = "head">
+│ +        <p><div class="title">RépDate</div><i>Your Online French Republican Calendar</i></p>
+│ +        <div class = "nav">
+│ +            <ul>
+│ +                <li><a href="popupENG.html">Home</a></li>
+│ +                <li><a href="converterENG.html">Converter</a></li>
+│ +            </ul>
+│ +        </div>
+│ +    </div>
+│ +
+│ +    <p>Today's Republican Date</p>
+│ +
+│ +    <!--<p>Equinox test: <div id="testequinox"></div></p>-->
+│ +    <div class = "flexbox">
+│ +        <div>
+│ +            <div id="monthimage"></div>
+│ +            <p>Republican Day:<div id="repdate"></div><i><div id="symbol"></div></i><p>
+│ +            <p>Republican Time:<div id="reptemps"></div></p>
+│ +        </div>
+│ +    </div>
+│ +
+│ +
+│ +    <div class="foot">
+│ +        <a href="popup.html"><button type="button">Version Française</button></a>
+│ +        <a href="mailto:kai.j.brennan@gmail.com?subject=Problem in the RépDate Application" target="_blank"><img src="images/bugreport.png" alt="Signaler un problème" style="width:15px;"></a>
+│ +        <a href="https://fr.wikipedia.org/wiki/Calendrier_r%C3%A9publicain" target="_blank"><img src="images/learnmore.png" alt="En savoir plus" style="width:15px;"></a>
+│ +        <p>© 2023 Kai Brennan & Paul Brotelande.<br>All Rights Reserved.</p><img src="images/footer.png" alt="The coats of arms of Kai Brennan and Paul Brotelande." style="width:100px;">
+│ +    </div>
+│ +    <script src="popup.js"></script>
+│ +</body>
+│  </html>

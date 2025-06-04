@@ -1,0 +1,55 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Export-leo
+├── file list
+│ @@ -1,6 +1,11 @@
+│ +.git
+│ +.gitignore
+│ +FAQ.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  export-leo-128.png
+│ +export-leo-16.png
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│ +webstore
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Export-leo/README.md
+│ @@ -1,20 +1,14 @@
+│  # Export-leo
+│  
+│  > Chrome extension for exporting dictionary from Lingualeo to a CSV file.
+│  > Link to extension: https://chrome.google.com/webstore/detail/ljcmfepnkepjmnnokpdeinjefcipjbeo
+│  
+│  ### Features:
+│  - You can choose which words you want to export
+│ -- Exporting any text with transcription from your dictionary
+│ +- Exporting any text you have in your dictionary
+│  
+│  ### Tip:
+│  - If you see wrong encoding, try to open the CSV file with Google Docs
+│  
+│  ### Совет:
+│  - Если вы увидели неправильную кодировку, попробуйте открыть документ например в Google Docs ( https://docs.google.com )
+│ -
+│ -
+│ -**Key changes:**
+│ -
+│ -
+│ -1.2 - This update includes ability to export transcription, stability improvements.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Export-leo/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "description": "Export your dictionary from LinguaLeo to a CSV file. \u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0441\u043b\u043e\u0432\u0430\u0440\u044f \u0438\u0437 LinguaLeo.",
+│ │      "icons": {
+│ │          "128": "export-leo-128.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Export-leo - LinguaLeo dictionary export",
+│ │      "short_name": "Export-leo",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

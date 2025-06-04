@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/RecordWebPageMemoQuicklytoSheet
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│  css
+│ +fonts
+│  icons
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/RecordWebPageMemoQuicklytoSheet/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,10 +44,9 @@
+│ │          "contextMenus",
+│ │          "identity",
+│ │          "storage",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │      "short_name": "PageMemo2Sheet",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.0"
+│ │  }

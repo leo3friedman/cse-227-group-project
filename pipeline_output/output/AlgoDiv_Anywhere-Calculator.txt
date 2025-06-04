@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Anywhere-Calculator
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Anywhere-Calculator/README.md
+│ @@ -1,4 +1,4 @@
+│ -# Chrome-Calculator
+│ +# Chrome-Calculator V1.2
+│  Drop down calculator for Google Chrome  
+│    
+│  - Download: https://chrome.google.com/webstore/detail/anywhere-calculator/cabddmjlaijidngobenoepkphkcmedbf
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Anywhere-Calculator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │      "description": "This extension brings a calculator to any page.",
+│ │      "icons": {
+│ │          "128": "images/icon128.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Anywhere Calculator",
+│ │      "short_name": "Anywhere Calc",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

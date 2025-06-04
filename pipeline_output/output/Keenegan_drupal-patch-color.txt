@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/drupal-patch-color
+├── file list
+│ @@ -1,6 +1,12 @@
+│ +.git
+│ +.gitignore
+│ +INSTALL.md
+│  README.md
+│ -_metadata
+│ +automation
+│  icons
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  scripts
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/drupal-patch-color/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      ],
+│ │      "description": "Add coloration for drupal.org patch",
+│ │      "icons": {
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "drupal-patch-color",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5.6"
+│ │  }

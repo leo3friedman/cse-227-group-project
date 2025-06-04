@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/JustRepeat
+├── file list
+│ @@ -1,12 +1,17 @@
+│ -_metadata
+│ +.git
+│ +CONTRIBUTING.MD
+│ +LICENSE
+│ +README.md
+│ +TODO.txt
+│  assets
+│  background.js
+│  inject.css
+│  inject.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  settings.css
+│  settings.html
+│  styles.css
+│  utils.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/JustRepeat/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,20 +35,19 @@
+│ │      "icons": {
+│ │          "128": "assets/justRepeatLogo128.png",
+│ │          "16": "assets/justRepeatLogo16.png",
+│ │          "32": "assets/justRepeatLogo32.png",
+│ │          "48": "assets/justRepeatLogo48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Just Repeat - Looper for YouTube",
+│ │ +    "name": "Just Repeat",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.youtube.com/*"
+│ │              ],
+│ │              "resources": [

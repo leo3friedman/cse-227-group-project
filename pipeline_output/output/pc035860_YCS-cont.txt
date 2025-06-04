@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/YCS-cont
+├── file list
+│ @@ -1,11 +1,14 @@
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  assets
+│  background.js
+│  browser-action
+│  content-scripts
+│  manifest.json
+│  options
+│ +package-lock.json
+│  web-resources
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/YCS-cont/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,15 +44,14 @@
+│ │      "name": "__MSG_ycs_name__",
+│ │      "options_page": "options/options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │      "short_name": "YCS (Cont.)",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.5",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.youtube.com/*"
+│ │              ],
+│ │              "resources": [

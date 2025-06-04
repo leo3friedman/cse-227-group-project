@@ -1,0 +1,66 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/jupytercoder
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  chats
+│  examples
+│  icons
+│  manifest.json
+│  options
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/examples
+├── +++ /workspace/pipeline_output/jupytercoder/examples
+│ ├── file list
+│ │ @@ -1,11 +1,4 @@
+│ │ -Untitled.ipynb
+│ │  denoisingwav_2_wavelet_2d.ipynb
+│ │ -fix_bug_showcase.ipynb
+│ │  fixing_bug_example.ipynb
+│ │ -merge1.py
+│ │ -merge2.py
+│ │  sklearn_digits.ipynb
+│ │ +starcoder_gpu_usage.ipynb
+│ │ -starcoder_gpu_usage.ipynb
+│ │ -usage_df.csv
+│ │ -wavelet.ipynb
+│ │ -wavelet2.ipynb
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/jupytercoder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,15 +16,17 @@
+│ │                  "src/preferences.js",
+│ │                  "src/utility.js",
+│ │                  "src/animation.js",
+│ │                  "src/diff.js",
+│ │                  "src/content.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "*://*/*"
+│ │ +                "*://*.jupyter.org/*",
+│ │ +                "*://localhost:*/*",
+│ │ +                "*://127.0.0.1:*/*"
+│ │              ],
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │      "description": "Capture data in Jupyter Notebook cells and send to a remote server.",
+│ │      "icons": {
+│ │          "128": "icons/flow_256.png",
+│ │ @@ -32,10 +34,9 @@
+│ │          "48": "icons/flow_128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Jupyter Coder",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.0.0"
+│ │  }

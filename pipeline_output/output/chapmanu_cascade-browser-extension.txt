@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cascade-browser-extension
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +.vscode
+│  background.js
+│  cascade.png
+│  icon.png
+│  inject.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cascade-browser-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,13 +12,12 @@
+│ │      "description": "Cascade Extension by Chapman.edu",
+│ │      "homepage_url": "https://chapman.edu",
+│ │      "manifest_version": 2,
+│ │      "name": "Chapman.edu - Cascade Extender",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.12",
+│ │      "web_accessible_resources": [
+│ │          "cascade.js"
+│ │      ]
+│ │  }

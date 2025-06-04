@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/simple_cvss_calculator_chrome_extension
+├── file list
+│ @@ -1,8 +1,11 @@
+│ +.git
+│ +LICENSE
+│  PRIVACY.md
+│ -_metadata
+│ +README.md
+│  bootstrap.min.css
+│  cvss40.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/simple_cvss_calculator_chrome_extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │      "content_security_policy": {
+│ │          "extension_pages": "script-src 'self'; object-src 'self'"
+│ │      },
+│ │      "description": "Simple tool to calculate 4.0/3.1 CVSS Base Score",
+│ │      "manifest_version": 3,
+│ │      "name": "Simple CVSS Calculator Chrome Extension",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/simple_cvss_calculator_chrome_extension/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -470,8 +470,8 @@
+│                          </div>
+│                      </td>
+│                  </tr>
+│              </table>
+│          </fieldset>
+│      </div>
+│  </body>
+│ -</html>
+│ +</html>

@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-feedly-tabs
+├── file list
+│ @@ -1,7 +1,11 @@
+│ +.git
+│ +.gitignore
+│  LICENSE.txt
+│ +Makefile
+│  README.md
+│ -_metadata
+│ +bin
+│  images
+│  js
+│  manifest.json
+│ +package-lock.json
+│  youtube-splashscreen.jpg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-feedly-tabs/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,10 +30,9 @@
+│ │          "default_title": "Open Feedly articles in new tabs"
+│ │      },
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "http://*.feedly.com/home*",
+│ │          "https://*.feedly.com/home*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.0"
+│ │  }

@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/name-spotter-chrome
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│ +.gitignore
+│  MIT-LICENSE
+│  README
+│  _locales
+│ -_metadata
+│  background.html
+│  config.json
+│  css
+│  images
+│  js
+│  manifest.json
+│ +package-lock.json
+│  toolbox.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/name-spotter-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -49,15 +49,14 @@
+│ │      "offline_enabled": false,
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "<all_urls>",
+│ │          "background",
+│ │          "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.1",
+│ │      "web_accessible_resources": [
+│ │          "toolbox.html",
+│ │          "images/accept.png",
+│ │          "images/ajax-loader.gif",
+│ │          "images/bullet_arrow_down.png",
+│ │          "images/bullet_arrow_up.png",

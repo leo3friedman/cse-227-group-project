@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/D2L-Tweaks_Extension
+├── file list
+│ @@ -1,4 +1,7 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  content.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/D2L-Tweaks_Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "16": "images/16.png",
+│ │          "192": "images/192.png",
+│ │          "32": "images/32.png",
+│ │          "512": "images/512.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "D2L Tweaks",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1.2"
+│ │  }

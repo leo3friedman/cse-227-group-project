@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/okay-xero
+├── file list
+│ @@ -1,4 +1,7 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +README.md
+│  content.js
+│  jquery.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/okay-xero/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,19 +1,16 @@
+│ │  {
+│ │ -    "author": "Ryan Marshall <ryan@schmoove.co.nz>",
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "jquery.js",
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://go.xero.com/BankRec/BankRec.aspx*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "The missing shortcut key for reconciling bank accounts in Xero. Select your contact and account, hit Ctrl/Cmd-Enter. Done.",
+│ │      "manifest_version": 2,
+│ │ -    "name": "Okay Xero",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "OK Xero",
+│ │      "version": "0.1"
+│ │  }

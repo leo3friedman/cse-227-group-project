@@ -1,0 +1,98 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CryptoAssetMonitor/Popup
+├── file list
+│ @@ -1,8 +1,12 @@
+│ -README.md
+│ -_metadata
+│ -images
+│ +CookieManager.js
+│ +Popup.js
+│ +PopupModel.js
+│ +PopupView.js
+│ +Socket.io.js
+│ +auto-complete.css
+│ +auto-complete.min.js
+│ +ccc-streamer-utilities.js
+│ +icon.png
+│  manifest.json
+│  popup.html
+│ -scripts
+│ -styles
+│ -views
+│ +toggle-switch.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CryptoAssetMonitor/Popup/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,20 +1,16 @@
+│ │  {
+│ │      "browser_action": {
+│ │ -        "default_icon": "images/icon.png",
+│ │ +        "default_icon": "icon.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ -    "content_security_policy": "script-src 'self' https://sockjs-us2.pusher.com https://stats.pusher.com; object-src 'self'",
+│ │      "description": "This extension will display the USD value of each cryptocurrency provided.\n\nPowered by: cryptocompare.com",
+│ │      "manifest_version": 2,
+│ │ -    "name": "Crypto Asset Monitor v2",
+│ │ +    "name": "Crypto Asset Monitor",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │ -        "cookies",
+│ │ -        "http://ec2-18-188-200-189.us-east-2.compute.amazonaws.com/popup/*",
+│ │ -        "http://localhost:8000/*",
+│ │ -        "https://streamer.cryptocompare.com/",
+│ │ -        "https://stats.pusher.com/*"
+│ │ +        "http://assetmonitor.us-east-2.elasticbeanstalk.com/*",
+│ │ +        "http://localhost:8080/*",
+│ │ +        "https://streamer.cryptocompare.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "2.0"
+│ │ +    "version": "1.65"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/CryptoAssetMonitor/Popup/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,22 +1,21 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8">
+│ -    <link href="styles/datatables.min.css" rel="stylesheet">
+│ -    <link href="styles/auto-complete.css" rel="stylesheet">
+│ -    <link href="styles/style.css" rel="stylesheet">
+│ -    <script src="scripts/lib/jquery-3.3.1.min.js"></script>
+│ -    <script src="scripts/lib/datatables.min.js"></script>
+│ -    <script src="scripts/lib/pusher.min.js"></script>
+│ -    <script src="scripts/lib/socket.io.js"></script>
+│ -    <script src="scripts/lib/auto-complete.min.js"></script>
+│ -    <script src="scripts/PopupView.js"></script>
+│ -    <script src="scripts/PopupModel.js"></script>
+│ -    <script src="scripts/PopupController.js"></script>
+│ -    <script src="scripts/popup.js"></script>
+│ -  </head>
+│ -  <body class="body dark fade">
+│ -    <div class="header-container invisible"><h2>Crypto Asset Monitor</h2></div>
+│ -    <div id="content" class="invisible"></div>
+│ -  </body>
+│ +<!DOCTYPE HTML>
+│ +<html>
+│ +<head>
+│ +
+│ +  <script src="ccc-streamer-utilities.js"></script>
+│ +  <script src="Popup.js"></script>
+│ +  <script src="PopupModel.js"></script>
+│ +  <script src="PopupView.js"></script>
+│ +  <script src="Socket.io.js"></script>
+│ +  <script src="auto-complete.min.js"></script>
+│ +  <script src="CookieManager.js"></script>
+│ +  <link rel="stylesheet" href="toggle-switch.css"/>
+│ +  <link rel="stylesheet" href="auto-complete.css"/>
+│ +
+│ +</head>
+│ +<body id="popup_body" style="background-color: #efefef; margin:2px;">
+│ +  <div style="width: 300px; text-align: center;">
+│ +    <h4>Sorry, unable to connect to the server. :(</h4>
+│ +  </div>
+│ +</body>
+│  </html>

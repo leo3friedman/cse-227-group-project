@@ -1,0 +1,61 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/read-news-tts
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon.png
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/read-news-tts/README.md
+│ @@ -1,23 +1,5 @@
+│  # read-news-tts
+│ +Read News with TTS - Text to speech for News Sites without distractions - Chrome Plugin
+│ +-
+│  Chrome Plugin for Read your favorite News Sites with TTS
+│ ---
+│  Version: 1.0.0
+│ ---
+│ -Preview on Youtube:
+│ ---
+│ -[![Preview on Youtube](https://i.imgur.com/6hhMzC2.png)](https://www.youtube.com/watch?v=sg8jczAonnM)
+│ -
+│ -
+│ -Websites used on the Plugin:
+│ ---
+│ -https://outlinetts.com
+│ -
+│ -https://easyreader.org
+│ -
+│ -https://ttspress.com
+│ -
+│ -https://readertts.com
+│ -
+│ -https://newsvoice.info
+│ -
+│ -https://newsreader.info
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/read-news-tts/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,13 +21,15 @@
+│ │      ],
+│ │      "icons": {
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Read News with TTS",
+│ │      "permissions": [
+│ │ +        "storage",
+│ │          "tabs",
+│ │ +        "contextMenus",
+│ │ +        "scripting",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

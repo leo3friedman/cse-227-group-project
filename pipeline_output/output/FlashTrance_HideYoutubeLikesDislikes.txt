@@ -1,0 +1,59 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HideYoutubeLikesDislikes
+├── file list
+│ @@ -1,10 +1,11 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  arrive.js
+│  background.js
+│  contentscript.js
+│ -images
+│  jquery.js
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/HideYoutubeLikesDislikes/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -32,8 +32,8 @@
+│  696f6e2874616249642c206368616e6765496e666f2c2074616229207b0d0a09
+│  090d0a092f2f204765742068696464656e2073746174652066726f6d2073746f
+│  726167652c2073656e6420746f20636f6e74656e74207363726970740d0a0963
+│  68726f6d652e73746f726167652e73796e632e67657428227374617465222c20
+│  66756e6374696f6e2863757272656e74537461746529207b090d0a0909636872
+│  6f6d652e746162732e73656e644d6573736167652874616249642c207b636f6d
+│  6d616e643a2063757272656e7453746174652e73746174652e68696465537461
+│ -74657d293b0d0a097d29090d0a7d293b
+│ +74657d293b0d0a097d29090d0a7d293b0d0a
+│   --- /workspace/pipeline_output/chromex_data/contentscript.js
+├── +++ /workspace/pipeline_output/HideYoutubeLikesDislikes/contentscript.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -57,8 +57,8 @@
+│  7d0d0a0d0a0d0a2f2f2073686f77416c6c28290d0a66756e6374696f6e207368
+│  6f77416c6c2829207b0d0a090d0a092f2f20556e6869646520616c6c20656c65
+│  6d656e74730d0a092428227974642d7365676d656e7465642d6c696b652d6469
+│  736c696b652d627574746f6e2d72656e646572657222292e73686f7728293b20
+│  2f2f20556e686964652073656e74696d656e74206261720d0a09242822797464
+│  2d746f67676c652d627574746f6e2d72656e646572657222292e66696e642822
+│  2e63626f7822292e73686f772829092f2f20556e68696465206c696b6573206e
+│ -756d6265720d0a7d
+│ +756d6265720d0a7d0d0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HideYoutubeLikesDislikes/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,10 +37,9 @@
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "declarativeContent",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

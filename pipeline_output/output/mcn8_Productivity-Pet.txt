@@ -1,0 +1,52 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Productivity-Pet
+├── file list
+│ @@ -1,9 +1,9 @@
+│ -LICENSE
+│ -README.md
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│  app
+│  css
+│  img
+│  index.html
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/app
+├── +++ /workspace/pipeline_output/Productivity-Pet/app
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │ +.DS_Store
+│ │  app.js
+│ │  blocked.html
+│ │  eventPage.js
+│ │  options.html
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/Productivity-Pet/img
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  bg.png
+│ │  icon.png
+│ │  icon128.png
+│ │  icon16.png
+│ │  icon48.png
+│ │  minigamebutton.png
+│ │  no.gif
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Productivity-Pet/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "activeTab",
+│ │          "https://ajax.googleapis.com/",
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

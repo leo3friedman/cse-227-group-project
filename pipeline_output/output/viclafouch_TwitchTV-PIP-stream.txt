@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TwitchTV-PIP-stream
+├── file list
+│ @@ -1,4 +1,6 @@
+│ -_metadata
+│ -background.js
+│ -images
+│ -manifest.json
+│ +.git
+│ +index.js
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TwitchTV-PIP-stream/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,22 +1,9 @@
+│ │  {
+│ │ -    "action": {},
+│ │ -    "background": {
+│ │ -        "service_worker": "background.js"
+│ │ +    "action": {
+│ │ +        "default_icon": "hello_extensions.png"
+│ │      },
+│ │      "description": "Enable Picture in Picture for TwitchTV",
+│ │ -    "host_permissions": [
+│ │ -        "*://*.twitch.tv/*"
+│ │ -    ],
+│ │ -    "icons": {
+│ │ -        "128": "images/icon128.png",
+│ │ -        "48": "images/icon48.png"
+│ │ -    },
+│ │      "manifest_version": 3,
+│ │      "name": "TwitchTV PIP 2",
+│ │ -    "permissions": [
+│ │ -        "scripting",
+│ │ -        "activeTab"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

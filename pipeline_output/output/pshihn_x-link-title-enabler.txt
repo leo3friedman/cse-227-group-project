@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/x-link-title-enabler
+├── file list
+│ @@ -1,4 +1,13 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +bin
+│  images
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +rollup.config.mjs
+│ +src
+│ +tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/x-link-title-enabler/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │          "128": "images/icon128.png",
+│ │          "16": "images/icon16.png",
+│ │          "32": "images/icon32.png",
+│ │          "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "X Title Enabler",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.1"
+│ │  }

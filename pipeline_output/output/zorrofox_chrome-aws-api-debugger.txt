@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-aws-api-debugger
+├── file list
+│ @@ -1,15 +1,18 @@
+│ +.DS_Store
+│ +.git
+│  2.5.3-crypto-sha256-hmac.js
+│  AWScloud-128.png
+│  AWScloud-16.png
+│ +Archive.zip
+│  README.md
+│ -_metadata
+│  background.js
+│  bootstrap.min.css
+│  bootstrap.min.js
+│  endpoint.js
+│  fonts
+│  images
+│  jquery-2.2.4.min.js
+│  manifest.json
+│ +package-lock.json
+│  window.html
+│  window.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-aws-api-debugger/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │          "storage",
+│ │          {
+│ │              "fileSystem": [
+│ │                  "write"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.3"
+│ │  }

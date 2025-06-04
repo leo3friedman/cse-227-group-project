@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/checkvist-encryption
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon.png
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  sjcl.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/checkvist-encryption/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "icons": {
+│ │          "128": "/icon128.png",
+│ │          "16": "/icon16.png",
+│ │          "48": "/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "CheckVist Encryption",
+│ │ -    "update_url": "http://clients2.google.com/service/update2/crx",
+│ │      "version": "1.7"
+│ │  }

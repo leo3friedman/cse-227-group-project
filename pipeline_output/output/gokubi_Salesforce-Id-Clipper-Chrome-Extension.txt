@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Salesforce-Id-Clipper-Chrome-Extension
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  README
+│ -_metadata
+│  background.js
+│  clipper.png
+│  clipper_128.png
+│  clippered.png
+│  clippered18.png
+│  clipperedLink.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/Salesforce-Id-Clipper-Chrome-Extension/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,8 +1,8 @@
+│ -2f2a0a436f707972696768742028632920323031372c20537465766520416e64
+│ +2f2a0a436f707972696768742028632920323031312c20537465766520416e64
+│  657273656e0a416c6c207269676874732072657365727665642e0a0a52656469
+│  73747269627574696f6e20616e642075736520696e20736f7572636520616e64
+│  2062696e61727920666f726d732c2077697468206f7220776974686f7574206d
+│  6f64696669636174696f6e2c20617265207065726d69747465642070726f7669
+│  64656420746861742074686520666f6c6c6f77696e6720636f6e646974696f6e
+│  7320617265206d65743a0a0a5265646973747269627574696f6e73206f662073
+│  6f7572636520636f6465206d7573742072657461696e207468652061626f7665
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Salesforce-Id-Clipper-Chrome-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "contextMenus",
+│ │          "clipboardWrite",
+│ │          "http://*/",
+│ │          "https://*/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.2"
+│ │  }

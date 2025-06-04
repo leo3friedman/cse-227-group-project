@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chromatic-essence
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +.vscode
+│  icon.png
+│  index.html
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chromatic-essence/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │          "128": "icon.png",
+│ │          "16": "icon.png",
+│ │          "32": "icon.png",
+│ │          "48": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Chromatic Essence",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

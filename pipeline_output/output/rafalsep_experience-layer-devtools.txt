@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/experience-layer-devtools
+├── file list
+│ @@ -1,10 +1,27 @@
+│ +.babelrc
+│ +.editorconfig
+│ +.eslintrc.js
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│ +.husky
+│ +.npmrc
+│ +.nvmrc
+│ +.storybook
+│ +.travis.yml
+│  LICENSE
+│  PRIVACY_POLICY.md
+│  README.md
+│ -_metadata
+│  devtools.html
+│  dist
+│  images
+│ +jest.config.js
+│  manifest.json
+│  media
+│ -scripts
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +prettier.config.js
+│ +scripts
+│ +src
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/experience-layer-devtools/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,10 +5,9 @@
+│ │          "128": "images/graphql-128x128.png",
+│ │          "16": "images/graphql-16x16.png",
+│ │          "48": "images/graphql-48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Experience Layer Devtools",
+│ │      "offline_enabled": true,
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.8"
+│ │  }

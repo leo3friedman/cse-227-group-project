@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-PR-guard
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│  background.js
+│  git-pull-request-128.png
+│  git-pull-request-16.png
+│  git-pull-request-48.png
+│  githubScript.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-PR-guard/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Github PR Guard",
+│ │      "permissions": [
+│ │          "*://github.com/*",
+│ │          "tabs",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

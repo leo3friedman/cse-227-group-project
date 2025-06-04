@@ -1,0 +1,75 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DougDougFilterFilter
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -LICENSE
+│ -README.md
+│ -_metadata
+│ -icons
+│ -js
+│ +.git
+│ +assets
+│ +content.js
+│  manifest.json
+│ -src
+│ +package-lock.json
+│ +popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DougDougFilterFilter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,38 +1,33 @@
+│ │  {
+│ │ -    "author": "Nikhil Dubbaka",
+│ │ -    "background": {
+│ │ -        "page": "src/bg/background.html",
+│ │ -        "persistent": true
+│ │ -    },
+│ │      "browser_action": {
+│ │ -        "default_icon": "icons/icon19.png",
+│ │ -        "default_popup": "src/page_action/page_action.html"
+│ │ +        "default_icon": {
+│ │ +            "128": "assets/icons/128.png",
+│ │ +            "48": "assets/icons/48.png"
+│ │ +        },
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │ -                "src/content/content.js"
+│ │ +                "assets/js/jquery-3.6.0.js",
+│ │ +                "assets/js/arrive-2.4.1.js",
+│ │ +                "content.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ]
+│ │ +                "https://www.twitch.tv/*"
+│ │ +            ],
+│ │ +            "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │ -    "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://apis.google.com; object-src 'self'",
+│ │ -    "description": "Cast any webpage from your mobile phone to a Chrome browser on your PC. Play/Pause media ont casted webpage like youtube video page.",
+│ │ -    "homepage_url": "https://github.com/browsercast/chrome-extension",
+│ │ +    "description": "Filters chat for high quality messages.",
+│ │      "icons": {
+│ │ -        "128": "icons/icon128.png",
+│ │ -        "16": "icons/icon16.png",
+│ │ -        "48": "icons/icon48.png"
+│ │ +        "128": "assets/icons/128.png",
+│ │ +        "48": "assets/icons/48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Browser Cast - Phone remote 4 your PC browser",
+│ │ +    "name": "DougDoug Chat Filter",
+│ │      "permissions": [
+│ │ -        "tabs",
+│ │ -        "http://*/",
+│ │ -        "https://*/*"
+│ │ +        "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.0.0.4"
+│ │ +    "version": "1.0"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ec2-sg-notes
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  content.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│ -scripts
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ec2-sg-notes/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_appName__",
+│ │      "offline_enabled": true,
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "ec2sgnotes",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/aops-submit
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│  styles
+│  views
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/aops-submit/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,15 +39,14 @@
+│ │          "128": "/icons/main-icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "AOPS Submit",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://artofproblemsolving.com/*"
+│ │              ],
+│ │              "resources": [

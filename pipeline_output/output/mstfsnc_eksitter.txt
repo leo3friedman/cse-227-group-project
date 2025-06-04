@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/eksitter/dist
+├── file list
+│ @@ -1,7 +1,7 @@
+│ -_metadata
+│ +.vite
+│  assets
+│  content.css
+│  logo-48-gray.png
+│  manifest.json
+│  service-worker-loader.js
+│  src
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/eksitter/dist/assets
+│ ├── file list
+│ │ @@ -1,8 +1,4 @@
+│ │  background.js-NPwkmDMB.js
+│ │  content-3LdAYtn-.css
+│ │ -content.js-Volg14sD.js
+│ │ -content.js-iU7aNnQi.js
+│ │  content.js-loader-C74DPJ0G.js
+│ │ -content.js-loader-OLnvsc1z.js
+│ │ -content.js-loader-ah4VX0i2.js
+│ │  content.js-pOo1iUTO.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/eksitter/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -80,15 +80,14 @@
+│ │          "48": "src/assets/logo-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Ek\u015fitter (beta)",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.3",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://eksisozluk.com/*"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/LeetCodeRemoveDifficulty
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +LeetCodeRemoveDifficulty.zip
+│  README.md
+│ -_metadata
+│  background.js
+│  content-script.js
+│  images
+│  index.html
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/LeetCodeRemoveDifficulty/images
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │ +.DS_Store
+│ │  icon-128.jpeg
+│ │  icon-16.png
+│ │  icon-32.jpeg
+│ │  icon-48.jpeg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/LeetCodeRemoveDifficulty/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      ],
+│ │      "description": "Removes the difficulty of Leetcode question so that you dont get the mental setback whether the question is hard or easy",
+│ │      "icons": {
+│ │          "128": "/images/icon-16.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Leetcode Difficulty Tag Remover",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5"
+│ │  }

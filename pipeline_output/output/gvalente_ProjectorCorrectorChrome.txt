@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ProjectorCorrectorChrome
+├── file list
+│ @@ -1,9 +1,10 @@
+│ -_metadata
+│ +.git
+│  contentScript.js
+│  images
+│  jquery-3.3.1.min.js
+│  manifest.json
+│  overLayer.css
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  readme.md
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ProjectorCorrectorChrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -34,10 +34,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Projector Corrector",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "declarativeContent"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

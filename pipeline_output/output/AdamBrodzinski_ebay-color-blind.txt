@@ -1,0 +1,50 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ebay-color-blind
+├── file list
+│ @@ -1,8 +1,7 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -__MACOSX
+│ -_metadata
+│  color-blind-ebay.css
+│  icon_128.png
+│ -icon_48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/ebay-color-blind/README.md
+│ @@ -1,12 +1,11 @@
+│ -Ebay for the Color Blind
+│ +ebay-color-blind
+│  ================
+│  
+│  A very small Chrome extension to help red/green color blind people browse ebay.
+│  
+│ -While browsing for the latest iPhone resale value, I became very frustrated when I could not quickly pick apart which completed items were sold and which ones did not sell. The default is a red and green which is very hard (for me) to distinguish. I changed these color values to a lime green and a dark red.
+│ -*Please let me know if there are better colors to use for other color blind people!*
+│ +While browsing for the latest iPhone resale value, I became very frustrated when I could not quickly pick apart which completed items were sold and which ones did not sell. The default is a red and green which is very hard (for me) to distinguish. I changed these color values to a lime green and a dark red. Please let me know if there are better colors to use for other color blind people!
+│  
+│  ##Screenshots
+│  <img src="https://dl.dropbox.com/u/1407764/www/gitHub/ebay-color-blind-screnshot.jpg" />
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ebay-color-blind/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,15 +6,13 @@
+│ │              ],
+│ │              "matches": [
+│ │                  "http://*.ebay.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "icons": {
+│ │ -        "128": "icon_128.png",
+│ │ -        "48": "icon_48.png"
+│ │ +        "128": "icon_128.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Ebay for the Color Blind",
+│ │ -    "update_url": "http://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

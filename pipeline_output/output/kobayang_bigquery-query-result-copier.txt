@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/bigquery-query-result-copier
+├── file list
+│ @@ -1,4 +1,7 @@
+│ +.git
+│ +.gitignore
+│ +.prettierrc
+│  README.md
+│ -_metadata
+│  content-script.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/bigquery-query-result-copier/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │                  "https://console.cloud.google.com/bigquery*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "This extension enable to copy bigquery query result to github editor easily.",
+│ │      "manifest_version": 2,
+│ │      "name": "Bigquery query result copier",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

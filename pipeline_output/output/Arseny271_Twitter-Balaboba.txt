@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Twitter-Balaboba
+├── file list
+│ @@ -1,12 +1,13 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  favicon.ico
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  index.css
+│  index.html
+│  index.js
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  warning.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Twitter-Balaboba/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "BalabobaTwitter",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

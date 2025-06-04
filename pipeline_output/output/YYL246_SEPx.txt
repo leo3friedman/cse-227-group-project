@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SEPx
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│  Preview.jpg
+│ -_metadata
+│ +README.md
+│  background.js
+│  contentScript.js
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  storeicon128.png
+│  storeicon16.png
+│  storeicon48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SEPx/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,12 +27,12 @@
+│ │          "16": "storeicon16.png",
+│ │          "48": "storeicon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "SEPx",
+│ │      "permissions": [
+│ │          "declarativeContent",
+│ │ -        "activeTab"
+│ │ +        "http://plato.stanford.edu/*/*",
+│ │ +        "https://plato.stanford.edu/*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }

@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-rulers
+├── file list
+│ @@ -1,6 +1,16 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +128.png
+│  48.png
+│  96.png
+│ -_metadata
+│  background.css
+│  background.js
+│ -manifest.json
+│ +index.js
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +readme.md
+│ +screenshot.jpg
+│ +screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-rulers/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │          "96": "96.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "GitHub Rulers",
+│ │      "permissions": [
+│ │          "*://*.github.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

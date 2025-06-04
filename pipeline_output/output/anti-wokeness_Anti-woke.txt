@@ -1,0 +1,88 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Anti-woke
+├── file list
+│ @@ -1,7 +1,12 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  background.js
+│  content
+│ +ff_manifest.json
+│  icons
+│  manifest.json
+│  notWoke.json
+│ +pack_chrome.ps1
+│ +package-lock.json
+│  woke.json
+│   --- /workspace/pipeline_output/chromex_data/content
+├── +++ /workspace/pipeline_output/Anti-woke/content
+│ │   --- /workspace/pipeline_output/chromex_data/content/options.html
+│ ├── +++ /workspace/pipeline_output/Anti-woke/content/options.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -33,17 +33,17 @@
+│ │  			<label class="toggleButtonFreedom placeLeftFreedom" data-tg-off="Off" data-tg-on="On" for="checkbox2Freedom"></label>
+│ │  			<div class="toggleTextFreedom">Underline words for information</div>
+│ │  		</div>
+│ │  		
+│ │  		<div class="messageFreedom">Support the project: <a href="https://www.buymeacoffee.com/antiwokeness">Buy me a Coffee</a></div>
+│ │  		
+│ │  		<div id="messageFreedom" class="messageFreedom">
+│ │ +			See something wrong or have a company that should be added or removed? Send an email to: <a href="mailto:anti-wokeness@protonmail.com">anti-wokeness@protonmail.com</a>
+│ │ -			See something wrong or have a company that should be added or removed? Send an email (with sources) to: <a href="mailto:anti-wokeness@protonmail.com">anti-wokeness@protonmail.com</a>
+│ │  			<br />
+│ │ +			Also available at <a href="https://anti-woke.net/">anti-woke.net</a> and as an <a href=" https://play.google.com/store/apps/details?id=no.freedom.anti_woke">Android app</a>
+│ │ -			Also available at <a href="https://anti-woke.net/">anti-woke.net</a> and as an <a href="https://play.google.com/store/apps/details?id=no.freedom.anti_woke">Android app</a>
+│ │  		</div>
+│ │  		
+│ │  		<div id="buttonPopup" class="buttonBaseFreedom buttonBlackFreedom">Hidden words and websites</div>				
+│ │  	</body>
+│ │  	<script src="helper.js"></script>
+│ │  	<script src="options.js"></script>
+│ │  </html>
+│ │ ├── encoding
+│ │ │ @@ -1 +1 @@
+│ │ │ +utf-8
+│ │ │ -us-ascii
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Anti-woke/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,15 +37,14 @@
+│ │      "name": "Anti-woke",
+│ │      "options_ui": {
+│ │          "page": "content/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.0.4",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/woke.json
+├── +++ /workspace/pipeline_output/Anti-woke/woke.json
+│ ├── Pretty-printed
+│ │ @@ -66,14 +66,19 @@
+│ │              "urlMatch": "tavistockandportman.nhs.uk"
+│ │          },
+│ │          {
+│ │              "name": "Woodgate Valley Health Centre",
+│ │              "sources": "https://archive.is/A9Q2a"
+│ │          },
+│ │          {
+│ │ +            "name": "Lidl",
+│ │ +            "sources": "https://archive.is/wip/et8yu",
+│ │ +            "urlMatch": ".lidl"
+│ │ +        },
+│ │ +        {
+│ │              "name": "Linux Foundation",
+│ │              "sources": "https://archive.is/wip/5HMSk",
+│ │              "urlMatch": "linuxfoundation.org"
+│ │          },
+│ │          {
+│ │              "name": "HR University",
+│ │              "sources": "https://archive.is/wip/HeH0P",

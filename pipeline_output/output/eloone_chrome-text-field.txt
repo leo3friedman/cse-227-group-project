@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-text-field
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  icon.png
+│  icon_128.png
+│  icon_48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-text-field/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │      "description": "Provides a simple text field on click.",
+│ │      "icons": {
+│ │          "128": "icon_128.png",
+│ │          "48": "icon_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Text Field",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.4"
+│ │  }

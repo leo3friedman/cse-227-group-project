@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/zip-writer
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/zip-writer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "optional_permissions": [
+│ │          "downloads"
+│ │      ],
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.9"
+│ │  }

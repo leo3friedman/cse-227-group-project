@@ -1,0 +1,75 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/amplayer
+├── file list
+│ @@ -1,21 +1,22 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  css
+│  fonts
+│  icon.png
+│  images
+│  img
+│  index.html
+│  js
+│  logo.png
+│  logo128.png
+│  logo16.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  proxy.php
+│  skins
+│  spec.html
+│  webview.html
+│  window.html
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/amplayer/img
+│ ├── file list
+│ │ @@ -1,19 +1,16 @@
+│ │  as256.png
+│ │  defaultbg.png
+│ │ -full_stats.csv
+│ │  info256.png
+│ │  like.png
+│ │  loading.gif
+│ │ -logo.jpg
+│ │  logo.png
+│ │  logo16.png
+│ │  lyrics256.png
+│ │  next256.png
+│ │  noart.jpg
+│ │ -play.svg
+│ │  prev256.png
+│ │  random256.png
+│ │  reload256.png
+│ │  settings256.png
+│ │  share256.png
+│ │  show256.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/amplayer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │          "storage",
+│ │          "https://www.google-analytics.com/",
+│ │          "fullscreen",
+│ │          "identity",
+│ │          "<all_urls>",
+│ │          "unlimitedStorage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.6.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/skins
+├── +++ /workspace/pipeline_output/amplayer/skins
+│ ├── file list
+│ │ @@ -1,6 +1,4 @@
+│ │  chromeapp.css
+│ │  default.css
+│ │  default_table.css
+│ │ +fonts.css
+│ │ -fonts.css
+│ │ -mobile.css
+│ │ -standard.css

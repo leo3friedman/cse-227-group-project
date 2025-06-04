@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/webextension-native-mathml
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  content-scripts
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/webextension-native-mathml/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "homepage_url": "https://github.com/fred-wang/webextension-native-mathml",
+│ │      "icons": {
+│ │          "48": "icons/icon-48.png",
+│ │          "96": "icons/icon-96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Native MathML",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }

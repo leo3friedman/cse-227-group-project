@@ -1,0 +1,211 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Cloak-Extension
+├── file list
+│ @@ -1,9 +1,10 @@
+│ -Cloak-PNG-Image.png
+│ -_metadata
+│ +.git
+│  content.css
+│  content.js
+│  eventPage.js
+│ +green-cactus-clay-flower-pot-260nw-1103556998.jpg
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/content.css
+├── +++ /workspace/pipeline_output/Cloak-Extension/content.css
+│ @@ -1,4 +1,3 @@
+│  .blur{
+│ -    filter: blur(25px);
+│ -}
+│ -
+│ +    filter: blur(15px);
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/eventPage.js
+├── +++ /workspace/pipeline_output/Cloak-Extension/eventPage.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -6,26 +6,26 @@
+│  63757272656e7457696e646f773a2074727565207d2c2066756e6374696f6e20
+│  287461627329207b0a2020202020206368726f6d652e70616765416374696f6e
+│  2e73686f7728746162735b305d2e6964293b0a202020207d293b0a20207d2065
+│  6c73652069662028726571756573742e746f646f203d3d3d2022636865636b49
+│  6d616765732229207b0a20202020636f6e736f6c652e6c6f672822436865636b
+│  2072657175657374207265636965766564222c20726571756573742e696d6167
+│  6573293b0a20202020636f6e737420696d61676573203d20726571756573742e
+│ -696d616765733b0a202020206665746368282268747470733a2f2f636c6f616b
+│ -6261636b656e642e6865726f6b756170702e636f6d2f646574656374222c207b
+│ -0a2020202020206d6574686f643a2022504f5354222c0a202020202020686561
+│ -646572733a207b0a202020202020202022436f6e74656e742d54797065223a20
+│ -226170706c69636174696f6e2f6a736f6e222c0a2020202020207d2c0a202020
+│ -202020626f64793a204a534f4e2e737472696e67696679287b20696d61676573
+│ -3a20696d61676573207d292c0a202020207d290a2020202020202e7468656e28
+│ -287265737029203d3e20726573702e6a736f6e2829290a2020202020202e7468
+│ -656e2828726573704a736f6e29203d3e207b0a2020202020202020636f6e736f
+│ -6c652e6c6f6728726573704a736f6e293b0a20202020202020206368726f6d65
+│ -2e746162732e7175657279280a202020202020202020207b206163746976653a
+│ -20747275652c2063757272656e7457696e646f773a2074727565207d2c0a2020
+│ -202020202020202066756e6374696f6e20287461627329207b0a202020202020
+│ -2020202020206368726f6d652e746162732e73656e644d657373616765287461
+│ -62735b305d2e69642c207b0a2020202020202020202020202020746f646f3a20
+│ -22626c7572496d616765222c0a2020202020202020202020202020696d616765
+│ -733a20726573704a736f6e2e726573756c742c0a202020202020202020202020
+│ -7d293b0a202020202020202020207d0a2020202020202020293b0a2020202020
+│ -207d293b0a20207d0a202072657475726e20747275653b0a7d293b0a
+│ +696d616765733b0a2020202066657463682822687474703a2f2f6c6f63616c68
+│ +6f73743a343030302f646574656374222c207b0a2020202020206d6574686f64
+│ +3a2022504f5354222c0a202020202020686561646572733a207b0a2020202020
+│ +20202022436f6e74656e742d54797065223a20226170706c69636174696f6e2f
+│ +6a736f6e222c0a2020202020207d2c0a202020202020626f64793a204a534f4e
+│ +2e737472696e67696679287b20696d616765733a20696d61676573207d292c0a
+│ +202020207d290a2020202020202e7468656e28287265737029203d3e20726573
+│ +702e6a736f6e2829290a2020202020202e7468656e2828726573704a736f6e29
+│ +203d3e207b0a2020202020202020636f6e736f6c652e6c6f6728726573704a73
+│ +6f6e293b0a20202020202020206368726f6d652e746162732e7175657279280a
+│ +202020202020202020207b206163746976653a20747275652c2063757272656e
+│ +7457696e646f773a2074727565207d2c0a2020202020202020202066756e6374
+│ +696f6e20287461627329207b0a2020202020202020202020206368726f6d652e
+│ +746162732e73656e644d65737361676528746162735b305d2e69642c207b0a20
+│ +20202020202020202020202020746f646f3a2022626c7572496d616765222c0a
+│ +2020202020202020202020202020696d616765733a20726573704a736f6e2e72
+│ +6573756c742c0a2020202020202020202020207d293b0a202020202020202020
+│ +207d0a2020202020202020293b0a2020202020207d293b0a20207d0a20207265
+│ +7475726e20747275653b0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Cloak-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,31 +10,31 @@
+│ │              "css": [
+│ │                  "content.css"
+│ │              ],
+│ │              "js": [
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "https://bitclout.com/*"
+│ │ +                "https://bitclout.com/*",
+│ │ +                "https://google.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "This extension hides the NSFW content on bitclout",
+│ │ +    "description": "This extension changes the font style in a specific page.",
+│ │      "icons": {
+│ │ -        "128": "./Cloak-PNG-Image.png",
+│ │ -        "16": "./Cloak-PNG-Image.png",
+│ │ -        "48": "./Cloak-PNG-Image.png"
+│ │ +        "16": "green-cactus-clay-flower-pot-260nw-1103556998.jpg"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Cloak",
+│ │      "page_action": {
+│ │ -        "default_icon": "./Cloak-PNG-Image.png",
+│ │ +        "default_icon": "green-cactus-clay-flower-pot-260nw-1103556998.jpg",
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "Cloak"
+│ │      },
+│ │      "permissions": [
+│ │ +        "tabs",
+│ │          "https://bitclout.com/*",
+│ │ +        "https://google.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.css
+├── +++ /workspace/pipeline_output/Cloak-Extension/popup.css
+│ @@ -1,31 +1,30 @@
+│  .form-switch {
+│    display: inline-block;
+│    cursor: pointer;
+│    -webkit-tap-highlight-color: transparent;
+│ - 
+│  }
+│  
+│  .form-switch i {
+│    position: relative;
+│    display: inline-block;
+│ -  margin-left: 25px;
+│ -  width: 45px;
+│ +  margin-right: 0.5rem;
+│ +  width: 46px;
+│    height: 26px;
+│    background-color: #e6e6e6;
+│    border-radius: 23px;
+│    vertical-align: text-bottom;
+│    transition: all 0.3s linear;
+│  }
+│  
+│  .form-switch i::before {
+│    content: "";
+│    position: absolute;
+│    left: 0;
+│ -  width: 45px;
+│ +  width: 42px;
+│    height: 22px;
+│    background-color: #fff;
+│    border-radius: 11px;
+│    transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+│    transition: all 0.25s linear;
+│  }
+│  
+│ @@ -62,24 +61,7 @@
+│  .form-switch input:checked + i::before {
+│    transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
+│  }
+│  
+│  .form-switch input:checked + i::after {
+│    transform: translate3d(22px, 2px, 0);
+│  }
+│ -
+│ -.pop{
+│ -  background-color: #D3D3D3;
+│ -  width:100px;
+│ -  height:100px;
+│ -  box-shadow: 0 0 5px #999;
+│ -}
+│ -
+│ -.text{
+│ -  text-align: center;
+│ -  font-weight: 700;
+│ -}
+│ -.text2{
+│ -  text-align: center;
+│ -  font-weight: 500;
+│ -  
+│ -}
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/Cloak-Extension/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -4,23 +4,15 @@
+│      <meta charset="UTF-8" />
+│      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│      <link rel="stylesheet" href="popup.css" />
+│      <title>Document</title>
+│    </head>
+│    <body>
+│ -
+│ -    <div class="pop">
+│      <label class="form-switch">
+│        <input type="checkbox"/>
+│        <i></i>
+│ +      Toggle filter
+│      </label>
+│ -    <div class="text">
+│ -      <p>Toggle Cloak</p>
+│ -    </div>
+│ -    <div class="text2">
+│ -      <p>Made with ❤️ by _HASH_</p>
+│ -    </div>
+│ -    </div>
+│      <script src="popup.js"></script>
+│    </body>
+│  </html>
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -utf-8
+│ │ +us-ascii

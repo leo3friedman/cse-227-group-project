@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/real-time-tab-sync
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│ +.gitignore
+│  AUTHORS
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  icon128.png
+│  icon16.png
+│  icon16grey.png
+│  icon19.png
+│  icon19grey.png
+│  icon19red.png
+│ @@ -13,11 +14,12 @@
+│  icon280.png
+│  icon38.png
+│  icon38grey.png
+│  icon38red.png
+│  icon38yellow.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  small tile.png
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/real-time-tab-sync/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs",
+│ │          "webRequest",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.4"
+│ │  }

@@ -1,0 +1,130 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/video-quality-checker
+├── file list
+│ @@ -1,4 +1,5 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/video-quality-checker/README.md
+│ @@ -1,41 +1 @@
+│ -# # Video Quality Checker Chrome Extension
+│ -
+│ -**Video Quality Checker** is a Chrome extension that helps you ensure your streaming videos are set to the optimal screen resolution for the best viewing experience.
+│ -
+│ -## Features
+│ -
+│ -- On-Demand Quality Checks: QualityCheck Notifier sends notifications when you click on a YouTube video, prompting you to verify and adjust video quality settings if necessary to match your screen resolution.
+│ -
+│ -- User-Centric Design: The extension prioritizes a seamless user experience, ensuring you always enjoy YouTube videos at their best quality, tailored to your screen.
+│ -
+│ -## Installation
+│ -
+│ -Installation: Install the extension from the Chrome Web Store - https://chrome.google.com/webstore/detail/lanpnabaldbelncmcdmknlkkggdokklg/preview?hl=en&authuser=0
+│ -
+│ -OR
+│ -
+│ -1. Clone this repository or download the ZIP file.
+│ -
+│ -    ```shell
+│ -    git clone git@github.com:gio437/vid.git
+│ -    ```
+│ -
+│ -2. Open Google Chrome.
+│ -
+│ -3. Go to `chrome://extensions/`.
+│ -
+│ -4. Enable "Developer mode" in the upper right corner.
+│ -
+│ -5. Click on "Load unpacked" and select the extension directory (`video-quality-checker-extension`).
+│ -
+│ -## Usage
+│ -
+│ -1. Browse your favorite streaming platform and start a video.
+│ -
+│ -2. Click on the Video Quality Checker extension icon in your Chrome toolbar.
+│ -
+│ -3. After installation, browse YouTube as usual. When you click on a video, the extension will send you a notification to check your video quality.
+│ -
+│ -4. Enjoy your high-quality streaming experience!
+│ -
+│ -**Disclaimer**: This extension is not affiliated with any specific streaming service. It simply helps you monitor and enhance your video quality settings for a better viewing experience.
+│ +# vid
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/video-quality-checker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,14 @@
+│ │                  "https://www.youtube.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Sets video quality automatically to the highest res avaliable",
+│ │      "manifest_version": 3,
+│ │      "name": "video quality checker",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "notifications",
+│ │ +        "tabs",
+│ │ +        "webNavigation"
+│ │ +    ],
+│ │      "version": "1.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/video-quality-checker/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,37 +1,14 @@
+│ -286173796e63202829203d3e207b0d0a20202020636f6e7374206f6273657276
+│ -6572203d206e6577204d75746174696f6e4f627365727665722866756e637469
+│ -6f6e286d75746174696f6e7329207b0d0a20202020202020206d75746174696f
+│ -6e732e666f72456163682866756e6374696f6e286d75746174696f6e29207b0d
+│ -0a2020202020202020202020202020696620286d75746174696f6e2e61646465
+│ -644e6f6465732e6c656e67746829207b0d0a2020202020202020202020202020
+│ -20202020696620286d75746174696f6e2e74797065203d3d20276368696c644c
+│ -6973742729207b0d0a2020202020202020202020202020202020202020636f6e
+│ -73742067656172203d20646f63756d656e742e676574456c656d656e74734279
+│ -436c6173734e616d6528277974702d627574746f6e207974702d73657474696e
+│ -67732d627574746f6e27295b305d3b0d0a202020202020202020202020202020
+│ -2020202020636f6e736f6c652e6c6f672827766964207175616c697479206675
+│ -6e6374696f6e2061637469766527293b0d0a2020202020202020202020202020
+│ -202020202020676561722e636c69636b28293b0d0a2020202020202020202020
+│ -202020202020202020636f6e7374207175616c69747942746e203d20646f6375
+│ -6d656e742e717565727953656c6563746f72416c6c28272e7974702d6d656e75
+│ -6974656d27295b335d3b0d0a2020202020202020202020202020202020202020
+│ -7175616c69747942746e2e636c69636b28293b0d0a2020202020202020202020
+│ -202020202020202020636f6e7374207175616c697479203d20646f63756d656e
+│ -742e717565727953656c6563746f7228272e7974702d7377617463682d636f6c
+│ -6f722d776869746527293b0d0a20202020202020202020202020202020202020
+│ -207175616c6974792e636c69636b28293b0d0a20202020202020202020202020
+│ -20202020207d0d0a20202020202020202020202020207d0d0a20202020202020
+│ -207d290d0a202020207d290d0a2020202066756e6374696f6e20636865636b4e
+│ -6f64652829207b0d0a2020202020202020636f6e7374207461726765744e6f64
+│ -65203d20646f63756d656e742e717565727953656c6563746f72282268312e74
+│ -69746c652e7374796c652d73636f70652e7974642d766964656f2d7072696d61
+│ -72792d696e666f2d72656e646572657222293b0d0a2020202020202020696620
+│ -28217461726765744e6f646529207b0d0a20202020202020202020202077696e
+│ -646f772e73657454696d656f757428636865636b4e6f64652c20353030293b0d
+│ -0a20202020202020202020202072657475726e3b0d0a20202020202020207d0d
+│ -0a2020202020202020636f6e737420636f6e666967203d207b0d0a2020202020
+│ -202020202020206368696c644c6973743a20747275652c0d0a20202020202020
+│ -2020202020737562747265653a747275650d0a20202020202020207d0d0a2020
+│ -2020202020206f627365727665722e6f627365727665287461726765744e6f64
+│ -652c20636f6e666967290d0a202020207d0d0a20202020636865636b4e6f6465
+│ -28293b0d0a7d2928293b0d0a
+│ +286173796e63202829203d3e207b0d0a20202020636f6e73742067656172203d
+│ +20646f63756d656e742e676574456c656d656e74734279436c6173734e616d65
+│ +28277974702d627574746f6e207974702d73657474696e67732d627574746f6e
+│ +27295b305d3b0d0a20202020636f6e7374207175616c69747942746e203d2064
+│ +6f63756d656e742e717565727953656c6563746f72416c6c28272e7974702d6d
+│ +656e756974656d27295b325d3b0d0a20202020636f6e7374207175616c697479
+│ +203d20646f63756d656e742e717565727953656c6563746f7228272e7974702d
+│ +7377617463682d636f6c6f722d776869746527293b0d0a202020206966202871
+│ +75616c69747920213d3d206e756c6c29207b0d0a2020202020202020636f6e73
+│ +6f6c652e6c6f672827766964207175616c6974792066756e6374696f6e206163
+│ +7469766527293b0d0a2020202020202020676561722e636c69636b28293b0d0a
+│ +20202020202020207175616c69747942746e2e636c69636b28293b0d0a202020
+│ +20202020207175616c6974792e636c69636b28293b0d0a202020207d0d0a7d29
+│ +28293b0d0a

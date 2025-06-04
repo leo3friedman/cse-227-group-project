@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/minimalistic-currency-converter-chrome-extension
+├── file list
+│ @@ -1,9 +1,12 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icons
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +resources
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/minimalistic-currency-converter-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Minimalistic Currency Converter",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4"
+│ │  }

@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/mark-as-read-confluence-extension
+├── file list
+│ @@ -1,4 +1,6 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/mark-as-read-confluence-extension/README.md
+│ @@ -1,6 +1,5 @@
+│  # Mark as read Confluence extension
+│  A Google Chrome extension that adds "Mark as read" capability to Confluence navigation.
+│ -
+│  Doesn't work with Confluence cloud. Tested with self-hosted Confluence v6.6.2.
+│  
+│  ## Demo
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/mark-as-read-confluence-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,8 +1,11 @@
+│ │  {
+│ │ +    "browser_action": {
+│ │ +        "default_title": "Fuel cost calculator"
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "js/functions.js",
+│ │                  "js/main.js"
+│ │              ],
+│ │              "matches": [
+│ │ @@ -13,10 +16,9 @@
+│ │      "description": "Adds \"Mark as read\" capability to Confluence navigation",
+│ │      "homepage_url": "https://github.com/marcin-mazurek/mark-as-read-confluence-extension",
+│ │      "manifest_version": 2,
+│ │      "name": "Mark as read Confluence extension",
+│ │      "permissions": [
+│ │          "https://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1"
+│ │  }

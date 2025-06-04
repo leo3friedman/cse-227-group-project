@@ -1,0 +1,77 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/reorder-github-diff-chrome
+├── file list
+│ @@ -1,10 +1,7 @@
+│ -LICENSE
+│ -_metadata
+│ -images
+│ -library
+│ +.git
+│ +Readme.mdown
+│ +icon64.png
+│ +jquery-2.1.1.min.js
+│  manifest.json
+│ -options.html
+│ -options.js
+│ -popup.html
+│ -popup.js
+│ -service_worker.js
+│ +package-lock.json
+│ +reorder.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/reorder-github-diff-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,37 +1,20 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "images/icon128x128.png",
+│ │ -            "16": "images/icon16x16.png",
+│ │ -            "32": "images/icon32x32.png",
+│ │ -            "48": "images/icon48x48.png"
+│ │ -        },
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "Check Periodically"
+│ │ -    },
+│ │ -    "background": {
+│ │ -        "service_worker": "service_worker.js"
+│ │ -    },
+│ │ -    "description": "Browse pages you want to check periodically",
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "jquery-2.1.1.min.js",
+│ │ +                "reorder.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "https://github.com/*"
+│ │ +            ]
+│ │ +        }
+│ │ +    ],
+│ │ +    "description": "This extension reorders the github pull request file diff tab to display the spec file below the actual file.",
+│ │      "icons": {
+│ │ -        "128": "images/icon128x128.png",
+│ │ -        "16": "images/icon16x16.png",
+│ │ -        "32": "images/icon32x32.png",
+│ │ -        "48": "images/icon48x48.png"
+│ │ +        "64": "icon64.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "Browse Periodically\uff08\u5b9a\u671f\u7684\u306b\u30c1\u30a7\u30c3\u30af\uff09",
+│ │ -    "options_ui": {
+│ │ -        "open_in_tab": true,
+│ │ -        "page": "options.html"
+│ │ -    },
+│ │ -    "permissions": [
+│ │ -        "storage",
+│ │ -        "unlimitedStorage",
+│ │ -        "tabs",
+│ │ -        "activeTab",
+│ │ -        "alarms"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.5.3.1"
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "@bumi's Spec File Reorder Script for GitHub Pull Requests",
+│ │ +    "version": "1.0"
+│ │  }

@@ -1,0 +1,66 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Habitica-Add-Task
+├── file list
+│ @@ -1,5 +1,7 @@
+│ +.git
+│ +README.md
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Habitica-Add-Task/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,8 +1,12 @@
+│ │  {
+│ │ +    "background": {
+│ │ +        "page": "src/bg/background.html",
+│ │ +        "persistent": true
+│ │ +    },
+│ │      "browser_action": {
+│ │          "default_icon": "icons/icon19.png",
+│ │          "default_popup": "src/browser_action/browser_action.html",
+│ │          "default_title": "Habitica Add Task"
+│ │      },
+│ │      "default_locale": "en",
+│ │      "description": "Add Tasks to Habitica in a fast and easy way, without need to load the entire Habitica website.",
+│ │ @@ -11,12 +15,12 @@
+│ │          "128": "icons/icon128.png",
+│ │          "16": "icons/icon16.png",
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Habitica Add Task",
+│ │      "permissions": [
+│ │ +        "https://habitica.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/Habitica-Add-Task/src
+│ │   --- /workspace/pipeline_output/chromex_data/src/browser_action
+│ ├── +++ /workspace/pipeline_output/Habitica-Add-Task/src/browser_action
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/browser_action/browser_action.html
+│ │ ├── +++ /workspace/pipeline_output/Habitica-Add-Task/src/browser_action/browser_action.html
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -156,15 +156,15 @@
+│ │ │          </span>
+│ │ │      </div>
+│ │ │  
+│ │ │  
+│ │ │  
+│ │ │  
+│ │ │  
+│ │ │ -    <div id="success">TASK ADDED SUCCESSFULLY
+│ │ │ +    <div id="success">ASK ADDED SUCCESSFULLY
+│ │ │          <div class="reload">Add another task</div>
+│ │ │      </div>
+│ │ │      <div id="error">ERROR
+│ │ │          <div class="reload">Retry</div>
+│ │ │      </div>
+│ │ │      <div id="config">
+│ │ │          <div>

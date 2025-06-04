@@ -1,0 +1,228 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gridt
+├── file list
+│ @@ -1,9 +1,22 @@
+│ +.git
+│ +.gitignore
+│ +.pre-commit-config.yaml
+│  AUTHORS
+│  LICENSE
+│  README.adoc
+│ -_metadata
+│ -dist
+│ +biome.json
+│ +commitlint.config.js
+│ +esbuild.config.mjs
+│  icons
+│  images
+│ +makefile
+│  manifest.json
+│ -src
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +playwright.config.ts
+│ +postcss-plugin.js
+│ +src
+│ +tsconfig.json
+│ +vitest.config.ts
+│ +web-ext-config.mjs
+│   --- /workspace/pipeline_output/chromex_data/README.adoc
+├── +++ /workspace/pipeline_output/gridt/README.adoc
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -33,14 +33,15 @@
+│  === Installation
+│  
+│  Gridt is available for download on addons.mozilla.org (AMO)
+│  
+│  https://addons.mozilla.org/en-US/firefox/addon/gridt
+│  
+│  Gridt is now available for download on the Chrome Web Store
+│ +
+│  https://chromewebstore.google.com/detail/gijangdmilikehdjjipfhjbehcmajkpe
+│  
+│  === Build from source
+│  
+│  ```
+│  gh repo clone gavink97/gridt .
+│  cd gridt
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/gridt/images
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +gridt.jpg
+│ │  kofi_symbol.webp
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gridt/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,15 +5,17 @@
+│ │              "32": "icons/icon-32.png"
+│ │          },
+│ │          "default_popup": "./src/popup/index.html",
+│ │          "default_title": "gridt"
+│ │      },
+│ │      "author": "Gavin Kondrath",
+│ │      "background": {
+│ │ -        "service_worker": "./dist/background/background.js",
+│ │ +        "scripts": [
+│ │ +            "./dist/background/background.js"
+│ │ +        ],
+│ │          "type": "module"
+│ │      },
+│ │      "browser_specific_settings": {
+│ │          "gecko": {
+│ │              "id": "gavin@gav.ink"
+│ │          }
+│ │      },
+│ │ @@ -34,26 +36,25 @@
+│ │          "<all_urls>"
+│ │      ],
+│ │      "icons": {
+│ │          "48": "icons/icon-48.png",
+│ │          "96": "icons/icon-96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Gridt - A highly customizable CSS Grid overlay for web developers",
+│ │ +    "name": "gridt",
+│ │      "options_ui": {
+│ │          "page": "./src/popup/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "scripting",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*/*"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/gridt/src
+│ │   --- /workspace/pipeline_output/chromex_data/src/background
+│ ├── +++ /workspace/pipeline_output/gridt/src/background
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/background/background.ts
+│ │ ├── +++ /workspace/pipeline_output/gridt/src/background/background.ts
+│ │ │ @@ -1,11 +1,9 @@
+│ │ │ -import Browser from 'webextension-polyfill';
+│ │ │  import { defaultVariables } from '../utils/default-variables.ts';
+│ │ │  import type { Action, Config, ResponseSender } from '../utils/types.ts';
+│ │ │ -const browser = Browser;
+│ │ │  
+│ │ │  let Storage: Config;
+│ │ │  
+│ │ │  function handleError(error: any) {
+│ │ │  	const message = {
+│ │ │  		error: String(error),
+│ │ │  		response: String(error),
+│ │ │ @@ -18,15 +16,14 @@
+│ │ │  function handleResponse(message: any) {
+│ │ │  	const response = {
+│ │ │  		response: String(message),
+│ │ │  		type: 'message',
+│ │ │  	};
+│ │ │  
+│ │ │  	browser.runtime.sendMessage(response);
+│ │ │ -
+│ │ │  	if (!message) {
+│ │ │  		console.error('Expected a response from content script but received nothing.');
+│ │ │  	}
+│ │ │  
+│ │ │  	return message.response;
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/src/content
+│ ├── +++ /workspace/pipeline_output/gridt/src/content
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/content/main.ts
+│ │ ├── +++ /workspace/pipeline_output/gridt/src/content/main.ts
+│ │ │ @@ -1,11 +1,9 @@
+│ │ │ -import Browser from 'webextension-polyfill';
+│ │ │  import type { Action, ResponseSender } from '../utils/types.ts';
+│ │ │  import { CSSGrid, GridPresence, GridVisible, HideGrid, RemoveGrid, ShowGrid } from './grid.ts';
+│ │ │ -const browser = Browser;
+│ │ │  
+│ │ │  function receiver(request: Action, sender: browser.runtime.MessageSender, sendResponse: ResponseSender) {
+│ │ │  	let visibility: boolean;
+│ │ │  
+│ │ │  	if (request) {
+│ │ │  		switch (request.action) {
+│ │ │  			case 'show-grid':
+│ │   --- /workspace/pipeline_output/chromex_data/src/popup
+│ ├── +++ /workspace/pipeline_output/gridt/src/popup
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/popup/index.html
+│ │ ├── +++ /workspace/pipeline_output/gridt/src/popup/index.html
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -83,14 +83,13 @@
+│ │ │                      <input class="hidden" type="text" id="append-to-element" name="append-to-element" title="attaches absolute to an element" value="body"/>
+│ │ │                  </div>
+│ │ │              </div>
+│ │ │  
+│ │ │              <button id="show-grid-button">Show Grid</button>
+│ │ │              <a id="error-content" class="vanish" href="https://github.com/gavink97/gridt/issues/new?"></a>
+│ │ │  
+│ │ │ -            <a class="kofi" href='https://ko-fi.com/E1E119NG8M' target="_blank"><img height='20' src='../../images/kofi_symbol.webp' alt='Buy Me a Coffee at ko-fi.com' /></a>
+│ │ │ -            <a class="logo" href="https://gav.ink" target="_blank">gav.ink</a>
+│ │ │ +            <a class="kofi" href='https://ko-fi.com/E1E119NG8M'><img height='20' src='../../images/kofi_symbol.webp' alt='Buy Me a Coffee at ko-fi.com' /></a>
+│ │ │ +            <a class="logo" href="https://gav.ink">gav.ink</a>
+│ │ │          </div>
+│ │ │ -
+│ │ │          <script src="../../dist/popup/popup.js" type="text/javascript"></script>
+│ │ │      </body>
+│ │ │  </html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/popup/options.ts
+│ │ ├── +++ /workspace/pipeline_output/gridt/src/popup/options.ts
+│ │ │ @@ -1,10 +1,7 @@
+│ │ │ -import Browser from 'webextension-polyfill';
+│ │ │ -const browser = Browser;
+│ │ │ -
+│ │ │  const commandName = 'toggle-feature';
+│ │ │  
+│ │ │  function saveOptions(e: Event) {
+│ │ │  	e.preventDefault();
+│ │ │  	browser.storage.sync.set({
+│ │ │  		shortcut: (<HTMLInputElement>document.getElementById('shortcut')).value,
+│ │ │  	});
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/popup/popup.ts
+│ │ ├── +++ /workspace/pipeline_output/gridt/src/popup/popup.ts
+│ │ │ @@ -1,11 +1,9 @@
+│ │ │ -import Browser from 'webextension-polyfill';
+│ │ │  import type { Config, Message, ResponseSender } from '../utils/types.ts';
+│ │ │  import { getVariables, restoreOptions } from './values.ts';
+│ │ │ -const browser = Browser;
+│ │ │  
+│ │ │  // log this out in a file for catching errors
+│ │ │  function handleResponse(response: Partial<Message>) {
+│ │ │  	if (response) {
+│ │ │  		//console.log(`Message from the background script: ${response.response}`);
+│ │ │  		return true;
+│ │ │  	}
+│ │ │ @@ -17,24 +15,24 @@
+│ │ │  	});
+│ │ │  
+│ │ │  	return false;
+│ │ │  }
+│ │ │  
+│ │ │  function handleError(response: Partial<Message>) {
+│ │ │  	const errorElement = <HTMLAnchorElement>document.getElementById('error-content');
+│ │ │ +
+│ │ │  	const body =
+│ │ │  		'Please check if an issue containing this error exists before submitting. Also try to provide any steps we can use to reproduce the error.';
+│ │ │  	const title = String(response.error).replaceAll(' ', '+');
+│ │ │  
+│ │ │  	const bodyConv = body.replaceAll(' ', '+');
+│ │ │  	const url = `https://github.com/gavink97/gridt/issues/new?labels=bug&title=${title}&body=${bodyConv}`;
+│ │ │  
+│ │ │  	errorElement.innerText = response.error;
+│ │ │  	errorElement.href = url;
+│ │ │ -	errorElement.target = '_blank';
+│ │ │  	errorElement.classList.add('visible');
+│ │ │  	errorElement.classList.remove('vanish');
+│ │ │  
+│ │ │  	console.error(response.error);
+│ │ │  
+│ │ │  	setTimeout(() => {
+│ │ │  		errorElement.classList.add('vanish');

@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/2048
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/data
+├── +++ /workspace/pipeline_output/2048/data
+│ │   --- /workspace/pipeline_output/chromex_data/data/interface
+│ ├── +++ /workspace/pipeline_output/2048/data/interface
+│ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/resources
+│ │ ├── +++ /workspace/pipeline_output/2048/data/interface/resources
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1,3 @@
+│ │ │ │ +app.js
+│ │ │ │ +config.js
+│ │ │ │  listeners.js
+│   --- /workspace/pipeline_output/chromex_data/lib
+├── +++ /workspace/pipeline_output/2048/lib
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │ +background.js
+│ │  chrome.js
+│ │  common.js
+│ │  config.js
+│ │  runtime.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/2048/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "2048 Prime",
+│ │      "offline_enabled": true,
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.8"
+│ │  }

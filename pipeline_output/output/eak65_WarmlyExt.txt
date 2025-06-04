@@ -1,0 +1,72 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/WarmlyExt
+├── file list
+│ @@ -1,14 +1,14 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.html
+│  criteria_dialog.html
+│  css
+│  fonts
+│  images
+│  js
+│  manifest.json
+│ -radar.html
+│ -radar2.js
+│ +package-lock.json
+│ +package.sh
+│  result.html
+│ -resultw2.html.bak
+│ -resultw2.html.table
+│  test
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/WarmlyExt/js
+│ ├── file list
+│ │ @@ -4,14 +4,12 @@
+│ │  createAccordion.js
+│ │  gmail.js
+│ │  jquery-1.10.2.min.js
+│ │  jquery.highlight-within-textarea.js
+│ │  jquery.highlight-within-textarea.js.orig
+│ │  main.js
+│ │  material.min.js
+│ │ -radar.js
+│ │  result.js
+│ │ -resultw2.js
+│ │  selectize.js
+│ │  selectize.min.js
+│ │  testdata.js
+│ │  vis.min.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/WarmlyExt/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,15 +47,14 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "activeTab",
+│ │          "notifications",
+│ │          "storage",
+│ │          "*://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.12",
+│ │      "web_accessible_resources": [
+│ │          "js/jquery-1.10.2.min.js",
+│ │          "js/gmail.js",
+│ │          "js/main.js",
+│ │          "js/result.html",
+│ │          "js/result.js",
+│   --- /workspace/pipeline_output/chromex_data/test
+├── +++ /workspace/pipeline_output/WarmlyExt/test
+│ ├── file list
+│ │ @@ -0,0 +1,8 @@
+│ │ +calllocal
+│ │ +calltest
+│ │ +callws
+│ │ +data-20180903.json
+│ │ +gmail.js.orig
+│ │ +srch.css
+│ │ +srch.html
+│ │ +testdata.json

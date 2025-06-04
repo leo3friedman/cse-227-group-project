@@ -1,0 +1,91 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/dictionary-sidebar-chrome-extension
+├── file list
+│ @@ -1,11 +1,7 @@
+│ -_metadata
+│ -buildings.js
+│ -eventPage.js
+│ -gmap.html
+│ -gmaps.js
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ -main.js
+│ +.git
+│ +.gitignore
+│ +README.md
+│  manifest.json
+│ -styles.css
+│ +package-lock.json
+│ +screenshots
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/dictionary-sidebar-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,39 +1,44 @@
+│ │  {
+│ │ -    "author": "Shayan Sadigh",
+│ │ -    "background": {
+│ │ -        "persistent": false,
+│ │ -        "scripts": [
+│ │ -            "eventPage.js"
+│ │ -        ]
+│ │ +    "action": {
+│ │ +        "default_icon": {
+│ │ +            "128": "src/images/icon-off.png",
+│ │ +            "16": "src/images/icon-off.png",
+│ │ +            "32": "src/images/icon-off.png",
+│ │ +            "48": "src/images/icon-off.png"
+│ │ +        },
+│ │ +        "default_title": "Switch Icon"
+│ │      },
+│ │ -    "browser_action": {
+│ │ -        "default_icon": "icon48.png"
+│ │ +    "background": {
+│ │ +        "service_worker": "src/service-worker.js"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "styles.css"
+│ │ +            "exclude_matches": [
+│ │ +                "https://andrew2020wit.github.io/foreign-reader/*"
+│ │              ],
+│ │              "js": [
+│ │ -                "main.js"
+│ │ +                "src/content-script.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "https://my.sa.ucsb.edu/gold/StudentSchedule.aspx"
+│ │ +                "http://*:*/*",
+│ │ +                "https://*:*/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "content_security_policy": "script-src 'self' https://maps.googleapis.com; object-src 'self'",
+│ │ -    "description": "Automatically locates your UCSB courses on an interactive map to make finding your next class a breeze.",
+│ │ +    "description": "One click side panel dictionary (Chrome extension)",
+│ │      "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ +        "128": "src/images/icon-on.png",
+│ │ +        "16": "src/images/icon-on.png"
+│ │      },
+│ │ -    "manifest_version": 2,
+│ │ -    "name": "GauchoMap",
+│ │ +    "manifest_version": 3,
+│ │ +    "name": "One click side panel dictionary",
+│ │ +    "options_page": "src/settings/settings.html",
+│ │      "permissions": [
+│ │ -        "https://maps.googleapis.com/*"
+│ │ +        "sidePanel",
+│ │ +        "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.1"
+│ │ +    "side_panel": {
+│ │ +        "default_path": "src/sidepanel/sidepanel.html"
+│ │ +    },
+│ │ +    "version": "1.1.2"
+│ │  }

@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/undistract
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +MIT-LICENSE
+│  background.js
+│  content.js
+│  icon128.png
+│  jquery-3.1.1.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/undistract/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "manifest_version": 2,
+│ │      "name": "Undistract",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.1"
+│ │  }

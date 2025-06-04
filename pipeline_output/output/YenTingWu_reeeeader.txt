@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/reeeeader
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -LICENSE
+│ -README.md
+│ -_metadata
+│ +.git
+│  assets
+│  background.js
+│  content-script.js
+│  manifest.json
+│ +package-lock.json
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/reeeeader/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,17 +26,17 @@
+│ │          "16": "assets/icons/icon-16.png",
+│ │          "32": "assets/icons/icon-32.png",
+│ │          "48": "assets/icons/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "REEEEADER",
+│ │      "permissions": [
+│ │ -        "activeTab"
+│ │ +        "activeTab",
+│ │ +        "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

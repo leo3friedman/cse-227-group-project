@@ -1,0 +1,61 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/webext-copy-title-url
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/webext-copy-title-url/README.md
+│ @@ -5,16 +5,15 @@
+│  This is useful when emailing/sharing links or collecting citations/quotes from the web.
+│  
+│  It should serve as a basic replacement for the fantastic ["QuoteURLText" extension](https://addons.mozilla.org/en-US/firefox/addon/quoteurltext/) by Jay Palat, which had more functionality but is no longer supported by Firefox.
+│  
+│  
+│  ## Requirements
+│  
+│ -Firefox (Quantum) 57 or later / Chrome 63 or later.
+│ -Developed and tested in Firefox 58 and Chrome 63.
+│ +Firefox (Quantum) 57 or later. Developed and tested in Firefox 58.
+│  
+│  ## How to use
+│  
+│  * When browsing any web page:
+│  
+│  Right-click the page. In the context menu, a new item will be displayed: "Copy page title and url". This command will copy the title of the current page and its URL to clipboard.
+│  
+│ @@ -40,13 +39,8 @@
+│  
+│  github:
+│  https://github.com/marekjedlinski/webext-copy-title-url
+│  
+│  The initial Firefox-only version lives in its own repo here:
+│  https://github.com/marekjedlinski/firefox-copy-title-url
+│  
+│ -Download for Firefox:
+│ -https://addons.mozilla.org/pl/firefox/addon/copy-page-title-and-url/
+│ -
+│ -Download for Chrome:
+│ -TBA
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/webext-copy-title-url/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │      "name": "Copy page title and url",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "contextMenus",
+│ │          "clipboardWrite"
+│ │      ],
+│ │      "short_name": "Copy title and url",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extension-white-tiger-mode-for-youtube
+├── file list
+│ @@ -1,6 +1,10 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  background.js
+│  content.js
+│  icons
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│ +screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extension-white-tiger-mode-for-youtube/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,15 +23,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "88",
+│ │      "name": "\u30db\u30ef\u30a4\u30c8\u30bf\u30a4\u30ac\u30fc\u30e2\u30fc\u30c9 for YouTube",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.5",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/tesco_chrome_extension
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  sort-by-weight.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/tesco_chrome_extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │          "48": "images/sort-by-weight-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Sort Tesco products by price/weight",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

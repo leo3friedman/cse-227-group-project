@@ -1,0 +1,660 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/boring-internet
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  css
+│  images
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  scss
+│   --- /workspace/pipeline_output/chromex_data/css
+├── +++ /workspace/pipeline_output/boring-internet/css
+│ │   --- /workspace/pipeline_output/chromex_data/css/options.css
+│ ├── +++ /workspace/pipeline_output/boring-internet/css/options.css
+│ │┄ Ordering differences only
+│ │ @@ -1,150 +1,150 @@
+│ │ +/* sass stuff --------- */
+│ │ +/* basics --------- */
+│ │ +* {
+│ │ +  margin: 0;
+│ │ +  padding: 0;
+│ │ +}
+│ │ +
+│ │ +body, textarea, input, select, option, button {
+│ │ +  color: #545454;
+│ │ +  font-family: "Inconsolata", "Menlo", monospace;
+│ │ +}
+│ │ +
+│ │ +div, form, blockquote, article, aside, details, figcaption, figure, footer, header, menu, nav, section, ul, ol, dl, p, table, pre, h1, h2, h3, h4, h5, h6 {
+│ │ +  display: block;
+│ │ +  margin: 0 0 15px;
+│ │ +}
+│ │ +
+│ │ +a {
+│ │ +  color: #49aaff;
+│ │ +}
+│ │ +a:hover {
+│ │ +  color: #3D96E4;
+│ │ +}
+│ │ +
+│ │ +button, .button {
+│ │ +  border: none;
+│ │ +  height: 20px;
+│ │ +  line-height: 20px;
+│ │ +  padding: 0 5px;
+│ │ +  background-color: #909090;
+│ │ +  color: white;
+│ │ +  cursor: pointer;
+│ │ +}
+│ │ +button:hover, .button:hover {
+│ │ +  background-color: #545454;
+│ │ +}
+│ │ +button:focus, .button:focus {
+│ │ +  outline: none;
+│ │ +}
+│ │ +
+│ │ +/* styles --------- */
+│ │ +.page {
+│ │ +  width: 600px;
+│ │ +  margin: 0px auto;
+│ │ +}
+│ │ +.page, .page *, .page *:before, .page *:after {
+│ │ +  -moz-box-sizing: border-box;
+│ │ +  -webkit-box-sizing: border-box;
+│ │ +  box-sizing: border-box;
+│ │ +}
+│ │ +
+│ │ +header {
+│ │ +  margin: 40px 0;
+│ │ +}
+│ │ +header figure {
+│ │ +  float: left;
+│ │ +  width: 120px;
+│ │ +}
+│ │ +header figure img {
+│ │ +  width: 100%;
+│ │ +}
+│ │ +header h1 {
+│ │ +  margin: 0 0 10px 150px;
+│ │ +  padding-top: 30px;
+│ │ +  color: black;
+│ │ +}
+│ │ +header h2 {
+│ │ +  margin: 0 0 0 150px;
+│ │ +  font-size: 1.1em;
+│ │ +  font-weight: normal;
+│ │ +}
+│ │ +header h2:after {
+│ │ +  display: block;
+│ │ +  overflow: hidden;
+│ │ +  clear: both;
+│ │ +  content: "";
+│ │ +  width: 1000px;
+│ │ +  height: 0;
+│ │ +}
+│ │ +
+│ │ +.main {
+│ │ +  padding: 30px 10px 30px 60px;
+│ │ +  font-size: 1.2em;
+│ │ +  line-height: 1.4em;
+│ │ +}
+│ │ +
+│ │ +#addLink {
+│ │ +  font-size: 1.2em;
+│ │ +}
+│ │ +#addLink input[type=text] {
+│ │ +  font-size: 1.0em;
+│ │ +  padding: 3px;
+│ │ +  border: 1px solid #A9A9A9;
+│ │ +  outline: none;
+│ │ +}
+│ │ +#addLink input[type=text]:hover, #addLink input[type=text]:focus {
+│ │ +  border: 1px solid #545454;
+│ │ +  outline: none;
+│ │ +}
+│ │ +#addLink .add {
+│ │ +  background-color: #49aaff;
+│ │ +  font-size: 1.2em;
+│ │ +  line-height: 28px;
+│ │ +  height: 28px;
+│ │ +  padding: 0 7px;
+│ │ +}
+│ │ +#addLink .add:hover {
+│ │ +  background-color: #3D96E4;
+│ │ +}
+│ │ +
+│ │ +.intro {
+│ │ +  padding-bottom: 40px;
+│ │ +}
+│ │ +
+│ │ +footer {
+│ │ +  font-size: 0.9em;
+│ │ +}
+│ │ +
+│ │ +#editLinks {
+│ │ +  margin-bottom: 40px;
+│ │ +}
+│ │ +#editLinks ul#links {
+│ │ +  margin: 0;
+│ │ +  padding: 0;
+│ │ +  list-style: none;
+│ │ +}
+│ │ +#editLinks ul#links li {
+│ │ +  padding: 5px 0;
+│ │ +  margin: 0;
+│ │ +}
+│ │ +#editLinks ul#links li .button {
+│ │ +  display: none;
+│ │ +}
+│ │ +#editLinks ul#links li:hover .button {
+│ │ +  display: inline;
+│ │ +}
+│ │ +#editLinks input[type=text] {
+│ │ +  border: none;
+│ │ +  padding: 3px;
+│ │ +  font-size: 1em;
+│ │ +  border: 1px solid white;
+│ │ +  margin-right: 10px;
+│ │ +  width: 40%;
+│ │ +}
+│ │ +#editLinks input[type=text]:hover, #editLinks input[type=text]:focus {
+│ │ +  outline: none;
+│ │ +}
+│ │ +#editLinks input[type=text]:disabled {
+│ │ +  background-color: white;
+│ │ +}
+│ │ -/* sass stuff --------- */
+│ │ -/* basics --------- */
+│ │ -* {
+│ │ -  margin: 0;
+│ │ -  padding: 0;
+│ │ -}
+│ │ -
+│ │ -body, textarea, input, select, option, button {
+│ │ -  color: #545454;
+│ │ -  font-family: "Inconsolata", "Menlo", monospace;
+│ │ -}
+│ │ -
+│ │ -div, form, blockquote, article, aside, details, figcaption, figure, footer, header, menu, nav, section, ul, ol, dl, p, table, pre, h1, h2, h3, h4, h5, h6 {
+│ │ -  display: block;
+│ │ -  margin: 0 0 15px;
+│ │ -}
+│ │ -
+│ │ -a {
+│ │ -  color: #49aaff;
+│ │ -}
+│ │ -a:hover {
+│ │ -  color: #3D96E4;
+│ │ -}
+│ │ -
+│ │ -button, .button {
+│ │ -  border: none;
+│ │ -  height: 20px;
+│ │ -  line-height: 20px;
+│ │ -  padding: 0 5px;
+│ │ -  background-color: #909090;
+│ │ -  color: white;
+│ │ -  cursor: pointer;
+│ │ -}
+│ │ -button:hover, .button:hover {
+│ │ -  background-color: #545454;
+│ │ -}
+│ │ -button:focus, .button:focus {
+│ │ -  outline: none;
+│ │ -}
+│ │ -
+│ │ -/* styles --------- */
+│ │ -.page {
+│ │ -  width: 600px;
+│ │ -  margin: 0px auto;
+│ │ -}
+│ │ -.page, .page *, .page *:before, .page *:after {
+│ │ -  -moz-box-sizing: border-box;
+│ │ -  -webkit-box-sizing: border-box;
+│ │ -  box-sizing: border-box;
+│ │ -}
+│ │ -
+│ │ -header {
+│ │ -  margin: 40px 0;
+│ │ -}
+│ │ -header figure {
+│ │ -  float: left;
+│ │ -  width: 120px;
+│ │ -}
+│ │ -header figure img {
+│ │ -  width: 100%;
+│ │ -}
+│ │ -header h1 {
+│ │ -  margin: 0 0 10px 150px;
+│ │ -  padding-top: 30px;
+│ │ -  color: black;
+│ │ -}
+│ │ -header h2 {
+│ │ -  margin: 0 0 0 150px;
+│ │ -  font-size: 1.1em;
+│ │ -  font-weight: normal;
+│ │ -}
+│ │ -header h2:after {
+│ │ -  display: block;
+│ │ -  overflow: hidden;
+│ │ -  clear: both;
+│ │ -  content: "";
+│ │ -  width: 1000px;
+│ │ -  height: 0;
+│ │ -}
+│ │ -
+│ │ -.main {
+│ │ -  padding: 30px 10px 30px 60px;
+│ │ -  font-size: 1.2em;
+│ │ -  line-height: 1.4em;
+│ │ -}
+│ │ -
+│ │ -#addLink {
+│ │ -  font-size: 1.2em;
+│ │ -}
+│ │ -#addLink input[type=text] {
+│ │ -  font-size: 1.0em;
+│ │ -  padding: 3px;
+│ │ -  border: 1px solid #A9A9A9;
+│ │ -  outline: none;
+│ │ -}
+│ │ -#addLink input[type=text]:hover, #addLink input[type=text]:focus {
+│ │ -  border: 1px solid #545454;
+│ │ -  outline: none;
+│ │ -}
+│ │ -#addLink .add {
+│ │ -  background-color: #49aaff;
+│ │ -  font-size: 1.2em;
+│ │ -  line-height: 28px;
+│ │ -  height: 28px;
+│ │ -  padding: 0 7px;
+│ │ -}
+│ │ -#addLink .add:hover {
+│ │ -  background-color: #3D96E4;
+│ │ -}
+│ │ -
+│ │ -.intro {
+│ │ -  padding-bottom: 40px;
+│ │ -}
+│ │ -
+│ │ -footer {
+│ │ -  font-size: 0.9em;
+│ │ -}
+│ │ -
+│ │ -#editLinks {
+│ │ -  margin-bottom: 40px;
+│ │ -}
+│ │ -#editLinks ul#links {
+│ │ -  margin: 0;
+│ │ -  padding: 0;
+│ │ -  list-style: none;
+│ │ -}
+│ │ -#editLinks ul#links li {
+│ │ -  padding: 5px 0;
+│ │ -  margin: 0;
+│ │ -}
+│ │ -#editLinks ul#links li .button {
+│ │ -  display: none;
+│ │ -}
+│ │ -#editLinks ul#links li:hover .button {
+│ │ -  display: inline;
+│ │ -}
+│ │ -#editLinks input[type=text] {
+│ │ -  border: none;
+│ │ -  padding: 3px;
+│ │ -  font-size: 1em;
+│ │ -  border: 1px solid white;
+│ │ -  margin-right: 10px;
+│ │ -  width: 40%;
+│ │ -}
+│ │ -#editLinks input[type=text]:hover, #editLinks input[type=text]:focus {
+│ │ -  outline: none;
+│ │ -}
+│ │ -#editLinks input[type=text]:disabled {
+│ │ -  background-color: white;
+│ │ -}
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/boring-internet/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/blackout.js
+│ ├── +++ /workspace/pipeline_output/boring-internet/js/blackout.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -43,20 +43,21 @@
+│ │  0a202020207d3b0a0a20202020626c61636b6f75745374796c652e617070656e
+│ │  644368696c6428646f63756d656e742e637265617465546578744e6f64652862
+│ │  6c61636b6f757443535329293b0a202020200a20202020696620282428272362
+│ │  6f72696e672d706c616365686f6c64657227292e6c656e67746829207b0a2020
+│ │  20200924282723626f72696e672d706c616365686f6c64657227292e656d7074
+│ │  7928293b0a202020207d20656c7365207b0a2020202009242827626f64792729
+│ │  2e70726570656e6428273c6469762069643d22626f72696e672d706c61636568
+│ │ +6f6c64657222207374796c653d226d617267696e3a303b70616464696e673a30
+│ │ +3b77696474683a303b6865696768743a30223e3c2f6469763e27293b0a202020
+│ │ +207d0a2020202024282723626f72696e672d706c616365686f6c64657227292e
+│ │ +617070656e6428626c61636b6f75745374796c65293b0a0a20207d290a7d0a0a
+│ │ +200a2f2f696e69740a0a646f63756d656e742e6164644576656e744c69737465
+│ │ +6e65722827444f4d436f6e74656e744c6f61646564272c2066756e6374696f6e
+│ │ +2874616229207b0a20206368726f6d652e746162732e65786563757465536372
+│ │ +697074287b0a20202020636f64653a20686964654c696e6b7328290a20207d29
+│ │ +3b0a7d293b200a0a6368726f6d652e73746f726167652e6f6e4368616e676564
+│ │ +2e6164644c697374656e65722866756e6374696f6e286368616e6765732c206e
+│ │ +616d65737061636529207b0a2020696620286e616d657370616365203d3d2027
+│ │ +73796e6327202626206368616e6765732e626c6f636b65644c696e6b732e6e65
+│ │ +7756616c756529207b0a20202020686964654c696e6b7328293b0a20207d0a7d
+│ │ +293b0a0a686964654c696e6b7328293b0a0a
+│ │ -6f6c646572223e3c2f6469763e27293b0a202020207d0a202020202428272362
+│ │ -6f72696e672d706c616365686f6c64657227292e617070656e6428626c61636b
+│ │ -6f75745374796c65293b0a0a20207d290a7d0a0a200a2f2f696e69740a0a646f
+│ │ -63756d656e742e6164644576656e744c697374656e65722827444f4d436f6e74
+│ │ -656e744c6f61646564272c2066756e6374696f6e2874616229207b0a20206368
+│ │ -726f6d652e746162732e65786563757465536372697074287b0a20202020636f
+│ │ -64653a20686964654c696e6b7328290a20207d293b0a7d293b200a0a6368726f
+│ │ -6d652e73746f726167652e6f6e4368616e6765642e6164644c697374656e6572
+│ │ -2866756e6374696f6e286368616e6765732c206e616d65737061636529207b0a
+│ │ -2020696620286e616d657370616365203d3d202773796e632720262620636861
+│ │ -6e6765732e626c6f636b65644c696e6b732e6e657756616c756529207b0a2020
+│ │ -2020686964654c696e6b7328293b0a20207d0a7d293b0a0a686964654c696e6b
+│ │ -7328293b0a0a
+│ │   --- /workspace/pipeline_output/chromex_data/js/options.js
+│ ├── +++ /workspace/pipeline_output/boring-internet/js/options.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,75 +1,72 @@
+│ │ +2866756e6374696f6e202829207b0a20202775736520737472696374273b0a0a
+│ │ +20202f2f20646566696e6974696f6e730a0a202066756e6374696f6e20736176
+│ │ +654c696e6b286c696e6b546f41646429207b0a0a202020206368726f6d652e73
+│ │ +746f726167652e73796e632e6765742827626c6f636b65644c696e6b73272c20
+│ │ +66756e6374696f6e20286974656d7329207b2020200a2020202020200a202020
+│ │ +202020696620286974656d732e626c6f636b65644c696e6b7320262620697465
+│ │ +6d732e626c6f636b65644c696e6b732e696e6465784f66286c696e6b546f4164
+│ │ +6429203d3d3d202d3129207b0a20202020202020206974656d732e626c6f636b
+│ │ +65644c696e6b732e70757368286c696e6b546f416464293b0a20202020202020
+│ │ +206368726f6d652e73746f726167652e73796e632e736574287b0a2020202020
+│ │ +202020202027626c6f636b65644c696e6b73273a206974656d732e626c6f636b
+│ │ +65644c696e6b730a20202020202020207d293b0a202020202020202024282769
+│ │ +6e7075745b6e616d653d226e65776c696e6b225d27292e76616c282727293b0a
+│ │ +0a2020202020207d2f2a20656c7365207b0a20202020202020202f2f20544f20
+│ │ +444f3a20737461747573206261720a2020202020207d2a2f0a0a202020207d29
+│ │ +3b0a20207d0a0a202066756e6374696f6e2072656d6f76654c696e6b286c696e
+│ │ +6b546f52656d6f7665297b0a0a202020206368726f6d652e73746f726167652e
+│ │ +73796e632e6765742827626c6f636b65644c696e6b73272c2066756e6374696f
+│ │ +6e20286974656d29207b0a0a202020202020766172206c696e6b496e64657820
+│ │ +3d20242e696e417272617928206c696e6b546f52656d6f76652c206974656d2e
+│ │ +626c6f636b65644c696e6b73293b0a2020202020200a20202020202069662028
+│ │ +6c696e6b496e646578203e202d3129207b2020200a20202020202020200a2020
+│ │ +2020202020206974656d2e626c6f636b65644c696e6b732e73706c696365286c
+│ │ +696e6b496e6465782c2031293b0a20202020202020206368726f6d652e73746f
+│ │ -2866756e6374696f6e202829207b0d0a20202775736520737472696374273b0d
+│ │ -0a0d0a20202f2f20646566696e6974696f6e730d0a0d0a202066756e6374696f
+│ │ -6e20736176654c696e6b286c696e6b546f41646429207b0d0a0d0a2020202063
+│ │ -68726f6d652e73746f726167652e73796e632e6765742827626c6f636b65644c
+│ │ -696e6b73272c2066756e6374696f6e20286974656d7329207b2020200d0a2020
+│ │ -202020200d0a202020202020696620286974656d732e626c6f636b65644c696e
+│ │ -6b73202626206974656d732e626c6f636b65644c696e6b732e696e6465784f66
+│ │ -286c696e6b546f41646429203d3d3d202d3129207b0d0a202020202020202069
+│ │ -74656d732e626c6f636b65644c696e6b732e70757368286c696e6b546f416464
+│ │ -293b0d0a20202020202020206368726f6d652e73746f726167652e73796e632e
+│ │ -736574287b0d0a2020202020202020202027626c6f636b65644c696e6b73273a
+│ │ -206974656d732e626c6f636b65644c696e6b730d0a20202020202020207d293b
+│ │ -0d0a2020202020202020242827696e7075745b6e616d653d226e65776c696e6b
+│ │ -225d27292e76616c282727293b0d0a0d0a2020202020207d2f2a20656c736520
+│ │ -7b0d0a20202020202020202f2f20544f20444f3a20737461747573206261720d
+│ │ -0a2020202020207d2a2f0d0a0d0a202020207d293b0d0a20207d0d0a0d0a2020
+│ │ -66756e6374696f6e2072656d6f76654c696e6b286c696e6b546f52656d6f7665
+│ │ -297b0d0a0d0a202020206368726f6d652e73746f726167652e73796e632e6765
+│ │ -742827626c6f636b65644c696e6b73272c2066756e6374696f6e20286974656d
+│ │ -29207b0d0a0d0a202020202020766172206c696e6b496e646578203d20242e69
+│ │ -6e417272617928206c696e6b546f52656d6f76652c206974656d2e626c6f636b
+│ │ -65644c696e6b73293b0d0a2020202020200d0a202020202020696620286c696e
+│ │ -6b496e646578203e202d3129207b2020200d0a20202020202020200d0a202020
+│ │ -20202020206974656d2e626c6f636b65644c696e6b732e73706c696365286c69
+│ │ -6e6b496e6465782c2031293b0d0a20202020202020206368726f6d652e73746f
+│ │  726167652e73796e632e72656d6f76652827626c6f636b65644c696e6b732729
+│ │ +3b0a20202020202020206368726f6d652e73746f726167652e73796e632e7365
+│ │ +74287b0a2020202020202020202027626c6f636b65644c696e6b73273a206974
+│ │ +656d2e626c6f636b65644c696e6b73200a20202020202020207d293b0a0a2020
+│ │ +202020202020696620286974656d2e626c6f636b65644c696e6b732e6c656e67
+│ │ +7468203d3d3d2030297b0a20202020202020202020242827236c696e6b732729
+│ │ +2e656d70747928293b200a20202020202020207d0a0a2020202020207d0a0a20
+│ │ +2020207d293b0a20207d0a0a20202f2f66756e6374696f6e20656469744c696e
+│ │ +6b28297b7d20544f20444f0a0a202066756e6374696f6e206c6973744c696e6b
+│ │ +732829207b0a202020200a202020206368726f6d652e73746f726167652e7379
+│ │ +6e632e6765742827626c6f636b65644c696e6b73272c2066756e6374696f6e20
+│ │ +286974656d29207b0a2020202020200a20202020202069662028216974656d2e
+│ │ +626c6f636b65644c696e6b73207c7c206974656d2e626c6f636b65644c696e6b
+│ │ +73203d3d3d20222229207b0a20202020202020206368726f6d652e73746f7261
+│ │ +67652e73796e632e736574287b0a2020202020202020202027626c6f636b6564
+│ │ +4c696e6b73273a205b5d0a20202020202020207d293b0a2020202020207d2065
+│ │ +6c7365207b0a2020202020202020242827236c696e6b7327292e656d70747928
+│ │ +293b0a2020202020202020666f7220287661722069203d206974656d2e626c6f
+│ │ +636b65644c696e6b732e6c656e6774682d313b2069203e202d313b20692d2d29
+│ │ +207b0a20202020202020202020242827236c696e6b7327292e617070656e6428
+│ │ +273c6c693e3c696e70757420747970653d227465787422206e616d653d226c69
+│ │ +6e6b5b27202b2069202b275d222076616c75653d2227202b206974656d2e626c
+│ │ +6f636b65644c696e6b735b695d202b2027223e3c7370616e20636c6173733d22
+│ │ +627574746f6e2072656d6f76652220646174612d7374617475733d224c696e6b
+│ │ +2072656d6f7665642e223e52656d6f76653c2f7370616e3e3c2f6c693e27293b
+│ │ +0a20202020202020207d0a20202020202020202428272e72656d6f766527292e
+│ │ +6f6e282027636c69636b272c2066756e6374696f6e2028297b0a202020202020
+│ │ +20202020766172206c696e6b546f52656d6f7665203d20242874686973292e70
+│ │ +72657628292e76616c28293b0a2020202020202020202072656d6f76654c696e
+│ │ +6b286c696e6b546f52656d6f7665293b200a0a20202020202020207d293b0a0a
+│ │ +2020202020207d20200a202020207d293b0a20207d0a0a0a20202f2f20696e69
+│ │ +740a0a20202428272e61646427292e6f6e2827636c69636b272c2066756e6374
+│ │ +696f6e2028297b0a2020202069662028242827696e7075745b6e616d653d226e
+│ │ +65776c696e6b225d27292e76616c282920213d3d202222297b0a202020202020
+│ │ +736176654c696e6b28242827696e7075745b6e616d653d226e65776c696e6b22
+│ │ +5d27292e76616c2829293b0a202020207d0a20207d293b0a2020242827696e70
+│ │ +75745b6e616d653d226e65776c696e6b225d27292e6b65797570282066756e63
+│ │ +74696f6e202865297b0a2020202069662028242827696e7075745b6e616d653d
+│ │ +226e65776c696e6b225d27292e76616c282920213d3d20222220262620652e6b
+│ │ +6579436f6465203d3d3d203133297b0a202020202020736176654c696e6b2824
+│ │ +2827696e7075745b6e616d653d226e65776c696e6b225d27292e76616c282929
+│ │ +3b0a202020207d0a20207d293b0a0a20206368726f6d652e73746f726167652e
+│ │ +6f6e4368616e6765642e6164644c697374656e6572282066756e6374696f6e20
+│ │ +286368616e6765732c206e616d65737061636529207b0a20202020696620286e
+│ │ +616d657370616365203d3d202773796e6327202626206368616e6765732e626c
+│ │ +6f636b65644c696e6b732e6e657756616c7565297b0a2020202020206c697374
+│ │ +4c696e6b7328293b0a202020207d0a20207d293b0a0a20206c6973744c696e6b
+│ │ +7328293b0a0a7d2829293b
+│ │ -3b0d0a20202020202020206368726f6d652e73746f726167652e73796e632e73
+│ │ -6574287b0d0a2020202020202020202027626c6f636b65644c696e6b73273a20
+│ │ -6974656d2e626c6f636b65644c696e6b73200d0a20202020202020207d293b0d
+│ │ -0a0d0a2020202020202020696620286974656d2e626c6f636b65644c696e6b73
+│ │ -2e6c656e677468203d3d3d2030297b0d0a20202020202020202020242827236c
+│ │ -696e6b7327292e656d70747928293b200d0a20202020202020207d0d0a0d0a20
+│ │ -20202020207d0d0a0d0a202020207d293b0d0a20207d0d0a0d0a20202f2f6675
+│ │ -6e6374696f6e20656469744c696e6b28297b7d20544f20444f0d0a0d0a202066
+│ │ -756e6374696f6e206c6973744c696e6b732829207b0d0a202020200d0a202020
+│ │ -206368726f6d652e73746f726167652e73796e632e6765742827626c6f636b65
+│ │ -644c696e6b73272c2066756e6374696f6e20286974656d29207b0d0a20202020
+│ │ -20200d0a20202020202069662028216974656d2e626c6f636b65644c696e6b73
+│ │ -207c7c206974656d2e626c6f636b65644c696e6b73203d3d3d20222229207b0d
+│ │ -0a20202020202020206368726f6d652e73746f726167652e73796e632e736574
+│ │ -287b0d0a2020202020202020202027626c6f636b65644c696e6b73273a205b5d
+│ │ -0d0a20202020202020207d293b0d0a2020202020207d20656c7365207b0d0a20
+│ │ -20202020202020242827236c696e6b7327292e656d70747928293b0d0a202020
+│ │ -2020202020666f7220287661722069203d206974656d2e626c6f636b65644c69
+│ │ -6e6b732e6c656e6774682d313b2069203e202d313b20692d2d29207b0d0a2020
+│ │ -2020202020202020242827236c696e6b7327292e617070656e6428273c6c693e
+│ │ -3c696e70757420747970653d227465787422206e616d653d226c696e6b5b2720
+│ │ -2b2069202b275d222076616c75653d2227202b206974656d2e626c6f636b6564
+│ │ -4c696e6b735b695d202b2027223e3c7370616e20636c6173733d22627574746f
+│ │ -6e2072656d6f76652220646174612d7374617475733d224c696e6b2072656d6f
+│ │ -7665642e223e52656d6f76653c2f7370616e3e3c2f6c693e27293b0d0a202020
+│ │ -20202020207d0d0a20202020202020202428272e72656d6f766527292e6f6e28
+│ │ -2027636c69636b272c2066756e6374696f6e2028297b0d0a2020202020202020
+│ │ -2020766172206c696e6b546f52656d6f7665203d20242874686973292e707265
+│ │ -7628292e76616c28293b0d0a2020202020202020202072656d6f76654c696e6b
+│ │ -286c696e6b546f52656d6f7665293b200d0a0d0a20202020202020207d293b0d
+│ │ -0a0d0a2020202020207d20200d0a202020207d293b0d0a20207d0d0a0d0a0d0a
+│ │ -20202f2f20696e69740d0a0d0a20202428272e61646427292e6f6e2827636c69
+│ │ -636b272c2066756e6374696f6e2028297b0d0a2020202069662028242827696e
+│ │ -7075745b6e616d653d226e65776c696e6b225d27292e76616c282920213d3d20
+│ │ -2222297b0d0a202020202020736176654c696e6b28242827696e7075745b6e61
+│ │ -6d653d226e65776c696e6b225d27292e76616c2829293b0d0a202020207d0d0a
+│ │ -20207d293b0d0a2020242827696e7075745b6e616d653d226e65776c696e6b22
+│ │ -5d27292e6b65797570282066756e6374696f6e202865297b0d0a202020206966
+│ │ -2028242827696e7075745b6e616d653d226e65776c696e6b225d27292e76616c
+│ │ -282920213d3d20222220262620652e6b6579436f6465203d3d3d203133297b0d
+│ │ -0a202020202020736176654c696e6b28242827696e7075745b6e616d653d226e
+│ │ -65776c696e6b225d27292e76616c2829293b0d0a202020207d0d0a20207d293b
+│ │ -0d0a0d0a20206368726f6d652e73746f726167652e6f6e4368616e6765642e61
+│ │ -64644c697374656e6572282066756e6374696f6e20286368616e6765732c206e
+│ │ -616d65737061636529207b0d0a20202020696620286e616d657370616365203d
+│ │ -3d202773796e6327202626206368616e6765732e626c6f636b65644c696e6b73
+│ │ -2e6e657756616c7565297b0d0a2020202020206c6973744c696e6b7328293b0d
+│ │ -0a202020207d0d0a20207d293b0d0a0d0a20206c6973744c696e6b7328293b0d
+│ │ -0a0d0a7d2829293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/boring-internet/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Boring Internet",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/boring-internet/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,50 +1,50 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -	<meta charset="UTF-8">
+│ -	<title>Boring Internet</title>
+│ -	<link rel="stylesheet" href="css/options.css">
+│ -</head>
+│ -<body>
+│ -
+│ -<div class="page">
+│ -
+│ -	<header>
+│ -		<figure>
+│ -			<img src="images/icon128.png" alt="The Boring Internet">
+│ -		</figure>
+│ -		<h1>The Boring internet</h1>
+│ -		<h2>Hiding links for you since 2015.</h2>
+│ -	</header>
+│ -
+│ -	<div class="main">
+│ -
+│ -		<div id="addLink">
+│ -			http(s)://(www.) <input type="text" name="newlink"> /
+│ -			<button class="add" data-status="Link added.">Add site</button>
+│ -		</div>
+│ -
+│ -		<div class="intro">
+│ -			<p>Just add website domains like 'buzzfeed.com'. Do not worry about 'www' or 'https'. Some sites also use URL shorteners like 'bzfd.it', you'll need to add them too.</p>
+│ -			<p>Works on Twitter. Works on Facebook on a basic level.</p>
+│ -		</div>
+│ -
+│ -		<div id="editLinks">
+│ -			<h3>Blocked websites</h3>
+│ -			<!--div class="status"></div-->
+│ -			<ul id="links"></ul>
+│ -		</div>
+│ -
+│ -	</div>
+│ -
+│ -	<footer>
+│ -		<p>Made by <a href="https://twitter.com/thisiskatkat" target="_blank">@thisiskatkat</a></p>
+│ -		<!--p>Code on <a href="" target="_blank">Github</a></p-->
+│ -	</footer>
+│ -
+│ -</div>
+│ -
+│ -<script src="js/jquery-2.1.1.min.js"></script>
+│ -<script src="js/options.js"></script>	
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +	<meta charset="UTF-8">
+│ +	<title>Boring Internet</title>
+│ +	<link rel="stylesheet" href="css/options.css">
+│ +</head>
+│ +<body>
+│ +
+│ +<div class="page">
+│ +
+│ +	<header>
+│ +		<figure>
+│ +			<img src="images/icon128.png" alt="The Boring Internet">
+│ +		</figure>
+│ +		<h1>The Boring internet</h1>
+│ +		<h2>Hiding links for you since 2015.</h2>
+│ +	</header>
+│ +
+│ +	<div class="main">
+│ +
+│ +		<div id="addLink">
+│ +			http(s)://(www.) <input type="text" name="newlink"> /
+│ +			<button class="add" data-status="Link added.">Add site</button>
+│ +		</div>
+│ +
+│ +		<div class="intro">
+│ +			<p>Just add website domains like 'buzzfeed.com'. Do not worry about 'www' or 'https'. Some sites also use URL shorteners like 'bzfd.it', you'll need to add them too.</p>
+│ +			<p>Works on Twitter. Works on Facebook on a basic level.</p>
+│ +		</div>
+│ +
+│ +		<div id="editLinks">
+│ +			<h3>Blocked websites</h3>
+│ +			<!--div class="status"></div-->
+│ +			<ul id="links"></ul>
+│ +		</div>
+│ +
+│ +	</div>
+│ +
+│ +	<footer>
+│ +		<p>Made by <a href="https://twitter.com/thisiskatkat" target="_blank">@thisiskatkat</a></p>
+│ +		<!--p>Code on <a href="" target="_blank">Github</a></p-->
+│ +	</footer>
+│ +
+│ +</div>
+│ +
+│ +<script src="js/jquery-2.1.1.min.js"></script>
+│ +<script src="js/options.js"></script>	
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/scss
+├── +++ /workspace/pipeline_output/boring-internet/scss
+│ │   --- /workspace/pipeline_output/chromex_data/scss/options.scss
+│ ├── +++ /workspace/pipeline_output/boring-internet/scss/options.scss
+│ │ @@ -2,19 +2,19 @@
+│ │  
+│ │  $font-stack: 'Inconsolata', 'Menlo', monospace;
+│ │  $base-color: #545454;
+│ │  $highlight-color: #49AAFF;
+│ │  
+│ │  @mixin clear {
+│ │  	display: block;
+│ │ +	overflow: hidden;
+│ │ +	clear: both;
+│ │ +	content: "";
+│ │ +	width: 1000px;
+│ │ +	height: 0;
+│ │ -  overflow: hidden;
+│ │ -  clear: both;
+│ │ -  content: "";
+│ │ -  width: 1000px;
+│ │ -  height: 0;
+│ │  }
+│ │  
+│ │  
+│ │  /* basics --------- */
+│ │  
+│ │  * {
+│ │  	margin: 0;

@@ -1,0 +1,187 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/softblocker
+├── file list
+│ @@ -1,16 +1,7 @@
+│ -128.png
+│ -16.png
+│ -32.png
+│ -48.png
+│ -_metadata
+│ -blocker.js
+│ -button.css
+│ -eventPage.js
+│ -inject.js
+│ -jquery-3.4.1.js
+│ +.git
+│  manifest.json
+│ -options.css
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/softblocker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,50 +1,17 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "/128.png",
+│ │ -            "16": "/16.png",
+│ │ -            "32": "/32.png",
+│ │ -            "48": "/48.png"
+│ │ -        },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ -    "background": {
+│ │ -        "service_worker": "eventPage.js"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "jquery-3.4.1.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │ -    "content_security_policy": {
+│ │ -        "extension_pages": "script-src 'self' ; object-src 'self'"
+│ │ -    },
+│ │      "description": "sets a timer when you go on unproductive websites",
+│ │ -    "host_permissions": [
+│ │ -        "http://*/*",
+│ │ -        "https://*/*",
+│ │ -        "file://*/*"
+│ │ -    ],
+│ │ -    "icons": {
+│ │ -        "128": "/128.png",
+│ │ -        "16": "/16.png",
+│ │ -        "32": "/32.png",
+│ │ -        "48": "/48.png"
+│ │ -    },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Softblocker",
+│ │ +    "name": "Productivity Site Blocker",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │ -        "background",
+│ │          "alarms",
+│ │ +        "tabs",
+│ │ +        "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/softblocker/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,23 +1,14 @@
+│  <!DOCTYPE html>
+│  <html>
+│    <head>
+│      <link rel="stylesheet" href="options.css">
+│ -    <script type="text/javascript" src="jquery-3.4.1.js"></script>
+│    </head>
+│    <body>
+│ -    <h1>Settings</h1>
+│ -    <div class="form">
+│ -      <form id="form1">
+│ -      <label for="textinput">Input the list of websites to block, each on a new line</label> <br>
+│ -      <textarea id="textinput" rows="10" cols="50"></textarea> <br>
+│ -      <label for="timermins">Time (in minutes) before the site is blocked</label> <br>
+│ -      <input type="number"id="timermins"min="1"placeholder="15" step="1" pattern="\d+" required> <br>
+│ -      <label for="blockermins">Time (in seconds) for which the site is frozen at the end of the timer</label> <br>
+│ -      <input type="number"id="blockermins"min="1"placeholder="30"step="1" pattern="\d+" required><br>
+│ -      <input type="submit" value="Submit">
+│ -      </form>
+│ -      
+│ -    <script src="options.js"></script>
+│ +    <div>
+│ +      <p>Input the list of websites to block!</p>
+│ +    </div>
+│ +    <div>
+│      </div>
+│ +    <script src="options.js"></script>
+│    </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/softblocker/options.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,40 +0,0 @@
+│ -2428646f63756d656e74292e72656164792866756e6374696f6e28297b0a2020
+│ -6368726f6d652e73746f726167652e73796e632e676574285b226c696e6b7322
+│ -2c202274696d657274696d65222c2022626c6f636b74696d65225d2c2066756e
+│ -6374696f6e20286c696e6b61727229207b0a202020200a20202020696620286c
+│ -696e6b6172722e6c696e6b7320213d206e756c6c290a202020207b0a20202020
+│ -2020666f722028656c656d656e74206f66206c696e6b6172722e6c696e6b7329
+│ -0a2020202020207b0a2020202020202020646f63756d656e742e676574456c65
+│ -6d656e7442794964282274657874696e70757422292e76616c7565202b3d2065
+│ -6c656d656e74202b20225c6e223b0a2020202020207d0a202020207d0a202020
+│ -20696620286c696e6b6172722e74696d657274696d6520213d206e756c6c290a
+│ -202020207b0a202020202020646f63756d656e742e676574456c656d656e7442
+│ -794964282274696d65726d696e7322292e76616c7565203d206c696e6b617272
+│ -2e74696d657274696d653b0a202020207d0a20202020696620286c696e6b6172
+│ -722e626c6f636b74696d6520213d206e756c6c290a202020207b0a2020202020
+│ -20646f63756d656e742e676574456c656d656e74427949642822626c6f636b65
+│ -726d696e7322292e76616c7565203d206c696e6b6172722e626c6f636b74696d
+│ -653b0a202020207d0a20207d293b0a0a2020646f63756d656e742e676574456c
+│ -656d656e74427949642822666f726d3122292e6164644576656e744c69737465
+│ -6e657228227375626d6974222c2066756e6374696f6e2865297b0a2020202020
+│ -20652e70726576656e7444656661756c7428293b0a202020202020766172206d
+│ -7974657874203d20646f63756d656e742e676574456c656d656e744279496428
+│ -2274657874696e70757422292e76616c75653b200a2020202020207661722062
+│ -6c6f636b74696d65203d20646f63756d656e742e676574456c656d656e744279
+│ -49642822626c6f636b65726d696e7322292e76616c75653b0a20202020202076
+│ -61722074696d657274696d65203d20646f63756d656e742e676574456c656d65
+│ -6e7442794964282274696d65726d696e7322292e76616c75653b0a2020202020
+│ -20766172206e65776c696e6b73203d206d79746578742e73706c697428225c6e
+│ -22293b0a2020202020207661722061637475616c6c696e6b73203d205b5d3b0a
+│ -202020202020666f722028693d303b20693c6e65776c696e6b732e6c656e6774
+│ -683b20692b2b290a2020202020207b0a20202020202020206e65776c696e6b73
+│ -5b695d203d206e65776c696e6b735b695d2e7472696d28293b0a202020202020
+│ -2020696620286e65776c696e6b735b695d2e6c656e67746820213d2030290a20
+│ -202020202020207b0a2020202020202020202061637475616c6c696e6b732e70
+│ -757368286e65776c696e6b735b695d293b0a20202020202020207d0a20202020
+│ -20207d0a2020202020206368726f6d652e73746f726167652e73796e632e7365
+│ -74287b226c696e6b73223a2061637475616c6c696e6b732c202274696d657274
+│ -696d65223a2074696d657274696d652c2022626c6f636b74696d65223a20626c
+│ -6f636b74696d657d2c2066756e6374696f6e2829207b0a202020202020616c65
+│ -72742822536176656422293b0a2020202020207d293b0a20207d293b0a7d293b
+│ -0a0a0a
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/softblocker/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,12 +1,11 @@
+│  <!DOCTYPE html>
+│  
+│  <html>
+│  	<head>
+│  		<link ref = "stylesheet" href = "button.css">
+│ -		<script src="jquery-3.4.1.js"></script>
+│  	</head>
+│  	<body>
+│ -		<button id="optionsbutton">Settings</button>
+│ +		<button id = "changeColor"></button>
+│  		<script src="popup.js"></script>
+│  	</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/softblocker/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,9 +0,0 @@
+│ -2f2f636f706965642066726f6d20746865206368726f6d6520646f63756d656e
+│ -746174696f6e0a646f63756d656e742e717565727953656c6563746f72282723
+│ -6f7074696f6e73627574746f6e27292e6164644576656e744c697374656e6572
+│ -2827636c69636b272c2066756e6374696f6e2829207b0a202069662028636872
+│ -6f6d652e72756e74696d652e6f70656e4f7074696f6e735061676529207b0a20
+│ -2020206368726f6d652e72756e74696d652e6f70656e4f7074696f6e73506167
+│ -6528293b0a20207d20656c7365207b0a2020202077696e646f772e6f70656e28
+│ -6368726f6d652e72756e74696d652e67657455524c28276f7074696f6e732e68
+│ -746d6c2729293b0a20207d0a7d293b

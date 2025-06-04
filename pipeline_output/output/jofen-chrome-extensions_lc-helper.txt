@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/lc-helper
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LC.png
+│  README.md
+│ -_metadata
+│  jquery-3.2.1.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/lc-helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "activeTab",
+│ │          "declarativeContent",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "LC Helper",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

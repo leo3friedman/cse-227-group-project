@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/forums-google
+├── file list
+│ @@ -1,4 +1,6 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│  content.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/forums-google/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │                  "*://*.google.fr/search*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Afficher le lien Forums dans le menu de filtre sur les pages de r\u00e9sultats de recherche Google",
+│ │      "manifest_version": 3,
+│ │      "name": "Forums Google",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

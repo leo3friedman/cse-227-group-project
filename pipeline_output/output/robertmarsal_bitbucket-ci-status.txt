@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/bitbucket-ci-status
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  asset
+│  css
+│  html
+│  icon
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/bitbucket-ci-status/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      "options_page": "html/options.html",
+│ │      "options_ui": {
+│ │          "page": "html/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

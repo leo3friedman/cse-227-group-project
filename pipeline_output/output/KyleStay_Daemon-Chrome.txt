@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Daemon-Chrome
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  Logo.fig
+│  README.md
+│ -_metadata
+│  background.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Daemon-Chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │          "48": "images/Logo48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Background",
+│ │      "permissions": [
+│ │          "background"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

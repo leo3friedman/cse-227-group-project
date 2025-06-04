@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Peace-Enter-for-Copilot
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│  content.js
+│  icon-128.png
+│  icon-16.png
+│  icon-48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Peace-Enter-for-Copilot/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "icons": {
+│ │          "128": "icon-128.png",
+│ │          "16": "icon-16.png",
+│ │          "48": "icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Peace Enter Key for Copilot",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

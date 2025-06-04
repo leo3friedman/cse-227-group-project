@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Grapher-for-Steam
+├── file list
+│ @@ -1,4 +1,6 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  img
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Grapher-for-Steam/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,10 +32,9 @@
+│ │          "64": "img/icon_64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Grapher for Steam",
+│ │      "permissions": [
+│ │          "http://store.steampowered.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.171"
+│ │  }

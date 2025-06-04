@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HKUST-Timetable-Planner-Addon
+├── file list
+│ @@ -1,6 +1,9 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content-script.js
+│  icon128.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HKUST-Timetable-Planner-Addon/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,13 +10,15 @@
+│ │              "matches": [
+│ │                  "https://admlu65.ust.hk/"
+│ │              ],
+│ │              "run_at": "document_idle"
+│ │          }
+│ │      ],
+│ │      "description": "Extends the timetable availability",
+│ │ +    "host_permissions": [
+│ │ +        "https://admlu65.ust.hk/"
+│ │ +    ],
+│ │      "manifest_version": 3,
+│ │      "name": "HKUST Timetable Addon",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5"
+│ │  }

@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Bootstrap-Grid-Chorme-Extension
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  libs
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Bootstrap-Grid-Chorme-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,15 +10,14 @@
+│ │      "description": "Quickly toggle a Bootstrap Grid for any website. Easy to use, easy success.",
+│ │      "manifest_version": 2,
+│ │      "name": "Bootstrap Grid for any Website",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │      "short_name": "Bootstrap Grid",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1",
+│ │      "web_accessible_resources": [
+│ │          "src/content",
+│ │          "src/content_temp",
+│ │          "libs/jquery.js"
+│ │      ]
+│ │  }

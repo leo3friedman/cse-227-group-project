@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Heres-Johnny
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Heres-Johnny/README.md
+│ @@ -1,5 +1,3 @@
+│ -# Here's Johnny
+│ +# Johnny
+│  
+│  Chrome extension that quickly replaces a random image on your page with an image of Johnny.
+│ -
+│ -![alt text](images/johnny.png)
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Heres-Johnny/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      ],
+│ │      "description": "Will quickly replace a random image on your page with an image of Johnny.",
+│ │      "icons": {
+│ │          "128": "images/johnny128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Here's Johnny",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.2"
+│ │  }

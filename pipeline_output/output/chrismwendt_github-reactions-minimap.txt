@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-reactions-minimap
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon.png
+│  jquery.min.js
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  preview.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-reactions-minimap/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,11 +14,12 @@
+│ │      "description": "Displays reactions as red/green marks in the scrollbar",
+│ │      "homepage_url": "https://github.com/chrismwendt/github-reactions-minimap",
+│ │      "icons": {
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "GitHub reactions minimap",
+│ │ -    "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "activeTab"
+│ │ +    ],
+│ │      "version": "0.2.0.2"
+│ │  }

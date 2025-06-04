@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/feelgood.js
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  feelgood.js
+│  icon_128.png
+│  manifest.json
+│ +package-lock.json
+│  screenshot.png
+│  screenshot2.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/feelgood.js/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,12 +10,11 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Replaces YouTube comments with a reminder that You're Beautiful.",
+│ │      "icons": {
+│ │          "128": "icon_128.png"
+│ │      },
+│ │ -    "manifest_version": 2,
+│ │ +    "manifest_version": 3,
+│ │      "name": "Feel Good Comments",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

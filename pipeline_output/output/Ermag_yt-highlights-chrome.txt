@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/yt-highlights-chrome
+├── file list
+│ @@ -1,7 +1,11 @@
+│ -_metadata
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│ +README.md
+│  content.css
+│  content.js
+│  img
+│  inject.js
+│  manifest.json
+│ +package-lock.json
+│  tippy.all.min.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/yt-highlights-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,15 +18,14 @@
+│ │      "icons": {
+│ │          "128": "img/icon-128.png",
+│ │          "16": "img/icon-16.png",
+│ │          "48": "img/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Highlights for YouTube",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.8",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.youtube.com/*"
+│ │              ],
+│ │              "resources": [

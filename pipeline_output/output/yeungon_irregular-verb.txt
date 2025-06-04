@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/irregular-verb
+├── file list
+│ @@ -1,8 +1,8 @@
+│ +.git
+│  LICENSE
+│ -README.md
+│ -_metadata
+│  index.html
+│  index.js
+│  manifest.json
+│  module
+│ +package-lock.json
+│  public
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/irregular-verb/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,16 +1,13 @@
+│ │  {
+│ │      "chrome_url_overrides": {
+│ │          "newtab": "index.html"
+│ │      },
+│ │ -    "description": "Revising irregular verbs each time opening a new Chrome tab.",
+│ │ +    "description": "Revising ir-regular verbs each time opening a new tab",
+│ │      "homepage_url": "https://tudien.net",
+│ │ -    "icons": {
+│ │ -        "128": "/public/English.png",
+│ │ -        "16": "/public/English.png",
+│ │ -        "48": "/public/English.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "Irregular Verb",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "management"
+│ │ +    ],
+│ │      "version": "0.0.1"
+│ │  }

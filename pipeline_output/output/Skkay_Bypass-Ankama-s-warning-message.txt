@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Bypass-Ankama-s-warning-message
+├── file list
+│ @@ -1,4 +1,7 @@
+│ +.git
+│ +.gitignore
+│  128.png
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│ +screenshot.png
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Bypass-Ankama-s-warning-message/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      ],
+│ │      "description": "Avoid waiting 5 seconds to access your site",
+│ │      "icons": {
+│ │          "128": "128.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Bypass Ankama's warning message",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/script.js
+├── +++ /workspace/pipeline_output/Bypass-Ankama-s-warning-message/script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,4 +1,4 @@
+│  7661722075726c203d20646f63756d656e742e676574456c656d656e74734279
+│  436c6173734e616d652822776562736974655f646f6d61696e22295b305d2e69
+│ -6e6e6572546578743b0d0a77696e646f772e6c6f636174696f6e2e6872656620
+│ -3d2075726c3b0d0a
+│ +6e6e6572546578743b0a77696e646f772e6c6f636174696f6e2e68726566203d
+│ +2075726c3b0a

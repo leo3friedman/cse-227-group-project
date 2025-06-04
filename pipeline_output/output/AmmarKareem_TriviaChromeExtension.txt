@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TriviaChromeExtension
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│ -popup.js
+│ -screenshots
+│ +popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TriviaChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,11 +13,10 @@
+│ │      "icons": {
+│ │          "128": "/images/icon128.png",
+│ │          "16": "/images/icon16.png",
+│ │          "32": "/images/icon32.png",
+│ │          "48": "/images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "TriviaXYZ",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "Trivia",
+│ │      "version": "1.0"
+│ │  }

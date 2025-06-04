@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/QueryParser
+├── file list
+│ @@ -1,13 +1,11 @@
+│ +.git
+│  Cr.js
+│ -PromoTile440x280 2.png
+│ -PromoTile440x280.png
+│ -QueryParser-Extension.xcworkspace
+│  README
+│ -Screenshot.png
+│ -Screenshot640x400.png
+│  Xcellify.js
+│ -_metadata
+│ +build.awk
+│ +build.sh
+│  img
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/QueryParser/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "64": "img/icon64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Search API Query String Parser",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1.18"
+│ │  }

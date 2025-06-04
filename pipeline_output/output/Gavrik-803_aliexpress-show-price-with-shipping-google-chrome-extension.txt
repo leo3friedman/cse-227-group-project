@@ -1,0 +1,54 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/aliexpress-show-price-with-shipping-google-chrome-extension
+├── file list
+│ @@ -1,18 +1,17 @@
+│ -_locales
+│ -_metadata
+│ +.git
+│ +LICENSE
+│  background.bundle.js
+│  background.bundle.js.map
+│  content.bundle.js
+│  content.bundle.js.LICENSE.txt
+│  content.bundle.js.map
+│  error.bundle.js
+│  error.bundle.js.map
+│  error.html
+│ -icons
+│ -lib
+│  manifest.json
+│  order.bundle.js
+│  order.bundle.js.map
+│ +package-lock.json
+│  start.bundle.js
+│  start.bundle.js.map
+│  start.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/aliexpress-show-price-with-shipping-google-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,24 +39,23 @@
+│ │      "description": "__MSG_extDescription__",
+│ │      "icons": {
+│ │          "128": "icons/128.png",
+│ │          "16": "icons/16.png",
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Aliexpress sort by total price with shipping",
+│ │ +    "name": "Aliexpress combine and sort total price with shipping",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "https://www.aliexpress.com/*",
+│ │          "https://aliexpress.com/*",
+│ │          "https://www.aliexpress.ru/*",
+│ │          "https://aliexpress.ru/*",
+│ │          "https://*.aliexpress.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2",
+│ │      "web_accessible_resources": [
+│ │          "*.html",
+│ │          "*.png",
+│ │          "*.eot",
+│ │          "*.woff",
+│ │          "*.woff2",

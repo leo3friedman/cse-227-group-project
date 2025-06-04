@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/twitter-stripped
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  app.css
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/twitter-stripped/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "16": "images/icon16.png",
+│ │          "32": "images/icon32.png",
+│ │          "48": "images/icon48.png",
+│ │          "512": "images/icon512.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Twitter Stripped",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0"
+│ │  }

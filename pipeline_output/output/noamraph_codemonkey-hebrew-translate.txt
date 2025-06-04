@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/codemonkey-hebrew-translate
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  contentScript.js
+│  manifest.json
+│  monkey.svg
+│  monkey128.png
+│ +package-lock.json
+│  package.sh
+│  screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/codemonkey-hebrew-translate/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      "default_locale": "he",
+│ │      "description": "__MSG_appDesc__",
+│ │      "icons": {
+│ │          "128": "monkey128.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_appName__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6"
+│ │  }

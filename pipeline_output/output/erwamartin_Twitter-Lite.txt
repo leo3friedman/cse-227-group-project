@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Twitter-Lite
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  404.html
+│  README.md
+│ -_metadata
+│  css
+│  images
+│  js
+│  manifest.json
+│ +package-lock.json
+│  twitter-128.png
+│  twitter-16.png
+│  twitter-48.png
+│  window.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Twitter-Lite/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │      "offline_enabled": false,
+│ │      "permissions": [
+│ │          "webview",
+│ │          "notifications",
+│ │          "storage",
+│ │          "https://www.google-analytics.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.7"
+│ │  }

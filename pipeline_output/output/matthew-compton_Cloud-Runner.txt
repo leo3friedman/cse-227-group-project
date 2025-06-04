@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Cloud-Runner
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +CloudRunner-ChromeApp.zip
+│  README.md
+│ -_metadata
+│  css
+│  favicon.ico
+│  images
+│  index.html
+│  js
+│  manifest.json
+│ -package-chrome-app.sh
+│ +package-chrome-app.sh
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Cloud-Runner/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │      "description": "A simple game involving a friendly cloud named Cloudly and his adventures through the sky.",
+│ │      "icons": {
+│ │          "128": "images/icons/icon-128.png",
+│ │          "16": "images/icons/icon-16.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Cloud Runner",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

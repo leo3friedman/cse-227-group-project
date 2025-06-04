@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/KnuSyInputInjector
+├── file list
+│ @@ -1,7 +1,7 @@
+│ -README.md
+│ -_metadata
+│ +.git
+│  images
+│  manifest.json
+│ +package-lock.json
+│  page-script.js
+│  popup
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/KnuSyInputInjector/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,12 @@
+│ │          "128": "images/128.png",
+│ │          "16": "images/16.png",
+│ │          "32": "images/32.png",
+│ │          "48": "images/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "KnuSyInputInjector",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "activeTab"
+│ │ +    ],
+│ │      "version": "1.0"
+│ │  }

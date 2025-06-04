@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/deskpotify
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  deskpotify.js
+│  deskpotify128.png
+│  deskpotify16.png
+│  deskpotify32.png
+│  deskpotify48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/deskpotify/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │          "48": "deskpotify48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Deskpotify: Search in Spotify Desktop App",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.4"
+│ │  }

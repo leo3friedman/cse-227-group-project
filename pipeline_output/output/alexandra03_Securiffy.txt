@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Securiffy
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Securiffy/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,10 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Securiffy",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "update_url": "http://0.0.0.0/",
+│ │      "version": "0.1"
+│ │  }

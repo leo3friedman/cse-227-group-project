@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/i-need-healing
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  audio
+│  img
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/i-need-healing/README.md
+│ @@ -1,2 +1,14 @@
+│ -# i-need-healing
+│ -I am Genji. I need healing.
+│ +# I Need Healing
+│ +
+│ +### Install the Chrome extension at: 
+│ +https://chrome.google.com/webstore/detail/i-need-healing/ifjangmbmgigcbpejdbifapfdgkbnnpm
+│ +
+│ +## I am Genji. I need healing.
+│ +i aM gENjI. I nEeD HeALIng.
+│ +
+│ +The voice line you should use when you are behind the enermy lane with 199/200 health.
+│ +
+│ +![genji](http://i2.kym-cdn.com/photos/images/original/001/228/666/4f1.png)
+│ +
+│ +### License
+│ +MIT
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/i-need-healing/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "icons": {
+│ │          "128": "img/icon.png",
+│ │          "16": "img/icon.png",
+│ │          "48": "img/icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "I Need Healing",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

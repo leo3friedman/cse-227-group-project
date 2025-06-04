@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/additional-http-headers-extention
+├── file list
+│ @@ -1,7 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  ahh.js
+│  icons
+│ -lib
+│  manifest.json
+│ -options
+│ +options
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/additional-http-headers-extention/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      "options_page": "options/options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "<all_urls>",
+│ │          "webRequest",
+│ │          "webRequestBlocking"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NoMoreShortMovie
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  NoMoreShortMovie.js
+│  README.md
+│ -_metadata
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/NoMoreShortMovie/README.md
+│┄ Ordering differences only
+│ @@ -1,5 +1,5 @@
+│ -# NoMoreShortMovie
+│ -Chrome拡張『リールとショート動画は見たくない』のコード
+│ -
+│ -chrome拡張のストア
+│ -https://chrome.google.com/webstore/detail/%E3%83%AA%E3%83%BC%E3%83%AB%E3%81%A8%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E5%8B%95%E7%94%BB%E3%81%AF%E8%A6%8B%E3%81%9F%E3%81%8F%E3%81%AA%E3%81%84/mdpcgnjlpgicekcelbkpckoggibllpea?hl=ja&authuser=0
+│ +# NoMoreShortMovie
+│ +Chrome拡張『リールとショート動画は見たくない』のコード
+│ +
+│ +chrome拡張のストア
+│ +https://chrome.google.com/webstore/detail/%E3%83%AA%E3%83%BC%E3%83%AB%E3%81%A8%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E5%8B%95%E7%94%BB%E3%81%AF%E8%A6%8B%E3%81%9F%E3%81%8F%E3%81%AA%E3%81%84/mdpcgnjlpgicekcelbkpckoggibllpea?hl=ja&authuser=0
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NoMoreShortMovie/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "icons": {
+│ │          "128": "images/icon128.png",
+│ │          "16": "images/icon16.png",
+│ │          "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "\u30ea\u30fc\u30eb\u3068\u30b7\u30e7\u30fc\u30c8\u52d5\u753b\u306f\u898b\u305f\u304f\u306a\u3044",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6"
+│ │  }

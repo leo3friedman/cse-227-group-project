@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NTUST-CourseHelper
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  css
+│  icon.png
+│  js
+│  manifest.json
+│ +package-lock.json
+│  small_icon.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NTUST-CourseHelper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "\u53f0\u79d1\u9078\u8ab2\u7cfb\u7d71\u5c0f\u52a9\u624b",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "*://querycourse.ntust.edu.tw/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }

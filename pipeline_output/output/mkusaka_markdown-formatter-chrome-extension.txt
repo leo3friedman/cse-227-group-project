@@ -1,0 +1,69 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/markdown-formatter-chrome-extension
+├── file list
+│ @@ -1,4 +1,17 @@
+│ -_metadata
+│ -background.js
+│ -images
+│ -manifest.json
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.node-version
+│ +LICENSE
+│ +README.md
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +pnpm-lock.yaml
+│ +popup.html
+│ +renovate.json
+│ +src
+│ +tsconfig.json
+│ +vite.config.content.ts
+│ +vite.config.popup.ts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/markdown-formatter-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,23 +1,22 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "persistent": false,
+│ │ -        "scripts": [
+│ │ -            "background.js"
+│ │ -        ]
+│ │ +    "action": {
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │ -    "browser_action": {},
+│ │ -    "description": "Make the posts in FB groups start with the most recent, instead of the random order that Facebook normally puts them in.",
+│ │ -    "icons": {
+│ │ -        "128": "images/get_started128.png",
+│ │ -        "16": "images/get_started16.png",
+│ │ -        "32": "images/get_started32.png",
+│ │ -        "48": "images/get_started48.png"
+│ │ -    },
+│ │ -    "manifest_version": 2,
+│ │ -    "name": "Chronological Facebook groups",
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "dist/content.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "<all_urls>"
+│ │ +            ]
+│ │ +        }
+│ │ +    ],
+│ │ +    "description": "Format text input as markdown using Prettier when cmd+opt+Semicolon is pressed",
+│ │ +    "manifest_version": 3,
+│ │ +    "name": "Markdown Formatter using Prettier",
+│ │      "permissions": [
+│ │ -        "webNavigation"
+│ │ +        "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0"
+│ │ +    "version": "0.6"
+│ │  }

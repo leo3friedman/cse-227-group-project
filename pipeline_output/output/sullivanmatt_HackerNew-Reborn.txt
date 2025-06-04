@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HackerNew-Reborn
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  PRIVACY.md
+│  README.md
+│ -_metadata
+│  background.html
+│  forms.css
+│  hn.css
+│  images
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HackerNew-Reborn/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,22 +19,21 @@
+│ │                  "http://news.ycombinator.com/*",
+│ │                  "http://news.ycombinator.org/*",
+│ │                  "http://hackerne.ws/*",
+│ │                  "https://news.ycombinator.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Adds enhancements to Hacker News, including quick user profiles, inline replies, story filtering and more.",
+│ │ +    "description": "A chrome extension to add requested and missing functionality to Hacker News, including quick user profiles, inline replies, story filtering and more.",
+│ │      "icons": {
+│ │          "128": "images/icon-128.png",
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "HackerNew-Reborn",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.3",
+│ │      "web_accessible_resources": [
+│ │          "images/karma.png",
+│ │          "images/follow.png",
+│ │          "images/unfollow.png",
+│ │          "images/loading.gif",
+│ │          "images/loading-light.gif",

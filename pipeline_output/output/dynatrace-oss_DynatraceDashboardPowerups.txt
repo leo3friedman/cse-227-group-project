@@ -1,0 +1,116 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DynatraceDashboardPowerups
+├── file list
+│ @@ -1,15 +1,15 @@
+│ +.git
+│  3rdParty
+│  Assets
+│  CODE_OF_CONDUCT.md
+│  LICENSE.md
+│  README.md
+│  Reports.md
+│  WORKAROUND.md
+│ -_metadata
+│  background.js
+│  background.min.js
+│  background.min.js.map
+│  bg_env.js
+│  bg_env.min.js
+│  bg_env.min.js.map
+│  bg_secure.js
+│   --- /workspace/pipeline_output/chromex_data/3rdParty
+├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/3rdParty
+│ │   --- /workspace/pipeline_output/chromex_data/3rdParty/node_modules
+│ ├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/3rdParty/node_modules
+│ │ ├── file list
+│ │ │ @@ -1,7 +1,9 @@
+│ │ │ +.bin
+│ │ │ +.junk
+│ │ │  @dynatrace
+│ │ │  @iconfu
+│ │ │  axios
+│ │ │  debug
+│ │ │  follow-redirects
+│ │ │  is-buffer
+│ │ │  math-expression-evaluator
+│ │ │   --- /workspace/pipeline_output/chromex_data/3rdParty/node_modules/debug
+│ │ ├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/3rdParty/node_modules/debug
+│ │ │ ├── file list
+│ │ │ │ @@ -1,7 +1,11 @@
+│ │ │ │ +.coveralls.yml
+│ │ │ │ +.eslintrc
+│ │ │ │ +.npmignore
+│ │ │ │ +.travis.yml
+│ │ │ │  CHANGELOG.md
+│ │ │ │  LICENSE
+│ │ │ │  Makefile
+│ │ │ │  README.md
+│ │ │ │  karma.conf.js
+│ │ │ │  node.js
+│ │ │ │  package.json
+│ │ │   --- /workspace/pipeline_output/chromex_data/3rdParty/node_modules/math-expression-evaluator
+│ │ ├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/3rdParty/node_modules/math-expression-evaluator
+│ │ │ ├── file list
+│ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ +.eslintrc.json
+│ │ │ │  Dockerfile
+│ │ │ │  LICENSE
+│ │ │ │  README.md
+│ │ │ │  dist
+│ │ │ │  docker-compose.yml
+│ │ │ │  package.json
+│ │ │ │  src
+│   --- /workspace/pipeline_output/chromex_data/bg_secure.js
+├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/bg_secure.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -11,14 +11,12 @@
+│  627574656420756e64657220746865204c6963656e7365206973206469737472
+│  696275746564206f6e20616e20224153204953222042415349532c2057495448
+│  4f55542057415252414e54494553204f5220434f4e444954494f4e53204f4620
+│  414e59204b494e442c206569746865722065787072657373206f7220696d706c
+│  6965642e2053656520746865204c6963656e736520666f722074686520737065
+│  6369666963206c616e677561676520676f7665726e696e67207065726d697373
+│  696f6e7320616e64206c696d69746174696f6e7320756e64657220746865204c
+│ -6963656e73652e0a2a2f0a2f2a2a2a2a2a205741524e494e473a20444f204e4f
+│ -5420434845434b20544849532046494c4520494e544f20534f5552434520434f
+│ -4e54524f4c2e20476974206578636c75646520696e20706c6163652e202a2a2a
+│ -2a2a2a2a2f0a42475f454e562e44545f544f4b454e203d20226474306330312e
+│ -41415a55585855415633574241373246524e46323236344f2e4e533733554b41
+│ -4a54334b495448343356374f4343434c5a4a54584c48504c5456444d3741564b
+│ -4f424433553353485149584d4935365855333248453641535a223b
+│ +6963656e73652e0a2a2f0a2f2a2a2a2a2a205741524e494e473a205374756220
+│ +66696c6520696e20736f7572636520636f6e74726f6c2c2061637475616c206b
+│ +65797320616464656420647572696e67206275696c642070726f636573732e20
+│ +202a2a2a2a2a2a2a2f0a42475f454e562e44545f544f4b454e203d2022534543
+│ +5552455f544f4b454e5f474f45535f48455245223b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,15 +28,14 @@
+│ │          "storage",
+│ │          "alarms",
+│ │          "https://*.live.dynatrace.com/*",
+│ │          "https://*/e/*",
+│ │          "https://*.sprint.dynatracelabs.com/*",
+│ │          "https://*.dev.dynatracelabs.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.67",
+│ │      "web_accessible_resources": [
+│ │          "powerup.css",
+│ │          "Assets/*.png",
+│ │          "3rdParty/node_modules/@dynatrace/barista-icons/*",
+│ │          "clientside.*js*",
+│ │          "reporting.*js*",
+│   --- /workspace/pipeline_output/chromex_data/package-lock.json
+├── +++ /workspace/pipeline_output/DynatraceDashboardPowerups/package-lock.json
+│ ├── Pretty-printed
+│ │ @@ -1,3 +1,6 @@
+│ │  {
+│ │ -    "lockfileVersion": 1
+│ │ +    "lockfileVersion": 3,
+│ │ +    "name": "DynatraceDashboardPowerups",
+│ │ +    "packages": {},
+│ │ +    "requires": true
+│ │  }

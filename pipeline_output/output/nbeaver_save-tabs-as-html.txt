@@ -1,0 +1,49 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/save-tabs-as-html
+├── file list
+│ @@ -1,4 +1,15 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +LICENSE.txt
+│ +Makefile
+│ +changelog.txt
+│ +chrome-web-store
+│ +example.html
+│  icons
+│  manifest.json
+│ -save_tabs.js
+│ +package-lock.json
+│ +product-page
+│ +readme.rst
+│ +relevant-links
+│ +save_tabs.js
+│ +todo.md
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/save-tabs-as-html/icons
+│ ├── file list
+│ │ @@ -1,6 +1,9 @@
+│ │ +Makefile
+│ │ +icon.svg
+│ │  icon128.png
+│ │  icon16.png
+│ │  icon32.png
+│ │  icon48.png
+│ │  icon64.png
+│ │ +icon96.png
+│ │ +old-icons
+│ │ -icon96.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/save-tabs-as-html/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Save tabs as HTML",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "downloads"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3.2"
+│ │  }

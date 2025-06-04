@@ -1,0 +1,99 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Big-O-chrome-extension/logos
+├── file list
+│ @@ -1,9 +1,28 @@
+│ -Big-O Graph.png
+│ -_metadata
+│ -logos
+│ +android-icon-144x144.png
+│ +android-icon-192x192.png
+│ +android-icon-36x36.png
+│ +android-icon-48x48.png
+│ +android-icon-72x72.png
+│ +android-icon-96x96.png
+│ +apple-icon-114x114.png
+│ +apple-icon-120x120.png
+│ +apple-icon-144x144.png
+│ +apple-icon-152x152.png
+│ +apple-icon-180x180.png
+│ +apple-icon-57x57.png
+│ +apple-icon-60x60.png
+│ +apple-icon-72x72.png
+│ +apple-icon-76x76.png
+│ +apple-icon-precomposed.png
+│ +apple-icon.png
+│ +browserconfig.xml
+│ +favicon-16x16.png
+│ +favicon-32x32.png
+│ +favicon-96x96.png
+│ +favicon.ico
+│ +logo-removebg-preview.png
+│  manifest.json
+│ -options.html
+│ -popup.css
+│ -popup.html
+│ -popup.js
+│ -value.js
+│ +ms-icon-144x144.png
+│ +ms-icon-150x150.png
+│ +ms-icon-310x310.png
+│ +ms-icon-70x70.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Big-O-chrome-extension/logos/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,16 +1,41 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": "./logos/logo-removebg-preview.png",
+│ │ -        "default_popup": "popup.html"
+│ │ -    },
+│ │ -    "description": "Time & space complexities of different-different alogrithms and data structure operations.",
+│ │ -    "icons": {
+│ │ -        "16": "./logos/favicon-16x16.png",
+│ │ -        "48": "./logos/android-icon-48x48.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "Big-O",
+│ │ -    "options_page": "options.html",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.0.1"
+│ │ +    "icons": [
+│ │ +        {
+│ │ +            "density": "0.75",
+│ │ +            "sizes": "36x36",
+│ │ +            "src": "/android-icon-36x36.png",
+│ │ +            "type": "image/png"
+│ │ +        },
+│ │ +        {
+│ │ +            "density": "1.0",
+│ │ +            "sizes": "48x48",
+│ │ +            "src": "/android-icon-48x48.png",
+│ │ +            "type": "image/png"
+│ │ +        },
+│ │ +        {
+│ │ +            "density": "1.5",
+│ │ +            "sizes": "72x72",
+│ │ +            "src": "/android-icon-72x72.png",
+│ │ +            "type": "image/png"
+│ │ +        },
+│ │ +        {
+│ │ +            "density": "2.0",
+│ │ +            "sizes": "96x96",
+│ │ +            "src": "/android-icon-96x96.png",
+│ │ +            "type": "image/png"
+│ │ +        },
+│ │ +        {
+│ │ +            "density": "3.0",
+│ │ +            "sizes": "144x144",
+│ │ +            "src": "/android-icon-144x144.png",
+│ │ +            "type": "image/png"
+│ │ +        },
+│ │ +        {
+│ │ +            "density": "4.0",
+│ │ +            "sizes": "192x192",
+│ │ +            "src": "/android-icon-192x192.png",
+│ │ +            "type": "image/png"
+│ │ +        }
+│ │ +    ],
+│ │ +    "name": "App"
+│ │  }

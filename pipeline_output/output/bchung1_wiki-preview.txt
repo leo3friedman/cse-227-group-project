@@ -1,0 +1,108 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wiki-preview
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -README.md
+│ -_metadata
+│ +.git
+│ +background.js
+│ +content.css
+│  content.js
+│  css_plugins
+│ -icons
+│  js_plugins
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/wiki-preview/content.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,22 +1,22 @@
+│  2428276127292e686f766572496e74656e74287b0a096f7665723a2066756e63
+│  74696f6e286576656e7429207b200a09097661722068726566203d206576656e
+│  742e7461726765742e687265663b200a09097661722074657874203d20242827
+│  626f647927292e66696e642822703a666972737422292e7465787428293b200a
+│  09096765744872656648746d6c28687265662c2074686973293b200a097d2c20
+│  0a096f75743a2066756e6374696f6e28297b0a0a097d2c0a09696e7465727661
+│ -6c3a203230300a7d293b0a0a66756e6374696f6e206765744872656648746d6c
+│ +6c3a203430300a7d290a0a0a66756e6374696f6e206765744872656648746d6c
+│  28687265662c20637572724c696e6b297b0a09242e616a6178287b200a090975
+│  726c3a20687265662c200a0909737563636573733a2066756e6374696f6e2868
+│  746d6c29207b200a09090967657446697273745061726167726170682868746d
+│ -6c2c20637572724c696e6b293b200a09097d200a097d293b0a7d0a0a66756e63
+│ -74696f6e2067657446697273745061726167726170682868746d6c546578742c
+│ -20637572724c696e6b297b0a09766172202068746d6c203d20242e7061727365
+│ -48544d4c2868746d6c54657874293b0a09766172202066697273745f626f6c64
+│ -65645f776f7264203d20242868746d6c292e66696e642827236d772d636f6e74
+│ -656e742d746578742070203e20623a666972737427293b0a0976617220666972
+│ -73745f70617261203d20242866697273745f626f6c6465645f776f7264292e63
+│ -6c6f7365737428277027292e7465787428293b0a092428637572724c696e6b29
+│ -2e61747472287b0a090927646174612d62616c6c6f6f6e2d6c656e677468273a
+│ -2027786c61726765272c0a090927646174612d62616c6c6f6f6e273a20666972
+│ -73745f706172612c0a090927646174612d62616c6c6f6f6e2d706f73273a2027
+│ -7570270a097d293b0a0a7d0a0a0a0a
+│ +6c2c20637572724c696e6b293b200a09097d200a097d293b0a7d0a0a0a66756e
+│ +6374696f6e2067657446697273745061726167726170682868746d6c54657874
+│ +2c20637572724c696e6b297b0a09766172202068746d6c203d20242e70617273
+│ +6548544d4c2868746d6c54657874293b0a09766172202066697273745f626f6c
+│ +6465645f776f7264203d20242868746d6c292e66696e642827236d772d636f6e
+│ +74656e742d746578742070203e20623a666972737427293b0a09766172206669
+│ +7273745f70617261203d20242866697273745f626f6c6465645f776f7264292e
+│ +706172656e7428292e7465787428293b0a092428637572724c696e6b292e6174
+│ +7472287b0a090927646174612d62616c6c6f6f6e2d6c656e677468273a202778
+│ +6c61726765272c0a090927646174612d62616c6c6f6f6e273a2066697273745f
+│ +706172612c0a090927646174612d62616c6c6f6f6e2d706f73273a2027757027
+│ +0a097d293b0a0a7d
+│   --- /workspace/pipeline_output/chromex_data/css_plugins
+├── +++ /workspace/pipeline_output/wiki-preview/css_plugins
+│ ├── file list
+│ │ @@ -1 +1,4 @@
+│ │ +balloon.min.css
+│ │ +bootstrap.min.css
+│ │ +tooltip-theme-arrows.css
+│ │ +tooltip-theme-twipsy.css
+│ │ -balloon.min.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wiki-preview/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,28 +1,31 @@
+│ │  {
+│ │ +    "background": {
+│ │ +        "scripts": [
+│ │ +            "js_plugins/jquery.min.js",
+│ │ +            "background.js"
+│ │ +        ]
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "css": [
+│ │ +                "css_plugins/tooltip-theme-arrows.css",
+│ │                  "css_plugins/balloon.min.css"
+│ │              ],
+│ │              "js": [
+│ │                  "js_plugins/jquery.min.js",
+│ │                  "js_plugins/jquery.hoverIntent.js",
+│ │ +                "js_plugins/tether.min.js",
+│ │ +                "js_plugins/drop.min.js",
+│ │ +                "js_plugins/tooltip.min.js",
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://en.wikipedia.org/wiki/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Preview links on hover",
+│ │ -    "homepage_url": "https://github.com/bchung1/wiki-preview",
+│ │ -    "icons": {
+│ │ -        "128": "icons/icon128.png",
+│ │ -        "16": "icons/icon16.png",
+│ │ -        "48": "icons/icon48.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │ -    "name": "wiki-preview",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "linkPreview",
+│ │      "version": "1.0"
+│ │  }

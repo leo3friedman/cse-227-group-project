@@ -1,0 +1,116 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/sb-user-hide
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.vscode
+│  README.md
+│ -_metadata
+│  alpine-3.1.1.js
+│  content.css
+│  content.js
+│ -dot.png
+│ +icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/sb-user-hide/README.md
+│ @@ -1,44 +1,8 @@
+│ -
+│ -# Extensão para browsers *"Ser Benfiquista User Hide"* 🇵🇹
+│ -
+│ -Esconde ou desfoca users ignorados no fórum https://serbenfiquista.com/forum. __Esta extensão não é oficial.__
+│ -
+│ -## Como funciona
+│ -
+│ -A forma atual de ignorar users no SB é de certa forma falível porque é possível as mensagens dos users ignorados através de citações. Esta extensão afecta as páginas normais dos tópicos e a secção de melhores mensagens. Esconde mensagens directas e mensagens citadas de users ignorados.
+│ -
+│ -Esta extensão não modifica ou altera o HTML original da página. Usa apenas código CSS para esconder conteúdo.
+│ -
+│ -## Guia de instalação
+│ -
+│ -1. Carrega em Code -> Download ZIP para fazer download do conteúdo deste repositório para o teu computador.
+│ -2. Extrai o conteúdo do ficheiro.
+│ -3. Vai a `chrome://extensions/` e ativa o "Developer Mode”.
+│ -4. Clica em "Load unpacked" e seleciona a pasta da extensão.
+│ -
+│ -### Instalar futuras atualizações
+│ -
+│ -Para ter acesso a futuras atualizações ou correções ao código, a extensão terá de ser reinstalada.
+│ -
+│ -## Como utilizar
+│ -
+│ -Existem 3 opções disponíveis:
+│ -* ON - ativa/inativa a extensão;
+│ -* Users ignorados - Lista de users ignorados, separadas por vírgulas. Por ex: user1,user2,user3
+│ -* Blur - A extensão esconde os posts por defeito. Alternativamente, é possível desfocar os posts.
+│ -
+│ -## Browsers suportados
+│ -
+│ -* Chrome
+│ -* Opera
+│ -
+│ ----
+│ -
+│ -# *"Ser Benfiquista User Hide"* browser extension 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+│ +# "Ser Benfiquista User Hide" browser extension
+│  
+│  Hides or blurs ignored users on https://serbenfiquista.com/forum. **This is not an official extension.**
+│  
+│  ## How it works
+│   
+│  The current way of ignoring users in SB is a bit flawed as you can still see quotes from the ignored users.
+│  This extension targets the normal topic pages and best messages section. It will hide both direct and quoted messages.
+│ @@ -54,17 +18,19 @@
+│  
+│  ### Install later updates
+│  
+│  If there's an update on the code, like a bug fix, please go ahead and reinstall the extension.
+│  
+│  ## How to Use
+│  
+│ -There's 3 settings available:
+│ +There's 3 settings available.
+│  
+│  - ON, enables/disables the extension
+│  - Ignored users, a comma separated list of the users to ignore. For ex: `user1,user2,user3`
+│  - Blur, by default the extension hides the posts. Alternatively, you can blur them instead.
+│  
+│  ## Browser Support
+│  
+│ +Working on
+│ +
+│  - Chrome
+│  - Opera
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -utf-8
+│ │ +us-ascii
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/sb-user-hide/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,21 +14,15 @@
+│ │              "matches": [
+│ │                  "https://serbenfiquista.com/forum/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+│ │      "description": "Hides or blurs ignored users on https://serbenfiquista.com/forum. This is not an official extension.",
+│ │ -    "icons": {
+│ │ -        "128": "dot.png",
+│ │ -        "16": "dot.png",
+│ │ -        "48": "dot.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "Ser Benfiquista User Hide",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "sb-user-hide",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

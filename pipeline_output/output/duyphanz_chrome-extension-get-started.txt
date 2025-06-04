@@ -1,0 +1,129 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extension-get-started
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ -images
+│ +.git
+│ +background.js
+│  manifest.json
+│ +options.html
+│ +options.js
+│ +package-lock.json
+│  popup.html
+│ -scripts
+│ -styles
+│ +popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extension-get-started/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,21 +1,21 @@
+│ │  {
+│ │ -    "browser_action": {
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "Your bookmark note."
+│ │ -    },
+│ │ -    "description": "Bookmark note!",
+│ │ -    "icons": {
+│ │ -        "128": "images/icon.png",
+│ │ -        "16": "images/icon.png",
+│ │ -        "48": "images/icon.png"
+│ │ +    "background": {
+│ │ +        "persistent": false,
+│ │ +        "scripts": [
+│ │ +            "background.js"
+│ │ +        ]
+│ │      },
+│ │ +    "description": "Build an Extension!",
+│ │      "manifest_version": 2,
+│ │ -    "name": "Bookmark note",
+│ │ +    "name": "Getting Started Example",
+│ │ +    "options_page": "options.html",
+│ │ +    "page_action": {
+│ │ +        "default_popup": "popup.html"
+│ │ +    },
+│ │      "permissions": [
+│ │ -        "bookmarks",
+│ │ -        "storage",
+│ │ -        "tabs"
+│ │ +        "activeTab",
+│ │ +        "declarativeContent",
+│ │ +        "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/chrome-extension-get-started/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,59 +1,16 @@
+│  <!DOCTYPE html>
+│ -<html lang="en">
+│ +<html>
+│    <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <link rel="stylesheet" href="styles/base.css" />
+│ -    <link rel="stylesheet" href="styles/popup.css" />
+│ +    <style>
+│ +      button {
+│ +        height: 30px;
+│ +        width: 30px;
+│ +        outline: none;
+│ +      }
+│ +    </style>
+│    </head>
+│    <body>
+│ -    <header>
+│ -      <button class="reset-button go-back-btn">Root</button>
+│ -      <div style="flex: 1"></div>
+│ -      <button class="reset-button go-to-board-btn">Go to Board</button>
+│ -    </header>
+│ -    <main>
+│ -      <section class="bookmark-container">
+│ -        <div class="bookmark-tree"></div>
+│ -        <div class="bookmark-items"></div>
+│ -      </section>
+│ -      <section class="board-container hidden">
+│ -        <div class="board-container-content">
+│ -          Empty board! Let's create some labels.
+│ -        </div>
+│ -        <div class="board-container-all-labels"></div>
+│ -      </section>
+│ -      <section class="label-container hidden">
+│ -        <div class="label-container-header">
+│ -          <span>Create a label</span>
+│ -          <button class="label-container-closed-button reset-button">X</button>
+│ -        </div>
+│ -        <div class="create-label-form">
+│ -          <input
+│ -            type="text"
+│ -            placeholder="New label name"
+│ -            required
+│ -            id="label-name-input"
+│ -            maxlength="20"
+│ -            autofocus
+│ -          />
+│ -          <input type="color" value="#00e1ff" id="color-input" />
+│ -        </div>
+│ -        <button class="reset-button create-lable-submit-button">Create</button>
+│ -        <div class="colors-container"></div>
+│ -      </section>
+│ -      <a href="http://paypal.me/DuyPhanz" target="_blank" class="donate-link">Buy me a cup of coffee!</a>
+│ -    </main>
+│ -    <footer>
+│ -      <div class="quick-add-label hidden">
+│ -        <span>+ Quick add label for </span>
+│ -        <strong><span class="quick-add-label-url"></span></strong>
+│ -        <div class="quick-add-labels"></div>
+│ -        <button class="quick-add-label-close-button reset-button">x</button>
+│ -      </div>
+│ -      <button class="create-label-button reset-button">+ Create Label</button>
+│ -    </footer>
+│ -    <script src="scripts/utils.js"></script>
+│ -    <script src="scripts/popup.js"></script>
+│ +    <button id="changeColor"></button>
+│ +    <script src="popup.js"></script>
+│    </body>
+│ -</html>
+│ +</html>

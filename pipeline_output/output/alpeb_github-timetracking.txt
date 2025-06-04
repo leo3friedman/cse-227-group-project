@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-timetracking
+├── file list
+│ @@ -1,16 +1,18 @@
+│ +.git
+│ +.gitignore
+│  CHANGELOG.txt
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  css
+│  fonts
+│  images
+│  injected.js
+│  js
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  sounds
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-timetracking/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,10 +42,9 @@
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "https://github.com/*",
+│ │          "storage",
+│ │          "notifications"
+│ │      ],
+│ │      "short_name": "TimeTracking",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.2"
+│ │  }

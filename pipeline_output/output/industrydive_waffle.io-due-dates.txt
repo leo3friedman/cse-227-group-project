@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/waffle.io-due-dates
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  css
+│  js
+│  manifest.json
+│ +package-lock.json
+│  waffleclock128.png
+│  waffleclock16.png
+│  waffleclock48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/waffle.io-due-dates/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Waffle Due Dates",
+│ │      "permissions": [
+│ │          "https://waffle.io/*",
+│ │          "http://waffle.io/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.4"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/OwO
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  LICENSE
+│  OwO.css
+│  OwO.js
+│  OwO.json
+│  README.md
+│  _locales
+│ -_metadata
+│  images
+│  manifest.json
+│ +package-lock.json
+│  package.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/OwO/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "16": "images/icon-16.png",
+│ │          "32": "images/icon-32.png",
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_appName__",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.2"
+│ │  }

@@ -1,0 +1,24 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/explainxkcd
+├── file list
+│ @@ -1,4 +1,5 @@
+│ -_metadata
+│ +.git
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/explainxkcd/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      ],
+│ │      "description": "Explains xkcd comics by adding a link to the explain xkcd wiki on the xkcd site",
+│ │      "icons": {
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "xkcd Explainer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

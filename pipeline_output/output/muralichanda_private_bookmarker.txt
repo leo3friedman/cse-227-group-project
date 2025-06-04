@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/private_bookmarker
+├── file list
+│ @@ -1,9 +1,9 @@
+│ -440_280.png
+│ -_metadata
+│ +.git
+│ +README.md
+│  addbookmark.html
+│  addbookmark.js
+│  aes.js
+│  bookmark.png
+│  common.js
+│  database.js
+│  delete.ico
+│ @@ -11,15 +11,15 @@
+│  editbookmark.js
+│  folder.png
+│  home.html
+│  home.js
+│  jquery-2.0.3.min.js
+│  jquery-ui.js
+│  manifest.json
+│ +package-lock.json
+│  passcode.html
+│  passcode.js
+│  plus.ico
+│  private_folder.png
+│  resetpasscode.html
+│  resetpasscode.js
+│ -sample.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/private_bookmarker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "description": "Private Bookmark app will help you save bookmarks which are password protected.",
+│ │      "manifest_version": 2,
+│ │      "name": "Private Bookmarker",
+│ │      "offline_enabled": true,
+│ │      "permissions": [
+│ │          "http://code.jquery.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.1"
+│ │  }

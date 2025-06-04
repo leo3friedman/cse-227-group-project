@@ -1,0 +1,51 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/open-env
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  addEnv.html
+│  addEnv.js
+│  background.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/open-env/README.md
+│ @@ -1,2 +1,9 @@
+│  # open-env
+│ -Chrome extension to open current url in another environment replacing baseUrl with another one
+│ +When this is helpful? When working on localhost and need to open the exact same url but in another environment
+│ +
+│ +How it works?
+│ +* Add an environment Name and Url
+│ +* Open a website
+│ +* Go to Open Environment Extension and a new tab will be opened replacing the Host Url and keeping the rest of the path
+│ +
+│ + extension link: https://chromewebstore.google.com/detail/open-environment-extensio/agnjjkhbkmdffjpgbcbbkkolakefjdjd?authuser=0&hl=en
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/open-env/images
+│ ├── file list
+│ │ @@ -1,3 +1,4 @@
+│ │ +.DS_Store
+│ │  bin.png
+│ │  logo.png
+│ │  plus.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/open-env/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "48": "images/logo.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Open Environment Extension",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.8"
+│ │  }

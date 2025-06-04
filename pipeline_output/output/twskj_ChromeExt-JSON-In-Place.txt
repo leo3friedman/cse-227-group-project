@@ -1,0 +1,45 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChromeExt-JSON-In-Place
+├── file list
+│ @@ -1,5 +1,11 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +CHANGELOG
+│ +LICENSE
+│ +README.md
+│  background.js
+│ +deploy.sh
+│  icon
+│  main.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/main.js
+├── +++ /workspace/pipeline_output/ChromeExt-JSON-In-Place/main.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -496,8 +496,8 @@
+│  202020202020202020202020202020206e6f7469667928657272293b0a202020
+│  202020202020202020202020207d0a2020202020202020202020207d0a0a2020
+│  20202020202020202020696620286572726f72436f756e74203d3d3d2063616e
+│  646964617465732e6c656e67746829207b0a2020202020202020202020202020
+│  2020666c617368286e6f6465293b0a2020202020202020202020207d0a202020
+│  20202020207d0a20202020202020206361746368202865727229207b0a202020
+│  2020202020202020206e6f7469667928657272293b0a20202020202020207d0a
+│ -202020207d0a293b
+│ +202020207d0a293b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChromeExt-JSON-In-Place/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -52,10 +52,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Jipy",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │      "short_name": "Jipy",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.4"
+│ │  }

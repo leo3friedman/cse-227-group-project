@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HypixelSkyBlockWikiRedirector
+├── file list
+│ @@ -1,8 +1,11 @@
+│ +.git
+│ +.project
+│  LICENSE.md
+│ +NO_PUBLISH
+│  README.md
+│ -_metadata
+│  background.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HypixelSkyBlockWikiRedirector/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hypixel SkyBlock Wiki Redirector",
+│ │      "permissions": [
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

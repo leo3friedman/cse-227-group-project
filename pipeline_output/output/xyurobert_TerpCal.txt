@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TerpCal
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.DS_Store
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TerpCal/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │          "scopes": [
+│ │              "https://www.googleapis.com/auth/calendar"
+│ │          ]
+│ │      },
+│ │      "permissions": [
+│ │          "identity"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

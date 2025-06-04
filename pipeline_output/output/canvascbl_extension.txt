@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/extension
+├── file list
+│ @@ -1,5 +1,9 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│ +LICENSE
+│  README.md
+│ -_metadata
+│  content_scripts
+│  img
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/extension/README.md
+│ @@ -1,7 +1,7 @@
+│  # CanvasCBL extension
+│  
+│ -Currently just adds a link to canvascbl.com in the Canvas sidebar.
+│ +Currently just adds a link to [canvascbl.com](https://canvascbl.com) in the Canvas sidebar.
+│  
+│  ## Chrome Web Store link
+│  
+│ -Pending approval
+│ +[https://chrome.google.com/webstore/detail/canvascbl-add-in-for-canv/odmbdioejfbelhcknliaihbjckggmmak](https://chrome.google.com/webstore/detail/canvascbl-add-in-for-canv/odmbdioejfbelhcknliaihbjckggmmak)
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "128": "img/logo-light-128.png",
+│ │          "16": "img/logo-light-16.png",
+│ │          "32": "img/logo-light-32.png",
+│ │          "48": "img/logo-light-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "CanvasCBL Add-in for Canvas",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.2"
+│ │  }

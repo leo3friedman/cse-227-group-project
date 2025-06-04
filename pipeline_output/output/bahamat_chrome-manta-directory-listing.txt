@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-manta-directory-listing
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-manta-directory-listing/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Manta Directory Listing",
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "*://*.manta.joyent.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.8"
+│ │  }

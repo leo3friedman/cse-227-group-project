@@ -1,0 +1,65 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AECOM-Student-Extension
+├── file list
+│ @@ -1,12 +1,11 @@
+│ -AtkinsonHyperlegible-Regular.ttf
+│ +.DS_Store
+│ +.git
+│  COPYING
+│ -Files
+│ -OFL.txt
+│  README.md
+│ -_metadata
+│  fontawesome
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/AECOM-Student-Extension/README.md
+│ @@ -1,10 +1,10 @@
+│  # AECOM Student Extension
+│  ## Installation
+│ -Google Chrome Extension: https://chrome.google.com/webstore/detail/aecom-student-extension/akjphfpbdbnblhnkajcoadhngppbmffl/related?hl=en&authuser=0
+│ +Google Chrome Extension: https://chromewebstore.google.com/detail/aecom-student-extension/akjphfpbdbnblhnkajcoadhngppbmffl?hl=en&pli=1
+│  
+│  ## Description
+│  The AECOM Student Extension was made to facilitate access to important websites for medical students at the Albert Einstein College of Medicine. The extension does not collect any identifying information from the end user.
+│  
+│  
+│  ## License
+│  Copyright © 2021 Jasper Sim. The Albert Einstein College of Medicine in the Bronx, NY has no affiliation with this software.
+│   --- /workspace/pipeline_output/chromex_data/fontawesome
+├── +++ /workspace/pipeline_output/AECOM-Student-Extension/fontawesome
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  LICENSE.txt
+│ │  css
+│ │  js
+│ │  less
+│ │  metadata
+│ │  scss
+│ │  sprites
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/AECOM-Student-Extension/icons
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  icon128.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AECOM-Student-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │          "default_title": "AECOM Student Extension"
+│ │      },
+│ │      "icons": {
+│ │          "128": "icons/icon128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "AECOM Student Extension",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.13"
+│ │  }

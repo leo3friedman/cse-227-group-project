@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NicotagBox
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -128.png
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  content.js
+│  index.html
+│  manifest.json
+│ +package.json
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NicotagBox/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │          "128": "128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "NicotagHub",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.1"
+│ │  }

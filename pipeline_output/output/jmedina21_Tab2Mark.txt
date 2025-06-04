@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Tab2Mark
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  FileSaver.js
+│  README.md
+│ -_metadata
+│  images
+│  index.js
+│  main.html
+│  manifest.json
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/Tab2Mark/images
+│ ├── file list
+│ │ @@ -1,8 +1,8 @@
+│ │  ArrowCircleRight.svg
+│ │  DotsThreeCircleVertical.svg
+│ │  MinusCircle.svg
+│ │  XCircle.svg
+│ │  bmc svg.svg
+│ │  doc.svg
+│ │ +icon.PNG
+│ │ -icon.png
+│ │  plus-square-Filled.svg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Tab2Mark/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,10 +4,9 @@
+│ │          "default_popup": "main.html"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Tab2Mark",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.0"
+│ │  }

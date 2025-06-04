@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-bookmarks-table
+├── file list
+│ @@ -1,6 +1,15 @@
+│ -_metadata
+│ +.eslintrc
+│ +.git
+│ +.gitignore
+│ +CHANGELOG.md
+│ +LICENSE
+│ +README.md
+│  ext
+│  icons
+│  main.html
+│  manifest.json
+│ -src
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│ +zip_for_submission.sh
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-bookmarks-table/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Bookmarks Table",
+│ │      "permissions": [
+│ │          "bookmarks"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.7"
+│ │  }

@@ -1,0 +1,182 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ArielAutoLogin
+├── file list
+│ @@ -1,8 +1,11 @@
+│ -_metadata
+│ +.git
+│ +ArielAutoLogin.zip
+│  icon.png
+│  manifest.json
+│  meida.png
+│  moodle.png
+│ +package-lock.json
+│  pniot.png
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +screenshots
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ArielAutoLogin/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,10 +7,9 @@
+│ │      "icons": {
+│ │          "128": "./icon.png",
+│ │          "16": "./icon.png",
+│ │          "48": "./icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Ariel Systems - Auto Login",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/ArielAutoLogin/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,50 +1,50 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>Ariel Systems - Auto Login</title>
+│ -    <style>
+│ -      body {
+│ -        padding: 1px;
+│ -        margin: 0%;
+│ -        border-radius: 30px;
+│ -        display: flex;
+│ -        align-items: center;
+│ -        justify-content: center;
+│ -        flex-direction: column;
+│ -        font-family: 'Roboto', sans-serif;
+│ -        text-align: center;
+│ -        color: aliceblue;
+│ -      }
+│ -
+│ -      .btn {
+│ -        background-color: white;
+│ -        border: black solid 2px;
+│ -        border-radius: 5px;
+│ -        cursor: pointer;
+│ -        width: 100px;
+│ -        padding: 2px;
+│ -      }
+│ -      .buttons {
+│ -        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+│ -        padding: 20px;
+│ -        background-image: linear-gradient(to bottom, #000000, #004b4b);
+│ -        border: rgb(255, 255, 255) solid 2px;
+│ -        border-radius: 10px;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <div class="buttons">
+│ -      <h3>מערכות מידע אוניברסיטת אריאל</h3>
+│ -      <h4>התחברות מהירה</h4>
+│ -      <!-- a image with link -->
+│ -      <img class="btn" id="moodleBTN" src="./moodle.png" alt="moodle" />
+│ -      <img class="btn" id="meidaBTN" src="./meida.png" alt="מידע אישי" />
+│ -      <img class="btn" id="pniotBTN" src="./pniot.png" alt="מערכת פניות" />
+│ -    </div>
+│ -    <script src="popup.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <title>Ariel Systems - Auto Login</title>
+│ +    <style>
+│ +      body {
+│ +        padding: 1px;
+│ +        margin: 0%;
+│ +        border-radius: 30px;
+│ +        display: flex;
+│ +        align-items: center;
+│ +        justify-content: center;
+│ +        flex-direction: column;
+│ +        font-family: 'Roboto', sans-serif;
+│ +        text-align: center;
+│ +        color: aliceblue;
+│ +      }
+│ +
+│ +      .btn {
+│ +        background-color: white;
+│ +        border: black solid 2px;
+│ +        border-radius: 5px;
+│ +        cursor: pointer;
+│ +        width: 100px;
+│ +        padding: 2px;
+│ +      }
+│ +      .buttons {
+│ +        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+│ +        padding: 20px;
+│ +        background-image: linear-gradient(to bottom, #000000, #004b4b);
+│ +        border: rgb(255, 255, 255) solid 2px;
+│ +        border-radius: 10px;
+│ +      }
+│ +    </style>
+│ +  </head>
+│ +  <body>
+│ +    <div class="buttons">
+│ +      <h3>מערכות מידע אוניברסיטת אריאל</h3>
+│ +      <h4>התחברות מהירה</h4>
+│ +      <!-- a image with link -->
+│ +      <img class="btn" id="moodleBTN" src="./moodle.png" alt="moodle" />
+│ +      <img class="btn" id="meidaBTN" src="./meida.png" alt="מידע אישי" />
+│ +      <img class="btn" id="pniotBTN" src="./pniot.png" alt="מערכת פניות" />
+│ +    </div>
+│ +    <script src="popup.js"></script>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/ArielAutoLogin/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,21 +1,21 @@
+│  646f63756d656e742e6164644576656e744c697374656e65722827444f4d436f
+│ -6e74656e744c6f61646564272c2066756e6374696f6e202829207b0d0a202063
+│ -6f6e7374206d6f6f646c6542544e203d20646f63756d656e742e676574456c65
+│ -6d656e744279496428276d6f6f646c6542544e27293b0d0a2020636f6e737420
+│ -6d6569646142544e203d20646f63756d656e742e676574456c656d656e744279
+│ -496428276d6569646142544e27293b0d0a2020636f6e737420706e696f744254
+│ -4e203d20646f63756d656e742e676574456c656d656e74427949642827706e69
+│ -6f7442544e27293b0d0a20200d0a20206d6f6f646c6542544e2e616464457665
+│ -6e744c697374656e65722827636c69636b272c202829203d3e207b0d0a202020
+│ -20202077696e646f772e6f70656e282768747470733a2f2f6d6f6f646c656172
+│ -6e2e617269656c2e61632e696c2f617574682f6d756c74696f617574682f6c6f
+│ -67696e2e7068703f75736572547970653d73747564656e7427293b0d0a20207d
+│ -293b0d0a20200d0a20206d6569646142544e2e6164644576656e744c69737465
+│ -6e65722827636c69636b272c202829203d3e207b0d0a20202020202077696e64
+│ -6f772e6f70656e282768747470733a2f2f6d657964612e617269656c2e61632e
+│ -696c2f53534f50542f3f75736572547970653d3127293b0d0a20207d293b0d0a
+│ -20200d0a2020706e696f7442544e2e6164644576656e744c697374656e657228
+│ -27636c69636b272c202829203d3e207b0d0a20202020202077696e646f772e6f
+│ -70656e2827687474703a2f2f7777772e617269656c2e61632e696c2f70726f6a
+│ -656374732f747a6d6d2f7365637572652f6c6f67696e322e6173703f73747564
+│ -656e743d7472756527293b0d0a20207d293b0d0a20200d0a7d293b0d0a0d0a
+│ +6e74656e744c6f61646564272c2066756e6374696f6e202829207b0a2020636f
+│ +6e7374206d6f6f646c6542544e203d20646f63756d656e742e676574456c656d
+│ +656e744279496428276d6f6f646c6542544e27293b0a2020636f6e7374206d65
+│ +69646142544e203d20646f63756d656e742e676574456c656d656e7442794964
+│ +28276d6569646142544e27293b0a2020636f6e737420706e696f7442544e203d
+│ +20646f63756d656e742e676574456c656d656e74427949642827706e696f7442
+│ +544e27293b0a20200a20206d6f6f646c6542544e2e6164644576656e744c6973
+│ +74656e65722827636c69636b272c202829203d3e207b0a20202020202077696e
+│ +646f772e6f70656e282768747470733a2f2f6d6f6f646c6561726e2e61726965
+│ +6c2e61632e696c2f617574682f6d756c74696f617574682f6c6f67696e2e7068
+│ +703f75736572547970653d73747564656e7427293b0a20207d293b0a20200a20
+│ +206d6569646142544e2e6164644576656e744c697374656e65722827636c6963
+│ +6b272c202829203d3e207b0a20202020202077696e646f772e6f70656e282768
+│ +747470733a2f2f6d657964612e617269656c2e61632e696c2f53534f50542f3f
+│ +75736572547970653d3127293b0a20207d293b0a20200a2020706e696f744254
+│ +4e2e6164644576656e744c697374656e65722827636c69636b272c202829203d
+│ +3e207b0a20202020202077696e646f772e6f70656e2827687474703a2f2f7777
+│ +772e617269656c2e61632e696c2f70726f6a656374732f747a6d6d2f73656375
+│ +72652f6c6f67696e322e6173703f73747564656e743d7472756527293b0a2020
+│ +7d293b0a20200a7d293b0a0a

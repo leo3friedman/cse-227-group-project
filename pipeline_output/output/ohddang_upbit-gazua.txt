@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/upbit-gazua/dist
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  background.js.LICENSE.txt
+│  contentScript.js
+│  contentScript.js.LICENSE.txt
+│  manifest.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/upbit-gazua/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Upbit Gazua",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "scripting",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/QRCodeURL
+├── file list
+│ @@ -1,6 +1,22 @@
+│ -_metadata
+│ +.git
+│ +BlogScreenShot.png
+│ +ChromeImage.xcf
+│ +ChromeQRCodeExt.png
+│ +ChromeQRCodeExt440.png
+│ +ChromeQRIcon.xcf
+│ +ChromeQRURL.png
+│ +LICENSE
+│ +QRURL.zip
+│ +QRURLV1.zip
+│ +QRURLV2.zip
+│ +README.md
+│ +Url2QR.png
+│  icon.png
+│  main.js
+│ +manifest (copy).json
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +screenShot.png
+│ +soynerditoBlogspot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/QRCodeURL/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "QR URL",
+│ │      "permissions": [
+│ │          "http://chart.apis.google.com/",
+│ │          "tabs",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0"
+│ │  }

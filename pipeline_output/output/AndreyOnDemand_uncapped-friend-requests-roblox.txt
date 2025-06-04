@@ -1,0 +1,775 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/uncapped-friend-requests-roblox
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitattributes
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  images
+│  main.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/LICENSE
+├── +++ /workspace/pipeline_output/uncapped-friend-requests-roblox/LICENSE
+│┄ Ordering differences only
+│ @@ -1,121 +1,121 @@
+│ -Creative Commons Legal Code
+│ -
+│ -CC0 1.0 Universal
+│ -
+│ -    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+│ -    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+│ -    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+│ -    INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+│ -    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+│ -    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+│ -    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+│ -    HEREUNDER.
+│ -
+│ -Statement of Purpose
+│ -
+│ -The laws of most jurisdictions throughout the world automatically confer
+│ -exclusive Copyright and Related Rights (defined below) upon the creator
+│ -and subsequent owner(s) (each and all, an "owner") of an original work of
+│ -authorship and/or a database (each, a "Work").
+│ -
+│ -Certain owners wish to permanently relinquish those rights to a Work for
+│ -the purpose of contributing to a commons of creative, cultural and
+│ -scientific works ("Commons") that the public can reliably and without fear
+│ -of later claims of infringement build upon, modify, incorporate in other
+│ -works, reuse and redistribute as freely as possible in any form whatsoever
+│ -and for any purposes, including without limitation commercial purposes.
+│ -These owners may contribute to the Commons to promote the ideal of a free
+│ -culture and the further production of creative, cultural and scientific
+│ -works, or to gain reputation or greater distribution for their Work in
+│ -part through the use and efforts of others.
+│ -
+│ -For these and/or other purposes and motivations, and without any
+│ -expectation of additional consideration or compensation, the person
+│ -associating CC0 with a Work (the "Affirmer"), to the extent that he or she
+│ -is an owner of Copyright and Related Rights in the Work, voluntarily
+│ -elects to apply CC0 to the Work and publicly distribute the Work under its
+│ -terms, with knowledge of his or her Copyright and Related Rights in the
+│ -Work and the meaning and intended legal effect of CC0 on those rights.
+│ -
+│ -1. Copyright and Related Rights. A Work made available under CC0 may be
+│ -protected by copyright and related or neighboring rights ("Copyright and
+│ -Related Rights"). Copyright and Related Rights include, but are not
+│ -limited to, the following:
+│ -
+│ -  i. the right to reproduce, adapt, distribute, perform, display,
+│ -     communicate, and translate a Work;
+│ - ii. moral rights retained by the original author(s) and/or performer(s);
+│ -iii. publicity and privacy rights pertaining to a person's image or
+│ -     likeness depicted in a Work;
+│ - iv. rights protecting against unfair competition in regards to a Work,
+│ -     subject to the limitations in paragraph 4(a), below;
+│ -  v. rights protecting the extraction, dissemination, use and reuse of data
+│ -     in a Work;
+│ - vi. database rights (such as those arising under Directive 96/9/EC of the
+│ -     European Parliament and of the Council of 11 March 1996 on the legal
+│ -     protection of databases, and under any national implementation
+│ -     thereof, including any amended or successor version of such
+│ -     directive); and
+│ -vii. other similar, equivalent or corresponding rights throughout the
+│ -     world based on applicable law or treaty, and any national
+│ -     implementations thereof.
+│ -
+│ -2. Waiver. To the greatest extent permitted by, but not in contravention
+│ -of, applicable law, Affirmer hereby overtly, fully, permanently,
+│ -irrevocably and unconditionally waives, abandons, and surrenders all of
+│ -Affirmer's Copyright and Related Rights and associated claims and causes
+│ -of action, whether now known or unknown (including existing as well as
+│ -future claims and causes of action), in the Work (i) in all territories
+│ -worldwide, (ii) for the maximum duration provided by applicable law or
+│ -treaty (including future time extensions), (iii) in any current or future
+│ -medium and for any number of copies, and (iv) for any purpose whatsoever,
+│ -including without limitation commercial, advertising or promotional
+│ -purposes (the "Waiver"). Affirmer makes the Waiver for the benefit of each
+│ -member of the public at large and to the detriment of Affirmer's heirs and
+│ -successors, fully intending that such Waiver shall not be subject to
+│ -revocation, rescission, cancellation, termination, or any other legal or
+│ -equitable action to disrupt the quiet enjoyment of the Work by the public
+│ -as contemplated by Affirmer's express Statement of Purpose.
+│ -
+│ -3. Public License Fallback. Should any part of the Waiver for any reason
+│ -be judged legally invalid or ineffective under applicable law, then the
+│ -Waiver shall be preserved to the maximum extent permitted taking into
+│ -account Affirmer's express Statement of Purpose. In addition, to the
+│ -extent the Waiver is so judged Affirmer hereby grants to each affected
+│ -person a royalty-free, non transferable, non sublicensable, non exclusive,
+│ -irrevocable and unconditional license to exercise Affirmer's Copyright and
+│ -Related Rights in the Work (i) in all territories worldwide, (ii) for the
+│ -maximum duration provided by applicable law or treaty (including future
+│ -time extensions), (iii) in any current or future medium and for any number
+│ -of copies, and (iv) for any purpose whatsoever, including without
+│ -limitation commercial, advertising or promotional purposes (the
+│ -"License"). The License shall be deemed effective as of the date CC0 was
+│ -applied by Affirmer to the Work. Should any part of the License for any
+│ -reason be judged legally invalid or ineffective under applicable law, such
+│ -partial invalidity or ineffectiveness shall not invalidate the remainder
+│ -of the License, and in such case Affirmer hereby affirms that he or she
+│ -will not (i) exercise any of his or her remaining Copyright and Related
+│ -Rights in the Work or (ii) assert any associated claims and causes of
+│ -action with respect to the Work, in either case contrary to Affirmer's
+│ -express Statement of Purpose.
+│ -
+│ -4. Limitations and Disclaimers.
+│ -
+│ - a. No trademark or patent rights held by Affirmer are waived, abandoned,
+│ -    surrendered, licensed or otherwise affected by this document.
+│ - b. Affirmer offers the Work as-is and makes no representations or
+│ -    warranties of any kind concerning the Work, express, implied,
+│ -    statutory or otherwise, including without limitation warranties of
+│ -    title, merchantability, fitness for a particular purpose, non
+│ -    infringement, or the absence of latent or other defects, accuracy, or
+│ -    the present or absence of errors, whether or not discoverable, all to
+│ -    the greatest extent permissible under applicable law.
+│ - c. Affirmer disclaims responsibility for clearing rights of other persons
+│ -    that may apply to the Work or any use thereof, including without
+│ -    limitation any person's Copyright and Related Rights in the Work.
+│ -    Further, Affirmer disclaims responsibility for obtaining any necessary
+│ -    consents, permissions or other rights required for any use of the
+│ -    Work.
+│ - d. Affirmer understands and acknowledges that Creative Commons is not a
+│ -    party to this document and has no duty or obligation with respect to
+│ -    this CC0 or use of the Work.
+│ +Creative Commons Legal Code
+│ +
+│ +CC0 1.0 Universal
+│ +
+│ +    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+│ +    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+│ +    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+│ +    INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+│ +    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+│ +    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+│ +    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+│ +    HEREUNDER.
+│ +
+│ +Statement of Purpose
+│ +
+│ +The laws of most jurisdictions throughout the world automatically confer
+│ +exclusive Copyright and Related Rights (defined below) upon the creator
+│ +and subsequent owner(s) (each and all, an "owner") of an original work of
+│ +authorship and/or a database (each, a "Work").
+│ +
+│ +Certain owners wish to permanently relinquish those rights to a Work for
+│ +the purpose of contributing to a commons of creative, cultural and
+│ +scientific works ("Commons") that the public can reliably and without fear
+│ +of later claims of infringement build upon, modify, incorporate in other
+│ +works, reuse and redistribute as freely as possible in any form whatsoever
+│ +and for any purposes, including without limitation commercial purposes.
+│ +These owners may contribute to the Commons to promote the ideal of a free
+│ +culture and the further production of creative, cultural and scientific
+│ +works, or to gain reputation or greater distribution for their Work in
+│ +part through the use and efforts of others.
+│ +
+│ +For these and/or other purposes and motivations, and without any
+│ +expectation of additional consideration or compensation, the person
+│ +associating CC0 with a Work (the "Affirmer"), to the extent that he or she
+│ +is an owner of Copyright and Related Rights in the Work, voluntarily
+│ +elects to apply CC0 to the Work and publicly distribute the Work under its
+│ +terms, with knowledge of his or her Copyright and Related Rights in the
+│ +Work and the meaning and intended legal effect of CC0 on those rights.
+│ +
+│ +1. Copyright and Related Rights. A Work made available under CC0 may be
+│ +protected by copyright and related or neighboring rights ("Copyright and
+│ +Related Rights"). Copyright and Related Rights include, but are not
+│ +limited to, the following:
+│ +
+│ +  i. the right to reproduce, adapt, distribute, perform, display,
+│ +     communicate, and translate a Work;
+│ + ii. moral rights retained by the original author(s) and/or performer(s);
+│ +iii. publicity and privacy rights pertaining to a person's image or
+│ +     likeness depicted in a Work;
+│ + iv. rights protecting against unfair competition in regards to a Work,
+│ +     subject to the limitations in paragraph 4(a), below;
+│ +  v. rights protecting the extraction, dissemination, use and reuse of data
+│ +     in a Work;
+│ + vi. database rights (such as those arising under Directive 96/9/EC of the
+│ +     European Parliament and of the Council of 11 March 1996 on the legal
+│ +     protection of databases, and under any national implementation
+│ +     thereof, including any amended or successor version of such
+│ +     directive); and
+│ +vii. other similar, equivalent or corresponding rights throughout the
+│ +     world based on applicable law or treaty, and any national
+│ +     implementations thereof.
+│ +
+│ +2. Waiver. To the greatest extent permitted by, but not in contravention
+│ +of, applicable law, Affirmer hereby overtly, fully, permanently,
+│ +irrevocably and unconditionally waives, abandons, and surrenders all of
+│ +Affirmer's Copyright and Related Rights and associated claims and causes
+│ +of action, whether now known or unknown (including existing as well as
+│ +future claims and causes of action), in the Work (i) in all territories
+│ +worldwide, (ii) for the maximum duration provided by applicable law or
+│ +treaty (including future time extensions), (iii) in any current or future
+│ +medium and for any number of copies, and (iv) for any purpose whatsoever,
+│ +including without limitation commercial, advertising or promotional
+│ +purposes (the "Waiver"). Affirmer makes the Waiver for the benefit of each
+│ +member of the public at large and to the detriment of Affirmer's heirs and
+│ +successors, fully intending that such Waiver shall not be subject to
+│ +revocation, rescission, cancellation, termination, or any other legal or
+│ +equitable action to disrupt the quiet enjoyment of the Work by the public
+│ +as contemplated by Affirmer's express Statement of Purpose.
+│ +
+│ +3. Public License Fallback. Should any part of the Waiver for any reason
+│ +be judged legally invalid or ineffective under applicable law, then the
+│ +Waiver shall be preserved to the maximum extent permitted taking into
+│ +account Affirmer's express Statement of Purpose. In addition, to the
+│ +extent the Waiver is so judged Affirmer hereby grants to each affected
+│ +person a royalty-free, non transferable, non sublicensable, non exclusive,
+│ +irrevocable and unconditional license to exercise Affirmer's Copyright and
+│ +Related Rights in the Work (i) in all territories worldwide, (ii) for the
+│ +maximum duration provided by applicable law or treaty (including future
+│ +time extensions), (iii) in any current or future medium and for any number
+│ +of copies, and (iv) for any purpose whatsoever, including without
+│ +limitation commercial, advertising or promotional purposes (the
+│ +"License"). The License shall be deemed effective as of the date CC0 was
+│ +applied by Affirmer to the Work. Should any part of the License for any
+│ +reason be judged legally invalid or ineffective under applicable law, such
+│ +partial invalidity or ineffectiveness shall not invalidate the remainder
+│ +of the License, and in such case Affirmer hereby affirms that he or she
+│ +will not (i) exercise any of his or her remaining Copyright and Related
+│ +Rights in the Work or (ii) assert any associated claims and causes of
+│ +action with respect to the Work, in either case contrary to Affirmer's
+│ +express Statement of Purpose.
+│ +
+│ +4. Limitations and Disclaimers.
+│ +
+│ + a. No trademark or patent rights held by Affirmer are waived, abandoned,
+│ +    surrendered, licensed or otherwise affected by this document.
+│ + b. Affirmer offers the Work as-is and makes no representations or
+│ +    warranties of any kind concerning the Work, express, implied,
+│ +    statutory or otherwise, including without limitation warranties of
+│ +    title, merchantability, fitness for a particular purpose, non
+│ +    infringement, or the absence of latent or other defects, accuracy, or
+│ +    the present or absence of errors, whether or not discoverable, all to
+│ +    the greatest extent permissible under applicable law.
+│ + c. Affirmer disclaims responsibility for clearing rights of other persons
+│ +    that may apply to the Work or any use thereof, including without
+│ +    limitation any person's Copyright and Related Rights in the Work.
+│ +    Further, Affirmer disclaims responsibility for obtaining any necessary
+│ +    consents, permissions or other rights required for any use of the
+│ +    Work.
+│ + d. Affirmer understands and acknowledges that Creative Commons is not a
+│ +    party to this document and has no duty or obligation with respect to
+│ +    this CC0 or use of the Work.
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/uncapped-friend-requests-roblox/README.md
+│┄ Ordering differences only
+│ @@ -1,21 +1,21 @@
+│ -https://chromewebstore.google.com/detail/uncapped-roblox-friend-re/hihkbdfimbnmecnfgeohiiipgjnaaogl
+│ -
+│ -This extension uncaps your Roblox friend requests from 500.
+│ -
+│ -Not recommended to those who may have an extensive friend request list (50,000+) as it may slow down. (untested)
+│ -
+│ -Like what I'm doing?
+│ -Review the extension!
+│ -
+│ -Have a problem?
+│ -Head to the support zone!
+│ -https://chromewebstore.google.com/detail/hihkbdfimbnmecnfgeohiiipgjnaaogl/support
+│ -
+│ -How does this work?
+│ -The extension will call the Roblox API and get 100 friend requests. It will then continue calling the Roblox API until all of the lists of friend requests are grabbed.
+│ -
+│ -Why can't it just call the Roblox API once?
+│ -The Roblox API caps out the list per API call to 100. To get around this, the extension will get the next list, and continue to call the API until all the pages are called.
+│ -
+│ -This project is open source.
+│ -https://github.com/AndreyOnDemand/uncapped-friend-requests-roblox
+│ +https://chromewebstore.google.com/detail/uncapped-roblox-friend-re/hihkbdfimbnmecnfgeohiiipgjnaaogl
+│ +
+│ +This extension uncaps your Roblox friend requests from 500.
+│ +
+│ +Not recommended to those who may have an extensive friend request list (50,000+) as it may slow down. (untested)
+│ +
+│ +Like what I'm doing?
+│ +Review the extension!
+│ +
+│ +Have a problem?
+│ +Head to the support zone!
+│ +https://chromewebstore.google.com/detail/hihkbdfimbnmecnfgeohiiipgjnaaogl/support
+│ +
+│ +How does this work?
+│ +The extension will call the Roblox API and get 100 friend requests. It will then continue calling the Roblox API until all of the lists of friend requests are grabbed.
+│ +
+│ +Why can't it just call the Roblox API once?
+│ +The Roblox API caps out the list per API call to 100. To get around this, the extension will get the next list, and continue to call the API until all the pages are called.
+│ +
+│ +This project is open source.
+│ +https://github.com/AndreyOnDemand/uncapped-friend-requests-roblox
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/uncapped-friend-requests-roblox/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,64 +1,62 @@
+│  6368726f6d652e72756e74696d652e6f6e4d6573736167652e6164644c697374
+│  656e65722866756e6374696f6e2028726571756573742c2073656e6465722c20
+│ -73656e64526573706f6e736529207b0d0a2020636f6e73742073746172747572
+│ -6c203d206068747470733a2f2f667269656e64732e726f626c6f782e636f6d2f
+│ -76312f6d792f667269656e64732f72657175657374733f6c696d69743d313030
+│ -26736f72744f726465723d44657363603b0d0a202076617220637572736f7220
+│ -3d2022223b202f2f20496e697469616c697a6520637572736f7220746f20616e
+│ -20656d70747920737472696e670d0a202076617220637572736f7275726c203d
+│ -206068747470733a2f2f667269656e64732e726f626c6f782e636f6d2f76312f
+│ -6d792f667269656e64732f72657175657374733f6c696d69743d313030266375
+│ -72736f723d247b637572736f727d26736f72744f726465723d44657363603b0d
+│ -0a20206c657420726177436f6f6b6965203d2022223b0d0a20206c6574207265
+│ -717565737473203d20303b202f2f20496e697469616c697a6520746f74616c20
+│ -726571756573747320636f756e740d0a0d0a202069662028726571756573742e
+│ -616374696f6e203d3d3d202273746172742229207b0d0a202020206368726f6d
+│ -652e636f6f6b6965732e676574416c6c287b20646f6d61696e3a2022726f626c
+│ -6f782e636f6d22207d2c2066756e6374696f6e2028636f6f6b69657329207b0d
+│ -0a2020202020202f2f2049746572617465207468726f7567682074686520636f
+│ -6f6b69657320617272617920746f20637265617465207468652072617720636f
+│ -6f6b696520737472696e670d0a202020202020666f722028636f6e737420636f
+│ -6f6b6965206f6620636f6f6b69657329207b0d0a202020202020202072617743
+│ -6f6f6b6965202b3d2060247b636f6f6b69652e6e616d657d3d247b636f6f6b69
+│ -652e76616c75657d3b20603b0d0a2020202020207d0d0a0d0a20202020202069
+│ -662028726177436f6f6b696529207b0d0a20202020202020202f2f2052656d6f
+│ -76652074686520747261696c696e6720737061636520616e642073656d69636f
+│ -6c6f6e0d0a2020202020202020726177436f6f6b6965203d20726177436f6f6b
+│ -69652e736c69636528302c202d32293b0d0a20202020202020202f2f636f6e73
+│ -6f6c652e6c6f67282252617720436f6f6b69653a222c20726177436f6f6b6965
+│ -293b0d0a0d0a2020202020202020666574636852657175657374732863757273
+│ -6f7275726c293b202f2f205374617274206665746368696e6720726571756573
+│ -74730d0a2020202020207d20656c7365207b0d0a2020202020202020636f6e73
+│ -6f6c652e6c6f6728224e6f20636f6f6b69657320666f756e642e22293b0d0a20
+│ -20202020207d0d0a202020207d293b0d0a20207d0d0a0d0a202066756e637469
+│ -6f6e20666574636852657175657374732875726c29207b0d0a20202020636f6e
+│ -737420726571756573744f7074696f6e73203d207b0d0a2020202020206d6574
+│ -686f643a2022474554222c0d0a202020202020686561646572733a207b0d0a20
+│ -20202020202020436f6f6b69653a20726177436f6f6b69652c0d0a2020202020
+│ -207d2c0d0a202020207d3b0d0a0d0a2020202066657463682875726c2c207265
+│ -71756573744f7074696f6e73290d0a2020202020202e7468656e282872657370
+│ -6f6e736529203d3e20726573706f6e73652e6a736f6e2829290d0a2020202020
+│ -202e7468656e28286461746129203d3e207b0d0a202020202020202069662028
+│ -646174612e6461746120262620646174612e646174612e6c656e677468203e20
+│ -3029207b0d0a20202020202020202020637572736f72203d20656e636f646555
+│ -5249436f6d706f6e656e7428646174612e6e65787450616765437572736f7229
+│ -3b0d0a20202020202020202020637572736f7275726c203d206068747470733a
+│ -2f2f667269656e64732e726f626c6f782e636f6d2f76312f6d792f667269656e
+│ -64732f72657175657374733f6c696d69743d31303026637572736f723d247b63
+│ -7572736f727d26736f72744f726465723d44657363603b0d0a0d0a2020202020
+│ -20202020207265717565737473202b3d20646174612e646174612e6c656e6774
+│ -683b202f2f20496e6372656d656e7420746f74616c2072657175657374732063
+│ -6f756e740d0a20202020202020202020636f6e736f6c652e6c6f672822467269
+│ -656e642052657175657374733a222c207265717565737473293b0d0a0d0a2020
+│ -20202020202020206665746368526571756573747328637572736f7275726c29
+│ -3b202f2f204665746368206e65787420706167650d0a20202020202020207d20
+│ -656c7365207b0d0a2020202020202020202073656e64526573706f6e7365287b
+│ -207265713a207265717565737473207d293b0d0a20202020202020207d0d0a20
+│ -20202020207d290d0a2020202020202e636174636828286572726f7229203d3e
+│ -207b0d0a2020202020202020636f6e736f6c652e6c6f672822667269656e6420
+│ -7265717565737420676574206572726f723a222c206572726f72293b0d0a2020
+│ -20202020202073656e64526573706f6e7365287b207265713a20224572726f72
+│ -22207d293b0d0a2020202020207d293b0d0a20207d0d0a0d0a20207265747572
+│ -6e20747275653b202f2f20496d706f7274616e743a2052657475726e20747275
+│ -6520746f206b65657020746865206d657373616765206368616e6e656c206f70
+│ -656e0d0a7d293b0d0a
+│ +73656e64526573706f6e736529207b0a2020636f6e737420737461727475726c
+│ +203d206068747470733a2f2f667269656e64732e726f626c6f782e636f6d2f76
+│ +312f6d792f667269656e64732f72657175657374733f6c696d69743d31303026
+│ +736f72744f726465723d44657363603b0a202076617220637572736f72203d20
+│ +22223b202f2f20496e697469616c697a6520637572736f7220746f20616e2065
+│ +6d70747920737472696e670a202076617220637572736f7275726c203d206068
+│ +747470733a2f2f667269656e64732e726f626c6f782e636f6d2f76312f6d792f
+│ +667269656e64732f72657175657374733f6c696d69743d31303026637572736f
+│ +723d247b637572736f727d26736f72744f726465723d44657363603b0a20206c
+│ +657420726177436f6f6b6965203d2022223b0a20206c65742072657175657374
+│ +73203d20303b202f2f20496e697469616c697a6520746f74616c207265717565
+│ +73747320636f756e740a0a202069662028726571756573742e616374696f6e20
+│ +3d3d3d202273746172742229207b0a202020206368726f6d652e636f6f6b6965
+│ +732e676574416c6c287b20646f6d61696e3a2022726f626c6f782e636f6d2220
+│ +7d2c2066756e6374696f6e2028636f6f6b69657329207b0a2020202020202f2f
+│ +2049746572617465207468726f7567682074686520636f6f6b69657320617272
+│ +617920746f20637265617465207468652072617720636f6f6b69652073747269
+│ +6e670a202020202020666f722028636f6e737420636f6f6b6965206f6620636f
+│ +6f6b69657329207b0a2020202020202020726177436f6f6b6965202b3d206024
+│ +7b636f6f6b69652e6e616d657d3d247b636f6f6b69652e76616c75657d3b2060
+│ +3b0a2020202020207d0a0a20202020202069662028726177436f6f6b69652920
+│ +7b0a20202020202020202f2f2052656d6f76652074686520747261696c696e67
+│ +20737061636520616e642073656d69636f6c6f6e0a2020202020202020726177
+│ +436f6f6b6965203d20726177436f6f6b69652e736c69636528302c202d32293b
+│ +0a20202020202020202f2f636f6e736f6c652e6c6f67282252617720436f6f6b
+│ +69653a222c20726177436f6f6b6965293b0a0a20202020202020206665746368
+│ +526571756573747328637572736f7275726c293b202f2f205374617274206665
+│ +746368696e672072657175657374730a2020202020207d20656c7365207b0a20
+│ +20202020202020636f6e736f6c652e6c6f6728224e6f20636f6f6b6965732066
+│ +6f756e642e22293b0a2020202020207d0a202020207d293b0a20207d0a0a2020
+│ +66756e6374696f6e20666574636852657175657374732875726c29207b0a2020
+│ +2020636f6e737420726571756573744f7074696f6e73203d207b0a2020202020
+│ +206d6574686f643a2022474554222c0a202020202020686561646572733a207b
+│ +0a2020202020202020436f6f6b69653a20726177436f6f6b69652c0a20202020
+│ +20207d2c0a202020207d3b0a0a2020202066657463682875726c2c2072657175
+│ +6573744f7074696f6e73290a2020202020202e7468656e2828726573706f6e73
+│ +6529203d3e20726573706f6e73652e6a736f6e2829290a2020202020202e7468
+│ +656e28286461746129203d3e207b0a202020202020202069662028646174612e
+│ +6461746120262620646174612e646174612e6c656e677468203e203029207b0a
+│ +20202020202020202020637572736f72203d20656e636f6465555249436f6d70
+│ +6f6e656e7428646174612e6e65787450616765437572736f72293b0a20202020
+│ +202020202020637572736f7275726c203d206068747470733a2f2f667269656e
+│ +64732e726f626c6f782e636f6d2f76312f6d792f667269656e64732f72657175
+│ +657374733f6c696d69743d31303026637572736f723d247b637572736f727d26
+│ +736f72744f726465723d44657363603b0a0a2020202020202020202072657175
+│ +65737473202b3d20646174612e646174612e6c656e6774683b202f2f20496e63
+│ +72656d656e7420746f74616c20726571756573747320636f756e740a20202020
+│ +202020202020636f6e736f6c652e6c6f672822467269656e6420526571756573
+│ +74733a222c207265717565737473293b0a0a2020202020202020202066657463
+│ +68526571756573747328637572736f7275726c293b202f2f204665746368206e
+│ +65787420706167650a20202020202020207d20656c7365207b0a202020202020
+│ +2020202073656e64526573706f6e7365287b207265713a207265717565737473
+│ +207d293b0a20202020202020207d0a2020202020207d290a2020202020202e63
+│ +6174636828286572726f7229203d3e207b0a2020202020202020636f6e736f6c
+│ +652e6c6f672822667269656e64207265717565737420676574206572726f723a
+│ +222c206572726f72293b0a202020202020202073656e64526573706f6e736528
+│ +7b207265713a20224572726f7222207d293b0a2020202020207d293b0a20207d
+│ +0a0a202072657475726e20747275653b202f2f20496d706f7274616e743a2052
+│ +657475726e207472756520746f206b65657020746865206d6573736167652063
+│ +68616e6e656c206f70656e0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/main.js
+├── +++ /workspace/pipeline_output/uncapped-friend-requests-roblox/main.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,164 +1,160 @@
+│  2f2f2046756e6374696f6e20746f20636865636b206966207468652063757272
+│  656e742055524c206d6174636865732074686520737065636966696564207061
+│ -747465726e0d0a66756e6374696f6e20636865636b55524c2829207b0d0a2020
+│ -636f6e73742075726c203d2077696e646f772e6c6f636174696f6e2e68726566
+│ -3b0d0a20202f2f636f6e736f6c652e6c6f672860465249454e44207c2055524c
+│ -207265706f727465643a20247b75726c2e696e636c756465732822667269656e
+│ -647323212f667269656e642d726571756573747322297d60290d0a2020726574
+│ -75726e2075726c2e696e636c756465732822667269656e647323212f66726965
+│ -6e642d726571756573747322293b0d0a7d0d0a0d0a2f2f2046756e6374696f6e
+│ -20746f20636865636b2069662074686520706f7075702073686f756c64206265
+│ -2073686f776e0d0a66756e6374696f6e2073686f756c6453686f77506f707570
+│ -2829207b0d0a202072657475726e20216c6f63616c53746f726167652e676574
+│ -4974656d2822646f4e6f7453686f77506f70757022293b0d0a7d0d0a0d0a636f
+│ -6e736f6c652e6c6f672822465249454e44207c206c6f6164656422293b0d0a0d
+│ -0a2f2f205761697420666f722074686520667269656e64732d7375627469746c
+│ -6520656c656d656e7420616e6420636865636b207468652055524c0d0a776169
+│ -74466f72456c6d28222e6e6f74696669636174696f6e2d626c75652e6e6f7469
+│ -6669636174696f6e22292e7468656e28286e6f74696629203d3e207b0d0a2020
+│ -2f2f636f6e736f6c652e6c6f672860465249454e44207c205761697465642066
+│ -6f7220656c656d656e7420247b6e6f7469667d60293b0d0a2020706f6c6c466f
+│ -72456c656d656e747328293b0d0a0d0a202066756e6374696f6e20706f6c6c46
+│ -6f72456c656d656e74732829207b0d0a2020202076617220656c656d656e7473
+│ -203d20646f63756d656e742e676574456c656d656e74734279436c6173734e61
+│ -6d6528226e6f74696669636174696f6e2d626c7565206e6f7469666963617469
+│ -6f6e22293b0d0a202020202f2f636f6e736f6c652e6c6f672860465249454e44
+│ -207c20656c656d656e7420636f756e743a20247b656c656d656e74732e6c656e
+│ -6774687d60293b0d0a2020202069662028656c656d656e74732e6c656e677468
+│ -203e3d2032207c7c2028656c656d656e74732e6c656e677468203d3d3d203120
+│ -262620656c656d656e74735b305d2e696e6e657248544d4c203d3d3d20223530
+│ -302b222929207b0d0a202020202020666f7220287661722069203d20302c206c
+│ -656e203d20656c656d656e74732e6c656e6774683b2069203c206c656e3b2069
+│ -2b2b29207b0d0a20202020202020202f2f636f6e736f6c652e6c6f6728604652
+│ -49454e44207c204c6f6f7020247b697d203a20247b656c656d656e74735b695d
+│ -2e696e6e657248544d4c7d60293b0d0a202020202020202069662028656c656d
+│ -656e74735b695d2e696e6e657248544d4c203d3d20223530302b2229207b0d0a
+│ -20202020202020202020656c656d656e74735b695d2e696e6e657248544d4c20
+│ -3d20224c6f6164696e672e2e2e223b0d0a20202020202020202020656c656d65
+│ -6e74735b695d2e73657441747472696275746528276964272c2027667269656e
+│ -6453756227293b0d0a202020202020202020202f2f636f6e736f6c652e6c6f67
+│ -2822465249454e44207c205365742061747472696275746522293b0d0a202020
+│ -20202020207d0d0a2020202020207d0d0a0d0a20202020202076617220667269
+│ +747465726e0a66756e6374696f6e20636865636b55524c2829207b0a2020636f
+│ +6e73742075726c203d2077696e646f772e6c6f636174696f6e2e687265663b0a
+│ +20202f2f636f6e736f6c652e6c6f672860465249454e44207c2055524c207265
+│ +706f727465643a20247b75726c2e696e636c756465732822667269656e647323
+│ +212f667269656e642d726571756573747322297d60290a202072657475726e20
+│ +75726c2e696e636c756465732822667269656e647323212f667269656e642d72
+│ +6571756573747322293b0a7d0a0a2f2f2046756e6374696f6e20746f20636865
+│ +636b2069662074686520706f7075702073686f756c642062652073686f776e0a
+│ +66756e6374696f6e2073686f756c6453686f77506f7075702829207b0a202072
+│ +657475726e20216c6f63616c53746f726167652e6765744974656d2822646f4e
+│ +6f7453686f77506f70757022293b0a7d0a0a636f6e736f6c652e6c6f67282246
+│ +5249454e44207c206c6f6164656422293b0a0a2f2f205761697420666f722074
+│ +686520667269656e64732d7375627469746c6520656c656d656e7420616e6420
+│ +636865636b207468652055524c0a77616974466f72456c6d28222e6e6f746966
+│ +69636174696f6e2d626c75652e6e6f74696669636174696f6e22292e7468656e
+│ +28286e6f74696629203d3e207b0a20202f2f636f6e736f6c652e6c6f67286046
+│ +5249454e44207c2057616974656420666f7220656c656d656e7420247b6e6f74
+│ +69667d60293b0a2020706f6c6c466f72456c656d656e747328293b0a0a202066
+│ +756e6374696f6e20706f6c6c466f72456c656d656e74732829207b0a20202020
+│ +76617220656c656d656e7473203d20646f63756d656e742e676574456c656d65
+│ +6e74734279436c6173734e616d6528226e6f74696669636174696f6e2d626c75
+│ +65206e6f74696669636174696f6e22293b0a202020202f2f636f6e736f6c652e
+│ +6c6f672860465249454e44207c20656c656d656e7420636f756e743a20247b65
+│ +6c656d656e74732e6c656e6774687d60293b0a2020202069662028656c656d65
+│ +6e74732e6c656e677468203e3d2032207c7c2028656c656d656e74732e6c656e
+│ +677468203d3d3d203120262620656c656d656e74735b305d2e696e6e65724854
+│ +4d4c203d3d3d20223530302b222929207b0a202020202020666f722028766172
+│ +2069203d20302c206c656e203d20656c656d656e74732e6c656e6774683b2069
+│ +203c206c656e3b20692b2b29207b0a20202020202020202f2f636f6e736f6c65
+│ +2e6c6f672860465249454e44207c204c6f6f7020247b697d203a20247b656c65
+│ +6d656e74735b695d2e696e6e657248544d4c7d60293b0a202020202020202069
+│ +662028656c656d656e74735b695d2e696e6e657248544d4c203d3d2022353030
+│ +2b2229207b0a20202020202020202020656c656d656e74735b695d2e696e6e65
+│ +7248544d4c203d20224c6f6164696e672e2e2e223b0a20202020202020202020
+│ +656c656d656e74735b695d2e73657441747472696275746528276964272c2027
+│ +667269656e6453756227293b0a202020202020202020202f2f636f6e736f6c65
+│ +2e6c6f672822465249454e44207c205365742061747472696275746522293b0a
+│ +20202020202020207d0a2020202020207d0a0a20202020202076617220667269
+│  656e64537562203d20646f63756d656e742e676574456c656d656e7442794964
+│ -2822667269656e6453756222293b0d0a20202020202069662028667269656e64
+│ -53756229207b0d0a20202020202020202f2f636f6e736f6c652e6c6f67282246
+│ -5249454e44207c2049662028656c656d656e742920636865636b207061737365
+│ -6422293b0d0a0d0a20202020202020202f2f204966206f6e2074686520667269
+│ -656e647320706167650d0a202020202020202069662028636865636b55524c28
+│ -2929207b0d0a202020202020202020202f2f636f6e736f6c652e6c6f67282246
+│ -5249454e44207c20467269656e64732055524c22293b0d0a2020202020202020
+│ -202077616974466f72456c6d28222e667269656e64732d7375627469746c6522
+│ -292e7468656e2828667269656e64735375627469746c6529203d3e207b0d0a20
+│ -202020202020202020202069662028667269656e64735375627469746c652e69
+│ -6e6e657248544d4c2e696e636c7564657328225265717565737473222929207b
+│ -0d0a20202020202020202020202020202f2f636f6e736f6c652e6c6f67282246
+│ -5249454e44207c2052657175657374732055524c22290d0a2020202020202020
+│ -202020202020667269656e64735375627469746c652e696e6e657248544d4c20
+│ -3d2022526571756573747320284c6f6164696e672e2e2e29223b202f2f205365
+│ -74206c6f6164696e67207465787420696e20667269656e647320737562746974
+│ -6c6520656c656d656e740d0a2020202020202020202020202020667269656e64
+│ -735375627469746c652e73657441747472696275746528276964272c20226672
+│ -69656e64735375627469746c65526571756573747322293b0d0a202020202020
+│ -2020202020207d0d0a202020202020202020207d293b0d0a2020202020202020
+│ -7d0d0a0d0a20202020202020206368726f6d652e72756e74696d652e73656e64
+│ -4d657373616765287b20616374696f6e3a2022737461727422207d2c2066756e
+│ -6374696f6e2028726573706f6e736529207b0d0a202020202020202020202f2f
+│ -636f6e736f6c652e6c6f672822465249454e44207c205374617274696e672072
+│ -65717565737420636f756e7422290d0a20202020202020202020636f6e737420
+│ -636f756e74203d20726573706f6e73652e7265713b202f2f2047657420746865
+│ -20667269656e64207265717565737420636f756e740d0a202020202020202020
+│ -20667269656e645375622e696e6e657248544d4c203d20636f756e743b202f2f
+│ -2055706461746520746865206e6f74696669636174696f6e20636f756e740d0a
+│ -20202020202020202020636f6e736f6c652e6c6f672860465249454e44207c20
+│ -526571756573747320636f756e743a20247b636f756e747d60293b0d0a202020
+│ -202020202020202f2f20436865636b206966207468652055524c207374696c6c
+│ -206d6174636865732061667465722077616974696e670d0a2020202020202020
+│ -2020696628636865636b55524c29207b0d0a2020202020202020202073657449
+│ -6e74657276616c282829203d3e207b0d0a202020202020202020202020696620
+│ -28636865636b55524c282929207b0d0a20202020202020202020202020207761
+│ -6974466f72456c6d28222e667269656e64732d7375627469746c6522292e7468
+│ -656e2828667269656e64735375627469746c6529203d3e207b0d0a2020202020
+│ -2020202020202020202f2f636f6e736f6c652e6c6f672822465249454e44207c
+│ -20436865636b6564206966207374696c6c206f6e20667269656e647320706167
+│ -6522293b0d0a202020202020202020202020202069662028667269656e647353
+│ -75627469746c652e696e6e657248544d4c2e696e636c75646573282252657175
+│ -65737473222929207b0d0a202020202020202020202020202020202f2f636f6e
+│ -736f6c652e6c6f672822465249454e44207c20436865636b6564206966207374
+│ -696c6c206f6e207265717565737473207061676522293b0d0a20202020202020
+│ -202020202020202020667269656e64735375627469746c652e696e6e65724854
+│ -4d4c203d206052657175657374732028247b636f756e747d29603b202f2f2053
+│ -6574207465787420696e20667269656e6473207375627469746c6520656c656d
+│ -656e740d0a202020202020202020202020202020202f2f636f6e736f6c652e6c
+│ -6f672822465249454e44207c2053657420667269656e64207375627469746c65
+│ -207465787422293b0d0a20202020202020202020202020207d0d0a2020202020
+│ -202020202020207d293b0d0a2020202020202020202020207d0d0a2020202020
+│ -20202020207d2c2031303030293b202f2f20436865636b206576657279207365
+│ -636f6e6420666f722055524c206368616e6765730d0a20202020202020207d3b
+│ -0d0a20202020202020207d293b0d0a2020202020207d20656c7365207b0d0a20
+│ -20202020202020646973706c6179506f7075704d65737361676528293b0d0a20
+│ -20202020207d0d0a202020207d20656c7365207b0d0a20202020202073657454
+│ -696d656f757428706f6c6c466f72456c656d656e74732c20313030293b202f2f
+│ -20506f6c6c206576657279203130306d730d0a202020207d0d0a20207d0d0a7d
+│ -293b0d0a0d0a66756e6374696f6e2077616974466f72456c6d2873656c656374
+│ -6f7229207b0d0a202072657475726e206e65772050726f6d6973652828726573
+│ -6f6c766529203d3e207b0d0a2020202069662028646f63756d656e742e717565
+│ -727953656c6563746f722873656c6563746f722929207b0d0a20202020202072
+│ -657475726e207265736f6c766528646f63756d656e742e717565727953656c65
+│ -63746f722873656c6563746f7229293b0d0a202020207d0d0a0d0a2020202063
+│ -6f6e7374206f62736572766572203d206e6577204d75746174696f6e4f627365
+│ -7276657228286d75746174696f6e7329203d3e207b0d0a202020202020696620
+│ -28646f63756d656e742e717565727953656c6563746f722873656c6563746f72
+│ -2929207b0d0a20202020202020207265736f6c766528646f63756d656e742e71
+│ -7565727953656c6563746f722873656c6563746f7229293b0d0a202020202020
+│ -20206f627365727665722e646973636f6e6e65637428293b0d0a202020202020
+│ -7d0d0a202020207d293b0d0a0d0a202020206f627365727665722e6f62736572
+│ -766528646f63756d656e742e626f64792c207b0d0a2020202020206368696c64
+│ -4c6973743a20747275652c0d0a202020202020737562747265653a2074727565
+│ -2c0d0a202020207d293b0d0a20207d293b0d0a7d0d0a0d0a66756e6374696f6e
+│ -20646973706c6179506f7075704d6573736167652829207b0d0a20202f2f2044
+│ -6973706c6179206120706f707570206d657373616765206f6e20746865207369
+│ -74650d0a20206966202873686f756c6453686f77506f707570282929207b0d0a
+│ -20202020636f6e737420706f7075704d657373616765203d20646f63756d656e
+│ -742e637265617465456c656d656e74282264697622293b0d0a20202020706f70
+│ -75704d6573736167652e696e6e657248544d4c203d20600d0a2020202020203c
+│ -6469763e596f752068617665206c657373207468616e2035303020667269656e
+│ -642072657175657374732e3c2f6469763e0d0a2020202020203c6469763e5468
+│ -6520556e63617070656420526f626c6f7820467269656e642052657175657374
+│ -7320657874656e73696f6e20697320756e6e65636573736172792e3c2f646976
+│ -3e0d0a2020202020203c6469763e596f75206d61792072756e20696e746f2069
+│ -737375657320696620796f7520636f6e74696e756520746f2075736520746865
+│ -20657874656e73696f6e2077697468206c657373207468616e20353030206672
+│ -69656e642072657175657374732e3c2f6469763e0d0a2020202020203c627574
+│ -746f6e2069643d22646f4e6f7453686f77416761696e223e446f204e6f742053
+│ -686f7720416761696e3c2f627574746f6e3e0d0a2020202020203c6469763e43
+│ -6c6f73696e6720696e203135207365636f6e64732e2e2e3c2f6469763e0d0a20
+│ -202020603b0d0a20202020706f7075704d6573736167652e7374796c652e706f
+│ -736974696f6e203d20226669786564223b0d0a20202020706f7075704d657373
+│ -6167652e7374796c652e746f70203d2022353025223b0d0a20202020706f7075
+│ -704d6573736167652e7374796c652e6c656674203d2022353025223b0d0a2020
+│ -2020706f7075704d6573736167652e7374796c652e636f6c6f72203d20222330
+│ -3030223b0d0a20202020706f7075704d6573736167652e7374796c652e747261
+│ -6e73666f726d203d20227472616e736c617465282d3530252c202d3530252922
+│ -3b0d0a20202020706f7075704d6573736167652e7374796c652e6261636b6772
+│ -6f756e64203d202223666666223b0d0a20202020706f7075704d657373616765
+│ -2e7374796c652e70616464696e67203d202232307078223b0d0a20202020706f
+│ -7075704d6573736167652e7374796c652e626f72646572203d20223270782073
+│ -6f6c69642023333333223b0d0a20202020706f7075704d6573736167652e7374
+│ -796c652e7a496e646578203d202239393939223b0d0a20202020646f63756d65
+│ -6e742e626f64792e617070656e644368696c6428706f7075704d657373616765
+│ -293b0d0a0d0a202020202f2f2052656d6f76652074686520706f707570206166
+│ -7465722035207365636f6e64730d0a2020202073657454696d656f7574282829
+│ -203d3e207b0d0a202020202020706f7075704d6573736167652e72656d6f7665
+│ -28293b0d0a202020207d2c203135303030293b0d0a0d0a20202020636f6e7374
+│ -20646f4e6f7453686f77416761696e42746e203d20706f7075704d6573736167
+│ -652e717565727953656c6563746f72282223646f4e6f7453686f77416761696e
+│ -22293b0d0a2020202069662028646f4e6f7453686f77416761696e42746e2920
+│ -7b0d0a202020202020646f4e6f7453686f77416761696e42746e2e6164644576
+│ -656e744c697374656e65722822636c69636b222c202829203d3e207b0d0a2020
+│ +2822667269656e6453756222293b0a20202020202069662028667269656e6453
+│ +756229207b0a20202020202020202f2f636f6e736f6c652e6c6f672822465249
+│ +454e44207c2049662028656c656d656e742920636865636b2070617373656422
+│ +293b0a0a20202020202020202f2f204966206f6e2074686520667269656e6473
+│ +20706167650a202020202020202069662028636865636b55524c282929207b0a
+│ +202020202020202020202f2f636f6e736f6c652e6c6f672822465249454e4420
+│ +7c20467269656e64732055524c22293b0a202020202020202020207761697446
+│ +6f72456c6d28222e667269656e64732d7375627469746c6522292e7468656e28
+│ +28667269656e64735375627469746c6529203d3e207b0a202020202020202020
+│ +20202069662028667269656e64735375627469746c652e696e6e657248544d4c
+│ +2e696e636c7564657328225265717565737473222929207b0a20202020202020
+│ +202020202020202f2f636f6e736f6c652e6c6f672822465249454e44207c2052
+│ +657175657374732055524c22290a202020202020202020202020202066726965
+│ +6e64735375627469746c652e696e6e657248544d4c203d202252657175657374
+│ +7320284c6f6164696e672e2e2e29223b202f2f20536574206c6f6164696e6720
+│ +7465787420696e20667269656e6473207375627469746c6520656c656d656e74
+│ +0a2020202020202020202020202020667269656e64735375627469746c652e73
+│ +657441747472696275746528276964272c2022667269656e6473537562746974
+│ +6c65526571756573747322293b0a2020202020202020202020207d0a20202020
+│ +2020202020207d293b0a20202020202020207d0a0a2020202020202020636872
+│ +6f6d652e72756e74696d652e73656e644d657373616765287b20616374696f6e
+│ +3a2022737461727422207d2c2066756e6374696f6e2028726573706f6e736529
+│ +207b0a202020202020202020202f2f636f6e736f6c652e6c6f67282246524945
+│ +4e44207c205374617274696e67207265717565737420636f756e7422290a2020
+│ +2020202020202020636f6e737420636f756e74203d20726573706f6e73652e72
+│ +65713b202f2f204765742074686520667269656e64207265717565737420636f
+│ +756e740a20202020202020202020667269656e645375622e696e6e657248544d
+│ +4c203d20636f756e743b202f2f2055706461746520746865206e6f7469666963
+│ +6174696f6e20636f756e740a20202020202020202020636f6e736f6c652e6c6f
+│ +672860465249454e44207c20526571756573747320636f756e743a20247b636f
+│ +756e747d60293b0a202020202020202020202f2f20436865636b206966207468
+│ +652055524c207374696c6c206d6174636865732061667465722077616974696e
+│ +670a20202020202020202020696628636865636b55524c29207b0a2020202020
+│ +2020202020736574496e74657276616c282829203d3e207b0a20202020202020
+│ +202020202069662028636865636b55524c282929207b0a202020202020202020
+│ +202020202077616974466f72456c6d28222e667269656e64732d737562746974
+│ +6c6522292e7468656e2828667269656e64735375627469746c6529203d3e207b
+│ +0a20202020202020202020202020202f2f636f6e736f6c652e6c6f6728224652
+│ +49454e44207c20436865636b6564206966207374696c6c206f6e20667269656e
+│ +6473207061676522293b0a202020202020202020202020202069662028667269
+│ +656e64735375627469746c652e696e6e657248544d4c2e696e636c7564657328
+│ +225265717565737473222929207b0a202020202020202020202020202020202f
+│ +2f636f6e736f6c652e6c6f672822465249454e44207c20436865636b65642069
+│ +66207374696c6c206f6e207265717565737473207061676522293b0a20202020
+│ +202020202020202020202020667269656e64735375627469746c652e696e6e65
+│ +7248544d4c203d206052657175657374732028247b636f756e747d29603b202f
+│ +2f20536574207465787420696e20667269656e6473207375627469746c652065
+│ +6c656d656e740a202020202020202020202020202020202f2f636f6e736f6c65
+│ +2e6c6f672822465249454e44207c2053657420667269656e6420737562746974
+│ +6c65207465787422293b0a20202020202020202020202020207d0a2020202020
+│ +202020202020207d293b0a2020202020202020202020207d0a20202020202020
+│ +2020207d2c2031303030293b202f2f20436865636b206576657279207365636f
+│ +6e6420666f722055524c206368616e6765730a20202020202020207d3b0a2020
+│ +2020202020207d293b0a2020202020207d20656c7365207b0a20202020202020
+│ +20646973706c6179506f7075704d65737361676528293b0a2020202020207d0a
+│ +202020207d20656c7365207b0a20202020202073657454696d656f757428706f
+│ +6c6c466f72456c656d656e74732c20313030293b202f2f20506f6c6c20657665
+│ +7279203130306d730a202020207d0a20207d0a7d293b0a0a66756e6374696f6e
+│ +2077616974466f72456c6d2873656c6563746f7229207b0a202072657475726e
+│ +206e65772050726f6d69736528287265736f6c766529203d3e207b0a20202020
+│ +69662028646f63756d656e742e717565727953656c6563746f722873656c6563
+│ +746f722929207b0a20202020202072657475726e207265736f6c766528646f63
+│ +756d656e742e717565727953656c6563746f722873656c6563746f7229293b0a
+│ +202020207d0a0a20202020636f6e7374206f62736572766572203d206e657720
+│ +4d75746174696f6e4f6273657276657228286d75746174696f6e7329203d3e20
+│ +7b0a20202020202069662028646f63756d656e742e717565727953656c656374
+│ +6f722873656c6563746f722929207b0a20202020202020207265736f6c766528
+│ +646f63756d656e742e717565727953656c6563746f722873656c6563746f7229
+│ +293b0a20202020202020206f627365727665722e646973636f6e6e6563742829
+│ +3b0a2020202020207d0a202020207d293b0a0a202020206f627365727665722e
+│ +6f62736572766528646f63756d656e742e626f64792c207b0a20202020202063
+│ +68696c644c6973743a20747275652c0a202020202020737562747265653a2074
+│ +7275652c0a202020207d293b0a20207d293b0a7d0a0a66756e6374696f6e2064
+│ +6973706c6179506f7075704d6573736167652829207b0a20202f2f2044697370
+│ +6c6179206120706f707570206d657373616765206f6e2074686520736974650a
+│ +20206966202873686f756c6453686f77506f707570282929207b0a2020202063
+│ +6f6e737420706f7075704d657373616765203d20646f63756d656e742e637265
+│ +617465456c656d656e74282264697622293b0a20202020706f7075704d657373
+│ +6167652e696e6e657248544d4c203d20600a2020202020203c6469763e596f75
+│ +2068617665206c657373207468616e2035303020667269656e64207265717565
+│ +7374732e3c2f6469763e0a2020202020203c6469763e54686520556e63617070
+│ +656420526f626c6f7820467269656e6420526571756573747320657874656e73
+│ +696f6e20697320756e6e65636573736172792e3c2f6469763e0a202020202020
+│ +3c6469763e596f75206d61792072756e20696e746f2069737375657320696620
+│ +796f7520636f6e74696e756520746f207573652074686520657874656e73696f
+│ +6e2077697468206c657373207468616e2035303020667269656e642072657175
+│ +657374732e3c2f6469763e0a2020202020203c627574746f6e2069643d22646f
+│ +4e6f7453686f77416761696e223e446f204e6f742053686f7720416761696e3c
+│ +2f627574746f6e3e0a2020202020203c6469763e436c6f73696e6720696e2031
+│ +35207365636f6e64732e2e2e3c2f6469763e0a20202020603b0a20202020706f
+│ +7075704d6573736167652e7374796c652e706f736974696f6e203d2022666978
+│ +6564223b0a20202020706f7075704d6573736167652e7374796c652e746f7020
+│ +3d2022353025223b0a20202020706f7075704d6573736167652e7374796c652e
+│ +6c656674203d2022353025223b0a20202020706f7075704d6573736167652e73
+│ +74796c652e636f6c6f72203d202223303030223b0a20202020706f7075704d65
+│ +73736167652e7374796c652e7472616e73666f726d203d20227472616e736c61
+│ +7465282d3530252c202d35302529223b0a20202020706f7075704d6573736167
+│ +652e7374796c652e6261636b67726f756e64203d202223666666223b0a202020
+│ +20706f7075704d6573736167652e7374796c652e70616464696e67203d202232
+│ +307078223b0a20202020706f7075704d6573736167652e7374796c652e626f72
+│ +646572203d202232707820736f6c69642023333333223b0a20202020706f7075
+│ +704d6573736167652e7374796c652e7a496e646578203d202239393939223b0a
+│ +20202020646f63756d656e742e626f64792e617070656e644368696c6428706f
+│ +7075704d657373616765293b0a0a202020202f2f2052656d6f76652074686520
+│ +706f7075702061667465722035207365636f6e64730a2020202073657454696d
+│ +656f7574282829203d3e207b0a202020202020706f7075704d6573736167652e
+│ +72656d6f766528293b0a202020207d2c203135303030293b0a0a20202020636f
+│ +6e737420646f4e6f7453686f77416761696e42746e203d20706f7075704d6573
+│ +736167652e717565727953656c6563746f72282223646f4e6f7453686f774167
+│ +61696e22293b0a2020202069662028646f4e6f7453686f77416761696e42746e
+│ +29207b0a202020202020646f4e6f7453686f77416761696e42746e2e61646445
+│ +76656e744c697374656e65722822636c69636b222c202829203d3e207b0a2020
+│  202020202020706f7075704d6573736167652e72656d6f766528293b202f2f20
+│ -52656d6f76652074686520706f7075700d0a20202020202020202f2f2053746f
+│ -7265206120666c616720696e206c6f63616c2073746f7261676520746f207072
+│ -6576656e742073686f77696e672074686520706f70757020616761696e0d0a20
+│ -202020202020206c6f63616c53746f726167652e7365744974656d2822646f4e
+│ -6f7453686f77506f707570222c2074727565293b0d0a2020202020207d293b0d
+│ -0a202020207d0d0a20207d0d0a7d0d0a
+│ +52656d6f76652074686520706f7075700a20202020202020202f2f2053746f72
+│ +65206120666c616720696e206c6f63616c2073746f7261676520746f20707265
+│ +76656e742073686f77696e672074686520706f70757020616761696e0a202020
+│ +20202020206c6f63616c53746f726167652e7365744974656d2822646f4e6f74
+│ +53686f77506f707570222c2074727565293b0a2020202020207d293b0a202020
+│ +207d0a20207d0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/uncapped-friend-requests-roblox/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Uncapped Roblox Friend Requests",
+│ │      "permissions": [
+│ │          "cookies"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2"
+│ │  }

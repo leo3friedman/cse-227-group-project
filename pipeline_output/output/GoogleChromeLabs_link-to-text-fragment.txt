@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/link-to-text-fragment
+├── file list
+│ @@ -1,12 +1,24 @@
+│ +.git
+│ +.gitignore
+│ +.prettierrc
+│ +CODE_OF_CONDUCT.md
+│ +CONTRIBUTING.md
+│ +LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  assets
+│  content_script.js
+│ +eslint.config.js
+│  fragment-generation-utils.js
+│  manifest.json
+│ +node_modules
+│  offscreen.html
+│  offscreen.js
+│  options.html
+│  options.js
+│ +package-lock.json
+│ +package.json
+│  prepare.js
+│ -service_worker.js
+│ +privacy.md
+│ +service_worker.js
+│ +store-assets
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/link-to-text-fragment/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,10 +44,9 @@
+│ │          "contextMenus",
+│ │          "clipboardWrite",
+│ │          "storage",
+│ │          "scripting",
+│ │          "offscreen"
+│ │      ],
+│ │      "short_name": "__MSG_extension_short_name__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.5.1"
+│ │  }

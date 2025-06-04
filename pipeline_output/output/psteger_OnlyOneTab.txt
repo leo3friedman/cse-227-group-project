@@ -1,0 +1,107 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/OnlyOneTab
+├── file list
+│ @@ -1,9 +1,6 @@
+│ -_locales
+│ -_metadata
+│ -css
+│ -fonts
+│ -gpl.txt
+│ -html
+│ -img
+│ -js
+│ -manifest.json
+│ +.git
+│ +README.md
+│ +background.js
+│ +images
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/OnlyOneTab/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,73 +1,20 @@
+│ │  {
+│ │      "background": {
+│ │ -        "page": "html/background.html"
+│ │ +        "scripts": [
+│ │ +            "background.js"
+│ │ +        ]
+│ │      },
+│ │ -    "browser_action": {
+│ │ -        "default_icon": "img/IconForbidden.png",
+│ │ -        "default_popup": "html/popup.html",
+│ │ -        "default_title": "ScriptSafe"
+│ │ -    },
+│ │ -    "commands": {
+│ │ -        "removetempall": {
+│ │ -            "description": "__MSG_hotkeysremoveall__",
+│ │ -            "suggested_key": {
+│ │ -                "default": "Ctrl+Shift+Q"
+│ │ -            }
+│ │ -        },
+│ │ -        "removetemppage": {
+│ │ -            "description": "__MSG_hotkeysremove__",
+│ │ -            "suggested_key": {
+│ │ -                "default": "Ctrl+Shift+R"
+│ │ -            }
+│ │ -        },
+│ │ -        "temppage": {
+│ │ -            "description": "__MSG_hotkeystoggle__",
+│ │ -            "suggested_key": {
+│ │ -                "default": "Ctrl+Shift+S"
+│ │ -            }
+│ │ -        }
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "all_frames": true,
+│ │ -            "js": [
+│ │ -                "js/jquery.js",
+│ │ -                "js/common.js",
+│ │ -                "js/yoyo.js",
+│ │ -                "js/ss.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "http://*/*",
+│ │ -                "https://*/*"
+│ │ -            ],
+│ │ -            "run_at": "document_start"
+│ │ -        }
+│ │ -    ],
+│ │ -    "default_locale": "en",
+│ │ -    "description": "__MSG_appdescription__",
+│ │ +    "description": "Closes any previously opened tabs with the same URL as current page",
+│ │      "icons": {
+│ │ -        "128": "img/icon128.png",
+│ │ -        "16": "img/icon16.png",
+│ │ -        "24": "img/icon24.png",
+│ │ -        "32": "img/icon32.png",
+│ │ -        "48": "img/icon48.png"
+│ │ +        "128": "images/oot128.png",
+│ │ +        "16": "images/oot16.png",
+│ │ +        "32": "images/oot32.png",
+│ │ +        "48": "images/oot48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "minimum_chrome_version": "6",
+│ │ -    "name": "ScriptSafe",
+│ │ -    "options_page": "html/options.html",
+│ │ +    "name": "Only One Tab",
+│ │      "permissions": [
+│ │ -        "http://*/*",
+│ │ -        "https://*/*",
+│ │ -        "tabs",
+│ │ -        "unlimitedStorage",
+│ │ -        "webRequest",
+│ │ -        "webRequestBlocking",
+│ │ -        "storage",
+│ │ -        "notifications",
+│ │ -        "privacy",
+│ │ -        "contextMenus"
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0.9.3"
+│ │ +    "version": "0.0.0.1"
+│ │  }

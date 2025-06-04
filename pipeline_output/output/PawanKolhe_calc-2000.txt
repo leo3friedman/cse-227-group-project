@@ -1,0 +1,1059 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/calc-2000
+├── file list
+│ @@ -1,12 +1,13 @@
+│ -_metadata
+│ +.git
+│  calc.css
+│  calc.html
+│  calc.js
+│  fonts
+│  icon.png
+│  icon_128.png
+│  icon_16.png
+│  icon_32.png
+│  icon_48.png
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/calc.css
+├── +++ /workspace/pipeline_output/calc-2000/calc.css
+│ @@ -1,251 +1,251 @@
+│ -* {
+│ -  box-sizing: border-box;
+│ -}
+│ -
+│ -@font-face {
+│ -  font-family: "eurostile_extended_black";
+│ -  src: url(fonts/eurostile_extended_black.ttf);
+│ -}
+│ -@font-face {
+│ -  font-family: "Lato_Bold";
+│ -  src: url(fonts/Lato-Bold.ttf);
+│ -}
+│ -
+│ -body {
+│ -  margin: 0;
+│ -  padding: 0;
+│ -  /* width: 100vw;
+│ -  height: 100vh; */
+│ -  background: rgb(56, 56, 56);
+│ -  background: radial-gradient(
+│ -    circle,
+│ -    rgba(56, 56, 56, 1) 0%,
+│ -    rgba(31, 31, 31, 1) 100%
+│ -  );
+│ -  transition: all 3s cubic-bezier(0, 1, 0, 1);
+│ -}
+│ -
+│ -.body-container {
+│ -  width: 100%;
+│ -  height: 100%;
+│ -  display: flex;
+│ -  justify-content: center;
+│ -  align-items: center;
+│ -  padding: 10px;
+│ -  background-position: center;
+│ -  background-size: cover;
+│ -  perspective: 600px;
+│ -}
+│ -
+│ -.body-container:before {
+│ -  content: "";
+│ -  position: fixed;
+│ -  left: 0;
+│ -  right: 0;
+│ -  z-index: -1;
+│ -
+│ -  display: block;
+│ -  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+│ -  background-size: cover;
+│ -  width: 100%;
+│ -  height: 100%;
+│ -  -webkit-filter: blur(5px);
+│ -  -moz-filter: blur(5px);
+│ -  -o-filter: blur(5px);
+│ -  -ms-filter: blur(5px);
+│ -  filter: blur(5px);
+│ -}
+│ -
+│ -#company {
+│ -  font-family: "eurostile_extended_black", Helvetica, sans-serif;
+│ -  color: #666666;
+│ -  font-size: 1.3rem;
+│ -  margin: 0;
+│ -}
+│ -
+│ -#calc {
+│ -  position: relative;
+│ -  width: 400px;
+│ -  height: 550px;
+│ -  background-color: rgba(8, 8, 8, 0.6);
+│ -  margin: 0 auto;
+│ -  display: flex;
+│ -  flex-direction: column;
+│ -  padding: 20px;
+│ -  border-radius: 10px;
+│ -  border: 1px solid rgba(255, 255, 255, 0.3);
+│ -  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.9);
+│ -  overflow: hidden;
+│ -  z-index: 1;
+│ -  /* transform: rotateX(5deg); */
+│ -  transition: all 3s cubic-bezier(0, 1, 0, 1);
+│ -}
+│ -
+│ -/* #calc:hover {
+│ -  transform: rotateX(0deg);
+│ -  transition: all 3s cubic-bezier(0, 1, 0, 1);
+│ -} */
+│ -
+│ -#calc::before {
+│ -  content: "";
+│ -  position: absolute;
+│ -  background: inherit;
+│ -  top: 0;
+│ -  right: 0;
+│ -  bottom: 0;
+│ -  left: 0;
+│ -  box-shadow: inset 0 0 2000px rgba(39, 39, 39, 0.5);
+│ -  border-radius: 10px;
+│ -  filter: blur(10px);
+│ -  z-index: -1;
+│ -}
+│ -
+│ -.model {
+│ -  font-weight: bold;
+│ -  color: #1c3da6;
+│ -  font-size: 1.5rem;
+│ -  margin: 5px 0px 12px 0px;
+│ -  user-select: none;
+│ -}
+│ -
+│ -.model img {
+│ -  width: 100px;
+│ -  opacity: 0.5;
+│ -}
+│ -
+│ -.display {
+│ -  position: relative;
+│ -  width: 100%;
+│ -  height: 25%;
+│ -  /* padding: 10px; */
+│ -  margin-bottom: 25px;
+│ -  text-align: right;
+│ -  font-family: monospace;
+│ -  overflow-x: hidden;
+│ -  overflow-y: hidden;
+│ -  border-radius: 5px;
+│ -  background-color: black;
+│ -  white-space: nowrap;
+│ -  /* display: flex; */
+│ -  justify-content: flex-end;
+│ -}
+│ -.display #displayExpression {
+│ -  position: absolute;
+│ -  top: 15px;
+│ -  right: 10px;
+│ -  font-size: 1.25rem;
+│ -  color: rgba(3, 215, 52, 0.822);
+│ -}
+│ -.display #displayMain {
+│ -  position: relative;
+│ -  /* margin-top: 35px; */
+│ -  /* right: 5px; */
+│ -  top: 48px;
+│ -  padding: 0 10px;
+│ -  font-size: 3.5rem;
+│ -  color: #03d734;
+│ -  text-align: right;
+│ -  overflow-x: auto;
+│ -}
+│ -.display #displayOperator {
+│ -  position: absolute;
+│ -  bottom: 5px;
+│ -  right: 5px;
+│ -  font-size: 1.6rem;
+│ -  color: #03d734;
+│ -}
+│ -
+│ -.calc-button-container {
+│ -  width: 100%;
+│ -  flex: auto;
+│ -  display: grid;
+│ -  gap: 4%;
+│ -  grid-template-columns: repeat(4, 1fr);
+│ -  grid-template-areas:
+│ -    "clear backspace exp div"
+│ -    "seven eight nine mul"
+│ -    "four five six sub"
+│ -    "one two three add"
+│ -    "zero dot equal add";
+│ -}
+│ -
+│ -.calc-button {
+│ -  display: flex;
+│ -  align-items: center;
+│ -  justify-content: center;
+│ -  border-radius: 5px;
+│ -  font-family: "Lato_Bold", sans-serif;
+│ -  font-size: 35px;
+│ -  font-weight: 700;
+│ -  outline: none;
+│ -  background-color: #2a2a2a;
+│ -  color: #dfdfdf;
+│ -  border: none;
+│ -  border-bottom: 6px solid rgba(27, 27, 27, 0.5);
+│ -  cursor: pointer;
+│ -  user-select: none;
+│ -}
+│ -
+│ -.calc-button:hover {
+│ -  background-color: #383838;
+│ -}
+│ -
+│ -#calc:hover .calc-button:active {
+│ -  transform: translateY(1px);
+│ -  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ -}
+│ -
+│ -.input {
+│ -  background-color: #424242;
+│ -  border-bottom: 6px solid rgb(44, 44, 44);
+│ -}
+│ -
+│ -#calc:hover .input {
+│ -  /* border-bottom: 5px solid rgb(44, 44, 44); */
+│ -  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ -}
+│ -
+│ -#calc:hover .input:active {
+│ -  transform: translateY(1px);
+│ -  /* border-bottom: 5px solid rgb(44, 44, 44); */
+│ -  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ -}
+│ -
+│ -#calc:hover .operator:active {
+│ -  transform: translateY(1px);
+│ -  /* border-bottom: 5px solid rgb(44, 44, 44); */
+│ -  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ -}
+│ -
+│ -.input:hover {
+│ -  background-color: #505050;
+│ -}
+│ -
+│ -/* SCROLL BAR */
+│ -.display #displayMain::-webkit-scrollbar-track {
+│ -  border-radius: 0px;
+│ -  background-color: rgba(255, 255, 255, 0);
+│ -}
+│ -
+│ -.display #displayMain::-webkit-scrollbar {
+│ -  width: 5px;
+│ -  background-color: rgb(0, 0, 0);
+│ -}
+│ -
+│ -.display #displayMain::-webkit-scrollbar-thumb {
+│ -  border-radius: 0px;
+│ -  background-color: rgb(37, 37, 37);
+│ -}
+│ -
+│ -.display #displayMain::-webkit-scrollbar-thumb:hover {
+│ -  border-radius: 0px;
+│ -  background-color: rgba(255, 255, 255, 0.3);
+│ -}
+│ -/* SCROLL BAR end */
+│ -
+│ -.backspace {
+│ -  height: 25px;
+│ -}
+│ -.exp {
+│ -  height: 25px;
+│ +* {
+│ +  box-sizing: border-box;
+│ +}
+│ +
+│ +@font-face {
+│ +  font-family: "eurostile_extended_black";
+│ +  src: url(fonts/eurostile_extended_black.ttf);
+│ +}
+│ +@font-face {
+│ +  font-family: "Lato_Bold";
+│ +  src: url(fonts/Lato-Bold.ttf);
+│ +}
+│ +
+│ +body {
+│ +  margin: 0;
+│ +  padding: 0;
+│ +  /* width: 100vw;
+│ +  height: 100vh; */
+│ +  background: rgb(56, 56, 56);
+│ +  background: radial-gradient(
+│ +    circle,
+│ +    rgba(56, 56, 56, 1) 0%,
+│ +    rgba(31, 31, 31, 1) 100%
+│ +  );
+│ +  transition: all 3s cubic-bezier(0, 1, 0, 1);
+│ +}
+│ +
+│ +.body-container {
+│ +  width: 100%;
+│ +  height: 100%;
+│ +  display: flex;
+│ +  justify-content: center;
+│ +  align-items: center;
+│ +  padding: 5px;
+│ +  background-position: center;
+│ +  background-size: cover;
+│ +  perspective: 600px;
+│ +}
+│ +
+│ +.body-container:before {
+│ +  content: "";
+│ +  position: fixed;
+│ +  left: 0;
+│ +  right: 0;
+│ +  z-index: -1;
+│ +
+│ +  display: block;
+│ +  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+│ +  background-size: cover;
+│ +  width: 100%;
+│ +  height: 100%;
+│ +  -webkit-filter: blur(5px);
+│ +  -moz-filter: blur(5px);
+│ +  -o-filter: blur(5px);
+│ +  -ms-filter: blur(5px);
+│ +  filter: blur(5px);
+│ +}
+│ +
+│ +#company {
+│ +  font-family: "eurostile_extended_black", Helvetica, sans-serif;
+│ +  color: #666666;
+│ +  font-size: 1.3rem;
+│ +  margin: 0;
+│ +}
+│ +
+│ +#calc {
+│ +  position: relative;
+│ +  width: 400px;
+│ +  height: 550px;
+│ +  background-color: rgba(8, 8, 8, 0.6);
+│ +  margin: 0 auto;
+│ +  display: flex;
+│ +  flex-direction: column;
+│ +  padding: 20px;
+│ +  border-radius: 10px;
+│ +  border: 1px solid rgba(255, 255, 255, 0.3);
+│ +  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.9);
+│ +  overflow: hidden;
+│ +  z-index: 1;
+│ +  /* transform: rotateX(5deg); */
+│ +  transition: all 3s cubic-bezier(0, 1, 0, 1);
+│ +}
+│ +
+│ +/* #calc:hover {
+│ +  transform: rotateX(0deg);
+│ +  transition: all 3s cubic-bezier(0, 1, 0, 1);
+│ +} */
+│ +
+│ +#calc::before {
+│ +  content: "";
+│ +  position: absolute;
+│ +  background: inherit;
+│ +  top: 0;
+│ +  right: 0;
+│ +  bottom: 0;
+│ +  left: 0;
+│ +  box-shadow: inset 0 0 2000px rgba(39, 39, 39, 0.5);
+│ +  border-radius: 10px;
+│ +  filter: blur(10px);
+│ +  z-index: -1;
+│ +}
+│ +
+│ +.model {
+│ +  font-weight: bold;
+│ +  color: #1c3da6;
+│ +  font-size: 1.5rem;
+│ +  margin: 5px 0px 12px 0px;
+│ +  user-select: none;
+│ +}
+│ +
+│ +.model img {
+│ +  width: 100px;
+│ +  opacity: 0.5;
+│ +}
+│ +
+│ +.display {
+│ +  position: relative;
+│ +  width: 100%;
+│ +  height: 25%;
+│ +  /* padding: 10px; */
+│ +  margin-bottom: 25px;
+│ +  text-align: right;
+│ +  font-family: monospace;
+│ +  overflow-x: hidden;
+│ +  overflow-y: hidden;
+│ +  border-radius: 5px;
+│ +  background-color: black;
+│ +  white-space: nowrap;
+│ +  /* display: flex; */
+│ +  justify-content: flex-end;
+│ +}
+│ +.display #displayExpression {
+│ +  position: absolute;
+│ +  top: 15px;
+│ +  right: 10px;
+│ +  font-size: 1.25rem;
+│ +  color: rgba(3, 215, 52, 0.822);
+│ +}
+│ +.display #displayMain {
+│ +  position: relative;
+│ +  /* margin-top: 35px; */
+│ +  /* right: 5px; */
+│ +  top: 48px;
+│ +  padding: 0 10px;
+│ +  font-size: 3.5rem;
+│ +  color: #03d734;
+│ +  text-align: right;
+│ +  overflow-x: auto;
+│ +}
+│ +.display #displayOperator {
+│ +  position: absolute;
+│ +  bottom: 5px;
+│ +  right: 5px;
+│ +  font-size: 1.6rem;
+│ +  color: #03d734;
+│ +}
+│ +
+│ +.calc-button-container {
+│ +  width: 100%;
+│ +  flex: auto;
+│ +  display: grid;
+│ +  gap: 4%;
+│ +  grid-template-columns: repeat(4, 1fr);
+│ +  grid-template-areas:
+│ +    "clear backspace exp div"
+│ +    "seven eight nine mul"
+│ +    "four five six sub"
+│ +    "one two three add"
+│ +    "zero dot equal add";
+│ +}
+│ +
+│ +.calc-button {
+│ +  display: flex;
+│ +  align-items: center;
+│ +  justify-content: center;
+│ +  border-radius: 5px;
+│ +  font-family: "Lato_Bold", sans-serif;
+│ +  font-size: 35px;
+│ +  font-weight: 700;
+│ +  outline: none;
+│ +  background-color: #2a2a2a;
+│ +  color: #dfdfdf;
+│ +  border: none;
+│ +  border-bottom: 6px solid rgba(27, 27, 27, 0.5);
+│ +  cursor: pointer;
+│ +  user-select: none;
+│ +}
+│ +
+│ +.calc-button:hover {
+│ +  background-color: #383838;
+│ +}
+│ +
+│ +#calc:hover .calc-button:active {
+│ +  transform: translateY(1px);
+│ +  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ +}
+│ +
+│ +.input {
+│ +  background-color: #424242;
+│ +  border-bottom: 6px solid rgb(44, 44, 44);
+│ +}
+│ +
+│ +#calc:hover .input {
+│ +  /* border-bottom: 5px solid rgb(44, 44, 44); */
+│ +  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ +}
+│ +
+│ +#calc:hover .input:active {
+│ +  transform: translateY(1px);
+│ +  /* border-bottom: 5px solid rgb(44, 44, 44); */
+│ +  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ +}
+│ +
+│ +#calc:hover .operator:active {
+│ +  transform: translateY(1px);
+│ +  /* border-bottom: 5px solid rgb(44, 44, 44); */
+│ +  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+│ +}
+│ +
+│ +.input:hover {
+│ +  background-color: #505050;
+│ +}
+│ +
+│ +/* SCROLL BAR */
+│ +.display #displayMain::-webkit-scrollbar-track {
+│ +  border-radius: 0px;
+│ +  background-color: rgba(255, 255, 255, 0);
+│ +}
+│ +
+│ +.display #displayMain::-webkit-scrollbar {
+│ +  width: 5px;
+│ +  background-color: rgb(0, 0, 0);
+│ +}
+│ +
+│ +.display #displayMain::-webkit-scrollbar-thumb {
+│ +  border-radius: 0px;
+│ +  background-color: rgb(37, 37, 37);
+│ +}
+│ +
+│ +.display #displayMain::-webkit-scrollbar-thumb:hover {
+│ +  border-radius: 0px;
+│ +  background-color: rgba(255, 255, 255, 0.3);
+│ +}
+│ +/* SCROLL BAR end */
+│ +
+│ +.backspace {
+│ +  height: 25px;
+│ +}
+│ +.exp {
+│ +  height: 25px;
+│  }
+│   --- /workspace/pipeline_output/chromex_data/calc.html
+├── +++ /workspace/pipeline_output/calc-2000/calc.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,53 +1,53 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -
+│ -<head>
+│ -  <meta charset="UTF-8">
+│ -  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -
+│ -  <title>CALC 2000</title>
+│ -
+│ -  <!--STYLES-->
+│ -  <link rel="stylesheet" href="calc.css">
+│ -</head>
+│ -
+│ -<body>
+│ -  <div class="body-container">
+│ -    <div id="calc">
+│ -      <div class="model">
+│ -        <h1 id="company">CALC 2000</h1>
+│ -        <!--<img src="CASIO.svg" alt="casio logo" />-->
+│ -      </div>
+│ -      <div class="display">
+│ -        <div id="displayExpression"></div>
+│ -        <div id="displayMain">0</div>
+│ -      </div>
+│ -      <div class="calc-button-container">
+│ -        <button class="calc-button input" data-name="nine" data-value="9" style="grid-area: nine">9</button>
+│ -        <button class="calc-button input" data-name="eight" data-value="8" style="grid-area: eight">8</button>
+│ -        <button class="calc-button input" data-name="seven" data-value="7" style="grid-area: seven">7</button>
+│ -        <button class="calc-button input" data-name="six" data-value="6" style="grid-area: six">6</button>
+│ -        <button class="calc-button input" data-name="five" data-value="5" style="grid-area: five">5</button>
+│ -        <button class="calc-button input" data-name="four" data-value="4" style="grid-area: four">4</button>
+│ -        <button class="calc-button input" data-name="three" data-value="3" style="grid-area: three">3</button>
+│ -        <button class="calc-button input" data-name="two" data-value="2" style="grid-area: two">2</button>
+│ -        <button class="calc-button input" data-name="one" data-value="1" style="grid-area: one">1</button>
+│ -        <button class="calc-button input" data-name="zero" data-value="0" style="grid-area: zero">0</button>
+│ -        <button class="calc-button input" data-name="dot" data-value="." style="grid-area: dot">.</button>
+│ -        <button class="calc-button operator" data-name="div" data-value="÷" style="grid-area: div">÷</button>
+│ -        <button class="calc-button operator" data-name="mul" data-value="×" style="grid-area: mul">×</button>
+│ -        <button class="calc-button operator" data-name="sub" data-value="−" style="grid-area: sub">−</button>
+│ -        <button class="calc-button operator" data-name="add" data-value="+" style="grid-area: add">+</button>
+│ -        <button class="calc-button operator" data-name="exp" data-value="^" style="grid-area: exp"><img class="exp" src="./images/exp.svg"></button>
+│ -        <button class="calc-button" data-name="backspace" style="grid-area: backspace"><img class="backspace" src="./images/backspace.svg"></button>
+│ -        <button class="calc-button" data-name="equal" data-value="=" style="grid-area: equal">=</button>
+│ -        <button class="calc-button calc-button-red" data-value="C" data-name="clear" style="grid-area: clear">C</button>
+│ -      </div>
+│ -    </div>
+│ -  </div>
+│ -
+│ -  <!--SCRIPT-->
+│ -  <script src="calc.js"></script>
+│ -</body>
+│ -
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +
+│ +<head>
+│ +  <meta charset="UTF-8">
+│ +  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +
+│ +  <title>CALC 2000</title>
+│ +
+│ +  <!--STYLES-->
+│ +  <link rel="stylesheet" href="calc.css">
+│ +</head>
+│ +
+│ +<body>
+│ +  <div class="body-container">
+│ +    <div id="calc">
+│ +      <div class="model">
+│ +        <h1 id="company">CALC 2000</h1>
+│ +        <!--<img src="CASIO.svg" alt="casio logo" />-->
+│ +      </div>
+│ +      <div class="display">
+│ +        <div id="displayExpression"></div>
+│ +        <div id="displayMain">0</div>
+│ +      </div>
+│ +      <div class="calc-button-container">
+│ +        <button class="calc-button input" data-name="nine" data-value="9" style="grid-area: nine">9</button>
+│ +        <button class="calc-button input" data-name="eight" data-value="8" style="grid-area: eight">8</button>
+│ +        <button class="calc-button input" data-name="seven" data-value="7" style="grid-area: seven">7</button>
+│ +        <button class="calc-button input" data-name="six" data-value="6" style="grid-area: six">6</button>
+│ +        <button class="calc-button input" data-name="five" data-value="5" style="grid-area: five">5</button>
+│ +        <button class="calc-button input" data-name="four" data-value="4" style="grid-area: four">4</button>
+│ +        <button class="calc-button input" data-name="three" data-value="3" style="grid-area: three">3</button>
+│ +        <button class="calc-button input" data-name="two" data-value="2" style="grid-area: two">2</button>
+│ +        <button class="calc-button input" data-name="one" data-value="1" style="grid-area: one">1</button>
+│ +        <button class="calc-button input" data-name="zero" data-value="0" style="grid-area: zero">0</button>
+│ +        <button class="calc-button input" data-name="dot" data-value="." style="grid-area: dot">.</button>
+│ +        <button class="calc-button operator" data-name="div" data-value="÷" style="grid-area: div">÷</button>
+│ +        <button class="calc-button operator" data-name="mul" data-value="×" style="grid-area: mul">×</button>
+│ +        <button class="calc-button operator" data-name="sub" data-value="−" style="grid-area: sub">−</button>
+│ +        <button class="calc-button operator" data-name="add" data-value="+" style="grid-area: add">+</button>
+│ +        <button class="calc-button operator" data-name="exp" data-value="^" style="grid-area: exp"><img class="exp" src="./images/exp.svg"></button>
+│ +        <button class="calc-button" data-name="backspace" style="grid-area: backspace"><img class="backspace" src="./images/backspace.svg"></button>
+│ +        <button class="calc-button" data-name="equal" data-value="=" style="grid-area: equal">=</button>
+│ +        <button class="calc-button calc-button-red" data-value="C" data-name="clear" style="grid-area: clear">C</button>
+│ +      </div>
+│ +    </div>
+│ +  </div>
+│ +
+│ +  <!--SCRIPT-->
+│ +  <script src="calc.js"></script>
+│ +</body>
+│ +
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/calc.js
+├── +++ /workspace/pipeline_output/calc-2000/calc.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,208 +1,201 @@
+│ -2f2f2053746f726573207374617465206f662063616c63756c61746f720d0a6c
+│ -65742063616c63203d207b0d0a20206e756d313a202730272c0d0a20206e756d
+│ -323a202730272c0d0a20206e756d324163746976653a2066616c73652c0d0a20
+│ -206f70657261746f723a20272b272c0d0a202065787072657373696f6e3a2027
+│ -272c0d0a2020726573756c743a202730272c0d0a2020696e707574733a20646f
+│ -63756d656e742e717565727953656c6563746f72416c6c28272e696e70757427
+│ -292c0d0a2020616374696f6e3a207b0d0a202020206163746976653a20747275
+│ -652c0d0a202020206f70657261746f72733a20646f63756d656e742e71756572
+│ -7953656c6563746f72416c6c28272e6f70657261746f7227290d0a20207d2c0d
+│ -0a20206261636b73706163653a20646f63756d656e742e717565727953656c65
+│ -63746f7228272e63616c632d627574746f6e5b646174612d6e616d653d226261
+│ -636b7370616365225d27292c0d0a2020657175616c3a20646f63756d656e742e
+│ -717565727953656c6563746f7228272e63616c632d627574746f6e5b64617461
+│ -2d6e616d653d22657175616c225d27292c0d0a2020657175616c4c6173743a20
+│ -66616c73652c0d0a2020646f743a20646f63756d656e742e717565727953656c
+│ -6563746f7228272e63616c632d627574746f6e5b646174612d6e616d653d2264
+│ -6f74225d27292c0d0a2020646973706c617945787072657373696f6e3a20646f
+│ -63756d656e742e717565727953656c6563746f72282723646973706c61794578
+│ -7072657373696f6e27292c0d0a2020646973706c61794d61696e3a20646f6375
+│ -6d656e742e717565727953656c6563746f72282723646973706c61794d61696e
+│ -27292c0d0a2020636c6561723a20646f63756d656e742e717565727953656c65
+│ -63746f7228272e63616c632d627574746f6e5b646174612d6e616d653d22636c
+│ -656172225d27290d0a7d0d0a0d0a2f2f2052656d6f7665206c656164696e6720
+│ -7a65726f730d0a636f6e73742072656d6f76655a65726f73203d20287329203d
+│ -3e20732e73706c697428272027292e6d617028286974656d29203d3e20697465
+│ -6d2e7265706c616365282f5e302b7c5c2e2b242f2c20272729292e6a6f696e28
+│ -272027293b0d0a2f2f204368616e67652065787072657373696f6e2073796d62
+│ -6f6c732066726f6d20756e69636f646520746f206e6f726d616c0d0a636f6e73
+│ -74206368616e676553796d626f6c73546f4e6f726d616c203d20287329203d3e
+│ -20732e7265706c6163652827c3b7272c20272f27292e7265706c6163652827c3
+│ -97272c20272a27292e7265706c6163652827e28892272c20272d27292e726570
+│ -6c61636528272b272c20272b27293b0d0a2f2f204368616e6765206578707265
+│ -7373696f6e2073796d626f6c732066726f6d206e6f726d616c20746f20756e69
+│ -636f64650d0a636f6e7374206368616e676553796d626f6c73546f556e69636f
+│ -6465203d20287329203d3e20732e7265706c61636528272f272c2027c3b72729
+│ -2e7265706c61636528272a272c2027c39727292e7265706c61636528272d272c
+│ -2027e2889227292e7265706c61636528272b272c20272b27293b0d0a0d0a2f2f
+│ -20446973706c6179207570646174652066756e6374696f6e730d0a636f6e7374
+│ -20757064617465446973706c617945787072657373696f6e203d202829203d3e
+│ -207b0d0a202069662863616c632e657175616c4c617374203d3d3d2074727565
+│ -297b0d0a2020202063616c632e646973706c617945787072657373696f6e2e69
+│ +2f2f2053746f726573207374617465206f662063616c63756c61746f720a6c65
+│ +742063616c63203d207b0a20206e756d313a202730272c0a20206e756d323a20
+│ +2730272c0a20206e756d324163746976653a2066616c73652c0a20206f706572
+│ +61746f723a20272b272c0a202065787072657373696f6e3a2027272c0a202072
+│ +6573756c743a202730272c0a2020696e707574733a20646f63756d656e742e71
+│ +7565727953656c6563746f72416c6c28272e696e70757427292c0a2020616374
+│ +696f6e3a207b0a202020206163746976653a20747275652c0a202020206f7065
+│ +7261746f72733a20646f63756d656e742e717565727953656c6563746f72416c
+│ +6c28272e6f70657261746f7227290a20207d2c0a20206261636b73706163653a
+│ +20646f63756d656e742e717565727953656c6563746f7228272e63616c632d62
+│ +7574746f6e5b646174612d6e616d653d226261636b7370616365225d27292c0a
+│ +2020657175616c3a20646f63756d656e742e717565727953656c6563746f7228
+│ +272e63616c632d627574746f6e5b646174612d6e616d653d22657175616c225d
+│ +27292c0a2020657175616c4c6173743a2066616c73652c0a2020646f743a2064
+│ +6f63756d656e742e717565727953656c6563746f7228272e63616c632d627574
+│ +746f6e5b646174612d6e616d653d22646f74225d27292c0a2020646973706c61
+│ +7945787072657373696f6e3a20646f63756d656e742e717565727953656c6563
+│ +746f72282723646973706c617945787072657373696f6e27292c0a2020646973
+│ +706c61794d61696e3a20646f63756d656e742e717565727953656c6563746f72
+│ +282723646973706c61794d61696e27292c0a2020636c6561723a20646f63756d
+│ +656e742e717565727953656c6563746f7228272e63616c632d627574746f6e5b
+│ +646174612d6e616d653d22636c656172225d27290a7d0a0a2f2f2052656d6f76
+│ +65206c656164696e67207a65726f730a636f6e73742072656d6f76655a65726f
+│ +73203d20287329203d3e20732e73706c697428272027292e6d61702828697465
+│ +6d29203d3e206974656d2e7265706c616365282f5e302b7c5c2e2b242f2c2027
+│ +2729292e6a6f696e28272027293b0a2f2f204368616e67652065787072657373
+│ +696f6e2073796d626f6c732066726f6d20756e69636f646520746f206e6f726d
+│ +616c0a636f6e7374206368616e676553796d626f6c73546f4e6f726d616c203d
+│ +20287329203d3e20732e7265706c6163652827c3b7272c20272f27292e726570
+│ +6c6163652827c397272c20272a27292e7265706c6163652827e28892272c2027
+│ +2d27292e7265706c61636528272b272c20272b27293b0a2f2f204368616e6765
+│ +2065787072657373696f6e2073796d626f6c732066726f6d206e6f726d616c20
+│ +746f20756e69636f64650a636f6e7374206368616e676553796d626f6c73546f
+│ +556e69636f6465203d20287329203d3e20732e7265706c61636528272f272c20
+│ +27c3b727292e7265706c61636528272a272c2027c39727292e7265706c616365
+│ +28272d272c2027e2889227292e7265706c61636528272b272c20272b27293b0a
+│ +0a2f2f20446973706c6179207570646174652066756e6374696f6e730a636f6e
+│ +737420757064617465446973706c617945787072657373696f6e203d20282920
+│ +3d3e207b0a202069662863616c632e657175616c4c617374203d3d3d20747275
+│ +65297b0a2020202063616c632e646973706c617945787072657373696f6e2e69
+│  6e6e657254657874203d2063616c632e65787072657373696f6e202b2027203d
+│ -273b0d0a20207d20656c7365207b0d0a2020202063616c632e646973706c6179
+│ -45787072657373696f6e2e696e6e657254657874203d2063616c632e65787072
+│ -657373696f6e3b0d0a20207d0d0a7d0d0a636f6e737420757064617465446973
+│ -706c61794d61696e203d202829203d3e207b0d0a20206966282163616c632e6e
+│ -756d3241637469766529207b0d0a2020202063616c632e646973706c61794d61
+│ -696e2e696e6e657254657874203d2063616c632e6e756d312e746f4c6f63616c
+│ -65537472696e67286e6176696761746f722e6c616e67756167652c207b0d0a20
+│ -20202020206d696e696d756d4672616374696f6e4469676974733a20302c0d0a
+│ -2020202020206d6178696d756d4672616374696f6e4469676974733a20380d0a
+│ -202020207d293b0d0a20207d20656c7365207b0d0a2020202063616c632e6469
+│ -73706c61794d61696e2e696e6e657254657874203d2063616c632e6e756d322e
+│ -746f4c6f63616c65537472696e67286e6176696761746f722e6c616e67756167
+│ -652c207b0d0a2020202020206d696e696d756d4672616374696f6e4469676974
+│ -733a20302c0d0a2020202020206d6178696d756d4672616374696f6e44696769
+│ -74733a20380d0a202020207d293b0d0a20207d0d0a7d0d0a0d0a2f2f20436c65
+│ -617220616c6c20646973706c61797320616e642072657365742076616c756573
+│ -20746f20696e697469616c0d0a636f6e737420636c656172446973706c617920
+│ -3d202829203d3e207b0d0a202063616c632e6e756d31203d202730273b0d0a20
+│ -2063616c632e6e756d32203d202730273b0d0a202063616c632e6e756d324163
+│ -74697665203d2066616c73653b0d0a202063616c632e6f70657261746f72203d
+│ -20272b273b0d0a202063616c632e65787072657373696f6e203d2027273b0d0a
+│ -202063616c632e726573756c74203d202730273b0d0a202063616c632e616374
+│ -696f6e2e616374697665203d20747275653b0d0a202063616c632e657175616c
+│ -4c617374203d2066616c73653b0d0a2020757064617465446973706c61794578
+│ -7072657373696f6e28293b0d0a2020757064617465446973706c61794d61696e
+│ -28293b0d0a7d0d0a0d0a2f2f20506572666f726d2063616c63756c6174696f6e
+│ -206261736564206f6e20676976656e206f70657261746f7220616e642074776f
+│ -206e756d626572730d0a636f6e73742063616c63756c617465203d20286f7065
+│ -7261746f722c206e756d312c206e756d3229203d3e207b0d0a20207377697463
+│ -68286f70657261746f7229207b0d0a202020206361736520272b273a0d0a2020
+│ -2020202063616c632e726573756c74203d207061727365466c6f6174286e756d
+│ -3129202b207061727365466c6f6174286e756d32293b0d0a2020202020206272
+│ -65616b3b0d0a202020206361736520272d273a0d0a20202020202063616c632e
+│ -726573756c74203d207061727365466c6f6174286e756d3129202d2070617273
+│ -65466c6f6174286e756d32293b0d0a202020202020627265616b3b0d0a202020
+│ -206361736520272a273a0d0a20202020202063616c632e726573756c74203d20
+│ -7061727365466c6f6174286e756d3129202a207061727365466c6f6174286e75
+│ -6d32293b0d0a202020202020627265616b3b0d0a202020206361736520272f27
+│ -3a0d0a20202020202063616c632e726573756c74203d207061727365466c6f61
+│ -74286e756d3129202f207061727365466c6f6174286e756d32293b0d0a202020
+│ -202020627265616b3b0d0a202020206361736520275e273a0d0a202020202020
+│ -63616c632e726573756c74203d207061727365466c6f6174286e756d3129202a
+│ -2a207061727365466c6f6174286e756d32293b0d0a202020202020627265616b
+│ -3b0d0a20207d0d0a0d0a202072657475726e2063616c632e726573756c743b0d
+│ -0a7d0d0a0d0a2f2f2041646420636c69636b206c697374656e657220746f2065
+│ -61636820696e7075742c20616e6420757064617465204d61696e20446973706c
+│ -61790d0a63616c632e696e707574732e666f724561636828656c656d656e7420
+│ -3d3e207b0d0a2020656c656d656e742e6164644576656e744c697374656e6572
+│ -2827636c69636b272c2066756e6374696f6e2829207b0d0a2020202069662863
+│ -616c632e657175616c4c617374203d3d3d207472756529207b0d0a2020202020
+│ -20636c656172446973706c617928293b0d0a202020207d0d0a0d0a2020202063
+│ -616c632e616374696f6e2e616374697665203d2066616c73653b0d0a20202020
+│ -6966282163616c632e6e756d3241637469766529207b0d0a2020202020206966
+│ -2863616c632e6e756d31203d3d2027302729207b0d0a20202020202020206361
+│ -6c632e6e756d31203d2027273b0d0a2020202020207d0d0a2020202020206361
+│ -6c632e6e756d31202b3d20746869732e617474726962757465732e6765744e61
+│ -6d65644974656d2827646174612d76616c756527292e76616c75653b0d0a2020
+│ -20207d200d0a20202020656c7365207b0d0a20202020202069662863616c632e
+│ -6e756d32203d3d2027302729207b0d0a202020202020202063616c632e6e756d
+│ -32203d2027273b0d0a2020202020207d0d0a20202020202063616c632e6e756d
+│ -32202b3d20746869732e617474726962757465732e6765744e616d6564497465
+│ -6d2827646174612d76616c756527292e76616c75653b0d0a202020207d0d0a20
+│ -202020757064617465446973706c61794d61696e28293b0d0a20207d293b0d0a
+│ -7d293b0d0a0d0a2f2f20446f7420627574746f6e206c697374656e65720d0a63
+│ -616c632e646f742e6164644576656e744c697374656e65722827636c69636b27
+│ -2c202829203d3e207b0d0a202063616c632e616374696f6e2e61637469766520
+│ -3d2066616c73653b0d0a20206966282163616c632e6e756d3241637469766529
+│ -207b0d0a202020206966282163616c632e6e756d312e696e636c756465732827
+│ -2e272929207b0d0a20202020202063616c632e6e756d31202b3d20272e273b0d
+│ -0a202020207d0d0a20207d20656c7365207b0d0a202020206966282163616c63
+│ -2e6e756d322e696e636c7564657328272e272929207b0d0a2020202020206361
+│ -6c632e6e756d32202b3d20272e273b0d0a202020207d0d0a20207d0d0a202075
+│ -7064617465446973706c61794d61696e28290d0a7d293b0d0a0d0a2f2f204164
+│ -6420636c69636b206c697374656e657220746f2065616368206f70657261746f
+│ -722c20616e64207570646174652045787072657373696f6e20446973706c6179
+│ -0d0a63616c632e616374696f6e2e6f70657261746f72732e666f724561636828
+│ -656c656d656e74203d3e207b0d0a2020656c656d656e742e6164644576656e74
+│ -4c697374656e65722827636c69636b272c2066756e6374696f6e2829207b0d0a
+│ -202020206966282163616c632e6e756d3241637469766529207b0d0a20202020
+│ -202063616c632e6e756d31203d2063616c632e6e756d312e7265706c61636528
+│ -2f5c2e2b242f2c202727293b0d0a202020207d20656c7365207b0d0a20202020
+│ -202063616c632e6e756d32203d2063616c632e6e756d322e7265706c61636528
+│ -2f5c2e2b242f2c202727293b0d0a202020207d0d0a20200d0a20202020696628
+│ -63616c632e616374696f6e2e616374697665203d3d3d207472756529207b0d0a
+│ -2020202020206c65742074656d705f7374723b0d0a2020202020206966286361
+│ -6c632e65787072657373696f6e203d3d20222229207b0d0a2020202020202020
+│ -74656d705f737472203d202730273b0d0a2020202020207d0d0a202020202020
+│ -656c7365207b0d0a202020202020202074656d705f737472203d2063616c632e
+│ -65787072657373696f6e2e7472696d28292e73706c697428272027293b0d0a20
+│ -2020202020202074656d705f7374722e706f7028293b0d0a2020202020202020
+│ -74656d705f737472203d2074656d705f7374722e6a6f696e28272027293b0d0a
+│ -2020202020207d0d0a2020202020200d0a20202020202069662863616c632e65
+│ -7175616c4c617374203d3d3d207472756529207b0d0a20202020202020206361
+│ -6c632e65787072657373696f6e203d2060247b63616c632e726573756c747d20
+│ -247b746869732e617474726962757465732e6765744e616d65644974656d2827
+│ -646174612d76616c756527292e76616c75657d20603b0d0a2020202020202020
+│ -63616c632e657175616c4c617374203d2066616c73653b0d0a20202020202020
+│ -2063616c632e6e756d32203d202730273b0d0a2020202020207d20656c736520
+│ -7b0d0a202020202020202063616c632e65787072657373696f6e203d2060247b
+│ -74656d705f7374727d20247b746869732e617474726962757465732e6765744e
+│ -616d65644974656d2827646174612d76616c756527292e76616c75657d20603b
+│ -0d0a2020202020207d0d0a2020202020200d0a20202020202075706461746544
+│ -6973706c617945787072657373696f6e28293b0d0a202020207d200d0a202020
+│ -20656c7365207b0d0a20202020202063616c632e65787072657373696f6e202b
+│ -3d2060247b63616c632e6e756d32416374697665203f2063616c632e6e756d32
+│ -203a2063616c632e6e756d317d20247b746869732e617474726962757465732e
+│ -6765744e616d65644974656d2827646174612d76616c756527292e76616c7565
+│ -7d20603b0d0a202020202020757064617465446973706c617945787072657373
+│ -696f6e28293b0d0a20200d0a20202020202063616c632e726573756c74203d20
+│ -63616c63756c617465286368616e676553796d626f6c73546f4e6f726d616c28
+│ -63616c632e6f70657261746f72292c2063616c632e6e756d312c2063616c632e
+│ -6e756d32293b0d0a20202020202063616c632e646973706c61794d61696e2e69
+│ -6e6e657254657874203d2063616c632e726573756c742e746f4c6f63616c6553
+│ -7472696e67286e6176696761746f722e6c616e67756167652c207b0d0a202020
+│ -20202020206d696e696d756d4672616374696f6e4469676974733a20302c0d0a
+│ -20202020202020206d6178696d756d4672616374696f6e4469676974733a2038
+│ -0d0a2020202020207d293b0d0a20202020202063616c632e6e756d31203d2053
+│ -7472696e672863616c632e726573756c74293b0d0a2020202020200d0a202020
+│ -20202063616c632e6e756d32203d202730273b0d0a202020207d0d0a20200d0a
+│ -202020202f2f20696620747275652c20696e64696361746573206f7065726174
+│ -6f7220627574746f6e2077617320746865206c61737420627574746f6e207072
+│ -65737365640d0a2020202063616c632e616374696f6e2e616374697665203d20
+│ -747275653b0d0a0d0a202020202f2f20696620747275652c20636f6e74657874
+│ -206f6620696e70757420627574746f6e732070726573736564206368616e6765
+│ -7320746f206e756d320d0a2020202063616c632e6e756d32416374697665203d
+│ -20747275653b0d0a0d0a202020202f2f207365747320746865206f7065726174
+│ -6f720d0a2020202063616c632e6f70657261746f72203d20746869732e617474
+│ -726962757465732e6765744e616d65644974656d2827646174612d76616c7565
+│ -27292e76616c75653b0d0a20207d293b0d0a7d293b0d0a0d0a2f2f20f09fa184
+│ -20627574746f6e0d0a63616c632e6261636b73706163652e6164644576656e74
+│ -4c697374656e65722827636c69636b272c202829203d3e207b0d0a2020696628
+│ -2163616c632e6e756d3241637469766529207b0d0a2020202069662863616c63
+│ -2e6e756d312e6c656e677468203e203129207b0d0a20202020202063616c632e
+│ -6e756d31203d2063616c632e6e756d312e737562737472696e6728302c206361
+│ -6c632e6e756d312e6c656e6774682d31293b0d0a202020207d20656c7365207b
+│ -0d0a20202020202063616c632e6e756d31203d202730273b0d0a202020207d0d
+│ -0a20207d20656c7365207b0d0a2020202069662863616c632e6e756d322e6c65
+│ -6e677468203e203129207b0d0a20202020202063616c632e6e756d32203d2063
+│ +273b0a20207d20656c7365207b0a2020202063616c632e646973706c61794578
+│ +7072657373696f6e2e696e6e657254657874203d2063616c632e657870726573
+│ +73696f6e3b0a20207d0a7d0a636f6e737420757064617465446973706c61794d
+│ +61696e203d202829203d3e207b0a20206966282163616c632e6e756d32416374
+│ +69766529207b0a2020202063616c632e646973706c61794d61696e2e696e6e65
+│ +7254657874203d2063616c632e6e756d312e746f4c6f63616c65537472696e67
+│ +286e6176696761746f722e6c616e67756167652c207b0a2020202020206d696e
+│ +696d756d4672616374696f6e4469676974733a20302c0a2020202020206d6178
+│ +696d756d4672616374696f6e4469676974733a20380a202020207d293b0a2020
+│ +7d20656c7365207b0a2020202063616c632e646973706c61794d61696e2e696e
+│ +6e657254657874203d2063616c632e6e756d322e746f4c6f63616c6553747269
+│ +6e67286e6176696761746f722e6c616e67756167652c207b0a2020202020206d
+│ +696e696d756d4672616374696f6e4469676974733a20302c0a2020202020206d
+│ +6178696d756d4672616374696f6e4469676974733a20380a202020207d293b0a
+│ +20207d0a7d0a0a2f2f20436c65617220616c6c20646973706c61797320616e64
+│ +2072657365742076616c75657320746f20696e697469616c0a636f6e73742063
+│ +6c656172446973706c6179203d202829203d3e207b0a202063616c632e6e756d
+│ +31203d202730273b0a202063616c632e6e756d32203d202730273b0a20206361
+│ +6c632e6e756d32416374697665203d2066616c73653b0a202063616c632e6f70
+│ +657261746f72203d20272b273b0a202063616c632e65787072657373696f6e20
+│ +3d2027273b0a202063616c632e726573756c74203d202730273b0a202063616c
+│ +632e616374696f6e2e616374697665203d20747275653b0a202063616c632e65
+│ +7175616c4c617374203d2066616c73653b0a2020757064617465446973706c61
+│ +7945787072657373696f6e28293b0a2020757064617465446973706c61794d61
+│ +696e28293b0a7d0a0a2f2f20506572666f726d2063616c63756c6174696f6e20
+│ +6261736564206f6e20676976656e206f70657261746f7220616e642074776f20
+│ +6e756d626572730a636f6e73742063616c63756c617465203d20286f70657261
+│ +746f722c206e756d312c206e756d3229203d3e207b0a2020737769746368286f
+│ +70657261746f7229207b0a202020206361736520272b273a0a20202020202063
+│ +616c632e726573756c74203d207061727365466c6f6174286e756d3129202b20
+│ +7061727365466c6f6174286e756d32293b0a202020202020627265616b3b0a20
+│ +2020206361736520272d273a0a20202020202063616c632e726573756c74203d
+│ +207061727365466c6f6174286e756d3129202d207061727365466c6f6174286e
+│ +756d32293b0a202020202020627265616b3b0a202020206361736520272a273a
+│ +0a20202020202063616c632e726573756c74203d207061727365466c6f617428
+│ +6e756d3129202a207061727365466c6f6174286e756d32293b0a202020202020
+│ +627265616b3b0a202020206361736520272f273a0a20202020202063616c632e
+│ +726573756c74203d207061727365466c6f6174286e756d3129202f2070617273
+│ +65466c6f6174286e756d32293b0a202020202020627265616b3b0a2020202063
+│ +61736520275e273a0a20202020202063616c632e726573756c74203d20706172
+│ +7365466c6f6174286e756d3129202a2a207061727365466c6f6174286e756d32
+│ +293b0a202020202020627265616b3b0a20207d0a0a202072657475726e206361
+│ +6c632e726573756c743b0a7d0a0a2f2f2041646420636c69636b206c69737465
+│ +6e657220746f206561636820696e7075742c20616e6420757064617465204d61
+│ +696e20446973706c61790a63616c632e696e707574732e666f72456163682865
+│ +6c656d656e74203d3e207b0a2020656c656d656e742e6164644576656e744c69
+│ +7374656e65722827636c69636b272c2066756e6374696f6e2829207b0a202020
+│ +2069662863616c632e657175616c4c617374203d3d3d207472756529207b0a20
+│ +2020202020636c656172446973706c617928293b0a202020207d0a0a20202020
+│ +63616c632e616374696f6e2e616374697665203d2066616c73653b0a20202020
+│ +6966282163616c632e6e756d3241637469766529207b0a202020202020696628
+│ +63616c632e6e756d31203d3d2027302729207b0a202020202020202063616c63
+│ +2e6e756d31203d2027273b0a2020202020207d0a20202020202063616c632e6e
+│ +756d31202b3d20746869732e617474726962757465732e6765744e616d656449
+│ +74656d2827646174612d76616c756527292e76616c75653b0a202020207d200a
+│ +20202020656c7365207b0a20202020202069662863616c632e6e756d32203d3d
+│ +2027302729207b0a202020202020202063616c632e6e756d32203d2027273b0a
+│ +2020202020207d0a20202020202063616c632e6e756d32202b3d20746869732e
+│ +617474726962757465732e6765744e616d65644974656d2827646174612d7661
+│ +6c756527292e76616c75653b0a202020207d0a20202020757064617465446973
+│ +706c61794d61696e28293b0a20207d293b0a7d293b0a0a2f2f20446f74206275
+│ +74746f6e206c697374656e65720a63616c632e646f742e6164644576656e744c
+│ +697374656e65722827636c69636b272c202829203d3e207b0a202063616c632e
+│ +616374696f6e2e616374697665203d2066616c73653b0a20206966282163616c
+│ +632e6e756d3241637469766529207b0a202020206966282163616c632e6e756d
+│ +312e696e636c7564657328272e272929207b0a20202020202063616c632e6e75
+│ +6d31202b3d20272e273b0a202020207d0a20207d20656c7365207b0a20202020
+│ +6966282163616c632e6e756d322e696e636c7564657328272e272929207b0a20
+│ +202020202063616c632e6e756d32202b3d20272e273b0a202020207d0a20207d
+│ +0a2020757064617465446973706c61794d61696e28290a7d293b0a0a2f2f2041
+│ +646420636c69636b206c697374656e657220746f2065616368206f7065726174
+│ +6f722c20616e64207570646174652045787072657373696f6e20446973706c61
+│ +790a63616c632e616374696f6e2e6f70657261746f72732e666f724561636828
+│ +656c656d656e74203d3e207b0a2020656c656d656e742e6164644576656e744c
+│ +697374656e65722827636c69636b272c2066756e6374696f6e2829207b0a2020
+│ +20206966282163616c632e6e756d3241637469766529207b0a20202020202063
+│ +616c632e6e756d31203d2063616c632e6e756d312e7265706c616365282f5c2e
+│ +2b242f2c202727293b0a202020207d20656c7365207b0a20202020202063616c
+│ +632e6e756d32203d2063616c632e6e756d322e7265706c616365282f5c2e2b24
+│ +2f2c202727293b0a202020207d0a20200a2020202069662863616c632e616374
+│ +696f6e2e616374697665203d3d3d207472756529207b0a2020202020206c6574
+│ +2074656d705f7374723b0a20202020202069662863616c632e65787072657373
+│ +696f6e203d3d20222229207b0a202020202020202074656d705f737472203d20
+│ +2730273b0a2020202020207d0a202020202020656c7365207b0a202020202020
+│ +202074656d705f737472203d2063616c632e65787072657373696f6e2e747269
+│ +6d28292e73706c697428272027293b0a202020202020202074656d705f737472
+│ +2e706f7028293b0a202020202020202074656d705f737472203d2074656d705f
+│ +7374722e6a6f696e28272027293b0a2020202020207d0a2020202020200a2020
+│ +2020202069662863616c632e657175616c4c617374203d3d3d20747275652920
+│ +7b0a202020202020202063616c632e65787072657373696f6e203d2060247b63
+│ +616c632e726573756c747d20247b746869732e617474726962757465732e6765
+│ +744e616d65644974656d2827646174612d76616c756527292e76616c75657d20
+│ +603b0a202020202020202063616c632e657175616c4c617374203d2066616c73
+│ +653b0a202020202020202063616c632e6e756d32203d202730273b0a20202020
+│ +20207d20656c7365207b0a202020202020202063616c632e6578707265737369
+│ +6f6e203d2060247b74656d705f7374727d20247b746869732e61747472696275
+│ +7465732e6765744e616d65644974656d2827646174612d76616c756527292e76
+│ +616c75657d20603b0a2020202020207d0a2020202020200a2020202020207570
+│ +64617465446973706c617945787072657373696f6e28293b0a202020207d200a
+│ +20202020656c7365207b0a20202020202063616c632e65787072657373696f6e
+│ +202b3d2060247b63616c632e6e756d32416374697665203f2063616c632e6e75
+│ +6d32203a2063616c632e6e756d317d20247b746869732e617474726962757465
+│ +732e6765744e616d65644974656d2827646174612d76616c756527292e76616c
+│ +75657d20603b0a202020202020757064617465446973706c6179457870726573
+│ +73696f6e28293b0a20200a20202020202063616c632e726573756c74203d2063
+│ +616c63756c617465286368616e676553796d626f6c73546f4e6f726d616c2863
+│ +616c632e6f70657261746f72292c2063616c632e6e756d312c2063616c632e6e
+│ +756d32293b0a20202020202063616c632e646973706c61794d61696e2e696e6e
+│ +657254657874203d2063616c632e726573756c742e746f4c6f63616c65537472
+│ +696e67286e6176696761746f722e6c616e67756167652c207b0a202020202020
+│ +20206d696e696d756d4672616374696f6e4469676974733a20302c0a20202020
+│ +202020206d6178696d756d4672616374696f6e4469676974733a20380a202020
+│ +2020207d293b0a20202020202063616c632e6e756d31203d20537472696e6728
+│ +63616c632e726573756c74293b0a2020202020200a20202020202063616c632e
+│ +6e756d32203d202730273b0a202020207d0a20200a202020202f2f2069662074
+│ +7275652c20696e64696361746573206f70657261746f7220627574746f6e2077
+│ +617320746865206c61737420627574746f6e20707265737365640a2020202063
+│ +616c632e616374696f6e2e616374697665203d20747275653b0a0a202020202f
+│ +2f20696620747275652c20636f6e74657874206f6620696e7075742062757474
+│ +6f6e732070726573736564206368616e67657320746f206e756d320a20202020
+│ +63616c632e6e756d32416374697665203d20747275653b0a0a202020202f2f20
+│ +7365747320746865206f70657261746f720a2020202063616c632e6f70657261
+│ +746f72203d20746869732e617474726962757465732e6765744e616d65644974
+│ +656d2827646174612d76616c756527292e76616c75653b0a20207d293b0a7d29
+│ +3b0a0a2f2f20f09fa18420627574746f6e0a63616c632e6261636b7370616365
+│ +2e6164644576656e744c697374656e65722827636c69636b272c202829203d3e
+│ +207b0a20206966282163616c632e6e756d3241637469766529207b0a20202020
+│ +69662863616c632e6e756d312e6c656e677468203e203129207b0a2020202020
+│ +2063616c632e6e756d31203d2063616c632e6e756d312e737562737472696e67
+│ +28302c2063616c632e6e756d312e6c656e6774682d31293b0a202020207d2065
+│ +6c7365207b0a20202020202063616c632e6e756d31203d202730273b0a202020
+│ +207d0a20207d20656c7365207b0a2020202069662863616c632e6e756d322e6c
+│ +656e677468203e203129207b0a20202020202063616c632e6e756d32203d2063
+│  616c632e6e756d322e737562737472696e6728302c2063616c632e6e756d322e
+│ -6c656e6774682d31293b0d0a202020207d20656c7365207b0d0a202020202020
+│ -63616c632e6e756d32203d202730273b0d0a202020207d0d0a20207d0d0a2020
+│ -757064617465446973706c61794d61696e28293b0d0a7d293b0d0a0d0a2f2f20
+│ -3d20627574746f6e0d0a63616c632e657175616c2e6164644576656e744c6973
+│ -74656e65722827636c69636b272c202829203d3e207b0d0a202063616c632e65
+│ -7175616c4c617374203d20747275653b0d0a0d0a202069662863616c632e6e75
+│ -6d32203d3d2027302729207b0d0a2020202063616c632e6e756d32203d206361
+│ -6c632e726573756c743b0d0a20207d0d0a0d0a20202f2f207570646174652065
+│ -787072657373696f6e0d0a202063616c632e65787072657373696f6e203d2060
+│ -247b63616c632e726573756c747d20247b63616c632e6f70657261746f727d20
+│ -247b63616c632e6e756d327d603b0d0a2020757064617465446973706c617945
+│ -787072657373696f6e28293b0d0a0d0a20202f2f20706572666f726d2063616c
+│ -63756c6174696f6e0d0a202063616c632e726573756c74203d2063616c63756c
+│ -617465286368616e676553796d626f6c73546f4e6f726d616c2863616c632e6f
+│ -70657261746f72292c2063616c632e6e756d312c2063616c632e6e756d32293b
+│ -0d0a20200d0a20202f2f2075706461746573206d61696e20646973706c617920
+│ -746f2073686f7720726573756c740d0a202063616c632e646973706c61794d61
+│ -696e2e696e6e657254657874203d2063616c632e726573756c742e746f4c6f63
+│ -616c65537472696e67286e6176696761746f722e6c616e67756167652c207b0d
+│ -0a202020206d696e696d756d4672616374696f6e4469676974733a20302c0d0a
+│ -202020206d6178696d756d4672616374696f6e4469676974733a20380d0a2020
+│ -7d293b0d0a20200d0a202063616c632e6e756d31203d2063616c632e72657375
+│ -6c743b0d0a202063616c632e616374696f6e2e616374697665203d2074727565
+│ -3b0d0a202063616c632e6e756d32416374697665203d20747275653b0d0a7d29
+│ -3b0d0a0d0a2f2f204320627574746f6e0d0a63616c632e636c6561722e616464
+│ -4576656e744c697374656e65722827636c69636b272c202829203d3e207b0d0a
+│ -2020636c656172446973706c617928293b0d0a7d293b0d0a
+│ +6c656e6774682d31293b0a202020207d20656c7365207b0a2020202020206361
+│ +6c632e6e756d32203d202730273b0a202020207d0a20207d0a20207570646174
+│ +65446973706c61794d61696e28293b0a7d293b0a0a2f2f203d20627574746f6e
+│ +0a63616c632e657175616c2e6164644576656e744c697374656e65722827636c
+│ +69636b272c202829203d3e207b0a202063616c632e657175616c4c617374203d
+│ +20747275653b0a0a202069662863616c632e6e756d32203d3d2027302729207b
+│ +0a2020202063616c632e6e756d32203d2063616c632e726573756c743b0a2020
+│ +7d0a0a20202f2f207570646174652065787072657373696f6e0a202063616c63
+│ +2e65787072657373696f6e203d2060247b63616c632e726573756c747d20247b
+│ +63616c632e6f70657261746f727d20247b63616c632e6e756d327d603b0a2020
+│ +757064617465446973706c617945787072657373696f6e28293b0a0a20202f2f
+│ +20706572666f726d2063616c63756c6174696f6e0a202063616c632e72657375
+│ +6c74203d2063616c63756c617465286368616e676553796d626f6c73546f4e6f
+│ +726d616c2863616c632e6f70657261746f72292c2063616c632e6e756d312c20
+│ +63616c632e6e756d32293b0a20200a20202f2f2075706461746573206d61696e
+│ +20646973706c617920746f2073686f7720726573756c740a202063616c632e64
+│ +6973706c61794d61696e2e696e6e657254657874203d2063616c632e72657375
+│ +6c742e746f4c6f63616c65537472696e67286e6176696761746f722e6c616e67
+│ +756167652c207b0a202020206d696e696d756d4672616374696f6e4469676974
+│ +733a20302c0a202020206d6178696d756d4672616374696f6e4469676974733a
+│ +20380a20207d293b0a20200a202063616c632e6e756d31203d2063616c632e72
+│ +6573756c743b0a202063616c632e616374696f6e2e616374697665203d207472
+│ +75653b0a202063616c632e6e756d32416374697665203d20747275653b0a7d29
+│ +3b0a0a2f2f204320627574746f6e0a63616c632e636c6561722e616464457665
+│ +6e744c697374656e65722827636c69636b272c202829203d3e207b0a2020636c
+│ +656172446973706c617928293b0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/calc-2000/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │          "32": "icon_32.png",
+│ │          "48": "icon_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Calc 2000",
+│ │      "offline_enabled": true,
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

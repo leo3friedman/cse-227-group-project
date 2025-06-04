@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/FRSH-PriceView
+├── file list
+│ @@ -1,10 +1,14 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +Media
+│ +README.md
+│  background.js
+│  images
+│  installed.html
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/FRSH-PriceView/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -59,10 +59,9 @@
+│ │      "name": "FRSH PriceView",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "tabs",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.73.5"
+│ │  }

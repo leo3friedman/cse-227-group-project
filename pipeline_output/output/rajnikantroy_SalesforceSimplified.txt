@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SalesforceSimplified
+├── file list
+│ @@ -1,8 +1,11 @@
+│ +.DS_Store
+│ +.git
+│ +.vscode
+│  LICENSE
+│  README.md
+│ -_metadata
+│  css
+│  img
+│  index.js
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/SalesforceSimplified/img
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  change.png
+│ │  clone.png
+│ │  download.png
+│ │  edit.png
+│ │  icons
+│ │  loading.gif
+│ │  loadingcar.gif
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/SalesforceSimplified/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/angular
+│ ├── +++ /workspace/pipeline_output/SalesforceSimplified/js/angular
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,5 @@
+│ │ │ +.DS_Store
+│ │ │  angular.min.js
+│ │ │  controllers
+│ │ │  directives
+│ │ │  services

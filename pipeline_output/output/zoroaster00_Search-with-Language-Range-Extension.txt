@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Search-with-Language-Range-Extension
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Search-with-Language-Range-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      "name": "__MSG_ext_name__",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "*://www.google.com/search?*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.4"
+│ │  }

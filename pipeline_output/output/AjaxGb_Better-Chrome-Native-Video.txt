@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Better-Chrome-Native-Video
+├── file list
+│ @@ -1,15 +1,16 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│  icon64.png
+│  manifest.json
+│  options.css
+│  options.html
+│  options.js
+│ +package-lock.json
+│  page.js
+│  service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Better-Chrome-Native-Video/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,10 +30,9 @@
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "__MSG_shrtExtName__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.1.5"
+│ │  }

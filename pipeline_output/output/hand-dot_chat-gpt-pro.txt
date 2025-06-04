@@ -1,0 +1,151 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chat-gpt-pro
+├── file list
+│ @@ -1,6 +1,11 @@
+│ -_metadata
+│ -assets
+│ -icon.png
+│ +.git
+│ +.gitignore
+│ +LICENSE.txt
+│ +README.md
+│  manifest.json
+│ -service-worker-loader.js
+│ -vite.svg
+│ +package-lock.json
+│ +package.json
+│ +public
+│ +src
+│ +tsconfig.json
+│ +vite.config.ts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chat-gpt-pro/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,19 +1,16 @@
+│ │  {
+│ │      "background": {
+│ │ -        "service_worker": "service-worker-loader.js",
+│ │ +        "service_worker": "src/background.ts",
+│ │          "type": "module"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "assets/content-17b9340d.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "assets/content.tsx-loader-6968aff9.js"
+│ │ +                "src/content.tsx"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://chat.openai.com/*"
+│ │              ],
+│ │              "run_at": "document_idle"
+│ │          }
+│ │      ],
+│ │ @@ -25,104 +22,9 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "notifications",
+│ │          "webRequest",
+│ │          "*://chat.openai.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0.8",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "https://chat.openai.com/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "assets/codicon-9420d58f.ttf",
+│ │ -                "assets/codicon-ff6b888d.ttf",
+│ │ -                "assets/markdown-e0f119d5.js",
+│ │ -                "assets/tsMode-a0faa3e5.js",
+│ │ -                "assets/cssMode-96a66d21.js",
+│ │ -                "assets/jsonMode-60d48d73.js",
+│ │ -                "assets/htmlMode-1e991c15.js",
+│ │ -                "assets/abap-ffbe9c82.js",
+│ │ -                "assets/apex-9370f1bb.js",
+│ │ -                "assets/azcli-714c239b.js",
+│ │ -                "assets/bat-7eb152e5.js",
+│ │ -                "assets/bicep-0e2809f7.js",
+│ │ -                "assets/cameligo-91a865e0.js",
+│ │ -                "assets/clojure-7e0f8eaa.js",
+│ │ -                "assets/coffee-af1c6ca9.js",
+│ │ -                "assets/cpp-d3907575.js",
+│ │ -                "assets/csharp-d087d64c.js",
+│ │ -                "assets/csp-13ea92a6.js",
+│ │ -                "assets/css-e979702d.js",
+│ │ -                "assets/dart-0a096fe0.js",
+│ │ -                "assets/dockerfile-af4eb422.js",
+│ │ -                "assets/ecl-8f5b983c.js",
+│ │ -                "assets/elixir-82a0fd91.js",
+│ │ -                "assets/flow9-47a350b0.js",
+│ │ -                "assets/fsharp-de5183ae.js",
+│ │ -                "assets/go-a9169306.js",
+│ │ -                "assets/graphql-e84c0b6e.js",
+│ │ -                "assets/handlebars-10f44489.js",
+│ │ -                "assets/hcl-3a006f6b.js",
+│ │ -                "assets/html-61772541.js",
+│ │ -                "assets/ini-53b87513.js",
+│ │ -                "assets/java-58c1a618.js",
+│ │ -                "assets/javascript-4478320d.js",
+│ │ -                "assets/julia-5f2fc018.js",
+│ │ -                "assets/kotlin-2e32535a.js",
+│ │ -                "assets/less-00089e91.js",
+│ │ -                "assets/lexon-22a22ba3.js",
+│ │ -                "assets/lua-04a273a9.js",
+│ │ -                "assets/liquid-47f38ae7.js",
+│ │ -                "assets/m3-b6e0b0fd.js",
+│ │ -                "assets/markdown-c2ea92f4.js",
+│ │ -                "assets/mips-daa25bd4.js",
+│ │ -                "assets/msdax-c6fa6f2f.js",
+│ │ -                "assets/mysql-788d9472.js",
+│ │ -                "assets/objective-c-9e968999.js",
+│ │ -                "assets/pascal-e017ea4d.js",
+│ │ -                "assets/pascaligo-bf7e3de8.js",
+│ │ -                "assets/perl-2762c71f.js",
+│ │ -                "assets/pgsql-cb741fab.js",
+│ │ -                "assets/php-df365951.js",
+│ │ -                "assets/pla-6c133053.js",
+│ │ -                "assets/postiats-b245e70f.js",
+│ │ -                "assets/powerquery-6b7a9cc4.js",
+│ │ -                "assets/powershell-50bb8773.js",
+│ │ -                "assets/protobuf-0ee314a2.js",
+│ │ -                "assets/pug-409e523c.js",
+│ │ -                "assets/python-b4f02029.js",
+│ │ -                "assets/qsharp-9951b04a.js",
+│ │ -                "assets/r-c34a576e.js",
+│ │ -                "assets/razor-66587a02.js",
+│ │ -                "assets/redis-1a5ba628.js",
+│ │ -                "assets/redshift-2c383c33.js",
+│ │ -                "assets/restructuredtext-4a10ef1d.js",
+│ │ -                "assets/ruby-944f56a1.js",
+│ │ -                "assets/rust-b0440aa9.js",
+│ │ -                "assets/sb-f3b34295.js",
+│ │ -                "assets/scala-7c17b334.js",
+│ │ -                "assets/scheme-f75b8a9a.js",
+│ │ -                "assets/scss-833c0e23.js",
+│ │ -                "assets/shell-4657d8a1.js",
+│ │ -                "assets/solidity-62f35cba.js",
+│ │ -                "assets/sophia-94cd0024.js",
+│ │ -                "assets/sparql-23f0115e.js",
+│ │ -                "assets/sql-9ac813b8.js",
+│ │ -                "assets/st-4d0d15a1.js",
+│ │ -                "assets/swift-11c0de91.js",
+│ │ -                "assets/systemverilog-416dd7b8.js",
+│ │ -                "assets/tcl-838585b9.js",
+│ │ -                "assets/twig-1b470482.js",
+│ │ -                "assets/typescript-77316740.js",
+│ │ -                "assets/vb-2f676a0c.js",
+│ │ -                "assets/xml-6165fd6a.js",
+│ │ -                "assets/yaml-e83d14b1.js",
+│ │ -                "assets/content.tsx-12778e58.js"
+│ │ -            ],
+│ │ -            "use_dynamic_url": true
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "1.0.8"
+│ │  }

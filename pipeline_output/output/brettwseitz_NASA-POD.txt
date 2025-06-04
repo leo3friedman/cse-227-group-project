@@ -1,0 +1,102 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NASA-POD
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│  128.png
+│  16.png
+│  32.png
+│  48.png
+│ -_metadata
+│ +README.md
+│  app.js
+│  index.html
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/app.js
+├── +++ /workspace/pipeline_output/NASA-POD/app.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,7 +1,7 @@
+│  7661722075726c203d202268747470733a2f2f6170692e6e6173612e676f762f
+│  706c616e65746172792f61706f643f6170695f6b65793d436b69354654315549
+│  513356336c416d303765524a554b4f356d694970726c77346b72427a304e3422
+│ -3b0d0a0d0a0d0a242e616a6178287b0d0a2020202075726c3a2075726c2c0d0a
+│ -20202020737563636573733a2066756e6374696f6e2028726573756c7429207b
+│ -0d0a20202020202020202428222361706f645f696d675f696422292e61747472
+│ -2822737263222c20726573756c742e75726c293b0d0a202020207d0d0a7d293b
+│ +3b0a0a0a242e616a6178287b0a2020202075726c3a2075726c2c0a2020202073
+│ +7563636573733a2066756e6374696f6e2028726573756c7429207b0a20202020
+│ +202020202428222361706f645f696d675f696422292e61747472282273726322
+│ +2c20726573756c742e75726c293b0a202020207d0a7d293b
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/NASA-POD/index.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,26 +1,26 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -
+│ -<head>
+│ -    <meta charset="utf-8">
+│ -    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+│ -    <title>New Tab</title>
+│ -    <style>
+│ -        body {
+│ -            background: black;
+│ -        }
+│ -        img {
+│ -            position: absolute;
+│ -            height: 100%;
+│ -            width: 100%;
+│ -        }
+│ -    </style>
+│ -</head>
+│ -
+│ -<body>
+│ -    <img id="apod_img_id"></img>
+│ -    <script type="text/javascript" src="app.js"></script>
+│ -    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+│ -</body>
+│ -
+│ +<!DOCTYPE html>
+│ +<html>
+│ +
+│ +<head>
+│ +    <meta charset="utf-8">
+│ +    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+│ +    <title>New Tab</title>
+│ +    <style>
+│ +        body {
+│ +            background: black;
+│ +        }
+│ +        img {
+│ +            position: absolute;
+│ +            height: 100%;
+│ +            width: 100%;
+│ +        }
+│ +    </style>
+│ +</head>
+│ +
+│ +<body>
+│ +    <img id="apod_img_id"></img>
+│ +    <script type="text/javascript" src="app.js"></script>
+│ +    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+│ +</body>
+│ +
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NASA-POD/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │          "128": "128.png",
+│ │          "16": "16.png",
+│ │          "32": "32.png",
+│ │          "48": "48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "NASA Picture of the Day Tab",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

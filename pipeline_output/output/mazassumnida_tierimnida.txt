@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/tierimnida
+├── file list
+│ @@ -1,12 +1,16 @@
+│ +.git
+│ +.gitignore
+│ +.prettierrc
+│  README.md
+│ -_metadata
+│  icon.png
+│  icon_popup.png
+│  index.html
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│  package.json
+│  popup.html
+│  scripts
+│  style.css
+│  ts
+│  tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/tierimnida/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "page_action": {
+│ │          "default_icon": "icon.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0"
+│ │  }

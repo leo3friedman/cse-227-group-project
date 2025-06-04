@@ -1,0 +1,139 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DogOnDemand
+├── file list
+│ @@ -1,15 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ -image-scale.js
+│ -jquery-3.3.1.min.js
+│  manifest.json
+│ -options.html
+│ -options.js
+│ -pawpattern.jpg
+│ -popup.css
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/DogOnDemand/README.md
+│ @@ -1,14 +1,7 @@
+│ -# Dog On Demand
+│ -A chrome extension that displays a random dog photo whenever clicked. For Sam.
+│ -
+│ -## Goal
+│ -Sam loves dachshunds. I like to send her dachshund photos. It's getting harder to find new photos because I just look through Google Images. I wanted a way for her to find a really random picture of her favorite breed when she's frustrated with homework, or has puppy fever.
+│ -
+│ -I also wanted to learn how to create a Chrome extension, because Antriksh Yadav suggested it as a good first personal project at his blog [here](http://antrikshy.com/blog/how-i-got-started-with-programming-side-projects).
+│ -
+│ -## The Extension
+│ -When the app icon is clicked, Dog On Demand displays a popup with a random picture of a dog of a specified breed, which is specified in the Extension's options (found by right-clicking the extension icon).
+│ -
+│ -## Credits
+│ -All dog images are retrieved using the [Dog API](https://dog.ceo/).
+│ -All images are resized using the jquery script from [image-scale by gestixi](https://github.com/gestixi/image-scale).
+│ +# Dachshund On Demand
+│ +A chrome extension that displays a random dachshund photo whenever clicked. For Sam.
+│ +
+│ +## Goal
+│ +Sam loves dachshunds. I like to send her dachshund photos. It's getting harder to find new photos because I just look through Google Images. I want a way for her to find a really random picture of her favorite breed when she's frustrated with homework, or has puppy fever.
+│ +
+│ +I also want to learn how to create a Chrome extension, because Antriksh Yadav suggested it as a good first personal project at his blog [here](http://antrikshy.com/blog/how-i-got-started-with-programming-side-projects).
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/DogOnDemand/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,6 +0,0 @@
+│ -6368726f6d652e72756e74696d652e6f6e496e7374616c6c65642e6164644c69
+│ -7374656e65722866756e6374696f6e2829207b0a096368726f6d652e73746f72
+│ -6167652e73796e632e736574287b62726565643a2027646163687368756e6427
+│ -7d2c2066756e6374696f6e2829207b0a0909636f6e736f6c652e6c6f67282754
+│ -686520627265656420697320646163687368756e6427293b0a097d293b0a7d29
+│ -3b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DogOnDemand/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,25 +1,9 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "persistent": false,
+│ │ -        "scripts": [
+│ │ -            "background.js"
+│ │ -        ]
+│ │ -    },
+│ │      "browser_action": {
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ -    "description": "Get a dog pic whenever you want!",
+│ │ -    "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ -    },
+│ │ +    "description": "Get a dachshund pic whenever you want!",
+│ │      "manifest_version": 2,
+│ │ -    "name": "Dog on Demand",
+│ │ -    "options_page": "options.html",
+│ │ -    "permissions": [
+│ │ -        "storage"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "Dachshund on Demand",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/DogOnDemand/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,14 +1,7 @@
+│  <!DOCTYPE html>
+│  <html>
+│ -	<head>
+│ -		<link rel="stylesheet" href="popup.css">
+│ -	</head>
+│  	<body>
+│ -		<div class="container">
+│ -		<img class="scale" id="puppyPhoto" data-scale="best-fit-down" data-align="center" src=""></img>
+│ -		</div>
+│ -		<script src="popup.js"></script>
+│ -		<script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+│ -		<script src="image-scale.js" type="text/javascript"></script>
+│ +		<img id="puppyPhoto" src="https://loremflickr.com/320/420/dachshund,weiner-dog"></img>
+│ +		<p>Hi!</p>
+│  	</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/DogOnDemand/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,21 +1,6 @@
+│ -6c657420707570707950686f746f203d20646f63756d656e742e676574456c65
+│ -6d656e74427949642827707570707950686f746f27293b0a0a76617220726571
+│ -75657374203d206e657720584d4c487474705265717565737428293b0a0a6368
+│ -726f6d652e73746f726167652e73796e632e67657428276272656564272c2066
+│ -756e6374696f6e286461746129207b0a096c657420646f6742726565643b0a09
+│ -69662028646174612e6272656564203d3d2027616c6c20627265656473272920
+│ -7b0a0909646f674272656564203d202768747470733a2f2f646f672e63656f2f
+│ -6170692f6272656564732f696d6167652f72616e646f6d273b0a097d0a09656c
+│ -7365207b0a0909646f674272656564203d202768747470733a2f2f646f672e63
+│ -656f2f6170692f62726565642f27202b20646174612e6272656564202b20272f
+│ -696d616765732f72616e646f6d273b0a097d0a09726571756573742e6f70656e
+│ -2827474554272c20646f6742726565642c2074727565293b0a0a097265717565
+│ -73742e6f6e6c6f6164203d2066756e6374696f6e2829207b0a09097661722064
+│ -617461203d204a534f4e2e706172736528746869732e726573706f6e7365293b
+│ -0a0a090969662028726571756573742e737461747573203e3d20323030202626
+│ -20726571756573742e737461747573203c2034303029207b0a09090970757070
+│ -7950686f746f2e737263203d20646174612e6d6573736167653b0a0909092428
+│ -66756e6374696f6e2829207b0a09090909242822696d672e7363616c6522292e
+│ -696d6167655363616c6528293b0a0909097d293b0a09097d0a0909656c736520
+│ -7b0a090909636f6e736f6c652e6c6f6728276572726f7227293b0a09097d0a09
+│ -7d0a0a09726571756573742e73656e6428293b0a7d293b0a0a
+│ +6c657420696d616765203d20646f63756d656e742e676574456c656d656e7442
+│ +7949642827707570707950686f746f27293b0a696d6167652e737263203d2022
+│ +68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f63646e2d6f7269
+│ +67696e2d6574722e616b632e6f72672f77702d636f6e74656e742f75706c6f61
+│ +64732f323031372f31312f31323233343131362f446163687368756e642d4d50
+│ +2e6a7067223b0a

@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/workflowyCodeFormatter
+├── file list
+│ @@ -1,15 +1,18 @@
+│ +.git
+│ +.gitignore
+│ +.gitmodules
+│  LICENSE
+│  README.md
+│ -_metadata
+│  after_WCF__1.jpg
+│  after_WCF__2.jpg
+│  assets
+│  before_WCF__1.jpg
+│  before_WCF__2.jpg
+│  manifest.json
+│ +package-lock.json
+│  submodule_update.cmd
+│  wcf_icon.png
+│  wcf_largeTile.png
+│  wcf_marquee.png
+│  wcf_smallTile.png
+│  workflowyCodeFormatter.js
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/workflowyCodeFormatter/assets
+│ │   --- /workspace/pipeline_output/chromex_data/assets/codeFormatter
+│ ├── +++ /workspace/pipeline_output/workflowyCodeFormatter/assets/codeFormatter
+│ │ ├── file list
+│ │ │ @@ -1,5 +0,0 @@
+│ │ │ -LICENSE
+│ │ │ -README.md
+│ │ │ -codeFormatter.js
+│ │ │ -demo.js
+│ │ │ -index.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/workflowyCodeFormatter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      ],
+│ │      "description": "Makes backtick wrapped text look like code! {openSource}",
+│ │      "icons": {
+│ │          "128": "wcf_icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "WorkFlowy code formatter",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.3"
+│ │  }

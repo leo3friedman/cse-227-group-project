@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/pixel2rem
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│ +.vscode
+│  img
+│  index.html
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/pixel2rem/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │          "128": "img/maximize.png",
+│ │          "16": "img/maximize.png",
+│ │          "32": "img/maximize.png",
+│ │          "48": "img/maximize.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Pixel to REM",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

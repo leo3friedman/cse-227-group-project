@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Outdated-Doc-Detector
+├── file list
+│ @@ -1,16 +1,18 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  README_zh_CN.md
+│  _locales
+│ -_metadata
+│  analyzer.js
+│  background.js
+│  contentScript.js
+│  default-128.png
+│  icons
+│  manifest.json
+│  options.html
+│  options.js
+│  oudated-128.png
+│ +package-lock.json
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +webstore
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Outdated-Doc-Detector/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -45,10 +45,9 @@
+│ │      "name": "__MSG_extName__",
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }

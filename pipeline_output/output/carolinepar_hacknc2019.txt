@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/hacknc2019
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  cwicon128.png
+│  cwicon16.png
+│  cwicon48.png
+│  interface.css
+│  interface.html
+│  interfaceScript.js
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/hacknc2019/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,21 +17,20 @@
+│ │                  "script.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.facebook.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "A filtering system for Facebook users that removes content containing custom defined subjects and keywords.",
+│ │ +    "description": "HackNC2019",
+│ │      "icons": {
+│ │          "128": "cwicon128.png",
+│ │          "16": "cwicon16.png",
+│ │          "48": "cwicon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "content warning",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.7"
+│ │  }

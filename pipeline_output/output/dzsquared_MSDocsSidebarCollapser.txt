@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/MSDocsSidebarCollapser
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  buttonActions.js
+│  fullWidth.js
+│  icons
+│  images
+│  jquery.js
+│ -manifest.json
+│ +manifest.json
+│ +notes.txt
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/MSDocsSidebarCollapser/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,14 +17,13 @@
+│ │          "128": "icons/logoIcon128.png",
+│ │          "16": "icons/logoIcon16.png",
+│ │          "32": "icons/logoIcon32.png",
+│ │          "48": "icons/logoIcon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Docs Fullview",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3.0",
+│ │      "web_accessible_resources": [
+│ │          "jquery.js",
+│ │          "buttonActions.js"
+│ │      ]
+│ │  }

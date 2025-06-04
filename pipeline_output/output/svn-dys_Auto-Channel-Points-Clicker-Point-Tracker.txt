@@ -1,0 +1,301 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Auto-Channel-Points-Clicker-Point-Tracker
+├── file list
+│ @@ -1,5 +1,7 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Auto-Channel-Points-Clicker-Point-Tracker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Twitch Auto Points Clicker & Point Tracker",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.7"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/Auto-Channel-Points-Clicker-Point-Tracker/src
+│ │   --- /workspace/pipeline_output/chromex_data/src/popup.css
+│ ├── +++ /workspace/pipeline_output/Auto-Channel-Points-Clicker-Point-Tracker/src/popup.css
+│ │┄ Ordering differences only
+│ │ @@ -1,104 +1,104 @@
+│ │ +body {
+│ │ +    margin: 0;
+│ │ +    padding: 0;
+│ │ +    display: unset;
+│ │ +}
+│ │ +
+│ │ +.container {
+│ │ +    display: grid;
+│ │ +    grid-template-columns: repeat(1, 1fr);
+│ │ +    grid-template-rows: 1fr 1fr 2fr;
+│ │ +    grid-template-areas: 
+│ │ +        "header"
+│ │ +        "mid"
+│ │ +        "footer";
+│ │ +    justify-items: center;
+│ │ +    width: 350px;
+│ │ +    height: 100px;   
+│ │ +}
+│ │ +
+│ │ +.footer-container {
+│ │ +    width: 100%;
+│ │ +    mix-blend-mode: screen;
+│ │ +    background: linear-gradient(62deg, #e7a105, #c212c8, #00e4c1);
+│ │ +    background-size: 200% 200%;
+│ │ +    -webkit-mask-image: linear-gradient(to top, #202020 79%, transparent 95%);
+│ │ +    mask-image: linear-gradient(to top, #202020 79%, transparent 95%);
+│ │ +    -webkit-animation: ColorMixer 16s ease infinite;
+│ │ +    -moz-animation: ColorMixer 16s ease infinite;
+│ │ +    animation: ColorMixer 16s ease infinite;
+│ │ +}
+│ │ +
+│ │ +@-webkit-keyframes ColorMixer {
+│ │ +    0%{background-position:0% 97%}
+│ │ +    50%{background-position:100% 4%}
+│ │ +    100%{background-position:0% 97%}
+│ │ +}
+│ │ +@-moz-keyframes ColorMixer {
+│ │ +    0%{background-position:0% 97%}
+│ │ +    50%{background-position:100% 4%}
+│ │ +    100%{background-position:0% 97%}
+│ │ +}
+│ │ +@keyframes ColorMixer {
+│ │ +    0%{background-position:0% 97%}
+│ │ +    50%{background-position:100% 4%}
+│ │ +    100%{background-position:0% 97%}
+│ │ +}
+│ │ +
+│ │ +@media (prefers-color-scheme: dark) {
+│ │ +    .container {
+│ │ +        background-color: #202020;
+│ │ +    }
+│ │ +
+│ │ +    .title-text {
+│ │ +        color: white;
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +@media (prefers-color-scheme: light) {
+│ │ +    .title-text {
+│ │ +        color: black;
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +.container > .github-icon {
+│ │ +    grid-area: header;
+│ │ +    justify-self: left;
+│ │ +    margin-top: 2px;
+│ │ +    margin-left: 2px;
+│ │ +    margin-right: 2px;
+│ │ +}
+│ │ +
+│ │ +.container > .webstore-icon {
+│ │ +    grid-area: header;
+│ │ +    justify-self: left;
+│ │ +    margin-left: 33px;
+│ │ +    margin-top: 6px;
+│ │ +}
+│ │ +
+│ │ +.container > .twitch-loot-icon {
+│ │ +    grid-area: header;
+│ │ +    justify-self: center;
+│ │ +    margin-top: 5px;
+│ │ +}
+│ │ +
+│ │ +.title-text {
+│ │ +    letter-spacing: 0.2px;
+│ │ +    margin-top: 6px;
+│ │ +    font-size: 16px;
+│ │ +    font-weight: 550;
+│ │ +}
+│ │ +
+│ │ +.num-points-text {
+│ │ +    font-size: 13px;
+│ │ +    text-align: center;
+│ │ +    letter-spacing: 0.04px;
+│ │ +    font-weight: 550;
+│ │ +    padding-top: 14px;
+│ │ +    color: white;
+│ │ +    cursor: pointer;
+│ │ +}
+│ │ +
+│ │ +.num-points-text, .title-text {
+│ │ +    font-family: Arial, Helvetica, sans-serif;
+│ │ -body {
+│ │ -    margin: 0;
+│ │ -    padding: 0;
+│ │ -    display: unset;
+│ │ -}
+│ │ -
+│ │ -.container {
+│ │ -    display: grid;
+│ │ -    grid-template-columns: repeat(1, 1fr);
+│ │ -    grid-template-rows: 1fr 1fr 2fr;
+│ │ -    grid-template-areas: 
+│ │ -        "header"
+│ │ -        "mid"
+│ │ -        "footer";
+│ │ -    justify-items: center;
+│ │ -    width: 350px;
+│ │ -    height: 100px;   
+│ │ -}
+│ │ -
+│ │ -.footer-container {
+│ │ -    width: 100%;
+│ │ -    mix-blend-mode: screen;
+│ │ -    background: linear-gradient(62deg, #e7a105, #c212c8, #00e4c1);
+│ │ -    background-size: 200% 200%;
+│ │ -    -webkit-mask-image: linear-gradient(to top, #202020 79%, transparent 95%);
+│ │ -    mask-image: linear-gradient(to top, #202020 79%, transparent 95%);
+│ │ -    -webkit-animation: ColorMixer 16s ease infinite;
+│ │ -    -moz-animation: ColorMixer 16s ease infinite;
+│ │ -    animation: ColorMixer 16s ease infinite;
+│ │ -}
+│ │ -
+│ │ -@-webkit-keyframes ColorMixer {
+│ │ -    0%{background-position:0% 97%}
+│ │ -    50%{background-position:100% 4%}
+│ │ -    100%{background-position:0% 97%}
+│ │ -}
+│ │ -@-moz-keyframes ColorMixer {
+│ │ -    0%{background-position:0% 97%}
+│ │ -    50%{background-position:100% 4%}
+│ │ -    100%{background-position:0% 97%}
+│ │ -}
+│ │ -@keyframes ColorMixer {
+│ │ -    0%{background-position:0% 97%}
+│ │ -    50%{background-position:100% 4%}
+│ │ -    100%{background-position:0% 97%}
+│ │ -}
+│ │ -
+│ │ -@media (prefers-color-scheme: dark) {
+│ │ -    .container {
+│ │ -        background-color: #202020;
+│ │ -    }
+│ │ -
+│ │ -    .title-text {
+│ │ -        color: white;
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -@media (prefers-color-scheme: light) {
+│ │ -    .title-text {
+│ │ -        color: black;
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -.container > .github-icon {
+│ │ -    grid-area: header;
+│ │ -    justify-self: left;
+│ │ -    margin-top: 2px;
+│ │ -    margin-left: 2px;
+│ │ -    margin-right: 2px;
+│ │ -}
+│ │ -
+│ │ -.container > .webstore-icon {
+│ │ -    grid-area: header;
+│ │ -    justify-self: left;
+│ │ -    margin-left: 33px;
+│ │ -    margin-top: 6px;
+│ │ -}
+│ │ -
+│ │ -.container > .twitch-loot-icon {
+│ │ -    grid-area: header;
+│ │ -    justify-self: center;
+│ │ -    margin-top: 5px;
+│ │ -}
+│ │ -
+│ │ -.title-text {
+│ │ -    letter-spacing: 0.2px;
+│ │ -    margin-top: 6px;
+│ │ -    font-size: 16px;
+│ │ -    font-weight: 550;
+│ │ -}
+│ │ -
+│ │ -.num-points-text {
+│ │ -    font-size: 13px;
+│ │ -    text-align: center;
+│ │ -    letter-spacing: 0.04px;
+│ │ -    font-weight: 550;
+│ │ -    padding-top: 14px;
+│ │ -    color: white;
+│ │ -    cursor: pointer;
+│ │ -}
+│ │ -
+│ │ -.num-points-text, .title-text {
+│ │ -    font-family: Arial, Helvetica, sans-serif;
+│ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/src/restore-points.js
+│ ├── +++ /workspace/pipeline_output/Auto-Channel-Points-Clicker-Point-Tracker/src/restore-points.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,29 +1,28 @@
+│ │ +66756e6374696f6e206b466f726d6174746572286e756d29207b0a2020202072
+│ │ +657475726e204d6174682e616273286e756d29203e20393939203f204d617468
+│ │ +2e7369676e286e756d292a28284d6174682e616273286e756d292f3130303029
+│ │ +2e746f466978656428312929202b20276b27203a204d6174682e7369676e286e
+│ │ +756d292a4d6174682e616273286e756d290a7d0a0a646f63756d656e742e6164
+│ │ +644576656e744c697374656e65722822444f4d436f6e74656e744c6f61646564
+│ │ +222c202829203d3e20207b0a202020206368726f6d652e73746f726167652e73
+│ │ +796e632e676574285b22706f696e7473225d2c2028726573756c7429203d3e20
+│ │ +7b0a2020202020202020636f6e7374204e554d5f504f494e54535f454c454d45
+│ │ +4e54203d20646f63756d656e742e676574456c656d656e74734279436c617373
+│ │ +4e616d6528226e756d2d706f696e74732d7465787422295b305d3b0a20202020
+│ │ +20202020636f6e737420504f494e54535f475241424245445f535452494e4720
+│ │ +3d2022506f696e7473206772616262656420627920657874656e73696f6e3a22
+│ │ +3b0a2020202020202020636f6e737420464f524d41545445445f504f494e5453
+│ │ +203d206b466f726d617474657228726573756c742e706f696e7473293b0a2020
+│ │ +202020202020636f6e737420554e464f524d41745445445f504f494e5453203d
+│ │ +20726573756c742e706f696e74733b0a20202020202020206c657420626f7474
+│ │ +6f6d5f74657874203d20504f494e54535f475241424245445f535452494e4720
+│ │ +2b20222022202b20464f524d41545445445f504f494e54533b0a202020202020
+│ │ +20200a20202020202020204e554d5f504f494e54535f454c454d454e542e696e
+│ │ +6e657248544d4c203d20626f74746f6d5f746578743b0a20202020202020204e
+│ │ +554d5f504f494e54535f454c454d454e542e7469746c65203d2060546f74616c
+│ │ +20706f696e74732067726162626564206279207468697320657874656e73696f
+│ │ +6e206174207477697463682e74760a20202020202020200a546f74616c20506f
+│ │ +696e74733a20247b554e464f524d41745445445f504f494e54537d5c6e5c6e60
+│ │ +0a20202020202020200a2020202020202020636f6e736f6c652e6c6f67282250
+│ │ +6f696e747320726573746f7265643a222c20554e464f524d41745445445f504f
+│ │ +494e5453293b0a202020207d293b0a7d293b0a
+│ │ -66756e6374696f6e206b466f726d6174746572286e756d29207b0d0a20202020
+│ │ -72657475726e204d6174682e616273286e756d29203e20393939203f204d6174
+│ │ -682e7369676e286e756d292a28284d6174682e616273286e756d292f31303030
+│ │ -292e746f466978656428312929202b20276b27203a204d6174682e7369676e28
+│ │ -6e756d292a4d6174682e616273286e756d290d0a7d0d0a0d0a646f63756d656e
+│ │ -742e6164644576656e744c697374656e65722822444f4d436f6e74656e744c6f
+│ │ -61646564222c202829203d3e20207b0d0a202020206368726f6d652e73746f72
+│ │ -6167652e73796e632e676574285b22706f696e7473225d2c2028726573756c74
+│ │ -29203d3e207b0d0a2020202020202020636f6e7374204e554d5f504f494e5453
+│ │ -5f454c454d454e54203d20646f63756d656e742e676574456c656d656e747342
+│ │ -79436c6173734e616d6528226e756d2d706f696e74732d7465787422295b305d
+│ │ -3b0d0a2020202020202020636f6e737420504f494e54535f475241424245445f
+│ │ -535452494e47203d2022506f696e747320677261626265642062792065787465
+│ │ -6e73696f6e3a223b0d0a2020202020202020636f6e737420464f524d41545445
+│ │ -445f504f494e5453203d206b466f726d617474657228726573756c742e706f69
+│ │ -6e7473293b0d0a2020202020202020636f6e737420554e464f524d4174544544
+│ │ -5f504f494e5453203d20726573756c742e706f696e74733b0d0a202020202020
+│ │ -20206c657420626f74746f6d5f74657874203d20504f494e54535f4752414242
+│ │ -45445f535452494e47202b20222022202b20464f524d41545445445f504f494e
+│ │ -54533b0d0a20202020202020200d0a20202020202020204e554d5f504f494e54
+│ │ -535f454c454d454e542e696e6e657248544d4c203d20626f74746f6d5f746578
+│ │ -743b0d0a20202020202020204e554d5f504f494e54535f454c454d454e542e74
+│ │ -69746c65203d2060546f74616c20706f696e7473206772616262656420627920
+│ │ -7468697320657874656e73696f6e206174207477697463682e74760d0a202020
+│ │ -20202020200d0a546f74616c20506f696e74733a20247b554e464f524d417454
+│ │ -45445f504f494e54537d5c6e5c6e600d0a20202020202020200d0a2020202020
+│ │ -202020636f6e736f6c652e6c6f672822506f696e747320726573746f7265643a
+│ │ -222c20554e464f524d41745445445f504f494e5453293b0d0a202020207d293b
+│ │ -0d0a7d293b0d0a

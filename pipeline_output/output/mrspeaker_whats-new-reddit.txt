@@ -1,0 +1,45 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/whats-new-reddit
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  Settings.js
+│ -_metadata
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  styles.css
+│  whats-new-reddit.js
+│  wnr-48.png
+│  wnr-96.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/whats-new-reddit/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,8 +1,13 @@
+│ │  {
+│ │ +    "applications": {
+│ │ +        "gecko": {
+│ │ +            "id": "{47995de1-53cb-44e2-b774-6fd431876836}"
+│ │ +        }
+│ │ +    },
+│ │      "author": "Mr Speaker",
+│ │      "content_scripts": [
+│ │          {
+│ │              "css": [
+│ │                  "styles.css"
+│ │              ],
+│ │              "js": [
+│ │ @@ -26,10 +31,9 @@
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "WNR",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.15"
+│ │  }

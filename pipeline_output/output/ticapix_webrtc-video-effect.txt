@@ -1,0 +1,103 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/webrtc-video-effect
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│  _metadata
+│  css
+│  effects
+│  gum_hook.js
+│  html
+│  js
+│  lib
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  res
+│   --- /workspace/pipeline_output/chromex_data/_metadata
+├── +++ /workspace/pipeline_output/webrtc-video-effect/_metadata
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +computed_hashes.json
+│ │  verified_contents.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/webrtc-video-effect/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,14 +19,15 @@
+│ │              "matches": [
+│ │                  "*://*/*"
+│ │              ],
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "description": "This extension applies video effects on the camera in WebRTC applications",
+│ │ +    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAomY03VfeKYmpewMFlP1bytO9TxU5NEQHGHX62lIOrgSiPILvAR68oZKbkjs6u4zBDBDbVbWtoQKaS7a2xAIHPTUxJXiLaX2sRk5anVVtFgj/RpJvvymv3sq9Unlb0H8BnuKf4J/dPddevJi5jsXXAjIW14STlQsTyhTFi4cvn5v8E1H9vn0qpnwQKSGry+KApC1lTP+RAgOaxR1cBD9+h7QU3x5m4s2BkQTCGb7HFy7zBodUtgNxFBhh6rOza7+Td//m3stzDpZ5e8h/gcj6JVriD6sy2NVIHLzbbHt7lJQFOKlFCsKHlQG5GA0jyAA2owjPYoWNqa0r7eBBkk2DhQIDAQAB",
+│ │      "manifest_version": 2,
+│ │      "name": "WebRTC video effect",
+│ │      "page_action": {
+│ │          "default_icon": "res/icon_off.png",
+│ │          "default_popup": "html/popup.html",
+│ │          "default_title": "WebRTC Video effect"
+│ │      },
+│   --- /workspace/pipeline_output/chromex_data/res
+├── +++ /workspace/pipeline_output/webrtc-video-effect/res
+│ │   --- /workspace/pipeline_output/chromex_data/res/icon_off.png
+│ ├── +++ /workspace/pipeline_output/webrtc-video-effect/res/icon_off.png
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'sng' not available in path. Falling back to binary comparison. Installing the 'sng' package may produce better output.
+│ │ @@ -1,29 +1,26 @@
+│ │  89504e470d0a1a0a0000000d4948445200000026000000260806000000a83de9
+│ │ +ae000002f7494441545885ed984d6b534114869f9b84d86a5b2de277d59668b5
+│ │ +89682514414114b1abe24629ee44976efc156e5d0bfe0171e146c18f2ab85029
+│ │ +adba5163ada654aaa912d2d6cf985a5b37efc070bd36e9c4e4baf08570cecc9d
+│ │ +99bcf7cc3967ce1d0f773403878014b00af80a8c02f7800f55ac0b80e738af03
+│ │ +380d2c0f7836075c0586aa21167598b316380b345a7d2520263d0224811c9077
+│ │ +2516ab608c1ffdc032e98f819bc0b4ac771038a29d3801bc02665d88f92db619
+│ │ +d80f7401f180376e077aa50f039781ef6aff005e034560a7c87f0426aa21e601
+│ │ +c7648d8408744b7f26bf41a43bb47597ac7e1b13c06ea049eb3e712116913ca0
+│ │ +6df00743023869b5374a666599202ce8650036b99032c462c051b567815b8aaa
+│ │ +82fa76015ba4af909c29b3eeb46450d4564cacddfac32bc000f010b8686d5552
+│ │ +b224d918b0960d43a85466dca2c45aa5db5b80deda38ee6a49130c8932a9a6d3
+│ │ +37de8998b18a176009d3366346255b1408414800dba4bfac86d8a4d5eeb502a0
+│ │ +1b582ffd9de473cb7ffa807dbe80d90e9c52df1c30e84acc2c7a4e390c9d73df
+│ │ +e47b9ef2d379e08b9e278133d61a53c07bb9c406abff0670d79598f1931c9056
+│ │ +bb497f62485f53e234c8cba93baded5fa343dd6018b8ee4aca26f6091853f234
+│ │ +115a14a90701f3de00e3daea16abbfa039030a2667f813aaa7433a2edf0bcaec
+│ │ +7eacb4ca9e42b584fec3151eb057c74e2d30a8d267c98801c78186bfcf0914ad
+│ │ +175c26466a480aaba05c325c2ad85aa041c5654aa747264c62ad22920c280ad2
+│ │ +f524e6016d2292b28ace2044eb49ac1fe8f9c3b31230a2849ea6ce3e96f2b567
+│ │ +808c2a96ac48f58441cc7c5f3c05ee58a5d4a283eb89b172a408895845088358
+│ │ +45d71261e4b13e397946df1059603e4c625356ee5aa7df6195ec23c00bfb088b
+│ │ +5a7711b54011b82f7d5c8668f69da17111dea36309ea6cb1497d507bba3a48ea
+│ │ +f2a62de89e2e0c1f5b00deea775b16ec92b576c89ab97fa1baf8acdbc721b9d6
+│ │ +56201f5344d42a6dfc166d65f053099808f0a8465f36f3ba7174c22f264391a0
+│ │ +5acd45480000000049454e44ae426082
+│ │ -ae0000000473424954080808087c08648800000009704859730000020e000002
+│ │ -0e01daf79f1d0000001974455874536f667477617265007777772e696e6b7363
+│ │ -6170652e6f72679bee3c1a00000316494441545885edd8cf8b1c551007f04fef
+│ │ -0e6bd4241a24fe8c9ab01acdac686409828228624ec18b12bc493c7af1aff0ea
+│ │ -59f01f100f5e14fc11050f2a21512fea1aa31b22d18db26c127fae1b63e2a1aa
+│ │ -e9ce4cbbb3e975663cf885a1eabd7eefcdb7eb55d5ab7e85f6d8844730836bf1
+│ │ -1b8ee17dfcb88e7541d172de0e1cc0550dcfcee3351c6e4b0a265bccb91ecfe1
+│ │ -ca5adf0a3aa94fa08b052cb625d6193ca40ffb7145ea9fe02d9c11d67b188f89
+│ │ -9d780a5fe35c1b62bd16bb150f6217a6f4bff176ec4dfd085ec11fd9fe13df60
+│ │ -197727f99f70723dc40a3c21ac319d0476a7feb9f01b497a87d8ba976bfd759c
+│ │ -c4bdd898eb7eda86d844ca87c436f406c3349eaeb56f4e392f2cd3848be265e0
+│ │ -9636a44a621d3c9eed73785b44d552f6dd83db52bf3ae5d901eb9e49d914b56b
+│ │ -26b6bdf687afe2203ec24baaadeaa65c49598fc826948456561d3580d896d4eb
+│ │ -5b40bc75e9b8d7a52c8361daeaa96667cff856c44aab14fa2d51b6cb31c7526e
+│ │ -1681d08469dc91fa57eb2176aad6deab0a80ddb831f5ef537ea1f29f7d78c0a5
+│ │ -0173279ec9bef338d49658b9e8f3228711e7dcefc2f70a919f5ec0aff9bc8b67
+│ │ -6b6b9cc60fc2256eaaf5bf89f7da122bfd6401b3d9de987f52927e5d24ce128b
+│ │ -c2a977aab67fab38d44b1cc11b6d49d589fd8ce322799611ba9ca43e6c98f72d
+│ │ -4e88adde5ceb5fca39074530b5466f422dc4213d257caf29b3f7e21a55d9b3b4
+│ │ -5e42ffa32d0adc2f8e9d61e090287d2e1b1d3c890dff2a9d0a5bf1629b891386
+│ │ -478aaaa0bc6cb4a96087810da2b89c11a7c7dc38896d49225dfd45c1ec288915
+│ │ -d8964466544567132647496c3ff6fcc3b3151c15097d96d1fad84c4ffb2ce644
+│ │ -c5329fa4f68c8358f97df119de559552ab0e1e258e1b408af1105b13c6416c4d
+│ │ -d712e3c863fb8493cf896f88795ce81d344a62a755b9eb86fc3d2a4af6a3f852
+│ │ -ed089b54dd450c03cbf820f513c2109b5c7a864e25e1fbc4b184d15aec94f8a0
+│ │ -2ec4d541575cde6cd3704f370e1fbb88eff2f78eb0e02e61adbb843517fe0bd5
+│ │ -c52fe2f6f1b070addbb1d8111131acb4d1176d03f09748c026f0b1e17cd95c10
+│ │ -378eadf037264391a034553a8c0000000049454e44ae426082

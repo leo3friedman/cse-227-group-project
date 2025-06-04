@@ -1,0 +1,102 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/money-trail
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.DS_Store
+│ +.git
+│  LICENCE.md
+│  README.md
+│  _locales
+│ -_metadata
+│  css
+│  html
+│  icons
+│  js
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/money-trail/_locales
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  en
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/money-trail/_locales/en
+│ │ ├── file list
+│ │ │ @@ -1 +1,2 @@
+│ │ │ +.DS_Store
+│ │ │  messages.json
+│   --- /workspace/pipeline_output/chromex_data/css
+├── +++ /workspace/pipeline_output/money-trail/css
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │ +.DS_Store
+│ │  bootstrap.min.css
+│ │  content.css
+│ │  jquery-ui.css
+│ │  scrolling-nav.css
+│   --- /workspace/pipeline_output/chromex_data/html
+├── +++ /workspace/pipeline_output/money-trail/html
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +.DS_Store
+│ │  help.html
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/money-trail/icons
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  ajax-loader.gif
+│ │  bar.png
+│ │  bubble_closeup.png
+│ │  bubble_graph.png
+│ │  bubble_hover.png
+│ │  chart.png
+│ │  chart_closeup.png
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/money-trail/js
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  bootstrap.min.js
+│ │  d3.geom.js
+│ │  d3.js
+│ │  d3.layout.js
+│ │  highcharts.js
+│ │  jquery-ui.js
+│ │  jquery.easing.min.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/money-trail/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,11 +37,10 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "cookies",
+│ │          "https://venmo.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2",
+│ │      "web_accessible_resources": []
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/money-trail/src
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │ +.DS_Store
+│ │  bg
+│ │  venmo
+│ │   --- /workspace/pipeline_output/chromex_data/src/bg
+│ ├── +++ /workspace/pipeline_output/money-trail/src/bg
+│ │ ├── file list
+│ │ │ @@ -1 +1,2 @@
+│ │ │ +.DS_Store
+│ │ │  background.js
+│ │   --- /workspace/pipeline_output/chromex_data/src/venmo
+│ ├── +++ /workspace/pipeline_output/money-trail/src/venmo
+│ │ ├── file list
+│ │ │ @@ -1 +1,2 @@
+│ │ │ +.DS_Store
+│ │ │  content.js

@@ -1,0 +1,24 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/prefix-gh-bb
+├── file list
+│ @@ -1,4 +1,5 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/prefix-gh-bb/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │                  "https://github.atlassian.com/github/create-branch?*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Prefix GitHub for Jira",
+│ │      "manifest_version": 3,
+│ │      "name": "Prefix GitHub for Jira",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/extbsv-extension-better-service-virtualization/build
+├── file list
+│ @@ -1,10 +1,5 @@
+│ -_metadata
+│ -content.js
+│ -icon.png
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  inject.js
+│ -manifest.json
+│ -popup.html
+│ -popup.js
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/extbsv-extension-better-service-virtualization/build/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,13 +24,12 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "tabs",
+│ │          "downloads"
+│ │      ],
+│ │      "short_name": "ebsv",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.9",
+│ │      "web_accessible_resources": [
+│ │          "inject.js"
+│ │      ]
+│ │  }

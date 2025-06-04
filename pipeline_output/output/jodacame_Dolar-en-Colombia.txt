@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Dolar-en-Colombia
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +Archive.zip
+│  OneSignal.js
+│  README.md
+│ -_metadata
+│  app.js
+│  background.js
+│  chart.js
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Dolar-en-Colombia/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │          "https://dolarcolombia.co/",
+│ │          "gcm",
+│ │          "storage",
+│ │          "notifications",
+│ │          "identity"
+│ │      ],
+│ │      "short_name": "D\u00f3lar Colombia",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

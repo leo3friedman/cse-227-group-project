@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/fave-it
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  FaveItScreenshot.jpg
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  bookmark.png
+│  faveit-style.css
+│  inject.js
+│  jquery-1.11.0.min.js
+│  manifest.json
+│ +package-lock.json
+│  reload.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/fave-it/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,10 +32,9 @@
+│ │          "webRequest",
+│ │          "bookmarks",
+│ │          "background",
+│ │          "tabs",
+│ │          "http://www.facebook.com/*",
+│ │          "https://www.facebook.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-iframe-matrix
+├── file list
+│ @@ -1,8 +1,12 @@
+│ +.git
+│ +.gitignore
+│ +Makefile
+│ +README.md
+│  _locales
+│ -_metadata
+│  img
+│  lib
+│ -main.min.js
+│ +main.js
+│  manifest.json
+│  newtab.html
+│ -styles.min.css
+│ +package-lock.json
+│ +styles.less
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-iframe-matrix/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "storage",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │      "short_name": "Sites Matrix",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

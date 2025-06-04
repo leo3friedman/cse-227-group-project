@@ -1,0 +1,66 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gmail-unread
+├── file list
+│ @@ -1,11 +1,9 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -ScreenShot.png
+│ -_metadata
+│  background.js
+│  icon-128.png
+│  icon-19.png
+│  icon-48.png
+│  manifest.json
+│ -popup.html
+│ -unread.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/gmail-unread/README.md
+│ @@ -1,4 +1,2 @@
+│ -# GMail Unread
+│ +# gmail-unread
+│  Add a button to Gmail to filter by unread email
+│ -
+│ -![Gmail Unread](https://raw.githubusercontent.com/dillonhafer/gmail-unread/master/ScreenShot.png)
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gmail-unread/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,37 +1,23 @@
+│ │  {
+│ │      "background": {
+│ │          "persistent": false,
+│ │          "scripts": [
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "all_frames": false,
+│ │ -            "js": [
+│ │ -                "unread.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://mail.google.com/*"
+│ │ -            ],
+│ │ -            "run_at": "document_idle"
+│ │ -        }
+│ │ -    ],
+│ │      "description": "Shows an 'Unread' button to filter emails by 'Unread' status.",
+│ │      "icons": {
+│ │          "128": "icon-128.png",
+│ │          "48": "icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "GMail Unread",
+│ │      "page_action": {
+│ │          "default_icon": "icon-19.png",
+│ │ -        "default_popup": "popup.html",
+│ │          "default_title": "Show unread"
+│ │      },
+│ │      "permissions": [
+│ │          "declarativeContent"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

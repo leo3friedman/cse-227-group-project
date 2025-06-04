@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ext-whatsapp-send
+├── file list
+│ @@ -1,10 +1,11 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  coffee.png
+│  getapi.png
+│  logo.svg
+│  manifest.json
+│ +package-lock.json
+│  readme.md
+│  sendwsp.js
+│  whatsappSend.html
+│  wsp.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ext-whatsapp-send/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,10 +6,9 @@
+│ │      "background": {
+│ │          "service_worker": "background.js"
+│ │      },
+│ │      "description": "Extensi\u00f3n que permite iniciar una conversaci\u00f3n de WhatsApp con cualquier n\u00famero de tel\u00e9fono sin necesidad de guardarlo en la agenda.",
+│ │      "host_permissions": [],
+│ │      "manifest_version": 3,
+│ │      "name": "Abrir WhatsApp",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

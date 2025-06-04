@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/WeakestLink
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  content.js
+│  event.js
+│  eventWorker.js
+│  honorifics.txt
+│  images
+│  manifest.json
+│  nicknames.txt
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  postnominals.txt
+│  releases.txt
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/WeakestLink/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "http://www.linkedin.com/*",
+│ │          "https://www.linkedin.com/*",
+│ │          "downloads",
+│ │          "webNavigation",
+│ │          "storage",
+│ │          "cookies"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.6"
+│ │  }

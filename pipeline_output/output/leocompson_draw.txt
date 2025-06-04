@@ -1,0 +1,77 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/draw
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/lib
+├── +++ /workspace/pipeline_output/draw/lib
+│ ├── file list
+│ │ @@ -1,4 +1,6 @@
+│ │ +background.js
+│ │  chrome.js
+│ │  common.js
+│ │  config.js
+│ │ +interface.js
+│ │  runtime.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/draw/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,15 +5,26 @@
+│ │              "32": "data/icons/32.png",
+│ │              "48": "data/icons/48.png",
+│ │              "64": "data/icons/64.png"
+│ │          },
+│ │          "default_title": "Draw on Page"
+│ │      },
+│ │      "background": {
+│ │ -        "service_worker": "background.js"
+│ │ +        "scripts": [
+│ │ +            "lib/config.js",
+│ │ +            "lib/chrome.js",
+│ │ +            "lib/runtime.js",
+│ │ +            "lib/common.js"
+│ │ +        ]
+│ │ +    },
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "{4ce83447-8255-43c2-b8f7-e02eb8c2cc39}",
+│ │ +            "strict_min_version": "109.0"
+│ │ +        }
+│ │      },
+│ │      "commands": {
+│ │          "_execute_action": {}
+│ │      },
+│ │      "description": "Easily draw on any website with simple drawing tools, then print the result.",
+│ │      "homepage_url": "https://mybrowseraddon.com/draw-on-page.html",
+│ │      "icons": {
+│ │ @@ -21,22 +32,20 @@
+│ │          "16": "data/icons/16.png",
+│ │          "32": "data/icons/32.png",
+│ │          "48": "data/icons/48.png",
+│ │          "64": "data/icons/64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Draw on Page",
+│ │ -    "offline_enabled": true,
+│ │      "permissions": [
+│ │          "storage",
+│ │          "scripting",
+│ │          "activeTab",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.6",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

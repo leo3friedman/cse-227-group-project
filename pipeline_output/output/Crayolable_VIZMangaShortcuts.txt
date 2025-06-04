@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/VIZMangaShortcuts
+├── file list
+│ @@ -1,7 +1,5 @@
+│ -_metadata
+│ -assets
+│ -cfg
+│ +.git
+│ +README.md
+│  main.js
+│  manifest.json
+│ -options
+│ -scripts
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/VIZMangaShortcuts/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,15 +22,14 @@
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "VIZ Hotkeys - For VIZ Manga & Shonen Jump",
+│ │      "options_page": "/options/options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.5",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://www.viz.com/*",
+│ │                  "https://www.viz.com/*"
+│ │              ],

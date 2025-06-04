@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gas-prettier
+├── file list
+│ @@ -1,5 +1,7 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  img
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gas-prettier/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -36,10 +36,9 @@
+│ │          "128": "img/icon128.png",
+│ │          "16": "img/icon16.png",
+│ │          "32": "img/icon32.png",
+│ │          "48": "img/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "GAS Prettier + AI Completion",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.3"
+│ │  }

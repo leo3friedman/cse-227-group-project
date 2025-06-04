@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-url-opener
+├── file list
+│ @@ -1,6 +1,11 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  images
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│ +package.sh
+│ +promotional
+│ +screencast.ogv
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-url-opener/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "128": "images/multiple128scaled.png",
+│ │          "16": "images/multiple16.png",
+│ │          "48": "images/multiple48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Favorite URL Opener",
+│ │      "options_page": "options.html",
+│ │ -    "update_url": "http://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

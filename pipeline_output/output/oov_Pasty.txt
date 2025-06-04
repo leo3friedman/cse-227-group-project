@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Pasty
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│  manifest.json
+│ +package-lock.json
+│  pasty128.png
+│  pasty48.png
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Pasty/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "48": "pasty48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Pasty",
+│ │      "permissions": [
+│ │          "clipboardRead"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8"
+│ │  }

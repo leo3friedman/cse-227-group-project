@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cautious-giggle
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  content.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cautious-giggle/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "Keyword Highlighter",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

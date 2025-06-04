@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/maximize-detached-tab/release
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/maximize-detached-tab/release/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │          "48": "/images/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Maximize Detached Tab",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

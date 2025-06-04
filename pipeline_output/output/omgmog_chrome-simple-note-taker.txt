@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-simple-note-taker
+├── file list
+│ @@ -1,9 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  big-icon.png
+│  icon.png
+│  manifest.json
+│ -note.png
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-simple-note-taker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -3,10 +3,9 @@
+│ │          "default_icon": "icon.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "content_security_policy": "script-src 'self'; object-src 'self'",
+│ │      "description": "This extension will let you take a simple note in Chrome.",
+│ │      "manifest_version": 2,
+│ │      "name": "Take a note",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

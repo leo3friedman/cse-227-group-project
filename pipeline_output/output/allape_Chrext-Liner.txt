@@ -1,0 +1,153 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Chrext-Liner
+├── file list
+│ @@ -1,6 +1,12 @@
+│ -_metadata
+│ +.git
+│ +.project
+│ +Liner.zip
+│ +README.md
+│  css
+│  html
+│  icons
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│ +publishing
+│ +resource
+│   --- /workspace/pipeline_output/chromex_data/html
+├── +++ /workspace/pipeline_output/Chrext-Liner/html
+│ │   --- /workspace/pipeline_output/chromex_data/html/popup.html
+│ ├── +++ /workspace/pipeline_output/Chrext-Liner/html/popup.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,26 +1,26 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +	<head>
+│ │ +		<meta charset="UTF-8">
+│ │ +		<title>TMGrabber</title>
+│ │ +		<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+│ │ +		<style type="text/css">
+│ │ +			body{
+│ │ +				width: auto;
+│ │ +				-webkit-user-select:none;
+│ │ +			}
+│ │ +			
+│ │ +			h1{
+│ │ +				text-align: center;
+│ │ +				word-break: keep-all;
+│ │ +				cursor: pointer;
+│ │ +			}
+│ │ +		</style>
+│ │ +		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+│ │ +		<script type="text/javascript" src="../js/const.js"></script>
+│ │ +		<script type="text/javascript" src="../js/popup.js"></script>
+│ │ +	</head>
+│ │ +	<body>
+│ │ +		<h1 id="title">操作</h1>
+│ │ +	</body>
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -	<head>
+│ │ -		<meta charset="UTF-8">
+│ │ -		<title>TMGrabber</title>
+│ │ -		<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+│ │ -		<style type="text/css">
+│ │ -			body{
+│ │ -				width: auto;
+│ │ -				-webkit-user-select:none;
+│ │ -			}
+│ │ -			
+│ │ -			h1{
+│ │ -				text-align: center;
+│ │ -				word-break: keep-all;
+│ │ -				cursor: pointer;
+│ │ -			}
+│ │ -		</style>
+│ │ -		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+│ │ -		<script type="text/javascript" src="../js/const.js"></script>
+│ │ -		<script type="text/javascript" src="../js/popup.js"></script>
+│ │ -	</head>
+│ │ -	<body>
+│ │ -		<h1 id="title">操作</h1>
+│ │ -	</body>
+│ │  </html>
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/Chrext-Liner/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/const.js
+│ ├── +++ /workspace/pipeline_output/Chrext-Liner/js/const.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,3 +1,3 @@
+│ │ +2f2f20e99d99e68081e5b8b8e9878fe4bba3e58fb70a636f6e737420434f4445
+│ │ +5f554e4b4e4f574e5f4552524f52203d202d313b0a636f6e737420434f44455f
+│ │ +494e4954203d20303b
+│ │ -2f2f20e99d99e68081e5b8b8e9878fe4bba3e58fb70d0a636f6e737420434f44
+│ │ -455f554e4b4e4f574e5f4552524f52203d202d313b0d0a636f6e737420434f44
+│ │ -455f494e4954203d20303b
+│ │   --- /workspace/pipeline_output/chromex_data/js/popup.js
+│ ├── +++ /workspace/pipeline_output/Chrext-Liner/js/popup.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,21 +1,21 @@
+│ │  2f2f20e59091e8a2abe6b3a8e585a5e9a1b5e99da2e58f91e98081e4bfa1e681
+│ │ +afe5b9b6e5a484e79086e59b9ee8b0830a66756e6374696f6e2073656e644d65
+│ │ +7373616765286a736f6e6d73672c2065786563297b0a096368726f6d652e7461
+│ │ +62732e7175657279287b6163746976653a20747275652c2063757272656e7457
+│ │ +696e646f773a20747275657d2c2066756e6374696f6e287461627329207b0a09
+│ │ +0976617220746162203d20746162735b305d3b0a09096368726f6d652e746162
+│ │ +732e73656e644d657373616765287461622e69642c206a736f6e6d73672c207b
+│ │ +7d2c2066756e6374696f6e28726573297b0a090909636f6e736f6c652e6c6f67
+│ │ +28726573293b0a0909096966286578656320696e7374616e63656f662046756e
+│ │ +6374696f6e29206578656328726573293b0a09097d293b0a097d293b0a7d0a0a
+│ │ +2f2f20e7a1aee8aea4706f707570e9a1b5e99da2e4b88ee8a2abe6b3a8e585a5
+│ │ +e9a1b5e99da2e883bde5bbbae7ab8be9809ae4bfa10a66756e6374696f6e2069
+│ │ +6e697428297b0a0973656e644d657373616765284a534f4e2e737472696e6769
+│ │ +6679287b22636f6465223a434f44455f494e49542c206d6573736167653a2269
+│ │ +6e6974227d292c2066756e6374696f6e28726573297b0a090924282223746974
+│ │ +6c6522292e74657874287265732e646174612e6c617374737461747573203d3d
+│ │ +2022626c6f636b22203f2022e698bee7a4ba22203a2022e99a90e8978f22293b
+│ │ +0a097d293b0a7d0a0a242866756e6374696f6e28297b0a092f2f20e5889de5a7
+│ │ +8be58c960a09242822237469746c6522292e62696e64287b0a0909636c69636b
+│ │ +3a66756e6374696f6e28297b0a090909696e697428293b0a09097d0a097d293b
+│ │ +0a7d293b
+│ │ -afe5b9b6e5a484e79086e59b9ee8b0830d0a66756e6374696f6e2073656e644d
+│ │ -657373616765286a736f6e6d73672c2065786563297b0d0a096368726f6d652e
+│ │ -746162732e7175657279287b6163746976653a20747275652c2063757272656e
+│ │ -7457696e646f773a20747275657d2c2066756e6374696f6e287461627329207b
+│ │ -0d0a090976617220746162203d20746162735b305d3b0d0a09096368726f6d65
+│ │ -2e746162732e73656e644d657373616765287461622e69642c206a736f6e6d73
+│ │ -672c207b7d2c2066756e6374696f6e28726573297b0d0a090909636f6e736f6c
+│ │ -652e6c6f6728726573293b0d0a0909096966286578656320696e7374616e6365
+│ │ -6f662046756e6374696f6e29206578656328726573293b0d0a09097d293b0d0a
+│ │ -097d293b0d0a7d0d0a0d0a2f2f20e7a1aee8aea4706f707570e9a1b5e99da2e4
+│ │ -b88ee8a2abe6b3a8e585a5e9a1b5e99da2e883bde5bbbae7ab8be9809ae4bfa1
+│ │ -0d0a66756e6374696f6e20696e697428297b0d0a0973656e644d657373616765
+│ │ -284a534f4e2e737472696e67696679287b22636f6465223a434f44455f494e49
+│ │ -542c206d6573736167653a22696e6974227d292c2066756e6374696f6e287265
+│ │ -73297b0d0a0909242822237469746c6522292e74657874287265732e64617461
+│ │ -2e6c617374737461747573203d3d2022626c6f636b22203f2022e698bee7a4ba
+│ │ -22203a2022e99a90e8978f22293b0d0a097d293b0d0a7d0d0a0d0a242866756e
+│ │ -6374696f6e28297b0d0a092f2f20e5889de5a78be58c960d0a09242822237469
+│ │ -746c6522292e62696e64287b0d0a0909636c69636b3a66756e6374696f6e2829
+│ │ -7b0d0a090909696e697428293b0d0a09097d0d0a097d293b0d0a7d293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Chrext-Liner/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -36,14 +36,13 @@
+│ │      "manifest_version": 2,
+│ │      "minimum_chrome_version": "10.0",
+│ │      "name": "Liner",
+│ │      "permissions": [
+│ │          "<all_urls>",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.1",
+│ │      "web_accessible_resources": [
+│ │          "css/*",
+│ │          "js/*"
+│ │      ]
+│ │  }

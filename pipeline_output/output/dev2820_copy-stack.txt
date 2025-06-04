@@ -1,0 +1,65 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/copy-stack/dist
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  assets
+│  images
+│  index.html
+│  manifest.json
+│  service-worker-loader.js
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/copy-stack/dist/index.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,17 +1,17 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>Vite + Lit + TS</title>
+│ -    
+│ -    
+│ -    
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <title>Vite + Lit + TS</title>
+│ +    
+│ +    
+│ +    
+│      <script type="module" crossorigin src="/assets/index.html-c35a8747.js"></script>
+│      <link rel="modulepreload" crossorigin href="/assets/COPY_TYPE-470b4aac.js">
+│      <link rel="stylesheet" href="/assets/index-fcc1b1ae.css">
+│ -  </head>
+│ -  <body>
+│ -    <copy-stack></copy-stack>
+│ -  </body>
+│ -</html>
+│ +  </head>
+│ +  <body>
+│ +    <copy-stack></copy-stack>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/copy-stack/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,15 +26,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "92",
+│ │      "name": "Copy Stack",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://*/*",
+│ │                  "https://*/*"
+│ │              ],

@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/bart-commuter
+├── file list
+│ @@ -1,15 +1,16 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icon.png
+│  index.html
+│  manifest.json
+│  options.css
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  routes.css
+│  system-map.gif
+│  utils.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/bart-commuter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,13 +6,12 @@
+│ │      "description": "This extension lets a bart user know when his train will arrive",
+│ │      "manifest_version": 2,
+│ │      "name": "Bart Commuter",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.13",
+│ │      "web_accessible_resources": [
+│ │          "system-map.gif"
+│ │      ]
+│ │  }

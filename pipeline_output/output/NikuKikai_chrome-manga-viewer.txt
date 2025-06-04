@@ -1,0 +1,91 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-manga-viewer
+├── file list
+│ @@ -1,5 +1,13 @@
+│ -_metadata
+│ -assets
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +content-script
+│  index.html
+│ -logo.png
+│ -manifest.json
+│ +manifest.json
+│ +package.json
+│ +public
+│ +src
+│ +tsconfig.json
+│ +tsconfig.node.json
+│ +vite.config.ts
+│ +yarn.lock
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/chrome-manga-viewer/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,18 +1,15 @@
+│  <!DOCTYPE html>
+│  <html lang="en">
+│    <head>
+│      <meta charset="utf-8" />
+│      <link rel="icon" href="/favicon.ico" />
+│      <meta name="viewport" content="width=device-width, initial-scale=1" />
+│ -    <link rel="manifest" href="data:application/json;base64,ewogICJtYW5pZmVzdF92ZXJzaW9uIjogMywKICAibmFtZSI6ICJNYW5nYSBWaWV3ZXIiLAogICJ2ZXJzaW9uIjogIjAuMS4zIiwKICAiZGVzY3JpcHRpb24iOiAiQSBib29rLWxpa2Ugdmlld2VyIHRvIHJlYWQgc2VwYXJhdGUgbWFuZ2EgcGFnZSBpbWFnZXMgcG9zdGVkIG9uIFNOUyBsaWtlIHJlYWRpbmcgYSByZWFsIGJvb2suIFlldCBvbmx5IHN1cHBvcnRzIHdlaWJvLiIsCiAgImFjdGlvbiI6IHsKICAgICJkZWZhdWx0X3RpdGxlIjogIlBvcHVwIiwKICAgICJkZWZhdWx0X3BvcHVwIjogImluZGV4Lmh0bWwiLAogICAgImRlZmF1bHRfaWNvbiI6ICJsb2dvLnBuZyIKICB9LAogICJpY29ucyI6IHsKICAgICIxMjgiOiAibG9nby5wbmciCiAgfSwKICAiY29udGVudF9zY3JpcHRzIjogWwogICAgewogICAgICAibWF0Y2hlcyI6IFsKICAgICAgICAiaHR0cHM6Ly93ZWliby5jb20vKiIKICAgICAgXSwKICAgICAgImpzIjogWwogICAgICAgICJjb250ZW50LXNjcmlwdC9zcmMvbWFpbi50c3giCiAgICAgIF0sCiAgICAgICJtZWRpYSI6IFtdCiAgICB9CiAgXSwKICAiYXV0aG9yIjogIk5pa3VLaWthaSIKfQ==" />
+│ +    <link rel="manifest" href="/manifest.json" />
+│      <title>Chrome Extension Popup</title>
+│ -    <script type="module" crossorigin src="/assets/index.html.4c9061a5.js"></script>
+│ -    <link rel="modulepreload" crossorigin href="/assets/jsx-runtime.247be44e.js">
+│ -    <link rel="stylesheet" href="/assets/index.ca259783.css">
+│    </head>
+│    <body>
+│      <div id="root"></div>
+│      <noscript>You need to enable JavaScript to run this app.</noscript>
+│ -    
+│ +    <script type="module" src="./src/main.tsx"></script>
+│    </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-manga-viewer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -3,40 +3,24 @@
+│ │          "default_icon": "logo.png",
+│ │          "default_popup": "index.html",
+│ │          "default_title": "Popup"
+│ │      },
+│ │      "author": "NikuKikai",
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "assets/main.89aaa99d.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "assets/content-script-loader.main.tsx.9841b66a.dbcc3a83.js"
+│ │ +                "content-script/src/main.tsx"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://weibo.com/*"
+│ │              ],
+│ │              "media": []
+│ │          }
+│ │      ],
+│ │      "description": "A book-like viewer to read separate manga page images posted on SNS like reading a real book. Yet only supports weibo.",
+│ │      "icons": {
+│ │          "128": "logo.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Manga Viewer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.1.3",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "https://weibo.com/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "assets/jsx-runtime.247be44e.js",
+│ │ -                "assets/main.tsx.9841b66a.js"
+│ │ -            ],
+│ │ -            "use_dynamic_url": true
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "0.1.3"
+│ │  }

@@ -1,0 +1,81 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ScreenCaptureExtension
+├── file list
+│ @@ -1,10 +1,6 @@
+│ -LICENSE
+│ +.git
+│  README.md
+│ -_metadata
+│ -changesite.js
+│ -currentsite.js
+│ +ScreenCaptureExtension.js
+│  icons
+│  manifest.json
+│ -popup.html
+│ -styles.css
+│ -takescreenshot.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/ScreenCaptureExtension/README.md
+│┄ Ordering differences only
+│ @@ -1,2 +1,2 @@
+│ -README
+│ +README
+│      A chrome extension that lets users screenshot a webpage.
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/ScreenCaptureExtension/icons
+│ ├── file list
+│ │ @@ -1,7 +1,4 @@
+│ │ -githubwhite.png
+│ │  icon128.png
+│ │  icon16.png
+│ │ -icon19.png
+│ │  icon32.png
+│ │ +icon48.png
+│ │ -icon48.png
+│ │ -mainicon.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ScreenCaptureExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,39 +1,12 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "/icons/icon128.png",
+│ │ -            "16": "/icons/icon16.png",
+│ │ -            "19": "/icons/icon19.png",
+│ │ -            "32": "/icons/icon32.png",
+│ │ -            "48": "/icons/icon48.png"
+│ │ -        },
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "Screen Capture"
+│ │ -    },
+│ │ -    "author": "Michael Targett",
+│ │ -    "description": "Takes a screenshot of the current webpage, then downloads it as a png.",
+│ │ +    "description": "Takes a screenshot of the current webpage, then downloads it as a jpg.",
+│ │      "icons": {
+│ │          "128": "/icons/icon128.png",
+│ │          "16": "/icons/icon16.png",
+│ │ -        "19": "/icons/icon19.png",
+│ │          "32": "/icons/icon32.png",
+│ │          "48": "/icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Screen Capture",
+│ │ -    "permissions": [
+│ │ -        "activeTab",
+│ │ -        "tabs",
+│ │ -        "downloads"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "resources": []
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "1.0"
+│ │  }

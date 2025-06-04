@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/browser-extension
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  dark.css
+│  images
+│  main.css
+│  main.html
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  vendors
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/browser-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,14 +13,13 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Steemhunt",
+│ │      "permissions": [
+│ │          "*://*.steemhunt.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.53.3",
+│ │      "web_accessible_resources": [
+│ │          "images/logo.png",
+│ │          "manifest.json"
+│ │      ]
+│ │  }

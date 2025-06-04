@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/unsubscribe-button-chrome-extension
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  build.sh
+│  content.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/unsubscribe-button-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,10 +32,9 @@
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs",
+│ │          "http://mail.google.com/*",
+│ │          "https://mail.google.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.10"
+│ │  }

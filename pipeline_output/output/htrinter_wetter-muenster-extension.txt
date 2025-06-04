@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wetter-muenster-extension
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  eventpage.js
+│  fonts
+│  icon128.png
+│  icon16.png
+│  icon19.png
+│  icon48.png
+│  jquery-ui.min.js
+│  jquery.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wetter-muenster-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Wetter M\u00fcnster",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.4"
+│ │  }

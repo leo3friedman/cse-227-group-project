@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/grade-calculator
+├── file list
+│ @@ -1,9 +1,10 @@
+│ -_metadata
+│ +.git
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  jquery-3.2.1.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/grade-calculator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Weighted and Final Grade Calculator",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

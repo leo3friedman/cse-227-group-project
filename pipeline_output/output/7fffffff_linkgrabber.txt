@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/linkgrabber
+├── file list
+│ @@ -1,7 +1,18 @@
+│ -_metadata
+│ +.babelrc
+│ +.browserslistrc
+│ +.eslintrc
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +Makefile
+│ +README.md
+│  css
+│  html
+│  images
+│  js
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│  vendor
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/linkgrabber/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "clipboardWrite",
+│ │          "contextMenus",
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.6.1"
+│ │  }

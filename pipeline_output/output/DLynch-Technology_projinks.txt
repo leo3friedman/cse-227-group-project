@@ -1,0 +1,267 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/projinks
+├── file list
+│ @@ -1,8 +1,10 @@
+│ -LICENSE
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│ -background.js
+│ +css
+│  images
+│  js
+│  manifest.json
+│ -style.css
+│ +package-lock.json
+│ +popup.html
+│ +versions
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/projinks/README.md
+│ @@ -1,93 +1,26 @@
+│ -Hacker News Enhancement Suite
+│ -=============================
+│ +Projinks == Project + Links
+│ +======== 
+│  
+│ -A Hacker News extension for Firefox and Chrome which changes lots of things.
+│ +## Summary
+│ +Projinks is a chrome extension that allows you to keep collections of links that you would use on projects, while testing, when browsing the internet, etc.  The intention is not to replace or rival bookmarking abilities of the browser or newer web apps that offer bookmark storage/sharing, but more to make you more productive using your links when it's necessary.
+│  
+│ -Features
+│ ---------
+│ -* Completely new style
+│ -* Easy access to all pages
+│ -* Enhanced comment threads
+│ -  * Collapsible comments
+│ -  * Inline commenting
+│ -  * Link to parent
+│ -  * Display all comments on paginated threads
+│ -  * Highlight the original poster
+│ -* Show and highlight new comments since you last view a thread
+│ -* Highlight links once clicked to more easily identify what you've recently visited
+│ -* Redirect back to the front page upon hitting an expired link
+│ -* Display how many times you've upvoted each user
+│ -* Graphs on polls
+│ -* Clickable links in self posts and on users profile pages
+│ -* New smooth and scalable up & down vote arrows
+│ -* Keyboard controls on index pages:
+│ -  * j - Next item
+│ -  * k - Previous item
+│ -  * o - Open story
+│ -  * l - Open story in a new tab
+│ -  * p - View comments
+│ -  * c - View comments in a new tab
+│ -  * b - Open both the comments and the story in new tabs
+│ -* Tag users
+│ -
+│ -Firefox AMO link
+│ -----------------
+│ -https://addons.mozilla.org/en-US/firefox/addon/hnes/
+│ -
+│ -Chrome web store link
+│ ----------------------
+│ -https://chrome.google.com/webstore/detail/bappiabcodbpphnojdiaddhnilfnjmpm
+│ -
+│ -TODO
+│ -----
+│ -* Options page
+│ -* Put search in a better place + ajax auto-complete
+│ -* Do something with un-threaded comment lists (e.g. best comments)
+│ -* Make profiles prettier
+│ -* Allow user to highlight friends (ala RES)
+│ -* Show dead/grayed-out comments on mouse hover (or maybe a button)
+│ -* Test / make it work when user can see downvotes
+│ -
+│ -Things I can't test
+│ --------
+│ -I don't have enough karma to test down votes, creating polls, or topbar color
+│ -
+│ -Compatability
+│ --------
+│ -I do not test this extension with any other extensions active on Hacker News so I cannot guarantee that it will play nice. If you come across an apparent bug please make sure that any other extension are disabled or please mention which ones are enabled in the bug report.
+│ -
+│ -License
+│ --------
+│ -MIT License, see LICENSE
+│ -
+│ -Thanks
+│ -------
+│ -Wayne Larson for hckrnews.com and permission to use code from his extension which displays new comments.
+│ -
+│ -@jarques for his HN+ extension (https://github.com/jarquesp/Hacker-News--) which was used as a starting point for this project.
+│ -
+│ -Thanks to Samuel Stern (hatboysam) for the inline commenting.
+│ -
+│ -Thanks to Vishnu Rajeevan (burntcookie90) for adding more keyboard shortcuts.
+│ -
+│ -Thanks to Lewis Pollard (lewispollard) for highlighting a story once you've opened it and redirecting to the front page when you hit an expired link.
+│ -
+│ -Thanks to Dean Harding (codeka) for replacing the up/down vote images with CSS buttons.
+│ -
+│ -Thanks to Jiahua (jwang47) for his fork of Már Örlygsson's (maranomynet) linkify JQuery plugin.
+│ -
+│ -Thanks for Dan Harper (danharper) and to Will Ridgers (wridgers) for some CSS fixes.
+│ -
+│ -Thanks for Nuno Santos (nfvs) for styling the login page and other fixes.
+│ -
+│ -Thanks to alanc10n for fixing issue 66
+│ -
+│ -Thanks to sglantz for adding support for topcolor, issue 52
+│ +[Project Page] (http://projinks.com)
+│  
+│ -Thanks to ibejoeb for fixing the collapsible comments, improving comment performance, and many other improvements.
+│ +## Installation
+│ +Projinks is now available in the Chrome Webstore @ https://chrome.google.com/webstore/detail/projinks/mjkchkgjmhbhhkbhefmafkiaeadnheen
+│  
+│ -Thanks to SCdF for a bug fix.
+│  
+│ -Thanks to MaximeKjaer for adding the ability to tag users.
+│ +**STEPS FOR DOWNLOAD FROM SOURCE:**
+│  
+│ -Thanks to c17r for a fix to the new comment highlighting.
+│ +1. Download source 
+│ +2. [Follow the step here] (https://developer.chrome.com/extensions/getstarted#unpacked)
+│ +
+│ +## Developer Notes
+│ +Hope you like the project.  All forks/pull request are welcome.
+│ +
+│ +Thanks, Team Projinks
+│ +
+│ +
+│ +## Collaborators
+│ +[@dboutmybizness] (http://twitter.com/dboutmybizness)
+│ +[@joeknows718] (https://twitter.com/JoeKnows718)
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -utf-8
+│ │ +us-ascii
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/projinks/images
+│ ├── file list
+│ │ @@ -1,7 +1,6 @@
+│ │ +icon.png
+│ │ +pj_icon128.png
+│ │ +pj_icon16.png
+│ │ +pj_icon48.png
+│ │ +projinks_ext_logo.png
+│ │ +projinks_logo_128pjks.png
+│ │ -icon-128.png
+│ │ -icon-16.png
+│ │ -icon-48.png
+│ │ -logo.png
+│ │ -spin.gif
+│ │ -tag.svg
+│ │ -unvote.gif
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/projinks/js
+│ ├── file list
+│ │ @@ -1,3 +1,9 @@
+│ │ +dready.js
+│ │ +funcs.js
+│ │ +jquery-ui.js
+│ │ +jquery-ui.min.js
+│ │ +jquery.js
+│ │ +myscripts.js
+│ │ +pjk.js
+│ │ +popup.js
+│ │ +validator.js
+│ │ -hn.js
+│ │ -jquery-3.2.1.min.js
+│ │ -linkify
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/projinks/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,79 +1,22 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "scripts": [
+│ │ -            "background.js"
+│ │ -        ]
+│ │ +    "browser_action": {
+│ │ +        "default_icon": "images/pj_icon16.png",
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "css": [
+│ │ -                "style.css"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "http://news.ycombinator.com/*",
+│ │ -                "https://news.ycombinator.com/*",
+│ │ -                "http://news.ycombinator.net/*",
+│ │ -                "https://news.ycombinator.net/*",
+│ │ -                "http://hackerne.ws/*",
+│ │ -                "https://hackerne.ws/*",
+│ │ -                "http://news.ycombinator.org/*",
+│ │ -                "https://news.ycombinator.org/*"
+│ │ -            ],
+│ │ -            "run_at": "document_start"
+│ │ -        },
+│ │ -        {
+│ │ -            "all_frames": true,
+│ │ -            "css": [
+│ │ -                "style.css"
+│ │ -            ],
+│ │ -            "js": [
+│ │ -                "js/jquery-3.2.1.min.js",
+│ │ -                "js/linkify/jquery.linkify-1.0.js",
+│ │ -                "js/linkify/plugins/jquery.linkify-1.0-twitter.js",
+│ │ -                "js/hn.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "http://news.ycombinator.com/*",
+│ │ -                "https://news.ycombinator.com/*",
+│ │ -                "http://news.ycombinator.net/*",
+│ │ -                "https://news.ycombinator.net/*",
+│ │ -                "http://hackerne.ws/*",
+│ │ -                "https://hackerne.ws/*",
+│ │ -                "http://news.ycombinator.org/*",
+│ │ -                "https://news.ycombinator.org/*"
+│ │ -            ],
+│ │ -            "run_at": "document_end"
+│ │ -        },
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "js/jquery-3.2.1.min.js",
+│ │ -                "js/hn.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "http://hckrnews.com/*"
+│ │ -            ],
+│ │ -            "run_at": "document_end"
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "Hacker News Enhanced.",
+│ │ +    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+│ │ +    "description": "Stash, Retrieve & Organize links in collections called Projinks.",
+│ │      "icons": {
+│ │ -        "128": "images/icon-128.png",
+│ │ -        "16": "images/icon-16.png",
+│ │ -        "48": "images/icon-48.png"
+│ │ +        "128": "images/pj_icon128.png",
+│ │ +        "16": "images/pj_icon16.png",
+│ │ +        "48": "images/pj_icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Hacker News Enhancement Suite",
+│ │ +    "name": "Projinks (Beta)",
+│ │      "permissions": [
+│ │ +        "tabs",
+│ │          "storage",
+│ │ -        "unlimitedStorage"
+│ │ +        "clipboardWrite"
+│ │      ],
+│ │ -    "short_name": "HNES",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.6.0.3",
+│ │ -    "web_accessible_resources": [
+│ │ -        "images/spin.gif",
+│ │ -        "images/unvote.gif",
+│ │ -        "images/tag.svg",
+│ │ -        "templates/comment.html"
+│ │ -    ]
+│ │ +    "short_name": "Projinks",
+│ │ +    "version": "0.1.6.1"
+│ │  }

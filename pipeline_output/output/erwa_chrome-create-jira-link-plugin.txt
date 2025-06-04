@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-create-jira-link-plugin
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  GPL_2.0.txt
+│  README.txt
+│ -_metadata
+│  background.js
+│  content.js
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.txt
+├── +++ /workspace/pipeline_output/chrome-create-jira-link-plugin/README.txt
+│ @@ -1,11 +1,13 @@
+│ -JiraLink
+│ +JiraLink - Create Jira link in popup
+│  
+│  Copyright (C) 2018 Anthony Hsu
+│  
+│ +https://chrome.google.com/webstore/detail/gfjlkhjkfcbcjbkhajogliacgoocfphg
+│ +
+│  Creates a Jira link in a popup for Jira ticket ids by clicking on them.
+│  Unlike other Jira link plugins, this plugin does not modify the original text; it
+│  instead shows the Jira link in a plugin. Modification of the original text can be
+│  confusing because the user might think all users can see the link, when in reality,
+│  only those who have installed the plugin can see it.
+│  
+│  - Configure the Jira server on the extension options page.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-create-jira-link-plugin/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Create Jira Link",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-responsive-width-layout
+├── file list
+│ @@ -1,9 +1,13 @@
+│ -_metadata
+│ +.git
+│ +CONTRIBUTING.md
+│ +LICENSE.md
+│ +README.md
+│  background.js
+│  github-responsive-width-layout.css
+│  github-responsive-width-layout.js
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-responsive-width-layout/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "GitHub Responsive Width Layout",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

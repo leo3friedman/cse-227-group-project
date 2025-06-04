@@ -1,0 +1,197 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/layout-debugger
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  highlight.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/LICENSE
+├── +++ /workspace/pipeline_output/layout-debugger/LICENSE
+│┄ Ordering differences only
+│ @@ -1,21 +1,21 @@
+│ -MIT License
+│ -
+│ -Copyright (c) 2016 Chris Snowden
+│ -
+│ -Permission is hereby granted, free of charge, to any person obtaining a copy
+│ -of this software and associated documentation files (the "Software"), to deal
+│ -in the Software without restriction, including without limitation the rights
+│ -to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ -copies of the Software, and to permit persons to whom the Software is
+│ -furnished to do so, subject to the following conditions:
+│ -
+│ -The above copyright notice and this permission notice shall be included in all
+│ -copies or substantial portions of the Software.
+│ -
+│ -THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ -IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ -FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ -AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ -LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ -OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ -SOFTWARE.
+│ +MIT License
+│ +
+│ +Copyright (c) 2016 Chris Snowden
+│ +
+│ +Permission is hereby granted, free of charge, to any person obtaining a copy
+│ +of this software and associated documentation files (the "Software"), to deal
+│ +in the Software without restriction, including without limitation the rights
+│ +to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ +copies of the Software, and to permit persons to whom the Software is
+│ +furnished to do so, subject to the following conditions:
+│ +
+│ +The above copyright notice and this permission notice shall be included in all
+│ +copies or substantial portions of the Software.
+│ +
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ +IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ +FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ +AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ +LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ +SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/layout-debugger/README.md
+│┄ Ordering differences only
+│ @@ -1,16 +1,16 @@
+│ -# Layout Debugger (element-highlighter)
+│ -Chrome extension for highlighting DOM elements, designed to assist with better debugging of layout issues. Specifically:
+│ -* Identifying too-wide overflowing objects.
+│ -* Distinguishing block from inline elements.
+│ -* Helping to keep track of element alignment. 
+│ -
+│ -Adds a distinct colour outline to each visible DOM element, as well as providing a visual prompt for overflowing divs.
+│ -
+│ -```scss
+│ -display: block; => blue;
+│ -display: inline; => purple;
+│ -overflowing the viewport => red!
+│ -```
+│ -etc..
+│ -
+│ -Get it here: https://chrome.google.com/webstore/detail/element-highlighter/gkamnoiedmidgolhlihkamjpfccohilb
+│ +# Layout Debugger (element-highlighter)
+│ +Chrome extension for highlighting DOM elements, designed to assist with better debugging of layout issues. Specifically:
+│ +* Identifying too-wide overflowing objects.
+│ +* Distinguishing block from inline elements.
+│ +* Helping to keep track of element alignment. 
+│ +
+│ +Adds a distinct colour outline to each visible DOM element, as well as providing a visual prompt for overflowing divs.
+│ +
+│ +```scss
+│ +display: block; => blue;
+│ +display: inline; => purple;
+│ +overflowing the viewport => red!
+│ +```
+│ +etc..
+│ +
+│ +Get it here: https://chrome.google.com/webstore/detail/element-highlighter/gkamnoiedmidgolhlihkamjpfccohilb
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/layout-debugger/images
+│ │   --- /workspace/pipeline_output/chromex_data/images/icon.svg
+│ ├── +++ /workspace/pipeline_output/layout-debugger/images/icon.svg
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ @@ -1,17 +1,17 @@
+│ │  3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574
+│ │ +662d38223f3e0a3c7376672076696577426f783d223135352039332031373620
+│ │ +3134392220786d6c6e733d22687474703a2f2f7777772e77332e6f72672f3230
+│ │ +30302f737667223e0a20203c7265637420783d223138382e3636382220793d22
+│ │ +3132352e343332222077696474683d223133352e36313822206865696768743d
+│ │ +2239342e34373522207374796c653d2266696c6c3a2072676261283138372c20
+│ │ +3233392c2031382c20302e313838323335293b207374726f6b653a2072676228
+│ │ +3138382c203233392c203138293b222f3e0a20203c7265637420783d22323433
+│ │ +2e3532342220793d2239382e373635222077696474683d2234322e3636362220
+│ │ +6865696768743d223133372e39303222207374796c653d2266696c6c3a207267
+│ │ +62612833352c203136382c203231362c20302e373039383034293b207374726f
+│ │ +6b653a207267622833352c203136382c20323136293b222f3e0a20203c726563
+│ │ +7420783d223136302e3437382220793d223135382e393534222077696474683d
+│ │ +223134382e35363922206865696768743d2234322e36363622207374796c653d
+│ │ +2266696c6c3a2072676261283135362c2031392c2033302c20302e3631393630
+│ │ +38293b207374726f6b653a20726762283135362c2031392c203330293b222f3e
+│ │ +0a3c2f7376673e
+│ │ -662d38223f3e0d0a3c7376672076696577426f783d2231353520393320313736
+│ │ -203134392220786d6c6e733d22687474703a2f2f7777772e77332e6f72672f32
+│ │ -3030302f737667223e0d0a20203c7265637420783d223138382e363638222079
+│ │ -3d223132352e343332222077696474683d223133352e36313822206865696768
+│ │ -743d2239342e34373522207374796c653d2266696c6c3a207267626128313837
+│ │ -2c203233392c2031382c20302e313838323335293b207374726f6b653a207267
+│ │ -62283138382c203233392c203138293b222f3e0d0a20203c7265637420783d22
+│ │ -3234332e3532342220793d2239382e373635222077696474683d2234322e3636
+│ │ -3622206865696768743d223133372e39303222207374796c653d2266696c6c3a
+│ │ -20726762612833352c203136382c203231362c20302e373039383034293b2073
+│ │ -74726f6b653a207267622833352c203136382c20323136293b222f3e0d0a2020
+│ │ -3c7265637420783d223136302e3437382220793d223135382e39353422207769
+│ │ -6474683d223134382e35363922206865696768743d2234322e36363622207374
+│ │ -796c653d2266696c6c3a2072676261283135362c2031392c2033302c20302e36
+│ │ -3139363038293b207374726f6b653a20726762283135362c2031392c20333029
+│ │ -3b222f3e0d0a3c2f7376673e
+│ │   --- /workspace/pipeline_output/chromex_data/images/icondark.svg
+│ ├── +++ /workspace/pipeline_output/layout-debugger/images/icondark.svg
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ @@ -1,17 +1,17 @@
+│ │  3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574
+│ │ +662d38223f3e0a3c7376672076696577426f783d223134382031323020313737
+│ │ +203134392220786d6c6e733d22687474703a2f2f7777772e77332e6f72672f32
+│ │ +3030302f737667223e0a20203c7265637420783d223138322e3935332220793d
+│ │ +223135332e323431222077696474683d223133352e3631382220686569676874
+│ │ +3d2239342e34373522207374796c653d2266696c6c3a2072676261283138372c
+│ │ +203233392c2031382c20302e3734393032293b207374726f6b653a2072676228
+│ │ +3138382c203233392c203138293b222f3e0a20203c7265637420783d22313534
+│ │ +2e3736332220793d223138362e373633222077696474683d223134382e353639
+│ │ +22206865696768743d2234322e36363622207374796c653d2266696c6c3a2072
+│ │ +676261283135362c2031392c2033302c20302e3835303938293b207374726f6b
+│ │ +653a20726762283135362c2031392c203330293b222f3e0a20203c7265637420
+│ │ +783d223233372e3830392220793d223132362e353734222077696474683d2234
+│ │ +322e36363622206865696768743d223133372e39303222207374796c653d2266
+│ │ +696c6c3a20726762612833352c203136382c203231362c20302e393039383034
+│ │ +293b207374726f6b653a207267622833352c203136382c20323136293b222f3e
+│ │ +0a3c2f7376673e
+│ │ -662d38223f3e0d0a3c7376672076696577426f783d2231343820313230203137
+│ │ -37203134392220786d6c6e733d22687474703a2f2f7777772e77332e6f72672f
+│ │ -323030302f737667223e0d0a20203c7265637420783d223138322e3935332220
+│ │ -793d223135332e323431222077696474683d223133352e363138222068656967
+│ │ -68743d2239342e34373522207374796c653d2266696c6c3a2072676261283138
+│ │ -372c203233392c2031382c20302e3734393032293b207374726f6b653a207267
+│ │ -62283138382c203233392c203138293b222f3e0d0a20203c7265637420783d22
+│ │ -3135342e3736332220793d223138362e373633222077696474683d223134382e
+│ │ -35363922206865696768743d2234322e36363622207374796c653d2266696c6c
+│ │ -3a2072676261283135362c2031392c2033302c20302e3835303938293b207374
+│ │ -726f6b653a20726762283135362c2031392c203330293b222f3e0d0a20203c72
+│ │ -65637420783d223233372e3830392220793d223132362e353734222077696474
+│ │ -683d2234322e36363622206865696768743d223133372e39303222207374796c
+│ │ -653d2266696c6c3a20726762612833352c203136382c203231362c20302e3930
+│ │ -39383034293b207374726f6b653a207267622833352c203136382c2032313629
+│ │ -3b222f3e0d0a3c2f7376673e
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/layout-debugger/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,17 +28,18 @@
+│ │          "128": "images/icon128dark.png",
+│ │          "19": "images/icon19dark.png",
+│ │          "38": "images/icon38dark.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Layout Debugger",
+│ │      "permissions": [
+│ │ -        "activeTab"
+│ │ +        "activeTab",
+│ │ +        "https://ajax.googleapis.com/",
+│ │ +        "<all_urls>"
+│ │      ],
+│ │      "short_name": "Layout Debugger",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.7",
+│ │      "web_accessible_resources": [
+│ │          "*.png",
+│ │          "highlight.js"
+│ │      ]
+│ │  }

@@ -1,0 +1,82 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/leetcode-languages-switch-chrome-extension
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -LICENSE
+│ -_locales
+│ -_metadata
+│ -icons
+│ +.git
+│ +.vscode
+│ +README.md
+│ +content.js
+│ +logo.png
+│  manifest.json
+│ -src
+│ +package-lock.json
+│ +promo.png
+│ +screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/leetcode-languages-switch-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,47 +1,24 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "scripts": [
+│ │ -            "src/background.js"
+│ │ -        ]
+│ │ -    },
+│ │ -    "browser_action": {
+│ │ -        "default_icon": "icons/icon19.png",
+│ │ -        "default_popup": "src/browser_action/browser_action.html",
+│ │ -        "default_title": "Zoom Bookmarks"
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "src/content.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "src/content.js"
+│ │ +                "content.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "*://*.zoom.us/j/*",
+│ │ -                "*://*.zoom.us/s/*",
+│ │ -                "*://*.zoom.us/postattendee*",
+│ │ -                "*://*.zoom.us/wc/leave*"
+│ │ -            ]
+│ │ +                "*://*.leetcode.com/*",
+│ │ +                "*://*.leetcode.cn/*"
+│ │ +            ],
+│ │ +            "run_at": "document_idle"
+│ │          }
+│ │      ],
+│ │ -    "default_locale": "en",
+│ │ -    "description": "Store your most used Zoom links and join your online classes with ease.",
+│ │ -    "homepage_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+│ │ +    "description": "Switching between English and Chinese sites.",
+│ │      "icons": {
+│ │ -        "128": "icons/icon128.png",
+│ │ -        "16": "icons/icon16.png",
+│ │ -        "19": "icons/icon19.png",
+│ │ -        "48": "icons/icon48.png"
+│ │ +        "128": "logo.png",
+│ │ +        "16": "logo.png",
+│ │ +        "48": "logo.png"
+│ │      },
+│ │ -    "manifest_version": 2,
+│ │ -    "name": "Zoom Bookmarks",
+│ │ -    "permissions": [
+│ │ -        "clipboardWrite",
+│ │ -        "tabs",
+│ │ -        "background",
+│ │ -        "storage"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.0.3"
+│ │ +    "manifest_version": 3,
+│ │ +    "name": "Leetcode languages switcher",
+│ │ +    "permissions": [],
+│ │ +    "version": "0.0.2"
+│ │  }

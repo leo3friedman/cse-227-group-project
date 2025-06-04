@@ -1,0 +1,119 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/better-yt-shorts
+├── file list
+│ @@ -1,7 +1,21 @@
+│ +.eslintrc.js
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.prettierignore
+│ +.prettierrc
+│ +LICENSE
+│ +README.md
+│ +ROADMAP.md
+│ +UNINSTALL.md
+│  _locales
+│ -_metadata
+│ -assets
+│  index.html
+│  manifest.json
+│ -service-worker-loader.js
+│ -src
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +scripts
+│ +src
+│ +tsconfig.json
+│ +tsconfig.node.json
+│ +vite.config.ts
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/better-yt-shorts/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,17 +1,13 @@
+│  <!doctype html>
+│  <html lang="en">
+│    <head>
+│      <meta charset="UTF-8" />
+│      <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+│      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│      <title>Better YT Shorts</title>
+│ -    <script type="module" crossorigin src="/assets/index.html.94f66062.js"></script>
+│ -    <link rel="modulepreload" href="/assets/browser.cf86e89d.js">
+│ -    <link rel="modulepreload" href="/assets/retrieveFromStorage.7e5bd4fa.js">
+│ -    <link rel="stylesheet" href="/assets/index.html.f6515895.css">
+│    </head>
+│    <body>
+│      <div id="root"></div>
+│ -    
+│ +    <script type="module" src="/src/main.tsx"></script>
+│    </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/better-yt-shorts/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,22 +1,18 @@
+│ │  {
+│ │      "action": {
+│ │          "default_popup": "index.html"
+│ │      },
+│ │      "background": {
+│ │ -        "service_worker": "service-worker-loader.js",
+│ │ -        "type": "module"
+│ │ +        "service_worker": "src/background.ts"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "assets/content.ts.fcaa6ecc.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "assets/content-script-loader.content.ts.44ce3ab9.a777164c.js"
+│ │ +                "src/content.ts"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://*.youtube.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "default_locale": "en",
+│ │ @@ -28,23 +24,9 @@
+│ │          "48": "src/assets/icons/bys-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extName__",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "3.7.2",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "https://*.youtube.com/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "assets/browser.cf86e89d.js",
+│ │ -                "assets/retrieveFromStorage.7e5bd4fa.js",
+│ │ -                "assets/content.ts.44ce3ab9.js"
+│ │ -            ],
+│ │ -            "use_dynamic_url": true
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "3.7.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/better-yt-shorts/src
+│ ├── file list
+│ │ @@ -1 +1,10 @@
+│ │ +assets
+│ │ +background
+│ │ +background.ts
+│ │ +components
+│ │ +content.ts
+│ │ +css
+│ │ +lib
+│ │ +main.ts
+│ │ +main.tsx
+│ │ +vite-env.d.ts
+│ │ -assets

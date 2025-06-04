@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Chrome-extension-twitch
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│  popup_script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Chrome-extension-twitch/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      "name": "Online Twitch Streamers",
+│ │      "options_page": "./options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "alarms",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.1"
+│ │  }

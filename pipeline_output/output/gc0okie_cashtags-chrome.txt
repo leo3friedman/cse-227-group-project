@@ -1,0 +1,60 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cashtags-chrome
+├── file list
+│ @@ -1,10 +1,8 @@
+│ -_metadata
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ +.git
+│ +README.md
+│  jquery.js
+│  main.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│ -screenshot.png
+│ -screenshot_chromestore.png
+│ +screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cashtags-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,21 +12,16 @@
+│ │                  "https://www.twitter.com/*",
+│ │                  "https://twitter.com/*"
+│ │              ],
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │      "description": "Shows cnbc info on cashtags you hover over in Twitter",
+│ │ -    "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "cashtag info",
+│ │      "permissions": [
+│ │ +        "tabs",
+│ │          "https://www.twitter.com/*",
+│ │          "https://twitter.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/cashtags-chrome/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -3,12 +3,11 @@
+│  <head>
+│      <meta charset="UTF-8">
+│      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│      <title>Document</title>
+│  </head>
+│  <body>
+│      <h1 fontsize='14px'>Cashtag Quick Info</h1>
+│ -    <p fontsize='12px'>Hover mouse over cashtags in Twitter to see info from CNBC</p>
+│      <p fontsize='12px'>https://github.com/gc0okie/cashtags-chrome</p>
+│      <p fontsize='12px'>version 1.0</p>
+│  </body>
+│  </html>

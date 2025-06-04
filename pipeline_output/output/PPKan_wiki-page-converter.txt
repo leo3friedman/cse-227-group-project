@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wiki-page-converter
+├── file list
+│ @@ -1,4 +1,5 @@
+│ -_metadata
+│ +.git
+│  images
+│  manifest.json
+│ +package-lock.json
+│  scripts.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wiki-page-converter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "name": "wiki page converter",
+│ │      "permissions": [
+│ │          "*://*.wikipedia.org/*",
+│ │          "*://*.wiktionary.org/*",
+│ │          "*://*.wikibooks.org/*",
+│ │          "*://*.wiktionary.org/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scripts.js
+├── +++ /workspace/pipeline_output/wiki-page-converter/scripts.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,6 +1,6 @@
+│  636f6e73742043555252454e545f55524c203d20646f63756d656e742e55524c
+│ -3b0d0a0d0a6966202843555252454e545f55524c2e696e636c75646573282277
+│ -696b692220262620222e6d2e222929207b0d0a2020636f6e7374204e45575f54
+│ -4142203d2043555252454e545f55524c2e7265706c61636528222e6d2e222c20
+│ -222e22293b0d0a202077696e646f772e6c6f636174696f6e2e68726566203d20
+│ -4e45575f5441423b0d0a7d
+│ +3b0a0a6966202843555252454e545f55524c2e696e636c75646573282277696b
+│ +692220262620222e6d2e222929207b0a2020636f6e7374204e45575f54414220
+│ +3d2043555252454e545f55524c2e7265706c61636528222e6d2e222c20222e22
+│ +293b0a202077696e646f772e6c6f636174696f6e2e68726566203d204e45575f
+│ +5441423b0a7d

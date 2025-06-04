@@ -1,0 +1,63 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Currency-Converter
+├── file list
+│ @@ -1,5 +1,6 @@
+│ -_metadata
+│ +.git
+│  currencyConversion.js
+│  icon.png
+│  index.html
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/Currency-Converter/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -10,14 +10,15 @@
+│  </head>
+│  
+│  <body>
+│      <h1>Currency Converter</h1>
+│      <input type="number" id="amount" placeholder="Enter in amount" />
+│      <select id="currency-input">
+│          <option value="AUD">AUD</option>
+│ +        <option value="LBP">LBP</option>
+│          <option value="NZD">NZD</option>
+│          <option value="USD">USD</option>
+│          <option value="EUR">EUR</option>
+│          <option value="NPR">NPR</option>
+│          <option value="JPY">JPY</option>
+│          <option value="GBP">GBP</option>
+│          <option value="CAD">CAD</option>
+│ @@ -25,15 +26,16 @@
+│          <option value="CNY">CNY</option>
+│          <option value="HKD">GBP</option>
+│          <option value="INR">INR</option>
+│      </select>
+│      <span>to</span>
+│      <select id="currency-output">
+│          <option value="AUD">AUD</option>
+│ -        <option value="AUD">NZD</option>
+│ +        <option value="LBP">LBP</option>
+│ +        <option value="NZD">NZD</option>
+│          <option value="USD">USD</option>
+│          <option value="EUR">EUR</option>
+│          <option value="NPR">NPR</option>
+│          <option value="JPY">JPY</option>
+│          <option value="GBP">GBP</option>
+│          <option value="CAD">CAD</option>
+│          <option value="CHF">CHF</option>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Currency-Converter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,10 +2,9 @@
+│ │      "action": {
+│ │          "default_icon": "icon.png",
+│ │          "default_popup": "index.html"
+│ │      },
+│ │      "description": "Extension made to help convert currencies efficiently and accurately",
+│ │      "manifest_version": 3,
+│ │      "name": "Currency Converter",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

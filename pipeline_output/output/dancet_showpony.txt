@@ -1,0 +1,92 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/showpony
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  images
+│  manifest.json
+│  options.css
+│ -options.html
+│ +options.html
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/showpony/README.md
+│ @@ -12,15 +12,15 @@
+│  
+│  Only Chrome is supported at the moment, sorry if you're not a Chrome user. 
+│  
+│  ## Installation
+│  
+│  Two options: 
+│  
+│ -1. Download from the Chrome Web Store: https://chromewebstore.google.com/detail/show-pony/aicppaopjgcbnnlighamkhnkhkdkojkj
+│ +1. Download from the Chrome Web Store: LINK PENDING
+│  
+│  OR
+│  
+│  2. Clone the repo and load an unpacked extension through your Chrome extensions list.
+│  
+│  ## How to use this extension
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/showpony/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -7,24 +7,23 @@
+│ │              "48": "/images/48x48.png"
+│ │          },
+│ │          "default_title": "Show Pony - keep your audience focused on what matters"
+│ │      },
+│ │      "background": {
+│ │          "service_worker": "background.js"
+│ │      },
+│ │ -    "description": "Keep your audience focused on what matters. Show Pony enables showcasing important content in your browser during screen sharing.",
+│ │ +    "description": "Keep your audience focused on what matters. Show Pony allows you to showcase important content in your browser by drawing a dynamic highlight box over your webpage content. Everything else has a semi-transparent overlay placed on top to de-emphasise it.",
+│ │      "icons": {
+│ │          "128": "/images/128x128.png",
+│ │          "16": "/images/16x16.png",
+│ │          "32": "/images/32x32.png",
+│ │          "48": "/images/48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Show Pony",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/showpony/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -4,25 +4,9 @@
+│      <link rel="stylesheet" href="options.css">
+│    </head>
+│    <body>
+│      <div>
+│        <p>I hope you enjoy using Show Pony. If you find it useful, please consider leaving a five star review on the Chrome Web Store.</p>
+│        <p>Pass on feedback/bugs/feature requests to <a href="https://twitter.com/tomdance" target="_blank">@tomdance</a></p>
+│      </div>
+│ -    <div>
+│ -      <p>Change log</p>
+│ -      <p>
+│ -        v2.0<br>
+│ -        - Corners of the highlighted box are now draggable for easier adjustments without redrawing.<br>
+│ -        - Added corner indicators and cursor style to indicate draggability.<br>
+│ -        - Added a Clear button in the top right that resets the overlay without turning off the extension.<br>
+│ -      </p>
+│ -      <p>
+│ -        v1.0<br>
+│ -        - Initial release of Show Pony.<br>
+│ -        - Highlight important parts of your page by clicking and dragging over the area of focus.<br>
+│ -        - A semi-transparent overlay blocks out everything else.<br>
+│ -        - Useful for screen sharing during video meetings or even in person when all looking at a screen.<br>
+│ -      </p>
+│ -    </div>
+│    </body>
+│  </html>

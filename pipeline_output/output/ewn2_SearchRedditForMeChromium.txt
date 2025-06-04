@@ -1,0 +1,167 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SearchRedditForMeChromium
+├── file list
+│ @@ -1,7 +1,9 @@
+│ -_metadata
+│ +.git
+│ +.idea
+│ +README.md
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│ -search.js
+│ -tabPlacer.js
+│ +search.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SearchRedditForMeChromium/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,26 +1,26 @@
+│ │  {
+│ │      "action": {
+│ │ -        "chrome_style": false,
+│ │ +        "chrome_style": true,
+│ │          "default_icon": "images/icon_96.png",
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "Search Reddit"
+│ │      },
+│ │      "background": {
+│ │          "service_worker": "search.js"
+│ │      },
+│ │ -    "description": "Uses a search engine to find results filtered to the Reddit website",
+│ │ -    "host_permissions": [
+│ │ -        "https://www.google.com/"
+│ │ -    ],
+│ │ +    "description": "Uses a search engine to find results on the Reddit website",
+│ │      "icons": {
+│ │          "48": "images/icon_48.png",
+│ │          "96": "images/icon_96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Search on Reddit tool",
+│ │ +    "name": "Search Reddit tool",
+│ │      "permissions": [
+│ │ -        "scripting"
+│ │ +        "search",
+│ │ +        "storage",
+│ │ +        "tabs",
+│ │ +        "scripting",
+│ │ +        "background"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/SearchRedditForMeChromium/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,24 +1,24 @@
+│ -<!doctype html>
+│ -<html>
+│ -<style>
+│ -    form {
+│ -        padding: 1em;
+│ -        margin: 0;
+│ -    }
+│ -
+│ -    #inputBox {
+│ -        width: 20.5em;
+│ -        margin-right: 4px;
+│ -    }
+│ -
+│ -    #submitButton {}
+│ -</style>
+│ -<body>
+│ -<form id=inputForm>
+│ -    <input name="searchBox" type=search placeholder="Search Reddit" spellcheck=false id=inputBox autofocus />
+│ -    <input type=submit id=submitButton value="Search" />
+│ -</form>
+│ -<script src=search.js></script>
+│ -<script src=popup.js></script>
+│ -</body>
+│ +<!doctype html>
+│ +<html>
+│ +<style>
+│ +    form {
+│ +        padding: 1em;
+│ +        margin: 0;
+│ +    }
+│ +
+│ +    #inputBox {
+│ +        width: 20.5em;
+│ +        margin-right: 4px;
+│ +    }
+│ +
+│ +    #submitButton {}
+│ +</style>
+│ +<body>
+│ +<form id=inputForm>
+│ +    <input name="searchBox" type=search placeholder="Search Reddit" spellcheck=false id=inputBox autofocus />
+│ +    <input type=submit id=submitButton value="Search" />
+│ +</form>
+│ +<script src=search.js></script>
+│ +<script src=popup.js></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/SearchRedditForMeChromium/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,11 +1,10 @@
+│ -6c6574207461623b0d0a6c657420696e707574626f78203d20646f63756d656e
+│ -742e676574456c656d656e74427949642827696e707574426f7827293b0d0a0d
+│ -0a646f63756d656e742e676574456c656d656e74427949642827696e70757446
+│ -6f726d27292e6164644576656e744c697374656e657228277375626d6974272c
+│ -2066756e6374696f6e286529207b0d0a20202020652e70726576656e74446566
+│ -61756c7428293b0d0a20202020736561726368287b7365617263685465726d73
+│ -3a20696e707574626f782e76616c75652c206f70656e65725461623a20746162
+│ -7d293b0d0a7d293b0d0a0d0a6368726f6d652e746162732e7175657279287b63
+│ -757272656e7457696e646f773a20747275652c206163746976653a2074727565
+│ -7d292e7468656e2874616273203d3e207b0d0a20202020746162203d20746162
+│ -735b305d3b0d0a7d293b
+│ +6c6574207461623b0a6c657420696e707574626f78203d20646f63756d656e74
+│ +2e676574456c656d656e74427949642827696e707574426f7827293b0a0a646f
+│ +63756d656e742e676574456c656d656e74427949642827696e707574466f726d
+│ +27292e6164644576656e744c697374656e657228277375626d6974272c206675
+│ +6e6374696f6e286529207b0a20202020652e70726576656e7444656661756c74
+│ +28293b0a20202020736561726368287b7365617263685465726d733a20696e70
+│ +7574626f782e76616c75652c206f70656e65725461623a207461627d293b0a7d
+│ +293b0a0a6368726f6d652e746162732e7175657279287b63757272656e745769
+│ +6e646f773a20747275652c206163746976653a20747275657d292e7468656e28
+│ +74616273203d3e207b0a20202020746162203d20746162735b305d3b0a7d293b
+│   --- /workspace/pipeline_output/chromex_data/search.js
+├── +++ /workspace/pipeline_output/SearchRedditForMeChromium/search.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,18 +1,12 @@
+│ -66756e6374696f6e20736561726368286172677329207b0d0a20202020617267
+│ -732e7365617263685465726d73203d20617267732e7365617263685465726d73
+│ -2e7472696d28293b0d0a202020206c65742075726c203d202768747470733a2f
+│ -2f7777772e676f6f676c652e636f6d2f7365617263683f713d736974653a7265
+│ -646469742e636f6d2b273b0d0a202020206c6574207465726d73203d20646f63
+│ -756d656e742e676574456c656d656e74427949642827696e707574426f782729
+│ -2e76616c75650d0a202020207465726d73203d20656e636f6465555249436f6d
+│ -706f6e656e74287465726d73290d0a2020202075726c203d2075726c202b2074
+│ -65726d733b0d0a20202020706172616d73203d207b0d0a202020202020202027
+│ -75726c273a2075726c2c0d0a202020202020202027616374697665273a207472
+│ -75650d0a202020207d3b0d0a202020206368726f6d652e746162732e63726561
+│ -746528706172616d732c2066756e6374696f6e20286e657754616229207b0d0a
+│ -20202020202020206368726f6d652e736372697074696e672e65786563757465
+│ -536372697074280d0a2020202020202020202020207b0d0a2020202020202020
+│ -20202020202020207461726765743a207b74616249643a206e65775461622e69
+│ -647d2c0d0a2020202020202020202020202020202066696c65733a205b277461
+│ -62506c616365722e6a73275d2c0d0a2020202020202020202020207d0d0a2020
+│ -202020202020290d0a202020207d293b0d0a7d
+│ +66756e6374696f6e20736561726368286172677329207b0a2020202061726773
+│ +2e7365617263685465726d73203d20617267732e7365617263685465726d732e
+│ +7472696d28293b0a202020206c65742075726c203d202768747470733a2f2f77
+│ +77772e676f6f676c652e636f6d2f7365617263683f713d736974653a72656464
+│ +69742e636f6d2b273b0a202020206c6574207465726d73203d20646f63756d65
+│ +6e742e676574456c656d656e74427949642827696e707574426f7827292e7661
+│ +6c75650a202020207465726d73203d20656e636f6465555249436f6d706f6e65
+│ +6e74287465726d73290a2020202075726c203d2075726c202b207465726d733b
+│ +0a20202020706172616d73203d207b0a2020202020202020202020202775726c
+│ +273a2075726c2c0a20202020202020202020202027616374697665273a207472
+│ +75650a20202020202020207d3b0a20202020202020206368726f6d652e746162
+│ +732e63726561746528706172616d73290a7d

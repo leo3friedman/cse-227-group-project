@@ -1,0 +1,63 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gpi-techlab-pixelcounter-chrome-extension
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -README.md
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│  images
+│  manifest.json
+│ +package-lock.json
+│  rules.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/gpi-techlab-pixelcounter-chrome-extension/images
+│ ├── file list
+│ │ @@ -1,6 +1,7 @@
+│ │ +.DS_Store
+│ │  greenpeace.png
+│ │  icon-128.png
+│ │  icon-16.png
+│ │  icon-32.png
+│ │  icon-48.png
+│ │  icon-96.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gpi-techlab-pixelcounter-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,22 +1,22 @@
+│ │  {
+│ │ -    "author": "Greenpeace",
+│ │ +    "author": "GreenPeace",
+│ │      "background": {
+│ │          "service_worker": "scripts/background.js"
+│ │      },
+│ │      "declarative_net_request": {
+│ │          "rule_resources": [
+│ │              {
+│ │                  "enabled": true,
+│ │                  "id": "gp_redirects",
+│ │                  "path": "rules.json"
+│ │              }
+│ │          ]
+│ │      },
+│ │ -    "description": "Redirects https://gp/* links to Greenpeace tech Tools's hosted by Greenpeace TechLab Coding Team",
+│ │ +    "description": "Redirects http://gp/* links to Greenpeace tech Tools's hosted by Greenpeace TechLab Coding Team",
+│ │      "host_permissions": [
+│ │          "*://gp/"
+│ │      ],
+│ │      "icons": {
+│ │          "128": "images/icon-128.png",
+│ │          "16": "images/icon-16.png",
+│ │          "32": "images/icon-32.png",
+│ │ @@ -24,10 +24,9 @@
+│ │          "96": "images/icon-96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Greenpeace Links",
+│ │      "permissions": [
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }

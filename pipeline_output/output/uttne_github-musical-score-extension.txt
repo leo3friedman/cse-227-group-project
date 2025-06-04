@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-musical-score-extension
+├── file list
+│ @@ -1,5 +1,12 @@
+│ -_metadata
+│ +.editorconfig
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +build.ps1
+│ +fetch-lib.ps1
+│  githubPage.js
+│  icons
+│ +images
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-musical-score-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,15 +18,14 @@
+│ │          "16": "/icons/icon16.png",
+│ │          "32": "/icons/icon32.png",
+│ │          "48": "/icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "GitHub Musical Score Extension",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://github.com/*"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/github-musical-score-extension/src
+│ ├── file list
+│ │ @@ -1,6 +1,5 @@
+│ │  blob-page-extension.js
+│ │  commit-page-extension.js
+│ │  index.css
+│ │  index.js
+│ │ +pull-page-extension.js
+│ │ -pull-page-extension.js
+│ │ -verovio-toolkit.js

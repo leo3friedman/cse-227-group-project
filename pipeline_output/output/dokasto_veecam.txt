@@ -1,0 +1,57 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/veecam
+├── file list
+│ @@ -1,3 +1,12 @@
+│ -_metadata
+│ -build
+│ -manifest.json
+│ +.DS_Store
+│ +.babelrc.json
+│ +.eslintrc.json
+│ +.git
+│ +.gitignore
+│ +Archive.zip
+│ +README.md
+│ +manifest.json
+│ +package-lock.json
+│ +package.json
+│ +rollup.config.js
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/veecam/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,10 +1,10 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_popup": "build/popup.html"
+│ │ +        "default_popup": "src/views/popup.html"
+│ │      },
+│ │      "background": {
+│ │          "service_worker": "build/background.js"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": true,
+│ │ @@ -17,19 +17,20 @@
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "description": "A virtual camera Chrome extension.",
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "88",
+│ │      "name": "VeeCam",
+│ │ -    "options_page": "build/options.html",
+│ │ +    "options_page": "src/views/options.html",
+│ │      "permissions": [
+│ │ +        "tabs",
+│ │ +        "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*/*"
+│ │              ],
+│ │              "resources": [

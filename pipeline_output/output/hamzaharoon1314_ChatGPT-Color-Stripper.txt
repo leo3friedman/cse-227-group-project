@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChatGPT-Color-Stripper
+├── file list
+│ @@ -1,5 +1,8 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  contentScript.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/contentScript.js
+├── +++ /workspace/pipeline_output/ChatGPT-Color-Stripper/contentScript.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -21,8 +21,8 @@
+│  697070656448746d6c203d2073747269704261636b67726f756e64436f6c6f72
+│  28636f6e7461696e65722e696e6e657248544d4c293b0d0a2020636f6e737420
+│  706c61696e54657874203d2073656c656374696f6e2e746f537472696e672829
+│  3b0d0a20206576656e742e636c6970626f617264446174612e73657444617461
+│  2827746578742f68746d6c272c20737472697070656448746d6c293b0d0a2020
+│  6576656e742e636c6970626f617264446174612e736574446174612827746578
+│  742f706c61696e272c20706c61696e54657874293b0d0a20206576656e742e70
+│ -726576656e7444656661756c7428293b0d0a7d293b
+│ +726576656e7444656661756c7428293b0d0a7d293b0d0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChatGPT-Color-Stripper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,11 +21,13 @@
+│ │      "icons": {
+│ │          "128": "icons/128.png",
+│ │          "16": "icons/16.png",
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "ChatGPT Color Stripper",
+│ │ -    "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "clipboardRead",
+│ │ +        "clipboardWrite"
+│ │ +    ],
+│ │      "version": "1.0.7"
+│ │  }

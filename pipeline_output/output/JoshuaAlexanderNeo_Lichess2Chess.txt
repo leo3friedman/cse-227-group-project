@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Lichess2Chess
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  images
+│  lichess2chess.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Lichess2Chess/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,12 +9,11 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Adds Chess.com rating estimate to Lichess.org.",
+│ │      "icons": {
+│ │          "48": "images/icon.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ +    "manifest_version": 2,
+│ │      "name": "Lichess2Chess",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

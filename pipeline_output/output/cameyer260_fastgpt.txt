@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/fastgpt
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon.jpg
+│  images
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/fastgpt/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "128": "images/icon-128.jpg",
+│ │          "16": "images/icon-16.jpg",
+│ │          "32": "images/icon-32.jpg",
+│ │          "48": "images/icon-48.jpg"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "FastGPT",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

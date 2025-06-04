@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/github-sync-fork-chrome-ext
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  GSF.png
+│  GSF128.png
+│  GSF16.png
+│  GSF48.png
+│  README.md
+│ -_metadata
+│  gsf.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/github-sync-fork-chrome-ext/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │          "48": "GSF48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "GitHub Sync Fork",
+│ │      "permissions": [
+│ │          "*://github.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3.0"
+│ │  }

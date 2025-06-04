@@ -1,0 +1,65 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/keymapper/dist
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  assets
+│  icons
+│  index.html
+│  manifest.json
+│  service-worker-loader.js
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/keymapper/dist/assets
+│ ├── file list
+│ │ @@ -1,7 +1,7 @@
+│ │  background.ts.e9f349fb.js
+│ │  const.ab412616.js
+│ │  detectKeyString.e502c0c0.js
+│ │ +index.c5e6eb13.css
+│ │ +index.html.179d40fb.js
+│ │ -index.3be46c84.css
+│ │ -index.html.eb225807.js
+│ │  index.ts-loader.dc29ea59.js
+│ │  index.ts.c456bb66.js
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/keymapper/dist/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,17 +1,17 @@
+│  <!doctype html>
+│  <html lang="en">
+│    <head>
+│      <meta charset="UTF-8" />
+│      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+│      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│      <title>Vite + React + TS</title>
+│ -    <script type="module" crossorigin src="/assets/index.html.eb225807.js"></script>
+│ +    <script type="module" crossorigin src="/assets/index.html.179d40fb.js"></script>
+│      <link rel="modulepreload" crossorigin href="/assets/const.ab412616.js">
+│      <link rel="modulepreload" crossorigin href="/assets/detectKeyString.e502c0c0.js">
+│ -    <link rel="stylesheet" href="/assets/index.3be46c84.css">
+│ +    <link rel="stylesheet" href="/assets/index.c5e6eb13.css">
+│    </head>
+│    <body>
+│      <div id="root"></div>
+│      
+│    </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/keymapper/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,15 +24,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "keymapper",
+│ │      "options_page": "index.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://*/*",
+│ │                  "https://*/*"
+│ │              ],

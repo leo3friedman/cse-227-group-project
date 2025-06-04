@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Toggl-for-PivotalTracker
+├── file list
+│ @@ -1,4 +1,6 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Toggl-for-PivotalTracker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -41,10 +41,9 @@
+│ │      "options_page": "src/html/options.html",
+│ │      "permissions": [
+│ │          "*://www.pivotaltracker.com/*",
+│ │          "*://www.toggl.com/*",
+│ │          "storage",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.12"
+│ │  }

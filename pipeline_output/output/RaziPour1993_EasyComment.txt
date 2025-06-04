@@ -1,0 +1,83 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/EasyComment
+├── file list
+│ @@ -1,5 +1,11 @@
+│ -_metadata
+│ -asset
+│ -main.js
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +config.js
+│ +content.js
+│ +images
+│  manifest.json
+│ -style.css
+│ +package-lock.json
+│ +popup.html
+│ +popup.js
+│ +translations.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/EasyComment/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,38 +1,38 @@
+│ │  {
+│ │ +    "action": {
+│ │ +        "default_icon": {
+│ │ +            "128": "images/icon128.png",
+│ │ +            "16": "images/icon16.png",
+│ │ +            "48": "images/icon48.png"
+│ │ +        },
+│ │ +        "default_popup": "popup.html"
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "style.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "main.js"
+│ │ +                "translations.js",
+│ │ +                "content.js"
+│ │              ],
+│ │              "matches": [
+│ │ -                "https://discord.com/*"
+│ │ +                "https://www.youtube.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Add a small canvas to Discord.",
+│ │ +    "description": "Generate smart comments for YouTube videos",
+│ │ +    "host_permissions": [
+│ │ +        "https://www.youtube.com/*"
+│ │ +    ],
+│ │      "icons": {
+│ │ -        "128": "asset/icon_128.png",
+│ │ -        "16": "asset/icon_16.png",
+│ │ -        "48": "asset/icon_48.png"
+│ │ +        "128": "images/icon128.png",
+│ │ +        "16": "images/icon16.png",
+│ │ +        "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "DiscoTegaki",
+│ │ +    "name": "Easy Comment",
+│ │      "permissions": [
+│ │ +        "activeTab",
+│ │ +        "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.4.3",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "https://discord.com/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "asset/*"
+│ │ -            ]
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "1.0.0"
+│ │  }

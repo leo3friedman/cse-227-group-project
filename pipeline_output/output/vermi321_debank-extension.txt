@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/debank-extension
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  CHANGELOG.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content-script.js
+│  debank.css
+│  debank.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popups
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/debank-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,15 +32,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "DeBank helper",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.debank.com/*"
+│ │              ],
+│ │              "resources": [

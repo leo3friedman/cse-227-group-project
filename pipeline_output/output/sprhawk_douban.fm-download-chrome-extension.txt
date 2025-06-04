@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/douban.fm-download-chrome-extension
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  Readme.md
+│ -_metadata
+│  background.js
+│  content_script.js
+│  icon-0.png
+│  icon-1.png
+│  icon128.png
+│  icon48.png
+│  jquery-2.2.1.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/douban.fm-download-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,10 +38,9 @@
+│ │          "http://*.doubanio.com/*",
+│ │          "https://*.doubanio.com/*",
+│ │          "webRequest",
+│ │          "tabs",
+│ │          "downloads"
+│ │      ],
+│ │      "short_name": "\u8c46\u74e3FM \u4e0b\u8f7d",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.13"
+│ │  }

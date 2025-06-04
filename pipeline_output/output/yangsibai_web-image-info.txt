@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/web-image-info
+├── file list
+│ @@ -1,8 +1,10 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.js
+│  icons
+│ -index.js
+│  jquery-2.0.3.min.js
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│  test
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/web-image-info/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,10 +32,9 @@
+│ │          "32": "icons/32.png",
+│ │          "48": "icons/48.png",
+│ │          "512": "icons/512.png",
+│ │          "64": "icons/64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Image info",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3.0"
+│ │  }

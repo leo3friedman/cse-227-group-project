@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/varustelaempoydinkaerki
+├── file list
+│ @@ -1,14 +1,15 @@
+│ +.git
+│  LICENSE
+│ -README.md
+│  _locales
+│ -_metadata
+│  bitmap-16.png
+│  bitmap-24.png
+│  bitmap-32.png
+│ +hello_extensions.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  service-worker.js
+│  sidepanel.css
+│  sidepanel.html
+│  sidepanel.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/varustelaempoydinkaerki/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │      "permissions": [
+│ │          "sidePanel",
+│ │          "tabs",
+│ │          "storage",
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

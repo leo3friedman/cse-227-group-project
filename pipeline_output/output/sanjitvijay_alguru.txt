@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/alguru
+├── file list
+│ @@ -1,10 +1,13 @@
+│ -_metadata
+│ -assets
+│ -b75dc21a97e5553a99dd1257f899ce23.png
+│ -background.js
+│ -contentScript.js
+│ -fonts
+│ -index.html
+│ +.DS_Store
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +dist
+│  manifest.json
+│ -react.js
+│ -react.js.LICENSE.txt
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +postcss.config.cjs
+│ +src
+│ +tailwind.config.js
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/alguru/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "name": "Alguru",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

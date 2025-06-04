@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Yiddish-Klal-ChromeOS
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  icon_128.png
+│  icon_16.png
+│  icon_48.png
+│  manifest.json
+│ +package-lock.json
+│  screenshot.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Yiddish-Klal-ChromeOS/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │          }
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "Yiddish Klal",
+│ │      "permissions": [
+│ │          "input"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5"
+│ │  }

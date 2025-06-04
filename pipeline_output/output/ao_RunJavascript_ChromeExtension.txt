@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/RunJavascript_ChromeExtension
+├── file list
+│ @@ -1,10 +1,10 @@
+│ +.git
+│  Capture.png
+│  README.md
+│ -_metadata
+│  ace.js
+│  assets
+│  background.js
+│  icon-128.png
+│  icon-256.png
+│  icon-32.png
+│  icon-48.png
+│ @@ -12,10 +12,11 @@
+│  icon-96.png
+│  icon.png
+│  inject.js
+│  lib_jquery_1_12_4.js
+│  lib_jquery_2_2_4.js
+│  lib_jquery_3_3_1.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/RunJavascript_ChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -41,10 +41,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Run Javascript",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.1"
+│ │  }

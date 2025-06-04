@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome_search_history
+├── file list
+│ @@ -1,8 +1,9 @@
+│ -Screenshot 2021-04-23 221934.png
+│ -Screenshot 2021-04-23 222906.png
+│ -_metadata
+│ +.git
+│ +Screenshot 2021-04-23 221934.jpg
+│ +Screenshot 2021-04-23 222906.jpg
+│  background.js
+│  icon_128.png
+│  icon_16.png
+│  icon_48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome_search_history/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      "name": "Search History",
+│ │      "omnibox": {
+│ │          "keyword": "h"
+│ │      },
+│ │      "permissions": [
+│ │          "history"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

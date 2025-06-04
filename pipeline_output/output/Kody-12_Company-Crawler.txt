@@ -1,0 +1,61 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Company-Crawler
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  logos
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/Company-Crawler/README.md
+│┄ Ordering differences only
+│ @@ -1,16 +1,16 @@
+│ -Check out my official extension on the chrome webstore!
+│ -https://chromewebstore.google.com/detail/company-crawler/bgmhndibpboacneibaelceohhilelpab?hl=en&authuser=1
+│ -
+│ -A fun little extension I made that helps me look up a company's reviews easily on Glassdoor, Comparably, and Indeed.
+│ -
+│ -COMING SOON
+│ -- firefox support
+│ -- gifs showing how to use
+│ -- new images
+│ -
+│ -Bugs
+│ -- sometimes when you highlight a company on indeed, it includes more than the company name, very rare.
+│ -
+│ -v2.1 4-16-24
+│ -- removed Linkedin (not great for company reviews)
+│ +Check out my official extension on the chrome webstore!
+│ +https://chromewebstore.google.com/detail/company-crawler/bgmhndibpboacneibaelceohhilelpab?hl=en&authuser=1
+│ +
+│ +A fun little extension I made that helps me look up a company's reviews easily on Glassdoor, Comparably, and Indeed.
+│ +
+│ +COMING SOON
+│ +- firefox support
+│ +- gifs showing how to use
+│ +- new images
+│ +
+│ +Bugs
+│ +- sometimes when you highlight a company on indeed, it includes more than the company name, very rare.
+│ +
+│ +v2.1 4-16-24
+│ +- removed Linkedin (not great for company reviews)
+│  - added Comparably support.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Company-Crawler/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "48": "logos/logo-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Company Crawler: Find company reviews on Glassdoor, Comparably, and Indeed!",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.0"
+│ │  }

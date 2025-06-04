@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/jbnu-newtab
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  assets
+│  fonts
+│  libs
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/libs
+├── +++ /workspace/pipeline_output/jbnu-newtab/libs
+│ │   --- /workspace/pipeline_output/chromex_data/libs/bootstrap-5.2.1-dist
+│ ├── +++ /workspace/pipeline_output/jbnu-newtab/libs/bootstrap-5.2.1-dist
+│ │ ├── file list
+│ │ │ @@ -1,2 +1,3 @@
+│ │ │ +.DS_Store
+│ │ │  css
+│ │ │  js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/jbnu-newtab/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │      "name": "JBNU \uc0c8\ud0ed",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "notifications",
+│ │          "tabs",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.2"
+│ │  }

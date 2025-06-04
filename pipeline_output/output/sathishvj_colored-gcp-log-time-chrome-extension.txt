@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/colored-gcp-log-time-chrome-extension
+├── file list
+│ @@ -1,7 +1,13 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +.vscode
+│ +README.md
+│  content.js
+│  images
+│  manifest.json
+│  options.html
+│  options.js
+│ -styles.css
+│ +package-lock.json
+│ +screenshots
+│ +styles.css
+│ +zip-for-chrome-store.sh
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/colored-gcp-log-time-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -34,10 +34,9 @@
+│ │          "open_in_tab": false,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4"
+│ │  }

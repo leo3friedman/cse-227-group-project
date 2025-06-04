@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/official_document_helper
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.DS_Store
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  button.css
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/official_document_helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Official document helper",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

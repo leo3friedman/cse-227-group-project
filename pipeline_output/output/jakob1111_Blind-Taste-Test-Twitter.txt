@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Blind-Taste-Test-Twitter
+├── file list
+│ @@ -1,3 +1,6 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Blind-Taste-Test-Twitter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │                  "https://*.twitter.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Blurs all identity information on Twitter.",
+│ │      "manifest_version": 2,
+│ │      "name": "Blind Taste Test Twitter",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.4.0"
+│ │  }

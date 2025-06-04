@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/UUID-Finder
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.DS_Store
+│ +.git
+│ +.gitattributes
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/UUID-Finder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │          "48": "icons/icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "UUID Finder",
+│ │      "permissions": [
+│ │          "https://www.chegg.com/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/UUID-Finder/src
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │ +.DS_Store
+│ │  browser_action
+│ │  inject

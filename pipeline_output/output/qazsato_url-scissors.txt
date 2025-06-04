@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/url-scissors
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  fonts
+│  images
+│  index.html
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/url-scissors/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │          "48": "images/icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "URL\u5206\u89e3\u304f\u3093",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.0"
+│ │  }

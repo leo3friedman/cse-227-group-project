@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/yelp-sort-extension
+├── file list
+│ @@ -1,5 +1,6 @@
+│ -_metadata
+│ +.git
+│  content-script.js
+│  icon128.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/yelp-sort-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      "description": "Set the default sort on Yelp to Newest First",
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Yelp Sort By Newest First",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

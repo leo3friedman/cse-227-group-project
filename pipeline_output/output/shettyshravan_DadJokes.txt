@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DadJokes
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -Drake.png
+│ -Logo.png
+│ -_metadata
+│ +.git
+│  dadJokeIcon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DadJokes/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,10 +4,9 @@
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "icons": {
+│ │          "128": "dadJokeIcon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Dad Jokes",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.01"
+│ │  }

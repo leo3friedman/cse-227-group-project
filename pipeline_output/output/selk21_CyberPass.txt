@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CyberPass
+├── file list
+│ @@ -1,6 +1,8 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  demo.css
+│  images
+│  javascript
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CyberPass/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,15 +1,17 @@
+│ │  {
+│ │      "action": {
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ -    "description": "CyberPass boosts your online security by checking for compromised passwords, creating unique ones, and teaching password security.",
+│ │ +    "description": "CyberPass enhances your online security by helping you check if your passwords have been compromised, generating unique passwords, and informing you about password security etiquette.",
+│ │ +    "host_permissions": [
+│ │ +        "https://api.pwnedpasswords.com/*"
+│ │ +    ],
+│ │      "icons": {
+│ │          "128": "/images/cyber-security-128.png",
+│ │          "16": "/images/cyber-security-16.png",
+│ │          "32": "/images/cyber-security-32.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "CyberPass",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

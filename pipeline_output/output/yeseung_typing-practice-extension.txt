@@ -1,0 +1,60 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/typing-practice-extension
+├── file list
+│ @@ -1,4 +1,10 @@
+│ -_metadata
+│ -content.js
+│ -images
+│ -manifest.json
+│ +.git
+│ +README.md
+│ +icon128.png
+│ +icon32.png
+│ +index.html
+│ +manifest.json
+│ +package-lock.json
+│ +privacy-policy.md
+│ +script.js
+│ +styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/typing-practice-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,26 +1,17 @@
+│ │  {
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "content.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "*://*.google.com/*search*",
+│ │ -                "*://*.bing.com/*search*"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "Filter out all search results from the top 1000 most visited websites.",
+│ │ -    "host_permissions": [
+│ │ -        "*://*.google.com/*"
+│ │ -    ],
+│ │ +    "action": {
+│ │ +        "default_icon": {
+│ │ +            "128": "icon128.png",
+│ │ +            "32": "icon32.png"
+│ │ +        },
+│ │ +        "default_popup": "index.html"
+│ │ +    },
+│ │ +    "description": "\uc18d\ub2f4 \ubb38\uc7a5\uc744 \ud1b5\ud574 \ud55c\uae00 \ud0c0\uc790 \uc18d\ub3c4\uc640 \uc815\ud655\ub3c4\ub97c \ud5a5\uc0c1\uc2dc\ud0ac \uc218 \uc788\ub294 \uc5f0\uc2b5 \ub3c4\uad6c\uc785\ub2c8\ub2e4.",
+│ │      "icons": {
+│ │ -        "128": "images/128.png",
+│ │ -        "32": "images/32.png",
+│ │ -        "48": "images/48.png"
+│ │ +        "128": "icon128.png",
+│ │ +        "32": "icon32.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Indie Chrome",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.0"
+│ │ +    "name": "\ud55c\uae00 \ud0c0\uc790 \uc5f0\uc2b5",
+│ │ +    "version": "1.0.2"
+│ │  }

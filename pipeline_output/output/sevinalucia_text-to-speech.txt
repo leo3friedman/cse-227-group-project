@@ -1,0 +1,73 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/text-to-speech
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/data
+├── +++ /workspace/pipeline_output/text-to-speech/data
+│ │   --- /workspace/pipeline_output/chromex_data/data/content_script
+│ ├── +++ /workspace/pipeline_output/text-to-speech/data/content_script
+│ │ │   --- /workspace/pipeline_output/chromex_data/data/content_script/resources
+│ │ ├── +++ /workspace/pipeline_output/text-to-speech/data/content_script/resources
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1,2 @@
+│ │ │ │ +config.js
+│ │ │ │  getboundingbox.js
+│ │   --- /workspace/pipeline_output/chromex_data/data/interface
+│ ├── +++ /workspace/pipeline_output/text-to-speech/data/interface
+│ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/index.css
+│ │ ├── +++ /workspace/pipeline_output/text-to-speech/data/interface/index.css
+│ │ │ @@ -87,25 +87,24 @@
+│ │ │    vertical-align: middle;
+│ │ │    font-family: monospace;
+│ │ │    border: solid 1px rgba(0,0,0,0.1);
+│ │ │    transition: 300ms ease border-color;
+│ │ │  }
+│ │ │  
+│ │ │  .buttons select {
+│ │ │ -  padding: 0;
+│ │ │    margin: 1px;
+│ │ │    color: #333;
+│ │ │    height: 42px;
+│ │ │    width: 178px;
+│ │ │    outline: none;
+│ │ │    cursor: pointer;
+│ │ │    font-size: 13px;
+│ │ │    font-weight: 600;
+│ │ │    background: #fff;
+│ │ │ -  text-indent: 5px;
+│ │ │ +  text-indent: 10px;
+│ │ │    vertical-align: middle;
+│ │ │    font-family: monospace;
+│ │ │    border: solid 1px rgba(0,0,0,0.1);
+│ │ │    transition: 300ms ease border-color;
+│ │ │  }
+│ │ │  
+│ │ │  .buttons select:hover {
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/text-to-speech/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -49,15 +49,14 @@
+│ │          "open_in_tab": true,
+│ │          "page": "data/options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.8",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*/*"
+│ │              ],
+│ │              "resources": [

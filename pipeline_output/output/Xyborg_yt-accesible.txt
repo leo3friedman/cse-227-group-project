@@ -1,0 +1,57 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/yt-accesible
+├── file list
+│ @@ -1,5 +1,6 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  content.js
+│ -icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/yt-accesible/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,39 +1,22 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "icons/icon-128.png",
+│ │ -            "16": "icons/icon-16.png",
+│ │ -            "32": "icons/icon-32.png",
+│ │ -            "48": "icons/icon-48.png"
+│ │ -        },
+│ │ -        "default_title": "YTA - YouTube Accessible Playlist Buttons"
+│ │ -    },
+│ │      "background": {
+│ │          "service_worker": "background.js"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://*.youtube.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Enhances YouTube playlists with large, easy-to-use buttons for improved accessibility.",
+│ │ -    "icons": {
+│ │ -        "128": "icons/icon-128.png",
+│ │ -        "16": "icons/icon-16.png",
+│ │ -        "32": "icons/icon-32.png",
+│ │ -        "48": "icons/icon-48.png"
+│ │ -    },
+│ │      "manifest_version": 3,
+│ │ -    "name": "YTA - YouTube Accessible Playlist Buttons",
+│ │ +    "name": "YouTube Playlist Button Enhancer",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

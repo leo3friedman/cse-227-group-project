@@ -1,0 +1,67 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/torah-linker
+├── file list
+│ @@ -1,7 +1,19 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│ -build
+│ +config
+│ +config.js
+│ +content_script.js
+│ +deploy.sh
+│ +dicta_ref_linker.js
+│ +icon.png
+│  icons
+│  manifest.json
+│ -popup.html
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +popup.html
+│ +popup.js
+│ +sefaria_linker.js
+│ +sefaria_linker.v3
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/torah-linker/README.md
+│┄ Ordering differences only
+│ @@ -1,12 +1,12 @@
+│ -# Description
+│ -This is a chrome extension to find on the web references to a torah pages
+│ -Available at chrome web store: https://chromewebstore.google.com/detail/sefaria-linker/olhabmaobkonkdiffhmbhoepmeklglka
+│ -# Build
+│ -Build for development
+│ -```bash
+│ -webpack --watch --config config/webpack.config.js --mode development -d inline-source-map
+│ -```
+│ -Build for production
+│ -```sh
+│ -webpack --config config/webpack.config.js --mode production
+│ +# Description
+│ +This is a chrome extension to find on the web references to a torah pages
+│ +Available at chrome web store: https://chromewebstore.google.com/detail/sefaria-linker/olhabmaobkonkdiffhmbhoepmeklglka
+│ +# Build
+│ +Build for development
+│ +```bash
+│ +webpack --watch --config config/webpack.config.js --mode development -d inline-source-map
+│ +```
+│ +Build for production
+│ +```sh
+│ +webpack --config config/webpack.config.js --mode production
+│  ```
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/torah-linker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │          "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Torah Linker",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.6"
+│ │  }

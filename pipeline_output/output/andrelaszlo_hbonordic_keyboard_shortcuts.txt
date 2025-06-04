@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/hbonordic_keyboard_shortcuts
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  CHANGELOG.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icon.svg
+│  icons
+│  inject.js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  shortcuts.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/hbonordic_keyboard_shortcuts/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,13 +38,12 @@
+│ │      "manifest_version": 2,
+│ │      "name": "HBO Europe Keyboard Shortcuts",
+│ │      "options_ui": {
+│ │          "browser_style": true,
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1",
+│ │      "web_accessible_resources": [
+│ │          "shortcuts.js"
+│ │      ]
+│ │  }

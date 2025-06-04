@@ -1,0 +1,68 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ebook-offline-chrome
+├── file list
+│ @@ -1,23 +1,24 @@
+│ -_metadata
+│ +.git
+│ +.gitmodules
+│ +README.md
+│  background.js
+│ -basic.html
+│ -basic.js
+│  book-128.png
+│  book-16.png
+│  book-19.png
+│  book-200.png
+│  book-32.png
+│  book-38.png
+│  book-48.png
+│  book-64.png
+│  book-96.png
+│  cws_32.png
+│  cws_440x280.png
+│  cws_640x400.png
+│  epub.js
+│ -epubjs
+│  google-analytics-bundle.js
+│  index.html
+│  index.js
+│  manifest.json
+│ +package-lock.json
+│ +package.sh
+│  web-server-chrome
+│   --- /workspace/pipeline_output/chromex_data/epub.js
+├── +++ /workspace/pipeline_output/ebook-offline-chrome/epub.js
+│ ├── file list
+│ │ @@ -1 +0,0 @@
+│ │ -build
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ebook-offline-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -60,10 +60,9 @@
+│ │      "sockets": {
+│ │          "tcpServer": {
+│ │              "listen": [
+│ │                  "127.0.0.1:*"
+│ │              ]
+│ │          }
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/web-server-chrome
+├── +++ /workspace/pipeline_output/ebook-offline-chrome/web-server-chrome
+│ ├── file list
+│ │ @@ -1,13 +0,0 @@
+│ │ -background.js
+│ │ -buffer.js
+│ │ -buy.js
+│ │ -common.js
+│ │ -connection.js
+│ │ -handlers.js
+│ │ -httplib.js
+│ │ -index.js
+│ │ -mime.js
+│ │ -request.js
+│ │ -stream.js
+│ │ -underscore.js
+│ │ -webapp.js

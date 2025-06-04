@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/remove-docbase-sidebar
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  jquery-3.4.1.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/remove-docbase-sidebar/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Remove Docbase Sidebar",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "tabs"
+│ │      ],
+│ │      "short_name": "RDS",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0.1"
+│ │  }

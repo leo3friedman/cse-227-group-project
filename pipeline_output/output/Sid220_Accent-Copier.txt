@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Accent-Copier
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│ +.idea
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  script.js
+│  sweetalert2@11.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Accent-Copier/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "32": "icon32.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Accent Copier",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "7.0"
+│ │  }

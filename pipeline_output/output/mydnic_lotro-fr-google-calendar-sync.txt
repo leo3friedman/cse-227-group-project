@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/lotro-fr-google-calendar-sync
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  icon.png
+│  icon.psd
+│  images
+│  lib
+│  manifest.json
+│ +package-lock.json
+│  poster.jpg
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/lotro-fr-google-calendar-sync/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │          "page": "src/options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "identity",
+│ │          "storage",
+│ │          "*://*.lotro.fr/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3"
+│ │  }

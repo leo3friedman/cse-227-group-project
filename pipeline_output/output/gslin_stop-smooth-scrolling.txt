@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/stop-smooth-scrolling
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  GNUmakefile
+│  LICENSE
+│  README.md
+│ -_metadata
+│  manifest.json
+│  mouse_wheel-128.png
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/stop-smooth-scrolling/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │      "name": "Stop Smooth Scrolling",
+│ │      "options_page": "src/options.html",
+│ │      "permissions": [
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2024.1230.0"
+│ │  }

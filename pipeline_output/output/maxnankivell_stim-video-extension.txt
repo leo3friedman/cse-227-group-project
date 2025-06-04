@@ -1,0 +1,391 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/stim-video-extension
+├── file list
+│ @@ -1,11 +1,12 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  brain-stimulation.png
+│  create-panel-script.js
+│ -create-panel-script.zip
+│  devtools.html
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  panel-script.js
+│  panel-styles.css
+│  panel.html
+│   --- /workspace/pipeline_output/chromex_data/create-panel-script.js
+├── +++ /workspace/pipeline_output/stim-video-extension/create-panel-script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,4 +1,4 @@
+│ -6368726f6d652e646576746f6f6c732e70616e656c732e637265617465280d0a
+│ -2020225374696d566964656f222c0d0a202022627261696e2d7374696d756c61
+│ -74696f6e2e706e67222c0d0a20202270616e656c2e68746d6c222c0d0a202066
+│ -756e6374696f6e202870616e656c29207b0d0a20207d0d0a293b
+│ +6368726f6d652e646576746f6f6c732e70616e656c732e637265617465280a20
+│ +20225374696d566964656f222c0a202022627261696e2d7374696d756c617469
+│ +6f6e2e706e67222c0a20202270616e656c2e68746d6c222c0a202066756e6374
+│ +696f6e202870616e656c29207b0a20207d0a293b
+│   --- /workspace/pipeline_output/chromex_data/devtools.html
+├── +++ /workspace/pipeline_output/stim-video-extension/devtools.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,11 +1,11 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>StimVideo</title>
+│ -    <script src="/create-panel-script.js"></script>
+│ -  </head>
+│ -  <body></body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <title>StimVideo</title>
+│ +    <script src="/create-panel-script.js"></script>
+│ +  </head>
+│ +  <body></body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/stim-video-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,17 +1,17 @@
+│ │  {
+│ │ -    "description": "Stimulating video to watch next to educational content Like subway surfer of minecraft parkour.",
+│ │ +    "description": "Stimulating video to watch next to educational content.",
+│ │      "devtools_page": "devtools.html",
+│ │      "icons": {
+│ │          "16": "brain-stimulation.png",
+│ │          "32": "brain-stimulation.png",
+│ │          "48": "brain-stimulation.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ +    "minimum_chrome_version": "10.0",
+│ │      "name": "Stim video",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/stim-video-extension/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,23 +1,21 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>Document</title>
+│ -  </head>
+│ -  <body>
+│ -    <h1>What am I doing with my life</h1>
+│ -    <input
+│ -      id="url-input"
+│ -      type="text"
+│ -      placeholder="Enter youtube link here"
+│ -      style="min-width: 400px"
+│ -    />
+│ -    <button id="save-button">Save</button> <br />
+│ -    <button id="minecraft-parkour">Minecraft Parkour Preset</button>
+│ -    <button id="subway-surfer">Subway Surfer Preset</button>
+│ -
+│ -    <script src="options.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <title>Document</title>
+│ +  </head>
+│ +  <body>
+│ +    <h1>What am I doing with my life</h1>
+│ +    <input
+│ +      id="url-input"
+│ +      type="text"
+│ +      placeholder="Enter youtube link here"
+│ +      style="min-width: 400px"
+│ +    />
+│ +    <button id="save-button">Save</button>
+│ +
+│ +    <script src="options.js"></script>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/stim-video-extension/options.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,27 +1,10 @@
+│  636f6e737420696e707574203d20646f63756d656e742e676574456c656d656e
+│ -7442794964282775726c2d696e70757427293b0d0a636f6e7374207361766542
+│ -7574746f6e203d20646f63756d656e742e676574456c656d656e744279496428
+│ -27736176652d627574746f6e27293b0d0a636f6e7374206d696e656372616674
+│ -5061726b6f7572427574746f6e203d20646f63756d656e742e676574456c656d
+│ -656e744279496428276d696e6563726166742d7061726b6f757227293b0d0a63
+│ -6f6e737420737562776179537572666572427574746f6e203d20646f63756d65
+│ -6e742e676574456c656d656e744279496428277375627761792d737572666572
+│ -27293b0d0a0d0a6368726f6d652e73746f726167652e73796e632e676574285b
+│ -2775726c275d2c202872657329203d3e207b0d0a20202020696e7075742e7661
+│ -6c7565203d207265732e75726c203f3f2060603b0d0a7d290d0a0d0a73617665
+│ -427574746f6e2e6164644576656e744c697374656e65722827636c69636b272c
+│ -202829203d3e207b0d0a20202020636f6e73742075726c203d20696e7075742e
+│ -76616c75653b0d0a202020206368726f6d652e73746f726167652e73796e632e
+│ -736574287b0d0a202020202020202075726c0d0a202020207d290d0a7d290d0a
+│ -0d0a6d696e6563726166745061726b6f7572427574746f6e2e6164644576656e
+│ -744c697374656e65722827636c69636b272c202829203d3e207b0d0a20202020
+│ -636f6e73742075726c203d206068747470733a2f2f7777772e796f7574756265
+│ -2e636f6d2f77617463683f763d6135532d5968666a5a6449603b0d0a20202020
+│ -6368726f6d652e73746f726167652e73796e632e736574287b0d0a2020202020
+│ -20202075726c0d0a202020207d290d0a7d290d0a0d0a73756277617953757266
+│ -6572427574746f6e2e6164644576656e744c697374656e65722827636c69636b
+│ -272c202829203d3e207b0d0a20202020636f6e73742075726c203d2060687474
+│ -70733a2f2f7777772e796f75747562652e636f6d2f77617463683f763d4c4e5f
+│ -4f4a49736865796b603b0d0a202020206368726f6d652e73746f726167652e73
+│ -796e632e736574287b0d0a202020202020202075726c0d0a202020207d290d0a
+│ -7d29
+│ +7442794964282775726c2d696e70757427293b0a636f6e737420736176654275
+│ +74746f6e203d20646f63756d656e742e676574456c656d656e74427949642827
+│ +736176652d627574746f6e27293b0a0a73617665427574746f6e2e6164644576
+│ +656e744c697374656e65722827636c69636b272c202829203d3e207b0a202020
+│ +20636f6e73742075726c203d20696e7075742e76616c75653b0a202020206368
+│ +726f6d652e73746f726167652e73796e632e736574287b0a2020202020202020
+│ +75726c0a202020207d290a7d290a0a6368726f6d652e73746f726167652e7379
+│ +6e632e676574285b2775726c275d2c202872657329203d3e207b0a2020202069
+│ +6e7075742e76616c7565203d207265732e6e616d65203f3f2060603b0a7d29
+│   --- /workspace/pipeline_output/chromex_data/panel-script.js
+├── +++ /workspace/pipeline_output/stim-video-extension/panel-script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,36 +1,35 @@
+│ -73697a65546865566964656f28293b0d0a77696e646f772e6f6e726573697a65
+│ -203d202829203d3e207b0d0a2020202073697a65546865566964656f28293b0d
+│ -0a7d0d0a0d0a66756e6374696f6e2073697a65546865566964656f2829207b0d
+│ -0a20202020636f6e737420766964656f57726170706572203d20646f63756d65
+│ -6e742e676574456c656d656e74427949642822696672616d652d777261707065
+│ -7222293b0d0a0d0a20202020766964656f577261707065722e7374796c652e68
+│ -6569676874203d2060247b77696e646f772e696e6e65724865696768747d7078
+│ -600d0a20202020766964656f577261707065722e7374796c652e776964746820
+│ -3d2060247b77696e646f772e696e6e657257696474687d7078600d0a7d0d0a0d
+│ -0a6368726f6d652e73746f726167652e6f6e4368616e6765642e6164644c6973
+│ -74656e657228286368616e6765732c205f6e616d65737061636529203d3e207b
+│ -0d0a20202020636f6e737420766964656f203d20646f63756d656e742e676574
+│ -456c656d656e74427949642822696672616d6522293b0d0a0d0a202020206966
+│ -2028216368616e6765732e75726c2e6e657756616c756529207b0d0a20202020
+│ -20202020766964656f2e737263203d202268747470733a2f2f7777772e796f75
+│ -747562652e636f6d2f656d6265642f6135532d5968666a5a64493f706c61796c
+│ -6973743d6135532d5968666a5a6449266175746f706c61793d31266d7574653d
+│ -31266c6f6f703d312673686f77696e666f3d3026636f6e74726f6c733d312676
+│ -713d686431303830220d0a202020202020202072657475726e3b0d0a20202020
+│ -7d0d0a0d0a2020202076617220726567457870203d202f5e2e2a2828796f7574
+│ -752e62655c2f297c28765c2f297c285c2f755c2f5c775c2f297c28656d626564
+│ -5c2f297c2877617463685c3f29295c3f3f763f3d3f285b5e23263f5d2a292e2a
+│ -2f3b0d0a20202020636f6e73742075726c203d206368616e6765732e75726c2e
+│ -6e657756616c75650d0a0d0a20202020766172206d61746368203d2075726c2e
+│ -6d6174636828726567457870293b0d0a20202020696620286d61746368202626
+│ -206d617463685b375d2e6c656e677468203d3d20313129207b0d0a2020202020
+│ -202020766964656f2e737263203d206068747470733a2f2f7777772e796f7574
+│ -7562652e636f6d2f656d6265642f247b6d617463685b375d7d3f706c61796c69
+│ -73743d247b6d617463685b375d7d266175746f706c61793d31266d7574653d31
+│ -266c6f6f703d312673686f77696e666f3d3026636f6e74726f6c733d31267671
+│ -3d686431303830600d0a202020207d20656c7365207b0d0a2020202020202020
+│ -766964656f2e737263203d202268747470733a2f2f7777772e796f7574756265
+│ -2e636f6d2f656d6265642f6135532d5968666a5a64493f706c61796c6973743d
+│ -6135532d5968666a5a6449266175746f706c61793d31266d7574653d31266c6f
+│ -6f703d312673686f77696e666f3d3026636f6e74726f6c733d312676713d6864
+│ -31303830220d0a202020207d0d0a7d293b
+│ +73697a65546865566964656f28293b0a77696e646f772e6f6e726573697a6520
+│ +3d202829203d3e207b0a2020202073697a65546865566964656f28293b0a7d0a
+│ +0a66756e6374696f6e2073697a65546865566964656f2829207b0a2020202063
+│ +6f6e737420766964656f57726170706572203d20646f63756d656e742e676574
+│ +456c656d656e74427949642822696672616d652d7772617070657222293b0a0a
+│ +20202020766964656f577261707065722e7374796c652e686569676874203d20
+│ +60247b77696e646f772e696e6e65724865696768747d7078600a202020207669
+│ +64656f577261707065722e7374796c652e7769647468203d2060247b77696e64
+│ +6f772e696e6e657257696474687d7078600a7d0a0a6368726f6d652e73746f72
+│ +6167652e6f6e4368616e6765642e6164644c697374656e657228286368616e67
+│ +65732c205f6e616d65737061636529203d3e207b0a20202020636f6e73742076
+│ +6964656f203d20646f63756d656e742e676574456c656d656e74427949642822
+│ +696672616d6522293b0a0a2020202069662028216368616e6765732e75726c2e
+│ +6e657756616c756529207b0a2020202020202020766964656f2e737263203d20
+│ +2268747470733a2f2f7777772e796f75747562652e636f6d2f656d6265642f61
+│ +35532d5968666a5a64493f706c61796c6973743d6135532d5968666a5a644926
+│ +6175746f706c61793d31266d7574653d31266c6f6f703d312673686f77696e66
+│ +6f3d3026636f6e74726f6c733d312676713d686431303830220a202020202020
+│ +202072657475726e3b0a202020207d0a0a202020207661722072656745787020
+│ +3d202f5e2e2a2828796f7574752e62655c2f297c28765c2f297c285c2f755c2f
+│ +5c775c2f297c28656d6265645c2f297c2877617463685c3f29295c3f3f763f3d
+│ +3f285b5e23263f5d2a292e2a2f3b0a20202020636f6e73742075726c203d2063
+│ +68616e6765732e75726c2e6e657756616c75650a0a20202020766172206d6174
+│ +6368203d2075726c2e6d6174636828726567457870293b0a2020202069662028
+│ +6d61746368202626206d617463685b375d2e6c656e677468203d3d2031312920
+│ +7b0a2020202020202020766964656f2e737263203d206068747470733a2f2f77
+│ +77772e796f75747562652e636f6d2f656d6265642f247b6d617463685b375d7d
+│ +3f706c61796c6973743d247b6d617463685b375d7d266175746f706c61793d31
+│ +266d7574653d31266c6f6f703d312673686f77696e666f3d3026636f6e74726f
+│ +6c733d312676713d686431303830600a202020207d20656c7365207b0a202020
+│ +2020202020766964656f2e737263203d202268747470733a2f2f7777772e796f
+│ +75747562652e636f6d2f656d6265642f6135532d5968666a5a64493f706c6179
+│ +6c6973743d6135532d5968666a5a6449266175746f706c61793d31266d757465
+│ +3d31266c6f6f703d312673686f77696e666f3d3026636f6e74726f6c733d3126
+│ +76713d686431303830220a202020207d0a7d293b
+│   --- /workspace/pipeline_output/chromex_data/panel-styles.css
+├── +++ /workspace/pipeline_output/stim-video-extension/panel-styles.css
+│┄ Ordering differences only
+│ @@ -1,47 +1,47 @@
+│ -body {
+│ -  margin: 0;
+│ -  padding: 0;
+│ -  background: black;
+│ -}
+│ -
+│ -.video-wrapper {
+│ -  position: relative;
+│ -  overflow: hidden;
+│ -}
+│ -
+│ -.video-wrapper iframe {
+│ -  position: absolute;
+│ -  display: block;
+│ -  left: 0;
+│ -  right: 0;
+│ -  top: 0;
+│ -  bottom: 0;
+│ -  max-width: 300vh;
+│ -  max-height: 300vw;
+│ -}
+│ -
+│ -/* Super wide */
+│ -@media (min-aspect-ratio: 16/9) {
+│ -  .video-wrapper iframe {
+│ -    height: calc((100vw * 9) / 16);
+│ -    width: 100vw;
+│ -    margin-left: auto;
+│ -    margin-right: auto;
+│ -    margin-top: 50vh;
+│ -    margin-bottom: 0;
+│ -    transform: translate(0, -50%);
+│ -  }
+│ -}
+│ -
+│ -/* Super tall */
+│ -@media (max-aspect-ratio: 16/9) {
+│ -  .video-wrapper iframe {
+│ -    height: 100vh;
+│ -    width: calc((100vh * 16) / 9);
+│ -    margin-left: 50vw;
+│ -    margin-right: 0;
+│ -    margin-top: auto;
+│ -    margin-bottom: auto;
+│ -    transform: translate(-50%, 0);
+│ -  }
+│ -}
+│ +body {
+│ +  margin: 0;
+│ +  padding: 0;
+│ +  background: black;
+│ +}
+│ +
+│ +.video-wrapper {
+│ +  position: relative;
+│ +  overflow: hidden;
+│ +}
+│ +
+│ +.video-wrapper iframe {
+│ +  position: absolute;
+│ +  display: block;
+│ +  left: 0;
+│ +  right: 0;
+│ +  top: 0;
+│ +  bottom: 0;
+│ +  max-width: 300vh;
+│ +  max-height: 300vw;
+│ +}
+│ +
+│ +/* Super wide */
+│ +@media (min-aspect-ratio: 16/9) {
+│ +  .video-wrapper iframe {
+│ +    height: calc((100vw * 9) / 16);
+│ +    width: 100vw;
+│ +    margin-left: auto;
+│ +    margin-right: auto;
+│ +    margin-top: 50vh;
+│ +    margin-bottom: 0;
+│ +    transform: translate(0, -50%);
+│ +  }
+│ +}
+│ +
+│ +/* Super tall */
+│ +@media (max-aspect-ratio: 16/9) {
+│ +  .video-wrapper iframe {
+│ +    height: 100vh;
+│ +    width: calc((100vh * 16) / 9);
+│ +    margin-left: 50vw;
+│ +    margin-right: 0;
+│ +    margin-top: auto;
+│ +    margin-bottom: auto;
+│ +    transform: translate(-50%, 0);
+│ +  }
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/panel.html
+├── +++ /workspace/pipeline_output/stim-video-extension/panel.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,21 +1,21 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <link rel="stylesheet" href="panel-styles.css" />
+│ -    <title>Document</title>
+│ -  </head>
+│ -  <body>
+│ -    <div id="iframe-wrapper" class="video-wrapper">
+│ -      <iframe
+│ -        id="iframe"
+│ -        src="https://www.youtube.com/embed/a5S-YhfjZdI?playlist=a5S-YhfjZdI&autoplay=1&mute=1&loop=1&showinfo=0&controls=1&vq=hd720"
+│ -        frameborder="0"
+│ -        allowfullscreen
+│ -      ></iframe>
+│ -    </div>
+│ -    <script src="panel-script.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <link rel="stylesheet" href="panel-styles.css" />
+│ +    <title>Document</title>
+│ +  </head>
+│ +  <body>
+│ +    <div id="iframe-wrapper" class="video-wrapper">
+│ +      <iframe
+│ +        id="iframe"
+│ +        src="https://www.youtube.com/embed/a5S-YhfjZdI?playlist=a5S-YhfjZdI&autoplay=1&mute=1&loop=1&showinfo=0&controls=1&vq=hd720"
+│ +        frameborder="0"
+│ +        allowfullscreen
+│ +      ></iframe>
+│ +    </div>
+│ +    <script src="panel-script.js"></script>
+│ +  </body>
+│ +</html>

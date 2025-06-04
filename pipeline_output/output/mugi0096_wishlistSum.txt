@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wishlistSum
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│  background.js
+│  content.js
+│  icon16.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wishlistSum/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Amazon WishList Sum",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

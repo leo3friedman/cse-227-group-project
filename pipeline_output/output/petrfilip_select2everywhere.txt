@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/select2everywhere
+├── file list
+│ @@ -1,5 +1,6 @@
+│ -_metadata
+│ +.git
+│  convertor.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  select2
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/select2everywhere/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │          "48": "images/icon_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Select2 Everywhere",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

@@ -1,0 +1,208 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TodosChrome
+├── file list
+│ @@ -1,9 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  css
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│  js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/TodosChrome/README.md
+│ @@ -1,5 +1,2 @@
+│  # ToDoChrome
+│ - A chrome extension version of the good old todo list.
+│ - Double click to delete todo.
+│ - Drag to re-order todo.
+│ - Allow syncing via chrome's storage API.
+│ +
+│   --- /workspace/pipeline_output/chromex_data/css
+├── +++ /workspace/pipeline_output/TodosChrome/css
+│ ├── file list
+│ │ @@ -1,2 +1 @@
+│ │ -lib
+│ │  popup.css
+│ │   --- /workspace/pipeline_output/chromex_data/css/popup.css
+│ ├── +++ /workspace/pipeline_output/TodosChrome/css/popup.css
+│ │ @@ -1,51 +1,40 @@
+│ │ +body {
+│ │ +  width: 200px;
+│ │ +  height: 200px;
+│ │ -@font-face {
+│ │ -  font-family: 'Roboto';
+│ │ -  src: url(lib/Roboto/Roboto-Black.ttf);
+│ │  }
+│ │  
+│ │ +#allTodos {
+│ │ -body {
+│ │    background: rgba(0, 0, 0, 0.6);
+│ │ +  /* margin: 0 auto; */
+│ │ -  width: 300px;
+│ │ -  height: 40px;
+│ │ -  margin: 0 0;
+│ │ -  font-family: 'Roboto', serif;
+│ │ -  color: whitesmoke;
+│ │  }
+│ │  
+│ │  ul {
+│ │ -  width:300px;
+│ │    list-style-type: none;
+│ │    margin: 0;
+│ │    padding: 0;
+│ │  }
+│ │  
+│ │ -::-webkit-input-placeholder {
+│ │ -  color:white;
+│ │ -}
+│ │ -
+│ │ -
+│ │  li {
+│ │    height: 40px;
+│ │    line-height: 40px;
+│ │ -  text-indent: 10px;
+│ │  }
+│ │  
+│ │ -/* Different color for every other li */
+│ │  li:nth-child(2n){
+│ │    background: rgba(0, 0, 0, 0.4);
+│ │  }
+│ │  
+│ │  input {
+│ │    width: 100%;
+│ │    height: 35px;
+│ │    box-sizing: border-box;
+│ │    background: transparent;
+│ │    border: none;
+│ │ -  font-family: 'Roboto', serif;
+│ │ -  color: whitesmoke;
+│ │  }
+│ │  
+│ │  input:focus {
+│ │    outline:none;
+│ │  }
+│ │  
+│ │ +::-webkit-input-placeholder {
+│ │ +  text-align: center;
+│ │ +}
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/TodosChrome/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/lib
+│ ├── +++ /workspace/pipeline_output/TodosChrome/js/lib
+│ │ ├── file list
+│ │ │ @@ -1,2 +1 @@
+│ │ │ -jquery-3.4.1.min.js
+│ │ │ -jquery-ui-1.12.1.custom
+│ │ │ +jquery-3.4.1.min.js
+│ │   --- /workspace/pipeline_output/chromex_data/js/popup.js
+│ ├── +++ /workspace/pipeline_output/TodosChrome/js/popup.js
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ │ @@ -1,49 +0,0 @@
+│ │ -2f2f20696e697469616c697a6520617272617920746f20656d7074792c207573
+│ │ -6573207468697320746f2073746f726520746f646f7320666f722073796e630a
+│ │ -6c657420746f646f4172726179203d205b5d3b0a0a0a2f2f496e697469616c69
+│ │ -7a652074686520626f617264207768656e207468652075736572206f70656e73
+│ │ -2069742c2073686f756c642073746f72652074686520757020746f2064617465
+│ │ -206c6973742e0a6368726f6d652e73746f726167652e73796e632e6765742827
+│ │ -746f646f272c66756e6374696f6e286b657973297b0a202020206966286b6579
+│ │ -732e746f646f20213d206e756c6c297b0a2020202020202020746f646f417272
+│ │ -6179203d206b6579732e746f646f3b0a2020202020202020666f72286c657420
+│ │ -69203d20303b2069203c20746f646f41727261792e6c656e6774683b2069202b
+│ │ -2b297b0a2020202020202020202020202428223c6c6920636c6173733d27746f
+│ │ -646f73273e22202b20746f646f41727261795b695d202b20223c2f6c693e2229
+│ │ -2e696e736572744265666f726528272e616464526f7727293b0a202020202020
+│ │ -20207d0a202020207d0a7d293b0a0a0a2f2f41646420746f646f73207768656e
+│ │ -20656e74657220697320707265737365640a242822696e70757422292e6b6579
+│ │ -70726573732866756e6374696f6e286576656e74297b0a202020206c65742069
+│ │ -6e70757456616c203d20242874686973292e76616c28293b0a20202020696628
+│ │ -6576656e742e7768696368203d3d3d20313320262620696e70757456616c2021
+│ │ -3d202222297b0a20202020202020202f2f55706461746520766965772c20616c
+│ │ -736f2073656e6420746f2073796e630a2020202020202020746f646f41727261
+│ │ -792e7075736828696e70757456616c293b0a20202020202020206368726f6d65
+│ │ -2e73746f726167652e73796e632e736574287b27746f646f273a20746f646f41
+│ │ -727261797d2c66756e6374696f6e28297b7d293b0a2020202020202020242822
+│ │ -3c6c6920636c6173733d27746f646f73273e22202b20696e70757456616c202b
+│ │ -20223c2f6c693e22292e696e736572744265666f726528272e616464526f7727
+│ │ -293b0a2020202020202020242874686973292e76616c282222293b0a0a202020
+│ │ -207d0a7d293b0a0a0a0a2f2f52656d6f766520746f646f20616674657220646f
+│ │ -75626c6520636c69636b696e670a242822756c22292e6f6e282264626c636c69
+│ │ -636b222c226c692e746f646f73222c66756e6374696f6e286576656e74297b0a
+│ │ -202020202f2f52656d6f76652066726f6d2061727261792e0a20202020746f64
+│ │ -6f41727261792e73706c69636528746f646f41727261792e696e6465784f6628
+│ │ -24287468697329292c32293b0a202020206368726f6d652e73746f726167652e
+│ │ -73796e632e736574287b27746f646f273a20746f646f41727261797d2c66756e
+│ │ -6374696f6e28297b7d293b0a202020202f2f46616465206f757420616e642072
+│ │ -656d6f76652066726f6d20766965770a20202020242874686973292e66616465
+│ │ -4f75742822736c6f7722293b0a20202020242874686973292e72656d6f766528
+│ │ -293b0a7d293b0a0a0a2f2f4472616720616e6420736f72740a242866756e6374
+│ │ -696f6e28297b0a20202020242822756c22292e736f727461626c65287b0a2020
+│ │ -2020202020207570646174653a66756e6374696f6e28297b0a20202020202020
+│ │ -20746f646f4172726179203d205b5d0a20202020202020202f2f52656f726465
+│ │ -72207468652061727261790a20202020202020202428226c6922292e65616368
+│ │ -2866756e6374696f6e28297b0a20202020202020202020202069662824287468
+│ │ -6973292e636c61737320213d2022616464526f77222026262024287468697329
+│ │ -2e746578742829213d2222297b0a20202020202020202020202020202020746f
+│ │ -646f41727261792e7075736828242874686973292e746578742829293b0a2020
+│ │ -202020202020202020207d0a202020202020202020207d293b0a202020202020
+│ │ -20206368726f6d652e73746f726167652e73796e632e736574287b27746f646f
+│ │ -273a20746f646f41727261797d2c66756e6374696f6e28297b7d293b0a202020
+│ │ -20202020207d0a202020207d293b0a7d293b0a0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TodosChrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,18 +1,9 @@
+│ │  {
+│ │      "browser_action": {
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "description": "Todo List chrome extension",
+│ │ -    "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "Todo List",
+│ │ -    "permissions": [
+│ │ -        "storage"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/TodosChrome/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,21 +1,20 @@
+│  <!DOCTYPE html>
+│  <html>
+│      <head>
+│          <title>ToDo List</title>
+│          <link rel="stylesheet" href="css/popup.css">
+│ -        <script src="js/lib/jquery-3.4.1.min.js"></script>
+│ +        <script src="/js/lib/jquery-3.4.1.min.js"></script>
+│      </head>
+│      <body>
+│          <div id="allTodos">
+│              <ul>
+│ -                <!-- row for adding new todos -->
+│ -                <li class="addRow"><input type="text" placeholder="Add Here" name="toAdd" maxlength="40"></li>
+│ +                <li><span class="circle">O </span>Hi!</li>
+│ +                <li><span class="circle">O </span>Hi!</li>
+│ +                <li><span class="circle">O </span>Hi!</li>
+│ +                <li><input type="text" placeholder="Add Here"></li>
+│              </ul>
+│  
+│          </div>
+│      </body>
+│      <script src="js/popup.js"></script>
+│ -    <link rel="stylesheet" href="js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+│ -    <script src="js/lib/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+│ -    <script src="js/lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+│ -</html>
+│ +</html>

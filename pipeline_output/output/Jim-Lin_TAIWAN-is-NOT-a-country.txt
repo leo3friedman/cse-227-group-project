@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TAIWAN-is-NOT-a-country
+├── file list
+│ @@ -1,4 +1,8 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│ +README.md
+│ +after.png
+│ +before.png
+│  contentscript.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TAIWAN-is-NOT-a-country/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "transform text from TAIWAN to ROC in news",
+│ │      "icons": {},
+│ │      "manifest_version": 2,
+│ │      "name": "News Transformer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3"
+│ │  }

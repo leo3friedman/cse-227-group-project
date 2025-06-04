@@ -1,0 +1,104 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/youtubeRedirect-ChromeExtension
+├── file list
+│ @@ -1,9 +1,6 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│ -background.js
+│  content.js
+│ -icons
+│  manifest.json
+│ -popup.html
+│ -popup.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/youtubeRedirect-ChromeExtension/README.md
+│ @@ -1,19 +1,2 @@
+│ -This extension automatically redirects YouTube watch links for no ads and fewer distractions. 
+│ -Reload the site to activate.
+│ -
+│ -| Regular Youtube | Redirected Link |
+│ -| --- | --- |
+│ -| ![1-1280x800](https://github.com/yeetric/youtubeAdRedirect/assets/82407170/75fcedf5-0208-498a-b042-1a7ee4485c88)| ![2-1280x800](https://github.com/yeetric/youtubeAdRedirect/assets/82407170/4a923a2a-068b-424b-ae78-58b750e1b795)|
+│ -
+│ -## Loading Unpacked Extension
+│ -
+│ -1. Clone or download the GitHub repository to your local machine
+│ -
+│ -2. In the address bar, enter `chrome://extensions/`
+│ -
+│ -3. Enable the "Developer mode" toggle switch in the top-right corner
+│ -
+│ -4. Click the "Load unpacked" button
+│ -
+│ -5. Select the folder containing the repository files
+│ -
+│ +# youtubeAdRedirect
+│ +redirects to no cookie youtube. No ads &amp; less distractions, especially because youtube disallowed adblockers :(
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/youtubeRedirect-ChromeExtension/content.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,9 +1,7 @@
+│ -6368726f6d652e73746f726167652e73796e632e6765742827656e61626c6564
+│ -272c2066756e6374696f6e286461746129207b0a202069662028646174612e65
+│ -6e61626c656429207b0a202020206c65742063757272656e7455726c203d2077
+│ -696e646f772e6c6f636174696f6e2e687265663b0a202020206c6574206e6577
+│ -55726c203d2063757272656e7455726c2e7265706c6163652827796f75747562
+│ -65272c2027796f75742d75626527293b0a202020206966202863757272656e74
+│ -55726c20213d3d206e657755726c29207b0a20202020202077696e646f772e6c
+│ -6f636174696f6e2e68726566203d206e657755726c3b0a202020207d0a20207d
+│ -0a7d293b
+│ +77696e646f772e6f6e6c6f6164203d2066756e6374696f6e2829207b0a202020
+│ +206c65742063757272656e7455726c203d2077696e646f772e6c6f636174696f
+│ +6e2e687265663b0a202020206c6574206e657755726c203d2063757272656e74
+│ +55726c2e7265706c6163652827796f7574756265272c2027796f75742d756265
+│ +27293b0a202020206966202863757272656e7455726c20213d3d206e65775572
+│ +6c29207b0a20202020202077696e646f772e6c6f636174696f6e2e6872656620
+│ +3d206e657755726c3b0a202020207d0a20207d3b0a2020
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/youtubeRedirect-ChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,36 +1,19 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "icons/icon.png",
+│ │ -            "16": "icons/icon.png",
+│ │ -            "48": "icons/icon.png"
+│ │ -        },
+│ │ -        "default_popup": "popup.html"
+│ │ -    },
+│ │ -    "background": {
+│ │ -        "service_worker": "background.js"
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "content.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.youtube.com/watch*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Redirects YouTube watch links to No Cookie Version.",
+│ │ -    "icons": {
+│ │ -        "128": "icons/icon.png",
+│ │ -        "16": "icons/icon.png",
+│ │ -        "48": "icons/icon.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "YouTube Redirect Distraction Free",
+│ │ +    "description": "Modifies YouTube watch links",
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "YouTube Link Modifier",
+│ │      "permissions": [
+│ │ -        "storage"
+│ │ +        "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

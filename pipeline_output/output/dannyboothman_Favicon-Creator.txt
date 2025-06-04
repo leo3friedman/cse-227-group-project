@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Favicon-Creator
+├── file list
+│ @@ -1,18 +1,20 @@
+│ +.DS_Store
+│ +.git
+│  FileSaver.js
+│  ReadMe.md
+│ -_metadata
+│  background.js
+│  example.html
+│  feedback.html
+│  help.html
+│  html2canvas.js
+│  images
+│  jszip.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  result.html
+│  result.js
+│  script.js
+│  settings.html
+│  settings.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Favicon-Creator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │          "48": "images/icon/icon64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Favicon Creator",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2.2"
+│ │  }

@@ -1,0 +1,1479 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CheckPeriodically
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  LICENSE
+│ -PRIVACY.md
+│  README.md
+│ -_metadata
+│ -background.js
+│ -browser-polyfill.min.js
+│ -content.js
+│ +git_archive.bat
+│  images
+│ +library
+│  manifest.json
+│ -package.sh
+│ +options.html
+│ +options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│ -serviceWorker.js
+│ +service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/LICENSE
+├── +++ /workspace/pipeline_output/CheckPeriodically/LICENSE
+│ @@ -1,674 +1,21 @@
+│ -                    GNU GENERAL PUBLIC LICENSE
+│ -                       Version 3, 29 June 2007
+│ +MIT License
+│  
+│ - Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+│ - Everyone is permitted to copy and distribute verbatim copies
+│ - of this license document, but changing it is not allowed.
+│ +Copyright (c) 2022 @lamrongol
+│  
+│ -                            Preamble
+│ -
+│ -  The GNU General Public License is a free, copyleft license for
+│ -software and other kinds of works.
+│ -
+│ -  The licenses for most software and other practical works are designed
+│ -to take away your freedom to share and change the works.  By contrast,
+│ -the GNU General Public License is intended to guarantee your freedom to
+│ -share and change all versions of a program--to make sure it remains free
+│ -software for all its users.  We, the Free Software Foundation, use the
+│ -GNU General Public License for most of our software; it applies also to
+│ -any other work released this way by its authors.  You can apply it to
+│ -your programs, too.
+│ -
+│ -  When we speak of free software, we are referring to freedom, not
+│ -price.  Our General Public Licenses are designed to make sure that you
+│ -have the freedom to distribute copies of free software (and charge for
+│ -them if you wish), that you receive source code or can get it if you
+│ -want it, that you can change the software or use pieces of it in new
+│ -free programs, and that you know you can do these things.
+│ -
+│ -  To protect your rights, we need to prevent others from denying you
+│ -these rights or asking you to surrender the rights.  Therefore, you have
+│ -certain responsibilities if you distribute copies of the software, or if
+│ -you modify it: responsibilities to respect the freedom of others.
+│ -
+│ -  For example, if you distribute copies of such a program, whether
+│ -gratis or for a fee, you must pass on to the recipients the same
+│ -freedoms that you received.  You must make sure that they, too, receive
+│ -or can get the source code.  And you must show them these terms so they
+│ -know their rights.
+│ -
+│ -  Developers that use the GNU GPL protect your rights with two steps:
+│ -(1) assert copyright on the software, and (2) offer you this License
+│ -giving you legal permission to copy, distribute and/or modify it.
+│ -
+│ -  For the developers' and authors' protection, the GPL clearly explains
+│ -that there is no warranty for this free software.  For both users' and
+│ -authors' sake, the GPL requires that modified versions be marked as
+│ -changed, so that their problems will not be attributed erroneously to
+│ -authors of previous versions.
+│ -
+│ -  Some devices are designed to deny users access to install or run
+│ -modified versions of the software inside them, although the manufacturer
+│ -can do so.  This is fundamentally incompatible with the aim of
+│ -protecting users' freedom to change the software.  The systematic
+│ -pattern of such abuse occurs in the area of products for individuals to
+│ -use, which is precisely where it is most unacceptable.  Therefore, we
+│ -have designed this version of the GPL to prohibit the practice for those
+│ -products.  If such problems arise substantially in other domains, we
+│ -stand ready to extend this provision to those domains in future versions
+│ -of the GPL, as needed to protect the freedom of users.
+│ -
+│ -  Finally, every program is threatened constantly by software patents.
+│ -States should not allow patents to restrict development and use of
+│ -software on general-purpose computers, but in those that do, we wish to
+│ -avoid the special danger that patents applied to a free program could
+│ -make it effectively proprietary.  To prevent this, the GPL assures that
+│ -patents cannot be used to render the program non-free.
+│ -
+│ -  The precise terms and conditions for copying, distribution and
+│ -modification follow.
+│ -
+│ -                       TERMS AND CONDITIONS
+│ -
+│ -  0. Definitions.
+│ -
+│ -  "This License" refers to version 3 of the GNU General Public License.
+│ -
+│ -  "Copyright" also means copyright-like laws that apply to other kinds of
+│ -works, such as semiconductor masks.
+│ -
+│ -  "The Program" refers to any copyrightable work licensed under this
+│ -License.  Each licensee is addressed as "you".  "Licensees" and
+│ -"recipients" may be individuals or organizations.
+│ -
+│ -  To "modify" a work means to copy from or adapt all or part of the work
+│ -in a fashion requiring copyright permission, other than the making of an
+│ -exact copy.  The resulting work is called a "modified version" of the
+│ -earlier work or a work "based on" the earlier work.
+│ -
+│ -  A "covered work" means either the unmodified Program or a work based
+│ -on the Program.
+│ -
+│ -  To "propagate" a work means to do anything with it that, without
+│ -permission, would make you directly or secondarily liable for
+│ -infringement under applicable copyright law, except executing it on a
+│ -computer or modifying a private copy.  Propagation includes copying,
+│ -distribution (with or without modification), making available to the
+│ -public, and in some countries other activities as well.
+│ -
+│ -  To "convey" a work means any kind of propagation that enables other
+│ -parties to make or receive copies.  Mere interaction with a user through
+│ -a computer network, with no transfer of a copy, is not conveying.
+│ -
+│ -  An interactive user interface displays "Appropriate Legal Notices"
+│ -to the extent that it includes a convenient and prominently visible
+│ -feature that (1) displays an appropriate copyright notice, and (2)
+│ -tells the user that there is no warranty for the work (except to the
+│ -extent that warranties are provided), that licensees may convey the
+│ -work under this License, and how to view a copy of this License.  If
+│ -the interface presents a list of user commands or options, such as a
+│ -menu, a prominent item in the list meets this criterion.
+│ -
+│ -  1. Source Code.
+│ -
+│ -  The "source code" for a work means the preferred form of the work
+│ -for making modifications to it.  "Object code" means any non-source
+│ -form of a work.
+│ -
+│ -  A "Standard Interface" means an interface that either is an official
+│ -standard defined by a recognized standards body, or, in the case of
+│ -interfaces specified for a particular programming language, one that
+│ -is widely used among developers working in that language.
+│ -
+│ -  The "System Libraries" of an executable work include anything, other
+│ -than the work as a whole, that (a) is included in the normal form of
+│ -packaging a Major Component, but which is not part of that Major
+│ -Component, and (b) serves only to enable use of the work with that
+│ -Major Component, or to implement a Standard Interface for which an
+│ -implementation is available to the public in source code form.  A
+│ -"Major Component", in this context, means a major essential component
+│ -(kernel, window system, and so on) of the specific operating system
+│ -(if any) on which the executable work runs, or a compiler used to
+│ -produce the work, or an object code interpreter used to run it.
+│ -
+│ -  The "Corresponding Source" for a work in object code form means all
+│ -the source code needed to generate, install, and (for an executable
+│ -work) run the object code and to modify the work, including scripts to
+│ -control those activities.  However, it does not include the work's
+│ -System Libraries, or general-purpose tools or generally available free
+│ -programs which are used unmodified in performing those activities but
+│ -which are not part of the work.  For example, Corresponding Source
+│ -includes interface definition files associated with source files for
+│ -the work, and the source code for shared libraries and dynamically
+│ -linked subprograms that the work is specifically designed to require,
+│ -such as by intimate data communication or control flow between those
+│ -subprograms and other parts of the work.
+│ -
+│ -  The Corresponding Source need not include anything that users
+│ -can regenerate automatically from other parts of the Corresponding
+│ -Source.
+│ -
+│ -  The Corresponding Source for a work in source code form is that
+│ -same work.
+│ -
+│ -  2. Basic Permissions.
+│ -
+│ -  All rights granted under this License are granted for the term of
+│ -copyright on the Program, and are irrevocable provided the stated
+│ -conditions are met.  This License explicitly affirms your unlimited
+│ -permission to run the unmodified Program.  The output from running a
+│ -covered work is covered by this License only if the output, given its
+│ -content, constitutes a covered work.  This License acknowledges your
+│ -rights of fair use or other equivalent, as provided by copyright law.
+│ -
+│ -  You may make, run and propagate covered works that you do not
+│ -convey, without conditions so long as your license otherwise remains
+│ -in force.  You may convey covered works to others for the sole purpose
+│ -of having them make modifications exclusively for you, or provide you
+│ -with facilities for running those works, provided that you comply with
+│ -the terms of this License in conveying all material for which you do
+│ -not control copyright.  Those thus making or running the covered works
+│ -for you must do so exclusively on your behalf, under your direction
+│ -and control, on terms that prohibit them from making any copies of
+│ -your copyrighted material outside their relationship with you.
+│ -
+│ -  Conveying under any other circumstances is permitted solely under
+│ -the conditions stated below.  Sublicensing is not allowed; section 10
+│ -makes it unnecessary.
+│ -
+│ -  3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+│ -
+│ -  No covered work shall be deemed part of an effective technological
+│ -measure under any applicable law fulfilling obligations under article
+│ -11 of the WIPO copyright treaty adopted on 20 December 1996, or
+│ -similar laws prohibiting or restricting circumvention of such
+│ -measures.
+│ -
+│ -  When you convey a covered work, you waive any legal power to forbid
+│ -circumvention of technological measures to the extent such circumvention
+│ -is effected by exercising rights under this License with respect to
+│ -the covered work, and you disclaim any intention to limit operation or
+│ -modification of the work as a means of enforcing, against the work's
+│ -users, your or third parties' legal rights to forbid circumvention of
+│ -technological measures.
+│ -
+│ -  4. Conveying Verbatim Copies.
+│ -
+│ -  You may convey verbatim copies of the Program's source code as you
+│ -receive it, in any medium, provided that you conspicuously and
+│ -appropriately publish on each copy an appropriate copyright notice;
+│ -keep intact all notices stating that this License and any
+│ -non-permissive terms added in accord with section 7 apply to the code;
+│ -keep intact all notices of the absence of any warranty; and give all
+│ -recipients a copy of this License along with the Program.
+│ -
+│ -  You may charge any price or no price for each copy that you convey,
+│ -and you may offer support or warranty protection for a fee.
+│ -
+│ -  5. Conveying Modified Source Versions.
+│ -
+│ -  You may convey a work based on the Program, or the modifications to
+│ -produce it from the Program, in the form of source code under the
+│ -terms of section 4, provided that you also meet all of these conditions:
+│ -
+│ -    a) The work must carry prominent notices stating that you modified
+│ -    it, and giving a relevant date.
+│ -
+│ -    b) The work must carry prominent notices stating that it is
+│ -    released under this License and any conditions added under section
+│ -    7.  This requirement modifies the requirement in section 4 to
+│ -    "keep intact all notices".
+│ -
+│ -    c) You must license the entire work, as a whole, under this
+│ -    License to anyone who comes into possession of a copy.  This
+│ -    License will therefore apply, along with any applicable section 7
+│ -    additional terms, to the whole of the work, and all its parts,
+│ -    regardless of how they are packaged.  This License gives no
+│ -    permission to license the work in any other way, but it does not
+│ -    invalidate such permission if you have separately received it.
+│ -
+│ -    d) If the work has interactive user interfaces, each must display
+│ -    Appropriate Legal Notices; however, if the Program has interactive
+│ -    interfaces that do not display Appropriate Legal Notices, your
+│ -    work need not make them do so.
+│ -
+│ -  A compilation of a covered work with other separate and independent
+│ -works, which are not by their nature extensions of the covered work,
+│ -and which are not combined with it such as to form a larger program,
+│ -in or on a volume of a storage or distribution medium, is called an
+│ -"aggregate" if the compilation and its resulting copyright are not
+│ -used to limit the access or legal rights of the compilation's users
+│ -beyond what the individual works permit.  Inclusion of a covered work
+│ -in an aggregate does not cause this License to apply to the other
+│ -parts of the aggregate.
+│ -
+│ -  6. Conveying Non-Source Forms.
+│ -
+│ -  You may convey a covered work in object code form under the terms
+│ -of sections 4 and 5, provided that you also convey the
+│ -machine-readable Corresponding Source under the terms of this License,
+│ -in one of these ways:
+│ -
+│ -    a) Convey the object code in, or embodied in, a physical product
+│ -    (including a physical distribution medium), accompanied by the
+│ -    Corresponding Source fixed on a durable physical medium
+│ -    customarily used for software interchange.
+│ -
+│ -    b) Convey the object code in, or embodied in, a physical product
+│ -    (including a physical distribution medium), accompanied by a
+│ -    written offer, valid for at least three years and valid for as
+│ -    long as you offer spare parts or customer support for that product
+│ -    model, to give anyone who possesses the object code either (1) a
+│ -    copy of the Corresponding Source for all the software in the
+│ -    product that is covered by this License, on a durable physical
+│ -    medium customarily used for software interchange, for a price no
+│ -    more than your reasonable cost of physically performing this
+│ -    conveying of source, or (2) access to copy the
+│ -    Corresponding Source from a network server at no charge.
+│ -
+│ -    c) Convey individual copies of the object code with a copy of the
+│ -    written offer to provide the Corresponding Source.  This
+│ -    alternative is allowed only occasionally and noncommercially, and
+│ -    only if you received the object code with such an offer, in accord
+│ -    with subsection 6b.
+│ -
+│ -    d) Convey the object code by offering access from a designated
+│ -    place (gratis or for a charge), and offer equivalent access to the
+│ -    Corresponding Source in the same way through the same place at no
+│ -    further charge.  You need not require recipients to copy the
+│ -    Corresponding Source along with the object code.  If the place to
+│ -    copy the object code is a network server, the Corresponding Source
+│ -    may be on a different server (operated by you or a third party)
+│ -    that supports equivalent copying facilities, provided you maintain
+│ -    clear directions next to the object code saying where to find the
+│ -    Corresponding Source.  Regardless of what server hosts the
+│ -    Corresponding Source, you remain obligated to ensure that it is
+│ -    available for as long as needed to satisfy these requirements.
+│ -
+│ -    e) Convey the object code using peer-to-peer transmission, provided
+│ -    you inform other peers where the object code and Corresponding
+│ -    Source of the work are being offered to the general public at no
+│ -    charge under subsection 6d.
+│ -
+│ -  A separable portion of the object code, whose source code is excluded
+│ -from the Corresponding Source as a System Library, need not be
+│ -included in conveying the object code work.
+│ -
+│ -  A "User Product" is either (1) a "consumer product", which means any
+│ -tangible personal property which is normally used for personal, family,
+│ -or household purposes, or (2) anything designed or sold for incorporation
+│ -into a dwelling.  In determining whether a product is a consumer product,
+│ -doubtful cases shall be resolved in favor of coverage.  For a particular
+│ -product received by a particular user, "normally used" refers to a
+│ -typical or common use of that class of product, regardless of the status
+│ -of the particular user or of the way in which the particular user
+│ -actually uses, or expects or is expected to use, the product.  A product
+│ -is a consumer product regardless of whether the product has substantial
+│ -commercial, industrial or non-consumer uses, unless such uses represent
+│ -the only significant mode of use of the product.
+│ -
+│ -  "Installation Information" for a User Product means any methods,
+│ -procedures, authorization keys, or other information required to install
+│ -and execute modified versions of a covered work in that User Product from
+│ -a modified version of its Corresponding Source.  The information must
+│ -suffice to ensure that the continued functioning of the modified object
+│ -code is in no case prevented or interfered with solely because
+│ -modification has been made.
+│ -
+│ -  If you convey an object code work under this section in, or with, or
+│ -specifically for use in, a User Product, and the conveying occurs as
+│ -part of a transaction in which the right of possession and use of the
+│ -User Product is transferred to the recipient in perpetuity or for a
+│ -fixed term (regardless of how the transaction is characterized), the
+│ -Corresponding Source conveyed under this section must be accompanied
+│ -by the Installation Information.  But this requirement does not apply
+│ -if neither you nor any third party retains the ability to install
+│ -modified object code on the User Product (for example, the work has
+│ -been installed in ROM).
+│ -
+│ -  The requirement to provide Installation Information does not include a
+│ -requirement to continue to provide support service, warranty, or updates
+│ -for a work that has been modified or installed by the recipient, or for
+│ -the User Product in which it has been modified or installed.  Access to a
+│ -network may be denied when the modification itself materially and
+│ -adversely affects the operation of the network or violates the rules and
+│ -protocols for communication across the network.
+│ -
+│ -  Corresponding Source conveyed, and Installation Information provided,
+│ -in accord with this section must be in a format that is publicly
+│ -documented (and with an implementation available to the public in
+│ -source code form), and must require no special password or key for
+│ -unpacking, reading or copying.
+│ -
+│ -  7. Additional Terms.
+│ -
+│ -  "Additional permissions" are terms that supplement the terms of this
+│ -License by making exceptions from one or more of its conditions.
+│ -Additional permissions that are applicable to the entire Program shall
+│ -be treated as though they were included in this License, to the extent
+│ -that they are valid under applicable law.  If additional permissions
+│ -apply only to part of the Program, that part may be used separately
+│ -under those permissions, but the entire Program remains governed by
+│ -this License without regard to the additional permissions.
+│ -
+│ -  When you convey a copy of a covered work, you may at your option
+│ -remove any additional permissions from that copy, or from any part of
+│ -it.  (Additional permissions may be written to require their own
+│ -removal in certain cases when you modify the work.)  You may place
+│ -additional permissions on material, added by you to a covered work,
+│ -for which you have or can give appropriate copyright permission.
+│ -
+│ -  Notwithstanding any other provision of this License, for material you
+│ -add to a covered work, you may (if authorized by the copyright holders of
+│ -that material) supplement the terms of this License with terms:
+│ -
+│ -    a) Disclaiming warranty or limiting liability differently from the
+│ -    terms of sections 15 and 16 of this License; or
+│ -
+│ -    b) Requiring preservation of specified reasonable legal notices or
+│ -    author attributions in that material or in the Appropriate Legal
+│ -    Notices displayed by works containing it; or
+│ -
+│ -    c) Prohibiting misrepresentation of the origin of that material, or
+│ -    requiring that modified versions of such material be marked in
+│ -    reasonable ways as different from the original version; or
+│ -
+│ -    d) Limiting the use for publicity purposes of names of licensors or
+│ -    authors of the material; or
+│ -
+│ -    e) Declining to grant rights under trademark law for use of some
+│ -    trade names, trademarks, or service marks; or
+│ -
+│ -    f) Requiring indemnification of licensors and authors of that
+│ -    material by anyone who conveys the material (or modified versions of
+│ -    it) with contractual assumptions of liability to the recipient, for
+│ -    any liability that these contractual assumptions directly impose on
+│ -    those licensors and authors.
+│ -
+│ -  All other non-permissive additional terms are considered "further
+│ -restrictions" within the meaning of section 10.  If the Program as you
+│ -received it, or any part of it, contains a notice stating that it is
+│ -governed by this License along with a term that is a further
+│ -restriction, you may remove that term.  If a license document contains
+│ -a further restriction but permits relicensing or conveying under this
+│ -License, you may add to a covered work material governed by the terms
+│ -of that license document, provided that the further restriction does
+│ -not survive such relicensing or conveying.
+│ -
+│ -  If you add terms to a covered work in accord with this section, you
+│ -must place, in the relevant source files, a statement of the
+│ -additional terms that apply to those files, or a notice indicating
+│ -where to find the applicable terms.
+│ -
+│ -  Additional terms, permissive or non-permissive, may be stated in the
+│ -form of a separately written license, or stated as exceptions;
+│ -the above requirements apply either way.
+│ -
+│ -  8. Termination.
+│ -
+│ -  You may not propagate or modify a covered work except as expressly
+│ -provided under this License.  Any attempt otherwise to propagate or
+│ -modify it is void, and will automatically terminate your rights under
+│ -this License (including any patent licenses granted under the third
+│ -paragraph of section 11).
+│ -
+│ -  However, if you cease all violation of this License, then your
+│ -license from a particular copyright holder is reinstated (a)
+│ -provisionally, unless and until the copyright holder explicitly and
+│ -finally terminates your license, and (b) permanently, if the copyright
+│ -holder fails to notify you of the violation by some reasonable means
+│ -prior to 60 days after the cessation.
+│ -
+│ -  Moreover, your license from a particular copyright holder is
+│ -reinstated permanently if the copyright holder notifies you of the
+│ -violation by some reasonable means, this is the first time you have
+│ -received notice of violation of this License (for any work) from that
+│ -copyright holder, and you cure the violation prior to 30 days after
+│ -your receipt of the notice.
+│ -
+│ -  Termination of your rights under this section does not terminate the
+│ -licenses of parties who have received copies or rights from you under
+│ -this License.  If your rights have been terminated and not permanently
+│ -reinstated, you do not qualify to receive new licenses for the same
+│ -material under section 10.
+│ -
+│ -  9. Acceptance Not Required for Having Copies.
+│ -
+│ -  You are not required to accept this License in order to receive or
+│ -run a copy of the Program.  Ancillary propagation of a covered work
+│ -occurring solely as a consequence of using peer-to-peer transmission
+│ -to receive a copy likewise does not require acceptance.  However,
+│ -nothing other than this License grants you permission to propagate or
+│ -modify any covered work.  These actions infringe copyright if you do
+│ -not accept this License.  Therefore, by modifying or propagating a
+│ -covered work, you indicate your acceptance of this License to do so.
+│ -
+│ -  10. Automatic Licensing of Downstream Recipients.
+│ -
+│ -  Each time you convey a covered work, the recipient automatically
+│ -receives a license from the original licensors, to run, modify and
+│ -propagate that work, subject to this License.  You are not responsible
+│ -for enforcing compliance by third parties with this License.
+│ -
+│ -  An "entity transaction" is a transaction transferring control of an
+│ -organization, or substantially all assets of one, or subdividing an
+│ -organization, or merging organizations.  If propagation of a covered
+│ -work results from an entity transaction, each party to that
+│ -transaction who receives a copy of the work also receives whatever
+│ -licenses to the work the party's predecessor in interest had or could
+│ -give under the previous paragraph, plus a right to possession of the
+│ -Corresponding Source of the work from the predecessor in interest, if
+│ -the predecessor has it or can get it with reasonable efforts.
+│ -
+│ -  You may not impose any further restrictions on the exercise of the
+│ -rights granted or affirmed under this License.  For example, you may
+│ -not impose a license fee, royalty, or other charge for exercise of
+│ -rights granted under this License, and you may not initiate litigation
+│ -(including a cross-claim or counterclaim in a lawsuit) alleging that
+│ -any patent claim is infringed by making, using, selling, offering for
+│ -sale, or importing the Program or any portion of it.
+│ -
+│ -  11. Patents.
+│ -
+│ -  A "contributor" is a copyright holder who authorizes use under this
+│ -License of the Program or a work on which the Program is based.  The
+│ -work thus licensed is called the contributor's "contributor version".
+│ -
+│ -  A contributor's "essential patent claims" are all patent claims
+│ -owned or controlled by the contributor, whether already acquired or
+│ -hereafter acquired, that would be infringed by some manner, permitted
+│ -by this License, of making, using, or selling its contributor version,
+│ -but do not include claims that would be infringed only as a
+│ -consequence of further modification of the contributor version.  For
+│ -purposes of this definition, "control" includes the right to grant
+│ -patent sublicenses in a manner consistent with the requirements of
+│ -this License.
+│ -
+│ -  Each contributor grants you a non-exclusive, worldwide, royalty-free
+│ -patent license under the contributor's essential patent claims, to
+│ -make, use, sell, offer for sale, import and otherwise run, modify and
+│ -propagate the contents of its contributor version.
+│ -
+│ -  In the following three paragraphs, a "patent license" is any express
+│ -agreement or commitment, however denominated, not to enforce a patent
+│ -(such as an express permission to practice a patent or covenant not to
+│ -sue for patent infringement).  To "grant" such a patent license to a
+│ -party means to make such an agreement or commitment not to enforce a
+│ -patent against the party.
+│ -
+│ -  If you convey a covered work, knowingly relying on a patent license,
+│ -and the Corresponding Source of the work is not available for anyone
+│ -to copy, free of charge and under the terms of this License, through a
+│ -publicly available network server or other readily accessible means,
+│ -then you must either (1) cause the Corresponding Source to be so
+│ -available, or (2) arrange to deprive yourself of the benefit of the
+│ -patent license for this particular work, or (3) arrange, in a manner
+│ -consistent with the requirements of this License, to extend the patent
+│ -license to downstream recipients.  "Knowingly relying" means you have
+│ -actual knowledge that, but for the patent license, your conveying the
+│ -covered work in a country, or your recipient's use of the covered work
+│ -in a country, would infringe one or more identifiable patents in that
+│ -country that you have reason to believe are valid.
+│ -
+│ -  If, pursuant to or in connection with a single transaction or
+│ -arrangement, you convey, or propagate by procuring conveyance of, a
+│ -covered work, and grant a patent license to some of the parties
+│ -receiving the covered work authorizing them to use, propagate, modify
+│ -or convey a specific copy of the covered work, then the patent license
+│ -you grant is automatically extended to all recipients of the covered
+│ -work and works based on it.
+│ -
+│ -  A patent license is "discriminatory" if it does not include within
+│ -the scope of its coverage, prohibits the exercise of, or is
+│ -conditioned on the non-exercise of one or more of the rights that are
+│ -specifically granted under this License.  You may not convey a covered
+│ -work if you are a party to an arrangement with a third party that is
+│ -in the business of distributing software, under which you make payment
+│ -to the third party based on the extent of your activity of conveying
+│ -the work, and under which the third party grants, to any of the
+│ -parties who would receive the covered work from you, a discriminatory
+│ -patent license (a) in connection with copies of the covered work
+│ -conveyed by you (or copies made from those copies), or (b) primarily
+│ -for and in connection with specific products or compilations that
+│ -contain the covered work, unless you entered into that arrangement,
+│ -or that patent license was granted, prior to 28 March 2007.
+│ -
+│ -  Nothing in this License shall be construed as excluding or limiting
+│ -any implied license or other defenses to infringement that may
+│ -otherwise be available to you under applicable patent law.
+│ -
+│ -  12. No Surrender of Others' Freedom.
+│ -
+│ -  If conditions are imposed on you (whether by court order, agreement or
+│ -otherwise) that contradict the conditions of this License, they do not
+│ -excuse you from the conditions of this License.  If you cannot convey a
+│ -covered work so as to satisfy simultaneously your obligations under this
+│ -License and any other pertinent obligations, then as a consequence you may
+│ -not convey it at all.  For example, if you agree to terms that obligate you
+│ -to collect a royalty for further conveying from those to whom you convey
+│ -the Program, the only way you could satisfy both those terms and this
+│ -License would be to refrain entirely from conveying the Program.
+│ -
+│ -  13. Use with the GNU Affero General Public License.
+│ -
+│ -  Notwithstanding any other provision of this License, you have
+│ -permission to link or combine any covered work with a work licensed
+│ -under version 3 of the GNU Affero General Public License into a single
+│ -combined work, and to convey the resulting work.  The terms of this
+│ -License will continue to apply to the part which is the covered work,
+│ -but the special requirements of the GNU Affero General Public License,
+│ -section 13, concerning interaction through a network will apply to the
+│ -combination as such.
+│ -
+│ -  14. Revised Versions of this License.
+│ -
+│ -  The Free Software Foundation may publish revised and/or new versions of
+│ -the GNU General Public License from time to time.  Such new versions will
+│ -be similar in spirit to the present version, but may differ in detail to
+│ -address new problems or concerns.
+│ -
+│ -  Each version is given a distinguishing version number.  If the
+│ -Program specifies that a certain numbered version of the GNU General
+│ -Public License "or any later version" applies to it, you have the
+│ -option of following the terms and conditions either of that numbered
+│ -version or of any later version published by the Free Software
+│ -Foundation.  If the Program does not specify a version number of the
+│ -GNU General Public License, you may choose any version ever published
+│ -by the Free Software Foundation.
+│ -
+│ -  If the Program specifies that a proxy can decide which future
+│ -versions of the GNU General Public License can be used, that proxy's
+│ -public statement of acceptance of a version permanently authorizes you
+│ -to choose that version for the Program.
+│ -
+│ -  Later license versions may give you additional or different
+│ -permissions.  However, no additional obligations are imposed on any
+│ -author or copyright holder as a result of your choosing to follow a
+│ -later version.
+│ -
+│ -  15. Disclaimer of Warranty.
+│ -
+│ -  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+│ -APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+│ -HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+│ -OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+│ -THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+│ -PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+│ -IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+│ -ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+│ -
+│ -  16. Limitation of Liability.
+│ -
+│ -  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+│ -WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+│ -THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+│ -GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+│ -USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+│ -DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+│ -PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+│ -EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+│ -SUCH DAMAGES.
+│ -
+│ -  17. Interpretation of Sections 15 and 16.
+│ -
+│ -  If the disclaimer of warranty and limitation of liability provided
+│ -above cannot be given local legal effect according to their terms,
+│ -reviewing courts shall apply local law that most closely approximates
+│ -an absolute waiver of all civil liability in connection with the
+│ -Program, unless a warranty or assumption of liability accompanies a
+│ -copy of the Program in return for a fee.
+│ -
+│ -                     END OF TERMS AND CONDITIONS
+│ -
+│ -            How to Apply These Terms to Your New Programs
+│ -
+│ -  If you develop a new program, and you want it to be of the greatest
+│ -possible use to the public, the best way to achieve this is to make it
+│ -free software which everyone can redistribute and change under these terms.
+│ -
+│ -  To do so, attach the following notices to the program.  It is safest
+│ -to attach them to the start of each source file to most effectively
+│ -state the exclusion of warranty; and each file should have at least
+│ -the "copyright" line and a pointer to where the full notice is found.
+│ -
+│ -    <one line to give the program's name and a brief idea of what it does.>
+│ -    Copyright (C) <year>  <name of author>
+│ -
+│ -    This program is free software: you can redistribute it and/or modify
+│ -    it under the terms of the GNU General Public License as published by
+│ -    the Free Software Foundation, either version 3 of the License, or
+│ -    (at your option) any later version.
+│ -
+│ -    This program is distributed in the hope that it will be useful,
+│ -    but WITHOUT ANY WARRANTY; without even the implied warranty of
+│ -    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+│ -    GNU General Public License for more details.
+│ -
+│ -    You should have received a copy of the GNU General Public License
+│ -    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+│ -
+│ -Also add information on how to contact you by electronic and paper mail.
+│ -
+│ -  If the program does terminal interaction, make it output a short
+│ -notice like this when it starts in an interactive mode:
+│ -
+│ -    <program>  Copyright (C) <year>  <name of author>
+│ -    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+│ -    This is free software, and you are welcome to redistribute it
+│ -    under certain conditions; type `show c' for details.
+│ -
+│ -The hypothetical commands `show w' and `show c' should show the appropriate
+│ -parts of the General Public License.  Of course, your program's commands
+│ -might be different; for a GUI interface, you would use an "about box".
+│ -
+│ -  You should also get your employer (if you work as a programmer) or school,
+│ -if any, to sign a "copyright disclaimer" for the program, if necessary.
+│ -For more information on this, and how to apply and follow the GNU GPL, see
+│ -<https://www.gnu.org/licenses/>.
+│ -
+│ -  The GNU General Public License does not permit incorporating your program
+│ -into proprietary programs.  If your program is a subroutine library, you
+│ -may consider it more useful to permit linking proprietary applications with
+│ -the library.  If this is what you want to do, use the GNU Lesser General
+│ -Public License instead of this License.  But first, please read
+│ -<https://www.gnu.org/licenses/why-not-lgpl.html>.
+│ +Permission is hereby granted, free of charge, to any person obtaining a copy
+│ +of this software and associated documentation files (the "Software"), to deal
+│ +in the Software without restriction, including without limitation the rights
+│ +to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ +copies of the Software, and to permit persons to whom the Software is
+│ +furnished to do so, subject to the following conditions:
+│ +
+│ +The above copyright notice and this permission notice shall be included in all
+│ +copies or substantial portions of the Software.
+│ +
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ +IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ +FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ +AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ +LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ +SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/CheckPeriodically/README.md
+│┄ xxd not available in path. Falling back to Python hexlify.
+│ @@ -1,33 +1,39 @@
+│ -2320536b6f6f6c20466f63757320457874656e73696f6e0a0a412062726f7773
+│ -657220657874656e73696f6e20746861742068656c707320796f7520666f6375
+│ -73207768696c6520796f75207573652074686520736b6f6f6c2e636f6d207765
+│ -62736974652e0a0a3c62723e0a0a23232047657420697420686572650a0a2a2a
+│ -4368726f6d653a2a2a2068747470733a2f2f6368726f6d652e676f6f676c652e
+│ -636f6d2f77656273746f72652f64657461696c2f736b6f6f6c2d666f6375732f
+│ -6e6368666666646b626861666f6d626e6663706c6164666c636c616b6d646d6f
+│ -0a0a2a2a46697265666f783a2a2a2068747470733a2f2f6164646f6e732e6d6f
+│ -7a696c6c612e6f72672f656e2d55532f66697265666f782f6164646f6e2f736b
+│ -6f6f6c2d666f6375732f20284e4f54204d41494e5441494e454420414e594d4f
+│ -5245290a0a3c62723e0a0a23232048656c70206d65207769746820646576656c
+│ -6f706d656e740a0a2d204665656c206672656520746f206d616b65206120636f
+│ -6e747269627574696f6e20746f207468697320657874656e73696f6e206f7220
+│ -746f20646f6e6174650a0a3c6120687265663d2268747470733a2f2f7777772e
+│ -6275796d6561636f666665652e636f6d2f667836346222207461726765743d22
+│ -5f626c616e6b223e3c696d67207372633d2268747470733a2f2f63646e2e6275
+│ -796d6561636f666665652e636f6d2f627574746f6e732f76322f617269616c2d
+│ -79656c6c6f772e706e672220616c743d22427579204d65204120436f66666565
+│ -22207374796c653d226865696768743a20363070782021696d706f7274616e74
+│ -3b77696474683a2032313770782021696d706f7274616e743b22203e3c2f613e
+│ -0a0a3c62723e0a0a23232046656174757265732028574950290a0a2d205b205d
+│ -2056322e3020526564657369676e0a0a2a2a466f637573204d6f64652a2a0a0a
+│ -2d205b205d204f7074696f6e20746f20666f72636520666f637573206d6f6465
+│ -20666f722033302d3930206d696e757465730a0a3c62723e0a0a232323204b6e
+│ -6f776e2049737375657320616e64204c696d69746174696f6e730a0a2d20536f
+│ -6d6574696d6573207468657265206973206120736d616c6c206c616720776865
+│ -6e20686964696e6720656c656d656e747320616674657220737769746368696e
+│ -6720746162730a0a3c62723e0a0a2323204f746865722053747566660a0a5468
+│ -697320657874656e73696f6e207573657320612062726f7773657220706f6c79
+│ -66696c6c206c69627261727920746f20737570706f7274206d756c7469706c65
+│ -2062726f77736572732e0a4d6f726520496e666f726d6174696f6e2068657265
+│ -3a2068747470733a2f2f6769746875622e636f6d2f6d6f7a696c6c612f776562
+│ -657874656e73696f6e2d706f6c7966696c6c0a
+│ +5b215b476974687562206973737565735d2868747470733a2f2f696d672e7368
+│ +69656c64732e696f2f6769746875622f6973737565732f6c616d726f6e676f6c
+│ +2f436865636b506572696f646963616c6c79295d2868747470733a2f2f676974
+│ +6875622e636f6d2f6c616d726f6e676f6c2f436865636b506572696f64696361
+│ +6c6c792f697373756573290a5b215b47697468756220666f726b735d28687474
+│ +70733a2f2f696d672e736869656c64732e696f2f6769746875622f666f726b73
+│ +2f6c616d726f6e676f6c2f436865636b506572696f646963616c6c79295d2868
+│ +747470733a2f2f6769746875622e636f6d2f6c616d726f6e676f6c2f43686563
+│ +6b506572696f646963616c6c792f6e6574776f726b2f6d656d62657273290a5b
+│ +215b4769746875622073746172735d2868747470733a2f2f696d672e73686965
+│ +6c64732e696f2f6769746875622f73746172732f6c616d726f6e676f6c2f4368
+│ +65636b506572696f646963616c6c79295d2868747470733a2f2f676974687562
+│ +2e636f6d2f6c616d726f6e676f6c2f436865636b506572696f646963616c6c79
+│ +2f7374617267617a657273290a5b215b476974687562206c6963656e73655d28
+│ +68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c69
+│ +63656e73652f6c616d726f6e676f6c2f436865636b506572696f646963616c6c
+│ +79295d2868747470733a2f2f6769746875622e636f6d2f6c616d726f6e676f6c
+│ +2f436865636b506572696f646963616c6c792f290a0a232042726f7773655065
+│ +72696f646963616c6c790a0a42726f77736520796f752077616e7420746f2063
+│ +6865636b20706572696f646963616c6c792065766572792031206461792c2031
+│ +207765656b20616e6420736f206f6e2e0a596f752063616e20616c736f207573
+│ +652061732072656d696e6465722062792062726f7773696e6720657665727920
+│ +68616c6620796561722c20666f72206578616d706c652e0a0a2d2d2d2d2d2d2d
+│ +2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d
+│ +2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d0a0a2320e5ae9ae69c9f
+│ +e79a84e381abe38381e382a7e38383e382af0a0ae5ae9ae69c9fe79a84e381ab
+│ +e38381e382a7e38383e382afe38197e3819fe38184e3839ae383bce382b8e382
+│ +92efbc91e697a5e6af8ee38081efbc91e980b1e99693e6af8ee381a8e38184e3
+│ +8186e38288e38186e381abe5ae9ae69c9fe79a84e381abe8a1a8e7a4bae38199
+│ +e3828b4368726f6d65e68ba1e5bcb5e381a7e38199e380820ae58d8ae5b9b4e3
+│ +8194e381a8e381aae381a9e381abe8a1a8e7a4bae38197e381a6e383aae3839e
+│ +e382a4e383b3e38380e383bce381a8e38197e381a6e4bdbfe38186e38193e381
+│ +a8e38282e381a7e3818de381bee38199e380820a0a0a4368726f6d6520776562
+│ +2073746f72653a2068747470733a2f2f6368726f6d652e676f6f676c652e636f
+│ +6d2f77656273746f72652f64657461696c2f636865636b2d706572696f646963
+│ +616c6c792f66706d67626e6d686c6d626b6e706b646c67646d6f636b68696f6a
+│ +656c6464700a0a2320436f6e7472696275746f72730a2d205b6c616d726f6e67
+│ +6f6c5d2868747470733a2f2f6769746875622e636f6d2f6c616d726f6e676f6c
+│ +290a0a
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/CheckPeriodically/images
+│ ├── file list
+│ │ @@ -1,4 +1,4 @@
+│ │ +icon128x128.png
+│ │ +icon16x16.png
+│ │ +icon32x32.png
+│ │ +icon48x48.png
+│ │ -icon-128.png
+│ │ -icon-16.png
+│ │ -icon-32.png
+│ │ -icon-48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CheckPeriodically/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,36 +1,36 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_popup": "popup.html"
+│ │ +        "default_icon": {
+│ │ +            "128": "images/icon128x128.png",
+│ │ +            "16": "images/icon16x16.png",
+│ │ +            "32": "images/icon32x32.png",
+│ │ +            "48": "images/icon48x48.png"
+│ │ +        },
+│ │ +        "default_popup": "popup.html",
+│ │ +        "default_title": "Check Periodically"
+│ │      },
+│ │ -    "author": "Fx64b",
+│ │      "background": {
+│ │ -        "service_worker": "serviceWorker.js"
+│ │ +        "service_worker": "service_worker.js"
+│ │      },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "browser-polyfill.min.js",
+│ │ -                "content.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://www.skool.com/*"
+│ │ -            ],
+│ │ -            "run_at": "document_end"
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "A browser extension that helps you focus while you use the skool.com website.",
+│ │ +    "description": "Browse pages you want to check periodically",
+│ │      "icons": {
+│ │ -        "128": "images/icon-128.png",
+│ │ -        "16": "images/icon-16.png",
+│ │ -        "32": "images/icon-32.png",
+│ │ -        "48": "images/icon-48.png"
+│ │ +        "128": "images/icon128x128.png",
+│ │ +        "16": "images/icon16x16.png",
+│ │ +        "32": "images/icon32x32.png",
+│ │ +        "48": "images/icon48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Skool Focus",
+│ │ +    "name": "Browse Periodically\uff08\u5b9a\u671f\u7684\u306b\u30c1\u30a7\u30c3\u30af\uff09",
+│ │ +    "options_ui": {
+│ │ +        "open_in_tab": true,
+│ │ +        "page": "options.html"
+│ │ +    },
+│ │      "permissions": [
+│ │ +        "storage",
+│ │ +        "unlimitedStorage",
+│ │ +        "tabs",
+│ │          "activeTab",
+│ │ -        "storage"
+│ │ +        "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "2.0.1"
+│ │ +    "version": "0.5.3.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/CheckPeriodically/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,277 +1,23 @@
+│ -<!doctype html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>Skool Focus Settings</title>
+│ -    <style>
+│ -      :root {
+│ -        /* Default (Light Mode) */
+│ -        --background: #ffffff;
+│ -        --text-color: #000000;
+│ -        --toggle-lane-disabled: #444444;
+│ -        --toggle-lane-enabled: #c1e8d8;
+│ -        --toggle-round-enabled: #009e5d;
+│ -        --toggle-round-disabled: #909090;
+│ -      }
+│ -
+│ -      /* Dark Mode Variables */
+│ -      .dark-mode {
+│ -        --background: #222222;
+│ -        --text-color: #ffffff;
+│ -        --toggle-lane-disabled: #444444;
+│ -        --toggle-lane-enabled: #c1e8d8;
+│ -        --toggle-round-enabled: #009e5d;
+│ -        --toggle-round-disabled: #909090;
+│ -      }
+│ -
+│ -      body {
+│ -        width: 230px;
+│ -        padding-bottom: 20px;
+│ -        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+│ -        background-color: var(--background);
+│ -        color: var(--text-color);
+│ -        transition:
+│ -          background-color 0.4s,
+│ -          color 0.4s;
+│ -      }
+│ -
+│ -      h2,
+│ -      h3 {
+│ -        font-weight: 600;
+│ -        margin-bottom: 10px;
+│ -      }
+│ -
+│ -
+│ -      a, a:visited, a:active {
+│ -          color: var(--text-color);
+│ -      }
+│ -
+│ -      .toggle {
+│ -        display: flex;
+│ -        justify-content: space-between;
+│ -        align-items: center;
+│ -        margin-bottom: 10px;
+│ -      }
+│ -
+│ -      .toggle span {
+│ -        font-size: 14px;
+│ -        margin-left: 10px;
+│ -        max-width: 150px;
+│ -      }
+│ -
+│ -      .switch {
+│ -        position: relative;
+│ -        display: inline-block;
+│ -        width: 62px;
+│ -        height: 26px;
+│ -      }
+│ -
+│ -      .switch input {
+│ -        opacity: 0;
+│ -        width: 0;
+│ -        height: 0;
+│ -      }
+│ -
+│ -      .slider {
+│ -        position: absolute;
+│ -        cursor: pointer;
+│ -        top: 0;
+│ -        left: 0;
+│ -        right: 0;
+│ -        bottom: 0;
+│ -        background-color: var(--toggle-lane-disabled);
+│ -        -webkit-transition: 0.4s;
+│ -        transition: 0.4s;
+│ -      }
+│ -
+│ -      .slider:before {
+│ -        position: absolute;
+│ -        content: "";
+│ -        height: 22px;
+│ -        width: 22px;
+│ -        left: 2px;
+│ -        bottom: 2px;
+│ -        background-color: white;
+│ -        -webkit-transition: 0.4s;
+│ -        transition: 0.4s;
+│ -      }
+│ -
+│ -      input:checked + .slider {
+│ -        background-color: var(--toggle-lane-enabled);
+│ -      }
+│ -
+│ -      input:focus + .slider {
+│ -        box-shadow: 0 0 1px var(--toggle-lane-enabled);
+│ -      }
+│ -
+│ -      input:checked + .slider:before {
+│ -        -webkit-transform: translateX(26px);
+│ -        -ms-transform: translateX(26px);
+│ -        transform: translateX(26px);
+│ -        background-color: var(--toggle-round-enabled);
+│ -      }
+│ -
+│ -      .slider.round {
+│ -        border-radius: 34px;
+│ -      }
+│ -
+│ -      .slider.round:before {
+│ -        border-radius: 50%;
+│ -      }
+│ -
+│ -      .svg-container {
+│ -        width: 24px;
+│ -        height: 24px;
+│ -        cursor: pointer;
+│ -      }
+│ -
+│ -      .svg-icon {
+│ -        display: none;
+│ -        width: 30px;
+│ -        height: 30px;
+│ -      }
+│ -
+│ -      .visible {
+│ -        display: block;
+│ -      }
+│ -
+│ -      .footer,
+│ -      .header {
+│ -        display: flex;
+│ -        align-items: center;
+│ -        justify-content: space-evenly;
+│ -      }
+│ -
+│ -      .header {
+│ -        margin-bottom: 16px;
+│ -      }
+│ -
+│ -      #overlay {
+│ -        display: none;
+│ -        position: fixed;
+│ -        top: 0;
+│ -        left: 0;
+│ -        width: 100%;
+│ -        height: 100%;
+│ -        background-color: rgba(0, 0, 0, 0.95);
+│ -        color: white;
+│ -        text-align: center;
+│ -        padding: 20px;
+│ -        z-index: 1000;
+│ -      }
+│ -
+│ -      #overlay p {
+│ -        font-size: 18px;
+│ -        margin-top: 50px;
+│ -        width: 90%;
+│ -      }
+│ -
+│ -      #overlay a {
+│ -        color: #00bfff;
+│ -        font-size: 20px;
+│ -        text-decoration: underline;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <div class="header">
+│ -      <h2>Skool Focus Settings</h2>
+│ -
+│ -      <span class="svg-container" id="theme-toggle">
+│ -        <!-- Light Mode SVG (Sun Icon) -->
+│ -        <svg
+│ -          xmlns="http://www.w3.org/2000/svg"
+│ -          fill="none"
+│ -          viewBox="0 0 24 24"
+│ -          stroke-width="1.5"
+│ -          stroke="currentColor"
+│ -          class="svg-icon"
+│ -          id="light-mode-icon"
+│ -        >
+│ -          <path
+│ -            stroke-linecap="round"
+│ -            stroke-linejoin="round"
+│ -            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+│ -          />
+│ -        </svg>
+│ -
+│ -        <!-- Dark Mode SVG (Moon Icon) -->
+│ -        <svg
+│ -          xmlns="http://www.w3.org/2000/svg"
+│ -          fill="none"
+│ -          viewBox="0 0 24 24"
+│ -          stroke-width="1.5"
+│ -          stroke="currentColor"
+│ -          class="svg-icon"
+│ -          id="dark-mode-icon"
+│ -        >
+│ -          <path
+│ -            stroke-linecap="round"
+│ -            stroke-linejoin="round"
+│ -            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+│ -          />
+│ -        </svg>
+│ -      </span>
+│ -    </div>
+│ -
+│ -    <div class="toggle">
+│ -      <span>Focus Mode</span>
+│ -      <label class="switch">
+│ -        <input type="checkbox" id="toggleAll" />
+│ -        <span class="slider round"></span>
+│ -      </label>
+│ -    </div>
+│ -
+│ -    <div>
+│ -      <h3>Individual Settings</h3>
+│ -      <div class="toggle">
+│ -        <span>Notifications</span>
+│ -        <label class="switch">
+│ -          <input type="checkbox" id="toggleNotifications" />
+│ -          <span class="slider round"></span>
+│ -        </label>
+│ +  <!DOCTYPE html>
+│ +  <html>
+│ +    <head>
+│ +      <style>
+│ +        button {
+│ +          height: 30px;
+│ +          width: 180px;
+│ +          outline: none;
+│ +        }
+│ +      </style>
+│ +	  <script src="popup.js"></script>
+│ +    </head>
+│ +    <body>
+│ +      <div id="dont_check">
+│ +        <button id="delete">Don't browse periodically</button>
+│ +        <hr>
+│        </div>
+│ -      <div class="toggle">
+│ -        <span>Tabs</span>
+│ -        <label class="switch">
+│ -          <input type="checkbox" id="toggleTabLinks" />
+│ -          <span class="slider round"></span>
+│ -        </label>
+│ +      <div id="interval_list">
+│        </div>
+│ -      <div class="toggle">
+│ -        <span>Community Feed</span>
+│ -        <label class="switch">
+│ -          <input type="checkbox" id="toggleCommunityFeed" />
+│ -          <span class="slider round"></span>
+│ -        </label>
+│ -      </div>
+│ -      <div class="toggle">
+│ -        <span>Profile Buttons</span>
+│ -        <label class="switch">
+│ -          <input type="checkbox" id="toggleChatNotificationProfile" />
+│ -          <span class="slider round"></span>
+│ -        </label>
+│ -      </div>
+│ -    </div>
+│ -
+│ -    <div class="footer">
+│ -      <a href="#" id="githubLink">Source Code</a>
+│ -      <a href="#" id="bmcLink">Donate</a>
+│ -      <p>V2.0.1</p>
+│ -    </div>
+│ -
+│ -    <div id="overlay">
+│ -      <p>
+│ -        You need to be on <a href="#" id="skoolLink">skool.com</a> to use this
+│ -        extension.
+│ -      </p>
+│ -    </div>
+│ -
+│ -    <script
+│ -      type="application/javascript"
+│ -      src="browser-polyfill.min.js"
+│ -    ></script>
+│ -    <script src="popup.js"></script>
+│ -  </body>
+│ -</html>
+│ +      <hr>
+│ +      <button id="options">Open detailed options</button>
+│ +    </body>
+│ +  </html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/CheckPeriodically/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,186 +1,112 @@
+│ -646f63756d656e742e6164644576656e744c697374656e65722822444f4d436f
+│ -6e74656e744c6f61646564222c2066756e6374696f6e202829207b0a2020636f
+│ -6e737420746f67676c65427574746f6e73203d207b0a20202020746f67676c65
+│ -416c6c3a2022616c6c222c0a20202020746f67676c654e6f7469666963617469
+│ -6f6e733a20226e6f74696669636174696f6e73222c0a20202020746f67676c65
+│ -5461624c696e6b733a20227461624c696e6b73222c0a20202020746f67676c65
+│ -436f6d6d756e697479466565643a2022636f6d6d756e69747946656564222c0a
+│ -20202020746f67676c65436861744e6f74696669636174696f6e50726f66696c
+│ -653a2022636861744e6f74696669636174696f6e50726f66696c65222c0a2020
+│ -7d3b0a0a2020636f6e737420746f67676c65416c6c427574746f6e203d20646f
+│ -63756d656e742e676574456c656d656e74427949642822746f67676c65416c6c
+│ -22293b0a0a20202f2f2046756e6374696f6e20746f2075706461746520746865
+│ -205549207374617465206f6620746f67676c6520627574746f6e730a20206675
+│ -6e6374696f6e20757064617465546f67676c65427574746f6e53746174652829
+│ -207b0a202020206368726f6d652e73746f726167652e73796e632e6765742822
+│ -68696465456c656d656e7473222c2066756e6374696f6e20286461746129207b
+│ -0a202020202020636f6e73742063757272656e7448696464656e537461747573
+│ -203d20646174612e68696465456c656d656e7473207c7c207b7d3b0a0a202020
+│ -2020204f626a6563742e6b65797328746f67676c65427574746f6e73292e666f
+│ -72456163682828627574746f6e496429203d3e207b0a2020202020202020636f
+│ -6e73742073656374696f6e203d20746f67676c65427574746f6e735b62757474
+│ -6f6e49645d3b0a2020202020202020636f6e737420627574746f6e203d20646f
+│ -63756d656e742e676574456c656d656e744279496428627574746f6e4964293b
+│ -0a0a20202020202020202f2f2055706461746520746865205549207374617465
+│ -206261736564206f6e2073746f7265642076616c75650a202020202020202062
+│ -7574746f6e2e636865636b6564203d2063757272656e7448696464656e537461
+│ -7475735b73656374696f6e5d3b0a2020202020207d293b0a0a2020202020202f
+│ -2f2055706461746520746865207374617465206f6620696e646976696475616c
+│ -20627574746f6e73206261736564206f6e20666f637573206d6f64650a202020
+│ -2020206966202863757272656e7448696464656e5374617475732e616c6c2920
+│ -7b0a202020202020202064697361626c65496e646976696475616c5365747469
+│ -6e67732874727565293b0a2020202020207d20656c7365207b0a202020202020
+│ -202064697361626c65496e646976696475616c53657474696e67732866616c73
+│ -65293b0a2020202020207d0a202020207d293b0a20207d0a0a20202f2f204675
+│ -6e6374696f6e20746f2064697361626c652f656e61626c6520696e6469766964
+│ -75616c2073657474696e677320627574746f6e730a202066756e6374696f6e20
+│ -64697361626c65496e646976696475616c53657474696e67732864697361626c
+│ -6529207b0a202020204f626a6563742e6b65797328746f67676c65427574746f
+│ -6e73292e666f72456163682828627574746f6e496429203d3e207b0a20202020
+│ -202069662028627574746f6e496420213d3d2022746f67676c65416c6c222920
+│ -7b0a2020202020202020636f6e737420627574746f6e203d20646f63756d656e
+│ -742e676574456c656d656e744279496428627574746f6e4964293b0a20202020
+│ -20202020627574746f6e2e64697361626c6564203d2064697361626c653b0a20
+│ -20202020207d0a202020207d293b0a20207d0a0a20202f2f2046756e6374696f
+│ -6e20746f2068616e646c6520666f637573206d6f646520746f67676c650a2020
+│ -746f67676c65416c6c427574746f6e2e6164644576656e744c697374656e6572
+│ -2822636c69636b222c2066756e6374696f6e202829207b0a202020206368726f
+│ -6d652e73746f726167652e73796e632e676574282268696465456c656d656e74
+│ -73222c2066756e6374696f6e20286461746129207b0a202020202020636f6e73
+│ -742063757272656e7448696464656e537461747573203d20646174612e686964
+│ -65456c656d656e7473207c7c207b7d3b0a202020202020636f6e737420697346
+│ -6f6375734d6f6465456e61626c6564203d202163757272656e7448696464656e
+│ -5374617475732e616c6c3b0a0a20202020202063757272656e7448696464656e
+│ -5374617475732e616c6c203d206973466f6375734d6f6465456e61626c65643b
+│ -0a2020202020204f626a6563742e6b65797328746f67676c65427574746f6e73
+│ -292e666f72456163682828627574746f6e496429203d3e207b0a202020202020
+│ -202069662028627574746f6e496420213d3d2022746f67676c65416c6c222920
+│ -7b0a2020202020202020202063757272656e7448696464656e5374617475735b
+│ -746f67676c65427574746f6e735b627574746f6e49645d5d203d206973466f63
+│ -75734d6f6465456e61626c65643b0a20202020202020207d0a2020202020207d
+│ -293b0a0a2020202020206368726f6d652e73746f726167652e73796e632e7365
+│ -74280a20202020202020207b2068696465456c656d656e74733a206375727265
+│ -6e7448696464656e537461747573207d2c0a202020202020202066756e637469
+│ -6f6e202829207b0a20202020202020202020757064617465546f67676c654275
+│ -74746f6e537461746528293b0a0a202020202020202020202f2f2053656e6420
+│ -61206d65737361676520746f20636f6e74656e74207363726970747320746f20
+│ -7570646174652074686569722073746174650a20202020202020202020636872
+│ -6f6d652e746162732e7175657279287b7d2c2066756e6374696f6e2028746162
+│ -7329207b0a202020202020202020202020746162732e666f7245616368282874
+│ -616229203d3e207b0a2020202020202020202020202020696620287461622e66
+│ -617649636f6e55726c202626207461622e75726c2e696e636c75646573282273
+│ -6b6f6f6c2e636f6d222929207b0a202020202020202020202020202020206368
+│ -726f6d652e746162732e73656e644d657373616765287461622e69642c207b20
+│ -6d6573736167653a20227461625f75706461746522207d293b0a202020202020
+│ -20202020202020207d0a2020202020202020202020207d293b0a202020202020
+│ -202020207d293b0a20202020202020207d2c0a202020202020293b0a20202020
+│ -7d293b0a20207d293b0a0a20202f2f2048616e646c6520696e64697669647561
+│ -6c2073657474696e6720746f67676c65730a20204f626a6563742e6b65797328
+│ -746f67676c65427574746f6e73292e666f72456163682828627574746f6e4964
+│ -29203d3e207b0a2020202069662028627574746f6e496420213d3d2022746f67
+│ -676c65416c6c2229207b0a202020202020636f6e737420627574746f6e203d20
+│ -646f63756d656e742e676574456c656d656e744279496428627574746f6e4964
+│ -293b0a202020202020627574746f6e2e6164644576656e744c697374656e6572
+│ -2822636c69636b222c2066756e6374696f6e202829207b0a2020202020202020
+│ -636f6e73742073656374696f6e203d20746f67676c65427574746f6e735b6275
+│ -74746f6e49645d3b0a20202020202020206368726f6d652e73746f726167652e
+│ -73796e632e676574282268696465456c656d656e7473222c2066756e6374696f
+│ -6e20286461746129207b0a20202020202020202020636f6e7374206375727265
+│ -6e7448696464656e537461747573203d20646174612e68696465456c656d656e
+│ -7473207c7c207b7d3b0a2020202020202020202063757272656e744869646465
+│ -6e5374617475735b73656374696f6e5d203d202163757272656e744869646465
+│ -6e5374617475735b73656374696f6e5d3b0a202020202020202020206368726f
+│ -6d652e73746f726167652e73796e632e736574280a2020202020202020202020
+│ -207b2068696465456c656d656e74733a2063757272656e7448696464656e5374
+│ -61747573207d2c0a20202020202020202020202066756e6374696f6e20282920
+│ -7b0a20202020202020202020202020202f2f2053656e642061206d6573736167
+│ -6520746f20636f6e74656e74207363726970747320746f207570646174652074
+│ -686569722073746174650a20202020202020202020202020206368726f6d652e
+│ -746162732e7175657279287b7d2c2066756e6374696f6e20287461627329207b
+│ -0a20202020202020202020202020202020746162732e666f7245616368282874
+│ -616229203d3e207b0a2020202020202020202020202020202020206966202874
+│ -61622e66617649636f6e55726c202626207461622e75726c2e696e636c756465
+│ -732822736b6f6f6c2e636f6d222929207b0a2020202020202020202020202020
+│ -2020202020206368726f6d652e746162732e73656e644d657373616765287461
+│ -622e69642c207b206d6573736167653a20227461625f75706461746522207d29
+│ -3b0a2020202020202020202020202020202020207d0a20202020202020202020
+│ -2020202020207d293b0a20202020202020202020202020207d293b0a20202020
+│ -20202020202020207d2c0a20202020202020202020293b0a2020202020202020
+│ -7d293b0a2020202020207d293b0a202020207d0a20207d293b0a0a20202f2f20
+│ -46756e6374696f6e20746f2064697361626c6520627574746f6e73206966206e
+│ -6f74206f6e20736b6f6f6c2e636f6d0a202066756e6374696f6e206469736162
+│ -6c6549664e6f744f6e536b6f6f6c2829207b0a202020206368726f6d652e7461
+│ -62732e7175657279287b206163746976653a20747275652c2063757272656e74
+│ -57696e646f773a2074727565207d2c2066756e6374696f6e2028746162732920
+│ -7b0a202020202020636f6e73742063757272656e74546162203d20746162735b
+│ -305d3b0a202020202020696620282163757272656e745461622e75726c2e696e
+│ -636c756465732822736b6f6f6c2e636f6d222929207b0a20202020202020204f
+│ -626a6563742e6b65797328746f67676c65427574746f6e73292e666f72456163
+│ -682828627574746f6e496429203d3e207b0a20202020202020202020636f6e73
+│ -7420627574746f6e203d20646f63756d656e742e676574456c656d656e744279
+│ -496428627574746f6e4964293b0a20202020202020202020627574746f6e2e64
+│ -697361626c6564203d20747275653b0a20202020202020207d293b0a20202020
+│ -20202020636f6e7374206f7665726c6179203d20646f63756d656e742e676574
+│ -456c656d656e744279496428226f7665726c617922293b0a2020202020202020
+│ -6f7665726c61792e7374796c652e646973706c6179203d2022626c6f636b223b
+│ -0a2020202020207d0a202020207d293b0a20207d0a0a2020636f6e7374207468
+│ -656d65546f67676c65203d20646f63756d656e742e676574456c656d656e7442
+│ -79496428227468656d652d746f67676c6522293b0a2020636f6e7374206c6967
+│ -68744d6f646549636f6e203d20646f63756d656e742e676574456c656d656e74
+│ -4279496428226c696768742d6d6f64652d69636f6e22293b0a2020636f6e7374
+│ -206461726b4d6f646549636f6e203d20646f63756d656e742e676574456c656d
+│ -656e744279496428226461726b2d6d6f64652d69636f6e22293b0a0a20206675
+│ -6e6374696f6e20746f67676c6549636f6e732829207b0a202020206966202864
+│ -6f63756d656e742e626f64792e636c6173734c6973742e636f6e7461696e7328
+│ -226c696768742d6d6f6465222929207b0a2020202020206c696768744d6f6465
+│ -49636f6e2e636c6173734c6973742e616464282276697369626c6522293b0a20
+│ -20202020206461726b4d6f646549636f6e2e636c6173734c6973742e72656d6f
+│ -7665282276697369626c6522293b0a202020207d20656c7365207b0a20202020
+│ -20206461726b4d6f646549636f6e2e636c6173734c6973742e61646428227669
+│ -7369626c6522293b0a2020202020206c696768744d6f646549636f6e2e636c61
+│ -73734c6973742e72656d6f7665282276697369626c6522293b0a202020207d0a
+│ -20207d0a0a202066756e6374696f6e206170706c795468656d65287468656d65
+│ -29207b0a20202020696620287468656d65203d3d3d20226461726b2229207b0a
+│ -202020202020646f63756d656e742e626f64792e636c6173734c6973742e7265
+│ -6d6f766528226c696768742d6d6f646522293b0a202020202020646f63756d65
+│ -6e742e626f64792e636c6173734c6973742e61646428226461726b2d6d6f6465
+│ -22293b0a202020207d20656c7365207b0a202020202020646f63756d656e742e
+│ -626f64792e636c6173734c6973742e72656d6f766528226461726b2d6d6f6465
+│ -22293b0a202020202020646f63756d656e742e626f64792e636c6173734c6973
+│ -742e61646428226c696768742d6d6f646522293b0a202020207d0a2020202074
+│ -6f67676c6549636f6e7328293b0a20207d0a0a202066756e6374696f6e207361
+│ -76655468656d65507265666572656e6365287468656d6529207b0a2020202063
+│ -68726f6d652e73746f726167652e73796e632e736574287b207468656d653a20
+│ -7468656d65207d2c2066756e6374696f6e202829207b0a202020202020636f6e
+│ -736f6c652e6c6f6728225468656d6520707265666572656e6365207361766564
+│ -3a222c207468656d65293b0a202020207d293b0a20207d0a0a20207468656d65
+│ -546f67676c652e6164644576656e744c697374656e65722822636c69636b222c
+│ -2066756e6374696f6e202829207b0a2020202069662028646f63756d656e742e
+│ -626f64792e636c6173734c6973742e636f6e7461696e7328226c696768742d6d
+│ -6f6465222929207b0a2020202020206170706c795468656d6528226461726b22
+│ -293b0a202020202020736176655468656d65507265666572656e636528226461
+│ -726b22293b0a202020207d20656c7365207b0a2020202020206170706c795468
+│ -656d6528226c6967687422293b0a202020202020736176655468656d65507265
+│ -666572656e636528226c6967687422293b0a202020207d0a20207d293b0a0a20
+│ -206368726f6d652e73746f726167652e73796e632e67657428227468656d6522
+│ -2c2066756e6374696f6e20286461746129207b0a20202020636f6e7374207374
+│ -6f7265645468656d65203d20646174612e7468656d65207c7c20226c69676874
+│ -223b0a202020206170706c795468656d652873746f7265645468656d65293b0a
+│ -20207d293b0a0a2020746f67676c6549636f6e7328293b0a0a20207570646174
+│ -65546f67676c65427574746f6e537461746528293b0a202064697361626c6549
+│ -664e6f744f6e536b6f6f6c28293b0a0a2020646f63756d656e742e676574456c
+│ -656d656e74427949642822736b6f6f6c4c696e6b22292e6164644576656e744c
+│ -697374656e65722822636c69636b222c2066756e6374696f6e202829207b0a20
+│ -2020206368726f6d652e746162732e637265617465287b2075726c3a20226874
+│ -7470733a2f2f7777772e736b6f6f6c2e636f6d22207d293b0a20207d293b0a0a
+│ -2020646f63756d656e742e676574456c656d656e744279496428226769746875
+│ -624c696e6b22292e6164644576656e744c697374656e65722822636c69636b22
+│ -2c2066756e6374696f6e202829207b0a202020206368726f6d652e746162732e
+│ -637265617465287b0a20202020202075726c3a202268747470733a2f2f676974
+│ -6875622e636f6d2f46783634622f736b6f6f6c2d666f6375732d657874656e73
+│ -696f6e222c0a202020207d293b0a20207d293b0a0a2020646f63756d656e742e
+│ -676574456c656d656e74427949642822626d634c696e6b22292e616464457665
+│ -6e744c697374656e65722822636c69636b222c2066756e6374696f6e20282920
+│ -7b0a202020206368726f6d652e746162732e637265617465287b2075726c3a20
+│ -2268747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6678
+│ -36346222207d293b0a20207d293b0a7d293b0a
+│ +2775736520737472696374273b0a0a66756e6374696f6e20636c69636b286529
+│ +207b0a202020206368726f6d652e746162732e7175657279287b616374697665
+│ +3a20747275652c2063757272656e7457696e646f773a20747275657d2c202874
+│ +61627329203d3e207b0a2020202020202020636f6e73742063757272656e7454
+│ +6162203d20746162735b305d3b202f2f2074686572652077696c6c206265206f
+│ +6e6c79206f6e6520696e20746869732061727261790a2020202020202020636f
+│ +6e73742075726c203d2063757272656e745461622e75726c3b0a202020202020
+│ +2020636f6e737420696e74657276616c203d20652e7461726765742e69643b0a
+│ +2020202020202020636f6e7374207469746c65203d2063757272656e74546162
+│ +2e7469746c650a2020202020202020636f6e7374206c6173745f73686f776e5f
+│ +74696d65203d206e6577204461746528292e67657454696d6528293b0a202020
+│ +20202020206c6574206461795f6f665f7765656b3b0a20202020202020206966
+│ +28696e74657276616c25373d3d30297b0a202020202020202020202020646179
+│ +5f6f665f7765656b203d206e6577204461746528292e67657444617928293b0a
+│ +20202020202020207d0a202020200a20202020202020206368726f6d652e7374
+│ +6f726167652e6c6f63616c2e67657428227061676573222c2028726573756c74
+│ +29203d3e207b0a202020202020202020202020726573756c742e70616765735b
+│ +75726c5d203d207b0a20202020202020202020202020202020696e7465727661
+│ +6c3a696e74657276616c2c0a202020202020202020202020202020206c617374
+│ +5f73686f776e5f74696d653a6c6173745f73686f776e5f74696d652c0a202020
+│ +202020202020202020202020206461795f6f665f7765656b3a6461795f6f665f
+│ +7765656b2c0a202020202020202020202020202020207469746c653a7469746c
+│ +650a2020202020202020202020207d0a2020202020202020202020206368726f
+│ +6d652e73746f726167652e6c6f63616c2e736574280a20202020202020202020
+│ +2020202020207b227061676573223a726573756c742e70616765737d2c202829
+│ +203d3e207b0a20202020202020202020202020202020202020206368726f6d65
+│ +2e616374696f6e2e736574426164676554657874287b746578743a696e746572
+│ +76616c7d290a202020200a202020202020202020202020202020202020202077
+│ +696e646f772e636c6f736528293b2020202020202020202020200a2020202020
+│ +20202020202020202020207d2020202020202020202020202020200a20202020
+│ +2020202020202020290a20202020202020207d290a202020207d0a2020202029
+│ +3b0a7d3b0a0a66756e6374696f6e2064656c65746546726f6d44617461287572
+│ +6c297b0a202020206368726f6d652e73746f726167652e6c6f63616c2e676574
+│ +28227061676573222c2028726573756c7429203d3e207b0a2020202020202020
+│ +64656c65746520726573756c742e70616765735b75726c5d0a20202020202020
+│ +206368726f6d652e73746f726167652e6c6f63616c2e736574287b2270616765
+│ +73223a726573756c742e70616765737d2c202829203d3e207b0a202020202020
+│ +202020202020202020206368726f6d652e616374696f6e2e7365744261646765
+│ +54657874287b746578743a22227d290a0a202020202020202020202020202020
+│ +2077696e646f772e636c6f736528293b2020202020202020202020200a202020
+│ +2020202020202020207d2020202020202020202020202020200a202020202020
+│ +2020290a202020207d290a7d0a0a646f63756d656e742e6164644576656e744c
+│ +697374656e65722827444f4d436f6e74656e744c6f61646564272c2066756e63
+│ +74696f6e202829207b0a202020206368726f6d652e73746f726167652e6c6f63
+│ +616c2e67657428276d656e75272c2028726573756c7429203d3e207b0a202020
+│ +2020202020636f6e737420646976203d20646f63756d656e742e676574456c65
+│ +6d656e74427949642822696e74657276616c5f6c69737422293b0a2020202020
+│ +202020666f7228636f6e737420696e74657276616c206f6620726573756c742e
+│ +6d656e75297b0a2020202020202020202020206c657420627574746f6e203d20
+│ +646f63756d656e742e637265617465456c656d656e742822627574746f6e2229
+│ +3b0a202020202020202020202020627574746f6e2e6964203d20696e74657276
+│ +616c3b0a202020202020202020202020627574746f6e2e6164644576656e744c
+│ +697374656e65722827636c69636b272c20636c69636b293b0a0a202020202020
+│ +202020202020696628696e74657276616c253336353d3d30297b0a2020202020
+│ +2020202020202020202020696628696e74657276616c3d3d3336352920627574
+│ +746f6e2e696e6e657254657874203d206042726f777365206576657279203120
+│ +79656172600a20202020202020202020202020202020656c736520627574746f
+│ +6e2e696e6e657254657874203d206042726f77736520657665727920247b696e
+│ +74657276616c2f3336357d207965617273600a2020202020202020202020207d
+│ +200a202020202020202020202020656c736520696628696e74657276616c3d3d
+│ +3138302920627574746f6e2e696e6e657254657874203d206042726f77736520
+│ +65766572792068616c662079656172600a202020202020202020202020656c73
+│ +6520696628696e74657276616c2533303d3d30297b0a20202020202020202020
+│ +202020202020696628696e74657276616c3d3d33302920627574746f6e2e696e
+│ +6e657254657874203d206042726f7773652065766572792031206d6f6e746860
+│ +0a20202020202020202020202020202020656c736520627574746f6e2e696e6e
+│ +657254657874203d206042726f77736520657665727920247b696e7465727661
+│ +6c2f33307d206d6f6e746873600a2020202020202020202020207d200a202020
+│ +202020202020202020656c736520696628696e74657276616c25373d3d30297b
+│ +0a20202020202020202020202020202020696628696e74657276616c3d3d3729
+│ +20627574746f6e2e696e6e657254657874203d206042726f7773652065766572
+│ +792031207765656b600a20202020202020202020202020202020656c73652062
+│ +7574746f6e2e696e6e657254657874203d206042726f77736520657665727920
+│ +247b696e74657276616c2f377d207765656b73600a2020202020202020202020
+│ +207d200a202020202020202020202020656c7365207b0a202020202020202020
+│ +20202020202020696628696e74657276616c3d3d312920627574746f6e2e696e
+│ +6e657254657874203d206042726f777365206576657279203120646179600a20
+│ +202020202020202020202020202020656c736520627574746f6e2e696e6e6572
+│ +54657874203d206042726f77736520657665727920247b696e74657276616c7d
+│ +2064617973600a2020202020202020202020207d0a2020202020202020202020
+│ +206469762e617070656e644368696c6428627574746f6e293b0a202020202020
+│ +20207d0a202020207d290a0a20202020646f63756d656e742e676574456c656d
+│ +656e744279496428226f7074696f6e7322292e6164644576656e744c69737465
+│ +6e65722822636c69636b222c2066756e6374696f6e28297b0a20202020202020
+│ +20696620286368726f6d652e72756e74696d652e6f70656e4f7074696f6e7350
+│ +61676529207b0a2020202020202020202020206368726f6d652e72756e74696d
+│ +652e6f70656e4f7074696f6e735061676528293b0a20202020202020207d2065
+│ +6c7365207b0a20202020202020202020202077696e646f772e6f70656e286368
+│ +726f6d652e72756e74696d652e67657455524c28276f7074696f6e732e68746d
+│ +6c2729293b0a20202020202020207d0a202020207d293b0a202020200a202020
+│ +206368726f6d652e746162732e7175657279287b206163746976653a20747275
+│ +652c2063757272656e7457696e646f773a2074727565207d2c2066756e637469
+│ +6f6e20287461627329207b0a20202020202020206368726f6d652e73746f7261
+│ +67652e6c6f63616c2e67657428277061676573272c2028726573756c7429203d
+│ +3e207b0a202020202020202020202020636f6e73742064657461696c203d2072
+│ +6573756c742e70616765735b746162735b305d2e75726c5d3b0a202020202020
+│ +20202020202069662864657461696c297b0a2020202020202020202020202020
+│ +2020646f63756d656e742e676574456c656d656e74427949642822646f6e745f
+│ +636865636b22292e7374796c652e646973706c6179203d2022626c6f636b220a
+│ +20202020202020202020202020202020646f63756d656e742e676574456c656d
+│ +656e7442794964282264656c65746522292e6164644576656e744c697374656e
+│ +65722822636c69636b222c2066756e6374696f6e28297b0a2020202020202020
+│ +20202020202020202020202064656c65746546726f6d4461746128746162735b
+│ +305d2e75726c293b0a202020202020202020202020202020207d293b0a202020
+│ +20202020202020202020202020636f6e7374206f7074203d20646f63756d656e
+│ +742e676574456c656d656e74427949642864657461696c2e696e74657276616c
+│ +293b0a202020202020202020202020202020206966286f707429206f70742e73
+│ +74796c652e6261636b67726f756e64436f6c6f72203d2022726564220a202020
+│ +2020202020202020207d200a202020202020202020202020656c736520646f63
+│ +756d656e742e676574456c656d656e74427949642822646f6e745f636865636b
+│ +22292e7374796c652e646973706c6179203d20226e6f6e65220a202020202020
+│ +20207d290a202020207d29202020200a7d293b0a0a

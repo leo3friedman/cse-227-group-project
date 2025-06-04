@@ -1,0 +1,79 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/simplify-mastodon/firefox
+├── file list
+│ @@ -1,5 +1,4 @@
+│ -_metadata
+│  img
+│  manifest.json
+│  scripts.js
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/simplify-mastodon/firefox/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -146,15 +146,14 @@
+│ │                  "https://*.malnacido.com/*",
+│ │                  "https://*.maly.io/*",
+│ │                  "https://*.mao.mastodonhub.com/*",
+│ │                  "https://*.mas.to/*",
+│ │                  "https://*.mast.dragon-fly.club/*",
+│ │                  "https://*.masthead.social/*",
+│ │                  "https://*.masto.ai/*",
+│ │ -                "https://*.masto.donte.com.br/*",
+│ │                  "https://*.masto.es/*",
+│ │                  "https://*.masto.nobigtech.es/*",
+│ │                  "https://*.masto.nu/*",
+│ │                  "https://*.masto.pt/*",
+│ │                  "https://*.mastodon-belgium.be/*",
+│ │                  "https://*.mastodon.arch-linux.cz/*",
+│ │                  "https://*.mastodon.art/*",
+│ │ @@ -361,15 +360,14 @@
+│ │                  "https://*.ura-mstdn.com/*",
+│ │                  "https://*.urbanists.social/*",
+│ │                  "https://*.uri.life/*",
+│ │                  "https://*.ursal.zone/*",
+│ │                  "https://*.uwu.social/*",
+│ │                  "https://*.varishangout.net/*",
+│ │                  "https://*.venera.social/*",
+│ │ -                "https://*.vira-lata.org/*",
+│ │                  "https://*.vivere.uno/*",
+│ │                  "https://*.vmst.io/*",
+│ │                  "https://*.vocalodon.net/*",
+│ │                  "https://*.wbrew.radom.pl/*",
+│ │                  "https://*.witches.live/*",
+│ │                  "https://*.woof.group/*",
+│ │                  "https://*.wxw.moe/*",
+│ │ @@ -381,12 +379,11 @@
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "description": "Simplify Mastodon",
+│ │      "icons": {
+│ │          "128": "img/icon128.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ +    "manifest_version": 2,
+│ │      "name": "Simplify Mastodon",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/styles.css
+├── +++ /workspace/pipeline_output/simplify-mastodon/firefox/styles.css
+│ @@ -186,18 +186,14 @@
+│    }
+│    html.simplify .load-gap {
+│      border-bottom: 0px;
+│    }
+│    html.simplify .conversation {
+│      border-bottom: none;
+│    }
+│ -  html.simplify .notification.unread:before,
+│ -html.simplify .status__wrapper.unread:before {
+│ -    border-radius: 16px;
+│ -  }
+│    html.simplify .columns-area__panels__pane--compositional {
+│      order: 2;
+│    }
+│    html.simplify .columns-area__panels__pane--compositional .columns-area__panels__pane__inner {
+│      z-index: 1;
+│    }
+│    html.simplify form.compose-form * .compose-form {

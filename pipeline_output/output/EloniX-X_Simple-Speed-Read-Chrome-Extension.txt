@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Simple-Speed-Read-Chrome-Extension
+├── file list
+│ @@ -1,10 +1,12 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  bulletimpact.mp3
+│  displaytext.css
+│  displaytext.html
+│  displaytext.js
+│  hello.html
+│  hi.png
+│  manifest.json
+│ +package-lock.json
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Simple-Speed-Read-Chrome-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,17 +8,18 @@
+│ │          "default_popup": "hello.html",
+│ │          "default_title": "Click Me"
+│ │      },
+│ │      "background": {
+│ │          "service_worker": "background.js"
+│ │      },
+│ │      "description": "This is a very simple extension that shows text selected and plays a noise so that you read a lot faster.",
+│ │ +    "host_permissions": [
+│ │ +        "<all_urls>"
+│ │ +    ],
+│ │      "manifest_version": 3,
+│ │      "name": "Speed reader",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │ -        "storage",
+│ │ -        "activeTab"
+│ │ +        "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

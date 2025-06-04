@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/imdbredirect
+├── file list
+│ @@ -1,9 +1,10 @@
+│ -_metadata
+│ +.git
+│  background.html
+│  icon_128.png
+│  icon_16.png
+│  icon_32.png
+│  icon_48.png
+│  icon_64.png
+│  jquery-min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/imdbredirect/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "64": "icon_64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "IMDb Redirect",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

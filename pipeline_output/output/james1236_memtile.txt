@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/memtile
+├── file list
+│ @@ -1,21 +1,23 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  at.png
+│  button.wav
+│  color.png
+│  cross.png
+│  icon_128.png
+│  icon_19.png
+│  icon_38.png
+│  jquery-3.3.1.min.js
+│  leaderboard.png
+│  manifest.json
+│  menu.png
+│  moregames
+│  mute.png
+│ +package-lock.json
+│  plus.png
+│  popup.html
+│  popup.js
+│  rename.png
+│  scanLines.png
+│  slideB.wav
+│  slideBl.wav
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/memtile/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "19": "icon_19.png",
+│ │          "38": "icon_38.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Mem Tile (Popup Game)",
+│ │      "offline_enabled": true,
+│ │      "short_name": "Mem Tile",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.16.2"
+│ │  }

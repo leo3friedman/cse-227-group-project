@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/udacity-show-instructor-notes-above-player
+├── file list
+│ @@ -1,4 +1,7 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│ +Makefile
+│ +README.rst
+│  instructorizer.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/udacity-show-instructor-notes-above-player/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,10 +8,9 @@
+│ │                  "https://www.udacity.com/course/viewer*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Moves Udacity's instructor notes above the video player.",
+│ │      "manifest_version": 2,
+│ │      "name": "Udacity instructor notes above player",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3"
+│ │  }

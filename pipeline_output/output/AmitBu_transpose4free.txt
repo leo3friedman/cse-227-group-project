@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/transpose4free
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  icons
+│  manifest.json
+│ +package-lock.json
+│ +screenshots
+│  tab4u.css
+│  tab4uContent.js
+│  utils.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/transpose4free/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      "icons": {
+│ │          "128": "icons/icon-128.png",
+│ │          "16": "icons/icon-16.png",
+│ │          "48": "icons/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "transpose4free",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3"
+│ │  }

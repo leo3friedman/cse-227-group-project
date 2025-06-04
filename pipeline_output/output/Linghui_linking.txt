@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/linking
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  128.png
+│  16.png
+│  _locales
+│ -_metadata
+│  advice.html
+│  audio
+│  css
+│  game.html
+│  images1
+│  index.html
+│  js
+│  manifest.json
+│ +package-lock.json
+│  php
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/linking/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │      "icons": {
+│ │          "128": "128.png",
+│ │          "16": "16.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_appName__",
+│ │      "offline_enabled": true,
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.3"
+│ │  }

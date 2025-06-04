@@ -1,0 +1,50 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/clipboard-text-replacer
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  hello.html
+│  icons
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  privacy_policy.md
+│  screenshots
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/clipboard-text-replacer/README.md
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -16,15 +16,15 @@
+│  
+│  1 will be transformed into ---------
+│  
+│  <img src="screenshots/pretty/chained_rules_example_result_pretty.png" alt="Chained Rules Example Result" width="500"/>
+│  
+│  ## Installation
+│  
+│ -As the extension is currently pending review on the Chrome Webstore, you can install it manually as an unpackaged extension. Follow the steps below to install:
+│ +You can find the extension [here](https://chrome.google.com/webstore/detail/clipboard-text-replacer/hnaikeeiankndnciadgkjokbopnehbfl), but if you wish to, you can install it manually as an unpackaged extension. Follow the steps below to install:
+│  
+│  1. Clone the repository: Open your terminal and run the following command:
+│      ```
+│      git clone https://github.com/Voldemorten/clipboard-text-replacer.git
+│      ```
+│  2. Open Google Chrome and navigate to `chrome://extensions`.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/clipboard-text-replacer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "clipboardWrite",
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.2"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/wizz-aycf-route-finder
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  assets
+│  background.js
+│  content.js
+│  css
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  privacy.txt
+│  screenshot.jpg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/wizz-aycf-route-finder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "sidePanel"
+│ │      ],
+│ │      "side_panel": {
+│ │          "default_path": "popup.html"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.1"
+│ │  }

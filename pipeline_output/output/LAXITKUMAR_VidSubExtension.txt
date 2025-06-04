@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/VidSubExtension
+├── file list
+│ @@ -1,3 +1,10 @@
+│ -_metadata
+│ -contentScript.bundle.js
+│ -manifest.json
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/VidSubExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │      "description": "Click and search words in video captions. Currently supported on YouTube, Netflix and PrimeVideo.",
+│ │      "homepage_url": "https://github.com/LAXITKUMAR/VidSubExtension",
+│ │      "manifest_version": 3,
+│ │      "name": "VidSub",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.0"
+│ │  }

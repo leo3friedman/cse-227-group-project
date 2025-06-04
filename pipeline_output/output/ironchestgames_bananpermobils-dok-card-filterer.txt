@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/bananpermobils-dok-card-filterer
+├── file list
+│ @@ -1,8 +1,8 @@
+│ -Archive.zip
+│ +.git
+│  README.md
+│ -_metadata
+│  contentscript.js
+│  icon128.png
+│  icon16.png
+│  icon64.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/bananpermobils-dok-card-filterer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "64": "icon64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "bananpermobil's DoK card filterer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5"
+│ │  }

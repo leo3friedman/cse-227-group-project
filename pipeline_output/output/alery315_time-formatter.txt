@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/time-formatter
+├── file list
+│ @@ -1,10 +1,13 @@
+│ +.DS_Store
+│ +.git
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  background.js
+│  content.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  shot
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/time-formatter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,15 +30,14 @@
+│ │          "48": "icons/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Time Formatter",
+│ │      "permissions": [
+│ │          "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

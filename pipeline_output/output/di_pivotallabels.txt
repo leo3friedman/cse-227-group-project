@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/pivotallabels
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  CHANGELOG.md
+│  README.md
+│ -_metadata
+│  css
+│  exclude.lst
+│  icons
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/pivotallabels/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "http://www.pivotaltracker.com/*",
+│ │          "https://www.pivotaltracker.com/*",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "Pivotal Labels",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3"
+│ │  }

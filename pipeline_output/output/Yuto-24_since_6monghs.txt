@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/since_6monghs
+├── file list
+│ @@ -1,10 +1,13 @@
+│ +.git
+│ +.gitignore
+│ +.jsbeautifyrc
+│ +.travis.yml
+│  Gruntfile.js
+│  README.md
+│ -_metadata
+│  background.js
+│  const
+│  img
+│  manifest.json
+│  package.json
+│  test
+│  utils
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/since_6monghs/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │          "48": "./img/icon/white_6/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "search in 6 months ",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/test
+├── +++ /workspace/pipeline_output/since_6monghs/test
+│ │   --- /workspace/pipeline_output/chromex_data/test/js
+│ ├── +++ /workspace/pipeline_output/since_6monghs/test/js
+│ │ │   --- /workspace/pipeline_output/chromex_data/test/js/jquery-qunit
+│ │ ├── +++ /workspace/pipeline_output/since_6monghs/test/js/jquery-qunit
+│ │ │ ├── file list
+│ │ │ │ @@ -1,6 +1,7 @@
+│ │ │ │ +.gitignore
+│ │ │ │  History.md
+│ │ │ │  README.md
+│ │ │ │  addons
+│ │ │ │  package.json
+│ │ │ │  qunit
+│ │ │ │  test

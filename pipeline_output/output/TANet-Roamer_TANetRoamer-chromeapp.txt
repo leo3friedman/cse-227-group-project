@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TANetRoamer-chromeapp
+├── file list
+│ @@ -1,12 +1,15 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  background.js
+│  banner
+│  css
+│  font
+│  globleValue.js
+│  icon
+│  js
+│  manifest.json
+│ +package-lock.json
+│  setting.html
+│  setting.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TANetRoamer-chromeapp/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      "permissions": [
+│ │          "background",
+│ │          "storage",
+│ │          "notifications",
+│ │          "http://securelogin.arubanetworks.com/",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.2"
+│ │  }

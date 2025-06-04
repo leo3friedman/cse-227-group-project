@@ -1,0 +1,51 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/servicenow-lookup
+├── file list
+│ @@ -1,12 +1,14 @@
+│ +.git
+│  LICENSE.txt
+│  README.md
+│ -_metadata
+│  background.js
+│  icon.png
+│  icon_128.png
+│  icon_16.png
+│  icon_48.png
+│ +images
+│  jquery-2.1.4.min.js
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/servicenow-lookup/README.md
+│ @@ -1,14 +1,15 @@
+│  
+│  About
+│  =============
+│  
+│  Service-Now Search is a Chrome extension for searching the tickets on Service-Now via the omnibox.
+│  
+│  You can install the extension from the Chrome Web Store:
+│ +https://chrome.google.com/webstore/detail/sn-search/idkeaffmcbakhghefaafgpcdlnngkjge
+│      
+│  This product is not affiliated with Service-Now.
+│  
+│  This product uses/includes the following open source projects:
+│  
+│  * [Developer Omniboxes For Chrome](http://code.google.com/p/developer-omniboxes-for-chrome/) - [New BSD License](http://www.opensource.org/licenses/bsd-license.php) - Copyright (c) 2011, Michael Safyan
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/servicenow-lookup/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      "options_ui": {
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2"
+│ │  }

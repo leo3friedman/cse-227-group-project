@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AIMS-Helper-Chrome
+├── file list
+│ @@ -1,7 +1,15 @@
+│ +.eslintrc.json
+│ +.git
+│ +.gitattributes
+│ +.github
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  fonts
+│  js
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  res
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AIMS-Helper-Chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │      "page_action": {
+│ │          "default_popup": "/src/popup/popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "declarativeContent",
+│ │          "*://aims.iith.ac.in/*/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.8"
+│ │  }

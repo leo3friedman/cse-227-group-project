@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ThumbSee
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  html
+│  icon
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ThumbSee/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,15 +24,14 @@
+│ │          "48": "icon/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "ThumbSee",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://odysee.com/*"
+│ │              ],
+│ │              "resources": [

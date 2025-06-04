@@ -1,0 +1,62 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/BlockThat
+├── file list
+│ @@ -1,13 +1,16 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +README.md
+│  background.html
+│  background.js
+│  five.png
+│  four.png
+│  icon.png
+│  manifest.json
+│  myScript.js
+│  one.png
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  three.png
+│  two.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/BlockThat/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │      "name": "BlockThat",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.01"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/BlockThat/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -9,20 +9,23 @@
+│  	        
+│  		<h1 style="font-size: 200%; font-family: Ludica Console; text-align: center">
+│  	            BLOCK THAT
+│  	        </h1>
+│  	        
+│  		<p> You can't escape ... the <i> eye </i> </p>
+│  	        
+│ +		<h2>For PC users:</h2>
+│  	        Url : <input type="text" id="url"><br> 
+│  	        
+│  		
+│  	        <button id="block_that_button" type="button"> Block That </button>
+│  		<button id="blocked_sites_button" type="button"> My Blocked Sites </button>
+│  		<button id="animate" type = "button">Animate</button>
+│  		<script src="background.js"></script>
+│  		<img id = "throw_away_animation" src = "one.png"></img>
+│  		
+│ +		<h2>For Mac users:</h2>
+│ +		
+│  	      </div>
+│  		
+│  	 </body>
+│  </html>

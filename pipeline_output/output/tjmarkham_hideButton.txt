@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/hideButton
+├── file list
+│ @@ -1,6 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +afphoto
+│  images
+│  manifest.json
+│ -scripts
+│ +package-lock.json
+│ +scripts
+│ +test
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/hideButton/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │          "128": "images/icon-128.png",
+│ │          "16": "images/icon-16.png",
+│ │          "32": "images/icon-32.png",
+│ │          "48": "images/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hide 'Delete Merged Branches' Button",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "24.2.2"
+│ │  }

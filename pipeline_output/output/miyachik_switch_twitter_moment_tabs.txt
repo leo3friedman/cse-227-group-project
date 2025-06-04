@@ -1,0 +1,49 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/switch_twitter_moment_tabs
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/switch_twitter_moment_tabs/README.md
+│ @@ -1,16 +1,12 @@
+│ -# env-checker
+│ -You can install env-checker from Chrome Web Store.  
+│ +# switch_twitter_moment_tabs
+│ +You can install env-checker from Chrome Web Store.
+│  
+│ -https://chrome.google.com/webstore/detail/env-checker/bgfmobijngodlaobielkljbikkjobgdc?authuser=2  
+│ -
+│ -## Future
+│ -- Another regexp pattern support
+│ -- Change header style(ex.font size, color)
+│ +https://chrome.google.com/webstore/detail/swtich-twitter-moment_tabs/hdbolbmcfmeaafkjefpdkcabcaijcebn?authuser=1
+│  
+│  ## How to contribute
+│  
+│ -1. Fork it ( https://github.com/miyachik/env_cheker/fork )
+│ +1. Fork it ( https://github.com/miyachik/switch_twitter_moment/fork )
+│  2. Create your feature branch (git checkout -b my-new-feature)
+│  3. Commit your changes (git commit -am 'Add some feature')
+│  4. Push to the branch (git push origin my-new-feature)
+│ -5. Create a new Pull Request
+│ +5. Create a new Pull Request
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/switch_twitter_moment_tabs/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │              ],
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │      "description": "switch moment tab.",
+│ │      "manifest_version": 2,
+│ │      "name": "Swtich Twitter Moment",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1"
+│ │  }

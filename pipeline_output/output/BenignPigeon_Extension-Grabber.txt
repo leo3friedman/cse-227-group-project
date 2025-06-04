@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Extension-Grabber
+├── file list
+│ @@ -1,6 +1,10 @@
+│ -_metadata
+│ +.git
+│ +.github
+│ +Extension-HTML-Progression
+│ +README.md
+│  css
+│  html
+│  image
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Extension-Grabber/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Extension Grabber",
+│ │      "permissions": [
+│ │          "management",
+│ │          "downloads",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/VxTwitter-URL
+├── file list
+│ @@ -1,6 +1,10 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│ +app.js
+│  appTweetDeck.js
+│  appTwitter.js
+│  icon-48.png
+│  icon-96.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/VxTwitter-URL/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "VxTwitter URL",
+│ │      "permissions": [
+│ │          "clipboardRead",
+│ │          "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5"
+│ │  }

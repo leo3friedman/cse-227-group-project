@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/discotheque
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  icons
+│  manifest.json
+│  options
+│ +package-lock.json
+│  panels.css
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/discotheque/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "http://*/*",
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0"
+│ │  }

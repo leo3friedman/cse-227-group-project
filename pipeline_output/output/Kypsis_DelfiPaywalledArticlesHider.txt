@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DelfiPaywalledArticlesHider
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.js
+│  test.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/DelfiPaywalledArticlesHider/README.md
+│ @@ -1,5 +1,3 @@
+│ -# Delfi Paywalled Articles Hider Version 2.
+│ -
+│ -Changes paywalled articles from Delfi.ee and Postimees.ee news portal to have opacity of 0.1.
+│ -
+│ -https://chrome.google.com/webstore/detail/gfpjffjfimemkphkcndkmhhbolidibcg/publish-accepted?authuser=0&hl=en
+│ +# Delfi Paywalled Articles Hider Version 2.
+│ +
+│ +Changes paywalled articles from Delfi.ee and Postimees.ee news portal to have opacity of 0.1.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DelfiPaywalledArticlesHider/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │          "48": "images/pw48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Delfi/Postimees Paywall Detector",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1"
+│ │  }

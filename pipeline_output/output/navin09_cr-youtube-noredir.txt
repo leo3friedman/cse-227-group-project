@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cr-youtube-noredir
+├── file list
+│ @@ -1,6 +1,11 @@
+│ +.git
+│ +.gitignore
+│ +LICENCE
+│  README.md
+│  _locales
+│ -_metadata
+│  content-script.js
+│ +dist
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +pack.sh
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cr-youtube-noredir/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │          "48": "icons/48.png",
+│ │          "512": "icons/512.png",
+│ │          "96": "icons/96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extName__",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

@@ -1,0 +1,273 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/immute
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/immute/README.md
+│┄ Ordering differences only
+│ @@ -1,7 +1,7 @@
+│ -# immute
+│ -Finally, you can mute your Chrome tabs with your keyboard.
+│ -
+│ -Install on the Chrome Web Store:
+│ -
+│ -
+│ -https://chrome.google.com/webstore/detail/immute-keyboard-tab-mute/iplkhnicblmmlhpcaiofbagipldfcblj
+│ +# immute
+│ +Finally, you can mute your Chrome tabs with your keyboard.
+│ +
+│ +Install on the Chrome Web Store:
+│ +
+│ +
+│ +https://chrome.google.com/webstore/detail/immute-keyboard-tab-mute/iplkhnicblmmlhpcaiofbagipldfcblj
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/immute/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,33 +1,31 @@
+│ -6c6574206d75746564203d2066616c73653b0d0a0d0a636f6e737420746f6767
+│ -6c6543757272656e74203d202829203d3e207b0d0a202020206368726f6d652e
+│ -746162732e7175657279287b63757272656e7457696e646f773a20747275652c
+│ -206163746976653a20747275657d2c2074616273203d3e207b0d0a2020202020
+│ -2020206368726f6d652e746162732e75706461746528746162735b305d2e6964
+│ -2c207b6d757465643a2021746162735b305d2e6d75746564496e666f2e6d7574
+│ -65647d293b0d0a202020207d293b0d0a7d0d0a0d0a636f6e737420746f67676c
+│ -65416c6c203d202829203d3e207b0d0a202020206d75746564203d20216d7574
+│ -65643b0d0a202020202f2f2022706f70756c6174652220656163682077696e64
+│ -6f77206f626a65637420776974682061206c697374206f662074616273206173
+│ -20612070726f70657274790d0a202020206368726f6d652e77696e646f77732e
+│ -676574416c6c287b706f70756c6174653a20747275657d2c2077696e646f7773
+│ -203d3e207b0d0a202020202020202077696e646f77732e666f72456163682828
+│ -7b746162737d29203d3e207b0d0a202020202020202020202020746162732e66
+│ -6f724561636828746162203d3e207b0d0a202020202020202020202020202020
+│ -206368726f6d652e746162732e757064617465287461622e69642c207b6d7574
+│ -65647d293b0d0a2020202020202020202020207d293b0d0a2020202020202020
+│ -7d293b0d0a202020207d293b0d0a7d0d0a0d0a6368726f6d652e636f6d6d616e
+│ -64732e6f6e436f6d6d616e642e6164644c697374656e657228636f6d6d616e64
+│ -203d3e207b0d0a2020202069662028636f6d6d616e64203d3d3d20226d757465
+│ -5f7461622229207b0d0a2020202020202020746f67676c6543757272656e7428
+│ -293b0d0a202020207d3b0d0a0d0a2020202069662028636f6d6d616e64203d3d
+│ -3d20226d7574655f616c6c2229207b0d0a2020202020202020746f67676c6541
+│ -6c6c28293b0d0a202020207d3b0d0a0d0a2020202069662028636f6d6d616e64
+│ -203d3d3d20226d7574655f6578636570742229207b0d0a20202020202020202f
+│ -2f207468697320636f6d6d616e64206973206964656d706f74656e742c20756e
+│ -6d7574696e6720616c6c206578636570742063757272656e7420697320756e64
+│ -6573697261626c650d0a20202020202020206d75746564203d2066616c73653b
+│ -0d0a2020202020202020746f67676c65416c6c28290d0a20202020202020202f
+│ -2f207761697420666f7220746f67676c65416c6c20746f2066696e6973682065
+│ -7865637574696e670d0a202020202020202073657454696d656f757428282920
+│ -3d3e20746f67676c6543757272656e7428292c2030293b0d0a202020207d0d0a
+│ -7d293b
+│ +6c6574206d75746564203d2066616c73653b0a0a636f6e737420746f67676c65
+│ +43757272656e74203d202829203d3e207b0a202020206368726f6d652e746162
+│ +732e7175657279287b63757272656e7457696e646f773a20747275652c206163
+│ +746976653a20747275657d2c2074616273203d3e207b0a202020202020202063
+│ +68726f6d652e746162732e75706461746528746162735b305d2e69642c207b6d
+│ +757465643a2021746162735b305d2e6d75746564496e666f2e6d757465647d29
+│ +3b0a202020207d293b0a7d0a0a636f6e737420746f67676c65416c6c203d2028
+│ +29203d3e207b0a202020206d75746564203d20216d757465643b0a202020202f
+│ +2f2022706f70756c6174652220656163682077696e646f77206f626a65637420
+│ +776974682061206c697374206f66207461627320617320612070726f70657274
+│ +790a202020206368726f6d652e77696e646f77732e676574416c6c287b706f70
+│ +756c6174653a20747275657d2c2077696e646f7773203d3e207b0a2020202020
+│ +20202077696e646f77732e666f724561636828287b746162737d29203d3e207b
+│ +0a202020202020202020202020746162732e666f724561636828746162203d3e
+│ +207b0a202020202020202020202020202020206368726f6d652e746162732e75
+│ +7064617465287461622e69642c207b6d757465647d293b0a2020202020202020
+│ +202020207d293b0a20202020202020207d293b0a202020207d293b0a7d0a0a63
+│ +68726f6d652e636f6d6d616e64732e6f6e436f6d6d616e642e6164644c697374
+│ +656e657228636f6d6d616e64203d3e207b0a2020202069662028636f6d6d616e
+│ +64203d3d3d20226d7574655f7461622229207b0a2020202020202020746f6767
+│ +6c6543757272656e7428293b0a202020207d3b0a0a2020202069662028636f6d
+│ +6d616e64203d3d3d20226d7574655f616c6c2229207b0a202020202020202074
+│ +6f67676c65416c6c28293b0a202020207d3b0a0a2020202069662028636f6d6d
+│ +616e64203d3d3d20226d7574655f6578636570742229207b0a20202020202020
+│ +202f2f207468697320636f6d6d616e64206973206964656d706f74656e742c20
+│ +756e6d7574696e6720616c6c206578636570742063757272656e742069732075
+│ +6e646573697261626c650a20202020202020206d75746564203d2066616c7365
+│ +3b0a2020202020202020746f67676c65416c6c28290a20202020202020202f2f
+│ +207761697420666f7220746f67676c65416c6c20746f2066696e697368206578
+│ +65637574696e670a202020202020202073657454696d656f7574282829203d3e
+│ +20746f67676c6543757272656e7428292c2030293b0a202020207d0a7d293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/immute/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │          "128": "images/immute_128.png",
+│ │          "16": "images/immute_16.png",
+│ │          "32": "images/immute_32.png",
+│ │          "48": "images/immute_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Immute: Mute Tabs via Keyboard",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/immute/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,57 +1,57 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -    <head>
+│ -        <style>
+│ -            body {
+│ -                background-color: darkslategray;
+│ -                padding: 0 20px;
+│ -                width: 200px;
+│ -            }
+│ -            h1 {
+│ -                color:rgb(212, 89, 114);
+│ -            }
+│ -            img {
+│ -                float:left;
+│ -                margin-right: 15px;
+│ -            }
+│ -            p {
+│ -                
+│ -                color:coral;
+│ -                font-size: medium;
+│ -            }
+│ -            button {
+│ -                border-radius: 5px;
+│ -                background-color: coral;
+│ -                box-shadow: 1px 1px darkred;
+│ -                color: darkslategray;
+│ -                font-size: medium;
+│ -                font-weight: bold;
+│ -                border: none;
+│ -                cursor: pointer;
+│ -                padding: 5px;
+│ -            }
+│ -            button:hover {
+│ -                background-color: rgb(212, 89, 114);
+│ -                color: white;
+│ -            }
+│ -            button:active {
+│ -                transform: translateY(2px);
+│ -                box-shadow: none;
+│ -            }
+│ -        </style>
+│ -        <script src="popup.js"></script>
+│ -    </head>
+│ -    <body>
+│ -
+│ -        <div>
+│ -            <img src="images/immute_32.png">
+│ -            <h1>Immute</h1>
+│ -            <p><em id="mute_tab"></em>: mute current tab </p>
+│ -            <p><em id="mute_all"></em>: mute all tabs</p>
+│ -            <p><em id="mute_except"></em>: mute all open tabs besides current one</p>
+│ -            <button id="customize">Customize your shortcuts</button>
+│ -            <p>Tip: Change "In Chrome" to "Global" to mute from outside of Chrome!</p>
+│ -        </div>
+│ -
+│ -    </body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +    <head>
+│ +        <style>
+│ +            body {
+│ +                background-color: darkslategray;
+│ +                padding: 0 20px;
+│ +                width: 200px;
+│ +            }
+│ +            h1 {
+│ +                color:rgb(212, 89, 114);
+│ +            }
+│ +            img {
+│ +                float:left;
+│ +                margin-right: 15px;
+│ +            }
+│ +            p {
+│ +                
+│ +                color:coral;
+│ +                font-size: medium;
+│ +            }
+│ +            button {
+│ +                border-radius: 5px;
+│ +                background-color: coral;
+│ +                box-shadow: 1px 1px darkred;
+│ +                color: darkslategray;
+│ +                font-size: medium;
+│ +                font-weight: bold;
+│ +                border: none;
+│ +                cursor: pointer;
+│ +                padding: 5px;
+│ +            }
+│ +            button:hover {
+│ +                background-color: rgb(212, 89, 114);
+│ +                color: white;
+│ +            }
+│ +            button:active {
+│ +                transform: translateY(2px);
+│ +                box-shadow: none;
+│ +            }
+│ +        </style>
+│ +        <script src="popup.js"></script>
+│ +    </head>
+│ +    <body>
+│ +
+│ +        <div>
+│ +            <img src="images/immute_32.png">
+│ +            <h1>Immute</h1>
+│ +            <p><em id="mute_tab"></em>: mute current tab </p>
+│ +            <p><em id="mute_all"></em>: mute all tabs</p>
+│ +            <p><em id="mute_except"></em>: mute all open tabs besides current one</p>
+│ +            <button id="customize">Customize your shortcuts</button>
+│ +            <p>Tip: Change "In Chrome" to "Global" to mute from outside of Chrome!</p>
+│ +        </div>
+│ +
+│ +    </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/immute/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,18 +1,18 @@
+│ -0d0a6368726f6d652e636f6d6d616e64732e676574416c6c28636f6d6d616e64
+│ -73203d3e207b0d0a202020202f2f20646973706c617920757365722773206163
+│ -7475616c2073686f72746375747320696e20706f7075700d0a20202020636f6d
+│ -6d616e64732e666f724561636828636f6d6d616e64203d3e207b0d0a20202020
+│ -20202020636f6e73742073686f7274637574203d20646f63756d656e742e6765
+│ -74456c656d656e744279496428636f6d6d616e645b226e616d65225d293b0d0a
+│ -202020202020202073686f7274637574202626202873686f72746375742e696e
+│ -6e657248544d4c203d20636f6d6d616e645b2273686f7274637574225d293b0d
+│ -0a202020207d293b0d0a7d293b0d0a0d0a2f2f2070726f766964652061206469
+│ -7265637420636c69636b61626c65206c696e6b20746f20656469742073686f72
+│ -746375742077697468696e20706f7075700d0a646f63756d656e742e61646445
+│ -76656e744c697374656e65722827444f4d436f6e74656e744c6f61646564272c
+│ -202829203d3e207b0d0a20202020636f6e7374206c696e6b203d20646f63756d
+│ -656e742e676574456c656d656e74427949642822637573746f6d697a6522293b
+│ -0d0a202020206c696e6b2e6164644576656e744c697374656e65722822636c69
+│ -636b222c202829203d3e206368726f6d652e746162732e637265617465287b61
+│ -63746976653a747275652c2075726c3a20226368726f6d653a2f2f657874656e
+│ -73696f6e732f73686f727463757473227d29293b0d0a7d293b
+│ +0a6368726f6d652e636f6d6d616e64732e676574416c6c28636f6d6d616e6473
+│ +203d3e207b0a202020202f2f20646973706c6179207573657227732061637475
+│ +616c2073686f72746375747320696e20706f7075700a20202020636f6d6d616e
+│ +64732e666f724561636828636f6d6d616e64203d3e207b0a2020202020202020
+│ +636f6e73742073686f7274637574203d20646f63756d656e742e676574456c65
+│ +6d656e744279496428636f6d6d616e645b226e616d65225d293b0a2020202020
+│ +20202073686f7274637574202626202873686f72746375742e696e6e65724854
+│ +4d4c203d20636f6d6d616e645b2273686f7274637574225d293b0a202020207d
+│ +293b0a7d293b0a0a2f2f2070726f7669646520612064697265637420636c6963
+│ +6b61626c65206c696e6b20746f20656469742073686f72746375742077697468
+│ +696e20706f7075700a646f63756d656e742e6164644576656e744c697374656e
+│ +65722827444f4d436f6e74656e744c6f61646564272c202829203d3e207b0a20
+│ +202020636f6e7374206c696e6b203d20646f63756d656e742e676574456c656d
+│ +656e74427949642822637573746f6d697a6522293b0a202020206c696e6b2e61
+│ +64644576656e744c697374656e65722822636c69636b222c202829203d3e2063
+│ +68726f6d652e746162732e637265617465287b6163746976653a747275652c20
+│ +75726c3a20226368726f6d653a2f2f657874656e73696f6e732f73686f727463
+│ +757473227d29293b0a7d293b

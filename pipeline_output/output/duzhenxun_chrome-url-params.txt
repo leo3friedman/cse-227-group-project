@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-url-params
+├── file list
+│ @@ -1,15 +1,16 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  README_EN.md
+│ -_metadata
+│  background.js
+│ -build
+│  desc
+│  images
+│  introduction.html
+│  languages
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  style.css
+│  version-checker.js
+│  version.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-url-params/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "\u5feb\u6d4b\u5b9d API\u6279\u91cf\u6d4b\u8bd5,URL\u53c2\u6570\u89e3\u6790,QuickTest,URL Params Editor",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "clipboardRead"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.1"
+│ │  }

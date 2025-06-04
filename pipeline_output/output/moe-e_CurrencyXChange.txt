@@ -1,0 +1,709 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CurrencyXChange
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -_metadata
+│ +.git
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  script.js
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CurrencyXChange/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,16 +1,18 @@
+│ │  {
+│ │ -    "action": {
+│ │ +    "browser_action": {
+│ │          "default_icon": "images/currency.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "description": "Quick and simple currency converter for Google Chrome.",
+│ │      "icons": {
+│ │          "128": "images/currency.png",
+│ │          "16": "images/currency.png",
+│ │          "48": "images/currency.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ +    "manifest_version": 2,
+│ │      "name": "CurrencyXChange",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "permissions": [
+│ │ +        "activeTab"
+│ │ +    ],
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/CurrencyXChange/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,74 +1,74 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -    <title>CurrencyXChange</title>
+│ -    
+│ -    <link rel="stylesheet" href="style.css">
+│ -    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+│ -</head>
+│ -<body>
+│ -    <div>
+│ -        <button class="dark_mode">
+│ -            <img class="moon-image" src="images/moon.png" alt="dark_mode">
+│ -        </button>
+│ -    </div>
+│ -    
+│ -    <div class="title">
+│ -        <div>
+│ -            <img class="title-logo" src="images/currency.png">
+│ -        </div>
+│ -        <div class="title-name">
+│ -            CurrencyXChange
+│ -        </div>
+│ -    </div>
+│ -
+│ -    <div class="input">
+│ -        <div>Amount</div>
+│ -        <div><input class="amount_input" type="text"></div>
+│ -    </div>
+│ -
+│ -    <div class = "conversion">
+│ -        <div class="from">
+│ -            <div>From</div>
+│ -            <div >
+│ -                <select class="currencies1">
+│ -                    
+│ -                </select> 
+│ -            
+│ -            </div>
+│ -            
+│ -        </div>
+│ -
+│ -        <div>
+│ -        
+│ -            <button class="switch"><i class="fa fa-exchange"></i></button>
+│ -        </div>
+│ -
+│ -        <div class="to">
+│ -            <div>To</div>
+│ -            <div >
+│ -                <select class="currencies2">
+│ -                  
+│ -                </select> 
+│ -
+│ -            </div>
+│ -            
+│ -        </div>
+│ -    </div>  
+│ -
+│ -    <div>
+│ -        <button class="convert">Convert</button>
+│ -    </div>
+│ -
+│ -    <div class="answer_box">
+│ -        <p class="current"></p>
+│ -        <p class="result"></p>
+│ -        
+│ -    </div>
+│ -      
+│ -</body>
+│ -<script src="script.js"></script>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +    <title>CurrencyXChange</title>
+│ +    
+│ +    <link rel="stylesheet" href="style.css">
+│ +    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+│ +</head>
+│ +<body>
+│ +    <div>
+│ +        <button class="dark_mode">
+│ +            <img class="moon-image" src="images/moon.png" alt="dark_mode">
+│ +        </button>
+│ +    </div>
+│ +    
+│ +    <div class="title">
+│ +        <div>
+│ +            <img class="title-logo" src="images/currency.png">
+│ +        </div>
+│ +        <div class="title-name">
+│ +            CurrencyXChange
+│ +        </div>
+│ +    </div>
+│ +
+│ +    <div class="input">
+│ +        <div>Amount</div>
+│ +        <div><input class="amount_input" type="text"></div>
+│ +    </div>
+│ +
+│ +    <div class = "conversion">
+│ +        <div class="from">
+│ +            <div>From</div>
+│ +            <div >
+│ +                <select class="currencies1">
+│ +                    
+│ +                </select> 
+│ +            
+│ +            </div>
+│ +            
+│ +        </div>
+│ +
+│ +        <div>
+│ +        
+│ +            <button class="switch"><i class="fa fa-exchange"></i></button>
+│ +        </div>
+│ +
+│ +        <div class="to">
+│ +            <div>To</div>
+│ +            <div >
+│ +                <select class="currencies2">
+│ +                  
+│ +                </select> 
+│ +
+│ +            </div>
+│ +            
+│ +        </div>
+│ +    </div>  
+│ +
+│ +    <div>
+│ +        <button class="convert">Convert</button>
+│ +    </div>
+│ +
+│ +    <div class="answer_box">
+│ +        <p class="current"></p>
+│ +        <p class="result"></p>
+│ +        
+│ +    </div>
+│ +      
+│ +</body>
+│ +<script src="script.js"></script>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/script.js
+├── +++ /workspace/pipeline_output/CurrencyXChange/script.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,79 +1,76 @@
+│ -2f2f6461726b206d6f64650d0a636f6e7374206461726b5f627574746f6e203d
+│ -20646f63756d656e742e717565727953656c6563746f7228272e6461726b5f6d
+│ -6f646527290d0a6c6574206e756d73203d20300d0a6461726b5f627574746f6e
+│ -2e6164644576656e744c697374656e65722822636c69636b222c2066756e6374
+│ -696f6e2829207b0d0a2020646f63756d656e742e717565727953656c6563746f
+│ -722827626f647927292e636c6173734c6973742e746f67676c6528276e696768
+│ -7427293b0d0a2020646f63756d656e742e717565727953656c6563746f722827
+│ -2e636f6e76657273696f6e27292e636c6173734c6973742e746f67676c652827
+│ -6e6967687427293b0d0a2020646f63756d656e742e717565727953656c656374
+│ -6f7228272e696e70757427292e636c6173734c6973742e746f67676c6528276e
+│ -6967687427293b0d0a2020646f63756d656e742e717565727953656c6563746f
+│ -7228272e616e737765725f626f7827292e636c6173734c6973742e746f67676c
+│ -6528276e6967687427293b0d0a2020646f63756d656e742e717565727953656c
+│ -6563746f7228272e73776974636827292e636c6173734c6973742e746f67676c
+│ -6528276e6967687427293b0d0a2020646f63756d656e742e717565727953656c
+│ -6563746f7228272e7469746c652d6e616d6527292e636c6173734c6973742e74
+│ -6f67676c6528276e6967687427293b0d0a2020696620286e756d73202532203d
+│ -3d3d2030297b0d0a20202020646f63756d656e742e717565727953656c656374
+│ -6f7228272e6d6f6f6e2d696d61676527292e7372633d22696d616765732f7375
+│ -6e2e706e67223b7d0d0a2020656c73657b0d0a20202020646f63756d656e742e
+│ -717565727953656c6563746f7228272e6d6f6f6e2d696d61676527292e737263
+│ -3d22696d616765732f6d6f6f6e2e706e67223b7d0d0a20206e756d732b2b3b0d
+│ -0a20207d290d0a200d0a0d0a0d0a0d0a200d0a202020200d0a0d0a2f2f637572
+│ -72656e636965730d0a636f6e73742073656c65637431203d20646f63756d656e
+│ -742e717565727953656c6563746f7228272e63757272656e636965733127293b
+│ -0d0a636f6e73742073656c65637432203d20646f63756d656e742e7175657279
+│ -53656c6563746f7228272e63757272656e636965733227293b0d0a636f6e7374
+│ -20636f6e766572745f627574746f6e203d20646f63756d656e742e7175657279
+│ -53656c6563746f7228272e636f6e7665727427293b0d0a636f6e737420616d6f
+│ -756e74203d20646f63756d656e742e717565727953656c6563746f7228272e61
+│ -6d6f756e745f696e70757427293b0d0a636f6e73742063757272656e745f6e75
+│ -6d203d20646f63756d656e742e717565727953656c6563746f7228272e637572
+│ -72656e7427293b0d0a636f6e737420726573756c745f6e756d203d20646f6375
+│ -6d656e742e717565727953656c6563746f7228272e726573756c7427293b0d0a
+│ -636f6e7374207377697463685f627574746f6e203d20646f63756d656e742e71
+│ -7565727953656c6563746f7228272e73776974636827293b0d0a20200d0a2020
+│ -20200d0a0d0a0d0a0d0a6665746368282768747470733a2f2f6170692e667261
+│ -6e6b6675727465722e6170702f63757272656e6369657327290d0a2e7468656e
+│ -28286461746129203d3e20646174612e6a736f6e2829290d0a2e7468656e2828
+│ -6461746129203d3e7b0d0a2020646973706c61792864617461293b0d0a7d293b
+│ -0d0a0d0a66756e6374696f6e20646973706c61792864617461297b0d0a202063
+│ -6f6e737420656e7472696573203d204f626a6563742e656e7472696573286461
+│ -7461293b0d0a2020636f6e736f6c652e6c6f6728656e74726965732e6c656e67
+│ -7468290d0a2020666f7220287661722069203d20303b69203c656e7472696573
+│ -2e6c656e6774683b692b2b297b0d0a2020202073656c656374312e696e6e6572
+│ -48544d4c202b3d20603c6f7074696f6e2076616c75653d22247b656e74726965
+│ -735b695d5b305d7d223e247b656e74726965735b695d5b305d7d3c2f6f707469
+│ -6f6e3e603b0d0a2020202073656c656374322e696e6e657248544d4c202b3d20
+│ -603c6f7074696f6e2076616c75653d22247b656e74726965735b695d5b305d7d
+│ -223e247b656e74726965735b695d5b305d7d3c2f6f7074696f6e3e603b0d0a20
+│ -207d0d0a7d0d0a0d0a7377697463685f627574746f6e2e6164644576656e744c
+│ -697374656e65722822636c69636b222c2066756e6374696f6e28297b0d0a2020
+│ -74656d70203d2073656c656374312e76616c75653b0d0a202073656c65637431
+│ -2e76616c7565203d2073656c656374322e76616c75653b0d0a202073656c6563
+│ -74322e76616c7565203d2074656d703b0d0a0d0a7d293b0d0a0d0a0d0a0d0a63
+│ -6f6e766572745f627574746f6e2e6164644576656e744c697374656e65722822
+│ -636c69636b222c2066756e6374696f6e2829207b0d0a20206c65742063757272
+│ -656e637931203d2073656c656374312e76616c75653b0d0a20206c6574206375
+│ -7272656e637932203d2073656c656374322e76616c75653b0d0a20206c657420
+│ -76616c7565203d20616d6f756e742e76616c75653b0d0a0d0a20206966202863
+│ -757272656e63793120213d2063757272656e637932297b0d0a20202020636f6e
+│ -766572742863757272656e6379312c63757272656e6379322c76616c7565290d
+│ -0a20207d656c73657b0d0a20202020616c6572742822596f7520617265207472
+│ -79696e6720746f20636f6e76657274207468652073616d652063757272656e63
+│ -79215c6e506c65617365207069636b20646966666572656e742063757272656e
+│ -636965732e22293b0d0a20207d0d0a7d293b0d0a0d0a66756e6374696f6e2063
+│ -6f6e766572742863757272656e6379312c63757272656e6379322c76616c7565
+│ -297b0d0a2020636f6e737420686f7374203d20276170692e6672616e6b667572
+│ -7465722e617070273b0d0a6665746368286068747470733a2f2f247b686f7374
+│ -7d2f6c61746573743f616d6f756e743d247b76616c75657d2666726f6d3d247b
+│ -63757272656e6379317d26746f3d247b63757272656e6379327d60290d0a2020
+│ -2e7468656e2872657370203d3e20726573702e6a736f6e2829290d0a20202e74
+│ -68656e28286461746129203d3e207b0d0a2020202063757272656e745f6e756d
+│ -2e696e6e657248544d4c203d2076616c7565202b2027266e6273703b27202b20
+│ -63757272656e637931202b27266e62737027202b2027266e62737027202b2027
+│ -3d273b0d0a20202020726573756c745f6e756d2e696e6e657248544d4c203d20
+│ -60266e62737020247b4f626a6563742e76616c75657328646174612e72617465
+│ -73295b305d2e746f46697865642832297d20247b63757272656e6379327d603b
+│ -200d0a20207d297d3b
+│ +2f2f6461726b206d6f64650a636f6e7374206461726b5f627574746f6e203d20
+│ +646f63756d656e742e717565727953656c6563746f7228272e6461726b5f6d6f
+│ +646527290a6c6574206e756d73203d20300a6461726b5f627574746f6e2e6164
+│ +644576656e744c697374656e65722822636c69636b222c2066756e6374696f6e
+│ +2829207b0a2020646f63756d656e742e717565727953656c6563746f72282762
+│ +6f647927292e636c6173734c6973742e746f67676c6528276e6967687427293b
+│ +0a2020646f63756d656e742e717565727953656c6563746f7228272e636f6e76
+│ +657273696f6e27292e636c6173734c6973742e746f67676c6528276e69676874
+│ +27293b0a2020646f63756d656e742e717565727953656c6563746f7228272e69
+│ +6e70757427292e636c6173734c6973742e746f67676c6528276e696768742729
+│ +3b0a2020646f63756d656e742e717565727953656c6563746f7228272e616e73
+│ +7765725f626f7827292e636c6173734c6973742e746f67676c6528276e696768
+│ +7427293b0a2020646f63756d656e742e717565727953656c6563746f7228272e
+│ +73776974636827292e636c6173734c6973742e746f67676c6528276e69676874
+│ +27293b0a2020646f63756d656e742e717565727953656c6563746f7228272e74
+│ +69746c652d6e616d6527292e636c6173734c6973742e746f67676c6528276e69
+│ +67687427293b0a2020696620286e756d73202532203d3d3d2030297b0a202020
+│ +20646f63756d656e742e717565727953656c6563746f7228272e6d6f6f6e2d69
+│ +6d61676527292e7372633d22696d616765732f73756e2e706e67223b7d0a2020
+│ +656c73657b0a20202020646f63756d656e742e717565727953656c6563746f72
+│ +28272e6d6f6f6e2d696d61676527292e7372633d22696d616765732f6d6f6f6e
+│ +2e706e67223b7d0a20206e756d732b2b3b0a20207d290a200a0a0a0a200a2020
+│ +20200a0a2f2f63757272656e636965730a636f6e73742073656c65637431203d
+│ +20646f63756d656e742e717565727953656c6563746f7228272e63757272656e
+│ +636965733127293b0a636f6e73742073656c65637432203d20646f63756d656e
+│ +742e717565727953656c6563746f7228272e63757272656e636965733227293b
+│ +0a636f6e737420636f6e766572745f627574746f6e203d20646f63756d656e74
+│ +2e717565727953656c6563746f7228272e636f6e7665727427293b0a636f6e73
+│ +7420616d6f756e74203d20646f63756d656e742e717565727953656c6563746f
+│ +7228272e616d6f756e745f696e70757427293b0a636f6e73742063757272656e
+│ +745f6e756d203d20646f63756d656e742e717565727953656c6563746f722827
+│ +2e63757272656e7427293b0a636f6e737420726573756c745f6e756d203d2064
+│ +6f63756d656e742e717565727953656c6563746f7228272e726573756c742729
+│ +3b0a636f6e7374207377697463685f627574746f6e203d20646f63756d656e74
+│ +2e717565727953656c6563746f7228272e73776974636827293b0a20200a2020
+│ +20200a0a0a0a6665746368282768747470733a2f2f6170692e6672616e6b6675
+│ +727465722e6170702f63757272656e6369657327290a2e7468656e2828646174
+│ +6129203d3e20646174612e6a736f6e2829290a2e7468656e2828646174612920
+│ +3d3e7b0a2020646973706c61792864617461293b0a7d293b0a0a66756e637469
+│ +6f6e20646973706c61792864617461297b0a2020636f6e737420656e74726965
+│ +73203d204f626a6563742e656e74726965732864617461293b0a2020636f6e73
+│ +6f6c652e6c6f6728656e74726965732e6c656e677468290a2020666f72202876
+│ +61722069203d20303b69203c656e74726965732e6c656e6774683b692b2b297b
+│ +0a2020202073656c656374312e696e6e657248544d4c202b3d20603c6f707469
+│ +6f6e2076616c75653d22247b656e74726965735b695d5b305d7d223e247b656e
+│ +74726965735b695d5b305d7d3c2f6f7074696f6e3e603b0a2020202073656c65
+│ +6374322e696e6e657248544d4c202b3d20603c6f7074696f6e2076616c75653d
+│ +22247b656e74726965735b695d5b305d7d223e247b656e74726965735b695d5b
+│ +305d7d3c2f6f7074696f6e3e603b0a20207d0a7d0a0a7377697463685f627574
+│ +746f6e2e6164644576656e744c697374656e65722822636c69636b222c206675
+│ +6e6374696f6e28297b0a202074656d70203d2073656c656374312e76616c7565
+│ +3b0a202073656c656374312e76616c7565203d2073656c656374322e76616c75
+│ +653b0a202073656c656374322e76616c7565203d2074656d703b0a0a7d293b0a
+│ +0a0a0a636f6e766572745f627574746f6e2e6164644576656e744c697374656e
+│ +65722822636c69636b222c2066756e6374696f6e2829207b0a20206c65742063
+│ +757272656e637931203d2073656c656374312e76616c75653b0a20206c657420
+│ +63757272656e637932203d2073656c656374322e76616c75653b0a20206c6574
+│ +2076616c7565203d20616d6f756e742e76616c75653b0a0a2020696620286375
+│ +7272656e63793120213d2063757272656e637932297b0a20202020636f6e7665
+│ +72742863757272656e6379312c63757272656e6379322c76616c7565290a2020
+│ +7d656c73657b0a20202020616c6572742822596f752061726520747279696e67
+│ +20746f20636f6e76657274207468652073616d652063757272656e6379215c6e
+│ +506c65617365207069636b20646966666572656e742063757272656e63696573
+│ +2e22293b0a20207d0a7d293b0a0a66756e6374696f6e20636f6e766572742863
+│ +757272656e6379312c63757272656e6379322c76616c7565297b0a2020636f6e
+│ +737420686f7374203d20276170692e6672616e6b6675727465722e617070273b
+│ +0a6665746368286068747470733a2f2f247b686f73747d2f6c61746573743f61
+│ +6d6f756e743d247b76616c75657d2666726f6d3d247b63757272656e6379317d
+│ +26746f3d247b63757272656e6379327d60290a20202e7468656e287265737020
+│ +3d3e20726573702e6a736f6e2829290a20202e7468656e28286461746129203d
+│ +3e207b0a2020202063757272656e745f6e756d2e696e6e657248544d4c203d20
+│ +76616c7565202b2027266e6273703b27202b2063757272656e637931202b2726
+│ +6e62737027202b2027266e62737027202b20273d273b0a20202020726573756c
+│ +745f6e756d2e696e6e657248544d4c203d2060266e62737020247b4f626a6563
+│ +742e76616c75657328646174612e7261746573295b305d2e746f466978656428
+│ +32297d20247b63757272656e6379327d603b200a20207d297d3b
+│   --- /workspace/pipeline_output/chromex_data/style.css
+├── +++ /workspace/pipeline_output/CurrencyXChange/style.css
+│┄ Ordering differences only
+│ @@ -1,178 +1,178 @@
+│ -body{
+│ -    font-family: 'Roboto', sans-serif;
+│ -    width: 270px;
+│ -    height: 350px;
+│ -    background-color: rgb(255, 255, 255);
+│ -}
+│ -
+│ -body.night {
+│ -    background-color: rgba(0, 0, 0, 0.805);
+│ -    color: white;
+│ -}
+│ -
+│ -.title{
+│ -    margin-top: 20px;
+│ -    display: flex;
+│ -    justify-content: center;
+│ -    vertical-align: middle;
+│ -}
+│ -.title-name{
+│ -    
+│ -    text-align: center;
+│ -    font-size: 20px;
+│ -    font-weight: 600;
+│ -    color:  rgba(0, 0, 0, 0.8);
+│ -}
+│ -.title-name.night{
+│ -    color: white;
+│ -}
+│ -
+│ -.title-logo{
+│ -    height:30px;
+│ -    position: relative;
+│ -    top:-3px;
+│ -    left: -10px;
+│ -}
+│ -
+│ -
+│ -.input{
+│ -    margin-top: 25px;
+│ -    margin-bottom:20px;
+│ -    margin-left: 8px;
+│ -    font-size: 14px;
+│ -    font-weight: 600;
+│ -    color: rgba(0, 0, 0, 0.709);
+│ -}
+│ -.input.night{
+│ -    color: white;
+│ -}
+│ -
+│ -.amount_input{
+│ -    margin-top: 5px;
+│ -    padding-right: 32px;
+│ -    padding-top:9px;
+│ -    padding-bottom: 9px;
+│ -    padding-left: 5px;
+│ -    border-radius: 5px;
+│ -    font-size: 17px;
+│ -    border-width: thin;
+│ -
+│ -}
+│ -
+│ -.conversion{
+│ -    display: flex;
+│ -    margin-left: 8px;
+│ -    margin-bottom: 22px;
+│ -    justify-content:space-between;
+│ -    font-size: 14px;
+│ -    font-weight: 600;
+│ -    color: rgba(0, 0, 0, 0.709);
+│ -
+│ -}
+│ -.conversion.night{
+│ -    color:white;
+│ -}
+│ -
+│ -.from select{
+│ -    margin-top: 7px;
+│ -
+│ -}
+│ -
+│ -.currencies1 , .currencies2{
+│ -    padding-right: 15px;
+│ -    padding-top:9px;
+│ -    padding-bottom: 9px;
+│ -    padding-left: 15px;
+│ -    border-radius: 5px;
+│ -}
+│ -
+│ -
+│ -
+│ -.to select{
+│ -    margin-top: 7px;
+│ -    margin-right: 11px;
+│ -
+│ -}
+│ -
+│ -.switch{
+│ -    margin-top: 27px;
+│ -    border: none;
+│ -    cursor: pointer;
+│ -    font-size: 22px;
+│ -    background-color: white;
+│ -    
+│ -}
+│ -
+│ -.switch.night{
+│ -    background-color: rgba(0, 0, 0, 0);
+│ -    color:white;
+│ -}
+│ -
+│ -.convert{
+│ -    color: white;
+│ -    font-size: 14px;
+│ -    font-weight: 600;
+│ -    margin-left: 8px;
+│ -    margin-right: 15px;
+│ -    height:40px;
+│ -    width:250px;
+│ -    background-color: blueviolet;
+│ -    border-radius: 7px;
+│ -    border: none;
+│ -    cursor: pointer;
+│ -    transition:0.15s;
+│ -}
+│ -
+│ -.convert.night{
+│ -    background-color:red;
+│ -}
+│ -.convert:hover{
+│ -    box-shadow: 0.4px 2px 10px rgba(0,0,0,0.2);
+│ -
+│ -}
+│ -
+│ -.dark_mode{
+│ -    border: none;
+│ -    background-color: rgba(241, 241, 241,0.6);
+│ -    height: 30px;
+│ -    border-radius: 15px;
+│ -    cursor: pointer;
+│ -    transition:0.15s;
+│ -    margin-left: 230px;
+│ -    margin-top: 5px
+│ -    
+│ -}
+│ -.dark_mode:hover{
+│ -    box-shadow: 0.2px 1px 3px rgba(0,0,0,0.2);
+│ -    
+│ -}
+│ -
+│ -.dark_mode:active{
+│ -    box-shadow: 5px 2px 10px rgba(0,0,0,0.2);
+│ -    
+│ -}
+│ -.moon-image{
+│ -    height:17px;
+│ -    
+│ - }
+│ -
+│ -.answer_box{
+│ -    justify-content:center;
+│ -    display: flex;
+│ -    flex-wrap: wrap;    
+│ -    font-size: 17px;
+│ -    font-weight: 600;
+│ -    color: rgba(0, 0, 0, 0.709);
+│ -    max-width: 300px;
+│ -
+│ -}
+│ -.current{
+│ -    margin-bottom: -10px ;
+│ -}
+│ -
+│ -
+│ -
+│ -.answer_box.night{
+│ -    color:white;
+│ -}
+│ -
+│ +body{
+│ +    font-family: 'Roboto', sans-serif;
+│ +    width: 270px;
+│ +    height: 350px;
+│ +    background-color: rgb(255, 255, 255);
+│ +}
+│ +
+│ +body.night {
+│ +    background-color: rgba(0, 0, 0, 0.805);
+│ +    color: white;
+│ +}
+│ +
+│ +.title{
+│ +    margin-top: 20px;
+│ +    display: flex;
+│ +    justify-content: center;
+│ +    vertical-align: middle;
+│ +}
+│ +.title-name{
+│ +    
+│ +    text-align: center;
+│ +    font-size: 20px;
+│ +    font-weight: 600;
+│ +    color:  rgba(0, 0, 0, 0.8);
+│ +}
+│ +.title-name.night{
+│ +    color: white;
+│ +}
+│ +
+│ +.title-logo{
+│ +    height:30px;
+│ +    position: relative;
+│ +    top:-3px;
+│ +    left: -10px;
+│ +}
+│ +
+│ +
+│ +.input{
+│ +    margin-top: 25px;
+│ +    margin-bottom:20px;
+│ +    margin-left: 8px;
+│ +    font-size: 14px;
+│ +    font-weight: 600;
+│ +    color: rgba(0, 0, 0, 0.709);
+│ +}
+│ +.input.night{
+│ +    color: white;
+│ +}
+│ +
+│ +.amount_input{
+│ +    margin-top: 5px;
+│ +    padding-right: 32px;
+│ +    padding-top:9px;
+│ +    padding-bottom: 9px;
+│ +    padding-left: 5px;
+│ +    border-radius: 5px;
+│ +    font-size: 17px;
+│ +    border-width: thin;
+│ +
+│ +}
+│ +
+│ +.conversion{
+│ +    display: flex;
+│ +    margin-left: 8px;
+│ +    margin-bottom: 22px;
+│ +    justify-content:space-between;
+│ +    font-size: 14px;
+│ +    font-weight: 600;
+│ +    color: rgba(0, 0, 0, 0.709);
+│ +
+│ +}
+│ +.conversion.night{
+│ +    color:white;
+│ +}
+│ +
+│ +.from select{
+│ +    margin-top: 7px;
+│ +
+│ +}
+│ +
+│ +.currencies1 , .currencies2{
+│ +    padding-right: 15px;
+│ +    padding-top:9px;
+│ +    padding-bottom: 9px;
+│ +    padding-left: 15px;
+│ +    border-radius: 5px;
+│ +}
+│ +
+│ +
+│ +
+│ +.to select{
+│ +    margin-top: 7px;
+│ +    margin-right: 11px;
+│ +
+│ +}
+│ +
+│ +.switch{
+│ +    margin-top: 27px;
+│ +    border: none;
+│ +    cursor: pointer;
+│ +    font-size: 22px;
+│ +    background-color: white;
+│ +    
+│ +}
+│ +
+│ +.switch.night{
+│ +    background-color: rgba(0, 0, 0, 0);
+│ +    color:white;
+│ +}
+│ +
+│ +.convert{
+│ +    color: white;
+│ +    font-size: 14px;
+│ +    font-weight: 600;
+│ +    margin-left: 8px;
+│ +    margin-right: 15px;
+│ +    height:40px;
+│ +    width:250px;
+│ +    background-color: blueviolet;
+│ +    border-radius: 7px;
+│ +    border: none;
+│ +    cursor: pointer;
+│ +    transition:0.15s;
+│ +}
+│ +
+│ +.convert.night{
+│ +    background-color:red;
+│ +}
+│ +.convert:hover{
+│ +    box-shadow: 0.4px 2px 10px rgba(0,0,0,0.2);
+│ +
+│ +}
+│ +
+│ +.dark_mode{
+│ +    border: none;
+│ +    background-color: rgba(241, 241, 241,0.6);
+│ +    height: 30px;
+│ +    border-radius: 15px;
+│ +    cursor: pointer;
+│ +    transition:0.15s;
+│ +    margin-left: 230px;
+│ +    margin-top: 5px
+│ +    
+│ +}
+│ +.dark_mode:hover{
+│ +    box-shadow: 0.2px 1px 3px rgba(0,0,0,0.2);
+│ +    
+│ +}
+│ +
+│ +.dark_mode:active{
+│ +    box-shadow: 5px 2px 10px rgba(0,0,0,0.2);
+│ +    
+│ +}
+│ +.moon-image{
+│ +    height:17px;
+│ +    
+│ + }
+│ +
+│ +.answer_box{
+│ +    justify-content:center;
+│ +    display: flex;
+│ +    flex-wrap: wrap;    
+│ +    font-size: 17px;
+│ +    font-weight: 600;
+│ +    color: rgba(0, 0, 0, 0.709);
+│ +    max-width: 300px;
+│ +
+│ +}
+│ +.current{
+│ +    margin-bottom: -10px ;
+│ +}
+│ +
+│ +
+│ +
+│ +.answer_box.night{
+│ +    color:white;
+│ +}
+│ +

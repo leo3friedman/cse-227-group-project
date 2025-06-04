@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/demonweb
+├── file list
+│ @@ -1,8 +1,9 @@
+│ -_metadata
+│ +.git
+│ +README
+│  background.js
+│  hell.css
+│  hell.js
+│ -hell.js.backup
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  resources
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/demonweb/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,4 +1,4 @@
+│  76617220617564696f203d206e657720417564696f286368726f6d652e657874
+│  656e73696f6e2e67657455524c28227265736f75726365732f44656166686561
+│  76656e2d546865506563616e547265652e6f67672229293b0a617564696f2e76
+│ -6f6c756d653d2e343b0a617564696f2e706c617928293b
+│ +6f6c756d653d2e37353b0a617564696f2e706c617928293b
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/demonweb/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -40,15 +40,14 @@
+│ │      "icons": {
+│ │          "128": "resources/icon128.png",
+│ │          "16": "resources/icon16.png",
+│ │          "48": "resources/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "DEMONWEB",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "6.6.6",
+│ │      "web_accessible_resources": [
+│ │          "resources/*.png",
+│ │          "resources/*.jpg",
+│ │          "resources/*.gif",
+│ │          "resources/*.ogg"
+│ │      ]

@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-url-edit
+├── file list
+│ @@ -1,7 +1,10 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-url-edit/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Url Editor",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │      "short_name": "Urledit",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

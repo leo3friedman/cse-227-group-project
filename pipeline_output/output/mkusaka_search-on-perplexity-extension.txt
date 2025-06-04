@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/search-on-perplexity-extension
+├── file list
+│ @@ -1,6 +1,14 @@
+│ +.editorconfig
+│ +.git
+│ +.gitattributes
+│ +.github
+│ +.gitignore
+│ +.node-version
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  manifest.json
+│ -node_modules
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +yarn.lock
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/search-on-perplexity-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -3,10 +3,9 @@
+│ │          "service_worker": "background.js"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Search on Perplexity",
+│ │      "omnibox": {
+│ │          "keyword": "p"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/node_modules
+├── +++ /workspace/pipeline_output/search-on-perplexity-extension/node_modules
+│ ├── file list
+│ │ @@ -0,0 +1,5 @@
+│ │ +.bin
+│ │ +.package-lock.json
+│ │ +@types
+│ │ +prettier
+│ │ +typescript

@@ -1,0 +1,44 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Tagoozen
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.DS_Store
+│ +.git
+│  README.md
+│ -_metadata
+│  assets
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Tagoozen/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,15 +37,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Tagoozen",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/Tagoozen/src
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  background.js
+│ │  content.js
+│ │  defaultTags.json
+│ │  en.json
+│ │  ja.json
+│ │  marker.css
+│ │  options.css

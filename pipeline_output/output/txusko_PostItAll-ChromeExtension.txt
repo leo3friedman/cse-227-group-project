@@ -1,0 +1,50 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/PostItAll-ChromeExtension
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  README.md
+│  _locales
+│ -_metadata
+│  css
+│  dashboard
+│  dashboard.html
+│  fonts
+│  images
+│  img
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/PostItAll-ChromeExtension/js
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.directory
+│ │  asyncTracking.js
+│ │  background.js
+│ │  bootstrap-switch.min.js
+│ │  bootstrap.min.js
+│ │  contentscript.js
+│ │  functions.js
+│ │  jquery-3.5.1.min.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/PostItAll-ChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -63,15 +63,14 @@
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "contextMenus",
+│ │          "*://*/*",
+│ │          "<all_urls>"
+│ │      ],
+│ │      "short_name": "__MSG_extName__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.1.4",
+│ │      "web_accessible_resources": [
+│ │          "images/*.*",
+│ │          "css/*.css",
+│ │          "js/*.js",
+│ │          "fonts/*.woff2"
+│ │      ]

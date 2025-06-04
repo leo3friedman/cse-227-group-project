@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Trello_It
+├── file list
+│ @@ -1,9 +1,12 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  images
+│  jquery.min.js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  trello.css
+│  trello.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Trello_It/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,16 +2,15 @@
+│ │      "browser_action": {
+│ │          "default_icon": "images/Trello_it_logo.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "content_security_policy": "script-src 'self' https://api.trello.com https://ssl.google-analytics.com https://ajax.googleapis.com; object-src 'self'",
+│ │      "description": "This extension lets you add new cards to boards/lists and attach the current page as a comment",
+│ │      "manifest_version": 2,
+│ │ -    "name": "Add it for Trello",
+│ │ +    "name": "Trello It",
+│ │      "permissions": [
+│ │          "https://trello.com/",
+│ │          "https://api.trello.com/",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3"
+│ │  }

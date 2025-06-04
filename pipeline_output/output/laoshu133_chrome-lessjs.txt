@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-lessjs
+├── file list
+│ @@ -1,11 +1,13 @@
+│ +.git
+│  Gruntfile.js
+│  README.md
+│ -_metadata
+│  devtools.html
+│  images
+│  js
+│  lib
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│  package.json
+│  popup.html
+│  test
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-lessjs/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,15 +35,14 @@
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "Lessjs for Google Chrome"
+│ │      },
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "*://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.8",
+│ │      "web_accessible_resources": [
+│ │          "lib/source-map-0.1.39.js",
+│ │          "js/lessjs-injecter.js",
+│ │          "lib/less.min.js"
+│ │      ]
+│ │  }

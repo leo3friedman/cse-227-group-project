@@ -1,0 +1,174 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/national-holidays-chrome-extension
+├── file list
+│ @@ -1,9 +1,5 @@
+│ -README.md
+│ -_metadata
+│ +.git
+│  app.js
+│ -background.css
+│ -icon16.png
+│ -icon192.png
+│ -icon32.png
+│  index.html
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/app.js
+├── +++ /workspace/pipeline_output/national-holidays-chrome-extension/app.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,35 +1,24 @@
+│  636f6e73742024736561726368496e707574203d20646f63756d656e742e6765
+│ -74456c656d656e74427949642822736561726368496e70757422293b0d0a636f
+│ -6e737420247461626c65203d20646f63756d656e742e676574456c656d656e74
+│ -4279496428227461626c6522293b0d0a636f6e73742024736561726368576172
+│ -6e696e67203d20646f63756d656e742e676574456c656d656e74427949642822
+│ -7365617263685761726e696e6722293b0d0a0d0a6173796e632066756e637469
+│ -6f6e206665746368446174612829207b0d0a2020636f6e73742064617465203d
+│ -206e6577204461746528293b0d0a2020636f6e737420726573203d2061776169
+│ -74206665746368286068747470733a2f2f646174652e6e616765722e61742f61
+│ -70692f76332f5075626c6963486f6c69646179732f247b646174652e67657446
+│ -756c6c5965617228297d2f247b24736561726368496e7075742e76616c75657d
+│ -60293b0d0a2020636f6e736f6c652e6c6f6728726573293b0d0a202069662872
+│ -65732e73746174757320213d3d203230302026262024736561726368496e7075
+│ -742e76616c7565203d3d3d202727297b0d0a20202020247461626c652e696e6e
+│ -657248544d4c203d2027273b0d0a20202020247365617263685761726e696e67
+│ -2e696e6e657248544d4c203d2027273b0d0a20207d20656c7365206966287265
+│ -732e73746174757320213d3d20323030297b0d0a202020202473656172636857
+│ -61726e696e672e696e6e657248544d4c203d2060492063616e27742066696e64
+│ -20796f757220636f756e7472792028247b7265732e7374617475737d29600d0a
+│ -20207d20656c7365207b0d0a20202020247365617263685761726e696e672e69
+│ -6e6e657248544d4c203d2027270d0a20202020636f6e73742064617461203d20
+│ -6177616974207265732e6a736f6e28293b0d0a20202020646174612e6d617028
+│ -6974656d203d3e207b0d0a2020202020202020636f6e7374207461626c654974
+│ -656d203d20646f63756d656e742e637265617465456c656d656e742822747222
+│ -293b0d0a20202020202020207461626c654974656d2e696e6e657248544d4c20
+│ -3d20600d0a20202020202020203c74643e247b6974656d2e6c6f63616c4e616d
+│ -657d3c2f74643e0d0a20202020202020203c74643e247b6974656d2e6e616d65
+│ -7d3c2f74643e0d0a20202020202020203c74643e247b6974656d2e646174657d
+│ -3c2f74643e0d0a20202020202020203c74643e247b6974656d2e636f756e7472
+│ -79436f64657d3c2f74643e0d0a2020202020202020600d0a2020202020202020
+│ -247461626c652e617070656e644368696c64287461626c654974656d293b0d0a
+│ -202020207d293b0d0a20207d0d0a7d0d0a0d0a24736561726368496e7075742e
+│ -6164644576656e744c697374656e657228226368616e6765222c202829203d3e
+│ -207b0d0a2020247461626c652e696e6e657248544d4c203d2022223b0d0a2020
+│ -66657463684461746128293b0d0a7d293b0d0a
+│ +74456c656d656e74427949642827736561726368496e70757427293b0a636f6e
+│ +737420247461626c65203d20646f63756d656e742e676574456c656d656e7442
+│ +79496428277461626c6527293b0a0a6173796e632066756e6374696f6e206665
+│ +746368446174612829207b0a20202020636f6e73742064617465203d206e6577
+│ +204461746528293b0a20202020636f6e737420726573203d2061776169742066
+│ +65746368286068747470733a2f2f646174652e6e616765722e61742f6170692f
+│ +76332f5075626c6963486f6c69646179732f247b646174652e67657446756c6c
+│ +5965617228297d2f247b24736561726368496e7075742e76616c75657d60293b
+│ +0a20202020636f6e73742064617461203d206177616974207265732e6a736f6e
+│ +28293b0a20202020636f6e736f6c652e6c6f672864617461293b0a2020202064
+│ +6174612e6d6170286974656d203d3e207b0a2020202020202020636f6e737420
+│ +7461626c654974656d203d20646f63756d656e742e637265617465456c656d65
+│ +6e742822747222293b0a20202020202020207461626c654974656d2e696e6e65
+│ +7248544d4c203d20600a20202020202020203c74643e247b6974656d2e6c6f63
+│ +616c4e616d657d3c2f74643e0a20202020202020203c74643e247b6974656d2e
+│ +6e616d657d3c2f74643e0a20202020202020203c74643e247b6974656d2e6461
+│ +74657d3c2f74643e0a20202020202020203c74643e247b6974656d2e636f756e
+│ +747279436f64657d3c2f74643e0a2020202020202020600a2020202020202020
+│ +247461626c652e617070656e644368696c64287461626c654974656d293b0a20
+│ +2020207d293b0a20207d0a0a202024736561726368496e7075742e6164644576
+│ +656e744c697374656e657228276368616e6765272c202829203d3e207b0a2020
+│ +2020247461626c652e696e6e657248544d4c203d2027273b0a20202020666574
+│ +63684461746128293b0a20207d29
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/national-holidays-chrome-extension/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,36 +1,34 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ -    <title>Document</title>
+│ -    <link rel="stylesheet" href="background.css">
+│ -    <link
+│ -      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+│ -      rel="stylesheet"
+│ -    />
+│ -  </head>
+│ -  <body>
+│ -    <div class="container mt-3" style="width: 450px">
+│ -      <h2 class="text-center">NATIONAL HOLIDAYS</h2>
+│ -      <input type="text" name="search" id="searchInput" placeholder="Your country code...">
+│ -      <label id="searchWarning" for="searchInput"></label>
+│ -      <table class="table table-bordered">
+│ -        <thead>
+│ -          <tr>
+│ -            <th>Local Name</th>
+│ -            <th>Name</th>
+│ -            <th>Date</th>
+│ -            <th>Code</th>
+│ -          </tr>
+│ -        </thead>
+│ -        <tbody id="table">
+│ -
+│ -        </tbody>
+│ -      </table>
+│ -    </div>
+│ -    <script src="app.js">
+│ -    </script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ +    <title>Document</title>
+│ +    <link
+│ +      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+│ +      rel="stylesheet"
+│ +    />
+│ +  </head>
+│ +  <body>
+│ +    <div class="container mt-3" style="width: 450px">
+│ +      <h2 class="text-center">NATIONAL HOLIDAYS</h2>
+│ +      <input type="text" name="search" id="searchInput" placeholder="Your country code..." style="width: 100%">
+│ +      <table class="table table-bordered" style="margin-top: 1px">
+│ +        <thead>
+│ +          <tr>
+│ +            <th>Local Name</th>
+│ +            <th>Name</th>
+│ +            <th>Date</th>
+│ +            <th>Country Code</th>
+│ +          </tr>
+│ +        </thead>
+│ +        <tbody id="table">
+│ +
+│ +        </tbody>
+│ +      </table>
+│ +    </div>
+│ +    <script src="app.js">
+│ +    </script>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/national-holidays-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,17 +1,11 @@
+│ │  {
+│ │      "action": {
+│ │          "default_popup": "index.html",
+│ │          "default_title": "National Holidays"
+│ │      },
+│ │      "author": "Alperen \u00dcst\u00fcn",
+│ │      "description": "National holidays of the countries",
+│ │ -    "icons": {
+│ │ -        "128": "icon192.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon32.png"
+│ │ -    },
+│ │      "manifest_version": 3,
+│ │      "name": "National Holidays",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

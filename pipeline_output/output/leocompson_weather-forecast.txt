@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/weather-forecast
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│  data
+│  lib
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/data
+├── +++ /workspace/pipeline_output/weather-forecast/data
+│ │   --- /workspace/pipeline_output/chromex_data/data/interface
+│ ├── +++ /workspace/pipeline_output/weather-forecast/data/interface
+│ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/resources
+│ │ ├── +++ /workspace/pipeline_output/weather-forecast/data/interface/resources
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/data/interface/resources/scripts
+│ │ │ ├── +++ /workspace/pipeline_output/weather-forecast/data/interface/resources/scripts
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,3 +1,4 @@
+│ │ │ │ │ +config.js
+│ │ │ │ │  interface.js
+│ │ │ │ │  listeners.js
+│ │ │ │ │  methods.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/weather-forecast/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,10 @@
+│ │      "name": "Weather Forecast",
+│ │      "permissions": [
+│ │          "idle",
+│ │          "alarms",
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "short_name": "weather-forecast",
+│ │      "version": "0.1.4"
+│ │  }

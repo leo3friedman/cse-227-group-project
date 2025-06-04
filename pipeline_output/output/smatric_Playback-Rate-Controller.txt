@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Playback-Rate-Controller
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  content_main.js
+│  icon-128x128.png
+│  icon-16x16.png
+│  icon-48x48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Playback-Rate-Controller/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │          "128": "icon-128x128.png",
+│ │          "16": "icon-16x16.png",
+│ │          "48": "icon-48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Playback Rate Controller",
+│ │      "short_name": "PRC",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.1"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/g-
+├── file list
+│ @@ -1,4 +1,12 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +.idea
+│ +.project
+│ +README.md
+│ +build.xml
+│  content.js
+│ +g-.eml
+│ +g-.iml
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/g-/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Hide G+ Notifications",
+│ │      "permissions": [
+│ │          "*://*.google.com/*",
+│ │          "*://*.youtube.com/*"
+│ │      ],
+│ │      "short_name": "G-",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.6"
+│ │  }

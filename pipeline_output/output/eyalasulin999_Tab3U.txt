@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Tab3U
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.git
+│ +.github
+│ +README.md
+│  assets
+│  content.js
+│  manifest.json
+│ +package-lock.json
+│  popup
+│  transpose.js
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/Tab3U/assets
+│ ├── file list
+│ │ @@ -1,2 +1,5 @@
+│ │ +demo.gif
+│ │ +easy_version.png
+│ │  icon128.png
+│ │ +logo.png
+│ │ +premium_paywall.png
+│ │ -logo.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Tab3U/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │          "128": "assets/icon128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Tab3U",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

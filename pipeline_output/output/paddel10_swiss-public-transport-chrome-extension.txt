@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/swiss-public-transport-chrome-extension
+├── file list
+│ @@ -1,16 +1,19 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  globals.js
+│  images
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  screenshots
+│  style.css
+│  thirdparty
+│  utils
+│  utils.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/swiss-public-transport-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,13 +21,12 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Swiss Public Transport Departure",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "notifications",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.0",
+│ │      "web_accessible_resources": [
+│ │          "images/48.png"
+│ │      ]
+│ │  }

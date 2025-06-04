@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/KingConverter
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  contentscripts
+│  extensionscripts
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  jquery-1.11.1.min.js
+│  manifest.json
+│ -option
+│ +option
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/KingConverter/README.md
+│ @@ -15,7 +15,13 @@
+│   
+│  
+│  #Adding a new conversion type
+│  1. Go to chrome://extensions
+│  2. Click `options` under KingConverter
+│  3. Add a title and conversion factor (tag optional)
+│  4. Click add
+│ +
+│ +
+│ +https://chrome.google.com/webstore/detail/kingconverter/cjnejggdphnihnmfplaogldagfhmjdoo
+│ +
+│ +
+│ +LICENSE:MIT
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/KingConverter/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "name": "KingConverter",
+│ │      "options_page": "option/option.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus"
+│ │      ],
+│ │      "short_name": "kgC",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2"
+│ │  }

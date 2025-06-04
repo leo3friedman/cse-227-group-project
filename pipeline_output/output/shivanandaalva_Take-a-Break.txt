@@ -1,0 +1,213 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Take-a-Break
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  code.png
+│  index.html
+│  manifest.json
+│ +package-lock.json
+│  popup.js
+│  stop_working.png
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/Take-a-Break/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,15 +1,15 @@
+│  20206368726f6d652e616c61726d732e6f6e416c61726d2e6164644c69737465
+│ -6e6572282066756e6374696f6e202829207b0d0a202020202020202073657449
+│ -6e74657276616c28696e6372656d656e742c2033363030303030293b200d0a20
+│ -2020202020202066756e6374696f6e20696e6372656d656e7428297b200d0a20
+│ -2020202020202020206368726f6d652e62726f77736572416374696f6e2e7365
+│ -74426164676554657874287b746578743a2027277d293b0d0a20202020202020
+│ -2020206368726f6d652e6e6f74696669636174696f6e732e637265617465287b
+│ -0d0a2020202020202020202020207469746c653a202754616b65206120427265
+│ -616b272c0d0a2020202020202020202020206d6573736167653a202749742069
+│ -732074696d6520746f2073746f7020776f726b696e6720616e64206861766520
+│ -736f6d652066756e272c0d0a20202020202020202020202069636f6e55726c3a
+│ -202773746f705f776f726b696e672e706e67272c0d0a20202020202020202020
+│ -202072657175697265496e746572616374696f6e3a2066616c73652c0d0a2020
+│ -20202020202020202020747970653a20276261736963270d0a20202020202020
+│ -2020207d293b0d0a20202020202020207d0d0a2020202020207d293b
+│ +6e6572282066756e6374696f6e202829207b0a2020202020202020736574496e
+│ +74657276616c28696e6372656d656e742c2033363030303030293b200a202020
+│ +202020202066756e6374696f6e20696e6372656d656e7428297b200a20202020
+│ +2020202020206368726f6d652e62726f77736572416374696f6e2e7365744261
+│ +64676554657874287b746578743a2027277d293b0a2020202020202020202063
+│ +68726f6d652e6e6f74696669636174696f6e732e637265617465287b0a202020
+│ +2020202020202020207469746c653a202754616b65206120427265616b272c0a
+│ +2020202020202020202020206d6573736167653a202749742069732074696d65
+│ +20746f2073746f7020776f726b696e6720616e64206861766520736f6d652066
+│ +756e272c0a20202020202020202020202069636f6e55726c3a202773746f705f
+│ +776f726b696e672e706e67272c0a202020202020202020202020726571756972
+│ +65496e746572616374696f6e3a2066616c73652c0a2020202020202020202020
+│ +20747970653a20276261736963270a202020202020202020207d293b0a202020
+│ +20202020207d0a2020202020207d293b
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/Take-a-Break/index.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,52 +1,52 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <title>Take a Break</title>
+│ -    <style>
+│ -        body {
+│ -            text-align: center;
+│ -            width: 450px;
+│ -        }
+│ -        h1 {
+│ -            font-size: 30px;
+│ -            font-family:Verdana, Geneva, Tahoma, sans-serif;
+│ -            color: #3372c5;
+│ -            font-weight: bold;
+│ -        }
+│ -        p{
+│ -            font-size: 15px;
+│ -            font-family:Verdana, Geneva, Tahoma, sans-serif;
+│ -            color:#3372c5;
+│ -        }
+│ -        button {
+│ -            padding: 10px;
+│ -            margin: 5px;
+│ -            outline: none;
+│ -            border-radius: 25px;
+│ -            border-color: white;
+│ -            font-size: 15px;
+│ -            width: 200px;
+│ -        }
+│ -        #reminder {
+│ -            background: rgb(93, 149, 221);
+│ -            font-weight: bold;
+│ -            color: white;
+│ -        }
+│ -        #cancel{
+│ -            background:lightcoral;
+│ -            font-weight: bold;
+│ -            color: white;
+│ -        }
+│ -    </style>
+│ -</head>
+│ -<body>
+│ -    <h1>Take a Break</h1>
+│ -    <img src="code.png" width="150px" height="150px"/>
+│ -    <p>Take a break after every 1 hours</p>
+│ -    <button id="reminder">Set Reminder</button><br>
+│ -    <button id="cancel">Cancel Reminder</button>
+│ -    <script src="popup.js"></script>
+│ -    <script src="background.js"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <title>Take a Break</title>
+│ +    <style>
+│ +        body {
+│ +            text-align: center;
+│ +            width: 450px;
+│ +        }
+│ +        h1 {
+│ +            font-size: 30px;
+│ +            font-family:Verdana, Geneva, Tahoma, sans-serif;
+│ +            color: #3372c5;
+│ +            font-weight: bold;
+│ +        }
+│ +        p{
+│ +            font-size: 15px;
+│ +            font-family:Verdana, Geneva, Tahoma, sans-serif;
+│ +            color:#3372c5;
+│ +        }
+│ +        button {
+│ +            padding: 10px;
+│ +            margin: 5px;
+│ +            outline: none;
+│ +            border-radius: 25px;
+│ +            border-color: white;
+│ +            font-size: 15px;
+│ +            width: 200px;
+│ +        }
+│ +        #reminder {
+│ +            background: rgb(93, 149, 221);
+│ +            font-weight: bold;
+│ +            color: white;
+│ +        }
+│ +        #cancel{
+│ +            background:lightcoral;
+│ +            font-weight: bold;
+│ +            color: white;
+│ +        }
+│ +    </style>
+│ +</head>
+│ +<body>
+│ +    <h1>Take a Break</h1>
+│ +    <img src="code.png" width="150px" height="150px"/>
+│ +    <p>Take a break after every 1 hours</p>
+│ +    <button id="reminder">Set Reminder</button><br>
+│ +    <button id="cancel">Cancel Reminder</button>
+│ +    <script src="popup.js"></script>
+│ +    <script src="background.js"></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Take-a-Break/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Take a Break",
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.7"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/Take-a-Break/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,20 +1,19 @@
+│ -66756e6374696f6e2073657452656d696e6465722829207b0d0a202020206368
+│ -726f6d652e62726f77736572416374696f6e2e73657442616467655465787428
+│ -7b746578743a20274f4e277d293b0d0a202020202020616c657274282252656d
+│ -696e64657220736574205375636365737366756c6c7922293b0d0a2020202020
+│ -206368726f6d652e616c61726d732e637265617465287b0d0a20202020202020
+│ -2064656c6179496e4d696e757465733a207061727365466c6f6174286576656e
+│ -742e7461726765742e76616c7565290d0a2020202020207d293b0d0a20202020
+│ -202077696e646f772e636c6f736528293b0d0a20207d0d0a202066756e637469
+│ -6f6e2063616e63656c52656d696e6465722829207b0d0a202020206368726f6d
+│ -652e62726f77736572416374696f6e2e736574426164676554657874287b7465
+│ -78743a20274f4646277d293b0d0a202020206368726f6d652e616c61726d732e
+│ -636c656172416c6c28293b0d0a20202020616c657274282243616e63656c6c65
+│ -642052656d696e64657222293b0d0a202020206368726f6d652e72756e74696d
+│ -652e72656c6f616428293b0d0a2020202077696e646f772e636c6f736528293b
+│ -0d0a20207d0d0a20200d0a2020646f63756d656e742e676574456c656d656e74
+│ -42794964282272656d696e64657222292e6164644576656e744c697374656e65
+│ -722822636c69636b222c2073657452656d696e646572293b0d0a2020646f6375
+│ -6d656e742e676574456c656d656e7442794964282263616e63656c22292e6164
+│ -644576656e744c697374656e65722822636c69636b222c2063616e63656c5265
+│ -6d696e646572293b
+│ +66756e6374696f6e2073657452656d696e6465722829207b0a20202020636872
+│ +6f6d652e62726f77736572416374696f6e2e736574426164676554657874287b
+│ +746578743a20274f4e277d293b0a202020202020616c657274282252656d696e
+│ +64657220736574205375636365737366756c6c7922293b0a2020202020206368
+│ +726f6d652e616c61726d732e637265617465287b0a202020202020202064656c
+│ +6179496e4d696e757465733a207061727365466c6f6174286576656e742e7461
+│ +726765742e76616c7565290a2020202020207d293b0a20202020202077696e64
+│ +6f772e636c6f736528293b0a20207d0a202066756e6374696f6e2063616e6365
+│ +6c52656d696e6465722829207b0a202020206368726f6d652e62726f77736572
+│ +416374696f6e2e736574426164676554657874287b746578743a20274f464627
+│ +7d293b0a202020206368726f6d652e616c61726d732e636c656172416c6c2829
+│ +3b0a20202020616c657274282243616e63656c6c65642052656d696e64657222
+│ +293b0a202020206368726f6d652e72756e74696d652e72656c6f616428293b0a
+│ +2020202077696e646f772e636c6f736528293b0a20207d0a20200a2020646f63
+│ +756d656e742e676574456c656d656e7442794964282272656d696e6465722229
+│ +2e6164644576656e744c697374656e65722822636c69636b222c207365745265
+│ +6d696e646572293b0a2020646f63756d656e742e676574456c656d656e744279
+│ +4964282263616e63656c22292e6164644576656e744c697374656e6572282263
+│ +6c69636b222c2063616e63656c52656d696e646572293b

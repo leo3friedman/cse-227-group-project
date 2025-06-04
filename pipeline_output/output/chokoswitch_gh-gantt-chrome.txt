@@ -1,0 +1,57 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gh-gantt-chrome
+├── file list
+│ @@ -1,25 +1,18 @@
+│ -README.md
+│ -_metadata
+│ +.git
+│ +.gitignore
+│  background.js
+│  bower.json
+│ -bower_components
+│  config.js
+│  data.js
+│  github.js
+│ -icon.svg
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│  login.css
+│  login.html
+│  login.js
+│  manifest.json
+│  octocat.png
+│ +package-lock.json
+│  planning.js
+│ -promo.svg
+│ -promo440.png
+│ -screen1.png
+│  style.css
+│  utils.js
+│  window.html
+│  window.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gh-gantt-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -3,21 +3,15 @@
+│ │          "background": {
+│ │              "scripts": [
+│ │                  "background.js"
+│ │              ]
+│ │          }
+│ │      },
+│ │      "description": "A Gantt-chart visualization of GitHub issues for repository.",
+│ │ -    "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ -    },
+│ │      "manifest_version": 2,
+│ │      "name": "GitHub Gantt Chart",
+│ │      "permissions": [
+│ │          "https://api.github.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1"
+│ │  }

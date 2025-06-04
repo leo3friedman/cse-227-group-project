@@ -1,0 +1,79 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/BetterYTUI
+├── file list
+│ @@ -1,5 +1,7 @@
+│ -_metadata
+│ +.git
+│  home.css
+│  icon.png
+│  manifest.json
+│ -subscriptions.css
+│ +package-lock.json
+│ +subscriptions.css
+│ +螢幕截圖.png
+│   --- /workspace/pipeline_output/chromex_data/home.css
+├── +++ /workspace/pipeline_output/BetterYTUI/home.css
+│┄ Ordering differences only
+│ @@ -1,11 +1,11 @@
+│ -ytd-rich-grid-renderer {
+│ -    --ytd-rich-grid-items-per-row: 5 !important;
+│ -}
+│ -
+│ -#contents > ytd-rich-section-renderer {
+│ -    display: none;
+│ -}
+│ -
+│ -ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column] {
+│ -    margin-left: calc(var(--ytd-rich-grid-item-margin) / 2) !important;
+│ -}
+│ +ytd-rich-grid-renderer {
+│ +    --ytd-rich-grid-items-per-row: 5 !important;
+│ +}
+│ +
+│ +#contents > ytd-rich-section-renderer {
+│ +    display: none;
+│ +}
+│ +
+│ +ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column] {
+│ +    margin-left: calc(var(--ytd-rich-grid-item-margin) / 2) !important;
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/BetterYTUI/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      ],
+│ │      "description": "Better YT UI",
+│ │      "icons": {
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Better YT UI",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/subscriptions.css
+├── +++ /workspace/pipeline_output/BetterYTUI/subscriptions.css
+│┄ Ordering differences only
+│ @@ -1,11 +1,11 @@
+│ -ytd-rich-grid-renderer {
+│ -    --ytd-rich-grid-items-per-row: 5 !important;
+│ -}
+│ -
+│ -#contents > :nth-child(2 of ytd-rich-section-renderer) {
+│ -    display: none;
+│ -}
+│ -
+│ -ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column] {
+│ -    margin-left: calc(var(--ytd-rich-grid-item-margin) / 2) !important;
+│ -}
+│ +ytd-rich-grid-renderer {
+│ +    --ytd-rich-grid-items-per-row: 5 !important;
+│ +}
+│ +
+│ +#contents > :nth-child(2 of ytd-rich-section-renderer) {
+│ +    display: none;
+│ +}
+│ +
+│ +ytd-rich-item-renderer[rendered-from-rich-grid][is-in-first-column] {
+│ +    margin-left: calc(var(--ytd-rich-grid-item-margin) / 2) !important;
+│ +}

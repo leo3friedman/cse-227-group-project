@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Im-an-SE
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  icon.png
+│  manifest.json
+│  offscreen.html
+│ -offscreen.js
+│ +offscreen.js
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Im-an-SE/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "I am an SE",
+│ │      "permissions": [
+│ │          "offscreen",
+│ │          "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.1"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/notion-favicon-fixer
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│  Screen Shot 2021-09-28 at 21.15.42.png
+│ -_metadata
+│  content.js
+│  icon.jpeg
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/notion-favicon-fixer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,16 +6,14 @@
+│ │              ],
+│ │              "matches": [
+│ │                  "https://notion.so/*",
+│ │                  "https://www.notion.so/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Prevents the Notion browser tab icon from changing.",
+│ │      "icons": {
+│ │          "128": "icon.jpeg"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Notion Favicon Fixer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.1"
+│ │  }

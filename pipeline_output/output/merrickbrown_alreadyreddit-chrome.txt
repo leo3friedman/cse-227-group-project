@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/alreadyreddit-chrome
+├── file list
+│ @@ -1,9 +1,6 @@
+│ -LICENSE
+│ -_metadata
+│ +.git
+│  already_background.js
+│  already_content.js
+│ -alreadyreddit.sublime-project
+│ -alreadyreddit.sublime-workspace
+│ -jquery-2.1.3.js
+│  jquery-2.1.3.min.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/alreadyreddit-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,10 +20,9 @@
+│ │      "description": "Previously viewed comments are colored gray.",
+│ │      "manifest_version": 2,
+│ │      "name": "AlreadyReddit",
+│ │      "permissions": [
+│ │          "history",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2"
+│ │  }

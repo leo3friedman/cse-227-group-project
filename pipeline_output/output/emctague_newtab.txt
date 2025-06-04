@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/newtab
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│  BatteryDisplay.js
+│  Display.js
+│  NameDisplay.js
+│  README.md
+│  ReminderDisplay.js
+│  TimeDisplay.js
+│ -_metadata
+│  manifest.json
+│  newtab.html
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/newtab/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,10 +4,9 @@
+│ │      },
+│ │      "description": "A Minimal New Tab Page",
+│ │      "manifest_version": 2,
+│ │      "name": "tague's New Tab Page",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

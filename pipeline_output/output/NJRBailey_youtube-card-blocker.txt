@@ -1,0 +1,51 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/youtube-card-blocker
+├── file list
+│ @@ -1,9 +1,7 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│ -youtube-card-blocker-128.png
+│ -youtube-card-blocker-16.png
+│ -youtube-card-blocker-256.png
+│ -youtube-card-blocker-32.png
+│ -youtube-card-blocker-64.png
+│ +package-lock.json
+│  youtubeCardBlocker.css
+│  youtubeCardBlocker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/youtube-card-blocker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,29 +1,19 @@
+│ │  {
+│ │ -    "browser_action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "youtube-card-blocker-128.png",
+│ │ -            "16": "youtube-card-blocker-16.png",
+│ │ -            "256": "youtube-card-blocker-256.png",
+│ │ -            "32": "youtube-card-blocker-32.png",
+│ │ -            "64": "youtube-card-blocker-64.png"
+│ │ -        }
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "youtubeCardBlocker.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://www.youtube.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Blocks cards from showing in YouTube videos.",
+│ │ +    "description": "Blocks cards from showing at the end of a YouTube video.",
+│ │      "manifest_version": 2,
+│ │      "name": "YouTube Card Blocker",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0",
+│ │      "web_accessible_resources": [
+│ │          "youtubeCardBlocker.css"
+│ │      ]
+│ │  }

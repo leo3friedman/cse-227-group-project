@@ -1,0 +1,65 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/judawnloads
+├── file list
+│ @@ -1,16 +1,14 @@
+│ -_metadata
+│ +.git
+│ +48x48.png
+│ +LICENSE
+│ +README.md
+│  background.js
+│  fonts
+│ -ico128.png
+│ -ico16.png
+│ -ico32.png
+│ -ico48.png
+│ -ico64.png
+│  img
+│  index.html
+│  main.css
+│  main.css.map
+│  main.less
+│  manifest.json
+│ -script.js
+│ -storeInfo
+│ +package-lock.json
+│ +script.js
+│   --- /workspace/pipeline_output/chromex_data/fonts
+├── +++ /workspace/pipeline_output/judawnloads/fonts
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │ +Merriweather-Regular.ttf
+│ │  Montserrat-Regular.ttf
+│ │  Montserrat-Thin.otf
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/judawnloads/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,26 +1,21 @@
+│ │  {
+│ │      "background": {
+│ │          "scripts": [
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │      "browser_action": {
+│ │ -        "default_icon": "ico48.png",
+│ │ +        "default_icon": "48x48.png",
+│ │          "default_popup": "index.html"
+│ │      },
+│ │      "description": "\u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435 \u0433\u0440\u0443\u043f\u043f\u0438\u0440\u0443\u0435\u0442 \u0432\u0430\u0448\u0438 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u043f\u043e \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u043c \u043f\u0430\u043f\u043a\u0430\u043c.",
+│ │      "icons": {
+│ │ -        "128": "ico128.png",
+│ │ -        "16": "ico16.png",
+│ │ -        "32": "ico32.png",
+│ │ -        "48": "ico48.png",
+│ │ -        "64": "ico64.png"
+│ │ +        "48": "48x48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "judawnloads",
+│ │      "permissions": [
+│ │          "downloads"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5"
+│ │  }

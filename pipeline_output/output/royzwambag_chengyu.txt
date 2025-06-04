@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chengyu
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  chengyu.js
+│  icon.png
+│  index.html
+│  index.js
+│  manifest.json
+│ +package-lock.json
+│  stylesheet.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chengyu/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,10 +5,9 @@
+│ │      "description": "Show a chengyu when you open a tab.",
+│ │      "homepage_url": "https://github.com/royzwambag/chengyu",
+│ │      "icons": {
+│ │          "64": "icon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Chengyu",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.6"
+│ │  }

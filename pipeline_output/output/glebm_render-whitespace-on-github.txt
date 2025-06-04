@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/render-whitespace-on-github
+├── file list
+│ @@ -1,6 +1,14 @@
+│ +.git
+│ +.gitignore
+│ +CHANGELOG.md
+│ +LICENSE
+│ +Makefile
+│ +README.md
+│  RenderWhitespaceOnGithub.user.js
+│ -_metadata
+│ +firefox-manifest.sed
+│  icon128.png
+│  manifest.json
+│  options.html
+│ -options.js
+│ +options.js
+│ +package-lock.json
+│ +store-assets
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/render-whitespace-on-github/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │      "options_ui": {
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.12"
+│ │  }

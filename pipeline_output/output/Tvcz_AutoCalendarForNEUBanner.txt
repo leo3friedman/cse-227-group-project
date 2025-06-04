@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AutoCalendarForNEUBanner
+├── file list
+│ @@ -1,8 +1,11 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  googleCalendar.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  readBanner.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AutoCalendarForNEUBanner/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,10 +38,9 @@
+│ │              "https://www.googleapis.com/auth/calendar.app.created"
+│ │          ]
+│ │      },
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "identity"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.5"
+│ │  }

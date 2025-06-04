@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/hide-download-bar
+├── file list
+│ @@ -1,3 +1,5 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  background.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/hide-download-bar/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      "description": "Hide Download Bar",
+│ │      "manifest_version": 3,
+│ │      "name": "Hide Download Bar",
+│ │      "permissions": [
+│ │          "downloads",
+│ │          "downloads.shelf"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2"
+│ │  }

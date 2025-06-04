@@ -1,0 +1,131 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/callLogExtension
+├── file list
+│ @@ -1,13 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ -background.js
+│  callLogIcon.png
+│ -client_secret.json
+│ -config.js
+│ -content.js
+│  jquery-3.3.1.min.js
+│  manifest.json
+│ -oauth.js
+│ -popup.html
+│ -popup.js
+│ -style.css
+│ +package-lock.json
+│ +popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/callLogExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,45 +1,13 @@
+│ │  {
+│ │ -    "background": {
+│ │ -        "persistent": false,
+│ │ -        "scripts": [
+│ │ -            "background.js"
+│ │ -        ]
+│ │ -    },
+│ │      "browser_action": {
+│ │          "default_icon": "callLogIcon.png",
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "Call Log Helper"
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "content.js",
+│ │ -                "jquery-3.3.1.min.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://www2.myngp.com/*"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │      "description": "create call logs from google sheets notes",
+│ │      "icons": {
+│ │          "128": "callLogIcon.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "NGP CallLogs",
+│ │ -    "oauth2": {
+│ │ -        "client_id": "133439944299-rfjs96q8pp2q1eo1eg99pi1c7e68efpq.apps.googleusercontent.com",
+│ │ -        "scopes": [
+│ │ -            "https://www.googleapis.com/auth/spreadsheets",
+│ │ -            "https://www.googleapis.com/auth/spreadsheets.readonly"
+│ │ -        ]
+│ │ -    },
+│ │ -    "permissions": [
+│ │ -        "identity",
+│ │ -        "activeTab",
+│ │ -        "storage",
+│ │ -        "https://www2.myngp.com/*"
+│ │ -    ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/callLogExtension/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,48 +1,24 @@
+│  <!DOCTYPE html>
+│  
+│  <html>
+│  
+│      <head>
+│ -        <title>Call Log Creater - POPUP</title>
+│ -        <script src="jquery-3.3.1.min.js"></script>
+│ -        <script type="text/javascript" src="oauth.js"></script>
+│ -        <script src="popup.js"></script>
+│ -        <link rel="stylesheet" type="text/css" href="style.css">
+│ +        <title>Call Log Creater</title>
+│ +        <script src="jquery-3.3.1.min.js">
+│ +        </script>
+│ +
+│ +        <script src="popup.js">
+│ +        </script>
+│  
+│ +        <link rel="stylesheet" type="text/css" href="style.css">
+│      </head>
+│  
+│      <body>
+│          <h3 id="sheets">Enter Sheets ID</h3>
+│ -        <input id="gsheetsId" type="text" placeholder="google sheet ID"/>
+│ +        <input id="gsheetsId" type="text" value="google sheet ID"/>
+│          <h3 id="range">Enter Range</h3>
+│ -        <input id="rowRange" type="text" placeholder="A1:B2 format"/>
+│ -        <br />
+│ -        <br />
+│ -        <input id="getSheetValue" type="submit" />
+│ -        <br />
+│ -        <br />
+│ -
+│ -          <div id="currentRowDiv" style="border:1px solid black;">
+│ -            <h4 style="color:blue">Current Row Details</h4>
+│ -            <p><b>Total Rows:</b><span id='entries'></span></p>
+│ -
+│ -            <li><b>Name</b></li>
+│ -            <p id='name'>no data</p>
+│ -            <li><b>Note</b></li>
+│ -            <p id='note'>no data</p>
+│ -          </div>
+│ -          <br/>
+│ -
+│ -        </br/>
+│ -        <div id="onOff">
+│ -          <button type="button" id="signin-button">On</button>
+│ -          <button type="button" id="signout-button">Off</button>
+│ -          <div id="switchBoxOff"></div>
+│ -          <div id="switchBoxOn" hidden="true"></div>
+│ -
+│ -        </div>
+│ -      </body>
+│ +        <input id="rowRange" type="text" value="A1:B2 format"/>
+│  
+│      </body>
+│  
+│  </html>

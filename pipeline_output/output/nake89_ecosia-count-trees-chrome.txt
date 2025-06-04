@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ecosia-count-trees-chrome
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  ecosia_trees.js
+│  icons
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ecosia-count-trees-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "128": "/icons/ecosia128.png",
+│ │          "16": "/icons/ecosia16.png",
+│ │          "32": "/icons/ecosia32.png",
+│ │          "48": "/icons/ecosia48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Ecosia Count Trees",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

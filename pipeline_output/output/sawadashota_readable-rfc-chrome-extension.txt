@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/readable-rfc-chrome-extension
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  content-script.js
+│  content.css
+│  embeded-script.js
+│  icon-128.png
+│  icon-19.png
+│  icon-48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/readable-rfc-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,13 +21,12 @@
+│ │      "description": "Readable styles for RFC",
+│ │      "icons": {
+│ │          "128": "icon-128.png",
+│ │          "48": "icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Readable RFC",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0",
+│ │      "web_accessible_resources": [
+│ │          "embeded-script.js"
+│ │      ]
+│ │  }

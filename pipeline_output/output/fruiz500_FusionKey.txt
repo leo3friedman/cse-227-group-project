@@ -1,0 +1,73 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/FusionKey
+├── file list
+│ @@ -1,14 +1,18 @@
+│ +.git
+│ +.gitattributes
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  chat.html
+│  content.js
+│  images
+│  index.html
+│  js-body
+│  js-head
+│  js-opensrc
+│  js-other
+│ +manifest.firefox.json
+│  manifest.json
+│ +package-lock.json
+│ +searchbox.html
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/js-head
+├── +++ /workspace/pipeline_output/FusionKey/js-head
+│ ├── file list
+│ │ @@ -1,8 +1,9 @@
+│ │  Chromestuff.js
+│ │ +KeyLock.js
+│ │  SSSS.js
+│ │  crypto-extra.js
+│ │  crypto-main.js
+│ │  dictionary_en.js
+│ │  imagestego.js
+│ │  keylock.js
+│ │  license.js
+│   --- /workspace/pipeline_output/chromex_data/js-opensrc
+├── +++ /workspace/pipeline_output/FusionKey/js-opensrc
+│ ├── file list
+│ │ @@ -2,10 +2,11 @@
+│ │  isaac.js
+│ │  jssteg-1.0.js
+│ │  jsstegdecoder-1.0.js
+│ │  jsstegencoder-1.0.js
+│ │  lz-string.js
+│ │  nacl-fast.js
+│ │  nacl-util.js
+│ │ +nacl.js
+│ │  purify.js
+│ │  scrypt-async.js
+│ │  secrets.js
+│   --- /workspace/pipeline_output/chromex_data/js-other
+├── +++ /workspace/pipeline_output/FusionKey/js-other
+│ ├── file list
+│ │ @@ -1 +1,3 @@
+│ │ +chatBody.js
+│ │ +chatbody.js
+│ │ +search.js
+│ │ -chatbody.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/FusionKey/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "alarms"
+│ │      ],
+│ │      "short_name": "FusionKey",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.11"
+│ │  }

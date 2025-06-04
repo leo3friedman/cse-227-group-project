@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Dark-Theme-by-Mnc
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  changelog
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Dark-Theme-by-Mnc/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -76,10 +76,9 @@
+│ │              "buttons": [
+│ │                  -1.0,
+│ │                  0,
+│ │                  0.65
+│ │              ]
+│ │          }
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

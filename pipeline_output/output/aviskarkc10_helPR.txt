@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/helPR
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  LICENCE
+│  README.MD
+│ -_metadata
+│  assets
+│  icons
+│  index.js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/helPR/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "HelPR",
+│ │      "permissions": [
+│ │          "clipboardWrite"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

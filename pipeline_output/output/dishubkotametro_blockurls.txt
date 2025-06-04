@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/blockurls
+├── file list
+│ @@ -1,15 +1,16 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  block.png
+│  block128.png
+│  block16.png
+│  block24.png
+│  block32.png
+│  block48.png
+│  icon.png
+│  manifest.json
+│  mit-license.txt
+│  options.html
+│  options.js
+│ +package-lock.json
+│  readme.md
+│  shared.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/blockurls/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │          "webRequestBlocking",
+│ │          "*://*/*",
+│ │          "storage",
+│ │          "contextMenus",
+│ │          "activeTab"
+│ │      ],
+│ │      "short_name": "Block urls",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

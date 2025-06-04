@@ -1,0 +1,102 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/viewGitHubCommits
+├── file list
+│ @@ -1,7 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│ -css
+│ -icons
+│ -images
+│ -js
+│ -manifest.json
+│ +background.js
+│ +content_scripts.js
+│ +manifest.json
+│ +package-lock.json
+│ +style.css
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/viewGitHubCommits/README.md
+│ @@ -1,25 +1,27 @@
+│  View GitHub Commits
+│  ===================
+│  
+│ -![](images/appImage.png)
+│ -
+│  A Google Chrome extension that displays monthly GitHub commits in your contributions graph.
+│  
+│ -Install
+│ --------
+│ -Install it on Google Chrome from [Webstore](TODO)
+│ +Download
+│ +--------
+│ +Download it on Google Chrome from [Webstore](TODO)
+│  
+│  Getting Started
+│  ---------------
+│  Within Google Chrome go to:
+│  
+│  - chrome://extensions
+│  - Enable Developer Mode
+│  - Load unpacked extensions
+│  - Test
+│  
+│ +Screenshot
+│ +----------
+│ +![](images/appImage.png)
+│ +
+│  Author
+│  ------
+│  Deep Aggarwal  
+│  deep.uiuc@gmail.com  
+│  Date Started: 11/01/2016
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/viewGitHubCommits/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,40 +1,36 @@
+│ │  {
+│ │      "author": "Deep Aggarwal <deep.uiuc@gmail.com>",
+│ │      "background": {
+│ │          "persistent": false,
+│ │          "scripts": [
+│ │ -            "js/background.js"
+│ │ +            "background.js"
+│ │          ]
+│ │      },
+│ │ -    "browser_action": {
+│ │ -        "default_icon": "icons/icon48.png"
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": true,
+│ │              "css": [
+│ │ -                "css/style.css"
+│ │ +                "style.css"
+│ │              ],
+│ │              "exclude_matches": [
+│ │                  "*://github.com/*/*"
+│ │              ],
+│ │              "js": [
+│ │ -                "js/content_scripts.js"
+│ │ +                "content_scripts.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://github.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "A Google Chrome extension that displays GitHub commits in your contributions graph",
+│ │      "icons": {
+│ │ -        "128": "icons/icon256.png",
+│ │ -        "16": "icons/icon16.png",
+│ │ -        "48": "icons/icon48.png"
+│ │ +        "128": "icons/icon-128.png",
+│ │ +        "16": "icons/icon-16.png",
+│ │ +        "48": "icons/icon-48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "View GitHub Commits",
+│ │      "short_name": "View-GitHub-Commits",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

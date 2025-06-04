@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Pecunio
+├── file list
+│ @@ -1,10 +1,13 @@
+│ +.git
+│ +.github
+│ +.vscode
+│  README.md
+│ -_metadata
+│  asset
+│  bg.js
+│  injected.js
+│  js
+│  libs
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Pecunio/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,15 +35,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Pecunio",
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "storage",
+│ │          "unlimitedStorage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.17.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.bankin.com/*"
+│ │              ],
+│ │              "resources": [

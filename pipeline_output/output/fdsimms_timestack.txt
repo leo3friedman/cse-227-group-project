@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/timestack
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  assets
+│  background.html
+│  dependencies
+│  index.css
+│  index.html
+│  js
+│  manifest.json
+│ +package-lock.json
+│  templates
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/timestack/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -10,10 +10,9 @@
+│ │      "description": "",
+│ │      "manifest_version": 2,
+│ │      "name": "Timestack",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "https://ajax.googleapis.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.0.5"
+│ │  }

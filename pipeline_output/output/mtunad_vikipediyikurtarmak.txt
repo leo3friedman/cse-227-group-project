@@ -1,0 +1,24 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/vikipediyikurtarmak
+├── file list
+│ @@ -1,4 +1,5 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  manifest.json
+│ +package-lock.json
+│  request.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/vikipediyikurtarmak/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Saving Private Vikipedi",
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "*://*.wikipedia.org/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4"
+│ │  }

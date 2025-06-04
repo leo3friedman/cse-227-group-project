@@ -1,0 +1,50 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/replace-font
+├── file list
+│ @@ -1,9 +1,13 @@
+│ +.git
+│  Dockerfile
+│ -_metadata
+│ +LICENSE
+│ +README.md
+│  css
+│  docker-compose.yml
+│  fonts
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup
+│ -preload-fonts.js
+│ +preload-fonts.js
+│ +zip.sh
+│   --- /workspace/pipeline_output/chromex_data/Dockerfile
+├── +++ /workspace/pipeline_output/replace-font/Dockerfile
+│ @@ -1,8 +1,8 @@
+│ -FROM --platform=linux/x86_64 node:18
+│ +FROM --platform=linux/x86_64 node:20
+│  
+│  RUN apt-get update
+│  RUN apt-get install -y locales
+│  RUN locale-gen ja_JP.UTF-8
+│  RUN localedef -f UTF-8 -i ja_JP ja_JP
+│  ENV LANG ja_JP.UTF-8
+│  ENV TZ Asia/Tokyo
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/replace-font/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,15 +17,14 @@
+│ │      "icons": {
+│ │          "128": "icons/icon-128x128.png",
+│ │          "16": "icons/icon-16x16.png",
+│ │          "48": "icons/icon-48x48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "\u3084\u3063\u3071\u308a Noto Sans",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.9",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chromebook-simulator
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  icon16.png
+│  icon24.png
+│  icon32.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chromebook-simulator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      },
+│ │      "description": "This extension one-click resizes your window to the typical size of a fullscreen Chromebook. It is very simple.",
+│ │      "manifest_version": 2,
+│ │      "name": "Chromebook Simulator",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

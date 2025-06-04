@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/trello-card-aging
+├── file list
+│ @@ -1,12 +1,13 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  background.js
+│  icon128.png
+│  icon256.png
+│  icon64.png
+│  jquery-3.1.0.js
+│  logic.js
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/trello-card-aging/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,23 +21,22 @@
+│ │              ],
+│ │              "matches": [
+│ │                  "https://trello.com/b/*"
+│ │              ],
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │ -    "description": "Provides some features for Trello, related with the card activity",
+│ │ +    "description": "Adds some features to Trello, related with the card activity",
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "256": "icon256.png",
+│ │          "64": "icon64.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Trello Card Aging",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage",
+│ │          "https://trello.com/b/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8"
+│ │  }

@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/audioteka_search
+├── file list
+│ @@ -1,4 +1,10 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +128.png
+│ +README.md
+│  icon.png
+│  manifest.json
+│ +package-lock.json
+│ +preview.png
+│ +preview_old.jpg
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/audioteka_search/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      ],
+│ │      "description": "Extension improving search in audioteka.pl",
+│ │      "icons": {
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Audioteka Better Search",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2"
+│ │  }

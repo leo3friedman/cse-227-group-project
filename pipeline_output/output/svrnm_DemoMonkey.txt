@@ -1,0 +1,116 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DemoMonkey
+├── file list
+│ @@ -1,19 +1,30 @@
+│ -COMMITHASH
+│ -LASTCOMMITDATETIME
+│ +.babelrc
+│ +.commitlintrc.js
+│ +.eslintignore
+│ +.eslintrc.json
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.husky
+│ +.markdownlint.jsonc
+│ +.prettierignore
+│ +.prettierrc.json
+│ +.stylelintrc.json
+│ +CHANGELOG.md
+│ +CONTRIBUTE.md
+│  LICENSE
+│  README.md
+│ +SHORTCUTS.md
+│  USAGE.md
+│ -VERSION
+│ -_metadata
+│ -background.html
+│ -backup.html
+│ -backup.js
+│ -css
+│ -devtools.html
+│ +build
+│ +examples
+│  icons
+│ -js
+│  manifest.json
+│ -options.html
+│ -popup.html
+│ -test.html
+│ -test.js
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +pages
+│ +src
+│ +styles
+│ +test
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/DemoMonkey/icons
+│ ├── file list
+│ │ @@ -1,6 +1,2 @@
+│ │ +monkey-dev.png
+│ │ +monkey.png
+│ │ -monkey-dev_128.png
+│ │ -monkey-dev_16.png
+│ │ -monkey-dev_48.png
+│ │ -monkey_128.png
+│ │ -monkey_16.png
+│ │ -monkey_48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DemoMonkey/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,10 +1,10 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_icon": "icons/monkey-dev_16.png",
+│ │ +        "default_icon": "icons/monkey_16.png",
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "DemoMonkey"
+│ │      },
+│ │      "author": "Severin Neumann <severin.neumann@altmuehlnet.de>",
+│ │      "background": {
+│ │          "service_worker": "js/background.js"
+│ │      },
+│ │ @@ -57,20 +57,20 @@
+│ │      },
+│ │      "content_security_policy": {
+│ │          "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval'; object-src 'self'"
+│ │      },
+│ │      "description": "Custom demo, every demo: Turn your standard demo into a tailored experience for your customers in minutes.",
+│ │      "homepage_url": "https://github.com/svrnm/DemoMonkey/",
+│ │      "icons": {
+│ │ -        "128": "icons/monkey-dev_128.png",
+│ │ -        "16": "icons/monkey-dev_16.png",
+│ │ -        "48": "icons/monkey-dev_48.png"
+│ │ +        "128": "icons/monkey_128.png",
+│ │ +        "16": "icons/monkey_16.png",
+│ │ +        "48": "icons/monkey_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ -    "name": "DemoMonkey (dev-channel)",
+│ │ +    "name": "DemoMonkey",
+│ │      "optional_host_permissions": [
+│ │          "<all_urls>"
+│ │      ],
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options.html"
+│ │      },
+│ │ @@ -79,15 +79,14 @@
+│ │          "unlimitedStorage",
+│ │          "activeTab",
+│ │          "contextMenus",
+│ │          "scripting",
+│ │          "declarativeNetRequest",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "9.2.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

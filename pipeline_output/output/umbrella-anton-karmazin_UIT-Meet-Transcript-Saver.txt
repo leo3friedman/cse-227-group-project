@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/UIT-Meet-Transcript-Saver
+├── file list
+│ @@ -1,14 +1,15 @@
+│ +.git
+│  DISCLAIMER.md
+│  LICENSE
+│  PRIVACY_POLICY.md
+│  README
+│ -_metadata
+│  background.js
+│  content.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  icon48off.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/UIT-Meet-Transcript-Saver/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,15 +33,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "UIT Meet Transcript Saver",
+│ │      "permissions": [
+│ │          "downloads",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://meet.google.com/*"
+│ │              ],
+│ │              "resources": [

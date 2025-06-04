@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/atcoder-acer
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  img
+│  js
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/atcoder-acer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -12,10 +12,9 @@
+│ │      ],
+│ │      "description": "\u554f\u984c\u4e00\u89a7\u30da\u30fc\u30b8\u306bAC\u3057\u305f\u4eba\u6570\u3092\u8868\u793a\u3057\u307e\u3059",
+│ │      "manifest_version": 2,
+│ │      "name": "AtCoder ACer",
+│ │      "permissions": [
+│ │          "http://beta.atcoder.jp/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/old-jira
+├── file list
+│ @@ -1,4 +1,5 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│  background.js
+│ -jira_old.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/old-jira/background.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -5,8 +5,8 @@
+│  566965773d74727565220a20202020766172206f6c645f6a6972615f75726c20
+│  3d206f626a2e75726c202b206f6c645f71756572795f7374720a202020206966
+│  20286f626a2e75726c2e696e6465784f66286f6c645f71756572795f73747229
+│  203c203029207b0a20202020202020206368726f6d652e746162732e75706461
+│  74652874616249642c207b2075726c3a206f6c645f6a6972615f75726c207d29
+│  3b0a202020207d0a7d2c207b2075726c3a205b7b20686f7374436f6e7461696e
+│  733a202761746c61737369616e2e6e6574272c2070617468436f6e7461696e73
+│ -3a202762726f77736527207d5d207d293b
+│ +3a202762726f77736527207d5d207d293b0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/old-jira/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │      },
+│ │      "description": "Loads the old JIRA view by default",
+│ │      "manifest_version": 2,
+│ │      "name": "Old JIRA",
+│ │      "permissions": [
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2"
+│ │  }

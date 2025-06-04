@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/IrelandTrainTimes_ChromeExtension
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  css
+│  images
+│  js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/IrelandTrainTimes_ChromeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Ireland Train Times",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "notifications",
+│ │          "http://api.irishrail.ie/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

@@ -1,0 +1,67 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome_extension
+├── file list
+│ @@ -1,10 +1,4 @@
+│ -ReadMe.md
+│ -_metadata
+│ -background.js
+│ -contentScript
+│ -image.png
+│ -images
+│ +.git
+│  manifest.json
+│ -mdImages
+│ -options
+│ -popup
+│ +package-lock.json
+│ +popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome_extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,39 +1,13 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "/images/icons-128.png",
+│ │ -            "16": "/images/icons-16.png",
+│ │ -            "32": "/images/icons-32.png",
+│ │ -            "64": "/images/icons-64.png"
+│ │ -        },
+│ │ -        "default_popup": "popup/popup.html"
+│ │ +    "browser_action": {
+│ │ +        "default_icon": "icon.png",
+│ │ +        "default_popup": "popup.html"
+│ │      },
+│ │ -    "background": {
+│ │ -        "service_worker": "background.js"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "contentScript/content-script.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://*.afreecatv.com/*"
+│ │ -            ],
+│ │ -            "run_at": "document_idle"
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "\uc544\ud504\ub9ac\uce74 \ucc44\ud305\ucc3d\uc758 \ub514\uc790\uc778\uc744 \uae54\ub054\ud558\uac8c \ub3c4\uc640\uc90d\ub2c8\ub2e4.",
+│ │ -    "icons": {
+│ │ -        "128": "/images/icons-128.png",
+│ │ -        "16": "/images/icons-16.png",
+│ │ -        "32": "/images/icons-32.png",
+│ │ -        "64": "/images/icons-64.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ -    "name": "\uc544\ud504\ub9ac\uce74 \ucc44\ud305\ucc3d \ub514\uc790\uc778 \ubcc0\uacbd",
+│ │ +    "description": "The first extension that I made.",
+│ │ +    "manifest_version": 2,
+│ │ +    "name": "My First Extension",
+│ │      "permissions": [
+│ │ -        "storage"
+│ │ +        "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0"
+│ │  }

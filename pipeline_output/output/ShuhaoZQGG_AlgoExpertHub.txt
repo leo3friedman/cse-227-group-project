@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AlgoExpertHub
+├── file list
+│ @@ -1,15 +1,16 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  algoexpert.js
+│  authorize.js
+│  background.html
+│  background.js
+│  content_script.js
+│ -credentials.js
+│  githubApiCalls.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AlgoExpertHub/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,15 +35,14 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs",
+│ │          "scripting",
+│ │          "alarms",
+│ │          "idle"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.6",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.algoexpert.io/*",
+│ │                  "https://github.com/*"
+│ │              ],

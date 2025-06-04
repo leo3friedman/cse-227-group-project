@@ -1,0 +1,249 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TikTok-Speed-Chrome-Extension
+├── file list
+│ @@ -1,11 +1,11 @@
+│ -LICENSE
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│ -css
+│ -html
+│ -images
+│ -js
+│ -libs
+│ +content_script.css
+│  manifest.json
+│ +node_modules
+│  package-lock.json
+│ -package.json
+│ +package.json
+│ +popup.css
+│ +popup.html
+│ +script.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/TikTok-Speed-Chrome-Extension/README.md
+│ @@ -1,6 +1,2 @@
+│ -# TikTok Hold for 2.0x Speed
+│ -Holding your mouse button on a TikTok video on browser, allows you to increase playback speed by 2x similar to the mobile app.
+│ -
+│ -You are given the option to also disable the functionality.
+│ -
+│ -Made by Roger Truong 2024. Enjoy!
+│ +# tiktokSpeed
+│ +Holding the side of a tiktok video on browser, allows you to increase playback speed by 2x similar to the mobile app
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TikTok-Speed-Chrome-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,39 +1,34 @@
+│ │  {
+│ │      "action": {
+│ │ -        "default_icon": {
+│ │ -            "16": "images/icons/normal/icon-16.png",
+│ │ -            "32": "images/icons/normal/icon-128.png",
+│ │ -            "48": "images/icons/normal/icon-48.png"
+│ │ -        },
+│ │ -        "default_popup": "html/popup.html",
+│ │ +        "default_popup": "popup.html",
+│ │          "default_title": "TikTok 2x Speed Option"
+│ │      },
+│ │ +    "background": {
+│ │ +        "service_worker": "background.js"
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │ +            "css": [
+│ │ +                "content_script.css"
+│ │ +            ],
+│ │              "js": [
+│ │ -                "libs/mutation_summary.js",
+│ │ -                "js/observer.js",
+│ │                  "js/script.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://*.tiktok.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Hold down your mouse click on a TikTok video on the browser to increase it's speed by 2.0x.",
+│ │ +    "default_locale": "en",
+│ │ +    "description": "Hold down on the sides of a tiktok video to increase speed",
+│ │      "host_permissions": [
+│ │ -        "*://*.tiktok.com/*"
+│ │ +        "*://*.youtube.com/*"
+│ │      ],
+│ │ -    "icons": {
+│ │ -        "128": "images/icons/normal/icon-128.png",
+│ │ -        "16": "images/icons/normal/icon-16.png",
+│ │ -        "48": "images/icons/normal/icon-48.png"
+│ │ -    },
+│ │ -    "manifest_version": 3,
+│ │ +    "manifest_version": 1,
+│ │      "name": "TikTok 2x Speed Option",
+│ │      "permissions": [
+│ │ -        "storage"
+│ │ +        "storage",
+│ │ +        "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/package-lock.json
+├── +++ /workspace/pipeline_output/TikTok-Speed-Chrome-Extension/package-lock.json
+│ ├── Pretty-printed
+│ │ @@ -1,71 +1,29 @@
+│ │  {
+│ │      "lockfileVersion": 3,
+│ │ -    "name": "tiktok",
+│ │ +    "name": "TikTok-Speed-Chrome-Extension",
+│ │      "packages": {
+│ │          "": {
+│ │              "dependencies": {
+│ │ -                "@types/chrome": "^0.0.268",
+│ │ -                "bootstrap": "^5.3.3",
+│ │ -                "lint": "^0.8.19",
+│ │ -                "mutation": "^0.0.1"
+│ │ -            },
+│ │ -            "name": "tiktok",
+│ │ -            "version": "1.0.0"
+│ │ +                "lint": "^0.8.19"
+│ │ +            }
+│ │          },
+│ │          "node_modules/@kwsites/file-exists": {
+│ │              "dependencies": {
+│ │                  "debug": "^4.1.1"
+│ │              },
+│ │              "integrity": "sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==",
+│ │              "resolved": "https://registry.npmjs.org/@kwsites/file-exists/-/file-exists-1.1.1.tgz",
+│ │              "version": "1.1.1"
+│ │          },
+│ │          "node_modules/@kwsites/promise-deferred": {
+│ │              "integrity": "sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==",
+│ │              "resolved": "https://registry.npmjs.org/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz",
+│ │              "version": "1.1.1"
+│ │          },
+│ │ -        "node_modules/@popperjs/core": {
+│ │ -            "funding": {
+│ │ -                "type": "opencollective",
+│ │ -                "url": "https://opencollective.com/popperjs"
+│ │ -            },
+│ │ -            "integrity": "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==",
+│ │ -            "peer": true,
+│ │ -            "resolved": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz",
+│ │ -            "version": "2.11.8"
+│ │ -        },
+│ │ -        "node_modules/@types/chrome": {
+│ │ -            "dependencies": {
+│ │ -                "@types/filesystem": "*",
+│ │ -                "@types/har-format": "*"
+│ │ -            },
+│ │ -            "integrity": "sha512-7N1QH9buudSJ7sI8Pe4mBHJr5oZ48s0hcanI9w3wgijAlv1OZNUZve9JR4x42dn5lJ5Sm87V1JNfnoh10EnQlA==",
+│ │ -            "resolved": "https://registry.npmjs.org/@types/chrome/-/chrome-0.0.268.tgz",
+│ │ -            "version": "0.0.268"
+│ │ -        },
+│ │ -        "node_modules/@types/filesystem": {
+│ │ -            "dependencies": {
+│ │ -                "@types/filewriter": "*"
+│ │ -            },
+│ │ -            "integrity": "sha512-vPDXOZuannb9FZdxgHnqSwAG/jvdGM8Wq+6N4D/d80z+D4HWH+bItqsZaVRQykAn6WEVeEkLm2oQigyHtgb0RA==",
+│ │ -            "resolved": "https://registry.npmjs.org/@types/filesystem/-/filesystem-0.0.36.tgz",
+│ │ -            "version": "0.0.36"
+│ │ -        },
+│ │ -        "node_modules/@types/filewriter": {
+│ │ -            "integrity": "sha512-xFU8ZXTw4gd358lb2jw25nxY9QAgqn2+bKKjKOYfNCzN4DKCFetK7sPtrlpg66Ywe3vWY9FNxprZawAh9wfJ3g==",
+│ │ -            "resolved": "https://registry.npmjs.org/@types/filewriter/-/filewriter-0.0.33.tgz",
+│ │ -            "version": "0.0.33"
+│ │ -        },
+│ │ -        "node_modules/@types/har-format": {
+│ │ -            "integrity": "sha512-RpQH4rXLuvTXKR0zqHq3go0RVXYv/YVqv4TnPH95VbwUxZdQlK1EtcMvQvMpDngHbt13Csh9Z4qT9AbkiQH5BA==",
+│ │ -            "resolved": "https://registry.npmjs.org/@types/har-format/-/har-format-1.2.15.tgz",
+│ │ -            "version": "1.2.15"
+│ │ -        },
+│ │          "node_modules/ajv": {
+│ │              "dependencies": {
+│ │                  "fast-deep-equal": "^3.1.1",
+│ │                  "fast-json-stable-stringify": "^2.0.0",
+│ │                  "json-schema-traverse": "^0.4.1",
+│ │                  "uri-js": "^4.2.2"
+│ │              },
+│ │ @@ -152,32 +110,14 @@
+│ │              "dependencies": {
+│ │                  "tweetnacl": "^0.14.3"
+│ │              },
+│ │              "integrity": "sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==",
+│ │              "resolved": "https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz",
+│ │              "version": "1.0.2"
+│ │          },
+│ │ -        "node_modules/bootstrap": {
+│ │ -            "funding": [
+│ │ -                {
+│ │ -                    "type": "github",
+│ │ -                    "url": "https://github.com/sponsors/twbs"
+│ │ -                },
+│ │ -                {
+│ │ -                    "type": "opencollective",
+│ │ -                    "url": "https://opencollective.com/bootstrap"
+│ │ -                }
+│ │ -            ],
+│ │ -            "integrity": "sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==",
+│ │ -            "peerDependencies": {
+│ │ -                "@popperjs/core": "^2.11.8"
+│ │ -            },
+│ │ -            "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.3.tgz",
+│ │ -            "version": "5.3.3"
+│ │ -        },
+│ │          "node_modules/brace-expansion": {
+│ │              "dependencies": {
+│ │                  "balanced-match": "^1.0.0",
+│ │                  "concat-map": "0.0.1"
+│ │              },
+│ │              "integrity": "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==",
+│ │              "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz",
+│ │ @@ -843,19 +783,14 @@
+│ │              "version": "2.30.1"
+│ │          },
+│ │          "node_modules/ms": {
+│ │              "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==",
+│ │              "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
+│ │              "version": "2.1.2"
+│ │          },
+│ │ -        "node_modules/mutation": {
+│ │ -            "integrity": "sha512-+NslhRSDUiT0a+o+gWDUUujZ05CKtrCeKYVRpaVDhZw2zvBNUx1WfOMpQdUl0S7PoDGh8SC55MHrLeXJhUyf/w==",
+│ │ -            "resolved": "https://registry.npmjs.org/mutation/-/mutation-0.0.1.tgz",
+│ │ -            "version": "0.0.1"
+│ │ -        },
+│ │          "node_modules/mute-stream": {
+│ │              "integrity": "sha512-r65nCZhrbXXb6dXOACihYApHw2Q6pV0M3V0PSxd74N0+D8nzAdEAITq2oAjA1jVnKI+tGvEBUpqiMh0+rW6zDQ==",
+│ │              "resolved": "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.7.tgz",
+│ │              "version": "0.0.7"
+│ │          },
+│ │          "node_modules/oauth-sign": {
+│ │              "engines": {
+│ │ @@ -1421,10 +1356,9 @@
+│ │                  "node": ">=6"
+│ │              },
+│ │              "integrity": "sha512-vafcv6KjVZKSgz06oM/H6GDBrAtz8vdhQakGjFIvNrHA6y3HCF1CInLy+QLq8dTJPQ1b+KDUqDFctkdRW44e1w==",
+│ │              "resolved": "https://registry.npmjs.org/string-width/-/string-width-3.1.0.tgz",
+│ │              "version": "3.1.0"
+│ │          }
+│ │      },
+│ │ -    "requires": true,
+│ │ -    "version": "1.0.0"
+│ │ +    "requires": true
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/package.json
+├── +++ /workspace/pipeline_output/TikTok-Speed-Chrome-Extension/package.json
+│ ├── Pretty-printed
+│ │ @@ -1,10 +1,5 @@
+│ │  {
+│ │      "dependencies": {
+│ │ -        "@types/chrome": "^0.0.268",
+│ │ -        "bootstrap": "^5.3.3",
+│ │ -        "lint": "^0.8.19",
+│ │ -        "mutation": "^0.0.1"
+│ │ -    },
+│ │ -    "name": "tiktok",
+│ │ -    "version": "1.0.0"
+│ │ +        "lint": "^0.8.19"
+│ │ +    }
+│ │  }

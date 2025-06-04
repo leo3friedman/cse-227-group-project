@@ -1,0 +1,85 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/jquery.ime-chrome-extension
+├── file list
+│ @@ -1,8 +1,10 @@
+│ +.git
+│ +.gitmodules
+│  README.md
+│ -_metadata
+│  css
+│  images
+│  libs
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/libs
+├── +++ /workspace/pipeline_output/jquery.ime-chrome-extension/libs
+│ │   --- /workspace/pipeline_output/chromex_data/libs/jquery.ime
+│ ├── +++ /workspace/pipeline_output/jquery.ime-chrome-extension/libs/jquery.ime
+│ │ ├── file list
+│ │ │ @@ -1,12 +0,0 @@
+│ │ │ -GPL-LICENSE
+│ │ │ -Gruntfile.js
+│ │ │ -MIT-LICENSE
+│ │ │ -README.md
+│ │ │ -css
+│ │ │ -examples
+│ │ │ -images
+│ │ │ -libs
+│ │ │ -package.json
+│ │ │ -rules
+│ │ │ -src
+│ │ │ -test
+│ │   --- /workspace/pipeline_output/chromex_data/libs/jquery.uls
+│ ├── +++ /workspace/pipeline_output/jquery.ime-chrome-extension/libs/jquery.uls
+│ │ ├── file list
+│ │ │ @@ -1,14 +0,0 @@
+│ │ │ -CREDITS
+│ │ │ -GPL-LICENSE
+│ │ │ -MIT-LICENSE
+│ │ │ -README.md
+│ │ │ -css
+│ │ │ -data
+│ │ │ -examples
+│ │ │ -grunt.js
+│ │ │ -i18n
+│ │ │ -images
+│ │ │ -libs
+│ │ │ -package.json
+│ │ │ -src
+│ │ │ -test
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/jquery.ime-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,29 +37,28 @@
+│ │              ],
+│ │              "matches": [
+│ │                  "http://*/*",
+│ │                  "https://*/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Wikimedia Input Tools allows you to type in your native language from among 60+ languages.",
+│ │ +    "description": "Wikimedia Input Tools allows you to type in your native language from among 150+ languages.",
+│ │      "icons": {
+│ │          "128": "images/icon_128.png",
+│ │          "16": "images/icon_16.png",
+│ │          "48": "images/icon_48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Wikimedia Input Tools",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1",
+│ │      "web_accessible_resources": [
+│ │          "libs/jquery.ime/images/ime-active.png",
+│ │          "libs/jquery.ime/images/ime-active.svg",
+│ │          "libs/jquery.ime/images/ime-inactive.png",
+│ │          "libs/jquery.ime/images/ime-inactive.svg",
+│ │          "libs/jquery.ime/images/tick.png",

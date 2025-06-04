@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Chrome-Extenstion-
+├── file list
+│ @@ -1,4 +1,8 @@
+│ -README.md
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +icon.png
+│ +index.css
+│ +index.html
+│ +index.js
+│  manifest.json
+│ -src
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Chrome-Extenstion-/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,19 +1,12 @@
+│ │  {
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "js": [
+│ │ -                "src/linkify.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://github.com/python/cpython/commit/*",
+│ │ -                "https://github.com/python/cpython/pull/*"
+│ │ -            ]
+│ │ -        }
+│ │ -    ],
+│ │ -    "description": "An extension that finds bpo-NNNN annonations and converts them to bugs.python.org links.",
+│ │ -    "homepage_url": "https://github.com/berkerpeksag/cpython-bpo-linkify",
+│ │ -    "manifest_version": 2,
+│ │ -    "name": "cpython-bpo-linkify",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "0.1.0"
+│ │ +    "action": {
+│ │ +        "default_icon": "icon.png"
+│ │ +    },
+│ │ +    "chrome_url_overrides": {
+│ │ +        "newtab": "index.html"
+│ │ +    },
+│ │ +    "description": "Just for practicing async JS",
+│ │ +    "manifest_version": 3,
+│ │ +    "name": "Personal Dashboard",
+│ │ +    "version": "1.0.1"
+│ │  }

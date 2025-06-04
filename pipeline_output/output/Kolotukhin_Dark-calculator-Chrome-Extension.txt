@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Dark-calculator-Chrome-Extension
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│  calc.html
+│  css
+│  fonts
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Dark-calculator-Chrome-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,15 +37,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Dark calculator",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.31",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

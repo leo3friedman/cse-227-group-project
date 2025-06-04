@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/vkcontest
+├── file list
+│ @@ -1,6 +1,8 @@
+│ +.git
+│ +.gitignore
+│  _locales
+│ -_metadata
+│  application.js
+│  images
+│  manifest.json
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/vkcontest/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,14 +20,13 @@
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_vkContest__",
+│ │      "permissions": [
+│ │          "http://m.vk.com/",
+│ │          "https://m.vk.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3",
+│ │      "web_accessible_resources": [
+│ │          "images/*.png",
+│ │          "images/*.svg"
+│ │      ]
+│ │  }

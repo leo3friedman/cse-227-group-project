@@ -1,0 +1,64 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/loggd
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.DS_Store
+│ +.git
+│ +.gitignore
+│  README.md
+│ -_metadata
+│  content.js
+│  icon.png
+│  images
+│ -keys.js
+│  manifest.json
+│ +package-lock.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/loggd/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -3,18 +3,40 @@
+│ │          "default_icon": {
+│ │              "128": "icon.png",
+│ │              "16": "icon.png",
+│ │              "48": "icon.png"
+│ │          },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │ +    "content_scripts": [
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "content.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "<all_urls>"
+│ │ +            ]
+│ │ +        }
+│ │ +    ],
+│ │      "description": "Search for movies on various websites (Letterboxd, IMDb, TMDB, Rotten Tomatoes, and Metacritic).",
+│ │      "icons": {
+│ │          "128": "icon.png",
+│ │          "16": "icon.png",
+│ │          "48": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Loggd",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "1.2.0"
+│ │ +    "version": "1.2.0",
+│ │ +    "web_accessible_resources": [
+│ │ +        {
+│ │ +            "matches": [
+│ │ +                "<all_urls>"
+│ │ +            ],
+│ │ +            "resources": [
+│ │ +                "icon.png",
+│ │ +                "popup.html",
+│ │ +                "popup.js",
+│ │ +                "popup.css"
+│ │ +            ]
+│ │ +        }
+│ │ +    ]
+│ │  }

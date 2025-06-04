@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/kick-tools
+├── file list
+│ @@ -1,6 +1,14 @@
+│ -_metadata
+│ -components.js
+│ +.git
+│ +.gitignore
+│ +README.md
+│ +biome.json
+│ +dist
+│  icons
+│ -index.js
+│ -locales.js
+│ -manifest.json
+│ +kick-tools.user.js
+│ +manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +pnpm-lock.yaml
+│ +src
+│ +tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/kick-tools/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "*://kick.com/*"
+│ │      ],
+│ │      "icons": {
+│ │          "48": "icons/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Kick Tools",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2.2"
+│ │  }

@@ -1,0 +1,62 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Twitch-Bonus-Chest-Auto-Clicker
+├── file list
+│ @@ -1,4 +1,6 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  controller.js
+│  image.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/controller.js
+├── +++ /workspace/pipeline_output/Twitch-Bonus-Chest-Auto-Clicker/controller.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,6 +1,10 @@
+│ -74696d65723d3165332c70617468546f427574746f6e3d222e636c61696d6162
+│ -6c652d626f6e75735f5f69636f6e222c73657454696d656f75742866756e6374
+│ -696f6e28297b736574496e74657276616c2866756e6374696f6e28297b646f63
+│ -756d656e742e717565727953656c6563746f722870617468546f427574746f6e
+│ -292626646f63756d656e742e717565727953656c6563746f722870617468546f
+│ -427574746f6e292e636c69636b28297d2c74696d6572297d2c386533293b
+│ +6c65742074696d6572203d20313030303b202f2f2065766572792058206d696c
+│ +6c697365636f6e64732c20747269676765722074686520627574746f6e20636c
+│ +69636b206576656e740d0a0d0a6c65742070617468546f427574746f6e203d20
+│ +222e636c61696d61626c652d626f6e75735f5f69636f6e223b0d0a0d0a736574
+│ +54696d656f75742866756e6374696f6e2829207b0d0a09090d0a09736574496e
+│ +74657276616c2866756e6374696f6e2829207b0d0a0d0a0909696628646f6375
+│ +6d656e742e717565727953656c6563746f722870617468546f427574746f6e29
+│ +29207b0d0a0d0a090909646f63756d656e742e717565727953656c6563746f72
+│ +2870617468546f427574746f6e292e636c69636b28290d0a09097d0d0a0d0a09
+│ +7d2c2074696d6572290d0a0d0a7d2c38303030293b0d0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Twitch-Bonus-Chest-Auto-Clicker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,11 +1,11 @@
+│ │  {
+│ │      "browser_action": {
+│ │          "default_icon": "image.png",
+│ │ -        "default_title": "Twitch Bonus Chest Auto Clicker"
+│ │ +        "default_title": "Twitch Bonus Chest Auto-Click"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "controller.js"
+│ │              ],
+│ │              "matches": [
+│ │ @@ -13,11 +13,10 @@
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "icons": {
+│ │          "184": "image.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │ -    "name": "Twitch Bonus Chest Auto Clicker (Enhanced)",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ +    "name": "Twitch Bonus Chest Auto-Click (Enhanced & Lightweight)",
+│ │      "version": "1.1"
+│ │  }

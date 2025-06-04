@@ -1,0 +1,56 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Spotify-Song-Blocker
+├── file list
+│ @@ -1,7 +1,8 @@
+│ -_metadata
+│ +.git
+│  background.js
+│  content.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Spotify-Song-Blocker/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,15 +35,14 @@
+│ │      "name": "Spotify Song Blocker",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://open.spotify.com/*",
+│ │                  "http://open.spotify.com/*"
+│ │              ],
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/Spotify-Song-Blocker/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -151,15 +151,15 @@
+│        font-size: 14px;
+│      }
+│    </style>
+│  </head>
+│  <body>
+│    <div class="container">
+│      <h2>Spotify Song Blocker</h2>
+│ -    <p class="description">Block songs you don't want to hear in your playlists.</p>
+│ +    <p class="description">Because life’s too short for bad songs.</p>
+│      <div class="input-wrapper">
+│        <input type="text" id="songInput" placeholder="Enter song name to block">
+│      </div>
+│      <button id="addButton">Add to Blocked List</button>
+│      <div class="blocked-songs" id="blockedSongsList">
+│        <!-- Blocked songs will be listed here -->
+│      </div>
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -us-ascii
+│ │ +utf-8

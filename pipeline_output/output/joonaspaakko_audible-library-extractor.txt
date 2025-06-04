@@ -1,0 +1,353 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/audible-library-extractor
+├── file list
+│ @@ -1,13 +1,19 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +.vscode
+│ +README.md
+│  animated-wallpaper.html
+│ -app.webmanifest
+│  assets
+│ -favicon.ico
+│ -favicons
+│ -file-paths.js
+│ +audible-library-extractor-0.2.12.zip
+│ +audible-library-extractor-content-script.js
+│ +background.js
+│ +custom-vite-plugins.js
+│  gallery.html
+│  manifest.json
+│ -service-worker-loader.js
+│ -single-file-animated-wallpaper.html
+│ -single-file-gallery.html
+│ -wallpaper-creator.html
+│ +package.json
+│ +screenshots
+│ +src
+│ +vite.config.js
+│ +wallpaper-creator.html
+│ +yarn.lock
+│ +zipper.js
+│   --- /workspace/pipeline_output/chromex_data/animated-wallpaper.html
+├── +++ /workspace/pipeline_output/audible-library-extractor/animated-wallpaper.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,22 +1,16 @@
+│  <!DOCTYPE html>
+│  <html lang="en">
+│  <head>
+│    <meta charset="UTF-8">
+│    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│    <title>ALE • Animated Wallpaper</title>
+│ -  <script type="module" crossorigin src="./assets/animated-wallpaper.9a3d9eff.js"></script>
+│ -  <link rel="modulepreload" crossorigin href="./assets/gallery-makeCoverUrl.52ce2441.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/jquery.fca3dd19.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/lodash.4793ee9f.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/animated-wallpaper-app.f79261c3.js">
+│ -  <link rel="stylesheet" href="./assets/animated-wallpaper-app.c16a9139.css">
+│  </head>
+│  <body>
+│    
+│    <div id="animated-wallpaper"></div>
+│ -  
+│ +  <script type="module" src="./src/wallpaper-creator/animated-wallpaper/animated-wallpaper.js"></script>
+│    
+│  	
+│  </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/audible-library-extractor/assets
+│ ├── file list
+│ │ @@ -1,108 +1,5 @@
+│ │ -FileSaver.min.dff7b3c0.js
+│ │ -animated-wallpaper-app.c16a9139.css
+│ │ -animated-wallpaper-app.f79261c3.js
+│ │ -animated-wallpaper.9a3d9eff.js
+│ │ -arvo-v14-latin-700.2c43a3f8.woff2
+│ │ -arvo-v14-latin-700.f24436e1.woff
+│ │ -arvo-v14-latin-regular.0e17d96f.woff
+│ │ -arvo-v14-latin-regular.6a444f75.woff2
+│ │ -audible-library-extractor-content-script.66339cfe.css
+│ │ -audible-library-extractor-content-script.d943088b.js
+│ │ -audible-library-extractor-content-script.js-loader.72885756.js
+│ │ -background.js.97cc8ce6.js
+│ │ -card-tierlist.e52c1180.jpg
+│ │ -card.80301d56.jpg
+│ │ -concert-one-v12-latin-regular.3ce75160.woff
+│ │ -concert-one-v12-latin-regular.6d11209d.woff2
+│ │ -content-script-helpers.caeeb6e9.js
+│ │ -contextMenuReminder.c6fbaf34.png
+│ │ -courgette-v8-latin-regular.6b0fe2d7.woff2
+│ │ -courgette-v8-latin-regular.d367e847.woff
+│ │  css
+│ │ -extension-js
+│ │ -fa-brands-400.808443ae.ttf
+│ │ -fa-brands-400.d7236a19.woff2
+│ │ -fa-regular-400.54cf6086.ttf
+│ │ -fa-regular-400.e3456d12.woff2
+│ │ -fa-solid-900.aa759986.woff2
+│ │ -fa-solid-900.d2f05935.ttf
+│ │ -fa-v4compatibility.0ce9033c.woff2
+│ │ -fa-v4compatibility.30f6abf6.ttf
+│ │ -fuse.esm.249bd5bb.js
+│ │ -gallery-authors.38fd3067.js
+│ │ -gallery-authors.f87660a3.css
+│ │ -gallery-blurb-hover-corner.72b0391b.jpg
+│ │ -gallery-book-cover-cloud-player-button.c51131a2.jpg
+│ │ -gallery-carousel.5d8cda9f.jpg
+│ │ -gallery-categories.0abc5d86.css
+│ │ -gallery-categories.5badd4e7.js
+│ │ -gallery-collections.9767348c.css
+│ │ -gallery-collections.b8f86703.js
+│ │ -gallery-cover-favorite-finished-indicators.deaa62ec.jpg
+│ │ -gallery-cover-plus-calatog-indicator.930228c5.jpg
+│ │ -gallery-cover-whispersync-indicator.5e5fc680.jpg
+│ │ -gallery-findSubPageSource.2a247fbe.css
+│ │ -gallery-findSubPageSource.85dad557.js
+│ │ -gallery-lazy.9238549d.js
+│ │ -gallery-makeCoverUrl.52ce2441.js
+│ │ -gallery-narrators.7456f3be.css
+│ │ -gallery-narrators.d648ba8a.js
+│ │ -gallery-page-title.3a2b50a5.js
+│ │ -gallery-page-title.6a995b83.css
+│ │ -gallery-prefer-short-title.cbb71c2f.jpg
+│ │ -gallery-publishers.20ef11e6.css
+│ │ -gallery-publishers.968e5351.js
+│ │ -gallery-root.3e79c49d.js
+│ │ -gallery-root.f1bc826e.css
+│ │ -gallery-sample-play-button.76880d32.jpg
+│ │ -gallery-search.8aedb8f0.js
+│ │ -gallery-search.c382bc5c.css
+│ │ -gallery-series.a0e11c56.css
+│ │ -gallery-series.a491cf74.js
+│ │ -gallery-sidebar-collections-list.e36f2c6e.jpg
+│ │ -gallery-sidebar-cover.71816002.jpg
+│ │ -gallery-sidebar-main-info.fc6f5930.jpg
+│ │ -gallery-sidebar-series-list.5caf72bb.jpg
+│ │ -gallery-sidebar-toolbar.e9af4245.jpg
+│ │ -gallery-sidebar.326a6628.jpg
+│ │ -gallery-table-loader-dark.f6a1191b.gif
+│ │ -gallery-table-loader-light.9547444f.gif
+│ │ -gallery.889c3340.css
+│ │ -gallery.f59fb107.js
+│ │ -howler.45f3c8a6.js
+│ │  icons
+│ │  icons-gray
+│ │  images
+│ │ +js
+│ │ -inconsolata-v21-latin-regular.1b15cfc1.woff
+│ │ -inconsolata-v21-latin-regular.a7dff539.woff2
+│ │ -index.ff69ba6a.js
+│ │ -indie-flower-v12-latin-regular.28d77de6.woff2
+│ │ -indie-flower-v12-latin-regular.815829b9.woff
+│ │ -jquery.fca3dd19.js
+│ │ -js
+│ │ -jszip.f74de32f.js
+│ │ -lodash.4793ee9f.js
+│ │ -merriweather-v25-latin-700.1ecaf445.woff2
+│ │ -merriweather-v25-latin-700.7051e1a7.woff
+│ │ -merriweather-v25-latin-regular.458ee64d.woff
+│ │ -merriweather-v25-latin-regular.c435a36c.woff2
+│ │ -open-sans-v27-latin-700.a61d6725.woff2
+│ │ -open-sans-v27-latin-700.b1fda8d8.woff
+│ │ -open-sans-v27-latin-regular.cce57747.woff2
+│ │ -open-sans-v27-latin-regular.d7410996.woff
+│ │ -patrick-hand-v14-latin-regular.1afc3f47.woff
+│ │ -patrick-hand-v14-latin-regular.35bdf2b7.woff2
+│ │ -roboto-v29-latin-700.0eaeadb5.woff2
+│ │ -roboto-v29-latin-700.a01a632e.woff
+│ │ -roboto-v29-latin-regular.cc46322d.woff2
+│ │ -roboto-v29-latin-regular.ea50ac7f.woff
+│ │ -tippy.0141f121.js
+│ │ -tippy.a1ae07b3.css
+│ │ -wallpaper-animated.cc7c256e.gif
+│ │ -wallpaper-creator.132bad92.css
+│ │ -wallpaper-creator.29233ab8.js
+│ │ -wallpaper.c0fb0a34.jpg
+│ │ -work-sans-v11-latin-700.326b6bf3.woff
+│ │ -work-sans-v11-latin-700.a77667b7.woff2
+│ │ -work-sans-v11-latin-regular.21c12397.woff2
+│ │ -work-sans-v11-latin-regular.7d30fb46.woff
+│ │   --- /workspace/pipeline_output/chromex_data/assets/css
+│ ├── +++ /workspace/pipeline_output/audible-library-extractor/assets/css
+│ │ ├── file list
+│ │ │ @@ -1 +1,2 @@
+│ │ │ +fontawesome-all.css
+│ │ │  fontawesome-webfonts
+│ │   --- /workspace/pipeline_output/chromex_data/assets/images
+│ ├── +++ /workspace/pipeline_output/audible-library-extractor/assets/images
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,3 @@
+│ │ │  audible-library-extractor-logo.svg
+│ │ │ -audible-logo.svg
+│ │ │ -gallery-table-loader-dark.gif
+│ │ │ -gallery-table-loader-light.gif
+│ │ │ -goodreads.svg
+│ │ │ -loader-64px.gif
+│ │ │ +loader-64px.gif
+│ │ │ +loader.svg
+│   --- /workspace/pipeline_output/chromex_data/gallery.html
+├── +++ /workspace/pipeline_output/audible-library-extractor/gallery.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,36 +1,25 @@
+│  <!DOCTYPE html>
+│ -<html lang="en" class="theme-dark " style="background: #171717; min-height: 100%;">
+│ +<html lang="en" class="theme-dark <% if( singleFileMode ){ %>standalone-gallery<% } %>" style="background: #171717; min-height: 100%;">
+│  <head>
+│    <meta charset="UTF-8">
+│    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│    <title>My Audible Library</title>
+│    
+│ -  
+│ +  <% if ( !singleFileMode ){ %>
+│      <script defer src="assets/js/lodash.min.js"></script>
+│      <script defer src="assets/extension-js/jszip.min.js"></script>
+│      <script defer src="assets/extension-js/jszip-utils.min.js"></script>
+│      <script defer src="assets/extension-js/FileSaver.min.js"></script>
+│      <script defer src="assets/extension-js/papaparse.min.js"></script> 
+│      <script defer src="file-paths.js"></script>
+│ +  <% } %>
+│    
+│ -  
+│ -  <script type="module" crossorigin src="./assets/gallery.f59fb107.js"></script>
+│ -  <link rel="modulepreload" crossorigin href="./assets/gallery-makeCoverUrl.52ce2441.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/jquery.fca3dd19.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/lodash.4793ee9f.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/index.ff69ba6a.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/jszip.f74de32f.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/content-script-helpers.caeeb6e9.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/howler.45f3c8a6.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/tippy.0141f121.js">
+│ -  <link rel="stylesheet" href="./assets/tippy.a1ae07b3.css">
+│ -  <link rel="stylesheet" href="./assets/gallery.889c3340.css">
+│  </head>
+│  <body>
+│    
+│    <div id="audible-library-extractor"></div>
+│ -  
+│ +  <script type="module" src="./src/gallery/gallery-main.js"></script>
+│  	
+│  </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/audible-library-extractor/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,25 +4,21 @@
+│ │              "128": "assets/icons-gray/128.png",
+│ │              "16": "assets/icons-gray/16.png",
+│ │              "48": "assets/icons-gray/48.png"
+│ │          }
+│ │      },
+│ │      "author": "Joonas P\u00e4\u00e4kk\u00f6",
+│ │      "background": {
+│ │ -        "service_worker": "service-worker-loader.js",
+│ │ +        "service_worker": "background.js",
+│ │          "type": "module"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ -            "css": [
+│ │ -                "assets/tippy.a1ae07b3.css",
+│ │ -                "assets/audible-library-extractor-content-script.66339cfe.css"
+│ │ -            ],
+│ │              "js": [
+│ │ -                "assets/audible-library-extractor-content-script.js-loader.72885756.js"
+│ │ +                "audible-library-extractor-content-script.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://*.audible.com/library/*",
+│ │                  "*://*.audible.ca/library/*",
+│ │                  "*://*.audible.co.uk/library/*",
+│ │                  "*://*.audible.de/library/*",
+│ │                  "*://*.audible.it/library/*",
+│ │ @@ -52,15 +48,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Audible Library Extractor",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.12",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│ │ @@ -78,38 +73,11 @@
+│ │                  "assets/css/fontawesome-webfonts/fa-regular-400.woff",
+│ │                  "assets/css/fontawesome-webfonts/fa-regular-400.woff2",
+│ │                  "assets/css/fontawesome-webfonts/fa-solid-900.eot",
+│ │                  "assets/css/fontawesome-webfonts/fa-solid-900.svg",
+│ │                  "assets/css/fontawesome-webfonts/fa-solid-900.ttf",
+│ │                  "assets/css/fontawesome-webfonts/fa-solid-900.woff",
+│ │                  "assets/css/fontawesome-webfonts/fa-solid-900.woff2"
+│ │ -            ],
+│ │ -            "use_dynamic_url": false
+│ │ -        },
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "*://*.audible.ca/*",
+│ │ -                "*://*.audible.co.jp/*",
+│ │ -                "*://*.audible.co.uk/*",
+│ │ -                "*://*.audible.com.au/*",
+│ │ -                "*://*.audible.com.br/*",
+│ │ -                "*://*.audible.com/*",
+│ │ -                "*://*.audible.de/*",
+│ │ -                "*://*.audible.es/*",
+│ │ -                "*://*.audible.fr/*",
+│ │ -                "*://*.audible.in/*",
+│ │ -                "*://*.audible.it/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "assets/jquery.fca3dd19.js",
+│ │ -                "assets/lodash.4793ee9f.js",
+│ │ -                "assets/content-script-helpers.caeeb6e9.js",
+│ │ -                "assets/FileSaver.min.dff7b3c0.js",
+│ │ -                "assets/fuse.esm.249bd5bb.js",
+│ │ -                "assets/tippy.0141f121.js",
+│ │ -                "assets/jszip.f74de32f.js",
+│ │ -                "assets/audible-library-extractor-content-script.d943088b.js"
+│ │ -            ],
+│ │ -            "use_dynamic_url": false
+│ │ +            ]
+│ │          }
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/wallpaper-creator.html
+├── +++ /workspace/pipeline_output/audible-library-extractor/wallpaper-creator.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -2,27 +2,15 @@
+│  <html lang="en">
+│  <head>
+│    <meta charset="UTF-8">
+│    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+│    <title>ALE • Wallpaper editor</title>
+│    <script defer src="assets/js/lodash.min.js"></script>
+│ -  <script type="module" crossorigin src="./assets/wallpaper-creator.29233ab8.js"></script>
+│ -  <link rel="modulepreload" crossorigin href="./assets/gallery-makeCoverUrl.52ce2441.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/jquery.fca3dd19.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/lodash.4793ee9f.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/jszip.f74de32f.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/FileSaver.min.dff7b3c0.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/index.ff69ba6a.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/animated-wallpaper-app.f79261c3.js">
+│ -  <link rel="modulepreload" crossorigin href="./assets/tippy.0141f121.js">
+│ -  <link rel="stylesheet" href="./assets/animated-wallpaper-app.c16a9139.css">
+│ -  <link rel="stylesheet" href="./assets/tippy.a1ae07b3.css">
+│ -  <link rel="stylesheet" href="./assets/wallpaper-creator.132bad92.css">
+│  </head>
+│  <body>
+│    
+│    <div id="wallpaper-creator"></div>
+│ -  
+│ +  <script type="module" src="./src/wallpaper-creator/wallpaper-creator.js"></script>
+│    
+│  </body>
+│  </html>

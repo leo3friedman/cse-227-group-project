@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/crossdart-chrome-extension
+├── file list
+│ @@ -1,20 +1,23 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.js
+│  constants.js
+│  crossdart
+│  crossdart.css
+│  crossdart.js
+│  errors.js
+│  github
+│  github.js
+│  icon128.png
+│  icon38.png
+│  location_change_detector.js
+│  manifest.json
+│ +package-lock.json
+│  path.js
+│  popup.css
+│  popup.html
+│  popup.js
+│  request.js
+│  status.js
+│  tooltip.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/crossdart-chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,10 +42,9 @@
+│ │      "page_action": {
+│ │          "default_icon": "icon38.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.3.0"
+│ │  }

@@ -1,0 +1,129 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/URL-Shortner
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.git
+│ +README.md
+│  icon.png
+│ +icon_128x128.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  spectre.min.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/URL-Shortner/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,10 +2,9 @@
+│ │      "browser_action": {
+│ │          "default_icon": "icon.png",
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "description": "URL Shortner",
+│ │      "manifest_version": 2,
+│ │      "name": "URL Shortner",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/URL-Shortner/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,33 +1,33 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -    <meta charset="UTF-8">
+│ -    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ -    <title>URL Shortner</title>
+│ -    <link rel="stylesheet" href="spectre.min.css">
+│ -    <style>
+│ -        body{
+│ -            width:365px;
+│ -        }
+│ -    </style>
+│ -</head>
+│ -<body>
+│ -    <div class="card">
+│ -        <div class="card-header">
+│ -          <div class="card-title h5">URL Shortner</div>
+│ -          <div class="card-subtitle text-gray">Create a mini URL</div>
+│ -        </div>
+│ -        <div class="card-body">
+│ -            <input class="form-input" type="text" id="link">
+│ -            <input class="form-input" type="text" id="mini-link" disabled>
+│ -        </div>
+│ -        <div class="card-footer">
+│ -          <button class="btn btn-primary" id="gen">Generate</button>
+│ -        </div>
+│ -      </div>
+│ -
+│ -      <script src="popup.js"></script>
+│ -    
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ +    <title>URL Shortner</title>
+│ +    <link rel="stylesheet" href="spectre.min.css">
+│ +    <style>
+│ +        body{
+│ +            width:365px;
+│ +        }
+│ +    </style>
+│ +</head>
+│ +<body>
+│ +    <div class="card">
+│ +        <div class="card-header">
+│ +          <div class="card-title h5">URL Shortner</div>
+│ +          <div class="card-subtitle text-gray">Create a mini URL</div>
+│ +        </div>
+│ +        <div class="card-body">
+│ +            <input class="form-input" type="text" id="link">
+│ +            <input class="form-input" type="text" id="mini-link" disabled>
+│ +        </div>
+│ +        <div class="card-footer">
+│ +          <button class="btn btn-primary" id="gen">Generate</button>
+│ +        </div>
+│ +      </div>
+│ +
+│ +      <script src="popup.js"></script>
+│ +    
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/URL-Shortner/popup.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ 'js-beautify' not available in path. Falling back to binary comparison. Installing the 'jsbeautifier' package may produce better output.
+│ @@ -1,13 +1,13 @@
+│ -6173796e632066756e6374696f6e206765744c696e6b28297b0d0a2020202076
+│ -6172206c696e6b203d20646f63756d656e742e676574456c656d656e74427949
+│ -6428226c696e6b22292e76616c75653b0d0a20202020636f6e7374206170695f
+│ -75726c3d6068747470733a2f2f6170692e73687274636f2e64652f76322f7368
+│ -6f7274656e3f75726c3d247b6c696e6b7d600d0a20202020636f6e7374207265
+│ -73706f6e73653d6177616974206665746368286170695f75726c290d0a202020
+│ -20636f6e737420646174613d617761697420726573706f6e73652e6a736f6e28
+│ -290d0a202020207265733d646174612e726573756c742e66756c6c5f73686f72
+│ -745f6c696e6b320d0a20202020646f63756d656e742e676574456c656d656e74
+│ -4279496428276d696e692d6c696e6b27292e76616c75653d7265730d0a202020
+│ -20636f6e736f6c652e6c6f6728726573290d0a7d0d0a646f63756d656e742e67
+│ -6574456c656d656e7442794964282767656e27292e6164644576656e744c6973
+│ -74656e65722827636c69636b272c6765744c696e6b29
+│ +6173796e632066756e6374696f6e206765744c696e6b28297b0a202020207661
+│ +72206c696e6b203d20646f63756d656e742e676574456c656d656e7442794964
+│ +28226c696e6b22292e76616c75653b0a20202020636f6e7374206170695f7572
+│ +6c3d6068747470733a2f2f6170692e73687274636f2e64652f76322f73686f72
+│ +74656e3f75726c3d247b6c696e6b7d600a20202020636f6e737420726573706f
+│ +6e73653d6177616974206665746368286170695f75726c290a20202020636f6e
+│ +737420646174613d617761697420726573706f6e73652e6a736f6e28290a2020
+│ +20207265733d646174612e726573756c742e66756c6c5f73686f72745f6c696e
+│ +6b320a20202020646f63756d656e742e676574456c656d656e74427949642827
+│ +6d696e692d6c696e6b27292e76616c75653d7265730a20202020636f6e736f6c
+│ +652e6c6f6728726573290a7d0a646f63756d656e742e676574456c656d656e74
+│ +42794964282767656e27292e6164644576656e744c697374656e65722827636c
+│ +69636b272c6765744c696e6b29

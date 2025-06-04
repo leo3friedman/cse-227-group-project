@@ -1,0 +1,45 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/genaianywhere-chromeextension-app
+├── file list
+│ @@ -1,10 +1,10 @@
+│ +.git
+│  README.md
+│  _locales
+│ -_metadata
+│  attach-files
+│  background-ai.js
+│  background-keyword-search.js
+│  background-login.js
+│  background-mark-url.js
+│  background-mark.js
+│  background-search-engine.js
+│ @@ -17,8 +17,9 @@
+│  content-script-login.js
+│  content-script-mark-url.js
+│  content-script-sidepanel-opener.js
+│  content-script-speech-recognition.js
+│  content-script.js
+│  html
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/genaianywhere-chromeextension-app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -91,15 +91,14 @@
+│ │          "clipboardRead",
+│ │          "clipboardWrite",
+│ │          "downloads"
+│ │      ],
+│ │      "side_panel": {
+│ │          "default_path": "html/index.html"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.73",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
