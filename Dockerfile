@@ -1,12 +1,13 @@
 FROM node:23-slim
 
-# Install basic tools including Python
+# Install basic tools including Python and xxd
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
         ca-certificates \
         unzip \
         diffoscope \
+        vim-common \
         python3 \
         python3-pip \
         python3-venv && \
@@ -17,9 +18,10 @@ RUN apt-get update && \
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Install Python packages
+# Install Python packages (including jsbeautifier)
 COPY requirements.txt /workspace/
-RUN pip install -r /workspace/requirements.txt
+RUN pip install -r /workspace/requirements.txt \
+    && pip install jsbeautifier
 
 WORKDIR /workspace
 
