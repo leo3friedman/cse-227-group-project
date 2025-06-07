@@ -104,7 +104,10 @@ def extractor(github_link, path, crx_link, token=None):
     print((bestbuild, min_length))
   # print("Best Build, min length")
   # print((bestbuild, min_length))
-  DIFF_UTIL.compare_dirs_with_diffoscope_recorded(chromex_path, bestbuild, path + "/output/" + username + "_" + reponame + ".txt")
+
+  # outputs both text and html
+  DIFF_UTIL.compare_dirs_with_diffoscope_recorded_text(chromex_path, bestbuild, path + "/output_text/" + username + "_" + reponame + ".txt")
+  DIFF_UTIL.compare_dirs_with_diffoscope_recorded_html(chromex_path, bestbuild, path + "/output_html/" + username + "_" + reponame + ".html")
 
   # Clean up
   GIT_UTIL.remove_git_repo(git_path)

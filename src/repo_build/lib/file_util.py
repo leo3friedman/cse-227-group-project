@@ -25,6 +25,14 @@ def find_manifest_json_file(start_path):
       return find_manifest_json_files(start_path)[0]
     else:
       return None
+    
+def get_commit_date(repo_path, ref):
+    """Returns the commit timestamp for a given ref."""
+    result = subprocess.run(
+        ['git', 'show', '-s', '--format=%ct', ref],
+        cwd=repo_path, capture_output=True, text=True, check=True
+    )
+    return int(result.stdout.strip())
 
 def extract_version_from_manifest(file_path):
     try:
@@ -67,45 +75,48 @@ def find_refs_with_manifest_version(repo_path, refs, desired_version):
     if not os.path.isdir(repo_path):
         raise ValueError("Invalid repo path")
 
-    # Save original HEAD to restore it later
+    # Save original HEAD
     original_head = subprocess.run(
         ['git', 'rev-parse', 'HEAD'],
         cwd=repo_path, capture_output=True, text=True
     ).stdout.strip()
 
-    matching_refs = []
-    has_manifest = False
+    # Sort refs by commit date (newest first)
+    refs_with_dates = []
     for ref in refs:
         try:
-            # Checkout the ref (tag or commit SHA)
+            date = get_commit_date(repo_path, ref)
+            refs_with_dates.append((ref, date))
+        except subprocess.CalledProcessError:
+            continue
+
+    sorted_refs = sorted(refs_with_dates, key=lambda x: -x[1])
+
+    has_manifest = False
+    for ref, _ in sorted_refs:
+        try:
             subprocess.run(
                 ['git', 'checkout', '--quiet', '--detach', ref],
                 cwd=repo_path, check=True,
                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
             )
 
-            # Find and read manifest.json
             manifest_path = find_manifest_json_file(repo_path)
-            # print(manifest_path)
             if not manifest_path:
                 continue
-            # there is a manifest.json path!
             has_manifest = True
+
             with open(manifest_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                actual_version = data.get('version')
-                # print(actual_version)
-
-                if actual_version == desired_version:
-                    matching_refs.append(ref)
+                if data.get('version') == desired_version:
+                    subprocess.run(['git', 'checkout', '--quiet', original_head], cwd=repo_path, check=True)
+                    return [ref], has_manifest
 
         except Exception:
-            continue  # Skip ref on error
+            continue
 
-    # Restore original HEAD
     subprocess.run(['git', 'checkout', '--quiet', original_head], cwd=repo_path, check=True)
-
-    return matching_refs, has_manifest
+    return [], has_manifest
 
 # def checkout_git_ref(repo_path, ref_name):
 #     subprocess.run(['git', 'checkout', ref_name], cwd=repo_path, check=True)

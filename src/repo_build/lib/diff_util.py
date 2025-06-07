@@ -17,12 +17,23 @@ def compare_dirs_with_diffoscope(path1, path2):
         os.unlink(diff_file.name)
         return diff_content, len(diff_content)
 
-def compare_dirs_with_diffoscope_recorded(path1, path2, output_path):
+def compare_dirs_with_diffoscope_recorded_text(path1, path2, output_path):
     # Run diffoscope and write its output directly to output_path
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     result = subprocess.run(
         ['diffoscope', '--exclude-directory-metadata=recursive',
          '--text', output_path, path1, path2],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+
+def compare_dirs_with_diffoscope_recorded_html(path1, path2, output_path):
+    # Run diffoscope and write its output directly to output_path
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    result = subprocess.run(
+        ['diffoscope', '--exclude-directory-metadata=recursive',
+         '--html', output_path, path1, path2],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True
