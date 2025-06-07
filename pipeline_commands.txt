@@ -1,0 +1,15 @@
+docker build -t my-node-image .
+
+docker run -it --rm -v ${PWD}:/workspace my-node-image
+
+mkdir pipeline_output
+python3 src/repo_build/pipeline.py --> when crash just run this again
+
+
+---- if restarting the process
+rm -rf pipeline_output/ && mkdir pipeline_output ; rm src/repo_build/pipeline_update.json ; rm src/repo_build/resume_log.txt
+
+
+------------------------- i stored my PAT to use for github api
+import os
+token = os.getenv("GITHUB_TOKEN")
