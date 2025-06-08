@@ -9,7 +9,6 @@ current_file = Path(__file__)
 input_json = current_file.parent.parent.parent / 'data' / 'scraped_metadata' / 'gh_linked_metadata.json'
 output_json = current_file.parent / 'new_pipeline_update.json'
 resume_log = current_file.parent / 'resume_log.txt'
-github_username = "williamheng89"
 pipeline_output_dir = Path("/workspace/pipeline_output")
 
 # Output subdirectories to preserve
@@ -49,6 +48,7 @@ if resume_log.exists():
 
 # Get GitHub token
 token = os.getenv("GITHUB_TOKEN")
+github_username = os.getenv("GITHUB_USERNAME")
 
 # Flatten the dict into list of tuples [(cws_url, metadata_dict)]
 metadata_items = list(metadata.items())
@@ -60,7 +60,7 @@ for i in range(start_index, len(metadata_items)):
     user_count = data.get("user_count", 0)
 
     # Skip if user count is less than 10,000
-    if user_count < 10_000:
+    if int(user_count) < 10000:
         with open(resume_log, 'w') as f:
             f.write(str(i + 1))
         continue

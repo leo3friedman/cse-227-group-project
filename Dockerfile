@@ -18,9 +18,10 @@ RUN apt-get update && \
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-#NEED TO PUT YOUR GITHUB TOKEN:, uncomment and enter below
+#NEED TO PUT YOUR GITHUB TOKENS:, uncomment and enter below
 
 #ENV GITHUB_TOKEN="---your token---"
+#ENV GITHUB_USERNAME="---your username---"
 # Install Python packages (including jsbeautifier)
 COPY requirements.txt /workspace/
 RUN pip install -r /workspace/requirements.txt \
