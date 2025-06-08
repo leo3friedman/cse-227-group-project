@@ -13,18 +13,16 @@ resume_log = current_file.parent / 'resume_log.txt'
 # Directory to clean
 pipeline_output_dir = Path("/workspace/pipeline_output")
 
-# Clean the pipeline_output directory at script start, keep the output folder though
+# Clean the pipeline_output directory at script start, keep the output folders
 output_subdir1 = pipeline_output_dir / "output_text"
 output_subdir2 = pipeline_output_dir / "output_html"
+output_subdir3 = pipeline_output_dir / "output_parsed"
 
 if pipeline_output_dir.exists() and pipeline_output_dir.is_dir():
     for item in pipeline_output_dir.iterdir():
         try:
-            # Skip the "output" directory
-            if item == output_subdir1 or output_subdir2:
+            if item in {output_subdir1, output_subdir2, output_subdir3}:
                 continue
-            
-            # Delete directory or file
             if item.is_dir():
                 shutil.rmtree(item)
             else:
@@ -32,7 +30,7 @@ if pipeline_output_dir.exists() and pipeline_output_dir.is_dir():
         except Exception as e:
             print(f"Warning: Failed to delete {item}: {e}")
 
-# Load metadata (resume from output if exists)
+# Load metadata
 if output_json.exists():
     with open(output_json, 'r') as f:
         metadata = json.load(f)
@@ -47,46 +45,44 @@ if resume_log.exists():
         try:
             start_index = int(f.read().strip())
         except ValueError:
-            pass  # if file is empty or invalid, default to 0
+            pass
 
 # Get GitHub token
 token = os.getenv("GITHUB_TOKEN")
 
+# Flatten the dict into list of tuples [(cws_url, metadata_dict)]
+metadata_items = list(metadata.items())
+
 # Process from the resume point
-for i in range(start_index, len(metadata)):
-    entry = metadata[i]
-    repo_url = entry.get("repo_url")
-    scraped_list = entry.get("scraped_metadata", [])
+for i in range(start_index, len(metadata_items)):
+    cws_url, data = metadata_items[i]
+    repo_url = data.get("repo_url")
 
-    for scraped in scraped_list:
-        cws_url = scraped.get("cws_url")
+    try:
+        buildable, timeout, target_version_match, has_manifest = df.extractor(
+            repo_url,
+            str(pipeline_output_dir),
+            cws_url,
+            token=token
+        )
 
-        try:
-            buildable, timeout, target_version_match, has_manifest = df.extractor(
-                repo_url,
-                str(pipeline_output_dir),
-                cws_url,
-                token=token
-            )
+        data["buildable"] = buildable
+        data["timeout"] = timeout
+        data["target_version_match"] = target_version_match
+        data["has_manifest"] = has_manifest
 
-            scraped["buildable"] = buildable
-            scraped["timeout"] = timeout
-            scraped["target_version_match"] = target_version_match
-            scraped["has_manifest"] = has_manifest
+    except Exception as e:
+        print(f"Error processing index {i} — {repo_url} / {cws_url}: {e}")
+        continue
 
-        except Exception as e:
-            print(f"Error processing index {i} — {repo_url} / {cws_url}: {e}")
-            continue  # skip failed cws entry, move to next
-
-    # After processing each entry:
-    # 1. Update resume log
+    # Update resume log
     with open(resume_log, 'w') as f:
-        f.write(str(i + 1))  # next index to process
+        f.write(str(i + 1))
 
-    # 2. Update output JSON with progress
+    # Update output JSON
     with open(output_json, 'w') as f:
         json.dump(metadata, f, indent=4)
 
-    print(f"Finished index {i}")
+    print(f"Finished index {i}: {cws_url}")
 
 print(f"All processed (or resumed) and written to {output_json}")
