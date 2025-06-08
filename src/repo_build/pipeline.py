@@ -10,14 +10,14 @@ input_json = current_file.parent.parent.parent / 'data' / 'scraped_metadata' / '
 output_json = current_file.parent / 'new_pipeline_update.json'
 resume_log = current_file.parent / 'resume_log.txt'
 github_username = "williamheng89"
-# Directory to clean
 pipeline_output_dir = Path("/workspace/pipeline_output")
 
-# Clean the pipeline_output directory at script start, keep the output folders
+# Output subdirectories to preserve
 output_subdir1 = pipeline_output_dir / "output_text"
 output_subdir2 = pipeline_output_dir / "output_html"
 output_subdir3 = pipeline_output_dir / "output_parsed"
 
+# Clean the pipeline_output directory at script start
 if pipeline_output_dir.exists() and pipeline_output_dir.is_dir():
     for item in pipeline_output_dir.iterdir():
         try:
@@ -57,6 +57,13 @@ metadata_items = list(metadata.items())
 for i in range(start_index, len(metadata_items)):
     cws_url, data = metadata_items[i]
     repo_url = data.get("repo_url")
+    user_count = data.get("user_count", 0)
+
+    # Skip if user count is less than 10,000
+    if user_count < 10_000:
+        with open(resume_log, 'w') as f:
+            f.write(str(i + 1))
+        continue
 
     try:
         buildable, timeout, target_version_match, has_manifest, exist = df.extractor(
@@ -75,6 +82,8 @@ for i in range(start_index, len(metadata_items)):
 
     except Exception as e:
         print(f"Error processing index {i} — {repo_url} / {cws_url}: {e}")
+        with open(resume_log, 'w') as f:
+            f.write(str(i + 1))
         continue
 
     # Update resume log
