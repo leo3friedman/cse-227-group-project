@@ -124,6 +124,10 @@ def write_ranges_with_update_url(out, orig_lines, update_url_lines):
         prev = line
 
 def parse_diffoscope_output(input_path: str, output_path: str):
+    # Ensure the output directory exists
+    output_dir = Path(output_path).parent
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     with open(input_path, 'r') as f:
         diff_content = f.read()
     lines = diff_content.splitlines()

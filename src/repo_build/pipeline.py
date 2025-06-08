@@ -15,12 +15,13 @@ pipeline_output_dir = Path("/workspace/pipeline_output")
 output_subdir1 = pipeline_output_dir / "output_text"
 output_subdir2 = pipeline_output_dir / "output_html"
 output_subdir3 = pipeline_output_dir / "output_parsed"
+preserve_dirs = {output_subdir1, output_subdir2, output_subdir3}
 
 # Clean the pipeline_output directory at script start
 if pipeline_output_dir.exists() and pipeline_output_dir.is_dir():
     for item in pipeline_output_dir.iterdir():
         try:
-            if item in {output_subdir1, output_subdir2, output_subdir3}:
+            if item in preserve_dirs:
                 continue
             if item.is_dir():
                 shutil.rmtree(item)
@@ -57,20 +58,27 @@ metadata_items = list(metadata.items())
 for i in range(start_index, len(metadata_items)):
     cws_url, data = metadata_items[i]
     repo_url = data.get("repo_url")
-    user_count = data.get("user_count", 0)
+    user_count = data.get("user_count")
+    print(f"Index {i}: user_count = {user_count} (type: {type(user_count)})")
+    # Safely convert user_count to int
+    try:
+        user_count_int = int(user_count)
+    except (TypeError, ValueError):
+        print(f"Warning: Invalid user_count ({user_count}) for {cws_url}, treating as 0")
+        user_count_int = 0
 
     # Skip if user count is less than 10,000
-    if int(user_count) < 10000:
+    if user_count_int < 10000:
         with open(resume_log, 'w') as f:
             f.write(str(i + 1))
         continue
 
     try:
         buildable, timeout, target_version_match, has_manifest, exist = df.extractor(
-            repo_url,
-            str(pipeline_output_dir),
-            cws_url,
-            github_username,
+            github_link=repo_url,
+            path=str(pipeline_output_dir),
+            crx_link=cws_url,
+            github_username=github_username,
             token=token
         )
 
