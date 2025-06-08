@@ -6,8 +6,8 @@ import shutil
 
 # Paths
 current_file = Path(__file__)
-input_json = current_file.parent.parent.parent / 'data' / 'scraped_metadata' / 'metadata.json'
-output_json = current_file.parent / 'pipeline_update.json'
+input_json = current_file.parent.parent.parent / 'data' / 'scraped_metadata' / 'gh_linked_metadata.json'
+output_json = current_file.parent / 'new_pipeline_update.json'
 resume_log = current_file.parent / 'resume_log.txt'
 
 # Directory to clean
