@@ -85,11 +85,22 @@ def get_github_commits(repo_owner, repo_name, branch=None, per_page=100, max_pag
     return commits
 
 # Git clones repo (no token needed)
-def get_git_clone(user, repo_name, repo_location):
-    repo_url = f"https://github.com/{user}/{repo_name}.git"
+def get_git_clone(user, repo_name, repo_location, github_user, github_token):
+    repo_url = f"https://{github_user}:{github_token}@github.com/{user}/{repo_name}.git"
     destination_path = repo_location
-    print(repo_name)
-    subprocess.run(["git", "clone", repo_url, destination_path], check=True)
+    print(f"Cloning repo: {repo_name} from {repo_url} into {destination_path}")
+
+    try:
+        subprocess.run(["git", "clone", repo_url, destination_path], check=True)
+        print("Clone successful.")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to clone repository. Error: {e}")
+        return False
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return False
+
 
 # Removes the git repo after usage
 def remove_git_repo(path):
