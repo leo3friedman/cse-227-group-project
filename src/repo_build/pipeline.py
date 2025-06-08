@@ -9,7 +9,7 @@ current_file = Path(__file__)
 input_json = current_file.parent.parent.parent / 'data' / 'scraped_metadata' / 'gh_linked_metadata.json'
 output_json = current_file.parent / 'new_pipeline_update.json'
 resume_log = current_file.parent / 'resume_log.txt'
-
+github_username = "williamheng89"
 # Directory to clean
 pipeline_output_dir = Path("/workspace/pipeline_output")
 
@@ -59,10 +59,11 @@ for i in range(start_index, len(metadata_items)):
     repo_url = data.get("repo_url")
 
     try:
-        buildable, timeout, target_version_match, has_manifest = df.extractor(
+        buildable, timeout, target_version_match, has_manifest, exist = df.extractor(
             repo_url,
             str(pipeline_output_dir),
             cws_url,
+            github_username,
             token=token
         )
 
@@ -70,6 +71,7 @@ for i in range(start_index, len(metadata_items)):
         data["timeout"] = timeout
         data["target_version_match"] = target_version_match
         data["has_manifest"] = has_manifest
+        data["exist"] = exist
 
     except Exception as e:
         print(f"Error processing index {i} — {repo_url} / {cws_url}: {e}")

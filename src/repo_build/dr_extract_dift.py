@@ -21,7 +21,10 @@ timeout: true / false --> if just timeout of the build processes, take not of th
 
 '''
 
-def extractor(github_link, path, crx_link, token=None):
+def extractor(github_link, path, crx_link, token=None, github_username=None):
+
+  TOKEN = token
+
   git_output = GIT_UTIL.get_user_repo(github_link)
   if git_output == None:
     print("Failed")
@@ -40,7 +43,7 @@ def extractor(github_link, path, crx_link, token=None):
   # File locations
   git_path = path + "/" + reponame
   # print(f"git path: {git_path}")
-  GIT_UTIL.get_git_clone(username, reponame, git_path)
+  exists = GIT_UTIL.get_git_clone(username, reponame, git_path, github_username, TOKEN)
 
 
   # Extracting chromex
@@ -62,7 +65,7 @@ def extractor(github_link, path, crx_link, token=None):
   # print(target_versions[0])
   target_version = FILE_UTIL.extract_version_from_manifest(manifest_path)
 
-  TOKEN = token
+  
   ### Get all possible releases and check which ones have correct version number
   releases = GIT_UTIL.get_github_releases(username, reponame, token=TOKEN)
   tag_versions = [r['tag_name'] for r in releases]
@@ -116,7 +119,7 @@ def extractor(github_link, path, crx_link, token=None):
   GIT_UTIL.remove_git_repo(git_path)
   FILE_UTIL.remove_file(zip_path)
   FILE_UTIL.remove_chromex(chromex_path)
-  return buildable, timeout, target_version_match, has_manifest
+  return buildable, timeout, target_version_match, has_manifest, exists
 
 
 
