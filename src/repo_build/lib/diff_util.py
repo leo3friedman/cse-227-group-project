@@ -2,7 +2,7 @@ import os
 import tempfile
 import subprocess
 import re
-
+from pathlib import Path
 
 def compare_dirs_with_diffoscope(path1, path2):
     with tempfile.NamedTemporaryFile(delete=False) as diff_file:

@@ -293,7 +293,7 @@ def build_git_ref(repo_path, ref_name):
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            timeout=120
+            timeout=60
         )
 
         subprocess.run(
@@ -302,7 +302,7 @@ def build_git_ref(repo_path, ref_name):
             check=True,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            timeout=120
+            timeout=60
         )
 
         # Check for presence of manifest.json files
