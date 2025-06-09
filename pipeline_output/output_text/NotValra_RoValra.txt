@@ -1,0 +1,56 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/RoValra
+├── file list
+│ @@ -1,13 +1,17 @@
+│ +.git
+│  Assets
+│  Avatar
+│  Games
+│  HiddenGames
+│ +LICENSE
+│ +PrivacyPolicy.md
+│ +README.md
+│  Rules
+│ -_metadata
+│  background.js
+│  catalog
+│  content.js
+│  data
+│  manifest.json
+│  misc
+│ +package-lock.json
+│  settings.js
+│   --- /workspace/pipeline_output/chromex_data/Assets
+├── +++ /workspace/pipeline_output/RoValra/Assets
+│ ├── file list
+│ │ @@ -1,3 +1,4 @@
+│ │ +ChromeWebStore_BadgeWBorder_v2_206x58.png
+│ │  icon-128.png
+│ │  icon-16.png
+│ │  icon-48.png
+│   --- /workspace/pipeline_output/chromex_data/HiddenGames
+├── +++ /workspace/pipeline_output/RoValra/HiddenGames
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │  group_games.js
+│ │ +none-btroblox.js
+│ │  user_games.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/RoValra/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -80,15 +80,14 @@
+│ │      "name": "RoValra - Roblox Improved",
+│ │      "permissions": [
+│ │          "declarativeNetRequest",
+│ │          "storage",
+│ │          "tabs",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.9",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.roblox.com/*"
+│ │              ],
+│ │              "resources": [

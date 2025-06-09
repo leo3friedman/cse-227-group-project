@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/GPT-Prompter/dist
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.bundle.js
+│  content.bundle.js
+│  history.bundle.js
+│  history.html
+│  icons
+│  manifest.json
+│  markdown.bundle.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/GPT-Prompter/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,29 +29,28 @@
+│ │                  "popup_world.bundle.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ]
+│ │          }
+│ │      ],
+│ │ -    "description": "Fast custom prompts to GPT-3.5, GPT-4 and ChatGPT API",
+│ │ +    "description": "Fast custom prompts to GPT-3.5 and GPT-4 API",
+│ │      "icons": {
+│ │          "128": "icons/NewiconA128.png",
+│ │          "16": "icons/iconA16.png",
+│ │          "48": "icons/NewiconA48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "GPT-Prompter",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage",
+│ │          "commands",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.4.6",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*/*",
+│ │                  "http://*/*"
+│ │              ],

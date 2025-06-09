@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/screenshot-helper
+├── file list
+│ @@ -1,7 +1,13 @@
+│ -_metadata
+│ -background.js
+│ -content.js
+│ +.git
+│ +.gitignore
+│ +README.en.md
+│ +README.md
+│ +build.sh
+│ +dist
+│  icons
+│  manifest.json
+│ -popup.html
+│ -popup.js
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│ +src
+│ +tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/screenshot-helper/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │      ],
+│ │      "manifest_version": 3,
+│ │      "name": "Screenshot Helper",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "downloads"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3"
+│ │  }

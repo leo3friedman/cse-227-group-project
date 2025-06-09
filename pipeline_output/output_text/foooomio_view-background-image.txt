@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/view-background-image/src
+├── file list
+│ @@ -1,7 +1,8 @@
+│  _locales
+│ -_metadata
+│  background.js
+│  content.js
+│  icons
+│ +manifest.chrome.json
+│ +manifest.firefox.json
+│  manifest.json
+│  viewer
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/view-background-image/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      },
+│ │      "incognito": "split",
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extName__",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.4"
+│ │  }

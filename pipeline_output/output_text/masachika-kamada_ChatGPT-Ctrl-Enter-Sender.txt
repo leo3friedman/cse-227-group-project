@@ -1,0 +1,1308 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender
+├── file list
+│ @@ -1,9 +1,16 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +README.md
+│ +README_CH.md
+│ +README_JA.md
+│  _locales
+│ -_metadata
+│  background.js
+│  constants
+│  content
+│  icon
+│  manifest.json
+│  options
+│ -popup
+│ +package-lock.json
+│ +popup
+│ +tools
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,9 +1,8 @@
+│ │ │ -7b0d0a20202020226170704e616d65223a207b0d0a2020202020202020226d65
+│ │ │ -7373616765223a202243686174475054204374726c2b456e7465722053656e64
+│ │ │ -6572220d0a202020207d2c0d0a202020202261707044657363223a207b0d0a20
+│ │ │ -20202020202020226d657373616765223a202255736520274374726c2b456e74
+│ │ │ -65722720666f722073656e64696e67206d6573736167657320696e2041492063
+│ │ │ -686174207365727669636573206c696b6520436861744750542e205072657665
+│ │ │ -6e7473206163636964656e74616c2073656e647320616e6420616c6c6f777320
+│ │ │ -6c696e6520627265616b73207769746820456e7465722e220d0a202020207d0d
+│ │ │ -0a7d
+│ │ │ +7b0a20202020226170704e616d65223a207b0a2020202020202020226d657373
+│ │ │ +616765223a202243686174475054204374726c2b456e7465722053656e646572
+│ │ │ +220a202020207d2c0a202020202261707044657363223a207b0a202020202020
+│ │ │ +2020226d657373616765223a202255736520274374726c2b456e746572272066
+│ │ │ +6f722073656e64696e67206d6573736167657320696e20414920636861742073
+│ │ │ +65727669636573206c696b6520436861744750542e2050726576656e74732061
+│ │ │ +63636964656e74616c2073656e647320616e6420616c6c6f7773206c696e6520
+│ │ │ +627265616b73207769746820456e7465722e220a202020207d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/ja
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/ja
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/ja/messages.json
+│ │ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/ja/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,11 +1,10 @@
+│ │ │ -7b0d0a20202020226170704e616d65223a207b0d0a2020202020202020226d65
+│ │ │ -7373616765223a202243686174475054204374726c2b456e7465722053656e64
+│ │ │ -6572220d0a202020207d2c0d0a202020202261707044657363223a207b0d0a20
+│ │ │ -20202020202020226d657373616765223a202243686174475054e381aae381a9
+│ │ │ -e381ae4149e38381e383a3e38383e38388e382b5e383bce38393e382b9e381a7
+│ │ │ -e381aee383a1e38383e382bbe383bce382b8e98081e4bfa1e38292e3808c4374
+│ │ │ -726c2b456e746572e3808de381abe589b2e3828ae5bd93e381a6e38081e8aaa4
+│ │ │ -e98081e4bfa1e38292e998b2e3818ee381bee38199e38082456e746572e382ad
+│ │ │ -e383bce381a7e694b9e8a18ce381a7e3818de3828be3819fe38281e79bb4e684
+│ │ │ -9fe79a84e381abe6938de4bd9ce58fafe883bde381a7e38199e38082220d0a20
+│ │ │ -2020207d0d0a7d
+│ │ │ +7b0a20202020226170704e616d65223a207b0a2020202020202020226d657373
+│ │ │ +616765223a202243686174475054204374726c2b456e7465722053656e646572
+│ │ │ +220a202020207d2c0a202020202261707044657363223a207b0a202020202020
+│ │ │ +2020226d657373616765223a202243686174475054e381aae381a9e381ae4149
+│ │ │ +e38381e383a3e38383e38388e382b5e383bce38393e382b9e381a7e381aee383
+│ │ │ +a1e38383e382bbe383bce382b8e98081e4bfa1e38292e3808c4374726c2b456e
+│ │ │ +746572e3808de381abe589b2e3828ae5bd93e381a6e38081e8aaa4e98081e4bf
+│ │ │ +a1e38292e998b2e3818ee381bee38199e38082456e746572e382ade383bce381
+│ │ │ +a7e694b9e8a18ce381a7e3818de3828be3819fe38281e79bb4e6849fe79a84e3
+│ │ │ +81abe6938de4bd9ce58fafe883bde381a7e38199e38082220a202020207d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_CN
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/zh_CN
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_CN/messages.json
+│ │ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/zh_CN/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,9 +1,8 @@
+│ │ │ -7b0d0a20202020226170704e616d65223a207b0d0a2020202020202020226d65
+│ │ │ -7373616765223a202243686174475054204374726c2b456e7465722053656e64
+│ │ │ -6572220d0a202020207d2c0d0a202020202261707044657363223a207b0d0a20
+│ │ │ -20202020202020226d657373616765223a2022e8bf99e4b8aa43686174475054
+│ │ │ -e7ad894149e8818ae5a4a9e69c8de58aa1e8aea9e4bda0e794a8274374726c2b
+│ │ │ -456e74657227e58f91e98081e6b688e681afefbc8ce998b2e6ada2e8afafe58f
+│ │ │ -91e38082e794a820456e74657220e994aee58fafe4bba5e79bb4e68ea5e68da2
+│ │ │ -e8a18cefbc8ce794a8e8b5b7e69da5e5be88e79bb4e8a782e38082220d0a2020
+│ │ │ -20207d0d0a7d
+│ │ │ +7b0a20202020226170704e616d65223a207b0a2020202020202020226d657373
+│ │ │ +616765223a202243686174475054204374726c2b456e7465722053656e646572
+│ │ │ +220a202020207d2c0a202020202261707044657363223a207b0a202020202020
+│ │ │ +2020226d657373616765223a2022e8bf99e4b8aa43686174475054e7ad894149
+│ │ │ +e8818ae5a4a9e69c8de58aa1e8aea9e4bda0e794a8274374726c2b456e746572
+│ │ │ +27e58f91e98081e6b688e681afefbc8ce998b2e6ada2e8afafe58f91e38082e7
+│ │ │ +94a820456e74657220e994aee58fafe4bba5e79bb4e68ea5e68da2e8a18cefbc
+│ │ │ +8ce794a8e8b5b7e69da5e5be88e79bb4e8a782e38082220a202020207d0a7d
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,34 +1,34 @@
+│ │ -import {
+│ │ -    SUPPORTED_SITES
+│ │ -} from "./constants/supported-sites.js";
+│ │ -
+│ │ -function extractHostname(url) {
+│ │ -    try {
+│ │ -        return new URL(url).hostname;
+│ │ -    } catch (e) {
+│ │ -        return "";
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+│ │ -    const url = tab.url;
+│ │ -    const hostname = extractHostname(url);
+│ │ -
+│ │ -    if (!url || !SUPPORTED_SITES.includes(hostname)) {
+│ │ -        chrome.action.disable(tabId);
+│ │ -        return;
+│ │ -    }
+│ │ -
+│ │ -    if (changeInfo.status === "complete") {
+│ │ -        chrome.storage.sync.get("siteSettings", (data) => {
+│ │ -            const siteSettings = data.siteSettings || {};
+│ │ -            const isEnabled = siteSettings[hostname] ?? true;
+│ │ -
+│ │ -            chrome.action.setIcon({
+│ │ -                tabId,
+│ │ -                path: isEnabled ? "icon/enabled.png" : "icon/disabled.png"
+│ │ -            });
+│ │ -            chrome.action.enable(tabId);
+│ │ -        });
+│ │ -    }
+│ │ +import {
+│ │ +    SUPPORTED_SITES
+│ │ +} from "./constants/supported-sites.js";
+│ │ +
+│ │ +function extractHostname(url) {
+│ │ +    try {
+│ │ +        return new URL(url).hostname;
+│ │ +    } catch (e) {
+│ │ +        return "";
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+│ │ +    const url = tab.url;
+│ │ +    const hostname = extractHostname(url);
+│ │ +
+│ │ +    if (!url || !SUPPORTED_SITES.includes(hostname)) {
+│ │ +        chrome.action.disable(tabId);
+│ │ +        return;
+│ │ +    }
+│ │ +
+│ │ +    if (changeInfo.status === "complete") {
+│ │ +        chrome.storage.sync.get("siteSettings", (data) => {
+│ │ +            const siteSettings = data.siteSettings || {};
+│ │ +            const isEnabled = siteSettings[hostname] ?? true;
+│ │ +
+│ │ +            chrome.action.setIcon({
+│ │ +                tabId,
+│ │ +                path: isEnabled ? "icon/enabled.png" : "icon/disabled.png"
+│ │ +            });
+│ │ +            chrome.action.enable(tabId);
+│ │ +        });
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/constants
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/constants
+│ │   --- /workspace/pipeline_output/chromex_data/constants/supported-sites.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/constants/supported-sites.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,18 +1,18 @@
+│ │ │ +export const SUPPORTED_SITES = [
+│ │ │ +    "chatgpt.com",
+│ │ │ +    "poe.com",
+│ │ │ +    "www.phind.com",
+│ │ │ +    "chat.mistral.ai",
+│ │ │ +    "www.perplexity.ai",
+│ │ │ +    "claude.ai",
+│ │ │ +    "you.com",
+│ │ │ +    "v0.dev",
+│ │ │ +    "dashboard.cohere.com",
+│ │ │ +    "notebooklm.google.com",
+│ │ │ +    "gemini.google.com",
+│ │ │ +    "chat.deepseek.com",
+│ │ │ +    "github.com",
+│ │ │ +    "grok.com",
+│ │ │ +    "copilot.microsoft.com",
+│ │ │ +    "m365.cloud.microsoft"
+│ │ │ -export const SUPPORTED_SITES = [
+│ │ │ -    "chatgpt.com",
+│ │ │ -    "poe.com",
+│ │ │ -    "www.phind.com",
+│ │ │ -    "chat.mistral.ai",
+│ │ │ -    "www.perplexity.ai",
+│ │ │ -    "claude.ai",
+│ │ │ -    "you.com",
+│ │ │ -    "v0.dev",
+│ │ │ -    "dashboard.cohere.com",
+│ │ │ -    "notebooklm.google.com",
+│ │ │ -    "gemini.google.com",
+│ │ │ -    "chat.deepseek.com",
+│ │ │ -    "github.com",
+│ │ │ -    "grok.com",
+│ │ │ -    "copilot.microsoft.com",
+│ │ │ -    "m365.cloud.microsoft"
+│ │ │  ];
+│   --- /workspace/pipeline_output/chromex_data/content
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/content
+│ │   --- /workspace/pipeline_output/chromex_data/content/ctrl-enter-chatgpt.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/content/ctrl-enter-chatgpt.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,61 +1,61 @@
+│ │ │ +function handleCtrlEnter(event) {
+│ │ │ +    const isOnlyEnter = (event.code === "Enter") && !(event.ctrlKey || event.metaKey);
+│ │ │ +    const isCtrlEnter = (event.code === "Enter") && event.ctrlKey;
+│ │ │ +    const isPromptTextarea = event.target.id === "prompt-textarea";
+│ │ │ +
+│ │ │ +    // Ignore untrusted events
+│ │ │ +    if (!event.isTrusted) return;
+│ │ │ +
+│ │ │ +    // Specific handling for ChatGPT's prompt textarea
+│ │ │ +    if (isPromptTextarea && isOnlyEnter) {
+│ │ │ +        event.preventDefault();
+│ │ │ +        const newEvent = new KeyboardEvent("keydown", {
+│ │ │ +            key: "Enter",
+│ │ │ +            code: "Enter",
+│ │ │ +            bubbles: true,
+│ │ │ +            cancelable: true,
+│ │ │ +            ctrlKey: false,
+│ │ │ +            metaKey: false,
+│ │ │ +            shiftKey: true, // Simulate Shift+Enter to insert a line break
+│ │ │ +        });
+│ │ │ +        event.target.dispatchEvent(newEvent);
+│ │ │ +    } else if (isPromptTextarea && isCtrlEnter) {
+│ │ │ +        event.preventDefault();
+│ │ │ +        const newEvent = new KeyboardEvent("keydown", {
+│ │ │ +            key: "Enter",
+│ │ │ +            code: "Enter",
+│ │ │ +            bubbles: true,
+│ │ │ +            cancelable: true,
+│ │ │ +            ctrlKey: false,
+│ │ │ +            metaKey: true, // ChatGPT UI ignores Ctrl+Enter in narrow (mobile/sidebar) view; simulate Meta+Enter instead to ensure submission
+│ │ │ +            shiftKey: false,
+│ │ │ +        });
+│ │ │ +        event.target.dispatchEvent(newEvent);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    // On macOS, users can submit edits using the Meta key (Command key)
+│ │ │ +    // To allow submitting edits on Windows, convert Ctrl to Meta
+│ │ │ +    else if (event.target.tagName === "TEXTAREA" && isCtrlEnter) {
+│ │ │ +        event.preventDefault();
+│ │ │ +        const newEvent = new KeyboardEvent("keydown", {
+│ │ │ +            key: "Enter",
+│ │ │ +            code: "Enter",
+│ │ │ +            bubbles: true,
+│ │ │ +            cancelable: true,
+│ │ │ +            ctrlKey: false,
+│ │ │ +            metaKey: true, // Simulate Meta+Enter to trigger submit on Windows as well
+│ │ │ +            shiftKey: false,
+│ │ │ +        });
+│ │ │ +        event.target.dispatchEvent(newEvent);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Apply the setting based on the current site on initial load
+│ │ │ +applySiteSetting();
+│ │ │ +
+│ │ │ +// Listen for changes to the site settings and apply them dynamically
+│ │ │ +chrome.storage.onChanged.addListener((changes, area) => {
+│ │ │ +    if (area === "sync" && changes.siteSettings) {
+│ │ │ +        applySiteSetting();
+│ │ │ +    }
+│ │ │ -function handleCtrlEnter(event) {
+│ │ │ -    const isOnlyEnter = (event.code === "Enter") && !(event.ctrlKey || event.metaKey);
+│ │ │ -    const isCtrlEnter = (event.code === "Enter") && event.ctrlKey;
+│ │ │ -    const isPromptTextarea = event.target.id === "prompt-textarea";
+│ │ │ -
+│ │ │ -    // Ignore untrusted events
+│ │ │ -    if (!event.isTrusted) return;
+│ │ │ -
+│ │ │ -    // Specific handling for ChatGPT's prompt textarea
+│ │ │ -    if (isPromptTextarea && isOnlyEnter) {
+│ │ │ -        event.preventDefault();
+│ │ │ -        const newEvent = new KeyboardEvent("keydown", {
+│ │ │ -            key: "Enter",
+│ │ │ -            code: "Enter",
+│ │ │ -            bubbles: true,
+│ │ │ -            cancelable: true,
+│ │ │ -            ctrlKey: false,
+│ │ │ -            metaKey: false,
+│ │ │ -            shiftKey: true, // Simulate Shift+Enter to insert a line break
+│ │ │ -        });
+│ │ │ -        event.target.dispatchEvent(newEvent);
+│ │ │ -    } else if (isPromptTextarea && isCtrlEnter) {
+│ │ │ -        event.preventDefault();
+│ │ │ -        const newEvent = new KeyboardEvent("keydown", {
+│ │ │ -            key: "Enter",
+│ │ │ -            code: "Enter",
+│ │ │ -            bubbles: true,
+│ │ │ -            cancelable: true,
+│ │ │ -            ctrlKey: false,
+│ │ │ -            metaKey: true, // ChatGPT UI ignores Ctrl+Enter in narrow (mobile/sidebar) view; simulate Meta+Enter instead to ensure submission
+│ │ │ -            shiftKey: false,
+│ │ │ -        });
+│ │ │ -        event.target.dispatchEvent(newEvent);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    // On macOS, users can submit edits using the Meta key (Command key)
+│ │ │ -    // To allow submitting edits on Windows, convert Ctrl to Meta
+│ │ │ -    else if (event.target.tagName === "TEXTAREA" && isCtrlEnter) {
+│ │ │ -        event.preventDefault();
+│ │ │ -        const newEvent = new KeyboardEvent("keydown", {
+│ │ │ -            key: "Enter",
+│ │ │ -            code: "Enter",
+│ │ │ -            bubbles: true,
+│ │ │ -            cancelable: true,
+│ │ │ -            ctrlKey: false,
+│ │ │ -            metaKey: true, // Simulate Meta+Enter to trigger submit on Windows as well
+│ │ │ -            shiftKey: false,
+│ │ │ -        });
+│ │ │ -        event.target.dispatchEvent(newEvent);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Apply the setting based on the current site on initial load
+│ │ │ -applySiteSetting();
+│ │ │ -
+│ │ │ -// Listen for changes to the site settings and apply them dynamically
+│ │ │ -chrome.storage.onChanged.addListener((changes, area) => {
+│ │ │ -    if (area === "sync" && changes.siteSettings) {
+│ │ │ -        applySiteSetting();
+│ │ │ -    }
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/content/ctrl-enter-custom-inputs.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/content/ctrl-enter-custom-inputs.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,89 +1,89 @@
+│ │ │ +function shouldHandleCtrlEnter(url, event) {
+│ │ │ +    if (url.startsWith("https://claude.ai")) {
+│ │ │ +        return event.target.tagName === "DIV" && event.target.contentEditable === "true";
+│ │ │ +    } else if (url.startsWith("https://notebooklm.google.com")) {
+│ │ │ +        return event.target.tagName === "TEXTAREA" && event.target.classList.contains("query-box-input");
+│ │ │ +    } else if (url.startsWith("https://gemini.google.com")) {
+│ │ │ +        return event.target.tagName === "DIV" &&
+│ │ │ +            event.target.classList.contains("ql-editor") &&
+│ │ │ +            event.target.contentEditable === "true";
+│ │ │ +    } else if (url.startsWith("https://www.phind.com")) {
+│ │ │ +        return event.target.tagName === "DIV" &&
+│ │ │ +            event.target.classList.contains("public-DraftEditor-content") &&
+│ │ │ +            event.target.contentEditable === "true";
+│ │ │ +    } else if (url.startsWith("https://chat.deepseek.com")) {
+│ │ │ +        return event.target.id === "chat-input";
+│ │ │ +    } else if (url.startsWith("https://grok.com")) {
+│ │ │ +        return event.target.tagName === "TEXTAREA";
+│ │ │ +    } else if (url.startsWith("https://github.com")) {
+│ │ │ +        return event.target.getAttribute("placeholder") === "Ask Copilot";
+│ │ │ +    } else if (url.startsWith("https://m365.cloud.microsoft/chat")) {
+│ │ │ +        return event.target.id === "m365-chat-editor-target-element";
+│ │ │ +    }
+│ │ │ +    return false;
+│ │ │ +}
+│ │ │ +
+│ │ │ +function findSendButton() {
+│ │ │ +    const submitButton = document.querySelector('query-box form button[type="submit"]');
+│ │ │ +    if (submitButton) return submitButton;
+│ │ │ +    return null;
+│ │ │ +}
+│ │ │ +
+│ │ │ +function handleCtrlEnter(event) {
+│ │ │ +    const url = window.location.href;
+│ │ │ +
+│ │ │ +    if (!shouldHandleCtrlEnter(url, event) || !event.isTrusted) {
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const isOnlyEnter = (event.code === "Enter") && !(event.ctrlKey || event.metaKey);
+│ │ │ +    const isCtrlEnter = (event.code === "Enter") && (event.ctrlKey || event.metaKey);
+│ │ │ +
+│ │ │ +    if (isOnlyEnter || isCtrlEnter) {
+│ │ │ +        // Prevent default behavior only for certain sites
+│ │ │ +        const preventDefaultSites = ["https://claude.ai", "https://www.phind.com"];
+│ │ │ +        if (preventDefaultSites.some((site) => url.startsWith(site))) {
+│ │ │ +            event.preventDefault();
+│ │ │ +        }
+│ │ │ +        event.stopImmediatePropagation();
+│ │ │ +
+│ │ │ +        let eventConfig = {
+│ │ │ +            key: "Enter",
+│ │ │ +            code: "Enter",
+│ │ │ +            bubbles: true,
+│ │ │ +            cancelable: true,
+│ │ │ +            shiftKey: isOnlyEnter
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        // Phind requires keyCode to be set explicitly
+│ │ │ +        if (url.startsWith("https://www.phind.com")) {
+│ │ │ +            eventConfig.keyCode = 13;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        // M365 Chat requires keyCode=13 for Ctrl+Enter to send message
+│ │ │ +        if (url.startsWith("https://m365.cloud.microsoft/chat") && isCtrlEnter) {
+│ │ │ +            eventConfig.keyCode = 13;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        const newEvent = new KeyboardEvent("keydown", eventConfig);
+│ │ │ +        event.target.dispatchEvent(newEvent);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    // NotebookLM requires clicking the send button instead of dispatching Enter
+│ │ │ +    if (isCtrlEnter && url.startsWith("https://notebooklm.google.com")) {
+│ │ │ +        const sendButton = findSendButton();
+│ │ │ +        if (sendButton) {
+│ │ │ +            sendButton.click();
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Apply the setting based on the current site on initial load
+│ │ │ +applySiteSetting();
+│ │ │ +
+│ │ │ +// Listen for changes to the site settings and apply them dynamically
+│ │ │ +chrome.storage.onChanged.addListener((changes, area) => {
+│ │ │ +    if (area === "sync" && changes.siteSettings) {
+│ │ │ +        applySiteSetting();
+│ │ │ +    }
+│ │ │ -function shouldHandleCtrlEnter(url, event) {
+│ │ │ -    if (url.startsWith("https://claude.ai")) {
+│ │ │ -        return event.target.tagName === "DIV" && event.target.contentEditable === "true";
+│ │ │ -    } else if (url.startsWith("https://notebooklm.google.com")) {
+│ │ │ -        return event.target.tagName === "TEXTAREA" && event.target.classList.contains("query-box-input");
+│ │ │ -    } else if (url.startsWith("https://gemini.google.com")) {
+│ │ │ -        return event.target.tagName === "DIV" &&
+│ │ │ -            event.target.classList.contains("ql-editor") &&
+│ │ │ -            event.target.contentEditable === "true";
+│ │ │ -    } else if (url.startsWith("https://www.phind.com")) {
+│ │ │ -        return event.target.tagName === "DIV" &&
+│ │ │ -            event.target.classList.contains("public-DraftEditor-content") &&
+│ │ │ -            event.target.contentEditable === "true";
+│ │ │ -    } else if (url.startsWith("https://chat.deepseek.com")) {
+│ │ │ -        return event.target.id === "chat-input";
+│ │ │ -    } else if (url.startsWith("https://grok.com")) {
+│ │ │ -        return event.target.tagName === "TEXTAREA";
+│ │ │ -    } else if (url.startsWith("https://github.com")) {
+│ │ │ -        return event.target.getAttribute("placeholder") === "Ask Copilot";
+│ │ │ -    } else if (url.startsWith("https://m365.cloud.microsoft/chat")) {
+│ │ │ -        return event.target.id === "m365-chat-editor-target-element";
+│ │ │ -    }
+│ │ │ -    return false;
+│ │ │ -}
+│ │ │ -
+│ │ │ -function findSendButton() {
+│ │ │ -    const submitButton = document.querySelector('query-box form button[type="submit"]');
+│ │ │ -    if (submitButton) return submitButton;
+│ │ │ -    return null;
+│ │ │ -}
+│ │ │ -
+│ │ │ -function handleCtrlEnter(event) {
+│ │ │ -    const url = window.location.href;
+│ │ │ -
+│ │ │ -    if (!shouldHandleCtrlEnter(url, event) || !event.isTrusted) {
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const isOnlyEnter = (event.code === "Enter") && !(event.ctrlKey || event.metaKey);
+│ │ │ -    const isCtrlEnter = (event.code === "Enter") && (event.ctrlKey || event.metaKey);
+│ │ │ -
+│ │ │ -    if (isOnlyEnter || isCtrlEnter) {
+│ │ │ -        // Prevent default behavior only for certain sites
+│ │ │ -        const preventDefaultSites = ["https://claude.ai", "https://www.phind.com"];
+│ │ │ -        if (preventDefaultSites.some((site) => url.startsWith(site))) {
+│ │ │ -            event.preventDefault();
+│ │ │ -        }
+│ │ │ -        event.stopImmediatePropagation();
+│ │ │ -
+│ │ │ -        let eventConfig = {
+│ │ │ -            key: "Enter",
+│ │ │ -            code: "Enter",
+│ │ │ -            bubbles: true,
+│ │ │ -            cancelable: true,
+│ │ │ -            shiftKey: isOnlyEnter
+│ │ │ -        };
+│ │ │ -
+│ │ │ -        // Phind requires keyCode to be set explicitly
+│ │ │ -        if (url.startsWith("https://www.phind.com")) {
+│ │ │ -            eventConfig.keyCode = 13;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        // M365 Chat requires keyCode=13 for Ctrl+Enter to send message
+│ │ │ -        if (url.startsWith("https://m365.cloud.microsoft/chat") && isCtrlEnter) {
+│ │ │ -            eventConfig.keyCode = 13;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        const newEvent = new KeyboardEvent("keydown", eventConfig);
+│ │ │ -        event.target.dispatchEvent(newEvent);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    // NotebookLM requires clicking the send button instead of dispatching Enter
+│ │ │ -    if (isCtrlEnter && url.startsWith("https://notebooklm.google.com")) {
+│ │ │ -        const sendButton = findSendButton();
+│ │ │ -        if (sendButton) {
+│ │ │ -            sendButton.click();
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Apply the setting based on the current site on initial load
+│ │ │ -applySiteSetting();
+│ │ │ -
+│ │ │ -// Listen for changes to the site settings and apply them dynamically
+│ │ │ -chrome.storage.onChanged.addListener((changes, area) => {
+│ │ │ -    if (area === "sync" && changes.siteSettings) {
+│ │ │ -        applySiteSetting();
+│ │ │ -    }
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/content/ctrl-enter-textarea.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/content/ctrl-enter-textarea.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,22 +1,22 @@
+│ │ │ +function handleCtrlEnter(event) {
+│ │ │ +    if (event.target.tagName !== "TEXTAREA" || !event.isTrusted) {
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const isOnlyEnter = (event.code === "Enter") && !(event.ctrlKey || event.metaKey);
+│ │ │ +
+│ │ │ +    if (isOnlyEnter) {
+│ │ │ +        // stopPropagation for both Windows and Mac
+│ │ │ +        event.stopPropagation();
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Apply the setting based on the current site on initial load
+│ │ │ +applySiteSetting();
+│ │ │ +
+│ │ │ +// Listen for changes to the site settings and apply them dynamically
+│ │ │ +chrome.storage.onChanged.addListener((changes, area) => {
+│ │ │ +    if (area === "sync" && changes.siteSettings) {
+│ │ │ +        applySiteSetting();
+│ │ │ +    }
+│ │ │ -function handleCtrlEnter(event) {
+│ │ │ -    if (event.target.tagName !== "TEXTAREA" || !event.isTrusted) {
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const isOnlyEnter = (event.code === "Enter") && !(event.ctrlKey || event.metaKey);
+│ │ │ -
+│ │ │ -    if (isOnlyEnter) {
+│ │ │ -        // stopPropagation for both Windows and Mac
+│ │ │ -        event.stopPropagation();
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Apply the setting based on the current site on initial load
+│ │ │ -applySiteSetting();
+│ │ │ -
+│ │ │ -// Listen for changes to the site settings and apply them dynamically
+│ │ │ -chrome.storage.onChanged.addListener((changes, area) => {
+│ │ │ -    if (area === "sync" && changes.siteSettings) {
+│ │ │ -        applySiteSetting();
+│ │ │ -    }
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/content/ctrl-enter-utils.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/content/ctrl-enter-utils.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,30 +1,30 @@
+│ │ │ +function enableSendingWithCtrlEnter() {
+│ │ │ +    document.addEventListener("keydown", handleCtrlEnter, {
+│ │ │ +        capture: true
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +function disableSendingWithCtrlEnter() {
+│ │ │ +    document.removeEventListener("keydown", handleCtrlEnter, {
+│ │ │ +        capture: true
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +function getHostname() {
+│ │ │ +    return window.location.hostname;
+│ │ │ +}
+│ │ │ +
+│ │ │ +function applySiteSetting() {
+│ │ │ +    const hostname = getHostname();
+│ │ │ +
+│ │ │ +    chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ +        const settings = data.siteSettings || {};
+│ │ │ +        const isEnabled = settings[hostname] ?? true;
+│ │ │ +
+│ │ │ +        if (isEnabled) {
+│ │ │ +            enableSendingWithCtrlEnter();
+│ │ │ +        } else {
+│ │ │ +            disableSendingWithCtrlEnter();
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ -function enableSendingWithCtrlEnter() {
+│ │ │ -    document.addEventListener("keydown", handleCtrlEnter, {
+│ │ │ -        capture: true
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -function disableSendingWithCtrlEnter() {
+│ │ │ -    document.removeEventListener("keydown", handleCtrlEnter, {
+│ │ │ -        capture: true
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -function getHostname() {
+│ │ │ -    return window.location.hostname;
+│ │ │ -}
+│ │ │ -
+│ │ │ -function applySiteSetting() {
+│ │ │ -    const hostname = getHostname();
+│ │ │ -
+│ │ │ -    chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ -        const settings = data.siteSettings || {};
+│ │ │ -        const isEnabled = settings[hostname] ?? true;
+│ │ │ -
+│ │ │ -        if (isEnabled) {
+│ │ │ -            enableSendingWithCtrlEnter();
+│ │ │ -        } else {
+│ │ │ -            disableSendingWithCtrlEnter();
+│ │ │ -        }
+│ │ │ -    });
+│ │ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -83,10 +83,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_appName__",
+│ │      "options_page": "options/options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.css
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options/options.css
+│ │┄ Ordering differences only
+│ │ @@ -1,45 +1,45 @@
+│ │ +body {
+│ │ +  font-family: sans-serif;
+│ │ +  margin: 24px 36px;
+│ │ +}
+│ │ +
+│ │ +h2 {
+│ │ +  margin-bottom: 16px;
+│ │ +}
+│ │ +
+│ │ +label {
+│ │ +  display: block;
+│ │ +  font-size: 15px;
+│ │ +  margin: 5px 0;
+│ │ +}
+│ │ +
+│ │ +.site-label {
+│ │ +  display: block;
+│ │ +  margin: 4px 0;
+│ │ +  font-size: 14px;
+│ │ +}
+│ │ +
+│ │ +#siteList {
+│ │ +  margin-top: 8px;
+│ │ +  border: 1px solid #ddd;
+│ │ +  padding: 8px;
+│ │ +  border-radius: 4px;
+│ │ +}
+│ │ +
+│ │ +button {
+│ │ +  min-width: 100px;
+│ │ +  padding: 10px 20px;
+│ │ +  font-size: 16px;
+│ │ +  margin-top: 16px;
+│ │ +  background-color: #4CAF50;
+│ │ +  color: white;
+│ │ +  border: none;
+│ │ +  border-radius: 4px;
+│ │ +  cursor: pointer;
+│ │ +  transition: background-color 0.2s ease;
+│ │ +}
+│ │ +
+│ │ +button:disabled {
+│ │ +  background-color: #9ccc9c;
+│ │ +  cursor: not-allowed;
+│ │ +}
+│ │ -body {
+│ │ -  font-family: sans-serif;
+│ │ -  margin: 24px 36px;
+│ │ -}
+│ │ -
+│ │ -h2 {
+│ │ -  margin-bottom: 16px;
+│ │ -}
+│ │ -
+│ │ -label {
+│ │ -  display: block;
+│ │ -  font-size: 15px;
+│ │ -  margin: 5px 0;
+│ │ -}
+│ │ -
+│ │ -.site-label {
+│ │ -  display: block;
+│ │ -  margin: 4px 0;
+│ │ -  font-size: 14px;
+│ │ -}
+│ │ -
+│ │ -#siteList {
+│ │ -  margin-top: 8px;
+│ │ -  border: 1px solid #ddd;
+│ │ -  padding: 8px;
+│ │ -  border-radius: 4px;
+│ │ -}
+│ │ -
+│ │ -button {
+│ │ -  min-width: 100px;
+│ │ -  padding: 10px 20px;
+│ │ -  font-size: 16px;
+│ │ -  margin-top: 16px;
+│ │ -  background-color: #4CAF50;
+│ │ -  color: white;
+│ │ -  border: none;
+│ │ -  border-radius: 4px;
+│ │ -  cursor: pointer;
+│ │ -  transition: background-color 0.2s ease;
+│ │ -}
+│ │ -
+│ │ -button:disabled {
+│ │ -  background-color: #9ccc9c;
+│ │ -  cursor: not-allowed;
+│ │ -}
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.html
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options/options.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,21 +1,21 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html lang="en">
+│ │ +
+│ │ +<head>
+│ │ +  <meta charset="UTF-8">
+│ │ +  <title>ChatGPT Ctrl+Enter Sender Settings</title>
+│ │ +  <link rel="stylesheet" href="./options.css">
+│ │ +</head>
+│ │ +
+│ │ +<body>
+│ │ +  <h2>ChatGPT Ctrl+Enter Sender</h2>
+│ │ +
+│ │ +  <label><input type="checkbox" id="selectAll"> Select All</label>
+│ │ +  <div id="siteList"></div>
+│ │ +
+│ │ +  <button id="saveButton">Save</button>
+│ │ +
+│ │ +  <script type="module" src="./options.js"></script>
+│ │ +</body>
+│ │ +
+│ │ +</html>
+│ │ -<!DOCTYPE html>
+│ │ -<html lang="en">
+│ │ -
+│ │ -<head>
+│ │ -  <meta charset="UTF-8">
+│ │ -  <title>ChatGPT Ctrl+Enter Sender Settings</title>
+│ │ -  <link rel="stylesheet" href="./options.css">
+│ │ -</head>
+│ │ -
+│ │ -<body>
+│ │ -  <h2>ChatGPT Ctrl+Enter Sender</h2>
+│ │ -
+│ │ -  <label><input type="checkbox" id="selectAll"> Select All</label>
+│ │ -  <div id="siteList"></div>
+│ │ -
+│ │ -  <button id="saveButton">Save</button>
+│ │ -
+│ │ -  <script type="module" src="./options.js"></script>
+│ │ -</body>
+│ │ -
+│ │ -</html>
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options/options.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,63 +1,63 @@
+│ │ │ +import {
+│ │ │ +    SUPPORTED_SITES
+│ │ │ +} from "../constants/supported-sites.js";
+│ │ │ +
+│ │ │ +const siteList = document.getElementById("siteList");
+│ │ │ +const selectAllCheckbox = document.getElementById("selectAll");
+│ │ │ +const saveButton = document.getElementById("saveButton");
+│ │ │ +
+│ │ │ +// Render checkbox list based on the SUPPORTED_SITES array
+│ │ │ +function renderCheckboxes(savedSettings = {}) {
+│ │ │ +    siteList.innerHTML = '';
+│ │ │ +    SUPPORTED_SITES.forEach((hostname) => {
+│ │ │ +        const checkbox = document.createElement("input");
+│ │ │ +        checkbox.type = "checkbox";
+│ │ │ +        checkbox.id = hostname;
+│ │ │ +        checkbox.checked = savedSettings[hostname] ?? true;
+│ │ │ +
+│ │ │ +        const label = document.createElement("label");
+│ │ │ +        label.className = "site-label";
+│ │ │ +        label.appendChild(checkbox);
+│ │ │ +        label.append(` https://${hostname}`);
+│ │ │ +
+│ │ │ +        siteList.appendChild(label);
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Save settings to chrome.storage
+│ │ │ +function saveSettings() {
+│ │ │ +    const settings = {};
+│ │ │ +    SUPPORTED_SITES.forEach((hostname) => {
+│ │ │ +        const checkbox = document.getElementById(hostname);
+│ │ │ +        settings[hostname] = checkbox.checked;
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    chrome.storage.sync.set({
+│ │ │ +        siteSettings: settings
+│ │ │ +    }, () => {
+│ │ │ +        const originalText = saveButton.textContent;
+│ │ │ +        saveButton.textContent = "Saved!";
+│ │ │ +        saveButton.disabled = true;
+│ │ │ +        setTimeout(() => {
+│ │ │ +            saveButton.textContent = originalText;
+│ │ │ +            saveButton.disabled = false;
+│ │ │ +        }, 500);
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Handle Select All checkbox
+│ │ │ +selectAllCheckbox.addEventListener("change", () => {
+│ │ │ +    const allChecked = selectAllCheckbox.checked;
+│ │ │ +    SUPPORTED_SITES.forEach((hostname) => {
+│ │ │ +        const checkbox = document.getElementById(hostname);
+│ │ │ +        if (checkbox) checkbox.checked = allChecked;
+│ │ │ +    });
+│ │ │ +});
+│ │ │ +
+│ │ │ +// Save button click
+│ │ │ +saveButton.addEventListener("click", saveSettings);
+│ │ │ +
+│ │ │ +// Load saved settings on page load
+│ │ │ +chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ +    renderCheckboxes(data.siteSettings || {});
+│ │ │ -import {
+│ │ │ -    SUPPORTED_SITES
+│ │ │ -} from "../constants/supported-sites.js";
+│ │ │ -
+│ │ │ -const siteList = document.getElementById("siteList");
+│ │ │ -const selectAllCheckbox = document.getElementById("selectAll");
+│ │ │ -const saveButton = document.getElementById("saveButton");
+│ │ │ -
+│ │ │ -// Render checkbox list based on the SUPPORTED_SITES array
+│ │ │ -function renderCheckboxes(savedSettings = {}) {
+│ │ │ -    siteList.innerHTML = '';
+│ │ │ -    SUPPORTED_SITES.forEach((hostname) => {
+│ │ │ -        const checkbox = document.createElement("input");
+│ │ │ -        checkbox.type = "checkbox";
+│ │ │ -        checkbox.id = hostname;
+│ │ │ -        checkbox.checked = savedSettings[hostname] ?? true;
+│ │ │ -
+│ │ │ -        const label = document.createElement("label");
+│ │ │ -        label.className = "site-label";
+│ │ │ -        label.appendChild(checkbox);
+│ │ │ -        label.append(` https://${hostname}`);
+│ │ │ -
+│ │ │ -        siteList.appendChild(label);
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Save settings to chrome.storage
+│ │ │ -function saveSettings() {
+│ │ │ -    const settings = {};
+│ │ │ -    SUPPORTED_SITES.forEach((hostname) => {
+│ │ │ -        const checkbox = document.getElementById(hostname);
+│ │ │ -        settings[hostname] = checkbox.checked;
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    chrome.storage.sync.set({
+│ │ │ -        siteSettings: settings
+│ │ │ -    }, () => {
+│ │ │ -        const originalText = saveButton.textContent;
+│ │ │ -        saveButton.textContent = "Saved!";
+│ │ │ -        saveButton.disabled = true;
+│ │ │ -        setTimeout(() => {
+│ │ │ -            saveButton.textContent = originalText;
+│ │ │ -            saveButton.disabled = false;
+│ │ │ -        }, 500);
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Handle Select All checkbox
+│ │ │ -selectAllCheckbox.addEventListener("change", () => {
+│ │ │ -    const allChecked = selectAllCheckbox.checked;
+│ │ │ -    SUPPORTED_SITES.forEach((hostname) => {
+│ │ │ -        const checkbox = document.getElementById(hostname);
+│ │ │ -        if (checkbox) checkbox.checked = allChecked;
+│ │ │ -    });
+│ │ │ -});
+│ │ │ -
+│ │ │ -// Save button click
+│ │ │ -saveButton.addEventListener("click", saveSettings);
+│ │ │ -
+│ │ │ -// Load saved settings on page load
+│ │ │ -chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ -    renderCheckboxes(data.siteSettings || {});
+│ │ │  });
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.css
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup/popup.css
+│ │┄ Ordering differences only
+│ │ @@ -1,96 +1,96 @@
+│ │ +body {
+│ │ +  padding: 10px;
+│ │ +  min-width: 180px;
+│ │ +  background-color: #202123;
+│ │ +  font-family: sans-serif;
+│ │ +  color: #DADADA;
+│ │ +}
+│ │ +
+│ │ +.main-container {
+│ │ +  display: flex;
+│ │ +  flex-direction: column;
+│ │ +  align-items: center;
+│ │ +  gap: 10px;
+│ │ +}
+│ │ +
+│ │ +.toggle-row {
+│ │ +  display: flex;
+│ │ +  align-items: center;
+│ │ +  gap: 10px;
+│ │ +}
+│ │ +
+│ │ +.toggle_button {
+│ │ +  height: 20px;
+│ │ +  width: 43px;
+│ │ +  position: relative;
+│ │ +}
+│ │ +
+│ │ +.toggle_input {
+│ │ +  position: absolute;
+│ │ +  opacity: 0;
+│ │ +  cursor: pointer;
+│ │ +  height: 100%;
+│ │ +  left: 0;
+│ │ +  top: 0;
+│ │ +  width: 100%;
+│ │ +  z-index: 5;
+│ │ +}
+│ │ +
+│ │ +.toggle_label {
+│ │ +  background: #ccc;
+│ │ +  border-radius: 10px;
+│ │ +  display: inline-block;
+│ │ +  height: 20px;
+│ │ +  position: relative;
+│ │ +  transition: 0.3s;
+│ │ +  width: 43px;
+│ │ +  box-sizing: border-box;
+│ │ +}
+│ │ +
+│ │ +.toggle_label:after {
+│ │ +  background: #fff;
+│ │ +  border-radius: 100%;
+│ │ +  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+│ │ +  content: "";
+│ │ +  height: 20px;
+│ │ +  left: 0;
+│ │ +  position: absolute;
+│ │ +  top: 0;
+│ │ +  transition: 0.3s;
+│ │ +  width: 20px;
+│ │ +  z-index: 2;
+│ │ +}
+│ │ +
+│ │ +.toggle_input:checked+.toggle_label {
+│ │ +  background-color: #4BD865;
+│ │ +}
+│ │ +
+│ │ +.toggle_input:checked+.toggle_label:after {
+│ │ +  left: 23px;
+│ │ +}
+│ │ +
+│ │ +.message {
+│ │ +  font-size: 14px;
+│ │ +  line-height: 1.4;
+│ │ +}
+│ │ +
+│ │ +.settings-link {
+│ │ +  font-size: 13px;
+│ │ +  color: #999;
+│ │ +  text-decoration: none;
+│ │ +  transition: color 0.2s ease;
+│ │ +  display: flex;
+│ │ +  align-items: center;
+│ │ +  gap: 4px;
+│ │ +  margin: 0 auto;
+│ │ +}
+│ │ +
+│ │ +.settings-link:hover {
+│ │ +  color: #4BD865;
+│ │ +}
+│ │ +
+│ │ +.external-icon {
+│ │ +  font-size: 16px;
+│ │ +  opacity: 0.7;
+│ │ +  font-weight: bold;
+│ │ +}
+│ │ -body {
+│ │ -  padding: 10px;
+│ │ -  min-width: 180px;
+│ │ -  background-color: #202123;
+│ │ -  font-family: sans-serif;
+│ │ -  color: #DADADA;
+│ │ -}
+│ │ -
+│ │ -.main-container {
+│ │ -  display: flex;
+│ │ -  flex-direction: column;
+│ │ -  align-items: center;
+│ │ -  gap: 10px;
+│ │ -}
+│ │ -
+│ │ -.toggle-row {
+│ │ -  display: flex;
+│ │ -  align-items: center;
+│ │ -  gap: 10px;
+│ │ -}
+│ │ -
+│ │ -.toggle_button {
+│ │ -  height: 20px;
+│ │ -  width: 43px;
+│ │ -  position: relative;
+│ │ -}
+│ │ -
+│ │ -.toggle_input {
+│ │ -  position: absolute;
+│ │ -  opacity: 0;
+│ │ -  cursor: pointer;
+│ │ -  height: 100%;
+│ │ -  left: 0;
+│ │ -  top: 0;
+│ │ -  width: 100%;
+│ │ -  z-index: 5;
+│ │ -}
+│ │ -
+│ │ -.toggle_label {
+│ │ -  background: #ccc;
+│ │ -  border-radius: 10px;
+│ │ -  display: inline-block;
+│ │ -  height: 20px;
+│ │ -  position: relative;
+│ │ -  transition: 0.3s;
+│ │ -  width: 43px;
+│ │ -  box-sizing: border-box;
+│ │ -}
+│ │ -
+│ │ -.toggle_label:after {
+│ │ -  background: #fff;
+│ │ -  border-radius: 100%;
+│ │ -  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+│ │ -  content: "";
+│ │ -  height: 20px;
+│ │ -  left: 0;
+│ │ -  position: absolute;
+│ │ -  top: 0;
+│ │ -  transition: 0.3s;
+│ │ -  width: 20px;
+│ │ -  z-index: 2;
+│ │ -}
+│ │ -
+│ │ -.toggle_input:checked+.toggle_label {
+│ │ -  background-color: #4BD865;
+│ │ -}
+│ │ -
+│ │ -.toggle_input:checked+.toggle_label:after {
+│ │ -  left: 23px;
+│ │ -}
+│ │ -
+│ │ -.message {
+│ │ -  font-size: 14px;
+│ │ -  line-height: 1.4;
+│ │ -}
+│ │ -
+│ │ -.settings-link {
+│ │ -  font-size: 13px;
+│ │ -  color: #999;
+│ │ -  text-decoration: none;
+│ │ -  transition: color 0.2s ease;
+│ │ -  display: flex;
+│ │ -  align-items: center;
+│ │ -  gap: 4px;
+│ │ -  margin: 0 auto;
+│ │ -}
+│ │ -
+│ │ -.settings-link:hover {
+│ │ -  color: #4BD865;
+│ │ -}
+│ │ -
+│ │ -.external-icon {
+│ │ -  font-size: 16px;
+│ │ -  opacity: 0.7;
+│ │ -  font-weight: bold;
+│ │ -}
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.html
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup/popup.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,31 +1,31 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +
+│ │ +<head>
+│ │ +  <meta charset="UTF-8">
+│ │ +  <title>ChatGPT Ctrl+Enter Sender Options</title>
+│ │ +  <link rel="stylesheet" href="./popup.css">
+│ │ +</head>
+│ │ +
+│ │ +<body>
+│ │ +  <div class="main-container">
+│ │ +    <div class="toggle-row">
+│ │ +      <div class="toggle_button">
+│ │ +        <input id="isEnabled" class="toggle_input" type="checkbox" />
+│ │ +        <label for="isEnabled" class="toggle_label"></label>
+│ │ +      </div>
+│ │ +      <div class="message">
+│ │ +        Enable on this site
+│ │ +      </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <a href="../options/options.html" id="settingsLink" target="_blank" class="settings-link">
+│ │ +      All Site Settings
+│ │ +      <span class="external-icon">↗</span>
+│ │ +    </a>
+│ │ +  </div>
+│ │ +
+│ │ +  <script type="module" src="./popup.js"></script>
+│ │ +</body>
+│ │ +
+│ │ +</html>
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -
+│ │ -<head>
+│ │ -  <meta charset="UTF-8">
+│ │ -  <title>ChatGPT Ctrl+Enter Sender Options</title>
+│ │ -  <link rel="stylesheet" href="./popup.css">
+│ │ -</head>
+│ │ -
+│ │ -<body>
+│ │ -  <div class="main-container">
+│ │ -    <div class="toggle-row">
+│ │ -      <div class="toggle_button">
+│ │ -        <input id="isEnabled" class="toggle_input" type="checkbox" />
+│ │ -        <label for="isEnabled" class="toggle_label"></label>
+│ │ -      </div>
+│ │ -      <div class="message">
+│ │ -        Enable on this site
+│ │ -      </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <a href="../options/options.html" id="settingsLink" target="_blank" class="settings-link">
+│ │ -      All Site Settings
+│ │ -      <span class="external-icon">↗</span>
+│ │ -    </a>
+│ │ -  </div>
+│ │ -
+│ │ -  <script type="module" src="./popup.js"></script>
+│ │ -</body>
+│ │ -
+│ │ -</html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.js
+│ ├── +++ /workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup/popup.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,62 +1,62 @@
+│ │ │ +import {
+│ │ │ +    SUPPORTED_SITES
+│ │ │ +} from "../constants/supported-sites.js";
+│ │ │ +
+│ │ │ +let isEnabled = false;
+│ │ │ +const toggleButton = document.querySelector("#isEnabled");
+│ │ │ +
+│ │ │ +function extractHostname(url) {
+│ │ │ +    try {
+│ │ │ +        return new URL(url).hostname;
+│ │ │ +    } catch (e) {
+│ │ │ +        return "";
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +chrome.tabs.query({
+│ │ │ +    active: true,
+│ │ │ +    currentWindow: true
+│ │ │ +}, (tabs) => {
+│ │ │ +    const tab = tabs[0];
+│ │ │ +    const hostname = extractHostname(tab.url);
+│ │ │ +
+│ │ │ +    chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ +        const siteSettings = data.siteSettings || {};
+│ │ │ +        isEnabled = siteSettings[hostname] ?? true;
+│ │ │ +        toggleButton.checked = isEnabled;
+│ │ │ +        updateIcon(isEnabled, tab.id, hostname);
+│ │ │ +    });
+│ │ │ +});
+│ │ │ +
+│ │ │ +toggleButton.addEventListener("change", () => {
+│ │ │ +    chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, (tabs) => {
+│ │ │ +        const tab = tabs[0];
+│ │ │ +        const hostname = extractHostname(tab.url);
+│ │ │ +        isEnabled = toggleButton.checked;
+│ │ │ +
+│ │ │ +        chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ +            const siteSettings = data.siteSettings || {};
+│ │ │ +            siteSettings[hostname] = isEnabled;
+│ │ │ +            chrome.storage.sync.set({
+│ │ │ +                siteSettings
+│ │ │ +            }, () => {
+│ │ │ +                updateIcon(isEnabled, tab.id, hostname);
+│ │ │ +            });
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +});
+│ │ │ +
+│ │ │ +function updateIcon(enabled, tabId, hostname) {
+│ │ │ +    if (SUPPORTED_SITES.includes(hostname)) {
+│ │ │ +        chrome.action.setIcon({
+│ │ │ +            tabId,
+│ │ │ +            path: enabled ? "../icon/enabled.png" : "../icon/disabled.png"
+│ │ │ +        });
+│ │ │ +        chrome.action.enable(tabId);
+│ │ │ +    } else {
+│ │ │ +        chrome.action.disable(tabId);
+│ │ │ +    }
+│ │ │ -import {
+│ │ │ -    SUPPORTED_SITES
+│ │ │ -} from "../constants/supported-sites.js";
+│ │ │ -
+│ │ │ -let isEnabled = false;
+│ │ │ -const toggleButton = document.querySelector("#isEnabled");
+│ │ │ -
+│ │ │ -function extractHostname(url) {
+│ │ │ -    try {
+│ │ │ -        return new URL(url).hostname;
+│ │ │ -    } catch (e) {
+│ │ │ -        return "";
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -chrome.tabs.query({
+│ │ │ -    active: true,
+│ │ │ -    currentWindow: true
+│ │ │ -}, (tabs) => {
+│ │ │ -    const tab = tabs[0];
+│ │ │ -    const hostname = extractHostname(tab.url);
+│ │ │ -
+│ │ │ -    chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ -        const siteSettings = data.siteSettings || {};
+│ │ │ -        isEnabled = siteSettings[hostname] ?? true;
+│ │ │ -        toggleButton.checked = isEnabled;
+│ │ │ -        updateIcon(isEnabled, tab.id, hostname);
+│ │ │ -    });
+│ │ │ -});
+│ │ │ -
+│ │ │ -toggleButton.addEventListener("change", () => {
+│ │ │ -    chrome.tabs.query({
+│ │ │ -        active: true,
+│ │ │ -        currentWindow: true
+│ │ │ -    }, (tabs) => {
+│ │ │ -        const tab = tabs[0];
+│ │ │ -        const hostname = extractHostname(tab.url);
+│ │ │ -        isEnabled = toggleButton.checked;
+│ │ │ -
+│ │ │ -        chrome.storage.sync.get("siteSettings", (data) => {
+│ │ │ -            const siteSettings = data.siteSettings || {};
+│ │ │ -            siteSettings[hostname] = isEnabled;
+│ │ │ -            chrome.storage.sync.set({
+│ │ │ -                siteSettings
+│ │ │ -            }, () => {
+│ │ │ -                updateIcon(isEnabled, tab.id, hostname);
+│ │ │ -            });
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -});
+│ │ │ -
+│ │ │ -function updateIcon(enabled, tabId, hostname) {
+│ │ │ -    if (SUPPORTED_SITES.includes(hostname)) {
+│ │ │ -        chrome.action.setIcon({
+│ │ │ -            tabId,
+│ │ │ -            path: enabled ? "../icon/enabled.png" : "../icon/disabled.png"
+│ │ │ -        });
+│ │ │ -        chrome.action.enable(tabId);
+│ │ │ -    } else {
+│ │ │ -        chrome.action.disable(tabId);
+│ │ │ -    }
+│ │ │  }

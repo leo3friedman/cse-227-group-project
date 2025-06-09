@@ -1,0 +1,36 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome
+  - files: _metadata
+  + files: .eslintrc.json
+
+---/workspace/pipeline_output/chromex_data/_locales/ru <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome/_locales/ru
+  - files: 
+  + files: description_from_webstore.txt
+
+---/workspace/pipeline_output/chromex_data/help.html <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome/help.html; File type: html
+  - Original: 11–11
+  - Original: 24–24
+  - Original: 27–27
+  - Original: 33–33
+  - Original: 41–41
+  - Original: 44–44
+  - Original: 58–58
+  - Original: 62–62
+  - Original: 76–76
+  + Modified: 11–76
+  - Original: 107–107
+  - Original: 118–118
+  + Modified: 107–118
+  - Original: 135–135
+  - Original: 140–140
+  + Modified: 135–140
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome/manifest.json; File type: json
+  - Original: 55–55 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/sync_help.html <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome/sync_help.html; File type: html
+  - Original: 18–18
+  - Original: 26–26
+  - Original: 36–36
+  - Original: 39–39
+  + Modified: 18–39
+

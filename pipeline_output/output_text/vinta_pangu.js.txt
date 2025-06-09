@@ -1,0 +1,199 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/pangu.js/browser_extensions/chrome
+├── file list
+│ @@ -1,9 +1,8 @@
+│  _locales
+│ -_metadata
+│  images
+│  js
+│  manifest.json
+│  pages
+│  sounds
+│  stylesheets
+│  vendors
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/pangu.js/browser_extensions/chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -41,10 +41,9 @@
+│ │          "storage",
+│ │          "tabs",
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "file:///*/*"
+│ │      ],
+│ │      "short_name": "__MSG_god_of_spacing__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.0.7"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/vendors
+├── +++ /workspace/pipeline_output/pangu.js/browser_extensions/chrome/vendors
+│ │   --- /workspace/pipeline_output/chromex_data/vendors/pangu
+│ ├── +++ /workspace/pipeline_output/pangu.js/browser_extensions/chrome/vendors/pangu
+│ │ │   --- /workspace/pipeline_output/chromex_data/vendors/pangu/pangu.min.js
+│ │ ├── +++ /workspace/pipeline_output/pangu.js/browser_extensions/chrome/vendors/pangu/pangu.min.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -93,15 +93,15 @@
+│ │ │ │                  })(e, t)
+│ │ │ │              }
+│ │ │ │              var c = function(e) {
+│ │ │ │                      function t() {
+│ │ │ │                          var e;
+│ │ │ │                          return function(e, t) {
+│ │ │ │                              if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
+│ │ │ │ -                        }(this, t), (e = i(this, o(t).call(this))).blockTags = /^(div|p|h1|h2|h3|h4|h5|h6)$/i, e.ignoredTags = /^(script|code|pre|textarea)$/i, e.presentationalTags = /^(b|code|del|em|i|s|strong)$/i, e.spaceLikeTags = /^(br|hr|i|img|pangu)$/i, e.spaceSensitiveTags = /^(a|del|pre|s|strike|u)$/i, e.isAutoSpacingPageExecuted = !1, e
+│ │ │ │ +                        }(this, t), (e = i(this, o(t).call(this))).blockTags = /^(div|p|h1|h2|h3|h4|h5|h6)$/i, e.ignoredTags = /^(script|code|pre|textarea)$/i, e.presentationalTags = /^(b|code|del|em|i|s|strong|kbd)$/i, e.spaceLikeTags = /^(br|hr|i|img|pangu)$/i, e.spaceSensitiveTags = /^(a|del|pre|s|strike|u)$/i, e.isAutoSpacingPageExecuted = !1, e
+│ │ │ │                      }
+│ │ │ │                      return function(e, t) {
+│ │ │ │                          if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
+│ │ │ │                          e.prototype = Object.create(t && t.prototype, {
+│ │ │ │                              constructor: {
+│ │ │ │                                  value: e,
+│ │ │ │                                  writable: !0,
+│ │ │ │ @@ -154,63 +154,64 @@
+│ │ │ │                                  if (i.nodeType !== Node.COMMENT_NODE && i.textContent) return i === t
+│ │ │ │                              }
+│ │ │ │                              return !1
+│ │ │ │                          }
+│ │ │ │                      }, {
+│ │ │ │                          key: "spacingNodeByXPath",
+│ │ │ │                          value: function(e, t) {
+│ │ │ │ -                            for (var n, a, i = document.evaluate(e, t, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null), o = i.snapshotLength - 1; o > -1; --o) {
+│ │ │ │ -                                if (n = i.snapshotItem(o), this.isSpecificTag(n.parentNode, this.presentationalTags) && !this.isInsideSpecificTag(n.parentNode, this.ignoredTags)) {
+│ │ │ │ -                                    var r = n.parentNode;
+│ │ │ │ -                                    if (r.previousSibling) {
+│ │ │ │ -                                        var c = r.previousSibling;
+│ │ │ │ -                                        if (c.nodeType === Node.TEXT_NODE) {
+│ │ │ │ -                                            var s = c.data.substr(-1) + n.data.toString().charAt(0),
+│ │ │ │ -                                                u = this.spacing(s);
+│ │ │ │ -                                            s !== u && (c.data = "".concat(c.data, " "))
+│ │ │ │ +                            if (t instanceof Node && !(t instanceof DocumentFragment))
+│ │ │ │ +                                for (var n, a, i = document.evaluate(e, t, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null), o = i.snapshotLength - 1; o > -1; --o) {
+│ │ │ │ +                                    if (n = i.snapshotItem(o), this.isSpecificTag(n.parentNode, this.presentationalTags) && !this.isInsideSpecificTag(n.parentNode, this.ignoredTags)) {
+│ │ │ │ +                                        var r = n.parentNode;
+│ │ │ │ +                                        if (r.previousSibling) {
+│ │ │ │ +                                            var c = r.previousSibling;
+│ │ │ │ +                                            if (c.nodeType === Node.TEXT_NODE) {
+│ │ │ │ +                                                var s = c.data.substr(-1) + n.data.toString().charAt(0),
+│ │ │ │ +                                                    u = this.spacing(s);
+│ │ │ │ +                                                s !== u && (c.data = "".concat(c.data, " "))
+│ │ │ │ +                                            }
+│ │ │ │                                          }
+│ │ │ │ -                                    }
+│ │ │ │ -                                    if (r.nextSibling) {
+│ │ │ │ -                                        var p = r.nextSibling;
+│ │ │ │ -                                        if (p.nodeType === Node.TEXT_NODE) {
+│ │ │ │ -                                            var l = n.data.substr(-1) + p.data.toString().charAt(0),
+│ │ │ │ -                                                f = this.spacing(l);
+│ │ │ │ -                                            l !== f && (p.data = " ".concat(p.data))
+│ │ │ │ +                                        if (r.nextSibling) {
+│ │ │ │ +                                            var p = r.nextSibling;
+│ │ │ │ +                                            if (p.nodeType === Node.TEXT_NODE) {
+│ │ │ │ +                                                var l = n.data.substr(-1) + p.data.toString().charAt(0),
+│ │ │ │ +                                                    f = this.spacing(l);
+│ │ │ │ +                                                l !== f && (p.data = " ".concat(p.data))
+│ │ │ │ +                                            }
+│ │ │ │                                          }
+│ │ │ │                                      }
+│ │ │ │ -                                }
+│ │ │ │ -                                if (this.canIgnoreNode(n)) a = n;
+│ │ │ │ -                                else {
+│ │ │ │ -                                    var g = this.spacing(n.data);
+│ │ │ │ -                                    if (n.data !== g && (n.data = g), a) {
+│ │ │ │ -                                        if (n.nextSibling && n.nextSibling.nodeName.search(this.spaceLikeTags) >= 0) {
+│ │ │ │ -                                            a = n;
+│ │ │ │ -                                            continue
+│ │ │ │ -                                        }
+│ │ │ │ -                                        var d = n.data.toString().substr(-1) + a.data.toString().substr(0, 1),
+│ │ │ │ -                                            h = this.spacing(d);
+│ │ │ │ -                                        if (h !== d) {
+│ │ │ │ -                                            for (var y = a; y.parentNode && -1 === y.nodeName.search(this.spaceSensitiveTags) && this.isFirstTextChild(y.parentNode, y);) y = y.parentNode;
+│ │ │ │ -                                            for (var v = n; v.parentNode && -1 === v.nodeName.search(this.spaceSensitiveTags) && this.isLastTextChild(v.parentNode, v);) v = v.parentNode;
+│ │ │ │ -                                            if (v.nextSibling && v.nextSibling.nodeName.search(this.spaceLikeTags) >= 0) {
+│ │ │ │ +                                    if (this.canIgnoreNode(n)) a = n;
+│ │ │ │ +                                    else {
+│ │ │ │ +                                        var g = this.spacing(n.data);
+│ │ │ │ +                                        if (n.data !== g && (n.data = g), a) {
+│ │ │ │ +                                            if (n.nextSibling && n.nextSibling.nodeName.search(this.spaceLikeTags) >= 0) {
+│ │ │ │                                                  a = n;
+│ │ │ │                                                  continue
+│ │ │ │                                              }
+│ │ │ │ -                                            if (-1 === v.nodeName.search(this.blockTags))
+│ │ │ │ -                                                if (-1 === y.nodeName.search(this.spaceSensitiveTags)) - 1 === y.nodeName.search(this.ignoredTags) && -1 === y.nodeName.search(this.blockTags) && (a.previousSibling ? -1 === a.previousSibling.nodeName.search(this.spaceLikeTags) && (a.data = " ".concat(a.data)) : this.canIgnoreNode(a) || (a.data = " ".concat(a.data)));
+│ │ │ │ -                                                else if (-1 === v.nodeName.search(this.spaceSensitiveTags)) n.data = "".concat(n.data, " ");
+│ │ │ │ -                                            else {
+│ │ │ │ -                                                var b = document.createElement("pangu");
+│ │ │ │ -                                                b.innerHTML = " ", y.previousSibling ? -1 === y.previousSibling.nodeName.search(this.spaceLikeTags) && y.parentNode.insertBefore(b, y) : y.parentNode.insertBefore(b, y), b.previousElementSibling || b.parentNode && b.parentNode.removeChild(b)
+│ │ │ │ +                                            var d = n.data.toString().substr(-1) + a.data.toString().substr(0, 1),
+│ │ │ │ +                                                h = this.spacing(d);
+│ │ │ │ +                                            if (h !== d) {
+│ │ │ │ +                                                for (var y = a; y.parentNode && -1 === y.nodeName.search(this.spaceSensitiveTags) && this.isFirstTextChild(y.parentNode, y);) y = y.parentNode;
+│ │ │ │ +                                                for (var v = n; v.parentNode && -1 === v.nodeName.search(this.spaceSensitiveTags) && this.isLastTextChild(v.parentNode, v);) v = v.parentNode;
+│ │ │ │ +                                                if (v.nextSibling && v.nextSibling.nodeName.search(this.spaceLikeTags) >= 0) {
+│ │ │ │ +                                                    a = n;
+│ │ │ │ +                                                    continue
+│ │ │ │ +                                                }
+│ │ │ │ +                                                if (-1 === v.nodeName.search(this.blockTags))
+│ │ │ │ +                                                    if (-1 === y.nodeName.search(this.spaceSensitiveTags)) - 1 === y.nodeName.search(this.ignoredTags) && -1 === y.nodeName.search(this.blockTags) && (a.previousSibling ? -1 === a.previousSibling.nodeName.search(this.spaceLikeTags) && (a.data = " ".concat(a.data)) : this.canIgnoreNode(a) || (a.data = " ".concat(a.data)));
+│ │ │ │ +                                                    else if (-1 === v.nodeName.search(this.spaceSensitiveTags)) n.data = "".concat(n.data, " ");
+│ │ │ │ +                                                else {
+│ │ │ │ +                                                    var b = document.createElement("pangu");
+│ │ │ │ +                                                    b.innerHTML = " ", y.previousSibling ? -1 === y.previousSibling.nodeName.search(this.spaceLikeTags) && y.parentNode.insertBefore(b, y) : y.parentNode.insertBefore(b, y), b.previousElementSibling || b.parentNode && b.parentNode.removeChild(b)
+│ │ │ │ +                                                }
+│ │ │ │                                              }
+│ │ │ │                                          }
+│ │ │ │ +                                        a = n
+│ │ │ │                                      }
+│ │ │ │ -                                    a = n
+│ │ │ │                                  }
+│ │ │ │ -                            }
+│ │ │ │                          }
+│ │ │ │                      }, {
+│ │ │ │                          key: "spacingNode",
+│ │ │ │                          value: function(e) {
+│ │ │ │                              var t = ".//*/text()[normalize-space(.)]";
+│ │ │ │                              e.children && 0 === e.children.length && (t = ".//text()[normalize-space(.)]"), this.spacingNodeByXPath(t, e)
+│ │ │ │                          }
+│ │ │ │ @@ -372,21 +373,21 @@
+│ │ │ │                  g = new RegExp("(')([".concat(a, "])"), "g"),
+│ │ │ │                  d = new RegExp("([A-Za-z0-9".concat(a, "])( )('s)"), "g"),
+│ │ │ │                  h = new RegExp("([".concat(a, "])(#)([").concat(a, "]+)(#)([").concat(a, "])"), "g"),
+│ │ │ │                  y = new RegExp("([".concat(a, "])(#([^ ]))"), "g"),
+│ │ │ │                  v = new RegExp("(([^ ])#)([".concat(a, "])"), "g"),
+│ │ │ │                  b = new RegExp("([".concat(a, "])([\\+\\-\\*\\/=&\\|<>])([A-Za-z0-9])"), "g"),
+│ │ │ │                  m = new RegExp("([A-Za-z0-9])([\\+\\-\\*\\/=&\\|<>])([".concat(a, "])"), "g"),
+│ │ │ │ -                $ = /([\/]) ([a-z\\-_\\.\/]+)/g,
+│ │ │ │ -                E = /([\/\\.])([A-Za-z\\-_\\.\/]+) ([\/])/g,
+│ │ │ │ +                $ = /([\/]) ([a-z\-_\.\/]+)/g,
+│ │ │ │ +                E = /([\/\.])([A-Za-z\-_\.\/]+) ([\/])/g,
+│ │ │ │                  S = new RegExp("([".concat(a, "])([\\(\\[\\{<>“])"), "g"),
+│ │ │ │                  T = new RegExp("([\\)\\]\\}<>”])([".concat(a, "])"), "g"),
+│ │ │ │ -                w = /([\(\[\{<\u201c]+)[ ]*(.+?)[ ]*([\)\]\}>\u201d]+)/,
+│ │ │ │ -                N = new RegExp("([A-Za-z0-9".concat(a, "])[ ]*([“])([A-Za-z0-9").concat(a, "-_ ]+)([”])"), "g"),
+│ │ │ │ -                k = new RegExp("([“])([A-Za-z0-9".concat(a, "-_ ]+)([”])[ ]*([A-Za-z0-9").concat(a, "])"), "g"),
+│ │ │ │ +                N = /([\(\[\{<\u201c]+)[ ]*(.+?)[ ]*([\)\]\}>\u201d]+)/,
+│ │ │ │ +                w = new RegExp("([A-Za-z0-9".concat(a, "])[ ]*([“])([A-Za-z0-9").concat(a, "\\-_ ]+)([”])"), "g"),
+│ │ │ │ +                k = new RegExp("([“])([A-Za-z0-9".concat(a, "\\-_ ]+)([”])[ ]*([A-Za-z0-9").concat(a, "])"), "g"),
+│ │ │ │                  P = /([A-Za-z0-9])([\(\[\{])/g,
+│ │ │ │                  O = /([\)\]\}])([A-Za-z0-9])/g,
+│ │ │ │                  _ = new RegExp("([".concat(a, "])([A-Za-zͰ-Ͽ0-9@\\$%\\^&\\*\\-\\+\\\\=\\|/¡-ÿ⅐-↏✀—➿])"), "g"),
+│ │ │ │                  x = new RegExp("([A-Za-zͰ-Ͽ0-9~\\$%\\^&\\*\\-\\+\\\\=\\|/!;:,\\.\\?¡-ÿ⅐-↏✀—➿])([".concat(a, "])"), "g"),
+│ │ │ │                  R = /(%)([A-Za-z])/g,
+│ │ │ │                  A = /([ ]*)([\u00b7\u2022\u2027])([ ]*)/g,
+│ │ │ │                  j = function() {
+│ │ │ │ @@ -409,15 +410,15 @@
+│ │ │ │                                  a = e;
+│ │ │ │                              return a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = (a = a.replace(o, function(e, t, a, i) {
+│ │ │ │                                  var o = n.convertToFullwidth(a);
+│ │ │ │                                  return "".concat(t).concat(o).concat(i)
+│ │ │ │                              })).replace(r, function(e, t, a) {
+│ │ │ │                                  var i = n.convertToFullwidth(a);
+│ │ │ │                                  return "".concat(t).concat(i)
+│ │ │ │ -                            })).replace(c, "$1 $2")).replace(s, "$1：$2")).replace(u, "$1 $2")).replace(p, "$1 $2")).replace(l, "$1$2$3")).replace(f, "$1 $2")).replace(g, "$1 $2")).replace(d, "$1's")).replace(h, "$1 $2$3$4 $5")).replace(y, "$1 $2")).replace(v, "$1 $3")).replace(b, "$1 $2 $3")).replace(m, "$1 $2 $3")).replace($, "$1$2")).replace(E, "$1$2$3")).replace(S, "$1 $2")).replace(T, "$1 $2")).replace(w, "$1$2$3")).replace(N, "$1 $2$3$4")).replace(k, "$1$2$3 $4")).replace(P, "$1 $2")).replace(O, "$1 $2")).replace(_, "$1 $2")).replace(x, "$1 $2")).replace(R, "$1 $2")).replace(A, "・")
+│ │ │ │ +                            })).replace(c, "$1 $2")).replace(s, "$1：$2")).replace(u, "$1 $2")).replace(p, "$1 $2")).replace(l, "$1$2$3")).replace(f, "$1 $2")).replace(g, "$1 $2")).replace(d, "$1's")).replace(h, "$1 $2$3$4 $5")).replace(y, "$1 $2")).replace(v, "$1 $3")).replace(b, "$1 $2 $3")).replace(m, "$1 $2 $3")).replace($, "$1$2")).replace(E, "$1$2$3")).replace(S, "$1 $2")).replace(T, "$1 $2")).replace(N, "$1$2$3")).replace(w, "$1 $2$3$4")).replace(k, "$1$2$3 $4")).replace(P, "$1 $2")).replace(O, "$1 $2")).replace(_, "$1 $2")).replace(x, "$1 $2")).replace(R, "$1 $2")).replace(A, "・")
+│ │ │ │                          }
+│ │ │ │                      }, {
+│ │ │ │                          key: "spacingText",
+│ │ │ │                          value: function(e) {
+│ │ │ │                              var t, n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : function() {};
+│ │ │ │                              try {
+│ │ │ │                                  t = this.spacing(e)

@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DyslexiaReaderChrome/Chrome Extension Files
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  css
+│  images
+│  js
+│  manifest.json
+│  options.html
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DyslexiaReaderChrome/Chrome Extension Files/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │      "short_name": "DRC",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "5.0.0"
+│ │  }
