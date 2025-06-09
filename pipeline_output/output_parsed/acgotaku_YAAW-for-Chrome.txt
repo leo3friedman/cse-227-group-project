@@ -1,0 +1,17 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/YAAW-for-Chrome
+  - files: _metadata, css, images, js, options.html
+  + files: .DS_Store, .browserslistrc, .eslintrc.yml, .git, .github, .gitignore, .gitmodules, .stylelintrc.json, LICENSE, README.md, gulpfile.esm.js, node_modules, package, package-lock.json, package.json, pnpm-lock.yaml, src
+
+---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/YAAW-for-Chrome/background.js; File type: js
+  - Original: 28–29
+  + Modified: 28–29
+  - Original: 147–147
+  + Modified: 147–147
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/YAAW-for-Chrome/manifest.json; File type: json
+  - Original: 31–31 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/yaaw <-> +++/workspace/pipeline_output/YAAW-for-Chrome/yaaw
+  - files: README.md, TODO.md, css, img, index.html, js, offline.appcache
+  + files: 
+

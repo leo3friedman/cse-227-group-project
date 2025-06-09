@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/sprint-reader-chrome
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  CONTRIBUTING.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  lib
+│  manifest.json
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/sprint-reader-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -52,15 +52,14 @@
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "activeTab",
+│ │          "clipboardRead",
+│ │          "storage",
+│ │          "system.display"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

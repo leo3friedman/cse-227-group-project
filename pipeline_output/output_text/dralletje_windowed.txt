@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/windowed/extension
+├── file list
+│ @@ -1,10 +1,9 @@
+│  Background
+│  Content.js
+│  Icons
+│  Images
+│  Popup
+│  Vendor
+│  Windowed-inject-into-page.js
+│ -_metadata
+│  manifest.json
+│  tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/windowed/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -53,15 +53,14 @@
+│ │      "name": "Windowed - floating Youtube/every website",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs",
+│ │          "offscreen"
+│ │      ],
+│ │      "short_name": "Windowed",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "33",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

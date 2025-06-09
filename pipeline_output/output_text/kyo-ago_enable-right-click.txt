@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/enable-right-click
+├── file list
+│ @@ -1,6 +1,9 @@
+│ +.git
+│ +README.md
+│ +ScreenShot
+│  _locales
+│ -_metadata
+│  img
+│  manifest.json
+│ +package-lock.json
+│  src
+│  web_accessible_resources
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/enable-right-click/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,13 +32,12 @@
+│ │          "page": "src/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "<all_urls>",
+│ │          "storage",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.10",
+│ │      "web_accessible_resources": [
+│ │          "/web_accessible_resources/index.js"
+│ │      ]
+│ │  }

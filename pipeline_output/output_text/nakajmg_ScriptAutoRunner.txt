@@ -1,0 +1,52 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ScriptAutoRunner
+├── file list
+│ @@ -1,10 +1,16 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +bower.json
+│  css
+│ +gulpfile.babel.js
+│  img
+│  js
+│  manifest.json
+│ +node_modules
+│  options.html
+│ +package-lock.json
+│  package.json
+│ -popup.html
+│ +popup.html
+│ +ss
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/ScriptAutoRunner/README.md
+│ @@ -1,7 +1,9 @@
+│ +# ⚠️ This extension relies on features that are no longer supported under [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3). As a result, it can no longer be used or maintained. Thank you for using this extension for such a long time👋
+│ +
+│  # ScriptAutoRunner
+│  
+│  Injects to any Script into a Website. It can be autorun as well.
+│  
+│  ![](ss/02.png)
+│  
+│  ## Install
+│ ├── encoding
+│ │ @@ -1 +1 @@
+│ │ -us-ascii
+│ │ +utf-8
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ScriptAutoRunner/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "ScriptAutoRunner",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0"
+│ │  }

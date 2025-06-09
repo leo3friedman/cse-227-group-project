@@ -1,0 +1,61 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Strict-Workflow
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  _locales
+│ -_metadata
+│  background.js
+│  content_scripts
+│  icons
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  ring.ogg
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/Strict-Workflow/_locales
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │  en
+│ │ +pt_BR
+│ │  ru
+│ │  uk
+│ │  zh_CN
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/Strict-Workflow/background.js
+│ ├── js-beautify {}
+│ │ @@ -315,14 +315,15 @@
+│ │              if (PREFS.showNotifications) {
+│ │                  var nextModeName = chrome.i18n.getMessage(timer.pomodoro.nextMode);
+│ │                  chrome.notifications.create("", {
+│ │                      type: "basic",
+│ │                      title: chrome.i18n.getMessage("timer_end_notification_header"),
+│ │                      message: chrome.i18n.getMessage("timer_end_notification_body",
+│ │                          nextModeName),
+│ │ +                    priority: 2,
+│ │                      iconUrl: ICONS.FULL[timer.type]
+│ │                  }, function() {});
+│ │              }
+│ │  
+│ │              if (PREFS.shouldRing) {
+│ │                  console.log("playing ring", RING);
+│ │                  RING.play();
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Strict-Workflow/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,14 +18,13 @@
+│ │      "name": "__MSG_ext_name__",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "notifications",
+│ │          "tabs",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.2",
+│ │      "web_accessible_resources": [
+│ │          "icons/work_full.png",
+│ │          "icons/break_full.png"
+│ │      ]
+│ │  }

@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/HumbleNewTabPage
+├── file list
+│ @@ -1,7 +1,11 @@
+│ +.git
+│  LICENSE_MIT.txt
+│ -_metadata
+│ +README.md
+│  icons
+│  manifest.json
+│ +media
+│  newtab.css
+│  newtab.html
+│ -newtab.js
+│ +newtab.js
+│ +package-lock.json
+│ +privacy.md
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/HumbleNewTabPage/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │          "favicon",
+│ │          "topSites",
+│ │          "tabs",
+│ │          "fontSettings",
+│ │          "sessions"
+│ │      ],
+│ │      "short_name": "HNTP",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.26.1"
+│ │  }

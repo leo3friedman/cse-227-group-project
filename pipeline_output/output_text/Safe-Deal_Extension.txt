@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Extension/webpack/manifest_v3
+├── file list
+│ @@ -1,6 +1 @@
+│ -_locales
+│ -_metadata
+│ -manifest.json
+│ -popup.html
+│ -res
+│ -scripts
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Extension/webpack/manifest_v3/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -117,10 +117,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_appName__",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │      "short_name": "__MSG_appNameShort__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "5.8.17"
+│ │  }

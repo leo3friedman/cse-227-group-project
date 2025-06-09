@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/scrolltotop/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  icons
+│  manifest.json
+│  options
+│  pratikabu-stt.css
+│  pratikabu-stt.js
+│  thirdparty
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/scrolltotop/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,15 +32,14 @@
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "5.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

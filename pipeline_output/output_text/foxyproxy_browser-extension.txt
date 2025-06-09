@@ -1,0 +1,87 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/browser-extension/src
+├── file list
+│ @@ -1,5 +1,5 @@
+│  _locales
+│ -_metadata
+│  content
+│  image
+│ +manifest-basic.json
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/image
+├── +++ /workspace/pipeline_output/browser-extension/src/image
+│ │   --- /workspace/pipeline_output/chromex_data/image/beaker.svg
+│ ├── +++ /workspace/pipeline_output/browser-extension/src/image/beaker.svg
+│ │ @@ -1,9 +1,10 @@
+│ │  <!-- This Source Code Form is subject to the terms of the Mozilla Public
+│ │     - License, v. 2.0. If a copy of the MPL was not distributed with this
+│ │     - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+│ │ +
+│ │  <svg fill="#09d" xmlns="http://www.w3.org/2000/svg" width="26" height="28" aria-hidden="true">
+│ │ +  <path d="M23.859 22.625C25.031 24.484 24.203 26 22 26H4c-2.203 
+│ │ +    0-3.031-1.516-1.859-3.375L10 10.234V4H9c-.547 0-1-.453-1-1s.453-1 
+│ │ +    1-1h8c.547 0 1 .453 1 1s-.453 1-1 1h-1v6.234zM11.688 11.297L7.438 
+│ │ -  <path d="M23.859 22.625C25.031 24.484 24.203 26 22 26H4c-2.203
+│ │ -    0-3.031-1.516-1.859-3.375L10 10.234V4H9c-.547 0-1-.453-1-1s.453-1
+│ │ -    1-1h8c.547 0 1 .453 1 1s-.453 1-1 1h-1v6.234zM11.688 11.297L7.438
+│ │      18h11.125l-4.25-6.703-.313-.484V4h-2v6.813z"/>
+│ │  </svg>
+│ │   --- /workspace/pipeline_output/chromex_data/image/bin.svg
+│ ├── +++ /workspace/pipeline_output/browser-extension/src/image/bin.svg
+│ │┄ Ordering differences only
+│ │ @@ -1,4 +1,4 @@
+│ │ +<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+│ │ +<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" fill="#f90">
+│ │ +<g><path d="M163.1,316.3v612.5c0,33.7,27.6,61.3,61.3,61.3h551.3c33.7,0,61.3-27.6,61.3-61.3V316.3H163.1z M346.9,867.5h-61.3V438.8h61.3V867.5z M469.4,867.5h-61.3V438.8h61.3V867.5z M591.9,867.5h-61.3V438.8h61.3V867.5z M714.4,867.5h-61.3V438.8h61.3V867.5z"/><path d="M852.2,132.5H653.1V55.9c0-25.3-20.7-45.9-45.9-45.9H392.8c-25.3,0-45.9,20.7-45.9,45.9v76.6H147.8c-25.3,0-45.9,20.7-45.9,45.9V255h796.3v-76.6C898.1,153.2,877.5,132.5,852.2,132.5z M591.9,132.5H408.1V72h183.8V132.5z"/></g>
+│ │ -<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+│ │ -<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" fill="#f90">
+│ │ -<g><path d="M163.1,316.3v612.5c0,33.7,27.6,61.3,61.3,61.3h551.3c33.7,0,61.3-27.6,61.3-61.3V316.3H163.1z M346.9,867.5h-61.3V438.8h61.3V867.5z M469.4,867.5h-61.3V438.8h61.3V867.5z M591.9,867.5h-61.3V438.8h61.3V867.5z M714.4,867.5h-61.3V438.8h61.3V867.5z"/><path d="M852.2,132.5H653.1V55.9c0-25.3-20.7-45.9-45.9-45.9H392.8c-25.3,0-45.9,20.7-45.9,45.9v76.6H147.8c-25.3,0-45.9,20.7-45.9,45.9V255h796.3v-76.6C898.1,153.2,877.5,132.5,852.2,132.5z M591.9,132.5H408.1V72h183.8V132.5z"/></g>
+│ │  </svg>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/browser-extension/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,15 +13,15 @@
+│ │              "content/background.js"
+│ │          ],
+│ │          "service_worker": "content/background.js",
+│ │          "type": "module"
+│ │      },
+│ │      "browser_specific_settings": {
+│ │          "gecko": {
+│ │ -            "id": "foxyproxy-basic@eric.h.jung",
+│ │ +            "id": "foxyproxy@eric.h.jung",
+│ │              "strict_min_version": "128.0"
+│ │          },
+│ │          "gecko_android": {
+│ │              "strict_min_version": "128.0"
+│ │          }
+│ │      },
+│ │      "commands": {
+│ │ @@ -57,15 +57,15 @@
+│ │          "128": "image/icon128.png",
+│ │          "16": "image/icon.png",
+│ │          "32": "image/icon32.png",
+│ │          "48": "image/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "108",
+│ │ -    "name": "__MSG_extensionNameBasic__",
+│ │ +    "name": "__MSG_extensionName__",
+│ │      "optional_permissions": [
+│ │          "browsingData",
+│ │          "privacy"
+│ │      ],
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "content/options.html"
+│ │ @@ -79,10 +79,9 @@
+│ │          "tabs",
+│ │          "webRequest",
+│ │          "webRequestAuthProvider"
+│ │      ],
+│ │      "storage": {
+│ │          "managed_schema": "content/schema.json"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "9.2"
+│ │  }

@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cloaq/build
+├── file list
+│ @@ -1,7 +1,6 @@
+│  _locales
+│ -_metadata
+│  css
+│  html
+│  img
+│  js
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cloaq/build/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      "name": "__MSG_extName__",
+│ │      "options_page": "html/info.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "webNavigation",
+│ │          "debugger"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.2"
+│ │  }

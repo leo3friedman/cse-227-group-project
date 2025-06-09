@@ -1,0 +1,17 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/scriptcat/src
+  - files: _locales, _metadata, src
+  + files: app, content.ts, index.css, inject.ts, linter.worker.ts, locales, offscreen.ts, pages, pkg, react-env.d.ts, sandbox.ts, service_worker.ts, template, types
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/scriptcat/src/assets
+  - files: 
+  + files: _locales, logo-beta.png
+
+---/workspace/pipeline_output/chromex_data/assets/logo.png <-> +++/workspace/pipeline_output/scriptcat/src/assets/logo.png; File type: png
+  - Original: 1–179
+  + Modified: 1–107
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/scriptcat/src/manifest.json; File type: json
+  - Original: 22–22
+  + Modified: 22–22
+  - Original: 49–49 -> Update URL
+

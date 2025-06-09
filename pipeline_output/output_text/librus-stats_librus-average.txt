@@ -1,0 +1,2239 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/librus-average
+├── file list
+│ @@ -1,9 +1,11 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  _locales
+│ -_metadata
+│  css
+│  html
+│  icons
+│  js
+│  manifest.json
+│ -materialize
+│ +materialize
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/LICENSE
+├── +++ /workspace/pipeline_output/librus-average/LICENSE
+│┄ Ordering differences only
+│ @@ -1,21 +1,21 @@
+│ -MIT License
+│ -
+│ -Copyright (c) 2019 Krzysztof Zdulski
+│ -
+│ -Permission is hereby granted, free of charge, to any person obtaining a copy
+│ -of this software and associated documentation files (the "Software"), to deal
+│ -in the Software without restriction, including without limitation the rights
+│ -to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ -copies of the Software, and to permit persons to whom the Software is
+│ -furnished to do so, subject to the following conditions:
+│ -
+│ -The above copyright notice and this permission notice shall be included in all
+│ -copies or substantial portions of the Software.
+│ -
+│ -THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ -IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ -FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ -AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ -LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ -OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ -SOFTWARE.
+│ +MIT License
+│ +
+│ +Copyright (c) 2019 Krzysztof Zdulski
+│ +
+│ +Permission is hereby granted, free of charge, to any person obtaining a copy
+│ +of this software and associated documentation files (the "Software"), to deal
+│ +in the Software without restriction, including without limitation the rights
+│ +to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ +copies of the Software, and to permit persons to whom the Software is
+│ +furnished to do so, subject to the following conditions:
+│ +
+│ +The above copyright notice and this permission notice shall be included in all
+│ +copies or substantial portions of the Software.
+│ +
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ +IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ +FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ +AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ +LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ +SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/librus-average/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/librus-average/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/librus-average/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,56 +1,54 @@
+│ │ │ -7b0d0a2020226170705f6e616d65223a207b0d0a20202020226d657373616765
+│ │ │ -223a20224c69627275732041766572616765220d0a20207d2c0d0a2020226170
+│ │ │ -705f6465736372697074696f6e223a207b0d0a20202020226d65737361676522
+│ │ │ -3a20225468697320657874656e73696f6e2073686f7773206772616465206176
+│ │ │ -6572616765732068696464656e206279204c69627275732053796e6572676961
+│ │ │ -220d0a20207d2c0d0a2020226f7074696f6e735f7469746c65223a207b0d0a20
+│ │ │ -202020226d657373616765223a2022457874656e73696f6e2073657474696e67
+│ │ │ -73220d0a20207d2c0d0a2020226f7074696f6e735f706f6c696379223a207b0d
+│ │ │ -0a20202020226d657373616765223a2022526573706563742067726164657327
+│ │ │ -20706f6c696379220d0a20207d2c0d0a2020226f7074696f6e735f6869646522
+│ │ │ -3a207b0d0a20202020226d657373616765223a202248696465207375626a6563
+│ │ │ -7473220d0a20207d2c0d0a2020226f7074696f6e735f7573655f776569676874
+│ │ │ -73223a207b0d0a20202020226d657373616765223a2022557365207765696768
+│ │ │ -7473220d0a20207d2c0d0a2020226f7074696f6e735f64656661756c745f7765
+│ │ │ -69676874223a207b0d0a20202020226d657373616765223a202244656661756c
+│ │ │ -7420776569676874220d0a20207d2c0d0a2020226f7074696f6e735f706c7573
+│ │ │ -5f776569676874223a207b0d0a20202020226d657373616765223a2022506f73
+│ │ │ -6974697665206672616374696f6e220d0a20207d2c0d0a2020226f7074696f6e
+│ │ │ -735f6d696e75735f776569676874223a207b0d0a20202020226d657373616765
+│ │ │ -223a20224e65676174697665206672616374696f6e220d0a20207d2c0d0a2020
+│ │ │ -226f7074696f6e735f7a65726f5f617667223a207b0d0a20202020226d657373
+│ │ │ -616765223a2022436f756e74207a65726f73220d0a20207d2c0d0a2020226f70
+│ │ │ -74696f6e735f706f6c6963795f68696e74223a207b0d0a20202020226d657373
+│ │ │ +7b0a2020226170705f6e616d65223a207b0a20202020226d657373616765223a
+│ │ │ +20224c69627275732041766572616765220a20207d2c0a2020226170705f6465
+│ │ │ +736372697074696f6e223a207b0a20202020226d657373616765223a20225468
+│ │ │ +697320657874656e73696f6e2073686f77732067726164652061766572616765
+│ │ │ +732068696464656e206279204c69627275732053796e6572676961220a20207d
+│ │ │ +2c0a2020226f7074696f6e735f7469746c65223a207b0a20202020226d657373
+│ │ │ +616765223a2022457874656e73696f6e2073657474696e6773220a20207d2c0a
+│ │ │ +2020226f7074696f6e735f706f6c696379223a207b0a20202020226d65737361
+│ │ │ +6765223a202252657370656374206772616465732720706f6c696379220a2020
+│ │ │ +7d2c0a2020226f7074696f6e735f68696465223a207b0a20202020226d657373
+│ │ │ +616765223a202248696465207375626a65637473220a20207d2c0a2020226f70
+│ │ │ +74696f6e735f7573655f77656967687473223a207b0a20202020226d65737361
+│ │ │ +6765223a20225573652077656967687473220a20207d2c0a2020226f7074696f
+│ │ │ +6e735f64656661756c745f776569676874223a207b0a20202020226d65737361
+│ │ │ +6765223a202244656661756c7420776569676874220a20207d2c0a2020226f70
+│ │ │ +74696f6e735f706c75735f776569676874223a207b0a20202020226d65737361
+│ │ │ +6765223a2022506f736974697665206672616374696f6e220a20207d2c0a2020
+│ │ │ +226f7074696f6e735f6d696e75735f776569676874223a207b0a20202020226d
+│ │ │ +657373616765223a20224e65676174697665206672616374696f6e220a20207d
+│ │ │ +2c0a2020226f7074696f6e735f7a65726f5f617667223a207b0a20202020226d
+│ │ │ +657373616765223a2022436f756e74207a65726f73220a20207d2c0a2020226f
+│ │ │ +7074696f6e735f706f6c6963795f68696e74223a207b0a20202020226d657373
+│ │ │  616765223a20225768657468657220746f2074616b6520677261646573206d61
+│ │ │  726b65642061732027446f206e6f7420636f756e7420746f7761726473207468
+│ │ │  6520617665726167652720696e746f206163636f756e7420666f722074686520
+│ │ │ -63616c63756c6174696f6e73220d0a20207d2c0d0a2020226f7074696f6e735f
+│ │ │ -686964655f68696e74223a207b0d0a20202020226d657373616765223a202248
+│ │ │ -69646573207375626a65637473207468617420746865207573657220646f6573
+│ │ │ -6e2774206861766520616e792067726164657320666f72220d0a20207d2c0d0a
+│ │ │ -2020226f7074696f6e735f7573655f776569676874735f68696e74223a207b0d
+│ │ │ -0a20202020226d657373616765223a20225468697320616c6c6f777320796f75
+│ │ │ -20746f207475726e206f666620746865207765696768747320696e2074686520
+│ │ │ -63616c63756c6174696f6e73220d0a20207d2c0d0a2020226f7074696f6e735f
+│ │ │ -64656661756c745f7765696768745f68696e74223a207b0d0a20202020226d65
+│ │ │ -7373616765223a202256616c7565207573656420696e20636173652074686520
+│ │ │ -677261646520686173206e6f207765696768742061737369676e65642c207365
+│ │ │ -7420746f203020746f20736b69702074686f736520677261646573220d0a2020
+│ │ │ -7d2c0d0a2020226f7074696f6e735f706c75735f7765696768745f68696e7422
+│ │ │ -3a207b0d0a20202020226d657373616765223a2022546865206672616374696f
+│ │ │ -6e20616464656420746f20612067726164652077697468206120706c7573220d
+│ │ │ -0a20207d2c0d0a2020226f7074696f6e735f6d696e75735f7765696768745f68
+│ │ │ -696e74223a207b0d0a20202020226d657373616765223a202254686520667261
+│ │ │ -6374696f6e20737562747261637465642066726f6d2061206772616465207769
+│ │ │ -74682061206d696e7573220d0a20207d2c0d0a2020226f7074696f6e735f7a65
+│ │ │ -726f5f6176675f68696e74223a207b0d0a20202020226d657373616765223a20
+│ │ │ -22436f756e74202730272067726164657320746f776172647320746865206176
+│ │ │ -6572616765220d0a20207d2c0d0a2020226f7074696f6e735f73617665223a20
+│ │ │ -7b0d0a20202020226d657373616765223a202253617665220d0a20207d2c0d0a
+│ │ │ -2020226f7074696f6e735f73617665645f7375636365737366756c6c79223a20
+│ │ │ -7b0d0a20202020226d657373616765223a202253617665642073756363657373
+│ │ │ -66756c6c7921220d0a20207d2c0d0a2020226f7074696f6e735f736176655f66
+│ │ │ -61696c757265223a207b0d0a20202020226d657373616765223a20224661696c
+│ │ │ -656420746f207361766521220d0a20207d2c0d0a2020226f7074696f6e735f72
+│ │ │ -657365745f64656661756c7473223a207b0d0a20202020226d65737361676522
+│ │ │ -3a2022526573657420746f2064656661756c7473220d0a20207d0d0a7d
+│ │ │ +63616c63756c6174696f6e73220a20207d2c0a2020226f7074696f6e735f6869
+│ │ │ +64655f68696e74223a207b0a20202020226d657373616765223a202248696465
+│ │ │ +73207375626a65637473207468617420746865207573657220646f65736e2774
+│ │ │ +206861766520616e792067726164657320666f72220a20207d2c0a2020226f70
+│ │ │ +74696f6e735f7573655f776569676874735f68696e74223a207b0a2020202022
+│ │ │ +6d657373616765223a20225468697320616c6c6f777320796f7520746f207475
+│ │ │ +726e206f666620746865207765696768747320696e207468652063616c63756c
+│ │ │ +6174696f6e73220a20207d2c0a2020226f7074696f6e735f64656661756c745f
+│ │ │ +7765696768745f68696e74223a207b0a20202020226d657373616765223a2022
+│ │ │ +56616c7565207573656420696e20636173652074686520677261646520686173
+│ │ │ +206e6f207765696768742061737369676e65642c2073657420746f203020746f
+│ │ │ +20736b69702074686f736520677261646573220a20207d2c0a2020226f707469
+│ │ │ +6f6e735f706c75735f7765696768745f68696e74223a207b0a20202020226d65
+│ │ │ +7373616765223a2022546865206672616374696f6e20616464656420746f2061
+│ │ │ +2067726164652077697468206120706c7573220a20207d2c0a2020226f707469
+│ │ │ +6f6e735f6d696e75735f7765696768745f68696e74223a207b0a20202020226d
+│ │ │ +657373616765223a2022546865206672616374696f6e20737562747261637465
+│ │ │ +642066726f6d206120677261646520776974682061206d696e7573220a20207d
+│ │ │ +2c0a2020226f7074696f6e735f7a65726f5f6176675f68696e74223a207b0a20
+│ │ │ +202020226d657373616765223a2022436f756e74202730272067726164657320
+│ │ │ +746f7761726473207468652061766572616765220a20207d2c0a2020226f7074
+│ │ │ +696f6e735f73617665223a207b0a20202020226d657373616765223a20225361
+│ │ │ +7665220a20207d2c0a2020226f7074696f6e735f73617665645f737563636573
+│ │ │ +7366756c6c79223a207b0a20202020226d657373616765223a20225361766564
+│ │ │ +207375636365737366756c6c7921220a20207d2c0a2020226f7074696f6e735f
+│ │ │ +736176655f6661696c757265223a207b0a20202020226d657373616765223a20
+│ │ │ +224661696c656420746f207361766521220a20207d2c0a2020226f7074696f6e
+│ │ │ +735f72657365745f64656661756c7473223a207b0a20202020226d6573736167
+│ │ │ +65223a2022526573657420746f2064656661756c7473220a20207d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/pl
+│ ├── +++ /workspace/pipeline_output/librus-average/_locales/pl
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/pl/messages.json
+│ │ ├── +++ /workspace/pipeline_output/librus-average/_locales/pl/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,56 +1,54 @@
+│ │ │ -7b0d0a2020226170705f6e616d65223a207b0d0a20202020226d657373616765
+│ │ │ -223a2022c59a7265646e696120646f204c696272757361220d0a20207d2c0d0a
+│ │ │ -2020226170705f6465736372697074696f6e223a207b0d0a20202020226d6573
+│ │ │ -73616765223a2022546f20726f7a737a65727a656e6965206c69637a7920c59b
+│ │ │ -7265646e69c485207761c5bc6f6ec4852074776f696368206f63656e20772064
+│ │ │ -7a69656e6e696b7520656c656b74726f6e69637a6e796d204c69627275732053
+│ │ │ -796e6572676961220d0a20207d2c0d0a2020226f7074696f6e735f7469746c65
+│ │ │ -223a207b0d0a20202020226d657373616765223a2022557374617769656e6961
+│ │ │ -220d0a20207d2c0d0a2020226f7074696f6e735f706f6c696379223a207b0d0a
+│ │ │ -20202020226d657373616765223a20224c69637a20646f20c59b7265646e6965
+│ │ │ -6a220d0a20207d2c0d0a2020226f7074696f6e735f68696465223a207b0d0a20
+│ │ │ -202020226d657373616765223a2022556b72796a2070727a65646d696f747922
+│ │ │ -0d0a20207d2c0d0a2020226f7074696f6e735f7573655f77656967687473223a
+│ │ │ -207b0d0a20202020226d657373616765223a202255c5bc7977616a2077616722
+│ │ │ -0d0a20207d2c0d0a2020226f7074696f6e735f64656661756c745f7765696768
+│ │ │ -74223a207b0d0a20202020226d657373616765223a2022446f6d79c59b6c6e61
+│ │ │ -2077616761220d0a20207d2c0d0a2020226f7074696f6e735f706c75735f7765
+│ │ │ -69676874223a207b0d0a20202020226d657373616765223a2022576172746fc5
+│ │ │ -9bc48720706c757361220d0a20207d2c0d0a2020226f7074696f6e735f6d696e
+│ │ │ -75735f776569676874223a207b0d0a20202020226d657373616765223a202257
+│ │ │ -6172746fc59bc487206d696e757361220d0a20207d2c0d0a2020226f7074696f
+│ │ │ -6e735f7a65726f5f617667223a207b0d0a20202020226d657373616765223a20
+│ │ │ -224c69637a207a657261220d0a20207d2c0d0a2020226f7074696f6e735f706f
+│ │ │ -6c6963795f68696e74223a207b0d0a20202020226d657373616765223a202257
+│ │ │ +7b0a2020226170705f6e616d65223a207b0a20202020226d657373616765223a
+│ │ │ +2022c59a7265646e696120646f204c696272757361220a20207d2c0a20202261
+│ │ │ +70705f6465736372697074696f6e223a207b0a20202020226d65737361676522
+│ │ │ +3a2022546f20726f7a737a65727a656e6965206c69637a7920c59b7265646e69
+│ │ │ +c485207761c5bc6f6ec4852074776f696368206f63656e207720647a69656e6e
+│ │ │ +696b7520656c656b74726f6e69637a6e796d204c69627275732053796e657267
+│ │ │ +6961220a20207d2c0a2020226f7074696f6e735f7469746c65223a207b0a2020
+│ │ │ +2020226d657373616765223a2022557374617769656e6961220a20207d2c0a20
+│ │ │ +20226f7074696f6e735f706f6c696379223a207b0a20202020226d6573736167
+│ │ │ +65223a20224c69637a20646f20c59b7265646e69656a220a20207d2c0a202022
+│ │ │ +6f7074696f6e735f68696465223a207b0a20202020226d657373616765223a20
+│ │ │ +22556b72796a2070727a65646d696f7479220a20207d2c0a2020226f7074696f
+│ │ │ +6e735f7573655f77656967687473223a207b0a20202020226d65737361676522
+│ │ │ +3a202255c5bc7977616a20776167220a20207d2c0a2020226f7074696f6e735f
+│ │ │ +64656661756c745f776569676874223a207b0a20202020226d65737361676522
+│ │ │ +3a2022446f6d79c59b6c6e612077616761220a20207d2c0a2020226f7074696f
+│ │ │ +6e735f706c75735f776569676874223a207b0a20202020226d65737361676522
+│ │ │ +3a2022576172746fc59bc48720706c757361220a20207d2c0a2020226f707469
+│ │ │ +6f6e735f6d696e75735f776569676874223a207b0a20202020226d6573736167
+│ │ │ +65223a2022576172746fc59bc487206d696e757361220a20207d2c0a2020226f
+│ │ │ +7074696f6e735f7a65726f5f617667223a207b0a20202020226d657373616765
+│ │ │ +223a20224c69637a207a657261220a20207d2c0a2020226f7074696f6e735f70
+│ │ │ +6f6c6963795f68696e74223a207b0a20202020226d657373616765223a202257
+│ │ │  65c5ba20706f642075776167c499206f7a6e61637a656e696520274c69637a20
+│ │ │ -646f20c59b7265646e69656a27220d0a20207d2c0d0a2020226f7074696f6e73
+│ │ │ -5f686964655f68696e74223a207b0d0a20202020226d657373616765223a2022
+│ │ │ -556b727977612070727a65646d696f74792c207a206b74c3b372796368207563
+│ │ │ -7a65c584206e6965206d6120616e69206a65646e656a206f63656e79220d0a20
+│ │ │ -207d2c0d0a2020226f7074696f6e735f7573655f776569676874735f68696e74
+│ │ │ -223a207b0d0a20202020226d657373616765223a20225461206f70636a612075
+│ │ │ -6d6fc5bc6c69776961207779c582c485637a656e6965207761672070727a7920
+│ │ │ -6c69637a656e697520c59b7265646e69656a220d0a20207d2c0d0a2020226f70
+│ │ │ -74696f6e735f64656661756c745f7765696768745f68696e74223a207b0d0a20
+│ │ │ -202020226d657373616765223a2022446f6d79c59b6c6e612077616761207720
+│ │ │ -70727a797061646b75206a656a206272616b752e20577069737a203020627920
+│ │ │ -6e696520627261c487206f63656e2062657a207761676920706f642075776167
+│ │ │ -c4992e220d0a20207d2c0d0a2020226f7074696f6e735f706c75735f77656967
+│ │ │ -68745f68696e74223a207b0d0a20202020226d657373616765223a202255c582
+│ │ │ -616d656b20646f646177616e7920646f206f63656e79207a20706c7573656d22
+│ │ │ -0d0a20207d2c0d0a2020226f7074696f6e735f6d696e75735f7765696768745f
+│ │ │ -68696e74223a207b0d0a20202020226d657373616765223a202255c582616d65
+│ │ │ -6b206f64656a6d6f77616e79206f64206f63656e79207a206d696e7573656d22
+│ │ │ -0d0a20207d2c0d0a2020226f7074696f6e735f7a65726f5f6176675f68696e74
+│ │ │ -223a207b0d0a20202020226d657373616765223a20224c69637a206f63656e79
+│ │ │ -2027302720646f20c59b7265646e69656a220d0a20207d2c0d0a2020226f7074
+│ │ │ -696f6e735f73617665223a207b0d0a20202020226d657373616765223a20225a
+│ │ │ -617069737a220d0a20207d2c0d0a2020226f7074696f6e735f73617665645f73
+│ │ │ -75636365737366756c6c79223a207b0d0a20202020226d657373616765223a20
+│ │ │ -225a61706973616e6f20706f6d79c59b6c6e696521220d0a20207d2c0d0a2020
+│ │ │ -226f7074696f6e735f736176655f6661696c757265223a207b0d0a2020202022
+│ │ │ -6d657373616765223a202257797374c4857069c5822070726f626c656d20706f
+│ │ │ -64637a6173207a617069737521220d0a20207d2c0d0a2020226f7074696f6e73
+│ │ │ -5f72657365745f64656661756c7473223a207b0d0a20202020226d6573736167
+│ │ │ -65223a202250727a797772c3b3c48720757374617769656e696120646f6d79c5
+│ │ │ -9b6c6e65220d0a20207d0d0a7d
+│ │ │ +646f20c59b7265646e69656a27220a20207d2c0a2020226f7074696f6e735f68
+│ │ │ +6964655f68696e74223a207b0a20202020226d657373616765223a2022556b72
+│ │ │ +7977612070727a65646d696f74792c207a206b74c3b3727963682075637a65c5
+│ │ │ +84206e6965206d6120616e69206a65646e656a206f63656e79220a20207d2c0a
+│ │ │ +2020226f7074696f6e735f7573655f776569676874735f68696e74223a207b0a
+│ │ │ +20202020226d657373616765223a20225461206f70636a6120756d6fc5bc6c69
+│ │ │ +776961207779c582c485637a656e6965207761672070727a79206c69637a656e
+│ │ │ +697520c59b7265646e69656a220a20207d2c0a2020226f7074696f6e735f6465
+│ │ │ +6661756c745f7765696768745f68696e74223a207b0a20202020226d65737361
+│ │ │ +6765223a2022446f6d79c59b6c6e61207761676120772070727a797061646b75
+│ │ │ +206a656a206272616b752e20577069737a2030206279206e696520627261c487
+│ │ │ +206f63656e2062657a207761676920706f642075776167c4992e220a20207d2c
+│ │ │ +0a2020226f7074696f6e735f706c75735f7765696768745f68696e74223a207b
+│ │ │ +0a20202020226d657373616765223a202255c582616d656b20646f646177616e
+│ │ │ +7920646f206f63656e79207a20706c7573656d220a20207d2c0a2020226f7074
+│ │ │ +696f6e735f6d696e75735f7765696768745f68696e74223a207b0a2020202022
+│ │ │ +6d657373616765223a202255c582616d656b206f64656a6d6f77616e79206f64
+│ │ │ +206f63656e79207a206d696e7573656d220a20207d2c0a2020226f7074696f6e
+│ │ │ +735f7a65726f5f6176675f68696e74223a207b0a20202020226d657373616765
+│ │ │ +223a20224c69637a206f63656e792027302720646f20c59b7265646e69656a22
+│ │ │ +0a20207d2c0a2020226f7074696f6e735f73617665223a207b0a20202020226d
+│ │ │ +657373616765223a20225a617069737a220a20207d2c0a2020226f7074696f6e
+│ │ │ +735f73617665645f7375636365737366756c6c79223a207b0a20202020226d65
+│ │ │ +7373616765223a20225a61706973616e6f20706f6d79c59b6c6e696521220a20
+│ │ │ +207d2c0a2020226f7074696f6e735f736176655f6661696c757265223a207b0a
+│ │ │ +20202020226d657373616765223a202257797374c4857069c5822070726f626c
+│ │ │ +656d20706f64637a6173207a617069737521220a20207d2c0a2020226f707469
+│ │ │ +6f6e735f72657365745f64656661756c7473223a207b0a20202020226d657373
+│ │ │ +616765223a202250727a797772c3b3c48720757374617769656e696120646f6d
+│ │ │ +79c59b6c6e65220a20207d0a7d
+│   --- /workspace/pipeline_output/chromex_data/css
+├── +++ /workspace/pipeline_output/librus-average/css
+│ │   --- /workspace/pipeline_output/chromex_data/css/options.css
+│ ├── +++ /workspace/pipeline_output/librus-average/css/options.css
+│ │┄ Ordering differences only
+│ │ @@ -1,80 +1,80 @@
+│ │ +body {
+│ │ +    width: 300px;
+│ │ +    height: auto;
+│ │ +    padding: 24px 32px 24px 24px;
+│ │ +}
+│ │ +
+│ │ +.filling-container {
+│ │ +    display: flex;
+│ │ +}
+│ │ +
+│ │ +.static-div {
+│ │ +    display: inline-flex;
+│ │ +}
+│ │ +
+│ │ +.filling-div {
+│ │ +    display: inline-flex;
+│ │ +    flex-grow: 100;
+│ │ +}
+│ │ +
+│ │ +.center-vertically {
+│ │ +    position: relative;
+│ │ +    top: 50%;
+│ │ +    transform: translateY(-50%);
+│ │ +}
+│ │ +
+│ │ +.center-horizontally {
+│ │ +    position: relative;
+│ │ +    left: 50%;
+│ │ +    transform: translateX(-50%);
+│ │ +}
+│ │ +
+│ │ +.material-icons {
+│ │ +    width: 24px;
+│ │ +    height: 24px;
+│ │ +    padding-left: 16px;
+│ │ +}
+│ │ +
+│ │ +.hint {
+│ │ +    cursor: help;
+│ │ +}
+│ │ +
+│ │ +.cursor-default {
+│ │ +    cursor: default;
+│ │ +}
+│ │ +
+│ │ +.cursor-pointer {
+│ │ +    cursor: pointer;
+│ │ +}
+│ │ +
+│ │ +/* Rules for using icons as black on a light background. */
+│ │ +.material-icons.md-dark {
+│ │ +    color: rgba(0, 0, 0, 0.54);
+│ │ +}
+│ │ +
+│ │ +.material-icons.md-dark.md-inactive {
+│ │ +    color: rgba(0, 0, 0, 0.26);
+│ │ +}
+│ │ +
+│ │ +/* Rules for using icons as white on a dark background. */
+│ │ +.material-icons.md-light {
+│ │ +    color: rgba(255, 255, 255, 1);
+│ │ +}
+│ │ +
+│ │ +.material-icons.md-light.md-inactive {
+│ │ +    color: rgba(255, 255, 255, 0.3);
+│ │ +}
+│ │ +
+│ │ +#toast-container {
+│ │ +    top: 0 !important;
+│ │ +    right: auto !important;
+│ │ +    bottom: auto !important;
+│ │ +    left: auto !important;
+│ │ +}
+│ │ +
+│ │ +.toast {
+│ │ +    text-align: center;
+│ │ +    display: block;
+│ │ +    padding-top: 12px !important;
+│ │ +    width: 250px;
+│ │ -body {
+│ │ -    width: 300px;
+│ │ -    height: auto;
+│ │ -    padding: 24px 32px 24px 24px;
+│ │ -}
+│ │ -
+│ │ -.filling-container {
+│ │ -    display: flex;
+│ │ -}
+│ │ -
+│ │ -.static-div {
+│ │ -    display: inline-flex;
+│ │ -}
+│ │ -
+│ │ -.filling-div {
+│ │ -    display: inline-flex;
+│ │ -    flex-grow: 100;
+│ │ -}
+│ │ -
+│ │ -.center-vertically {
+│ │ -    position: relative;
+│ │ -    top: 50%;
+│ │ -    transform: translateY(-50%);
+│ │ -}
+│ │ -
+│ │ -.center-horizontally {
+│ │ -    position: relative;
+│ │ -    left: 50%;
+│ │ -    transform: translateX(-50%);
+│ │ -}
+│ │ -
+│ │ -.material-icons {
+│ │ -    width: 24px;
+│ │ -    height: 24px;
+│ │ -    padding-left: 16px;
+│ │ -}
+│ │ -
+│ │ -.hint {
+│ │ -    cursor: help;
+│ │ -}
+│ │ -
+│ │ -.cursor-default {
+│ │ -    cursor: default;
+│ │ -}
+│ │ -
+│ │ -.cursor-pointer {
+│ │ -    cursor: pointer;
+│ │ -}
+│ │ -
+│ │ -/* Rules for using icons as black on a light background. */
+│ │ -.material-icons.md-dark {
+│ │ -    color: rgba(0, 0, 0, 0.54);
+│ │ -}
+│ │ -
+│ │ -.material-icons.md-dark.md-inactive {
+│ │ -    color: rgba(0, 0, 0, 0.26);
+│ │ -}
+│ │ -
+│ │ -/* Rules for using icons as white on a dark background. */
+│ │ -.material-icons.md-light {
+│ │ -    color: rgba(255, 255, 255, 1);
+│ │ -}
+│ │ -
+│ │ -.material-icons.md-light.md-inactive {
+│ │ -    color: rgba(255, 255, 255, 0.3);
+│ │ -}
+│ │ -
+│ │ -#toast-container {
+│ │ -    top: 0 !important;
+│ │ -    right: auto !important;
+│ │ -    bottom: auto !important;
+│ │ -    left: auto !important;
+│ │ -}
+│ │ -
+│ │ -.toast {
+│ │ -    text-align: center;
+│ │ -    display: block;
+│ │ -    padding-top: 12px !important;
+│ │ -    width: 250px;
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/html
+├── +++ /workspace/pipeline_output/librus-average/html
+│ │   --- /workspace/pipeline_output/chromex_data/html/options.html
+│ ├── +++ /workspace/pipeline_output/librus-average/html/options.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,113 +1,113 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html lang="en">
+│ │ +<head>
+│ │ +    <meta charset="UTF-8">
+│ │ +    <title data-localize="__MSG_options_title__">Extension Options</title>
+│ │ +
+│ │ +    <link rel="stylesheet" href="/materialize/css/materialize.min.css">
+│ │ +    <link rel="stylesheet" href="/css/options.css">
+│ │ +    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+│ │ +
+│ │ +    <script src="/js/jquery-3.3.1.min.js"></script>
+│ │ +    <script src="/js/support.js"></script>
+│ │ +    <script src="/js/options.js"></script>
+│ │ +    <script src="/materialize/js/materialize.min.js"></script>
+│ │ +</head>
+│ │ +<body>
+│ │ +
+│ │ +<div>
+│ │ +    <div class="filling-container">
+│ │ +        <div class="filling-div">
+│ │ +            <h5 data-localize="__MSG_options_title__">Extension Settings</h5>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="btn-reset" class="material-icons md-dark center-vertically tooltipped cursor-pointer"
+│ │ +               data-position="bottom"
+│ │ +               data-delay="250" data-tooltip="__MSG_options_reset_defaults__">settings_backup_restore</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +    <br>
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div">
+│ │ +            <input type="number" id="input-default-weight" min="0" max="10">
+│ │ +            <label data-localize="__MSG_options_default_weight__" for="input-default-weight">Default weight</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-default-weight" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_default_weight_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div">
+│ │ +            <input type="number" id="input-plus-weight" min="0" max="1" step="0.05">
+│ │ +            <label data-localize="__MSG_options_plus_weight__" for="input-plus-weight">Plus fraction</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-plus-weight" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_plus_weight_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div">
+│ │ +            <input type="number" id="input-minus-weight" min="0" max="1" step="0.05">
+│ │ +            <label data-localize="__MSG_options_minus_weight__" for="input-minus-weight">Minus fraction</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-minus-weight" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_minus_weight_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ +            <input class="filled-in" type="checkbox" id="checkbox-weights">
+│ │ +            <label data-localize="__MSG_options_use_weights__" for="checkbox-weights">Use weights</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-weights" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_use_weights_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ +            <input class="filled-in" type="checkbox" id="checkbox-policy">
+│ │ +            <label data-localize="__MSG_options_policy__" for="checkbox-policy">Respect grades' policy</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-policy" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_policy_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ +            <input class="filled-in" type="checkbox" id="checkbox-hide">
+│ │ +            <label data-localize="__MSG_options_hide__" for="checkbox-hide">Hide subjects</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-hide" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_hide_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <div class="filling-container">
+│ │ +        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ +            <input class="filled-in" type="checkbox" id="checkbox-zero-avg">
+│ │ +            <label data-localize="__MSG_options_zero_avg__" for="checkbox-zero-avg">Count zeros</label>
+│ │ +        </div>
+│ │ +        <div class="static-div">
+│ │ +            <i id="hint-zero-avg" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ +               data-tooltip="__MSG_options_zero_avg_hint__">info_outline</i>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <br>
+│ │ +    <a class="btn center-horizontally" id="btn-save" data-localize="__MSG_options_save__">Save</a>
+│ │ +
+│ │ +</div>
+│ │ +
+│ │ +</body>
+│ │ -<!DOCTYPE html>
+│ │ -<html lang="en">
+│ │ -<head>
+│ │ -    <meta charset="UTF-8">
+│ │ -    <title data-localize="__MSG_options_title__">Extension Options</title>
+│ │ -
+│ │ -    <link rel="stylesheet" href="/materialize/css/materialize.min.css">
+│ │ -    <link rel="stylesheet" href="/css/options.css">
+│ │ -    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+│ │ -
+│ │ -    <script src="/js/jquery-3.3.1.min.js"></script>
+│ │ -    <script src="/js/support.js"></script>
+│ │ -    <script src="/js/options.js"></script>
+│ │ -    <script src="/materialize/js/materialize.min.js"></script>
+│ │ -</head>
+│ │ -<body>
+│ │ -
+│ │ -<div>
+│ │ -    <div class="filling-container">
+│ │ -        <div class="filling-div">
+│ │ -            <h5 data-localize="__MSG_options_title__">Extension Settings</h5>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="btn-reset" class="material-icons md-dark center-vertically tooltipped cursor-pointer"
+│ │ -               data-position="bottom"
+│ │ -               data-delay="250" data-tooltip="__MSG_options_reset_defaults__">settings_backup_restore</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -    <br>
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div">
+│ │ -            <input type="number" id="input-default-weight" min="0" max="10">
+│ │ -            <label data-localize="__MSG_options_default_weight__" for="input-default-weight">Default weight</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-default-weight" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_default_weight_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div">
+│ │ -            <input type="number" id="input-plus-weight" min="0" max="1" step="0.05">
+│ │ -            <label data-localize="__MSG_options_plus_weight__" for="input-plus-weight">Plus fraction</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-plus-weight" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_plus_weight_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div">
+│ │ -            <input type="number" id="input-minus-weight" min="0" max="1" step="0.05">
+│ │ -            <label data-localize="__MSG_options_minus_weight__" for="input-minus-weight">Minus fraction</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-minus-weight" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_minus_weight_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ -            <input class="filled-in" type="checkbox" id="checkbox-weights">
+│ │ -            <label data-localize="__MSG_options_use_weights__" for="checkbox-weights">Use weights</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-weights" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_use_weights_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ -            <input class="filled-in" type="checkbox" id="checkbox-policy">
+│ │ -            <label data-localize="__MSG_options_policy__" for="checkbox-policy">Respect grades' policy</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-policy" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_policy_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ -            <input class="filled-in" type="checkbox" id="checkbox-hide">
+│ │ -            <label data-localize="__MSG_options_hide__" for="checkbox-hide">Hide subjects</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-hide" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_hide_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <div class="filling-container">
+│ │ -        <div class="input-field filling-div" style="transform: translateY(-16px);">
+│ │ -            <input class="filled-in" type="checkbox" id="checkbox-zero-avg">
+│ │ -            <label data-localize="__MSG_options_zero_avg__" for="checkbox-zero-avg">Count zeros</label>
+│ │ -        </div>
+│ │ -        <div class="static-div">
+│ │ -            <i id="hint-zero-avg" class="material-icons md-dark center-vertically tooltipped hint" data-position="top" data-delay="250"
+│ │ -               data-tooltip="__MSG_options_zero_avg_hint__">info_outline</i>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <br>
+│ │ -    <a class="btn center-horizontally" id="btn-save" data-localize="__MSG_options_save__">Save</a>
+│ │ -
+│ │ -</div>
+│ │ -
+│ │ -</body>
+│ │  </html>
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/librus-average/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/background_analytics_manager.js
+│ ├── +++ /workspace/pipeline_output/librus-average/js/background_analytics_manager.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,40 +1,40 @@
+│ │ │ +//noinspection JSUnusedLocalSymbols
+│ │ │ +/**
+│ │ │ + * Created by Krzysiek on 10/06/2017.
+│ │ │ + */
+│ │ │ +
+│ │ │ +function onMessageListener(request, sender, sendResponse) {
+│ │ │ +    let url;
+│ │ │ +    if (sender.tab !== undefined && sender.tab.url !== undefined)
+│ │ │ +        url = sender.tab.url;
+│ │ │ +    else if (sender.url !== undefined)
+│ │ │ +        url = sender.url;
+│ │ │ +    else
+│ │ │ +        url = "no_url";
+│ │ │ +    switch (request[MSG_COM]) {
+│ │ │ +        case CONTENT_SCRIPT_LOADED: {
+│ │ │ +            //noinspection JSUnresolvedVariable
+│ │ │ +            ga('send', {
+│ │ │ +                hitType: 'event',
+│ │ │ +                eventCategory: 'Content Script',
+│ │ │ +                eventAction: 'pageLoad',
+│ │ │ +                eventLabel: url
+│ │ │ +            });
+│ │ │ +            break;
+│ │ │ +        }
+│ │ │ +        case CONTENT_SCRIPT_EXITING: {
+│ │ │ +            ga('send', {
+│ │ │ +                hitType: 'event',
+│ │ │ +                eventCategory: 'Content Script',
+│ │ │ +                eventAction: 'pageExit',
+│ │ │ +                eventLabel: url,
+│ │ │ +                eventValue: request[MSG_DATA]
+│ │ │ +            });
+│ │ │ +            break;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +chrome.runtime.onMessage.addListener(onMessageListener);
+│ │ │ +
+│ │ │ -//noinspection JSUnusedLocalSymbols
+│ │ │ -/**
+│ │ │ - * Created by Krzysiek on 10/06/2017.
+│ │ │ - */
+│ │ │ -
+│ │ │ -function onMessageListener(request, sender, sendResponse) {
+│ │ │ -    let url;
+│ │ │ -    if (sender.tab !== undefined && sender.tab.url !== undefined)
+│ │ │ -        url = sender.tab.url;
+│ │ │ -    else if (sender.url !== undefined)
+│ │ │ -        url = sender.url;
+│ │ │ -    else
+│ │ │ -        url = "no_url";
+│ │ │ -    switch (request[MSG_COM]) {
+│ │ │ -        case CONTENT_SCRIPT_LOADED: {
+│ │ │ -            //noinspection JSUnresolvedVariable
+│ │ │ -            ga('send', {
+│ │ │ -                hitType: 'event',
+│ │ │ -                eventCategory: 'Content Script',
+│ │ │ -                eventAction: 'pageLoad',
+│ │ │ -                eventLabel: url
+│ │ │ -            });
+│ │ │ -            break;
+│ │ │ -        }
+│ │ │ -        case CONTENT_SCRIPT_EXITING: {
+│ │ │ -            ga('send', {
+│ │ │ -                hitType: 'event',
+│ │ │ -                eventCategory: 'Content Script',
+│ │ │ -                eventAction: 'pageExit',
+│ │ │ -                eventLabel: url,
+│ │ │ -                eventValue: request[MSG_DATA]
+│ │ │ -            });
+│ │ │ -            break;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -chrome.runtime.onMessage.addListener(onMessageListener);
+│ │ │ -
+│ │ │  loadAnalytics(DEBUG_MODE);
+│ │   --- /workspace/pipeline_output/chromex_data/js/content_script.js
+│ ├── +++ /workspace/pipeline_output/librus-average/js/content_script.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,264 +1,264 @@
+│ │ │ +/**
+│ │ │ + * Created by Krzysiek on 05/06/2017.
+│ │ │ + */
+│ │ │ +'use strict';
+│ │ │ +
+│ │ │ +let columnNumbers = DEFAULT_COLUMN_NUMBERS;
+│ │ │ +let start_time;
+│ │ │ +
+│ │ │ +$(function() {
+│ │ │ +    start_time = Date.now();
+│ │ │ +    loadSettings(function(settings) {
+│ │ │ +        columnNumbers = getColumnNumbers();
+│ │ │ +        setup(settings);
+│ │ │ +    });
+│ │ │ +    registerOnChangedListener();
+│ │ │ +    sendAnalyticsEvent(CONTENT_SCRIPT_LOADED);
+│ │ │ +
+│ │ │ +    $(window).on('beforeunload', function() {
+│ │ │ +        sendAnalyticsEvent(CONTENT_SCRIPT_EXITING, Math.round((Date.now() - start_time) / 1000));
+│ │ │ +    });
+│ │ │ +});
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * A simple object tah represents a grade/mark
+│ │ │ + * @param mark
+│ │ │ + * @param weight
+│ │ │ + * @constructor
+│ │ │ + */
+│ │ │ +function Mark(mark, weight) {
+│ │ │ +    this.mark = mark;
+│ │ │ +    this.weight = weight;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * An object containing an array of {@link Mark Marks} and also offering some other functionality
+│ │ │ + * (ex. {@link MarkList.getAverage getAverage()});
+│ │ │ + * @param {Mark[]} markList an array of {@link Mark Marks} to create the object from
+│ │ │ + * @constructor
+│ │ │ + */
+│ │ │ +function MarkList(markList) {
+│ │ │ +    if (markList === undefined)
+│ │ │ +        this.markList = [];
+│ │ │ +    else
+│ │ │ +        this.markList = markList;
+│ │ │ +
+│ │ │ +    /**
+│ │ │ +     * Calculates a weighted average of all {@link Mark Marks} in the markList
+│ │ │ +     * @returns {number} weighted average
+│ │ │ +     */
+│ │ │ +    this.getAverage = function(zeros = false) {
+│ │ │ +        let markSum = 0;
+│ │ │ +        let weightSum = 0;
+│ │ │ +
+│ │ │ +        for (let i = 0; i < this.markList.length; i++) {
+│ │ │ +            if (zeros || this.markList[i].mark > 0) {
+│ │ │ +                markSum += this.markList[i].mark * this.markList[i].weight;
+│ │ │ +                weightSum += this.markList[i].weight;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return weightSum !== 0 ? markSum / weightSum : 0;
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    this.getLength = function() {
+│ │ │ +        return this.markList.length;
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    /**
+│ │ │ +     * Creates a new {@link MarkList} object that contains {@link Mark Marks} from <code>this</code> and the provided {@link MarkList}
+│ │ │ +     * @param {MarkList} list to be concatenated with <code>this</code>
+│ │ │ +     * @returns {MarkList} a new object containing all marks
+│ │ │ +     */
+│ │ │ +    this.concat = function(list) {
+│ │ │ +        return new MarkList(this.markList.concat(list.markList));
+│ │ │ +    };
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Registers a {@link  chrome.storage.onChanged} listener to update the averages when the settings change
+│ │ │ + */
+│ │ │ +function registerOnChangedListener() {
+│ │ │ +    //noinspection JSUnusedLocalSymbols
+│ │ │ +    chrome.storage.onChanged.addListener(function(changes, namespace) {
+│ │ │ +        for (let key in changes) {
+│ │ │ +            if (key === SETTINGS) {
+│ │ │ +                setup(changes[SETTINGS]["newValue"])
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * This function allows a regex selector for jQuery
+│ │ │ + * @param elem
+│ │ │ + * @param index
+│ │ │ + * @param match
+│ │ │ + * @returns {boolean}
+│ │ │ + */
+│ │ │ +jQuery.expr[':'].regex = function(elem, index, match) {
+│ │ │ +    const matchParams = match[3].split(','),
+│ │ │ +        validLabels = /^(data|css):/,
+│ │ │ +        attr = {
+│ │ │ +            method: matchParams[0].match(validLabels) ?
+│ │ │ +                matchParams[0].split(':')[0] : 'attr',
+│ │ │ +            property: matchParams.shift().replace(validLabels, '')
+│ │ │ +        },
+│ │ │ +        regexFlags = 'ig',
+│ │ │ +        regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g, ''), regexFlags);
+│ │ │ +
+│ │ │ +    return regex.test(jQuery(elem)[attr.method](attr.property));
+│ │ │ +};
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Convenient function to check whether certain params match a given regex
+│ │ │ + * @param {object} column
+│ │ │ + * @param {RegExp} regex
+│ │ │ + * @returns {boolean} true if matches
+│ │ │ + */
+│ │ │ +function columnMatches(column, regex) {
+│ │ │ +    return regex.exec(column.text()) !== null ||
+│ │ │ +        regex.exec(column.attr("title")) !== null;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Dynamically fetches column numbers for required fields
+│ │ │ + * @returns {{firstTermMarks: number, firstTermAverage: number, secondTermMarks: number, secondTermAverage: number, yearAverage: number}}
+│ │ │ + * @see DEFAULT_COLUMN_NUMBERS
+│ │ │ + */
+│ │ │ +function getColumnNumbers() {
+│ │ │ +    const columns = $("table.decorated.stretch").find("thead")
+│ │ │ +        .find("tr").eq(1).find("td");
+│ │ │ +    const columnNumbers = {};
+│ │ │ +    columns.each(function(i) {
+│ │ │ +        const offsetColumnNumber = i + THEAD_COLUMN_OFFSET;
+│ │ │ +        if (columnMatches($(this), REGEX_FIRST_TERM_MARKS) &&
+│ │ │ +            columnNumbers.firstTermMarks === undefined) {
+│ │ │ +            columnNumbers.firstTermMarks = offsetColumnNumber;
+│ │ │ +        } else if (columnMatches($(this), REGEX_FIRST_TERM_AVERAGE) &&
+│ │ │ +            columnNumbers.firstTermAverage === undefined) {
+│ │ │ +            columnNumbers.firstTermAverage = offsetColumnNumber;
+│ │ │ +        } else if (columnMatches($(this), REGEX_SECOND_TERM_MARKS) &&
+│ │ │ +            columnNumbers.secondTermMarks === undefined) {
+│ │ │ +            columnNumbers.secondTermMarks = offsetColumnNumber;
+│ │ │ +        } else if (columnMatches($(this), REGEX_SECOND_TERM_AVERAGE) &&
+│ │ │ +            columnNumbers.secondTermAverage === undefined) {
+│ │ │ +            columnNumbers.secondTermAverage = offsetColumnNumber;
+│ │ │ +        } else if (columnMatches($(this), REGEX_YEAR_AVERAGE) &&
+│ │ │ +            columnNumbers.yearAverage === undefined) {
+│ │ │ +            columnNumbers.yearAverage = offsetColumnNumber;
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    return columnNumbers;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Used to grab marks from a single row and column in that row.
+│ │ │ + * @param {object} row an element that represents a single subject grabbed with jQuery from the subject table
+│ │ │ + * @param {number} column index of the column in said table
+│ │ │ + * @param {object} [settings = DEFAULT_SETTINGS] used to check for the weights, and the policy
+│ │ │ + * @returns {MarkList|boolean} for a single subject in a single school term or false when no grade boxes where found
+│ │ │ + * @see DEFAULT_SETTINGS
+│ │ │ + */
+│ │ │ +function getMarks(row, column, settings = DEFAULT_SETTINGS) {
+│ │ │ +    let marks = new MarkList();
+│ │ │ +    let anyGrade = false;
+│ │ │ +
+│ │ │ +    $(row).find("td").eq(column).find("span.grade-box  a").each(function() {
+│ │ │ +        anyGrade = true;
+│ │ │ +        let rawMark = $(this).text();
+│ │ │ +        let markDescription = $(this).attr("title");
+│ │ │ +        let markMatch = rawMark.match(REGEX_MARK);
+│ │ │ +        let weightMatch = markDescription.match(REGEX_WEIGHT);
+│ │ │ +        let policyMatch = markDescription.match(REGEX_POLICY);
+│ │ │ +        let weight = settings.useWeights ? weightMatch !== null ? parseInt(weightMatch[1]) : settings.defaultWeight : 1;
+│ │ │ +
+│ │ │ +        let policy = policyMatch !== null ? policyMatch[1] : POLICY_POSITIVE;
+│ │ │ +
+│ │ │ +        if (markMatch !== null && (!settings.respectPolicy || policy === POLICY_POSITIVE)) {
+│ │ │ +            let mark = parseInt(markMatch[1]);
+│ │ │ +            if (markMatch[2] === "+")
+│ │ │ +                mark += settings.plusWeight;
+│ │ │ +            else if (markMatch[2] === "-")
+│ │ │ +                mark -= settings.minusWeight;
+│ │ │ +            marks.markList.push(new Mark(mark, weight));
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    return anyGrade ? marks : false;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Performs the whole setup. Using a selector goes through every single row and using {@link getMarks}
+│ │ │ + * receives 2 {@link MarkList MarksLists} for both terms and then displays the average
+│ │ │ + * calculated by {@link MarkList.getAverage} in the corresponding columns
+│ │ │ + * @param {object} [settings = DEFAULT_SETTINGS] settings that are going to be used in the setup
+│ │ │ + * @see DEFAULT_SETTINGS
+│ │ │ + */
+│ │ │ +function setup(settings = DEFAULT_SETTINGS) {
+│ │ │ +    // Those are rows corresponding to a subject
+│ │ │ +    //noinspection CssInvalidPseudoSelector, UnexpectedToken
+│ │ │ +    let line = 0;
+│ │ │ +    $("div.container-background > table.decorated.stretch > tbody > tr:regex(class, line[0,1])")
+│ │ │ +        .not("tr:regex(name, przedmioty_all)").not(".bolded")
+│ │ │ +        .each(function() {
+│ │ │ +            let firstTermMarks = getMarks(this, columnNumbers.firstTermMarks, settings);
+│ │ │ +            let secondTermMarks = getMarks(this, columnNumbers.secondTermMarks, settings);
+│ │ │ +            let yearMarks;
+│ │ │ +
+│ │ │ +            if (firstTermMarks === false && secondTermMarks === false) {
+│ │ │ +                if (settings.hideEmpty) {
+│ │ │ +                    $(this).css("display", "none");
+│ │ │ +                    return;
+│ │ │ +                }
+│ │ │ +                yearMarks = false;
+│ │ │ +            } else {
+│ │ │ +                yearMarks = firstTermMarks !== false ?
+│ │ │ +                    firstTermMarks.concat(secondTermMarks !== false ? secondTermMarks : new MarkList()) :
+│ │ │ +                    secondTermMarks;
+│ │ │ +            }
+│ │ │ +
+│ │ │ +            $(this).css("display", "");
+│ │ │ +
+│ │ │ +            //Make sure the rows alter between line0 and line1 classes
+│ │ │ +            $(this).removeClass("line0 line1").addClass(`line${line}`);
+│ │ │ +            line = line === 1 ? 0 : 1;
+│ │ │ +
+│ │ │ +            const firstTermCell = $(this).find("td").eq(columnNumbers.firstTermAverage);
+│ │ │ +            // Required, as Librus forgot to add that class for this cell
+│ │ │ +            firstTermCell.addClass("center");
+│ │ │ +            if (firstTermMarks !== false && firstTermMarks.getAverage(settings.zeroAvg) > 0)
+│ │ │ +                firstTermCell.text(firstTermMarks.getAverage(settings.zeroAvg).toFixed(2));
+│ │ │ +            else
+│ │ │ +                firstTermCell.text("-");
+│ │ │ +
+│ │ │ +            const secondTermCell = $(this).find("td").eq(columnNumbers.secondTermAverage);
+│ │ │ +            // Not required, but we'll add the class just in case
+│ │ │ +            secondTermCell.addClass("center");
+│ │ │ +            if (secondTermMarks !== false && secondTermMarks.getAverage(settings.zeroAvg) > 0)
+│ │ │ +                secondTermCell.text(secondTermMarks.getAverage(settings.zeroAvg).toFixed(2));
+│ │ │ +            else
+│ │ │ +                secondTermCell.text("-");
+│ │ │ +
+│ │ │ +            const yearCell = $(this).find("td").eq(columnNumbers.yearAverage);
+│ │ │ +            // Not required, but we'll add the class just in case
+│ │ │ +            yearCell.addClass("center");
+│ │ │ +            if (yearMarks !== false && yearMarks.getAverage(settings.zeroAvg) > 0)
+│ │ │ +                yearCell.text(yearMarks.getAverage(settings.zeroAvg).toFixed(2));
+│ │ │ +            else
+│ │ │ +                yearCell.text("-");
+│ │ │ +        });
+│ │ │ +}
+│ │ │ +
+│ │ │ +function sendAnalyticsEvent(com, data = {}, responseCallback = null) {
+│ │ │ +    const request = {};
+│ │ │ +    request[MSG_COM] = com;
+│ │ │ +    request[MSG_DATA] = data;
+│ │ │ +
+│ │ │ +    if (typeof responseCallback === "function") {
+│ │ │ +        chrome.runtime.sendMessage(request, responseCallback);
+│ │ │ +    } else {
+│ │ │ +        chrome.runtime.sendMessage(request);
+│ │ │ +    }
+│ │ │ -/**
+│ │ │ - * Created by Krzysiek on 05/06/2017.
+│ │ │ - */
+│ │ │ -'use strict';
+│ │ │ -
+│ │ │ -let columnNumbers = DEFAULT_COLUMN_NUMBERS;
+│ │ │ -let start_time;
+│ │ │ -
+│ │ │ -$(function() {
+│ │ │ -    start_time = Date.now();
+│ │ │ -    loadSettings(function(settings) {
+│ │ │ -        columnNumbers = getColumnNumbers();
+│ │ │ -        setup(settings);
+│ │ │ -    });
+│ │ │ -    registerOnChangedListener();
+│ │ │ -    sendAnalyticsEvent(CONTENT_SCRIPT_LOADED);
+│ │ │ -
+│ │ │ -    $(window).on('beforeunload', function() {
+│ │ │ -        sendAnalyticsEvent(CONTENT_SCRIPT_EXITING, Math.round((Date.now() - start_time) / 1000));
+│ │ │ -    });
+│ │ │ -});
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * A simple object tah represents a grade/mark
+│ │ │ - * @param mark
+│ │ │ - * @param weight
+│ │ │ - * @constructor
+│ │ │ - */
+│ │ │ -function Mark(mark, weight) {
+│ │ │ -    this.mark = mark;
+│ │ │ -    this.weight = weight;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * An object containing an array of {@link Mark Marks} and also offering some other functionality
+│ │ │ - * (ex. {@link MarkList.getAverage getAverage()});
+│ │ │ - * @param {Mark[]} markList an array of {@link Mark Marks} to create the object from
+│ │ │ - * @constructor
+│ │ │ - */
+│ │ │ -function MarkList(markList) {
+│ │ │ -    if (markList === undefined)
+│ │ │ -        this.markList = [];
+│ │ │ -    else
+│ │ │ -        this.markList = markList;
+│ │ │ -
+│ │ │ -    /**
+│ │ │ -     * Calculates a weighted average of all {@link Mark Marks} in the markList
+│ │ │ -     * @returns {number} weighted average
+│ │ │ -     */
+│ │ │ -    this.getAverage = function(zeros = false) {
+│ │ │ -        let markSum = 0;
+│ │ │ -        let weightSum = 0;
+│ │ │ -
+│ │ │ -        for (let i = 0; i < this.markList.length; i++) {
+│ │ │ -            if (zeros || this.markList[i].mark > 0) {
+│ │ │ -                markSum += this.markList[i].mark * this.markList[i].weight;
+│ │ │ -                weightSum += this.markList[i].weight;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return weightSum !== 0 ? markSum / weightSum : 0;
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    this.getLength = function() {
+│ │ │ -        return this.markList.length;
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    /**
+│ │ │ -     * Creates a new {@link MarkList} object that contains {@link Mark Marks} from <code>this</code> and the provided {@link MarkList}
+│ │ │ -     * @param {MarkList} list to be concatenated with <code>this</code>
+│ │ │ -     * @returns {MarkList} a new object containing all marks
+│ │ │ -     */
+│ │ │ -    this.concat = function(list) {
+│ │ │ -        return new MarkList(this.markList.concat(list.markList));
+│ │ │ -    };
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Registers a {@link  chrome.storage.onChanged} listener to update the averages when the settings change
+│ │ │ - */
+│ │ │ -function registerOnChangedListener() {
+│ │ │ -    //noinspection JSUnusedLocalSymbols
+│ │ │ -    chrome.storage.onChanged.addListener(function(changes, namespace) {
+│ │ │ -        for (let key in changes) {
+│ │ │ -            if (key === SETTINGS) {
+│ │ │ -                setup(changes[SETTINGS]["newValue"])
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * This function allows a regex selector for jQuery
+│ │ │ - * @param elem
+│ │ │ - * @param index
+│ │ │ - * @param match
+│ │ │ - * @returns {boolean}
+│ │ │ - */
+│ │ │ -jQuery.expr[':'].regex = function(elem, index, match) {
+│ │ │ -    const matchParams = match[3].split(','),
+│ │ │ -        validLabels = /^(data|css):/,
+│ │ │ -        attr = {
+│ │ │ -            method: matchParams[0].match(validLabels) ?
+│ │ │ -                matchParams[0].split(':')[0] : 'attr',
+│ │ │ -            property: matchParams.shift().replace(validLabels, '')
+│ │ │ -        },
+│ │ │ -        regexFlags = 'ig',
+│ │ │ -        regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g, ''), regexFlags);
+│ │ │ -
+│ │ │ -    return regex.test(jQuery(elem)[attr.method](attr.property));
+│ │ │ -};
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Convenient function to check whether certain params match a given regex
+│ │ │ - * @param {object} column
+│ │ │ - * @param {RegExp} regex
+│ │ │ - * @returns {boolean} true if matches
+│ │ │ - */
+│ │ │ -function columnMatches(column, regex) {
+│ │ │ -    return regex.exec(column.text()) !== null ||
+│ │ │ -        regex.exec(column.attr("title")) !== null;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Dynamically fetches column numbers for required fields
+│ │ │ - * @returns {{firstTermMarks: number, firstTermAverage: number, secondTermMarks: number, secondTermAverage: number, yearAverage: number}}
+│ │ │ - * @see DEFAULT_COLUMN_NUMBERS
+│ │ │ - */
+│ │ │ -function getColumnNumbers() {
+│ │ │ -    const columns = $("table.decorated.stretch").find("thead")
+│ │ │ -        .find("tr").eq(1).find("td");
+│ │ │ -    const columnNumbers = {};
+│ │ │ -    columns.each(function(i) {
+│ │ │ -        const offsetColumnNumber = i + THEAD_COLUMN_OFFSET;
+│ │ │ -        if (columnMatches($(this), REGEX_FIRST_TERM_MARKS) &&
+│ │ │ -            columnNumbers.firstTermMarks === undefined) {
+│ │ │ -            columnNumbers.firstTermMarks = offsetColumnNumber;
+│ │ │ -        } else if (columnMatches($(this), REGEX_FIRST_TERM_AVERAGE) &&
+│ │ │ -            columnNumbers.firstTermAverage === undefined) {
+│ │ │ -            columnNumbers.firstTermAverage = offsetColumnNumber;
+│ │ │ -        } else if (columnMatches($(this), REGEX_SECOND_TERM_MARKS) &&
+│ │ │ -            columnNumbers.secondTermMarks === undefined) {
+│ │ │ -            columnNumbers.secondTermMarks = offsetColumnNumber;
+│ │ │ -        } else if (columnMatches($(this), REGEX_SECOND_TERM_AVERAGE) &&
+│ │ │ -            columnNumbers.secondTermAverage === undefined) {
+│ │ │ -            columnNumbers.secondTermAverage = offsetColumnNumber;
+│ │ │ -        } else if (columnMatches($(this), REGEX_YEAR_AVERAGE) &&
+│ │ │ -            columnNumbers.yearAverage === undefined) {
+│ │ │ -            columnNumbers.yearAverage = offsetColumnNumber;
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    return columnNumbers;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Used to grab marks from a single row and column in that row.
+│ │ │ - * @param {object} row an element that represents a single subject grabbed with jQuery from the subject table
+│ │ │ - * @param {number} column index of the column in said table
+│ │ │ - * @param {object} [settings = DEFAULT_SETTINGS] used to check for the weights, and the policy
+│ │ │ - * @returns {MarkList|boolean} for a single subject in a single school term or false when no grade boxes where found
+│ │ │ - * @see DEFAULT_SETTINGS
+│ │ │ - */
+│ │ │ -function getMarks(row, column, settings = DEFAULT_SETTINGS) {
+│ │ │ -    let marks = new MarkList();
+│ │ │ -    let anyGrade = false;
+│ │ │ -
+│ │ │ -    $(row).find("td").eq(column).find("span.grade-box  a").each(function() {
+│ │ │ -        anyGrade = true;
+│ │ │ -        let rawMark = $(this).text();
+│ │ │ -        let markDescription = $(this).attr("title");
+│ │ │ -        let markMatch = rawMark.match(REGEX_MARK);
+│ │ │ -        let weightMatch = markDescription.match(REGEX_WEIGHT);
+│ │ │ -        let policyMatch = markDescription.match(REGEX_POLICY);
+│ │ │ -        let weight = settings.useWeights ? weightMatch !== null ? parseInt(weightMatch[1]) : settings.defaultWeight : 1;
+│ │ │ -
+│ │ │ -        let policy = policyMatch !== null ? policyMatch[1] : POLICY_POSITIVE;
+│ │ │ -
+│ │ │ -        if (markMatch !== null && (!settings.respectPolicy || policy === POLICY_POSITIVE)) {
+│ │ │ -            let mark = parseInt(markMatch[1]);
+│ │ │ -            if (markMatch[2] === "+")
+│ │ │ -                mark += settings.plusWeight;
+│ │ │ -            else if (markMatch[2] === "-")
+│ │ │ -                mark -= settings.minusWeight;
+│ │ │ -            marks.markList.push(new Mark(mark, weight));
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    return anyGrade ? marks : false;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Performs the whole setup. Using a selector goes through every single row and using {@link getMarks}
+│ │ │ - * receives 2 {@link MarkList MarksLists} for both terms and then displays the average
+│ │ │ - * calculated by {@link MarkList.getAverage} in the corresponding columns
+│ │ │ - * @param {object} [settings = DEFAULT_SETTINGS] settings that are going to be used in the setup
+│ │ │ - * @see DEFAULT_SETTINGS
+│ │ │ - */
+│ │ │ -function setup(settings = DEFAULT_SETTINGS) {
+│ │ │ -    // Those are rows corresponding to a subject
+│ │ │ -    //noinspection CssInvalidPseudoSelector, UnexpectedToken
+│ │ │ -    let line = 0;
+│ │ │ -    $("div.container-background > table.decorated.stretch > tbody > tr:regex(class, line[0,1])")
+│ │ │ -        .not("tr:regex(name, przedmioty_all)").not(".bolded")
+│ │ │ -        .each(function() {
+│ │ │ -            let firstTermMarks = getMarks(this, columnNumbers.firstTermMarks, settings);
+│ │ │ -            let secondTermMarks = getMarks(this, columnNumbers.secondTermMarks, settings);
+│ │ │ -            let yearMarks;
+│ │ │ -
+│ │ │ -            if (firstTermMarks === false && secondTermMarks === false) {
+│ │ │ -                if (settings.hideEmpty) {
+│ │ │ -                    $(this).css("display", "none");
+│ │ │ -                    return;
+│ │ │ -                }
+│ │ │ -                yearMarks = false;
+│ │ │ -            } else {
+│ │ │ -                yearMarks = firstTermMarks !== false ?
+│ │ │ -                    firstTermMarks.concat(secondTermMarks !== false ? secondTermMarks : new MarkList()) :
+│ │ │ -                    secondTermMarks;
+│ │ │ -            }
+│ │ │ -
+│ │ │ -            $(this).css("display", "");
+│ │ │ -
+│ │ │ -            //Make sure the rows alter between line0 and line1 classes
+│ │ │ -            $(this).removeClass("line0 line1").addClass(`line${line}`);
+│ │ │ -            line = line === 1 ? 0 : 1;
+│ │ │ -
+│ │ │ -            const firstTermCell = $(this).find("td").eq(columnNumbers.firstTermAverage);
+│ │ │ -            // Required, as Librus forgot to add that class for this cell
+│ │ │ -            firstTermCell.addClass("center");
+│ │ │ -            if (firstTermMarks !== false && firstTermMarks.getAverage(settings.zeroAvg) > 0)
+│ │ │ -                firstTermCell.text(firstTermMarks.getAverage(settings.zeroAvg).toFixed(2));
+│ │ │ -            else
+│ │ │ -                firstTermCell.text("-");
+│ │ │ -
+│ │ │ -            const secondTermCell = $(this).find("td").eq(columnNumbers.secondTermAverage);
+│ │ │ -            // Not required, but we'll add the class just in case
+│ │ │ -            secondTermCell.addClass("center");
+│ │ │ -            if (secondTermMarks !== false && secondTermMarks.getAverage(settings.zeroAvg) > 0)
+│ │ │ -                secondTermCell.text(secondTermMarks.getAverage(settings.zeroAvg).toFixed(2));
+│ │ │ -            else
+│ │ │ -                secondTermCell.text("-");
+│ │ │ -
+│ │ │ -            const yearCell = $(this).find("td").eq(columnNumbers.yearAverage);
+│ │ │ -            // Not required, but we'll add the class just in case
+│ │ │ -            yearCell.addClass("center");
+│ │ │ -            if (yearMarks !== false && yearMarks.getAverage(settings.zeroAvg) > 0)
+│ │ │ -                yearCell.text(yearMarks.getAverage(settings.zeroAvg).toFixed(2));
+│ │ │ -            else
+│ │ │ -                yearCell.text("-");
+│ │ │ -        });
+│ │ │ -}
+│ │ │ -
+│ │ │ -function sendAnalyticsEvent(com, data = {}, responseCallback = null) {
+│ │ │ -    const request = {};
+│ │ │ -    request[MSG_COM] = com;
+│ │ │ -    request[MSG_DATA] = data;
+│ │ │ -
+│ │ │ -    if (typeof responseCallback === "function") {
+│ │ │ -        chrome.runtime.sendMessage(request, responseCallback);
+│ │ │ -    } else {
+│ │ │ -        chrome.runtime.sendMessage(request);
+│ │ │ -    }
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/js/options.js
+│ ├── +++ /workspace/pipeline_output/librus-average/js/options.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,228 +1,228 @@
+│ │ │ +/**
+│ │ │ + * Created by Krzysiek on 06/06/2017.
+│ │ │ + */
+│ │ │ +
+│ │ │ +loadAnalytics(DEBUG_MODE);
+│ │ │ +
+│ │ │ +$(function() {
+│ │ │ +    localizeHtmlPage();
+│ │ │ +    localizeHintData();
+│ │ │ +    registerListeners();
+│ │ │ +    refreshForm();
+│ │ │ +});
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Refreshes the form with fresh values
+│ │ │ + * @see loadSettings()
+│ │ │ + */
+│ │ │ +function refreshForm() {
+│ │ │ +    loadSettings(function(settings) {
+│ │ │ +        loadForm(settings);
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Looks for every <code>.tooltipped</code> element, and replaces the <code>data-tooltip</code> with it's localized version
+│ │ │ + */
+│ │ │ +function localizeHintData() {
+│ │ │ +    $(".tooltipped").each(function() {
+│ │ │ +        const tag = $(this).attr("data-tooltip");
+│ │ │ +        const msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+│ │ │ +            return v1 ? chrome.i18n.getMessage(v1) : '';
+│ │ │ +        });
+│ │ │ +        $(this).attr("data-tooltip", msg);
+│ │ │ +    })
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Register onChange listeners to the form and onClick listeners to the buttons
+│ │ │ + */
+│ │ │ +function registerListeners() {
+│ │ │ +    $("#btn-save").click(function() {
+│ │ │ +        saveForm(true);
+│ │ │ +        ga('send', {
+│ │ │ +            hitType: 'event',
+│ │ │ +            eventCategory: 'Buttons',
+│ │ │ +            eventAction: 'saveForm',
+│ │ │ +            eventLabel: 'Save button click'
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    $("input").change(function(e) {
+│ │ │ +        saveForm();
+│ │ │ +        const target = $(e.target);
+│ │ │ +        let eventValue = target.val();
+│ │ │ +        if (isNaN(parseFloat(eventValue))) {
+│ │ │ +            eventValue = target[0].checked ? 1 : 0;
+│ │ │ +        } else {
+│ │ │ +            eventValue = parseFloat(eventValue);
+│ │ │ +        }
+│ │ │ +        ga('send', {
+│ │ │ +            hitType: 'event',
+│ │ │ +            eventCategory: 'Inputs',
+│ │ │ +            eventAction: 'changeValue',
+│ │ │ +            eventLabel: target.attr("id"),
+│ │ │ +            eventValue: eventValue < 1 ? Math.round(eventValue * 100) : eventValue
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    $("#btn-reset").click(function() {
+│ │ │ +        clearSettings(function() {
+│ │ │ +            refreshForm();
+│ │ │ +        });
+│ │ │ +        ga('send', {
+│ │ │ +            hitType: 'event',
+│ │ │ +            eventCategory: 'Buttons',
+│ │ │ +            eventAction: 'resetForm',
+│ │ │ +            eventLabel: 'Reset button click'
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +    let target;
+│ │ │ +    let t0;
+│ │ │ +    $(".tooltipped").hover(function(e) {
+│ │ │ +        target = e.target;
+│ │ │ +        t0 = new Date().getTime();
+│ │ │ +    }, function(e) {
+│ │ │ +        if (e.target === target) {
+│ │ │ +            let t1 = new Date().getTime();
+│ │ │ +            let dt = t1 - t0;
+│ │ │ +            if (dt >= 225) {
+│ │ │ +                ga('send', {
+│ │ │ +                    hitType: 'event',
+│ │ │ +                    eventCategory: 'Hints',
+│ │ │ +                    eventAction: 'viewHint',
+│ │ │ +                    eventLabel: $(e.target).attr("id"),
+│ │ │ +                    eventValue: dt
+│ │ │ +                });
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +//This has been replaced with standard HTML (min, max, step) attributes for input with type number
+│ │ │ +/*function onArrowPress(event)
+│ │ │ + {
+│ │ │ + let change = event.which == 38 ? 0.05 : event.which === 40 ? - 0.05 : 0;
+│ │ │ + const focused = $("#input-plus-weight:focus,#input-minus-weight:focus");
+│ │ │ + if(focused.length === 1 && change !== 0)
+│ │ │ + {
+│ │ │ + //e.preventDefault();
+│ │ │ +
+│ │ │ + let val = parseFloat(focused.val().replace(/[^\d.-]/g, ""));
+│ │ │ + val = Math.round((val+change) * 100) / 100;
+│ │ │ +
+│ │ │ + if(val > 1)
+│ │ │ + val = 1;
+│ │ │ + if(val < 0)
+│ │ │ + val = 0;
+│ │ │ +
+│ │ │ + focused.val(val);
+│ │ │ + saveForm();
+│ │ │ + }
+│ │ │ + }*/
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Loads provided settings into the form
+│ │ │ + * @param {object} [settings = DEFAULT_SETTINGS] settings to load into the form
+│ │ │ + * @see DEFAULT_SETTINGS
+│ │ │ + */
+│ │ │ +function loadForm(settings = DEFAULT_SETTINGS) {
+│ │ │ +    const defaultWeight = $("#input-default-weight");
+│ │ │ +    const plusWeight = $("#input-plus-weight");
+│ │ │ +    const minusWeight = $("#input-minus-weight");
+│ │ │ +    const policy = $("#checkbox-policy");
+│ │ │ +    const weights = $("#checkbox-weights");
+│ │ │ +    const hide = $("#checkbox-hide");
+│ │ │ +
+│ │ │ +    defaultWeight.val(settings.defaultWeight);
+│ │ │ +    plusWeight.val(settings.plusWeight);
+│ │ │ +    minusWeight.val(settings.minusWeight);
+│ │ │ +    policy.prop("checked", settings.respectPolicy);
+│ │ │ +    weights.prop("checked", settings.useWeights);
+│ │ │ +    hide.prop("checked", settings.hideEmpty);
+│ │ │ +
+│ │ │ +    Materialize.updateTextFields();
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Validates and saves the form and shows a {@link Materialize.toast toast}
+│ │ │ + * @param {boolean} [notify = false] will show a {@link Materialize.toast toast} if <code>true</code>
+│ │ │ + */
+│ │ │ +function saveForm(notify = false) {
+│ │ │ +    const settings = {};
+│ │ │ +
+│ │ │ +    let defaultWeight = $("#input-default-weight").val().replace(/[^\d.-]/g, "");
+│ │ │ +    let plusWeight = $("#input-plus-weight").val().replace(/[^\d.-]/g, "");
+│ │ │ +    let minusWeight = $("#input-minus-weight").val().replace(/[^\d.-]/g, "");
+│ │ │ +    let policy = $("#checkbox-policy")[0].checked;
+│ │ │ +    let weights = $("#checkbox-weights")[0].checked;
+│ │ │ +    let hide = $("#checkbox-hide")[0].checked;
+│ │ │ +
+│ │ │ +    defaultWeight = parseInt(defaultWeight);
+│ │ │ +    plusWeight = parseFloat(plusWeight);
+│ │ │ +    minusWeight = parseFloat(minusWeight);
+│ │ │ +
+│ │ │ +    if (defaultWeight < 0)
+│ │ │ +        defaultWeight = 0;
+│ │ │ +    else if (defaultWeight > 10)
+│ │ │ +        defaultWeight = 10;
+│ │ │ +
+│ │ │ +
+│ │ │ +    if (plusWeight > 1)
+│ │ │ +        plusWeight = 1;
+│ │ │ +    else if (plusWeight < 0)
+│ │ │ +        plusWeight = 0;
+│ │ │ +
+│ │ │ +    if (minusWeight > 1)
+│ │ │ +        minusWeight = 1;
+│ │ │ +    else if (minusWeight < 0)
+│ │ │ +        minusWeight = 0;
+│ │ │ +
+│ │ │ +    settings.defaultWeight = defaultWeight;
+│ │ │ +    settings.plusWeight = plusWeight;
+│ │ │ +    settings.minusWeight = minusWeight;
+│ │ │ +    settings.respectPolicy = policy;
+│ │ │ +    settings.useWeights = weights;
+│ │ │ +    settings.hideEmpty = hide;
+│ │ │ +
+│ │ │ +    saveSettings(settings, function() {
+│ │ │ +        refreshForm();
+│ │ │ +        if (notify === true) {
+│ │ │ +            const message = chrome.i18n.getMessage("options_saved_successfully");
+│ │ │ +            Materialize.toast(message, 800);
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +//Credit: https://stackoverflow.com/a/39810769/4061413
+│ │ │ +function replace_i18n(obj, tag) {
+│ │ │ +    const msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+│ │ │ +        return v1 ? chrome.i18n.getMessage(v1) : '';
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    if (msg !== tag)
+│ │ │ +        obj.innerHTML = msg;
+│ │ │ +}
+│ │ │ +
+│ │ │ +function localizeHtmlPage() {
+│ │ │ +    // Localize using __MSG_***__ data tags
+│ │ │ +    const data = document.querySelectorAll('[data-localize]');
+│ │ │ +
+│ │ │ +    for (let i in data)
+│ │ │ +        if (data.hasOwnProperty(i)) {
+│ │ │ +            let obj = data[i];
+│ │ │ +            let tag = obj.getAttribute('data-localize').toString();
+│ │ │ +
+│ │ │ +            replace_i18n(obj, tag);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +    // Localize everything else by replacing all __MSG_***__ tags
+│ │ │ +    const page = document.getElementsByTagName('html');
+│ │ │ +
+│ │ │ +    for (let j = 0; j < page.length; j++) {
+│ │ │ +        const obj = page[j];
+│ │ │ +        const tag = obj.innerHTML.toString();
+│ │ │ +
+│ │ │ +        replace_i18n(obj, tag);
+│ │ │ +    }
+│ │ │ -/**
+│ │ │ - * Created by Krzysiek on 06/06/2017.
+│ │ │ - */
+│ │ │ -
+│ │ │ -loadAnalytics(DEBUG_MODE);
+│ │ │ -
+│ │ │ -$(function() {
+│ │ │ -    localizeHtmlPage();
+│ │ │ -    localizeHintData();
+│ │ │ -    registerListeners();
+│ │ │ -    refreshForm();
+│ │ │ -});
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Refreshes the form with fresh values
+│ │ │ - * @see loadSettings()
+│ │ │ - */
+│ │ │ -function refreshForm() {
+│ │ │ -    loadSettings(function(settings) {
+│ │ │ -        loadForm(settings);
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Looks for every <code>.tooltipped</code> element, and replaces the <code>data-tooltip</code> with it's localized version
+│ │ │ - */
+│ │ │ -function localizeHintData() {
+│ │ │ -    $(".tooltipped").each(function() {
+│ │ │ -        const tag = $(this).attr("data-tooltip");
+│ │ │ -        const msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+│ │ │ -            return v1 ? chrome.i18n.getMessage(v1) : '';
+│ │ │ -        });
+│ │ │ -        $(this).attr("data-tooltip", msg);
+│ │ │ -    })
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Register onChange listeners to the form and onClick listeners to the buttons
+│ │ │ - */
+│ │ │ -function registerListeners() {
+│ │ │ -    $("#btn-save").click(function() {
+│ │ │ -        saveForm(true);
+│ │ │ -        ga('send', {
+│ │ │ -            hitType: 'event',
+│ │ │ -            eventCategory: 'Buttons',
+│ │ │ -            eventAction: 'saveForm',
+│ │ │ -            eventLabel: 'Save button click'
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    $("input").change(function(e) {
+│ │ │ -        saveForm();
+│ │ │ -        const target = $(e.target);
+│ │ │ -        let eventValue = target.val();
+│ │ │ -        if (isNaN(parseFloat(eventValue))) {
+│ │ │ -            eventValue = target[0].checked ? 1 : 0;
+│ │ │ -        } else {
+│ │ │ -            eventValue = parseFloat(eventValue);
+│ │ │ -        }
+│ │ │ -        ga('send', {
+│ │ │ -            hitType: 'event',
+│ │ │ -            eventCategory: 'Inputs',
+│ │ │ -            eventAction: 'changeValue',
+│ │ │ -            eventLabel: target.attr("id"),
+│ │ │ -            eventValue: eventValue < 1 ? Math.round(eventValue * 100) : eventValue
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    $("#btn-reset").click(function() {
+│ │ │ -        clearSettings(function() {
+│ │ │ -            refreshForm();
+│ │ │ -        });
+│ │ │ -        ga('send', {
+│ │ │ -            hitType: 'event',
+│ │ │ -            eventCategory: 'Buttons',
+│ │ │ -            eventAction: 'resetForm',
+│ │ │ -            eventLabel: 'Reset button click'
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -    let target;
+│ │ │ -    let t0;
+│ │ │ -    $(".tooltipped").hover(function(e) {
+│ │ │ -        target = e.target;
+│ │ │ -        t0 = new Date().getTime();
+│ │ │ -    }, function(e) {
+│ │ │ -        if (e.target === target) {
+│ │ │ -            let t1 = new Date().getTime();
+│ │ │ -            let dt = t1 - t0;
+│ │ │ -            if (dt >= 225) {
+│ │ │ -                ga('send', {
+│ │ │ -                    hitType: 'event',
+│ │ │ -                    eventCategory: 'Hints',
+│ │ │ -                    eventAction: 'viewHint',
+│ │ │ -                    eventLabel: $(e.target).attr("id"),
+│ │ │ -                    eventValue: dt
+│ │ │ -                });
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -//This has been replaced with standard HTML (min, max, step) attributes for input with type number
+│ │ │ -/*function onArrowPress(event)
+│ │ │ - {
+│ │ │ - let change = event.which == 38 ? 0.05 : event.which === 40 ? - 0.05 : 0;
+│ │ │ - const focused = $("#input-plus-weight:focus,#input-minus-weight:focus");
+│ │ │ - if(focused.length === 1 && change !== 0)
+│ │ │ - {
+│ │ │ - //e.preventDefault();
+│ │ │ -
+│ │ │ - let val = parseFloat(focused.val().replace(/[^\d.-]/g, ""));
+│ │ │ - val = Math.round((val+change) * 100) / 100;
+│ │ │ -
+│ │ │ - if(val > 1)
+│ │ │ - val = 1;
+│ │ │ - if(val < 0)
+│ │ │ - val = 0;
+│ │ │ -
+│ │ │ - focused.val(val);
+│ │ │ - saveForm();
+│ │ │ - }
+│ │ │ - }*/
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Loads provided settings into the form
+│ │ │ - * @param {object} [settings = DEFAULT_SETTINGS] settings to load into the form
+│ │ │ - * @see DEFAULT_SETTINGS
+│ │ │ - */
+│ │ │ -function loadForm(settings = DEFAULT_SETTINGS) {
+│ │ │ -    const defaultWeight = $("#input-default-weight");
+│ │ │ -    const plusWeight = $("#input-plus-weight");
+│ │ │ -    const minusWeight = $("#input-minus-weight");
+│ │ │ -    const policy = $("#checkbox-policy");
+│ │ │ -    const weights = $("#checkbox-weights");
+│ │ │ -    const hide = $("#checkbox-hide");
+│ │ │ -
+│ │ │ -    defaultWeight.val(settings.defaultWeight);
+│ │ │ -    plusWeight.val(settings.plusWeight);
+│ │ │ -    minusWeight.val(settings.minusWeight);
+│ │ │ -    policy.prop("checked", settings.respectPolicy);
+│ │ │ -    weights.prop("checked", settings.useWeights);
+│ │ │ -    hide.prop("checked", settings.hideEmpty);
+│ │ │ -
+│ │ │ -    Materialize.updateTextFields();
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Validates and saves the form and shows a {@link Materialize.toast toast}
+│ │ │ - * @param {boolean} [notify = false] will show a {@link Materialize.toast toast} if <code>true</code>
+│ │ │ - */
+│ │ │ -function saveForm(notify = false) {
+│ │ │ -    const settings = {};
+│ │ │ -
+│ │ │ -    let defaultWeight = $("#input-default-weight").val().replace(/[^\d.-]/g, "");
+│ │ │ -    let plusWeight = $("#input-plus-weight").val().replace(/[^\d.-]/g, "");
+│ │ │ -    let minusWeight = $("#input-minus-weight").val().replace(/[^\d.-]/g, "");
+│ │ │ -    let policy = $("#checkbox-policy")[0].checked;
+│ │ │ -    let weights = $("#checkbox-weights")[0].checked;
+│ │ │ -    let hide = $("#checkbox-hide")[0].checked;
+│ │ │ -
+│ │ │ -    defaultWeight = parseInt(defaultWeight);
+│ │ │ -    plusWeight = parseFloat(plusWeight);
+│ │ │ -    minusWeight = parseFloat(minusWeight);
+│ │ │ -
+│ │ │ -    if (defaultWeight < 0)
+│ │ │ -        defaultWeight = 0;
+│ │ │ -    else if (defaultWeight > 10)
+│ │ │ -        defaultWeight = 10;
+│ │ │ -
+│ │ │ -
+│ │ │ -    if (plusWeight > 1)
+│ │ │ -        plusWeight = 1;
+│ │ │ -    else if (plusWeight < 0)
+│ │ │ -        plusWeight = 0;
+│ │ │ -
+│ │ │ -    if (minusWeight > 1)
+│ │ │ -        minusWeight = 1;
+│ │ │ -    else if (minusWeight < 0)
+│ │ │ -        minusWeight = 0;
+│ │ │ -
+│ │ │ -    settings.defaultWeight = defaultWeight;
+│ │ │ -    settings.plusWeight = plusWeight;
+│ │ │ -    settings.minusWeight = minusWeight;
+│ │ │ -    settings.respectPolicy = policy;
+│ │ │ -    settings.useWeights = weights;
+│ │ │ -    settings.hideEmpty = hide;
+│ │ │ -
+│ │ │ -    saveSettings(settings, function() {
+│ │ │ -        refreshForm();
+│ │ │ -        if (notify === true) {
+│ │ │ -            const message = chrome.i18n.getMessage("options_saved_successfully");
+│ │ │ -            Materialize.toast(message, 800);
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -//Credit: https://stackoverflow.com/a/39810769/4061413
+│ │ │ -function replace_i18n(obj, tag) {
+│ │ │ -    const msg = tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+│ │ │ -        return v1 ? chrome.i18n.getMessage(v1) : '';
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    if (msg !== tag)
+│ │ │ -        obj.innerHTML = msg;
+│ │ │ -}
+│ │ │ -
+│ │ │ -function localizeHtmlPage() {
+│ │ │ -    // Localize using __MSG_***__ data tags
+│ │ │ -    const data = document.querySelectorAll('[data-localize]');
+│ │ │ -
+│ │ │ -    for (let i in data)
+│ │ │ -        if (data.hasOwnProperty(i)) {
+│ │ │ -            let obj = data[i];
+│ │ │ -            let tag = obj.getAttribute('data-localize').toString();
+│ │ │ -
+│ │ │ -            replace_i18n(obj, tag);
+│ │ │ -        }
+│ │ │ -
+│ │ │ -    // Localize everything else by replacing all __MSG_***__ tags
+│ │ │ -    const page = document.getElementsByTagName('html');
+│ │ │ -
+│ │ │ -    for (let j = 0; j < page.length; j++) {
+│ │ │ -        const obj = page[j];
+│ │ │ -        const tag = obj.innerHTML.toString();
+│ │ │ -
+│ │ │ -        replace_i18n(obj, tag);
+│ │ │ -    }
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/js/support.js
+│ ├── +++ /workspace/pipeline_output/librus-average/js/support.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,227 +1,227 @@
+│ │ │ +const DEBUG_MODE = false;
+│ │ │ +
+│ │ │ +const SETTINGS = "settings";
+│ │ │ +
+│ │ │ +const GA_LOCAL_STORAGE_KEY = "ga:clientId";
+│ │ │ +
+│ │ │ +const BROWSER_CHROME = "BROWSER_CHROME";
+│ │ │ +const BROWSER_FIREFOX = "BROWSER_FIREFOX";
+│ │ │ +const BROWSER_OPERA = "BROWSER_OPERA";
+│ │ │ +const BROWSER_OTHER = "BROWSER_OTHER";
+│ │ │ +
+│ │ │ +const REGEX_WEIGHT = /Waga: (\d+)/;
+│ │ │ +const REGEX_MARK = /(\d)([+-]?)/;
+│ │ │ +const REGEX_POLICY = /Licz do średniej:\s*(tak|nie)/;
+│ │ │ +
+│ │ │ +const REGEX_FIRST_TERM_MARKS = /Oceny bieżące/i;
+│ │ │ +const REGEX_FIRST_TERM_AVERAGE = /ocen.*pierwszego okresu/i;
+│ │ │ +const REGEX_SECOND_TERM_MARKS = /Oceny bieżące/i;
+│ │ │ +const REGEX_SECOND_TERM_AVERAGE = /ocen.*drugiego okresu/i;
+│ │ │ +const REGEX_YEAR_AVERAGE = /średnia roczna/i;
+│ │ │ +
+│ │ │ +const POLICY_POSITIVE = "tak";
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Librus sometimes hides unnecessary columns, so we need to dynamically check what they are
+│ │ │ + * @type {{firstTermMarks: number, firstTermAverage: number, secondTermMarks: number, secondTermAverage: number, yearAverage: number}}
+│ │ │ + */
+│ │ │ +const DEFAULT_COLUMN_NUMBERS = {
+│ │ │ +    firstTermMarks: 2,
+│ │ │ +    firstTermAverage: 3,
+│ │ │ +    secondTermMarks: 6,
+│ │ │ +    secondTermAverage: 7,
+│ │ │ +    yearAverage: 9,
+│ │ │ +};
+│ │ │ +
+│ │ │ +THEAD_COLUMN_OFFSET = 2; //The columns in the head row are offset by 2 compared to the subject rows
+│ │ │ +
+│ │ │ +//Default Settings
+│ │ │ +const PLUS_WEIGHT = 0.5;
+│ │ │ +const MINUS_WEIGHT = 0.25;
+│ │ │ +const DEFAULT_WEIGHT = 1;
+│ │ │ +const RESPECT_POLICY = true;
+│ │ │ +const USE_WEIGHTS = true;
+│ │ │ +const HIDE_EMPTY = false;
+│ │ │ +const ZERO_AVG = false;
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * This is an example of a settings object
+│ │ │ + * @typedef {Object}
+│ │ │ + * @property {number} plusWeight the fraction that will be added to a grade with a plus
+│ │ │ + * @property {number} minusWeight the fraction that will be subtracted from a grade with a minus
+│ │ │ + * @property {number} defaultWeight weight that will be assigned to a grade with no weight
+│ │ │ + * @property {boolean} respectPolicy whether to count grades marked as 'Do not count toward the average'
+│ │ │ + * @property {boolean} useWeights whether to use weights at all
+│ │ │ + */
+│ │ │ +const DEFAULT_SETTINGS = {
+│ │ │ +    plusWeight: PLUS_WEIGHT,
+│ │ │ +    minusWeight: MINUS_WEIGHT,
+│ │ │ +    defaultWeight: DEFAULT_WEIGHT,
+│ │ │ +    respectPolicy: RESPECT_POLICY,
+│ │ │ +    useWeights: USE_WEIGHTS,
+│ │ │ +    hideEmpty: HIDE_EMPTY,
+│ │ │ +    zeroAvg: ZERO_AVG
+│ │ │ +};
+│ │ │ +
+│ │ │ +//Messaging constants
+│ │ │ +const MSG_COM = "com";
+│ │ │ +const MSG_DATA = "data";
+│ │ │ +const CONTENT_SCRIPT_LOADED = "CONTENT_SCRIPT_LOADED";
+│ │ │ +const CONTENT_SCRIPT_EXITING = "CONTENT_SCRIPT_EXITING";
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Loads settings from Chrome's sync storage, if no settings are found returns default settings and saves them
+│ │ │ + * @param {function} callback function to receive the settings
+│ │ │ + * @see DEFAULT_SETTINGS
+│ │ │ + */
+│ │ │ +function loadSettings(callback) {
+│ │ │ +    chrome.storage.sync.get([SETTINGS], function(items) {
+│ │ │ +        let settings;
+│ │ │ +        if (items === undefined) {
+│ │ │ +            settings = DEFAULT_SETTINGS;
+│ │ │ +            saveSettings(settings);
+│ │ │ +        } else {
+│ │ │ +            settings = items[SETTINGS];
+│ │ │ +        }
+│ │ │ +        if (settings === undefined || settings === null) {
+│ │ │ +            settings = DEFAULT_SETTINGS;
+│ │ │ +            saveSettings(settings);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (settings.defaultWeight === null || settings.defaultWeight === undefined || isNaN(settings.defaultWeight))
+│ │ │ +            settings.defaultWeight = DEFAULT_WEIGHT;
+│ │ │ +
+│ │ │ +        if (settings.plusWeight === null || settings.plusWeight === undefined || isNaN(settings.plusWeight))
+│ │ │ +            settings.plusWeight = PLUS_WEIGHT;
+│ │ │ +
+│ │ │ +        if (settings.minusWeight === null || settings.minusWeight === undefined || isNaN(settings.minusWeight))
+│ │ │ +            settings.minusWeight = MINUS_WEIGHT;
+│ │ │ +
+│ │ │ +        if (settings.respectPolicy === null || settings.respectPolicy === undefined)
+│ │ │ +            settings.respectPolicy = RESPECT_POLICY;
+│ │ │ +
+│ │ │ +        if (settings.useWeights === null || settings.useWeights === undefined)
+│ │ │ +            settings.useWeights = USE_WEIGHTS;
+│ │ │ +
+│ │ │ +        if (settings.hideEmpty === null || settings.hideEmpty === undefined)
+│ │ │ +            settings.hideEmpty = HIDE_EMPTY;
+│ │ │ +
+│ │ │ +        if (settings.zeroAvg === null || settings.zeroAvg === undefined)
+│ │ │ +            settings.zeroAvg = ZERO_AVG;
+│ │ │ +
+│ │ │ +        callback(settings);
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Saves provided settings to Chrome's sync storage
+│ │ │ + * @param {object} settings to save
+│ │ │ + * @param {function} [callback] passed to {@link chrome.storage.sync.set()}
+│ │ │ + * @see DEFAULT_SETTINGS
+│ │ │ + */
+│ │ │ +function saveSettings(settings, callback) {
+│ │ │ +    if (typeof callback === "function") {
+│ │ │ +        const obj = {};
+│ │ │ +        obj[SETTINGS] = settings;
+│ │ │ +        chrome.storage.sync.set(obj, callback);
+│ │ │ +    } else {
+│ │ │ +        const obj = {};
+│ │ │ +        obj[SETTINGS] = settings;
+│ │ │ +        chrome.storage.sync.set(obj);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +function getExtensionVersion() {
+│ │ │ +    const manifestData = chrome.runtime.getManifest();
+│ │ │ +    return manifestData.version;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * @return {Promise<String>}
+│ │ │ + */
+│ │ │ +function getBrowser() {
+│ │ │ +    return new Promise(resolve => {
+│ │ │ +        if (typeof browser === "undefined") {
+│ │ │ +            if (navigator.userAgent.match(/Opera/) !== null) {
+│ │ │ +                resolve(BROWSER_OPERA);
+│ │ │ +            } else if (navigator.userAgent.match(/Chrome/) !== null) {
+│ │ │ +                resolve(BROWSER_CHROME);
+│ │ │ +            } else {
+│ │ │ +                resolve(BROWSER_OTHER);
+│ │ │ +            }
+│ │ │ +        } else {
+│ │ │ +            browser.runtime.getBrowserInfo().then(function(info) {
+│ │ │ +                switch (info.name) {
+│ │ │ +                    case "Firefox":
+│ │ │ +                        resolve(BROWSER_FIREFOX);
+│ │ │ +                        break;
+│ │ │ +                    default:
+│ │ │ +                        resolve(BROWSER_OTHER);
+│ │ │ +                }
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Resets the settings to their default values
+│ │ │ + * @param {function} [callback] passed to {@link chrome.storage.sync.set()}
+│ │ │ + * @see DEFAULT_SETTINGS
+│ │ │ + */
+│ │ │ +function clearSettings(callback) {
+│ │ │ +    if (typeof callback === "function") {
+│ │ │ +        const obj = {};
+│ │ │ +        obj[SETTINGS] = DEFAULT_SETTINGS;
+│ │ │ +        chrome.storage.sync.set(obj, callback);
+│ │ │ +    } else {
+│ │ │ +        const obj = {};
+│ │ │ +        obj[SETTINGS] = DEFAULT_SETTINGS;
+│ │ │ +        chrome.storage.sync.set(obj);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Initializes Google Analytics (analytics.js)
+│ │ │ + * @param debug whether to initialize in debugging mode
+│ │ │ + */
+│ │ │ +async function loadAnalytics(debug = false) {
+│ │ │ +    (function(i, s, o, g, r, a, m) {
+│ │ │ +        i['GoogleAnalyticsObject'] = r;
+│ │ │ +        //noinspection CommaExpressionJS
+│ │ │ +        i[r] = i[r] || function() {
+│ │ │ +            (i[r].q = i[r].q || []).push(arguments)
+│ │ │ +        }, i[r].l = 1 * new Date();
+│ │ │ +        //noinspection CommaExpressionJS
+│ │ │ +        a = s.createElement(o),
+│ │ │ +            m = s.getElementsByTagName(o)[0];
+│ │ │ +        a.async = 1;
+│ │ │ +        a.src = g;
+│ │ │ +        m.parentNode.insertBefore(a, m)
+│ │ │ +    })(window, document, 'script', debug ? 'https://www.google-analytics.com/analytics_debug.js' :
+│ │ │ +        'https://www.google-analytics.com/analytics.js', 'ga');
+│ │ │ +
+│ │ │ +    if (debug) window.ga_debug = {
+│ │ │ +        trace: true
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    const browser = await getBrowser();
+│ │ │ +    if (browser === BROWSER_FIREFOX) {
+│ │ │ +        ga('create', 'UA-88362826-2', {
+│ │ │ +            'storage': 'none',
+│ │ │ +            'clientId': localStorage.getItem(GA_LOCAL_STORAGE_KEY)
+│ │ │ +        });
+│ │ │ +        ga(function(tracker) {
+│ │ │ +            localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
+│ │ │ +        });
+│ │ │ +    } else {
+│ │ │ +        ga('create', 'UA-88362826-2', 'auto');
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    ga('set', 'dimension1', getExtensionVersion());
+│ │ │ +    ga('set', 'checkProtocolTask', function() {
+│ │ │ +        /* nothing */
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    if (debug) ga('set', 'sendHitTask', null);
+│ │ │ +    ga('send', 'pageview', window.location.pathname);
+│ │ │ -const DEBUG_MODE = false;
+│ │ │ -
+│ │ │ -const SETTINGS = "settings";
+│ │ │ -
+│ │ │ -const GA_LOCAL_STORAGE_KEY = "ga:clientId";
+│ │ │ -
+│ │ │ -const BROWSER_CHROME = "BROWSER_CHROME";
+│ │ │ -const BROWSER_FIREFOX = "BROWSER_FIREFOX";
+│ │ │ -const BROWSER_OPERA = "BROWSER_OPERA";
+│ │ │ -const BROWSER_OTHER = "BROWSER_OTHER";
+│ │ │ -
+│ │ │ -const REGEX_WEIGHT = /Waga: (\d+)/;
+│ │ │ -const REGEX_MARK = /(\d)([+-]?)/;
+│ │ │ -const REGEX_POLICY = /Licz do średniej:\s*(tak|nie)/;
+│ │ │ -
+│ │ │ -const REGEX_FIRST_TERM_MARKS = /Oceny bieżące/i;
+│ │ │ -const REGEX_FIRST_TERM_AVERAGE = /ocen.*pierwszego okresu/i;
+│ │ │ -const REGEX_SECOND_TERM_MARKS = /Oceny bieżące/i;
+│ │ │ -const REGEX_SECOND_TERM_AVERAGE = /ocen.*drugiego okresu/i;
+│ │ │ -const REGEX_YEAR_AVERAGE = /średnia roczna/i;
+│ │ │ -
+│ │ │ -const POLICY_POSITIVE = "tak";
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Librus sometimes hides unnecessary columns, so we need to dynamically check what they are
+│ │ │ - * @type {{firstTermMarks: number, firstTermAverage: number, secondTermMarks: number, secondTermAverage: number, yearAverage: number}}
+│ │ │ - */
+│ │ │ -const DEFAULT_COLUMN_NUMBERS = {
+│ │ │ -    firstTermMarks: 2,
+│ │ │ -    firstTermAverage: 3,
+│ │ │ -    secondTermMarks: 6,
+│ │ │ -    secondTermAverage: 7,
+│ │ │ -    yearAverage: 9,
+│ │ │ -};
+│ │ │ -
+│ │ │ -THEAD_COLUMN_OFFSET = 2; //The columns in the head row are offset by 2 compared to the subject rows
+│ │ │ -
+│ │ │ -//Default Settings
+│ │ │ -const PLUS_WEIGHT = 0.5;
+│ │ │ -const MINUS_WEIGHT = 0.25;
+│ │ │ -const DEFAULT_WEIGHT = 1;
+│ │ │ -const RESPECT_POLICY = true;
+│ │ │ -const USE_WEIGHTS = true;
+│ │ │ -const HIDE_EMPTY = false;
+│ │ │ -const ZERO_AVG = false;
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * This is an example of a settings object
+│ │ │ - * @typedef {Object}
+│ │ │ - * @property {number} plusWeight the fraction that will be added to a grade with a plus
+│ │ │ - * @property {number} minusWeight the fraction that will be subtracted from a grade with a minus
+│ │ │ - * @property {number} defaultWeight weight that will be assigned to a grade with no weight
+│ │ │ - * @property {boolean} respectPolicy whether to count grades marked as 'Do not count toward the average'
+│ │ │ - * @property {boolean} useWeights whether to use weights at all
+│ │ │ - */
+│ │ │ -const DEFAULT_SETTINGS = {
+│ │ │ -    plusWeight: PLUS_WEIGHT,
+│ │ │ -    minusWeight: MINUS_WEIGHT,
+│ │ │ -    defaultWeight: DEFAULT_WEIGHT,
+│ │ │ -    respectPolicy: RESPECT_POLICY,
+│ │ │ -    useWeights: USE_WEIGHTS,
+│ │ │ -    hideEmpty: HIDE_EMPTY,
+│ │ │ -    zeroAvg: ZERO_AVG
+│ │ │ -};
+│ │ │ -
+│ │ │ -//Messaging constants
+│ │ │ -const MSG_COM = "com";
+│ │ │ -const MSG_DATA = "data";
+│ │ │ -const CONTENT_SCRIPT_LOADED = "CONTENT_SCRIPT_LOADED";
+│ │ │ -const CONTENT_SCRIPT_EXITING = "CONTENT_SCRIPT_EXITING";
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Loads settings from Chrome's sync storage, if no settings are found returns default settings and saves them
+│ │ │ - * @param {function} callback function to receive the settings
+│ │ │ - * @see DEFAULT_SETTINGS
+│ │ │ - */
+│ │ │ -function loadSettings(callback) {
+│ │ │ -    chrome.storage.sync.get([SETTINGS], function(items) {
+│ │ │ -        let settings;
+│ │ │ -        if (items === undefined) {
+│ │ │ -            settings = DEFAULT_SETTINGS;
+│ │ │ -            saveSettings(settings);
+│ │ │ -        } else {
+│ │ │ -            settings = items[SETTINGS];
+│ │ │ -        }
+│ │ │ -        if (settings === undefined || settings === null) {
+│ │ │ -            settings = DEFAULT_SETTINGS;
+│ │ │ -            saveSettings(settings);
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (settings.defaultWeight === null || settings.defaultWeight === undefined || isNaN(settings.defaultWeight))
+│ │ │ -            settings.defaultWeight = DEFAULT_WEIGHT;
+│ │ │ -
+│ │ │ -        if (settings.plusWeight === null || settings.plusWeight === undefined || isNaN(settings.plusWeight))
+│ │ │ -            settings.plusWeight = PLUS_WEIGHT;
+│ │ │ -
+│ │ │ -        if (settings.minusWeight === null || settings.minusWeight === undefined || isNaN(settings.minusWeight))
+│ │ │ -            settings.minusWeight = MINUS_WEIGHT;
+│ │ │ -
+│ │ │ -        if (settings.respectPolicy === null || settings.respectPolicy === undefined)
+│ │ │ -            settings.respectPolicy = RESPECT_POLICY;
+│ │ │ -
+│ │ │ -        if (settings.useWeights === null || settings.useWeights === undefined)
+│ │ │ -            settings.useWeights = USE_WEIGHTS;
+│ │ │ -
+│ │ │ -        if (settings.hideEmpty === null || settings.hideEmpty === undefined)
+│ │ │ -            settings.hideEmpty = HIDE_EMPTY;
+│ │ │ -
+│ │ │ -        if (settings.zeroAvg === null || settings.zeroAvg === undefined)
+│ │ │ -            settings.zeroAvg = ZERO_AVG;
+│ │ │ -
+│ │ │ -        callback(settings);
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Saves provided settings to Chrome's sync storage
+│ │ │ - * @param {object} settings to save
+│ │ │ - * @param {function} [callback] passed to {@link chrome.storage.sync.set()}
+│ │ │ - * @see DEFAULT_SETTINGS
+│ │ │ - */
+│ │ │ -function saveSettings(settings, callback) {
+│ │ │ -    if (typeof callback === "function") {
+│ │ │ -        const obj = {};
+│ │ │ -        obj[SETTINGS] = settings;
+│ │ │ -        chrome.storage.sync.set(obj, callback);
+│ │ │ -    } else {
+│ │ │ -        const obj = {};
+│ │ │ -        obj[SETTINGS] = settings;
+│ │ │ -        chrome.storage.sync.set(obj);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -function getExtensionVersion() {
+│ │ │ -    const manifestData = chrome.runtime.getManifest();
+│ │ │ -    return manifestData.version;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * @return {Promise<String>}
+│ │ │ - */
+│ │ │ -function getBrowser() {
+│ │ │ -    return new Promise(resolve => {
+│ │ │ -        if (typeof browser === "undefined") {
+│ │ │ -            if (navigator.userAgent.match(/Opera/) !== null) {
+│ │ │ -                resolve(BROWSER_OPERA);
+│ │ │ -            } else if (navigator.userAgent.match(/Chrome/) !== null) {
+│ │ │ -                resolve(BROWSER_CHROME);
+│ │ │ -            } else {
+│ │ │ -                resolve(BROWSER_OTHER);
+│ │ │ -            }
+│ │ │ -        } else {
+│ │ │ -            browser.runtime.getBrowserInfo().then(function(info) {
+│ │ │ -                switch (info.name) {
+│ │ │ -                    case "Firefox":
+│ │ │ -                        resolve(BROWSER_FIREFOX);
+│ │ │ -                        break;
+│ │ │ -                    default:
+│ │ │ -                        resolve(BROWSER_OTHER);
+│ │ │ -                }
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Resets the settings to their default values
+│ │ │ - * @param {function} [callback] passed to {@link chrome.storage.sync.set()}
+│ │ │ - * @see DEFAULT_SETTINGS
+│ │ │ - */
+│ │ │ -function clearSettings(callback) {
+│ │ │ -    if (typeof callback === "function") {
+│ │ │ -        const obj = {};
+│ │ │ -        obj[SETTINGS] = DEFAULT_SETTINGS;
+│ │ │ -        chrome.storage.sync.set(obj, callback);
+│ │ │ -    } else {
+│ │ │ -        const obj = {};
+│ │ │ -        obj[SETTINGS] = DEFAULT_SETTINGS;
+│ │ │ -        chrome.storage.sync.set(obj);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Initializes Google Analytics (analytics.js)
+│ │ │ - * @param debug whether to initialize in debugging mode
+│ │ │ - */
+│ │ │ -async function loadAnalytics(debug = false) {
+│ │ │ -    (function(i, s, o, g, r, a, m) {
+│ │ │ -        i['GoogleAnalyticsObject'] = r;
+│ │ │ -        //noinspection CommaExpressionJS
+│ │ │ -        i[r] = i[r] || function() {
+│ │ │ -            (i[r].q = i[r].q || []).push(arguments)
+│ │ │ -        }, i[r].l = 1 * new Date();
+│ │ │ -        //noinspection CommaExpressionJS
+│ │ │ -        a = s.createElement(o),
+│ │ │ -            m = s.getElementsByTagName(o)[0];
+│ │ │ -        a.async = 1;
+│ │ │ -        a.src = g;
+│ │ │ -        m.parentNode.insertBefore(a, m)
+│ │ │ -    })(window, document, 'script', debug ? 'https://www.google-analytics.com/analytics_debug.js' :
+│ │ │ -        'https://www.google-analytics.com/analytics.js', 'ga');
+│ │ │ -
+│ │ │ -    if (debug) window.ga_debug = {
+│ │ │ -        trace: true
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    const browser = await getBrowser();
+│ │ │ -    if (browser === BROWSER_FIREFOX) {
+│ │ │ -        ga('create', 'UA-88362826-2', {
+│ │ │ -            'storage': 'none',
+│ │ │ -            'clientId': localStorage.getItem(GA_LOCAL_STORAGE_KEY)
+│ │ │ -        });
+│ │ │ -        ga(function(tracker) {
+│ │ │ -            localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
+│ │ │ -        });
+│ │ │ -    } else {
+│ │ │ -        ga('create', 'UA-88362826-2', 'auto');
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    ga('set', 'dimension1', getExtensionVersion());
+│ │ │ -    ga('set', 'checkProtocolTask', function() {
+│ │ │ -        /* nothing */
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    if (debug) ga('set', 'sendHitTask', null);
+│ │ │ -    ga('send', 'pageview', window.location.pathname);
+│ │ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/librus-average/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,11 +39,10 @@
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_app_name__",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "https://synergia.librus.pl/",
+│ │          "https://fonts.googleapis.com/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.8",
+│ │      "version_name": "2.8"
+│ │  }

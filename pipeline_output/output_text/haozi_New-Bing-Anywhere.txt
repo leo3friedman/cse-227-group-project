@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/New-Bing-Anywhere/dist/chromium
+├── file list
+│ @@ -1,9 +1,8 @@
+│  _locales
+│ -_metadata
+│  app
+│  background.js
+│  content_script.js
+│  images
+│  inject.js
+│  manifest.json
+│  rules.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/New-Bing-Anywhere/dist/chromium/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -518,15 +518,14 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "cookies",
+│ │          "webRequest",
+│ │          "contextMenus",
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.7.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://www.bing.com/*",
+│ │                  "https://www.baidu.com/*",
+│ │                  "https://www.so.com/*",

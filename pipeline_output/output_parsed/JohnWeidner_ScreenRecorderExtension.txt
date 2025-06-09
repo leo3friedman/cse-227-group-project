@@ -1,0 +1,33 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/assets
+  - files: busy.gif
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/assets/icon.png <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/assets/icon.png; File type: png
+  - Original: 33–372
+  + Modified: 33–277
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/manifest.json; File type: json
+  - Original: 31–31 -> Update URL
+  - Original: 32–32
+  + Modified: 31–31
+
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/src
+  - files: install.html, options.html, receiver.html
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/src/background.js <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/src/background.js; File type: js
+  - Original: 1–235
+  + Modified: 1–235
+
+---/workspace/pipeline_output/chromex_data/src/ourrecorder.js <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/src/ourrecorder.js; File type: js
+  - Original: 1–8823
+  + Modified: 1–8823
+
+---/workspace/pipeline_output/chromex_data/src/receiver.js <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/src/receiver.js; File type: js
+  - Original: 1–277
+  + Modified: 1–277
+

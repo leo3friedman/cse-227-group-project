@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChromeHttpRequestBlocker/src
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│  options.html
+│  options.js
+│  rules.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChromeHttpRequestBlocker/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "declarativeNetRequest",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "HTTPRequestBlocker",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0"
+│ │  }

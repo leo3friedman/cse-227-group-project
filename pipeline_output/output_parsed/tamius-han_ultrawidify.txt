@@ -1,0 +1,47 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ultrawidify/src
+  - files: _metadata, uw-bg.js, uw-bg.js.map
+  + files: install, manifest.v2.json, options, shims-vue.d.ts, uw-bg.js
+
+---/workspace/pipeline_output/chromex_data/common <-> +++/workspace/pipeline_output/ultrawidify/src/common
+  - files: lib
+  + files: data, enums, interfaces, js, misc
+
+---/workspace/pipeline_output/chromex_data/csui <-> +++/workspace/pipeline_output/ultrawidify/src/csui
+  - files: csui-dark.html, csui-light.html, csui-popup.js.map, csui.html, csui.js.map
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/csui/csui-popup.html <-> +++/workspace/pipeline_output/ultrawidify/src/csui/csui-popup.html; File type: html
+  - Original: 8–8
+  + Modified: 8–10
+
+---/workspace/pipeline_output/chromex_data/csui/csui-popup.js <-> +++/workspace/pipeline_output/ultrawidify/src/csui/csui-popup.js; File type: js
+  - Original: 1–79493
+  - Original: 79495–80283
+  + Modified: 1–12
+
+---/workspace/pipeline_output/chromex_data/csui/csui.js <-> +++/workspace/pipeline_output/ultrawidify/src/csui/csui.js; File type: js
+  - Original: 1–79432
+  - Original: 79434–82422
+  + Modified: 1–17
+
+---/workspace/pipeline_output/chromex_data/ext <-> +++/workspace/pipeline_output/ultrawidify/src/ext
+  - files: uw.js, uw.js.map
+  + files: conf, lib, uw.js
+
+---/workspace/pipeline_output/chromex_data/ext/uw.js <-> +++/workspace/pipeline_output/ultrawidify/src/ext/uw.js; File type: js
+  - Original: 1–11
+  - Original: 13–5118
+  - Original: 5120–9991
+  + Modified: 1–21
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/ultrawidify/src/manifest.json; File type: json
+  + Modified: 8–10
+  - Original: 38–38 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/uw-bg.js <-> +++/workspace/pipeline_output/ultrawidify/src/uw-bg.js; File type: js
+  - Original: 1–2
+  - Original: 4–58
+  - Original: 60–3181
+  - Original: 3183–3385
+  + Modified: 1–14
+

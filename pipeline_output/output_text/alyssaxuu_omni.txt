@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/omni/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  assets
+│  background.js
+│  content.css
+│  content.html
+│  content.js
+│  focus.js
+│  jquery.js
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/omni/src/assets
+│ ├── file list
+│ │ @@ -1,7 +1,8 @@
+│ │ +.DS_Store
+│ │  Inter-Black.ttf
+│ │  Inter-Bold.ttf
+│ │  Inter-ExtraBold.ttf
+│ │  Inter-ExtraLight.ttf
+│ │  Inter-Light.ttf
+│ │  Inter-Medium.ttf
+│ │  Inter-Regular.ttf
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/omni/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -54,15 +54,14 @@
+│ │          "activeTab",
+│ │          "bookmarks",
+│ │          "browsingData",
+│ │          "history",
+│ │          "scripting",
+│ │          "search"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.7",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

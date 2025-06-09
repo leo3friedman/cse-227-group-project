@@ -1,0 +1,80 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/google-image-sizer
+├── file list
+│ @@ -1,7 +1,8 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  run.user.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/google-image-sizer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,8 +1,13 @@
+│ │  {
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "{26154796-e7a2-4ffe-b56e-3433760cd824}"
+│ │ +        }
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "run.user.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://*.google.com/*",
+│ │ @@ -209,10 +214,9 @@
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Image Search Sizer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/run.user.js
+├── +++ /workspace/pipeline_output/google-image-sizer/run.user.js
+│ ├── js-beautify {}
+│ │ @@ -90,15 +90,35 @@
+│ │      Check sizes not there already
+│ │      */
+│ │      function needSizes() {
+│ │          var nodes = document.querySelector('g-menu[jsname="xl07Ob"]');
+│ │          return nodes && nodes.childNodes.length < 6;
+│ │      }
+│ │  
+│ │ +    /*
+│ │ +    Show sizes/dimensions by default instead of on hover
+│ │ +    TODO: no longer works, google doesn't show dimensions at all unless image clicked
+│ │ +    */
+│ │ +    function showSizesDefault() {
+│ │ +        var css = ".rg_anbg {display: none !important;} .rg_l:hover .rg_anbg {display: block !important;} " +
+│ │ +            ".rg_ilmbg {display: block !important;} .rg_l:hover .rg_ilmbg {display: none !important;}" +
+│ │ +            ".h312td.RtIwE {display:block;} .isv-r.MSM1fd:hover .h312td.RtIwE {display: none;}";
+│ │ +        var style = document.createElement('style');
+│ │ +
+│ │ +        if (style.styleSheet) {
+│ │ +            style.styleSheet.cssText = css;
+│ │ +        } else {
+│ │ +            style.appendChild(document.createTextNode(css));
+│ │ +        }
+│ │ +
+│ │ +        document.getElementsByTagName('head')[0].appendChild(style);
+│ │ +    }
+│ │ +
+│ │      //run script
+│ │ +    showSizesDefault();
+│ │  
+│ │      var maxTries = 100;
+│ │  
+│ │      function chk() {
+│ │          if (!document.querySelector('g-menu[jsname="xl07Ob"]')) {
+│ │              if (maxTries--) setTimeout(chk, 100);
+│ │              return;

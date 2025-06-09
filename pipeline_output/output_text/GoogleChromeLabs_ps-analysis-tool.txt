@@ -1,0 +1,43 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ps-analysis-tool/packages/extension/src
+├── file list
+│ @@ -1,12 +1,9 @@
+│ -_locales
+│ -_metadata
+│ -assets
+│ -content-script.js
+│ -content-script.js.LICENSE.txt
+│ -data
+│ -devtools
+│ -icons
+│ +@types
+│ +constants.ts
+│ +contentScript
+│  manifest.json
+│ -popup
+│ -service-worker.js
+│ -service-worker.js.LICENSE.txt
+│ +serviceWorker
+│ +store
+│ +utils
+│ +view
+│ +worker
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ps-analysis-tool/packages/extension/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,15 +39,14 @@
+│ │          "webRequest",
+│ │          "cookies",
+│ │          "debugger",
+│ │          "management",
+│ │          "contentSettings",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.14.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*/*"
+│ │              ],
+│ │              "resources": [

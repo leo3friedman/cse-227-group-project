@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/yandex-music-downloader/public
+├── file list
+│ @@ -1,10 +1,4 @@
+│ -_metadata
+│ -background.js
+│ -background.js.LICENSE.txt
+│ -content.js
+│  images
+│  manifest.json
+│ -popup.js
+│ -src
+│  styles
+│  view
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/yandex-music-downloader/public/images
+│ ├── file list
+│ │ @@ -1,6 +1,5 @@
+│ │  active-icon.png
+│ │  icon-dark.svg
+│ │  icon-light.svg
+│ │ -icon.png
+│ │  inactive-icon.png
+│ │  logo
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/yandex-music-downloader/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,14 +47,13 @@
+│ │          "*://music.yandex.com/*",
+│ │          "*://storage.mds.yandex.net/*",
+│ │          "*://*.storage.yandex.net/*",
+│ │          "*://avatars.yandex.net/*",
+│ │          "downloads",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.1",
+│ │      "web_accessible_resources": [
+│ │          "images/icon-dark.svg",
+│ │          "images/icon-light.svg"
+│ │      ]
+│ │  }

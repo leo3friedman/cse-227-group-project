@@ -1,0 +1,49 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Hack-Tools/src
+├── file list
+│ @@ -1,8 +1,6 @@
+│ -918.bundle.js
+│ -918.bundle.js.LICENSE.txt
+│ -_metadata
+│ -app.bundle.js
+│ -iconfont.js
+│ +App.tsx
+│ +assets
+│ +components
+│ +devtools
+│  index.html
+│ -manifest.json
+│ -src
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/Hack-Tools/src/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1 +1,13 @@
+│ -<!doctype html><html lang="en"><head><meta charset="UTF-8"/><title>Hack-Tools</title><script defer="defer" src="918.bundle.js"></script><script defer="defer" src="app.bundle.js"></script></head><body><div id="app"></div></body></html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +
+│ +<head>
+│ +    <meta charset="UTF-8" />
+│ +    <title>Hack-Tools</title>
+│ +</head>
+│ +
+│ +<body>
+│ +    <div id="app"></div>
+│ +</body>
+│ +
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Hack-Tools/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │          "128": "./src/assets/img/icons/get_started128.png",
+│ │          "16": "./src/assets/img/icons/get_started16.png",
+│ │          "32": "./src/assets/img/icons/get_started32.png",
+│ │          "48": "./src/assets/img/icons/get_started48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Hack-Tools",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.5.0"
+│ │  }

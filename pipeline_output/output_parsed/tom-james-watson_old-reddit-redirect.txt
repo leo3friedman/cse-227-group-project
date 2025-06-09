@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/old-reddit-redirect
+  - files: _metadata
+  + files: .git, .gitignore, Makefile, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/old-reddit-redirect/img
+  - files: icon96.png
+  + files: icon96.png, screenshot.png
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/old-reddit-redirect/manifest.json; File type: json
+  - Original: 51–51 -> Update URL
+

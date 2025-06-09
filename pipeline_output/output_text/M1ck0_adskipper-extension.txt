@@ -1,0 +1,68 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/adskipper-extension
+├── file list
+│ @@ -1,8 +1,12 @@
+│ +.DS_Store
+│ +.git
+│ +.gitignore
+│ +Archive.zip
+│  LICENSE
+│  README.md
+│ -_metadata
+│  icons
+│  index.html
+│  manifest.json
+│  options
+│ +package-lock.json
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/adskipper-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/adskipper-extension/scripts
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/youtube.js
+│ ├── +++ /workspace/pipeline_output/adskipper-extension/scripts/youtube.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -40,25 +40,31 @@
+│ │ │      overlayAds.forEach((overlayAd) => {
+│ │ │          overlayAd.style.visibility = "hidden";
+│ │ │      });
+│ │ │  };
+│ │ │  
+│ │ │  const hideYoutubeShorts = () => {
+│ │ │      const shortsHomePage = document.querySelectorAll("[is-shorts]");
+│ │ │ +    const shortsHomePageMobile = document.querySelectorAll("grid-shelf-view-model")
+│ │ │      const shortsHistoryPage = document.querySelectorAll(
+│ │ │          "ytd-reel-shelf-renderer",
+│ │ │      );
+│ │ │      const shortsSidebar = document.querySelector('[title="Shorts"]');
+│ │ │ +    const shortsBottomMobile = document.querySelector('.pivot-shorts');
+│ │ │  
+│ │ │      shortsHomePage.forEach((item) => item.remove());
+│ │ │ +    shortsHomePageMobile.forEach((item) => item.remove());
+│ │ │      shortsHistoryPage.forEach((item) => item.remove());
+│ │ │  
+│ │ │      if (shortsSidebar) {
+│ │ │          shortsSidebar.remove();
+│ │ │      }
+│ │ │ +    if (shortsBottomMobile) {
+│ │ │ +        shortsBottomMobile.parentElement.remove();
+│ │ │ +    }
+│ │ │  };
+│ │ │  
+│ │ │  const checkAdBlockerMessage = () => {
+│ │ │      const enforcementMessageElement = document.querySelector(
+│ │ │          ".ytd-enforcement-message-view-model",
+│ │ │      );
+│ │ │      const playabilityErrorElement = document.querySelector(

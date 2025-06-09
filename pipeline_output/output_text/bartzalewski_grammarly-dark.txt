@@ -1,0 +1,58 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/grammarly-dark/src
+├── file list
+│ @@ -1,12 +1,6 @@
+│ -_metadata
+│ -facebook.47567e93.svg
+│ -icon.png
+│ -icon128.png
+│ -icon16.png
+│ -icon48.png
+│ -index.css
+│ -instagram.f99a0f9c.svg
+│ +icons
+│ +images
+│ +manifest
+│  manifest.json
+│ -popup.html
+│ -twitter.f7d79316.svg
+│ -website.fa88ce1e.svg
+│ +pages
+│ +theme
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/grammarly-dark/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,27 +1,26 @@
+│ │  {
+│ │      "browser_action": {
+│ │ -        "default_icon": "icon.png",
+│ │ -        "default_popup": "popup.html"
+│ │ +        "default_icon": "icons/icon.png",
+│ │ +        "default_popup": "pages/popup.html"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "css": [
+│ │ -                "index.css"
+│ │ +                "theme/index.css"
+│ │              ],
+│ │              "matches": [
+│ │                  "https://app.grammarly.com/*",
+│ │                  "https://account.grammarly.com/*"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "A dark theme for Grammarly documents.",
+│ │      "icons": {
+│ │ -        "128": "icon128.png",
+│ │ -        "16": "icon16.png",
+│ │ -        "48": "icon48.png"
+│ │ +        "128": "icons/icon128.png",
+│ │ +        "16": "icons/icon16.png",
+│ │ +        "48": "icons/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Grammarly Dark",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.12"
+│ │  }

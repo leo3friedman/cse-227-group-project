@@ -1,0 +1,114 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/bugmagnet/template
+├── file list
+│ @@ -1,10 +1,5 @@
+│ -_metadata
+│  config.json
+│ -extension.js
+│ -inject-value.js
+│  magnet-16.png
+│  magnet.png
+│  manifest.json
+│ -options.html
+│ -options.js
+│ -paste.js
+│ +options.html
+│   --- /workspace/pipeline_output/chromex_data/config.json
+├── +++ /workspace/pipeline_output/bugmagnet/template/config.json
+│ ├── Pretty-printed
+│ │ @@ -149,16 +149,16 @@
+│ │                  "Successful": "900"
+│ │              },
+│ │              "Credit Card": {
+│ │                  "American Express": "370000000000002",
+│ │                  "Diners Club/ Carte Blanch": "38000000000006",
+│ │                  "Discover": "6011000000000012",
+│ │                  "JCB": "3088000000000017",
+│ │ -                "MasterCard": "2223000010309711",
+│ │ -                "Visa": "4111111111111111"
+│ │ +                "MasterCard": "5424000000000015",
+│ │ +                "Visa": "4007000000027"
+│ │              },
+│ │              "Zip Code": {
+│ │                  "AVS Invalid": "46203",
+│ │                  "AVS Unavailable": "46207",
+│ │                  "Declined": "46282",
+│ │                  "Non US Bank": "46204"
+│ │              }
+│ │ @@ -169,36 +169,36 @@
+│ │                  "JCB": "3566002020360505",
+│ │                  "MasterCard": "5105105105105100",
+│ │                  "Visa": "4000111111111115"
+│ │              },
+│ │              "Valid Credit Card": {
+│ │                  "American Express": "378282246310005",
+│ │                  "Discover": "6011111111111117",
+│ │ -                "MasterCard": "2223000048400011",
+│ │ -                "Visa": "4500600000000061"
+│ │ +                "MasterCard": "5555555555554444",
+│ │ +                "Visa": "4111111111111111"
+│ │              }
+│ │          },
+│ │          "Cybersource": {
+│ │              "Credit Card": {
+│ │                  "American Express": "378282246310005",
+│ │                  "Discover": "6011111111111117",
+│ │                  "JCB": "3566111111111113",
+│ │                  "MasterCard": "5555555555554444",
+│ │                  "Visa": "4111111111111111"
+│ │              }
+│ │          },
+│ │          "Payflow Pro": {
+│ │              "Credit Card": {
+│ │ -                "American Express": "371449635398431",
+│ │ +                "American Express": "378282246310005",
+│ │                  "American Express Corporate": "378734493671000",
+│ │                  "Diners Club": "30569309025904",
+│ │ -                "Discover": "6011000990139424",
+│ │ -                "JCB": "3566002020360505",
+│ │ -                "MasterCard": "5105105105105100",
+│ │ -                "Visa": "4222222222222"
+│ │ +                "Discover": "6011111111111117",
+│ │ +                "JCB": "3530111333300000",
+│ │ +                "MasterCard": "5555555555554444",
+│ │ +                "Visa": "4111111111111111"
+│ │              }
+│ │          },
+│ │          "Paypal": {
+│ │              "American Express": "378282246310005",
+│ │              "American Express Corporate": "378734493671000",
+│ │              "Australian BankCard": "5610591081018250",
+│ │              "Dankort PBS": "5019717010103742",
+│ │ @@ -272,16 +272,16 @@
+│ │                  "Fail": "352",
+│ │                  "Fail Due to Security Mismatch": "358",
+│ │                  "Generic Decline": "350"
+│ │              },
+│ │              "Credit Card": {
+│ │                  "American Express": "375001000000005",
+│ │                  "Discover": "6011010140000004",
+│ │ -                "MasterCard": "5112000300000001",
+│ │ -                "Visa": "4457010200000247"
+│ │ +                "MasterCard": "5112000100000003",
+│ │ +                "Visa": "4457010140000141"
+│ │              }
+│ │          }
+│ │      },
+│ │      "Post Codes": {
+│ │          "10 digits (Tehran, IR)": "1193653471",
+│ │          "3 digits (Kvivik, FO)": "340",
+│ │          "4 digits (Aarau, CH)": "5004",
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/bugmagnet/template/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0"
+│ │  }

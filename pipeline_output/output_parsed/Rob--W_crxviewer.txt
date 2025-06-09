@@ -1,0 +1,107 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/crxviewer/src
+  - files: _metadata, crxviewer.css, storage-sync-polyfill.js
+  + files: crxviewer.less, domain-fronter.js, manifest_firefox.json, manifest_opera.json, search-tools.less, storage-sync-polyfill.js, test-asn1.html, test-search-tools.htm, testdata
+
+---/workspace/pipeline_output/chromex_data/asn1lite.js <-> +++/workspace/pipeline_output/crxviewer/src/asn1lite.js; File type: js
+  - Original: 300–300
+  + Modified: 300–300
+
+---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/crxviewer/src/background.js; File type: js
+  - Original: 15–16
+  - Original: 31–31
+  + Modified: 15–281
+  - Original: 84–86
+  - Original: 88–89
+  - Original: 91–93
+  - Original: 100–100
+  + Modified: 334–352
+
+---/workspace/pipeline_output/chromex_data/bg-contextmenu.js <-> +++/workspace/pipeline_output/crxviewer/src/bg-contextmenu.js; File type: js
+  + Modified: 18–20
+  + Modified: 84–102
+  + Modified: 150–156
+  + Modified: 195–204
+  + Modified: 229–231
+
+---/workspace/pipeline_output/chromex_data/chrome-platform-info.js <-> +++/workspace/pipeline_output/crxviewer/src/chrome-platform-info.js; File type: js
+  - Original: 135–135
+  + Modified: 135–135
+
+---/workspace/pipeline_output/chromex_data/crxviewer.html <-> +++/workspace/pipeline_output/crxviewer/src/crxviewer.html; File type: html
+  - Original: 8–9
+  + Modified: 8–8
+  + Modified: 149–154
+  - Original: 170–170
+
+---/workspace/pipeline_output/chromex_data/crxviewer.js <-> +++/workspace/pipeline_output/crxviewer/src/crxviewer.js; File type: js
+  + Modified: 866–870
+  - Original: 1523–1523
+  + Modified: 1508–1556
+  + Modified: 1588–1592
+  - Original: 1689–1689
+  + Modified: 1724–1728
+  + Modified: 2030–2036
+  + Modified: 2113–2118
+  + Modified: 2160–2175
+  - Original: 2146–2146
+  + Modified: 2200–2200
+  - Original: 2249–2249
+  + Modified: 2303–2317
+
+---/workspace/pipeline_output/chromex_data/cws_pattern.js <-> +++/workspace/pipeline_output/crxviewer/src/cws_pattern.js; File type: js
+  - Original: 149–149
+  - Original: 157–157
+  + Modified: 149–161
+  + Modified: 269–287
+
+---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/crxviewer/src/icons
+  - files: 48.png
+  + files: 48.png, icon.svg
+
+---/workspace/pipeline_output/chromex_data/lib/crx-to-zip.js <-> +++/workspace/pipeline_output/crxviewer/src/lib/crx-to-zip.js; File type: js
+  + Modified: 270–275
+
+---/workspace/pipeline_output/chromex_data/lib/prettify <-> +++/workspace/pipeline_output/crxviewer/src/lib/prettify
+  - files: prism.js
+  + files: prism.js, test-prism-language-detect.js, test-prism-li-lines.js, test-prism-source-extensions.html
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/crxviewer/src/manifest.json; File type: json
+  - Original: 42–42 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/mozcose.js <-> +++/workspace/pipeline_output/crxviewer/src/mozcose.js; File type: js
+  - Original: 173–173
+  + Modified: 173–173
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/crxviewer/src/options.html; File type: html
+  - Original: 65–65
+  + Modified: 51–56
+
+---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/crxviewer/src/options.js; File type: js
+  + Modified: 60–85
+
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/crxviewer/src/popup.html; File type: html
+  - Original: 47–47
+  + Modified: 40–45
+
+---/workspace/pipeline_output/chromex_data/popup.js <-> +++/workspace/pipeline_output/crxviewer/src/popup.js; File type: js
+  + Modified: 40–44
+  + Modified: 67–69
+  + Modified: 115–117
+  + Modified: 137–193
+
+---/workspace/pipeline_output/chromex_data/search-tools.js <-> +++/workspace/pipeline_output/crxviewer/src/search-tools.js; File type: js
+  - Original: 1086–1086
+  + Modified: 1086–1086
+
+---/workspace/pipeline_output/chromex_data/search-worker.js <-> +++/workspace/pipeline_output/crxviewer/src/search-worker.js; File type: js
+  - Original: 270–270
+  + Modified: 270–270
+
+---/workspace/pipeline_output/chromex_data/service_worker.js <-> +++/workspace/pipeline_output/crxviewer/src/service_worker.js; File type: js
+  - Original: 6–6
+  + Modified: 6–6
+
+---/workspace/pipeline_output/chromex_data/storage-sync-polyfill.js <-> +++/workspace/pipeline_output/crxviewer/src/storage-sync-polyfill.js; File type: js
+  - Original: 81–81
+  + Modified: 81–81
+

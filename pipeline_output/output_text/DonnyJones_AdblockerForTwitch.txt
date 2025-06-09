@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AdblockerForTwitch/chrome
+├── file list
+│ @@ -1,9 +1,9 @@
+│  LICENSE.txt
+│ -_metadata
+│  background.js
+│  block_rules.json
+│  content.js
+│  dropdown
+│  icons
+│  manifest.json
+│ +popup
+│  remove_ads.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AdblockerForTwitch/chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,15 +37,14 @@
+│ │      "options_ui": {
+│ │          "page": "dropdown/index.html"
+│ │      },
+│ │      "permissions": [
+│ │          "declarativeNetRequest",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.3",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.twitch.tv/*"
+│ │              ],
+│ │              "resources": [

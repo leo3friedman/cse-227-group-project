@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/old-reddit-redirect
+├── file list
+│ @@ -1,7 +1,10 @@
+│ +.git
+│ +.gitignore
+│  LICENSE.txt
+│ +Makefile
+│  README.md
+│ -_metadata
+│  img
+│  manifest.json
+│ +package-lock.json
+│  rules.json
+│  styles.css
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/old-reddit-redirect/img
+│ ├── file list
+│ │ @@ -1,6 +1,7 @@
+│ │  icon128.png
+│ │  icon16.png
+│ │  icon32.png
+│ │  icon48.png
+│ │  icon64.png
+│ │ +icon96.png
+│ │ +screenshot.png
+│ │ -icon96.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/old-reddit-redirect/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,10 +44,9 @@
+│ │          "96": "img/icon96.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Old Reddit Redirect",
+│ │      "permissions": [
+│ │          "declarativeNetRequestWithHostAccess"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.5"
+│ │  }

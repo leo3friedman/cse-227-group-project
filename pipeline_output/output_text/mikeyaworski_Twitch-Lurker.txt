@@ -1,0 +1,151 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Twitch-Lurker/app
+├── file list
+│ @@ -1,10 +1,14 @@
+│ -_metadata
+│ -assets
+│ -icons
+│ -kick-icon.png
+│ +.eslintignore
+│ +.eslintrc.yml
+│ +.gitignore
+│ +LICENSE
+│ +logo.png
+│  manifest.json
+│ -service-worker-loader.js
+│ +nodemon.json
+│ +package-lock.json
+│ +package.json
+│ +public
+│  src
+│ -twitch-icon-white.svg
+│ -twitch-icon.svg
+│ -youtube-icon.svg
+│ +tsconfig.json
+│ +vite-plugins
+│ +vite.config.ts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Twitch-Lurker/app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,14 +1,18 @@
+│ │  {
+│ │      "action": {
+│ │          "default_popup": "src/ui/pages/popup.html"
+│ │      },
+│ │      "background": {
+│ │ -        "service_worker": "service-worker-loader.js",
+│ │ -        "type": "module"
+│ │ +        "service_worker": "src/service-worker/main.ts"
+│ │ +    },
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "{74674eef-80d9-4cd3-af95-72ee34c0f2b6}"
+│ │ +        }
+│ │      },
+│ │      "description": "Always support your favorite streamer by automatically pulling up their stream when they go live.",
+│ │      "host_permissions": [
+│ │          "https://*.googleapis.com/*",
+│ │          "https://*.twitch.tv/*",
+│ │          "https://*.kick.com/*",
+│ │          "https://*.youtube.com/*"
+│ │ @@ -26,22 +30,9 @@
+│ │          "alarms",
+│ │          "scripting",
+│ │          "contextMenus",
+│ │          "notifications",
+│ │          "storage",
+│ │          "unlimitedStorage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "3.0.5",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "https://*.twitch.tv/*"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "assets/logging-DFlNDjhV.js",
+│ │ -                "assets/main.ts-D_7BIUya.js"
+│ │ -            ],
+│ │ -            "use_dynamic_url": true
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "3.0.5"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/Twitch-Lurker/app/src
+│ ├── file list
+│ │ @@ -1 +1,10 @@
+│ │ +__tests__
+│ │ +app-constants.ts
+│ │ +chrome-utils.ts
+│ │ +content-scripts
+│ │ +logging.ts
+│ │ +service-worker
+│ │ +storage.ts
+│ │ +types.ts
+│ │ +ui
+│ │ +utils.ts
+│ │ -ui
+│ │   --- /workspace/pipeline_output/chromex_data/src/ui
+│ ├── +++ /workspace/pipeline_output/Twitch-Lurker/app/src/ui
+│ │ ├── file list
+│ │ │ @@ -1 +1,7 @@
+│ │ │ -pages
+│ │ │ +atoms
+│ │ │ +components
+│ │ │ +hooks.ts
+│ │ │ +pages
+│ │ │ +stores
+│ │ │ +theme.ts
+│ │ │ +widgets
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/ui/pages
+│ │ ├── +++ /workspace/pipeline_output/Twitch-Lurker/app/src/ui/pages
+│ │ │ ├── file list
+│ │ │ │ @@ -1,2 +1,4 @@
+│ │ │ │ +fullscreen
+│ │ │ │  fullscreen.html
+│ │ │ │ +popup
+│ │ │ │  popup.html
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/src/ui/pages/fullscreen.html
+│ │ │ ├── +++ /workspace/pipeline_output/Twitch-Lurker/app/src/ui/pages/fullscreen.html
+│ │ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ │ @@ -1,16 +1,12 @@
+│ │ │ │  <!DOCTYPE html>
+│ │ │ │  <html>
+│ │ │ │    <head>
+│ │ │ │      <meta charset="UTF-8" />
+│ │ │ │      <title>Twitch Lurker</title>
+│ │ │ │      <link rel="icon" type="image/x-icon" href="/icons/icon16.png">
+│ │ │ │ -    <script type="module" crossorigin src="/assets/fullscreen-B8XR_aSa.js"></script>
+│ │ │ │ -    <link rel="modulepreload" crossorigin href="/assets/logging-DFlNDjhV.js">
+│ │ │ │ -    <link rel="modulepreload" crossorigin href="/assets/utils-DSlpwFzy.js">
+│ │ │ │ -    <link rel="modulepreload" crossorigin href="/assets/App-ChvYbI8n.js">
+│ │ │ │ -    <link rel="stylesheet" crossorigin href="/assets/fullscreen-ClW13DmE.css">
+│ │ │ │    </head>
+│ │ │ │    <body>
+│ │ │ │      <div id="root"></div>
+│ │ │ │ +    <script type="module" src="./fullscreen/index.tsx"></script>
+│ │ │ │    </body>
+│ │ │ │  </html>
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/src/ui/pages/popup.html
+│ │ │ ├── +++ /workspace/pipeline_output/Twitch-Lurker/app/src/ui/pages/popup.html
+│ │ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ │ @@ -1,16 +1,12 @@
+│ │ │ │  <!DOCTYPE html>
+│ │ │ │  <html>
+│ │ │ │    <head>
+│ │ │ │      <meta charset="UTF-8" />
+│ │ │ │      <title>Twitch Lurker</title>
+│ │ │ │      <link rel="icon" type="image/x-icon" href="/icons/icon16.png">
+│ │ │ │ -    <script type="module" crossorigin src="/assets/popup.html-CdDtwkqc.js"></script>
+│ │ │ │ -    <link rel="modulepreload" crossorigin href="/assets/logging-DFlNDjhV.js">
+│ │ │ │ -    <link rel="modulepreload" crossorigin href="/assets/utils-DSlpwFzy.js">
+│ │ │ │ -    <link rel="modulepreload" crossorigin href="/assets/App-ChvYbI8n.js">
+│ │ │ │ -    <link rel="stylesheet" crossorigin href="/assets/fullscreen-ClW13DmE.css">
+│ │ │ │    </head>
+│ │ │ │    <body>
+│ │ │ │      <div id="root"></div>
+│ │ │ │ +    <script type="module" src="./popup/index.tsx"></script>
+│ │ │ │    </body>
+│ │ │ │  </html>

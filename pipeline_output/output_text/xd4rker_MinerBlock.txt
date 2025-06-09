@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/MinerBlock
+├── file list
+│ @@ -1,11 +1,12 @@
+│ +.git
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  assets
+│  css
+│  fonts
+│  icons
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/MinerBlock/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -37,13 +37,12 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "tabs",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.18",
+│ │      "web_accessible_resources": [
+│ │          "js/minerkill.js"
+│ │      ]
+│ │  }

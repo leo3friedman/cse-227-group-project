@@ -1,0 +1,23 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-ext-ato-ichinen/app
+├── file list
+│ @@ -1,5 +1,4 @@
+│ -_metadata
+│  background
+│  icon
+│  lib
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-ext-ato-ichinen/app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -11,10 +11,9 @@
+│ │          "128": "icon/icon-128.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "ato-ichinen",
+│ │      "permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.5"
+│ │  }

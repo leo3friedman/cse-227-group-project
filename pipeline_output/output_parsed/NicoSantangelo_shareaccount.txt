@@ -1,0 +1,102 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/shareaccount
+  - files: _metadata, images
+  + files: .git, .gitignore, PRIVACY.md, gulpfile.js, node_modules, package-lock.json, package.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/shareaccount/README.md; File type: md
+  - Original: 13–13
+  - Original: 15–15
+  - Original: 17–17
+  - Original: 22–23
+  - Original: 26–26
+  - Original: 28–28
+  - Original: 31–31
+  + Modified: 13–26
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/shareaccount/manifest.json; File type: json
+  - Original: 25–25 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup <-> +++/workspace/pipeline_output/shareaccount/popup
+  - files: 
+  + files: .eslintrc
+
+---/workspace/pipeline_output/chromex_data/popup/css/styles.css <-> +++/workspace/pipeline_output/shareaccount/popup/css/styles.css; File type: css
+  - Original: 1–1
+  + Modified: 1–350
+
+---/workspace/pipeline_output/chromex_data/popup/images/header-logo.png <-> +++/workspace/pipeline_output/shareaccount/popup/images/header-logo.png; File type: png
+  - Original: 1–589
+  + Modified: 1–902
+
+---/workspace/pipeline_output/chromex_data/popup/index.html <-> +++/workspace/pipeline_output/shareaccount/popup/index.html; File type: html
+  - Original: 1–1
+  - Original: 3–3
+  + Modified: 1–163
+
+---/workspace/pipeline_output/chromex_data/popup/js/analytics.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/analytics.js; File type: js
+  - Original: 1–7
+  - Original: 11–11
+  + Modified: 1–30
+
+---/workspace/pipeline_output/chromex_data/popup/js/configuration.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/configuration.js; File type: js
+  - Original: 1–7
+  - Original: 9–33
+  - Original: 36–38
+  + Modified: 1–65
+
+---/workspace/pipeline_output/chromex_data/popup/js/cookieManager.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/cookieManager.js; File type: js
+  - Original: 1–2
+  - Original: 4–6
+  - Original: 9–10
+  - Original: 12–38
+  + Modified: 1–49
+
+---/workspace/pipeline_output/chromex_data/popup/js/cryptography.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/cryptography.js; File type: js
+  - Original: 1–2
+  - Original: 4–5
+  - Original: 8–9
+  - Original: 11–39
+  + Modified: 1–57
+
+---/workspace/pipeline_output/chromex_data/popup/js/http.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/http.js; File type: js
+  - Original: 1–14
+  - Original: 16–16
+  + Modified: 1–35
+
+---/workspace/pipeline_output/chromex_data/popup/js/log.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/log.js; File type: js
+  - Original: 1–1
+  + Modified: 1–2
+
+---/workspace/pipeline_output/chromex_data/popup/js/main.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/main.js; File type: js
+  - Original: 1–2
+  - Original: 4–8
+  - Original: 10–17
+  - Original: 19–22
+  - Original: 24–28
+  - Original: 30–34
+  - Original: 36–38
+  - Original: 42–52
+  - Original: 54–57
+  - Original: 59–62
+  - Original: 64–66
+  - Original: 68–82
+  - Original: 84–103
+  - Original: 106–121
+  - Original: 123–142
+  - Original: 144–180
+  - Original: 183–214
+  - Original: 216–220
+  - Original: 222–226
+  - Original: 228–239
+  - Original: 241–253
+  - Original: 255–283
+  - Original: 286–300
+  + Modified: 1–496
+
+---/workspace/pipeline_output/chromex_data/popup/js/shareText.js <-> +++/workspace/pipeline_output/shareaccount/popup/js/shareText.js; File type: js
+  - Original: 1–2
+  - Original: 4–5
+  - Original: 8–8
+  - Original: 11–19
+  - Original: 22–58
+  + Modified: 1–94
+

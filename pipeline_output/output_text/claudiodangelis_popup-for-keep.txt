@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/popup-for-keep/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  css
+│  img
+│  js
+│  manifest.json
+│  options.component.html
+│  options.html
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/popup-for-keep/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -41,10 +41,9 @@
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "storage",
+│ │          "https://keep.google.com/keep/"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.15.2"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/ts
+├── +++ /workspace/pipeline_output/popup-for-keep/src/ts
+│ ├── file list
+│ │ @@ -0,0 +1,4 @@
+│ │ +app
+│ │ +client
+│ │ +common
+│ │ +options

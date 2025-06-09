@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/crx-reload-tab
+├── file list
+│ @@ -1,10 +1,22 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  background.js
+│ +icon.svg
+│  icon128.png
+│  icon16.png
+│  icon19.png
+│  icon38.png
+│  icon48.png
+│ +make_zip.sh
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +promotional_440x280.png
+│ +promotional_440x280.svg
+│ +screenshot_440x280_1.png
+│ +screenshot_440x280_2.png
+│ +screenshot_640x400_1.png
+│ +screenshot_640x400_2.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/crx-reload-tab/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "Tab auto reloader",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "Tab reloader",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

@@ -1,0 +1,212 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DoNotDiscard
+├── file list
+│ @@ -1,5 +1,7 @@
+│ +.git
+│ +README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  icon.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/DoNotDiscard/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/DoNotDiscard/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/DoNotDiscard/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,16 +1,16 @@
+│ │ │ -7b0d0a2020226d616e69666573745f6e616d65223a207b0d0a20202020226d65
+│ │ │ -7373616765223a202244697361626c65206175746f6d61746963207461622064
+│ │ │ -697363617264696e67220d0a20207d2c0d0a2020226d616e69666573745f6465
+│ │ │ -736372697074696f6e223a207b0d0a20202020226d657373616765223a202253
+│ │ │ -746f7073204368726f6d652066726f6d2073757370656e64696e672074616273
+│ │ │ -2c20616e642072656c6f6164696e67207468656d207768656e20796f75207377
+│ │ │ -6974636820746f207468656d2e220d0a20207d2c0d0a2020226d616e69666573
+│ │ │ -745f7469746c65223a207b0d0a20202020226d657373616765223a2022417574
+│ │ │ -6f6d61746963207461622064697363617264696e672063757272656e746c7920
+│ │ │ -64697361626c65645c6e44697361626c652f756e696e7374616c6c2074686973
+│ │ │ -20657874656e73696f6e20746f20656e61626c65206974220d0a20207d2c0d0a
+│ │ │ -202022636d5f726576696577223a207b0d0a20202020226d657373616765223a
+│ │ │ -202252617465207468697320657874656e73696f6e20696e2073746f7265220d
+│ │ │ -0a20207d2c0d0a202022636d5f737570706f7274223a207b0d0a20202020226d
+│ │ │ -657373616765223a202253656e6420666565646261636b202873756767657374
+│ │ │ -696f6e732c2069737375657329220d0a20207d0d0a7d0d0a
+│ │ │ +7b0a2020226d616e69666573745f6e616d65223a207b0a20202020226d657373
+│ │ │ +616765223a202244697361626c65206175746f6d617469632074616220646973
+│ │ │ +63617264696e67220a20207d2c0a2020226d616e69666573745f646573637269
+│ │ │ +7074696f6e223a207b0a20202020226d657373616765223a202253746f707320
+│ │ │ +4368726f6d652066726f6d2073757370656e64696e6720746162732c20616e64
+│ │ │ +2072656c6f6164696e67207468656d207768656e20796f752073776974636820
+│ │ │ +746f207468656d2e220a20207d2c0a2020226d616e69666573745f7469746c65
+│ │ │ +223a207b0a20202020226d657373616765223a20224175746f6d617469632074
+│ │ │ +61622064697363617264696e672063757272656e746c792064697361626c6564
+│ │ │ +5c6e44697361626c652f756e696e7374616c6c207468697320657874656e7369
+│ │ │ +6f6e20746f20656e61626c65206974220a20207d2c0a202022636d5f72657669
+│ │ │ +6577223a207b0a20202020226d657373616765223a2022526174652074686973
+│ │ │ +20657874656e73696f6e20696e2073746f7265220a20207d2c0a202022636d5f
+│ │ │ +737570706f7274223a207b0a20202020226d657373616765223a202253656e64
+│ │ │ +20666565646261636b202873756767657374696f6e732c206973737565732922
+│ │ │ +0a20207d0a7d0a
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/es
+│ ├── +++ /workspace/pipeline_output/DoNotDiscard/_locales/es
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/es/messages.json
+│ │ ├── +++ /workspace/pipeline_output/DoNotDiscard/_locales/es/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,17 +1,17 @@
+│ │ │ -7b0d0a2020226d616e69666573745f6e616d65223a207b0d0a20202020226d65
+│ │ │ -7373616765223a2022446573686162696c69746172206c612073757370656e73
+│ │ │ -69c3b36e206465207065737461c3b16173220d0a20207d2c0d0a2020226d616e
+│ │ │ -69666573745f6465736372697074696f6e223a207b0d0a20202020226d657373
+│ │ │ -616765223a2022457669746120717565204368726f6d652073757370656e6461
+│ │ │ -207065737461c3b1617320792073652061637475616c6963656e206375616e64
+│ │ │ -6f207675656c766573206120656c6c61732e220d0a20207d2c0d0a2020226d61
+│ │ │ -6e69666573745f7469746c65223a207b0d0a20202020226d657373616765223a
+│ │ │ -20224c612073757370656e7369c3b36e206465207065737461c3b16173206573
+│ │ │ -74c3a120646573686162696c69746164615c6e4465736163746976612f646573
+│ │ │ -696e7374616c61206573746120657874656e7369c3b36e207061726120616374
+│ │ │ -697661726c61220d0a20207d2c0d0a202022636d5f726576696577223a207b0d
+│ │ │ -0a20202020226d657373616765223a202243616c696669636172206573746120
+│ │ │ -657874656e7369c3b36e20656e206c61207469656e6461220d0a20207d2c0d0a
+│ │ │ -202022636d5f737570706f7274223a207b0d0a20202020226d65737361676522
+│ │ │ -3a2022456e7669617220636f6d656e746172696f7320287375676572656e6369
+│ │ │ -61732c2070726f626c656d617329220d0a20207d0d0a7d0d0a
+│ │ │ +7b0a2020226d616e69666573745f6e616d65223a207b0a20202020226d657373
+│ │ │ +616765223a2022446573686162696c69746172206c612073757370656e7369c3
+│ │ │ +b36e206465207065737461c3b16173220a20207d2c0a2020226d616e69666573
+│ │ │ +745f6465736372697074696f6e223a207b0a20202020226d657373616765223a
+│ │ │ +2022457669746120717565204368726f6d652073757370656e64612070657374
+│ │ │ +61c3b1617320792073652061637475616c6963656e206375616e646f20767565
+│ │ │ +6c766573206120656c6c61732e220a20207d2c0a2020226d616e69666573745f
+│ │ │ +7469746c65223a207b0a20202020226d657373616765223a20224c6120737573
+│ │ │ +70656e7369c3b36e206465207065737461c3b1617320657374c3a12064657368
+│ │ │ +6162696c69746164615c6e4465736163746976612f646573696e7374616c6120
+│ │ │ +6573746120657874656e7369c3b36e207061726120616374697661726c61220a
+│ │ │ +20207d2c0a202022636d5f726576696577223a207b0a20202020226d65737361
+│ │ │ +6765223a202243616c696669636172206573746120657874656e7369c3b36e20
+│ │ │ +656e206c61207469656e6461220a20207d2c0a202022636d5f737570706f7274
+│ │ │ +223a207b0a20202020226d657373616765223a2022456e7669617220636f6d65
+│ │ │ +6e746172696f7320287375676572656e636961732c2070726f626c656d617329
+│ │ │ +220a20207d0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/DoNotDiscard/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,50 +1,50 @@
+│ │ -chrome.tabs.onCreated.addListener(function(tab) {
+│ │ -    chrome.tabs.update(tab.id, {
+│ │ -        autoDiscardable: false
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -chrome.tabs.onReplaced.addListener(function(tabId) {
+│ │ -    chrome.tabs.update(tabId, {
+│ │ -        autoDiscardable: false
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -chrome.runtime.onInstalled.addListener(function(details) {
+│ │ -    chrome.tabs.query({}, function(tabs) {
+│ │ -        tabs.forEach(function(tab) {
+│ │ -            chrome.tabs.update(tab.id, {
+│ │ -                autoDiscardable: false
+│ │ -            });
+│ │ -        });
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -
+│ │ -chrome.runtime.setUninstallURL("https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support");
+│ │ -
+│ │ -chrome.contextMenus.removeAll();
+│ │ -chrome.contextMenus.create({
+│ │ -    id: "review",
+│ │ -    title: "🌟 " + chrome.i18n.getMessage("cm_review"),
+│ │ -    contexts: ["browser_action"]
+│ │ -});
+│ │ -chrome.contextMenus.create({
+│ │ -    id: "support",
+│ │ -    title: "💬 " + chrome.i18n.getMessage("cm_support"),
+│ │ -    contexts: ["browser_action"]
+│ │ -});
+│ │ -chrome.contextMenus.onClicked.addListener(function(info, tab) {
+│ │ -    switch (info.menuItemId) {
+│ │ -        case "review":
+│ │ -            chrome.tabs.create({
+│ │ -                url: "https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/reviews"
+│ │ -            });
+│ │ -            break;
+│ │ -        case "support":
+│ │ -            chrome.tabs.create({
+│ │ -                url: "https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support"
+│ │ -            });
+│ │ -            break;
+│ │ -    }
+│ │ +chrome.tabs.onCreated.addListener(function(tab) {
+│ │ +    chrome.tabs.update(tab.id, {
+│ │ +        autoDiscardable: false
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +chrome.tabs.onReplaced.addListener(function(tabId) {
+│ │ +    chrome.tabs.update(tabId, {
+│ │ +        autoDiscardable: false
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +chrome.runtime.onInstalled.addListener(function(details) {
+│ │ +    chrome.tabs.query({}, function(tabs) {
+│ │ +        tabs.forEach(function(tab) {
+│ │ +            chrome.tabs.update(tab.id, {
+│ │ +                autoDiscardable: false
+│ │ +            });
+│ │ +        });
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +
+│ │ +chrome.runtime.setUninstallURL("https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support");
+│ │ +
+│ │ +chrome.contextMenus.removeAll();
+│ │ +chrome.contextMenus.create({
+│ │ +    id: "review",
+│ │ +    title: "🌟 " + chrome.i18n.getMessage("cm_review"),
+│ │ +    contexts: ["browser_action"]
+│ │ +});
+│ │ +chrome.contextMenus.create({
+│ │ +    id: "support",
+│ │ +    title: "💬 " + chrome.i18n.getMessage("cm_support"),
+│ │ +    contexts: ["browser_action"]
+│ │ +});
+│ │ +chrome.contextMenus.onClicked.addListener(function(info, tab) {
+│ │ +    switch (info.menuItemId) {
+│ │ +        case "review":
+│ │ +            chrome.tabs.create({
+│ │ +                url: "https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/reviews"
+│ │ +            });
+│ │ +            break;
+│ │ +        case "support":
+│ │ +            chrome.tabs.create({
+│ │ +                url: "https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support"
+│ │ +            });
+│ │ +            break;
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DoNotDiscard/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │          "48": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_manifest_name__",
+│ │      "permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.5"
+│ │  }

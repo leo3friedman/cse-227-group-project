@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/history-by-date/chrome_ext
+├── file list
+│ @@ -1,8 +1,6 @@
+│ -_metadata
+│ -back
+│  dist
+│  ext.css
+│  index-production.html
+│  index.html
+│  manifest.json
+│  service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/dist
+├── +++ /workspace/pipeline_output/history-by-date/chrome_ext/dist
+│ ├── file list
+│ │ @@ -1,7 +1,5 @@
+│ │ -blank.png
+│ │  bootstrap.min.css
+│ │ -loadApp.css
+│ │  loadApp.js
+│ │  loadApp.js.LICENSE.txt
+│ │  loadApp.js.map
+│ │  logo_128.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/history-by-date/chrome_ext/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,15 +23,14 @@
+│ │      "name": "History by Date",
+│ │      "permissions": [
+│ │          "history",
+│ │          "storage",
+│ │          "tabs"
+│ │      ],
+│ │      "short_name": "HistoryDate",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

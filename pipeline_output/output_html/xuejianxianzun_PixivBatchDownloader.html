@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/xuejianxianzun_PixivBatchDownloader.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/PixivBatchDownloader/src</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">30.1 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/PixivBatchDownloader/src</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">231 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 14 lines modified</td><td colspan="2">Offset 1, 5 lines modified</td></tr>
+<tr class="diffdeleted"><td class="diffline">1 </td><td class="diffpresent">LICENSE</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">README-EN.md</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">3 </td><td class="diffpresent">README-JA.md</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">4 </td><td class="diffpresent">README-KO.md</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">5 </td><td class="diffpresent">README-RU.md</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">6 </td><td class="diffpresent">README-ZH-TW.md</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">7 </td><td class="diffpresent">README.md</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">8 </td><td class="diffpresent">_metadata</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">9 </td><td class="diffpresent">declarative_net_request_rules.json</td><td class="diffline">1 </td><td class="diffpresent">declarative_net_request_rules.json</td></tr>
+<tr class="diffdeleted"><td class="diffline">10 </td><td class="diffpresent">icon</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">11 </td><td class="diffpresent">js</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent">lib</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">13 </td><td class="diffpresent">manifest.json</td><td class="diffline">2 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">static</td></tr>
+<tr class="diffunmodified"><td class="diffline">14 </td><td class="diffpresent">style</td><td class="diffline">4 </td><td class="diffpresent">style</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">ts</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">742 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/PixivBatchDownloader/src/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">624 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 72, 19 lines modified</td><td colspan="2">Offset 72, 19 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">72 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon/logo48.png&quot;</td><td class="diffline">72 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon/logo48.png&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">73 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">73 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">74 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;incognito&quot;:<span class="dp">·</span>&quot;split&quot;,</td><td class="diffline">74 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;incognito&quot;:<span class="dp">·</span>&quot;split&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">75 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td><td class="diffline">75 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td></tr>
+<tr class="diffunmodified"><td class="diffline">76 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;Powerful<span class="dp">·</span>Pixiv<span class="dp">·</span>Downloader&quot;,</td><td class="diffline">76 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;Powerful<span class="dp">·</span>Pixiv<span class="dp">·</span>Downloader&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">77 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td><td class="diffline">77 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">78 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;downloads&quot;,</td><td class="diffline">78 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;downloads&quot;,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">79 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;downloads.shelf&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">79 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;,</td><td class="diffline">80 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">80 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;declarativeNetRequestWithHostAccess&quot;,</td><td class="diffline">81 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;declarativeNetRequestWithHostAccess&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">81 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;webRequest&quot;</td><td class="diffline">82 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;webRequest&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">82 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">83 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffdeleted"><td class="diffline">83 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">84 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;17.6.0&quot;,</td><td class="diffline">84 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;17.6.0&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">85 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;web_accessible_resources&quot;:<span class="dp">·</span>[</td><td class="diffline">85 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;web_accessible_resources&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">86 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>{</td><td class="diffline">86 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">87 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;matches&quot;:<span class="dp">·</span>[</td><td class="diffline">87 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;matches&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">88 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;*://www.pixiv.net/*&quot;,</td><td class="diffline">88 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;*://www.pixiv.net/*&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">89 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;*://www.pixivision.net/*&quot;</td><td class="diffline">89 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;*://www.pixivision.net/*&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">90 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">90 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+</table>    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">29.1 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/style</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-style"><span class="source">/workspace/pipeline_output/PixivBatchDownloader/src/style</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-style">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">487 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-style---file-list"><span class="source">file list</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-style---file-list">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 3 lines modified</td><td colspan="2">Offset 1, 23 lines modified</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">1 </td><td class="diffpresent">DoNotDownloadLastFewImages.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">Loading.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">UseDifferentNameRuleIfWorkHasTagWarp.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">blockAds.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">blockTagsForSpecificUser.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">centerPanel.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">deleteWorks.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">imageViewer.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">input.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">log.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">msgBox.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">12 </td><td class="diffpresent">outputWrap.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">previewWorkDetailPanel.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">rightButtons.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">search.css</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">search.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">selectWork.less</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">18 </td><td class="diffpresent">setUserName.less</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">showLargerThumbnails.css</td><td class="diffline">19 </td><td class="diffpresent">showLargerThumbnails.css</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">20 </td><td class="diffpresent">showLargerThumbnails.less</td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent">style.css</td><td class="diffline">21 </td><td class="diffpresent">style.css</td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent"><del>view</del>e<del>r</del>.<del>min</del><del>.c</del>ss</td><td class="diffline">22 </td><td class="diffpresent"><ins>styl</ins>e.<ins>le</ins>ss</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">23 </td><td class="diffpresent">var.less</td></tr>
+</table>    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">13.1 KB</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/style/showLargerThumbnails.css</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-style----workspace-pipeline_output-chromex_data-style-showLargerThumbnails.css"><span class="source">/workspace/pipeline_output/PixivBatchDownloader/src/style/showLargerThumbnails.css</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-style----workspace-pipeline_output-chromex_data-style-showLargerThumbnails.css">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 20, 29 lines modified</td><td colspan="2">Offset 20, 30 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">20 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>{</td><td class="diffline">20 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>img<span class="dp">·</span>*/</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>img<span class="dp">·</span>*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>div[width=&quot;184&quot;]<span class="dp">·</span>a<span class="dp">·</span>div<span class="dp">·</span>img<span class="dp">·</span>*/</td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>div[width=&quot;184&quot;]<span class="dp">·</span>a<span class="dp">·</span>div<span class="dp">·</span>img<span class="dp">·</span>*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>下载器会尝试给<span class="dp">·</span>精选新作<span class="dp">·</span>和<span class="dp">·</span>已关注用户的作品<span class="dp">·</span>的容器添加自定义的<span class="dp">·</span>class，避免其频繁改版而失效<span class="dp">·</span>*/</td><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>下载器会尝试给<span class="dp">·</span>精选新作<span class="dp">·</span>和<span class="dp">·</span>已关注用户的作品<span class="dp">·</span>的容器添加自定义的<span class="dp">·</span>class，避免其频繁改版而失效<span class="dp">·</span>*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>推荐作品<span class="dp">·</span>li<span class="dp">·</span>*/</td><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>推荐作品<span class="dp">·</span>li<span class="dp">·</span>*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>很多新版页面的作品列表都要把<span class="dp">·</span>margin<span class="dp">·</span>改小一些，从<span class="dp">·</span>12<span class="dp">·</span>改为<span class="dp">·</span>10，否则在<span class="dp">·</span>125%<span class="dp">·</span>缩放时，因为宽度不够，一排原本能显示<span class="dp">·</span>6<span class="dp">·</span>个的，变得只能显示<span class="dp">·</span>5<span class="dp">·</span>个*/</td><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>很多新版页面的作品列表都要把<span class="dp">·</span>margin<span class="dp">·</span>改小一些，从<span class="dp">·</span>12<span class="dp">·</span>改为<span class="dp">·</span>10，否则在<span class="dp">·</span>125%<span class="dp">·</span>缩放时，因为宽度不够，一排原本能显示<span class="dp">·</span>6<span class="dp">·</span>个的，变得只能显示<span class="dp">·</span>5<span class="dp">·</span>个*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">26 </td><td class="diffpresent">}</td><td class="diffline">26 </td><td class="diffpresent">}</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">27 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>#root<span class="dp">·</span>.hkzusx<span class="dp">·</span>{</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">29 </td><td class="diffpresent">}</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">30 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>#root<span class="dp">·</span>.liyNwX<span class="dp">·</span>{</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">31 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">32 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">33 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">27 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.bgPpJb,</td><td class="diffline">34 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.bgPpJb,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">35 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]</td></tr>
+<tr class="diffchanged"><td class="diffline">28 </td><td class="diffpresent"><del>body[data-page-type=&#x27;0&#x27;</del><del>]</del><span class="dp">·</span>div.gtm-toppage-thumbnail-illustration-recommend-tag-zone<del><span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div,</del></td><td class="diffline">36 </td><td class="diffpresent"><ins><span class="dp">·</span></ins><span class="dp">·</span>div.gtm-toppage-thumbnail-illustration-recommend-tag-zone</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">37 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&gt;<span class="dp">·</span>div</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&gt;<span class="dp">·</span>div,</td></tr>
+<tr class="diffunmodified"><td class="diffline">29 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.bYCbxa,</td><td class="diffline">39 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.bYCbxa,</td></tr>
+<tr class="diffunmodified"><td class="diffline">30 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.cwAKCq<span class="dp">·</span>{</td><td class="diffline">40 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.cwAKCq<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">31 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td><td class="diffline">41 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">32 </td><td class="diffpresent">}</td><td class="diffline">42 </td><td class="diffpresent">}</td></tr>
+<tr class="diffdeleted"><td class="diffline">33 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>&gt;<span class="dp">·</span>div,</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">34 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>section[data-ga4-label=&#x27;new_works_content&#x27;]<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>{</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>92vw;</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">36 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>92vw;</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">37 </td><td class="diffpresent">}</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">38 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>li<span class="dp">·</span>div,</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">39 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>section[data-ga4-label=&#x27;new_works_content&#x27;]<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>li<span class="dp">·</span>div<span class="dp">·</span>{</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">40 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">41 </td><td class="diffpresent">}</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">42 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.ldgmym<span class="dp">·</span>{</td><td class="diffline">43 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.ldgmym<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>92vw;</td><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>92vw;</td></tr>
+<tr class="diffunmodified"><td class="diffline">44 </td><td class="diffpresent">}</td><td class="diffline">45 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">45 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.eajBeO<span class="dp">·</span>{</td><td class="diffline">46 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.eajBeO<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">47 </td><td class="diffpresent">}</td><td class="diffline">48 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">48 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>li<span class="dp">·</span>iframe<span class="dp">·</span>{</td><td class="diffline">49 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>li<span class="dp">·</span>iframe<span class="dp">·</span>{</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 81, 16 lines modified</td><td colspan="2">Offset 82, 14 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">81 </td><td class="diffpresent">}</td><td class="diffline">82 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">82 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>div.gVidFA<span class="dp">·</span>div[width=&#x27;184&#x27;]<span class="dp">·</span>a<span class="dp">·</span>div<span class="dp">·</span>img<span class="dp">·</span>{</td><td class="diffline">83 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>div.gVidFA<span class="dp">·</span>div[width=&#x27;184&#x27;]<span class="dp">·</span>a<span class="dp">·</span>div<span class="dp">·</span>img<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">83 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>260px;</td><td class="diffline">84 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>260px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">84 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-height:<span class="dp">·</span>260px;</td><td class="diffline">85 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-height:<span class="dp">·</span>260px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">85 </td><td class="diffpresent">}</td><td class="diffline">86 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">86 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>&gt;<span class="dp">·</span>div:nth-child(2)<span class="dp">·</span>{</td><td class="diffline">87 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>&gt;<span class="dp">·</span>div:nth-child(2)<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">87 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>--carousel-width:<span class="dp">·</span>unset<span class="dp">·</span>!important;</td><td class="diffline">88 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>--carousel-width:<span class="dp">·</span>unset<span class="dp">·</span>!important;</td></tr>
+<tr class="diffdeleted"><td class="diffline">88 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>92vw;</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">89 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>92vw;</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">90 </td><td class="diffpresent">}</td><td class="diffline">89 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">91 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>{</td><td class="diffline">90 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">92 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td><td class="diffline">91 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td></tr>
+<tr class="diffunmodified"><td class="diffline">93 </td><td class="diffpresent">}</td><td class="diffline">92 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">94 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>div,</td><td class="diffline">93 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>div,</td></tr>
+<tr class="diffunmodified"><td class="diffline">95 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li<span class="dp">·</span>{</td><td class="diffline">94 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">96 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td><td class="diffline">95 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 106, 17 lines modified</td><td colspan="2">Offset 105, 14 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">106 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td><td class="diffline">105 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>auto<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">107 </td><td class="diffpresent">}</td><td class="diffline">106 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">108 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div,</td><td class="diffline">107 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div,</td></tr>
+<tr class="diffunmodified"><td class="diffline">109 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>{</td><td class="diffline">108 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeFriendsNewWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">110 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td><td class="diffline">109 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">111 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-direction:<span class="dp">·</span>column<span class="dp">·</span>!important;</td><td class="diffline">110 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-direction:<span class="dp">·</span>column<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">112 </td><td class="diffpresent">}</td><td class="diffline">111 </td><td class="diffpresent">}</td></tr>
+<tr class="diffdeleted"><td class="diffline">113 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeRecommendedWorksParent<span class="dp">·</span>{</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">114 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>92vw;</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">115 </td><td class="diffpresent">}</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">116 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeRecommendedWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li<span class="dp">·</span>{</td><td class="diffline">112 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeRecommendedWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">117 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td><td class="diffline">113 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">118 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>540px;</td><td class="diffline">114 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>540px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">119 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-height:<span class="dp">·</span>600px;</td><td class="diffline">115 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-height:<span class="dp">·</span>600px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">120 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-shrink:<span class="dp">·</span>0;</td><td class="diffline">116 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-shrink:<span class="dp">·</span>0;</td></tr>
+<tr class="diffunmodified"><td class="diffline">121 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>12px;</td><td class="diffline">117 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>12px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">122 </td><td class="diffpresent">}</td><td class="diffline">118 </td><td class="diffpresent">}</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 124, 15 lines modified</td><td colspan="2">Offset 120, 21 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">124 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td><td class="diffline">120 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">125 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-direction:<span class="dp">·</span>column<span class="dp">·</span>!important;</td><td class="diffline">121 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-direction:<span class="dp">·</span>column<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">126 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>100%<span class="dp">·</span>!important;</td><td class="diffline">122 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>100%<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">127 </td><td class="diffpresent">}</td><td class="diffline">123 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">128 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeRecommendedWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li.novelLI<span class="dp">·</span>{</td><td class="diffline">124 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.homeRecommendedWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li.novelLI<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">129 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>100%<span class="dp">·</span>!important;</td><td class="diffline">125 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>100%<span class="dp">·</span>!important;</td></tr>
+<tr class="diffunmodified"><td class="diffline">130 </td><td class="diffpresent">}</td><td class="diffline">126 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">131 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<del><span class="dp">·</span>.homeRecommendedWorks<span class="dp">·</span>ul<span class="dp">·</span>&gt;<span class="dp">·</span>li.novelLI<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div<span class="dp">·</span>&gt;<span class="dp">·</span>div:nth-child(1)<span class="dp">·</span>{</del></td><td class="diffline">127 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">128 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.homeRecommendedWorks</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">129 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>ul</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">130 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&gt;<span class="dp">·</span>li.novelLI</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">131 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&gt;<span class="dp">·</span>div</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">132 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&gt;<span class="dp">·</span>div</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">133 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&gt;<span class="dp">·</span>div:nth-child(1)<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">132 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#d1bfa2;</td><td class="diffline">134 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#d1bfa2;</td></tr>
+<tr class="diffunmodified"><td class="diffline">133 </td><td class="diffpresent">}</td><td class="diffline">135 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">134 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.kxmdLh,</td><td class="diffline">136 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.kxmdLh,</td></tr>
+<tr class="diffunmodified"><td class="diffline">135 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.dgeelW,</td><td class="diffline">137 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.dgeelW,</td></tr>
+<tr class="diffunmodified"><td class="diffline">136 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.flkRKs,</td><td class="diffline">138 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.flkRKs,</td></tr>
+<tr class="diffunmodified"><td class="diffline">137 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.jexggF<span class="dp">·</span>{</td><td class="diffline">139 </td><td class="diffpresent">body[data-page-type=&#x27;0&#x27;]<span class="dp">·</span>.jexggF<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">138 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>10px<span class="dp">·</span>!important;</td><td class="diffline">140 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>10px<span class="dp">·</span>!important;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 140, 14 lines modified</td><td colspan="2">Offset 142, 22 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">140 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>540px;</td><td class="diffline">142 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>540px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">141 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-height:<span class="dp">·</span>600px;</td><td class="diffline">143 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-height:<span class="dp">·</span>600px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">142 </td><td class="diffpresent">}</td><td class="diffline">144 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">143 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>{</td><td class="diffline">145 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">144 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>img<span class="dp">·</span>*/</td><td class="diffline">146 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>img<span class="dp">·</span>*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">145 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>div[width=&quot;184&quot;]<span class="dp">·</span>a<span class="dp">·</span>div<span class="dp">·</span>img<span class="dp">·</span>*/</td><td class="diffline">147 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>/*<span class="dp">·</span>div[width=&quot;184&quot;]<span class="dp">·</span>a<span class="dp">·</span>div<span class="dp">·</span>img<span class="dp">·</span>*/</td></tr>
+<tr class="diffunmodified"><td class="diffline">146 </td><td class="diffpresent">}</td><td class="diffline">148 </td><td class="diffpresent">}</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">149 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#root<span class="dp">·</span>.dkdRNk,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">150 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#root<span class="dp">·</span>#XZArtworkWrap<span class="dp">·</span>{</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">151 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">152 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>justify-content:<span class="dp">·</span>center;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">153 </td><td class="diffpresent">}</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">154 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#root<span class="dp">·</span>.dkjfqS<span class="dp">·</span>{</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">155 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0<span class="dp">·</span>!important;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">156 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">147 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.gtm-illust-recommend-zone<span class="dp">·</span>ul,</td><td class="diffline">157 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.gtm-illust-recommend-zone<span class="dp">·</span>ul,</td></tr>
+<tr class="diffunmodified"><td class="diffline">148 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.jELUak<span class="dp">·</span>{</td><td class="diffline">158 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.jELUak<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">149 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td><td class="diffline">159 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td></tr>
+<tr class="diffunmodified"><td class="diffline">150 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-wrap:<span class="dp">·</span>wrap;</td><td class="diffline">160 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-wrap:<span class="dp">·</span>wrap;</td></tr>
+<tr class="diffunmodified"><td class="diffline">151 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td><td class="diffline">161 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td></tr>
+<tr class="diffunmodified"><td class="diffline">152 </td><td class="diffpresent">}</td><td class="diffline">162 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">153 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#XZContentWrap,</td><td class="diffline">163 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#XZContentWrap,</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 160, 15 lines modified</td><td colspan="2">Offset 170, 18 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">160 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#XZContentWrap<span class="dp">·</span>{</td><td class="diffline">170 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>#XZContentWrap<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">161 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>1224px;</td><td class="diffline">171 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>max-width:<span class="dp">·</span>1224px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">162 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>24px<span class="dp">·</span>auto<span class="dp">·</span>0;</td><td class="diffline">172 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>24px<span class="dp">·</span>auto<span class="dp">·</span>0;</td></tr>
+<tr class="diffunmodified"><td class="diffline">163 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>justify-content:<span class="dp">·</span>center;</td><td class="diffline">173 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>justify-content:<span class="dp">·</span>center;</td></tr>
+<tr class="diffunmodified"><td class="diffline">164 </td><td class="diffpresent">}</td><td class="diffline">174 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">165 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.kIrKyI,</td><td class="diffline">175 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.kIrKyI,</td></tr>
+<tr class="diffunmodified"><td class="diffline">166 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.bgPpJb,</td><td class="diffline">176 </td><td class="diffpresent">body[data-page-type=&#x27;1&#x27;]<span class="dp">·</span>.bgPpJb,</td></tr>
+<tr class="error"><td colspan="4">
+Max diff block lines reached; 9393/13280 bytes (70.73%) of diff not shown.
+</td></tr></table>    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">15.4 KB</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/style/style.css</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-style----workspace-pipeline_output-chromex_data-style-style.css"><span class="source">/workspace/pipeline_output/PixivBatchDownloader/src/style/style.css</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-style----workspace-pipeline_output-chromex_data-style-style.css">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 44, 28 lines modified</td><td colspan="2">Offset 44, 38 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>content:<span class="dp">·</span>&#x27;&#x27;;</td><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>content:<span class="dp">·</span>&#x27;&#x27;;</td></tr>
+<tr class="diffunmodified"><td class="diffline">45 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>block;</td><td class="diffline">45 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>block;</td></tr>
+<tr class="diffunmodified"><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>absolute;</td><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>absolute;</td></tr>
+<tr class="diffunmodified"><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>200vw;</td><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>200vw;</td></tr>
+<tr class="diffunmodified"><td class="diffline">48 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>left:<span class="dp">·</span>-100vw;</td><td class="diffline">48 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>left:<span class="dp">·</span>-100vw;</td></tr>
+<tr class="diffunmodified"><td class="diffline">49 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>top:<span class="dp">·</span>10px;</td><td class="diffline">49 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>top:<span class="dp">·</span>10px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">50 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>1px;</td><td class="diffline">50 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>1px;</td></tr>
+<tr class="diffchanged"><td class="diffline">51 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-image:<span class="dp">·</span>linear-gradient(<del>to<span class="dp">·</span>right,<span class="dp">·</span>#0ea8ef<span class="dp">·</span>0%,<span class="dp">·</span>#0ea8ef<span class="dp">·</span>50%,<span class="dp">·</span>transparent<span class="dp">·</span>50%);</del></td><td class="diffline">51 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-image:<span class="dp">·</span>linear-gradient(</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">52 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>to<span class="dp">·</span>right,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">53 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#0ea8ef<span class="dp">·</span>0%,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">54 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#0ea8ef<span class="dp">·</span>50%,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">55 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>transparent<span class="dp">·</span>50%</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">56 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>);</td></tr>
+<tr class="diffunmodified"><td class="diffline">52 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-size:<span class="dp">·</span>8px<span class="dp">·</span>1px;</td><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-size:<span class="dp">·</span>8px<span class="dp">·</span>1px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">53 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-repeat:<span class="dp">·</span>repeat-x;</td><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-repeat:<span class="dp">·</span>repeat-x;</td></tr>
+<tr class="diffunmodified"><td class="diffline">54 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>animation:<span class="dp">·</span>moveRight<span class="dp">·</span>2s<span class="dp">·</span>linear<span class="dp">·</span>infinite;</td><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>animation:<span class="dp">·</span>moveRight<span class="dp">·</span>2s<span class="dp">·</span>linear<span class="dp">·</span>infinite;</td></tr>
+<tr class="diffunmodified"><td class="diffline">55 </td><td class="diffpresent">}</td><td class="diffline">60 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">56 </td><td class="diffpresent">#selectWorkEl::after<span class="dp">·</span>{</td><td class="diffline">61 </td><td class="diffpresent">#selectWorkEl::after<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>content:<span class="dp">·</span>&#x27;&#x27;;</td><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>content:<span class="dp">·</span>&#x27;&#x27;;</td></tr>
+<tr class="diffunmodified"><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>block;</td><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>block;</td></tr>
+<tr class="diffunmodified"><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>absolute;</td><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>absolute;</td></tr>
+<tr class="diffunmodified"><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>200vh;</td><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>200vh;</td></tr>
+<tr class="diffunmodified"><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>top:<span class="dp">·</span>-100vh;</td><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>top:<span class="dp">·</span>-100vh;</td></tr>
+<tr class="diffunmodified"><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>left:<span class="dp">·</span>10px;</td><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>left:<span class="dp">·</span>10px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>1px;</td><td class="diffline">68 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>width:<span class="dp">·</span>1px;</td></tr>
+<tr class="diffchanged"><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-image:<span class="dp">·</span>linear-gradient(<del>to<span class="dp">·</span>bottom,<span class="dp">·</span>#0ea8ef<span class="dp">·</span>0%,<span class="dp">·</span>#0ea8ef<span class="dp">·</span>50%,<span class="dp">·</span>transparent<span class="dp">·</span>50%);</del></td><td class="diffline">69 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-image:<span class="dp">·</span>linear-gradient(</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>to<span class="dp">·</span>bottom,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#0ea8ef<span class="dp">·</span>0%,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">72 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#0ea8ef<span class="dp">·</span>50%,</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">73 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>transparent<span class="dp">·</span>50%</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">74 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>);</td></tr>
+<tr class="diffunmodified"><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-size:<span class="dp">·</span>1px<span class="dp">·</span>8px;</td><td class="diffline">75 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-size:<span class="dp">·</span>1px<span class="dp">·</span>8px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-repeat:<span class="dp">·</span>repeat-y;</td><td class="diffline">76 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background-repeat:<span class="dp">·</span>repeat-y;</td></tr>
+<tr class="diffunmodified"><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>animation:<span class="dp">·</span>moveBottom<span class="dp">·</span>1s<span class="dp">·</span>linear<span class="dp">·</span>infinite;</td><td class="diffline">77 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>animation:<span class="dp">·</span>moveBottom<span class="dp">·</span>1s<span class="dp">·</span>linear<span class="dp">·</span>infinite;</td></tr>
+<tr class="diffunmodified"><td class="diffline">68 </td><td class="diffpresent">}</td><td class="diffline">78 </td><td class="diffpresent">}</td></tr>
+<tr class="diffunmodified"><td class="diffline">69 </td><td class="diffpresent">.selectedWorkFlag<span class="dp">·</span>{</td><td class="diffline">79 </td><td class="diffpresent">.selectedWorkFlag<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>absolute;</td><td class="diffline">80 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>absolute;</td></tr>
+<tr class="diffunmodified"><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>z-index:<span class="dp">·</span>1000;</td><td class="diffline">81 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>z-index:<span class="dp">·</span>1000;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 150, 60 lines modified</td><td colspan="2">Offset 160, 113 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">150 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>right:<span class="dp">·</span>0px;</td><td class="diffline">160 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>right:<span class="dp">·</span>0px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">151 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>box-sizing:<span class="dp">·</span>border-box;</td><td class="diffline">161 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>box-sizing:<span class="dp">·</span>border-box;</td></tr>
+<tr class="diffunmodified"><td class="diffline">152 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td><td class="diffline">162 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td></tr>
+<tr class="diffunmodified"><td class="diffline">153 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>flex-start;</td><td class="diffline">163 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>flex-start;</td></tr>
+<tr class="diffunmodified"><td class="diffline">154 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>z-index:<span class="dp">·</span>1;</td><td class="diffline">164 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>z-index:<span class="dp">·</span>1;</td></tr>
+<tr class="diffunmodified"><td class="diffline">155 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>4px<span class="dp">·</span>4px<span class="dp">·</span>0px;</td><td class="diffline">165 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>4px<span class="dp">·</span>4px<span class="dp">·</span>0px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">156 </td><td class="diffpresent">}</td><td class="diffline">166 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">157 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.r18Part<span class="dp">·</span>{</del></td><td class="diffline">167 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">168 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">169 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">170 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">171 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">172 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.r18Part<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">158 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td><td class="diffline">173 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td></tr>
+<tr class="diffunmodified"><td class="diffline">159 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>flex-start;</td><td class="diffline">174 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>flex-start;</td></tr>
+<tr class="diffunmodified"><td class="diffline">160 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-flow:<span class="dp">·</span>row<span class="dp">·</span>wrap;</td><td class="diffline">175 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex-flow:<span class="dp">·</span>row<span class="dp">·</span>wrap;</td></tr>
+<tr class="diffunmodified"><td class="diffline">161 </td><td class="diffpresent">}</td><td class="diffline">176 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">162 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.r18Part<span class="dp">·</span>.child<span class="dp">·</span>{</del></td><td class="diffline">177 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">178 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">179 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">180 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">181 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">182 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.r18Part</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">183 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.child<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">163 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin-right:<span class="dp">·</span>2px;</td><td class="diffline">184 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin-right:<span class="dp">·</span>2px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">164 </td><td class="diffpresent">}</td><td class="diffline">185 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">165 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.r18Part<span class="dp">·</span>.child<span class="dp">·</span>.text<span class="dp">·</span>{</del></td><td class="diffline">186 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">187 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">188 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">189 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">190 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">191 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.r18Part</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">192 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.child</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">193 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.text<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">166 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#f5f5f5;</td><td class="diffline">194 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#f5f5f5;</td></tr>
+<tr class="diffunmodified"><td class="diffline">167 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-weight:<span class="dp">·</span>bold;</td><td class="diffline">195 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-weight:<span class="dp">·</span>bold;</td></tr>
+<tr class="diffunmodified"><td class="diffline">168 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-size:<span class="dp">·</span>10px;</td><td class="diffline">196 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-size:<span class="dp">·</span>10px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">169 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>line-height:<span class="dp">·</span>16px;</td><td class="diffline">197 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>line-height:<span class="dp">·</span>16px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">170 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0px<span class="dp">·</span>6px;</td><td class="diffline">198 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0px<span class="dp">·</span>6px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">171 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>border-radius:<span class="dp">·</span>3px;</td><td class="diffline">199 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>border-radius:<span class="dp">·</span>3px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">172 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background:<span class="dp">·</span>#ff4060;</td><td class="diffline">200 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background:<span class="dp">·</span>#ff4060;</td></tr>
+<tr class="diffunmodified"><td class="diffline">173 </td><td class="diffpresent">}</td><td class="diffline">201 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">174 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.multiplePart<span class="dp">·</span>{</del></td><td class="diffline">202 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">203 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">204 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">205 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">206 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">207 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.multiplePart<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">175 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin-left:<span class="dp">·</span>auto;</td><td class="diffline">208 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin-left:<span class="dp">·</span>auto;</td></tr>
+<tr class="diffunmodified"><td class="diffline">176 </td><td class="diffpresent">}</td><td class="diffline">209 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">177 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.multiplePart<span class="dp">·</span>.child<span class="dp">·</span>{</del></td><td class="diffline">210 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">211 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">212 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">213 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">214 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">215 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.multiplePart</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">216 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.child<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">178 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td><td class="diffline">217 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>flex;</td></tr>
+<tr class="diffunmodified"><td class="diffline">179 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>-webkit-box-align:<span class="dp">·</span>center;</td><td class="diffline">218 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>-webkit-box-align:<span class="dp">·</span>center;</td></tr>
+<tr class="diffunmodified"><td class="diffline">180 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td><td class="diffline">219 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>align-items:<span class="dp">·</span>center;</td></tr>
+<tr class="diffunmodified"><td class="diffline">181 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>box-sizing:<span class="dp">·</span>border-box;</td><td class="diffline">220 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>box-sizing:<span class="dp">·</span>border-box;</td></tr>
+<tr class="diffunmodified"><td class="diffline">182 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>20px;</td><td class="diffline">221 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>height:<span class="dp">·</span>20px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">183 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#ffffff;</td><td class="diffline">222 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#ffffff;</td></tr>
+<tr class="diffunmodified"><td class="diffline">184 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-weight:<span class="dp">·</span>bold;</td><td class="diffline">223 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-weight:<span class="dp">·</span>bold;</td></tr>
+<tr class="diffunmodified"><td class="diffline">185 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-size:<span class="dp">·</span>10px;</td><td class="diffline">224 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>font-size:<span class="dp">·</span>10px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">186 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>line-height:<span class="dp">·</span>10px;</td><td class="diffline">225 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>line-height:<span class="dp">·</span>10px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">187 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex:<span class="dp">·</span>0<span class="dp">·</span>0<span class="dp">·</span>auto;</td><td class="diffline">226 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>flex:<span class="dp">·</span>0<span class="dp">·</span>0<span class="dp">·</span>auto;</td></tr>
+<tr class="diffunmodified"><td class="diffline">188 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0px<span class="dp">·</span>6px;</td><td class="diffline">227 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0px<span class="dp">·</span>6px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">189 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background:<span class="dp">·</span>rgba(0,<span class="dp">·</span>0,<span class="dp">·</span>0,<span class="dp">·</span>0.32);</td><td class="diffline">228 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>background:<span class="dp">·</span>rgba(0,<span class="dp">·</span>0,<span class="dp">·</span>0,<span class="dp">·</span>0.32);</td></tr>
+<tr class="diffunmodified"><td class="diffline">190 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>border-radius:<span class="dp">·</span>10px;</td><td class="diffline">229 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>border-radius:<span class="dp">·</span>10px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">191 </td><td class="diffpresent">}</td><td class="diffline">230 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">192 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.multiplePart<span class="dp">·</span>.child<span class="dp">·</span>.span1<span class="dp">·</span>{</del></td><td class="diffline">231 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">232 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">233 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">234 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">235 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">236 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.multiplePart</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">237 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.child</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">238 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.span1<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">193 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin-right:<span class="dp">·</span>2px;</td><td class="diffline">239 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>margin-right:<span class="dp">·</span>2px;</td></tr>
+<tr class="diffunmodified"><td class="diffline">194 </td><td class="diffpresent">}</td><td class="diffline">240 </td><td class="diffpresent">}</td></tr>
+<tr class="diffchanged"><td class="diffline">195 </td><td class="diffpresent">.searchList<del><span class="dp">·</span>.searchContent<span class="dp">·</span>.searchImgArea<span class="dp">·</span>.searchImgAreaContent<span class="dp">·</span>.topbar<span class="dp">·</span>.multiplePart<span class="dp">·</span>.child<span class="dp">·</span>.span1<span class="dp">·</span>.span2<span class="dp">·</span>{</del></td><td class="diffline">241 </td><td class="diffpresent">.searchList</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">242 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">243 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgArea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">244 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.searchImgAreaContent</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">245 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.topbar</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">246 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.multiplePart</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">247 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>.child</td></tr>
+<tr class="error"><td colspan="4">
+Max diff block lines reached; 12385/15619 bytes (79.29%) of diff not shown.
+</td></tr></table>    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

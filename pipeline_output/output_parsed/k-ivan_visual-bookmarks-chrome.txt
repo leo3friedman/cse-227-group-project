@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/visual-bookmarks-chrome/static
+  - files: _metadata, background.js, css, js, manifest.json, newtab.html, options.html
+  + files: manifest.json
+
+---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/visual-bookmarks-chrome/static/img
+  - files: symbol.svg
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/visual-bookmarks-chrome/static/manifest.json; File type: json
+  - Original: 41–41 -> Update URL
+

@@ -1,0 +1,139 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/kiss-translator/public
+├── file list
+│ @@ -1,18 +1,8 @@
+│ +.nojekyll
+│  _locales
+│ -_metadata
+│ -asset-manifest.json
+│ -background.js
+│ -background.js.LICENSE.txt
+│  content.html
+│ -content.js
+│ -content.js.LICENSE.txt
+│  favicon.ico
+│  images
+│ +index.html
+│  manifest.firefox.json
+│ -manifest.json
+│ -options.html
+│ -options.js
+│ -options.js.LICENSE.txt
+│ -popup.html
+│ -popup.js
+│ -popup.js.LICENSE.txt
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/content.html
+├── +++ /workspace/pipeline_output/kiss-translator/public/content.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -60,14 +60,53 @@
+│        });
+│      </script>
+│    </head>
+│  
+│    <body>
+│      <noscript>You need to enable JavaScript to run this app.</noscript>
+│      <div id="root">
+│ +      <p>You need to enable <code>JavaScript</code> to run <span>this app.</span></p>
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│ +      <br />
+│        <div id="content">
+│          <p>You need to enable JavaScript to run <span>this app.</span></p>
+│          The <span>embargo</span> has just lifted to confirm that AmpereOne is
+│          coming to Google Cloud with the C3A instances.
+│          <br />
+│          But these upcoming instances for now are only in private preview form.
+│          <br />
+│   --- /workspace/pipeline_output/chromex_data/manifest.firefox.json
+├── +++ /workspace/pipeline_output/kiss-translator/public/manifest.firefox.json
+│ ├── Pretty-printed
+│ │ @@ -15,17 +15,20 @@
+│ │      "commands": {
+│ │          "_execute_browser_action": {
+│ │              "suggested_key": {
+│ │                  "default": "Alt+K"
+│ │              }
+│ │          },
+│ │          "openOptions": {
+│ │ -            "description": "__MSG_open_options__",
+│ │ +            "description": "__MSG_open_options__"
+│ │ +        },
+│ │ +        "openTranbox": {
+│ │ +            "description": "__MSG_open_tranbox__",
+│ │              "suggested_key": {
+│ │ -                "default": "Alt+O"
+│ │ +                "default": "Alt+S"
+│ │              }
+│ │          },
+│ │          "toggleStyle": {
+│ │              "description": "__MSG_toggle_style__",
+│ │              "suggested_key": {
+│ │                  "default": "Alt+C"
+│ │              }
+│ │ @@ -61,11 +64,14 @@
+│ │      "name": "__MSG_app_name__",
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "<all_urls>",
+│ │ -        "storage"
+│ │ +        "storage",
+│ │ +        "contextMenus",
+│ │ +        "scripting",
+│ │ +        "declarativeNetRequest"
+│ │      ],
+│ │ -    "version": "1.7.12"
+│ │ +    "version": "1.8.11"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/kiss-translator/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -70,10 +70,9 @@
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus",
+│ │          "scripting",
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8.11"
+│ │  }

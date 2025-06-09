@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/trello-card-numbers
+├── file list
+│ @@ -1,17 +1,18 @@
+│ +.git
+│  CHANGELOG.md
+│  CONTRIBUTORS.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  example.png
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  jscolor
+│  manifest.json
+│  on-update.js
+│  options.html
+│  options.js
+│  options.png
+│ +package-lock.json
+│  trello-card-numbers.js
+│  updated.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/trello-card-numbers/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "chrome_style": true,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "https://trello.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3.0"
+│ │  }

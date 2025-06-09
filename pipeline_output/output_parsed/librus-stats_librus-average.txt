@@ -1,0 +1,33 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/librus-average
+  - files: _metadata, materialize
+  + files: .git, .gitignore, materialize, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/librus-average/_locales/en/messages.json; File type: json
+  - Original: 1–23
+  - Original: 27–56
+  + Modified: 1–54
+
+---/workspace/pipeline_output/chromex_data/_locales/pl/messages.json <-> +++/workspace/pipeline_output/librus-average/_locales/pl/messages.json; File type: json
+  - Original: 1–24
+  - Original: 26–56
+  + Modified: 1–54
+
+---/workspace/pipeline_output/chromex_data/js/background_analytics_manager.js <-> +++/workspace/pipeline_output/librus-average/js/background_analytics_manager.js; File type: js
+  - Original: 1–39
+  + Modified: 1–39
+
+---/workspace/pipeline_output/chromex_data/js/content_script.js <-> +++/workspace/pipeline_output/librus-average/js/content_script.js; File type: js
+  - Original: 1–263
+  + Modified: 1–263
+
+---/workspace/pipeline_output/chromex_data/js/options.js <-> +++/workspace/pipeline_output/librus-average/js/options.js; File type: js
+  - Original: 1–227
+  + Modified: 1–227
+
+---/workspace/pipeline_output/chromex_data/js/support.js <-> +++/workspace/pipeline_output/librus-average/js/support.js; File type: js
+  - Original: 1–226
+  + Modified: 1–226
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/librus-average/manifest.json; File type: json
+  - Original: 46–46 -> Update URL
+

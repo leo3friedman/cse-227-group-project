@@ -1,0 +1,2203 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Extensity
+├── file list
+│ @@ -1,9 +1,17 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +BUILD.md
+│ +LICENSE.md
+│ +Makefile
+│ +README.md
+│ +TODO.md
+│  fonts
+│ +graphics
+│  images
+│  index.html
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  profiles.html
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/Extensity/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/engine.js
+│ ├── +++ /workspace/pipeline_output/Extensity/js/engine.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,218 +1,397 @@
+│ │ │ +ko.extenders.pluckable = function(target, option) {
+│ │ │ +    // Pluck an iterable by an observable field
+│ │ │ +    target.pluck = ko.computed(function() {
+│ │ │ +        return _(target()).map(function(i) {
+│ │ │ +            return i[option]();
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +ko.extenders.toggleable = function(target, option) {
+│ │ │ +    // Toggles for extension collections
+│ │ │ +    target.toggle = function(filterFn) {
+│ │ │ +        _(target()).chain().filter(filterFn).each(function(i) {
+│ │ │ +            i.toggle();
+│ │ │ +        });
+│ │ │ +    };
+│ │ │ +    target.enable = function(filterFn) {
+│ │ │ +        _(target()).chain().filter(filterFn).each(function(i) {
+│ │ │ +            i.enable();
+│ │ │ +        });
+│ │ │ +    };
+│ │ │ +    target.disable = function(filterFn) {
+│ │ │ +        _(target()).chain().filter(filterFn).each(function(i) {
+│ │ │ +            i.disable();
+│ │ │ +        });
+│ │ │ +    };
+│ │ │ +};
+│ │ │ +
+│ │ │ +ko.extenders.persistable = function(target, key) {
+│ │ │ +    // Persists a single observable (or observableArray) in cloud browser storage
+│ │ │ +    chrome.storage.sync.get(key, function(v) {
+│ │ │ +
+│ │ │ +        // Set initial value from storage if present.
+│ │ │ +        if (v[key]) {
+│ │ │ +            target(v[key]);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        // Subscribe to changes after initializing the value.
+│ │ │ +        target.subscribe(function(val) {
+│ │ │ +            var obj = {};
+│ │ │ +            obj[key] = val;
+│ │ │ +            chrome.storage.sync.set(obj);
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +ko.extenders.countable = function(target, option) {
+│ │ │ +    target.count = ko.computed(function() {
+│ │ │ +        return target().length;
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    target.any = ko.computed(function() {
+│ │ │ +        return target().length > 0;
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    target.many = ko.computed(function() {
+│ │ │ +        return target().length > 1;
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    target.none = ko.computed(function() {
+│ │ │ +        return target().length == 0;
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +var fadeOutMessage = function(id) {
+│ │ │ +    el = document.getElementById(id);
+│ │ │ +    el.className = "visible";
+│ │ │ +    _.delay(function() {
+│ │ │ +        el.className = "fadeout"
+│ │ │ +    }, 2000);
+│ │ │ +};
+│ │ │ +
+│ │ │ +var DismissalsCollection = function() {
+│ │ │ +    var self = this;
+│ │ │ +
+│ │ │ +    self.dismissals = ko.observableArray();
+│ │ │ +
+│ │ │ +    self.dismiss = function(id) {
+│ │ │ +        self.dismissals.push(id);
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.dismissed = function(id) {
+│ │ │ +        return (self.dismissals.indexOf(id) !== -1)
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    // Initializer
+│ │ │ +    chrome.storage.sync.get("dismissals", function(arr) {
+│ │ │ +        self.dismissals(arr);
+│ │ │ +        // Subscribe to observables after setting the initial value so we don't re-save the same thing.
+│ │ │ +        self.dismissals.subscribe(function(a) {
+│ │ │ +            chrome.storage.sync.set({
+│ │ │ +                dismissals: a
+│ │ │ +            });
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +var OptionsCollection = function() {
+│ │ │ +    var self = this;
+│ │ │ +
+│ │ │ +    // Options and defauts
+│ │ │ +    var defs = {
+│ │ │ +        showHeader: true,
+│ │ │ +        groupApps: true,
+│ │ │ +        appsFirst: false,
+│ │ │ +        enabledFirst: false,
+│ │ │ +        searchBox: true,
+│ │ │ +        showOptions: true,
+│ │ │ +        keepAlwaysOn: false,
+│ │ │ +        showReserved: false
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    // Define observables.
+│ │ │ +    _(defs).each(function(def, key) {
+│ │ │ +        self[key] = ko.observable(def);
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Save values from all observables.
+│ │ │ +    self.save = function(callback) {
+│ │ │ +        chrome.storage.sync.set(
+│ │ │ +            _(defs).mapObject(function(val, key) {
+│ │ │ +                return self[key]();
+│ │ │ +            }), callback
+│ │ │ +        );
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    // Set observable values from Chrome Storage
+│ │ │ +    chrome.storage.sync.get(_(defs).keys(), function(v) {
+│ │ │ +        _(v).each(function(val, key) {
+│ │ │ +            self[key](val);
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +
+│ │ │ +};
+│ │ │ +
+│ │ │ +var ProfileModel = function(name, items) {
+│ │ │ +    var self = this;
+│ │ │ +
+│ │ │ +    var reserved_names = {
+│ │ │ +        "__always_on": "Always On",
+│ │ │ +        "__favorites": "Favorites"
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    var icons = {
+│ │ │ +        "__default": "fa-user-circle-o",
+│ │ │ +        "__always_on": "fa-lightbulb-o",
+│ │ │ +        "__favorites": "fa-star"
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    self.name = ko.observable(name);
+│ │ │ +    self.items = ko.observableArray(items);
+│ │ │ +
+│ │ │ +    self.reserved = ko.computed(function() {
+│ │ │ +        return self.name().startsWith("__");
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.hasItems = ko.computed(function() {
+│ │ │ +        return self.items().length > 0;
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.short_name = ko.pureComputed(function() {
+│ │ │ +        return reserved_names[self.name()] || _.str.prune(self.name(), 30);
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.icon = ko.pureComputed(function() {
+│ │ │ +        // console.log(icons["__default"]);
+│ │ │ +        // return icons["__default"];
+│ │ │ +        // console.log(icons[self.name()] || icons['__default']);
+│ │ │ +        return (icons[self.name()] || icons['__default']);
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.contains = function(i) {
+│ │ │ +        // Check if a given item is present in the profile list.
+│ │ │ +        return _.contains(self.items(), i.id());
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    return this;
+│ │ │ +};
+│ │ │ +
+│ │ │ +var ProfileCollectionModel = function() {
+│ │ │ +    var self = this;
+│ │ │ +
+│ │ │ +    self.items = ko.observableArray();
+│ │ │ +    self.localProfiles = ko.observable(undefined).extend({
+│ │ │ +        persistable: "localProfiles"
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.any = ko.computed(function() {
+│ │ │ +        return self.items().length > 0;
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.add = function(name, items) {
+│ │ │ +        items = items || [];
+│ │ │ +        return self.items.push(new ProfileModel(name, items));
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    self.find = function(name) {
+│ │ │ +        return _(self.items()).find(function(i) {
+│ │ │ +            return i.name() == name
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    self.find_or_create = function(name) {
+│ │ │ +        return self.find(name) || (new ProfileModel(name, []));
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.always_on = function() {
+│ │ │ +        return self.find_or_create("__always_on");
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.favorites = function() {
+│ │ │ +        return self.find_or_create("__favorites");
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.remove = function(profile) {
+│ │ │ +        self.items.remove(profile);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    self.exists = function(name) {
+│ │ │ +        return !_(self.find(name)).isUndefined();
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    self.save = function(callback) {
+│ │ │ +        var r = {};
+│ │ │ +
+│ │ │ +        _(self.items()).each(function(i) {
+│ │ │ +            if (i.name()) {
+│ │ │ +                r[i.name()] = _(i.items()).uniq();
+│ │ │ +            }
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        // Try sync storage first. If it fails, store the Profiles locally.
+│ │ │ +        chrome.storage.sync.set({
+│ │ │ +            profiles: r
+│ │ │ +        }, function(val) {
+│ │ │ +            if (chrome.runtime.lastError) {
+│ │ │ +                self.localProfiles(true);
+│ │ │ +                chrome.storage.local.set({
+│ │ │ +                    profiles: r
+│ │ │ +                }, callback);
+│ │ │ +            } else {
+│ │ │ +                self.localProfiles(false);
+│ │ │ +                callback(val);
+│ │ │ +            }
+│ │ │ +        });
+│ │ │ +
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    chrome.storage.sync.get("localProfiles", function(v) {
+│ │ │ +        // Pull profiles from sync or local storage as appropriate.
+│ │ │ +        var storage = (v.localProfiles) ? chrome.storage.local : chrome.storage.sync;
+│ │ │ +
+│ │ │ +        var sortFn = function(el) {
+│ │ │ +            // Add heading space to reserved profiles to sort at top.
+│ │ │ +            return (el.startsWith("__") ? " " : "") + el.toUpperCase();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        storage.get("profiles", function(p) {
+│ │ │ +            p = p['profiles'] || {};
+│ │ │ +            var k = _(p).chain().keys().sortBy(sortFn).value();
+│ │ │ +            _(k).each(function(name) {
+│ │ │ +                self.items.push(new ProfileModel(name, p[name]));
+│ │ │ +            });
+│ │ │ +        });
+│ │ │ +
+│ │ │ -ko.extenders.pluckable = function(e, n) {
+│ │ │ -    e.pluck = ko.computed(function() {
+│ │ │ -        return _(e()).map(function(e) {
+│ │ │ -            return e[n]()
+│ │ │ -        })
+│ │ │      })
+│ │ │ +
+│ │ │ +    return this;
+│ │ │ +}
+│ │ │ +
+│ │ │ +var ExtensionModel = function(e) {
+│ │ │ +    var self = this;
+│ │ │ +
+│ │ │ +    var item = e;
+│ │ │ +
+│ │ │ +    // Get the smallest available icon.
+│ │ │ +    var smallestIcon = function(icons) {
+│ │ │ +        var smallest = _(icons).chain().pluck('size').min().value();
+│ │ │ +        var icon = _(icons).find({
+│ │ │ +            size: smallest
+│ │ │ +        });
+│ │ │ +        return (icon && icon.url) || '';
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.id = ko.observable(item.id);
+│ │ │ +    self.name = ko.observable(item.name);
+│ │ │ +    self.type = item.type;
+│ │ │ +    self.mayDisable = item.mayDisable;
+│ │ │ +    self.isApp = ko.observable(item.isApp);
+│ │ │ +    self.icon = smallestIcon(item.icons);
+│ │ │ +    self.status = ko.observable(item.enabled);
+│ │ │ +    self.optionsUrl = ko.observable(item.optionsUrl);
+│ │ │ +    self.installType = ko.observable(item.installType);
+│ │ │ +
+│ │ │ +    self.disabled = ko.pureComputed(function() {
+│ │ │ +        return !self.status();
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.is_development = ko.pureComputed(function() {
+│ │ │ +        return self.installType() == 'development';
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.short_name = ko.computed(function() {
+│ │ │ +        return _.str.prune(self.name(), 40);
+│ │ │ -}, ko.extenders.toggleable = function(n, e) {
+│ │ │ -    n.toggle = function(e) {
+│ │ │ -        _(n()).chain().filter(e).each(function(e) {
+│ │ │ -            e.toggle()
+│ │ │ -        })
+│ │ │ -    }, n.enable = function(e) {
+│ │ │ -        _(n()).chain().filter(e).each(function(e) {
+│ │ │ -            e.enable()
+│ │ │ -        })
+│ │ │ -    }, n.disable = function(e) {
+│ │ │ -        _(n()).chain().filter(e).each(function(e) {
+│ │ │ -            e.disable()
+│ │ │ -        })
+│ │ │ -    }
+│ │ │ -}, ko.extenders.persistable = function(n, t) {
+│ │ │ -    chrome.storage.sync.get(t, function(e) {
+│ │ │ -        e[t] && n(e[t]), n.subscribe(function(e) {
+│ │ │ -            var n = {};
+│ │ │ -            n[t] = e, chrome.storage.sync.set(n)
+│ │ │ -        })
+│ │ │ -    })
+│ │ │ -}, ko.extenders.countable = function(e, n) {
+│ │ │ -    e.count = ko.computed(function() {
+│ │ │ -        return e().length
+│ │ │ -    }), e.any = ko.computed(function() {
+│ │ │ -        return 0 < e().length
+│ │ │ -    }), e.many = ko.computed(function() {
+│ │ │ -        return 1 < e().length
+│ │ │ -    }), e.none = ko.computed(function() {
+│ │ │ -        return 0 == e().length
+│ │ │      })
+│ │ │ +
+│ │ │ +    self.toggle = function() {
+│ │ │ +        self.status(!self.status());
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.enable = function() {
+│ │ │ +        self.status(true);
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.disable = function() {
+│ │ │ +        self.status(false);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    self.status.subscribe(function(value) {
+│ │ │ +        chrome.management.setEnabled(self.id(), value);
+│ │ │ +    });
+│ │ │ +
+│ │ │  };
+│ │ │ +
+│ │ │ +var ExtensionCollectionModel = function() {
+│ │ │ +    var self = this;
+│ │ │ +
+│ │ │ +    self.items = ko.observableArray();
+│ │ │ +
+│ │ │ +    var typeFilter = function(types) {
+│ │ │ +        var all = self.items();
+│ │ │ +        res = [];
+│ │ │ +        for (var i = 0; i < all.length; i++) {
+│ │ │ +            if (_(types).includes(all[i].type)) {
+│ │ │ +                res.push(all[i]);
+│ │ │ -var fadeOutMessage = function(e) {
+│ │ │ -        (el = document.getElementById(e)).className = "visible", _.delay(function() {
+│ │ │ -            el.className = "fadeout"
+│ │ │ -        }, 2e3)
+│ │ │ -    },
+│ │ │ -    DismissalsCollection = function() {
+│ │ │ -        var n = this;
+│ │ │ -        n.dismissals = ko.observableArray(), n.dismiss = function(e) {
+│ │ │ -            n.dismissals.push(e)
+│ │ │ -        }, n.dismissed = function(e) {
+│ │ │ -            return -1 !== n.dismissals.indexOf(e)
+│ │ │ -        }, chrome.storage.sync.get("dismissals", function(e) {
+│ │ │ -            n.dismissals(e), n.dismissals.subscribe(function(e) {
+│ │ │ -                chrome.storage.sync.set({
+│ │ │ -                    dismissals: e
+│ │ │ -                })
+│ │ │ -            })
+│ │ │ -        })
+│ │ │ -    },
+│ │ │ -    OptionsCollection = function() {
+│ │ │ -        var t = this,
+│ │ │ -            n = {
+│ │ │ -                showHeader: !0,
+│ │ │ -                groupApps: !0,
+│ │ │ -                appsFirst: !1,
+│ │ │ -                enabledFirst: !1,
+│ │ │ -                searchBox: !0,
+│ │ │ -                showOptions: !0,
+│ │ │ -                keepAlwaysOn: !1,
+│ │ │ -                showReserved: !1
+│ │ │ -            };
+│ │ │ -        _(n).each(function(e, n) {
+│ │ │ -            t[n] = ko.observable(e)
+│ │ │ -        }), t.save = function(e) {
+│ │ │ -            chrome.storage.sync.set(_(n).mapObject(function(e, n) {
+│ │ │ -                return t[n]()
+│ │ │ -            }), e)
+│ │ │ -        }, chrome.storage.sync.get(_(n).keys(), function(e) {
+│ │ │ -            _(e).each(function(e, n) {
+│ │ │ -                t[n](e)
+│ │ │ -            })
+│ │ │ -        })
+│ │ │ -    },
+│ │ │ -    ProfileModel = function(e, n) {
+│ │ │ -        var t = this,
+│ │ │ -            o = {
+│ │ │ -                __always_on: "Always On",
+│ │ │ -                __favorites: "Favorites"
+│ │ │ -            },
+│ │ │ -            s = {
+│ │ │ -                __default: "fa-user-circle-o",
+│ │ │ -                __always_on: "fa-lightbulb-o",
+│ │ │ -                __favorites: "fa-star"
+│ │ │ -            };
+│ │ │ -        return t.name = ko.observable(e), t.items = ko.observableArray(n), t.reserved = ko.computed(function() {
+│ │ │ -            return t.name().startsWith("__")
+│ │ │ -        }), t.hasItems = ko.computed(function() {
+│ │ │ -            return 0 < t.items().length
+│ │ │ -        }), t.short_name = ko.pureComputed(function() {
+│ │ │ -            return o[t.name()] || _.str.prune(t.name(), 30)
+│ │ │ -        }), t.icon = ko.pureComputed(function() {
+│ │ │ -            return s[t.name()] || s.__default
+│ │ │ -        }), t.contains = function(e) {
+│ │ │ -            return _.contains(t.items(), e.id())
+│ │ │ -        }, this
+│ │ │ -    },
+│ │ │ -    ProfileCollectionModel = function() {
+│ │ │ -        var o = this;
+│ │ │ -        return o.items = ko.observableArray(), o.localProfiles = ko.observable(void 0).extend({
+│ │ │ -            persistable: "localProfiles"
+│ │ │ -        }), o.any = ko.computed(function() {
+│ │ │ -            return 0 < o.items().length
+│ │ │ -        }), o.add = function(e, n) {
+│ │ │ -            return o.items.push(new ProfileModel(e, n = n || []))
+│ │ │ -        }, o.find = function(n) {
+│ │ │ -            return _(o.items()).find(function(e) {
+│ │ │ -                return e.name() == n
+│ │ │ -            })
+│ │ │ -        }, o.find_or_create = function(e) {
+│ │ │ -            return o.find(e) || new ProfileModel(e, [])
+│ │ │ -        }, o.always_on = function() {
+│ │ │ -            return o.find_or_create("__always_on")
+│ │ │ -        }, o.favorites = function() {
+│ │ │ -            return o.find_or_create("__favorites")
+│ │ │ -        }, o.remove = function(e) {
+│ │ │ -            o.items.remove(e)
+│ │ │ -        }, o.exists = function(e) {
+│ │ │ -            return !_(o.find(e)).isUndefined()
+│ │ │ -        }, o.save = function(n) {
+│ │ │ -            var t = {};
+│ │ │ -            _(o.items()).each(function(e) {
+│ │ │ -                e.name() && (t[e.name()] = _(e.items()).uniq())
+│ │ │ -            }), chrome.storage.sync.set({
+│ │ │ -                profiles: t
+│ │ │ -            }, function(e) {
+│ │ │ -                chrome.runtime.lastError ? (o.localProfiles(!0), chrome.storage.local.set({
+│ │ │ -                    profiles: t
+│ │ │ -                }, n)) : (o.localProfiles(!1), n(e))
+│ │ │ -            })
+│ │ │ -        }, chrome.storage.sync.get("localProfiles", function(e) {
+│ │ │ -            function t(e) {
+│ │ │ -                return (e.startsWith("__") ? " " : "") + e.toUpperCase()
+│ │ │              }
+│ │ │ -            e = e.localProfiles ? chrome.storage.local : chrome.storage.sync;
+│ │ │ -            e.get("profiles", function(n) {
+│ │ │ -                n = n.profiles || {};
+│ │ │ -                var e = _(n).chain().keys().sortBy(t).value();
+│ │ │ -                _(e).each(function(e) {
+│ │ │ -                    o.items.push(new ProfileModel(e, n[e]))
+│ │ │ -                })
+│ │ │ -            })
+│ │ │ -        }), this
+│ │ │ -    },
+│ │ │ -    ExtensionModel = function(e) {
+│ │ │ -        var n, t, o = this;
+│ │ │ -        o.id = ko.observable(e.id), o.name = ko.observable(e.name), o.type = e.type, o.mayDisable = e.mayDisable, o.isApp = ko.observable(e.isApp), o.icon = (n = e.icons, t = _(n).chain().pluck("size").min().value(), (n = _(n).find({
+│ │ │ -            size: t
+│ │ │ -        })) && n.url || ""), o.status = ko.observable(e.enabled), o.optionsUrl = ko.observable(e.optionsUrl), o.installType = ko.observable(e.installType), o.disabled = ko.pureComputed(function() {
+│ │ │ -            return !o.status()
+│ │ │ -        }), o.is_development = ko.pureComputed(function() {
+│ │ │ -            return "development" == o.installType()
+│ │ │ -        }), o.short_name = ko.computed(function() {
+│ │ │ -            return _.str.prune(o.name(), 40)
+│ │ │ -        }), o.toggle = function() {
+│ │ │ -            o.status(!o.status())
+│ │ │ -        }, o.enable = function() {
+│ │ │ -            o.status(!0)
+│ │ │ -        }, o.disable = function() {
+│ │ │ -            o.status(!1)
+│ │ │ -        }, o.status.subscribe(function(e) {
+│ │ │ -            chrome.management.setEnabled(o.id(), e)
+│ │ │ -        })
+│ │ │ -    },
+│ │ │ -    ExtensionCollectionModel = function() {
+│ │ │ -        function e(e) {
+│ │ │ -            var n = o.items();
+│ │ │ -            res = [];
+│ │ │ -            for (var t = 0; t < n.length; t++) _(e).includes(n[t].type) && res.push(n[t]);
+│ │ │ -            return res
+│ │ │          }
+│ │ │ +        return res;
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    self.extensions = ko.computed(function() {
+│ │ │ +        return _(typeFilter(['extension'])).filter(function(i) {
+│ │ │ +            return i.mayDisable
+│ │ │ +        });
+│ │ │ +    }).extend({
+│ │ │ +        pluckable: 'id',
+│ │ │ +        toggleable: null
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    self.apps = ko.computed(function() {
+│ │ │ +        return typeFilter(["hosted_app", "packaged_app", "legacy_packaged_app"]);
+│ │ │ +    }).extend({
+│ │ │ +        pluckable: 'id',
+│ │ │ +        toggleable: null
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Enabled extensions
+│ │ │ +    self.enabled = ko.pureComputed(function() {
+│ │ │ +        return _(self.extensions()).filter(function(i) {
+│ │ │ +            return i.status();
+│ │ │ +        });
+│ │ │ +    }).extend({
+│ │ │ +        pluckable: 'id',
+│ │ │ +        toggleable: null
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Disabled extensions
+│ │ │ +    self.disabled = ko.pureComputed(function() {
+│ │ │ +        return _(self.extensions()).filter(function(i) {
+│ │ │ +            return !i.status();
+│ │ │ +        });
+│ │ │ +    }).extend({
+│ │ │ +        pluckable: 'id',
+│ │ │ +        toggleable: null
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Find a single extension model by ud
+│ │ │ +    self.find = function(id) {
+│ │ │ +        return _(self.items()).find(function(i) {
+│ │ │ +            return i.id() == id
+│ │ │ +        });
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    // Initialize
+│ │ │ +    chrome.management.getAll(function(results) {
+│ │ │ +        _(results).chain()
+│ │ │ +            .sortBy(function(i) {
+│ │ │ +                return i.name.toUpperCase();
+│ │ │ -        var o = this;
+│ │ │ -        o.items = ko.observableArray();
+│ │ │ -        o.extensions = ko.computed(function() {
+│ │ │ -            return _(e(["extension"])).filter(function(e) {
+│ │ │ -                return e.mayDisable
+│ │ │ -            })
+│ │ │ -        }).extend({
+│ │ │ -            pluckable: "id",
+│ │ │ -            toggleable: null
+│ │ │ -        }), o.apps = ko.computed(function() {
+│ │ │ -            return e(["hosted_app", "packaged_app", "legacy_packaged_app"])
+│ │ │ -        }).extend({
+│ │ │ -            pluckable: "id",
+│ │ │ -            toggleable: null
+│ │ │ -        }), o.enabled = ko.pureComputed(function() {
+│ │ │ -            return _(o.extensions()).filter(function(e) {
+│ │ │ -                return e.status()
+│ │ │ -            })
+│ │ │ -        }).extend({
+│ │ │ -            pluckable: "id",
+│ │ │ -            toggleable: null
+│ │ │ -        }), o.disabled = ko.pureComputed(function() {
+│ │ │ -            return _(o.extensions()).filter(function(e) {
+│ │ │ -                return !e.status()
+│ │ │ -            })
+│ │ │ -        }).extend({
+│ │ │ -            pluckable: "id",
+│ │ │ -            toggleable: null
+│ │ │ -        }), o.find = function(n) {
+│ │ │ -            return _(o.items()).find(function(e) {
+│ │ │ -                return e.id() == n
+│ │ │ -            })
+│ │ │ -        }, chrome.management.getAll(function(e) {
+│ │ │ -            _(e).chain().sortBy(function(e) {
+│ │ │ -                return e.name.toUpperCase()
+│ │ │ -            }).each(function(e) {
+│ │ │ -                "Extensity" != e.name && "theme" != e.type && o.items.push(new ExtensionModel(e))
+│ │ │              })
+│ │ │ +            .each(function(i) {
+│ │ │ +                if (i.name != "Extensity" && i.type != 'theme') {
+│ │ │ +                    self.items.push(new ExtensionModel(i));
+│ │ │ +                }
+│ │ │ +            });
+│ │ │ +    });
+│ │ │ +
+│ │ │ +};
+│ │ │ -        })
+│ │ │ -    };
+│ │   --- /workspace/pipeline_output/chromex_data/js/index.js
+│ ├── +++ /workspace/pipeline_output/Extensity/js/index.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,111 +1,208 @@
+│ │ │  document.addEventListener("DOMContentLoaded", function() {
+│ │ │ +
+│ │ │ +    var SearchViewModel = function() {
+│ │ │ +        var self = this;
+│ │ │ +        self.q = ko.observable("");
+│ │ │ +
+│ │ │ +        // TODO: Add more search control here.
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    var SwitchViewModel = function(exts, profiles, opts) {
+│ │ │ +        var self = this;
+│ │ │ +
+│ │ │ +        var init = [];
+│ │ │ +
+│ │ │ +        self.exts = exts;
+│ │ │ +        self.profiles = profiles;
+│ │ │ +        self.opts = opts;
+│ │ │ +        self.toggled = ko.observableArray().extend({
+│ │ │ -    function c() {
+│ │ │ -        this.q = ko.observable("")
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    function u(e, n, t) {
+│ │ │ -        function o(e) {
+│ │ │ -            return !i.opts.keepAlwaysOn() || !_(i.profiles.always_on().items()).contains(e.id())
+│ │ │ -        }
+│ │ │ -        var i = this;
+│ │ │ -        i.exts = e, i.profiles = n, i.opts = t, i.toggled = ko.observableArray().extend({
+│ │ │              persistable: "toggled"
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.any = ko.computed(function() {
+│ │ │ +            return self.toggled().length > 0;
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.toggleStyle = ko.pureComputed(function() {
+│ │ │ +            return (self.any()) ? 'fa-toggle-off' : 'fa-toggle-on'
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        var disableFilterFn = function(item) {
+│ │ │ +            // Filter out Always On extensions when disabling, if option is set.
+│ │ │ +            if (!self.opts.keepAlwaysOn()) return true;
+│ │ │ +            return !_(self.profiles.always_on().items()).contains(item.id());
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.flip = function() {
+│ │ │ +            if (self.any()) {
+│ │ │ +                // Re-enable
+│ │ │ +                _(self.toggled()).each(function(id) {
+│ │ │ +                    // Old disabled extensions may be removed
+│ │ │ +                    try {
+│ │ │ +                        self.exts.find(id).enable();
+│ │ │ +                    } catch (e) {};
+│ │ │ +                });
+│ │ │ +                self.toggled([]);
+│ │ │ +            } else {
+│ │ │ +                // Disable
+│ │ │ +                self.toggled(self.exts.enabled.pluck());
+│ │ │ +                self.exts.enabled.disable(disableFilterFn);
+│ │ │ +            };
+│ │ │ +        };
+│ │ │ -        }), i.any = ko.computed(function() {
+│ │ │ -            return 0 < i.toggled().length
+│ │ │ -        }), i.toggleStyle = ko.pureComputed(function() {
+│ │ │ -            return i.any() ? "fa-toggle-off" : "fa-toggle-on"
+│ │ │ -        }), i.flip = function() {
+│ │ │ -            i.any() ? (_(i.toggled()).each(function(e) {
+│ │ │ -                try {
+│ │ │ -                    i.exts.find(e).enable()
+│ │ │ -                } catch (e) {}
+│ │ │ -            }), i.toggled([])) : (i.toggled(i.exts.enabled.pluck()), i.exts.enabled.disable(o))
+│ │ │ -        }
+│ │ │ -    }
+│ │ │  
+│ │ │ +    };
+│ │ │ -    function e() {
+│ │ │ -        function e(e) {
+│ │ │ -            return !s.opts.searchBox() || !s.search.q() || -1 !== e.name().toUpperCase().indexOf(s.search.q().toUpperCase())
+│ │ │ -        }
+│ │ │  
+│ │ │ +    var ExtensityViewModel = function() {
+│ │ │ +        var self = this;
+│ │ │ -        function n(e) {
+│ │ │ -            return !e.reserved() || s.opts.showReserved() && e.hasItems()
+│ │ │ -        }
+│ │ │  
+│ │ │ +        self.profiles = new ProfileCollectionModel();
+│ │ │ +        self.exts = new ExtensionCollectionModel();
+│ │ │ +        self.opts = new OptionsCollection();
+│ │ │ +        self.dismissals = new DismissalsCollection();
+│ │ │ +        self.switch = new SwitchViewModel(self.exts, self.profiles, self.opts);
+│ │ │ +        self.search = new SearchViewModel();
+│ │ │ +        self.activeProfile = ko.observable().extend({
+│ │ │ +            persistable: "activeProfile"
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        var filterFn = function(i) {
+│ │ │ +            // Filtering function for search box
+│ │ │ +            if (!self.opts.searchBox()) return true;
+│ │ │ +            if (!self.search.q()) return true;
+│ │ │ +            return i.name().toUpperCase().indexOf(self.search.q().toUpperCase()) !== -1;
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        var filterProfileFn = function(i) {
+│ │ │ +            if (!i.reserved()) return true;
+│ │ │ +            return self.opts.showReserved() && i.hasItems();
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        var filterFavoriteFn = function(i) {
+│ │ │ +            return (self.profiles.favorites().contains(i));
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        var nameSortFn = function(i) {
+│ │ │ +            return i.name().toUpperCase();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        var statusSortFn = function(i) {
+│ │ │ +            return self.opts.enabledFirst() && !i.status();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.openChromeExtensions = function() {
+│ │ │ +            openTab("chrome://extensions");
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.launchApp = function(app) {
+│ │ │ +            chrome.management.launchApp(app.id());
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.launchOptions = function(ext) {
+│ │ │ +            chrome.tabs.create({
+│ │ │ +                url: ext.optionsUrl(),
+│ │ │ +                active: true
+│ │ │ +            });
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.listedExtensions = ko.computed(function() {
+│ │ │ +            // Sorted/Filtered list of extensions
+│ │ │ +            return _(self.exts.extensions()).chain()
+│ │ │ +                .filter(filterFn)
+│ │ │ +                .sortBy(nameSortFn)
+│ │ │ +                .sortBy(statusSortFn)
+│ │ │ +                .value()
+│ │ │ +        }).extend({
+│ │ │ +            countable: null
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.listedApps = ko.computed(function() {
+│ │ │ +            // Sorted/Filtered list of apps
+│ │ │ +            return _(self.exts.apps())
+│ │ │ +                .filter(filterFn);
+│ │ │ +        }).extend({
+│ │ │ +            countable: null
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.listedItems = ko.computed(function() {
+│ │ │ +            // Sorted/Filtered list of all items
+│ │ │ +            return _(self.exts.items())
+│ │ │ +                .filter(filterFn);
+│ │ │ +        }).extend({
+│ │ │ +            countable: null
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.listedProfiles = ko.computed(function() {
+│ │ │ +            return _(self.profiles.items())
+│ │ │ +                .filter(filterProfileFn);
+│ │ │ +        }).extend({
+│ │ │ +            countable: null
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.listedFavorites = ko.computed(function() {
+│ │ │ +            return _(self.exts.extensions()).chain()
+│ │ │ +                .filter(filterFavoriteFn)
+│ │ │ +                .filter(filterFn)
+│ │ │ +                .sortBy(nameSortFn)
+│ │ │ +                .sortBy(statusSortFn)
+│ │ │ +                .value();
+│ │ │ +        }).extend({
+│ │ │ +            countable: null
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.emptyItems = ko.pureComputed(function() {
+│ │ │ +            return self.listedApps.none() && self.listedExtensions.none();
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.setProfile = function(p) {
+│ │ │ +            self.activeProfile(p.name());
+│ │ │ +            // Profile items, plus always-on items
+│ │ │ +            var ids = _.union(p.items(), self.profiles.always_on().items());
+│ │ │ +            var to_enable = _.intersection(self.exts.disabled.pluck(), ids);
+│ │ │ +            var to_disable = _.difference(self.exts.enabled.pluck(), ids);
+│ │ │ +            _(to_enable).each(function(id) {
+│ │ │ +                self.exts.find(id).enable()
+│ │ │ +            });
+│ │ │ +            _(to_disable).each(function(id) {
+│ │ │ +                self.exts.find(id).disable()
+│ │ │ +            });
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.unsetProfile = function() {
+│ │ │ +            self.activeProfile(undefined);
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.toggleExtension = function(e) {
+│ │ │ +            e.toggle();
+│ │ │ +            self.unsetProfile();
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        // Private helper functions
+│ │ │ +        var openTab = function(url) {
+│ │ │ +            chrome.tabs.create({
+│ │ │ +                url: url
+│ │ │ +            });
+│ │ │ +            close();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        var close = function() {
+│ │ │ +            window.close();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        // View helpers
+│ │ │ +        var visitedProfiles = ko.computed(function() {
+│ │ │ +            return (self.dismissals.dismissed("profile_page_viewed") || self.profiles.any());
+│ │ │ +        });
+│ │ │ -        function t(e) {
+│ │ │ -            return s.profiles.favorites().contains(e)
+│ │ │ -        }
+│ │ │  
+│ │ │ +    };
+│ │ │ -        function o(e) {
+│ │ │ -            return e.name().toUpperCase()
+│ │ │ -        }
+│ │ │  
+│ │ │ -        function i(e) {
+│ │ │ -            return s.opts.enabledFirst() && !e.status()
+│ │ │ -        }
+│ │ │ -        var s = this,
+│ │ │ -            l = (s.profiles = new ProfileCollectionModel, s.exts = new ExtensionCollectionModel, s.opts = new OptionsCollection, s.dismissals = new DismissalsCollection, s.switch = new u(s.exts, s.profiles, s.opts), s.search = new c, s.activeProfile = ko.observable().extend({
+│ │ │ -                persistable: "activeProfile"
+│ │ │ -            }), s.openChromeExtensions = function() {
+│ │ │ -                l("chrome://extensions")
+│ │ │ -            }, s.launchApp = function(e) {
+│ │ │ -                chrome.management.launchApp(e.id())
+│ │ │ -            }, s.launchOptions = function(e) {
+│ │ │ -                chrome.tabs.create({
+│ │ │ -                    url: e.optionsUrl(),
+│ │ │ -                    active: !0
+│ │ │ -                })
+│ │ │ -            }, s.listedExtensions = ko.computed(function() {
+│ │ │ -                return _(s.exts.extensions()).chain().filter(e).sortBy(o).sortBy(i).value()
+│ │ │ -            }).extend({
+│ │ │ -                countable: null
+│ │ │ -            }), s.listedApps = ko.computed(function() {
+│ │ │ -                return _(s.exts.apps()).filter(e)
+│ │ │ -            }).extend({
+│ │ │ -                countable: null
+│ │ │ -            }), s.listedItems = ko.computed(function() {
+│ │ │ -                return _(s.exts.items()).filter(e)
+│ │ │ -            }).extend({
+│ │ │ -                countable: null
+│ │ │ -            }), s.listedProfiles = ko.computed(function() {
+│ │ │ -                return _(s.profiles.items()).filter(n)
+│ │ │ -            }).extend({
+│ │ │ -                countable: null
+│ │ │ -            }), s.listedFavorites = ko.computed(function() {
+│ │ │ -                return _(s.exts.extensions()).chain().filter(t).filter(e).sortBy(o).sortBy(i).value()
+│ │ │ -            }).extend({
+│ │ │ -                countable: null
+│ │ │ -            }), s.emptyItems = ko.pureComputed(function() {
+│ │ │ -                return s.listedApps.none() && s.listedExtensions.none()
+│ │ │ -            }), s.setProfile = function(e) {
+│ │ │ -                s.activeProfile(e.name());
+│ │ │ -                var e = _.union(e.items(), s.profiles.always_on().items()),
+│ │ │ -                    n = _.intersection(s.exts.disabled.pluck(), e),
+│ │ │ -                    e = _.difference(s.exts.enabled.pluck(), e);
+│ │ │ -                _(n).each(function(e) {
+│ │ │ -                    s.exts.find(e).enable()
+│ │ │ -                }), _(e).each(function(e) {
+│ │ │ -                    s.exts.find(e).disable()
+│ │ │ -                })
+│ │ │ -            }, s.unsetProfile = function() {
+│ │ │ -                s.activeProfile(void 0)
+│ │ │ -            }, s.toggleExtension = function(e) {
+│ │ │ -                e.toggle(), s.unsetProfile()
+│ │ │ -            }, function(e) {
+│ │ │ -                chrome.tabs.create({
+│ │ │ -                    url: e
+│ │ │ -                }), r()
+│ │ │ -            }),
+│ │ │ -            r = function() {
+│ │ │ -                window.close()
+│ │ │ -            };
+│ │ │ -        ko.computed(function() {
+│ │ │ -            return s.dismissals.dismissed("profile_page_viewed") || s.profiles.any()
+│ │ │ -        })
+│ │ │ -    }
+│ │ │      _.defer(function() {
+│ │ │ +        vm = new ExtensityViewModel();
+│ │ │ +        ko.bindingProvider.instance = new ko.secureBindingsProvider({});
+│ │ │ +        ko.applyBindings(vm, document.body);
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Workaround for Chrome bug https://bugs.chromium.org/p/chromium/issues/detail?id=307912
+│ │ │ +    window.setTimeout(function() {
+│ │ │ +        document.getElementById('workaround-307912').style.display = 'block';
+│ │ │ +    }, 0);
+│ │ │ -        vm = new e, ko.bindingProvider.instance = new ko.secureBindingsProvider({}), ko.applyBindings(vm, document.body)
+│ │ │ -    }), window.setTimeout(function() {
+│ │ │ -        document.getElementById("workaround-307912").style.display = "block"
+│ │ │ -    }, 0)
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/js/migration.js
+│ ├── +++ /workspace/pipeline_output/Extensity/js/migration.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,27 +1,74 @@
+│ │ │ +// Migration from localStorage settings to Chrome Storage sync.
+│ │ │ +
+│ │ │ +// Helper: remove sync'd storage for testing
+│ │ │ +// chrome.storage.sync.remove(['migration','profiles', 'showHeader', 'groupApps', 'appsFirst', 'enabledFirst', 'searchBox', 'dismissals', 'toggled']);
+│ │ │ +
+│ │ │ +// Get the right boolean value.
+│ │ │ +// Hack to override default string-only localStorage implementation
+│ │ │ +// http://stackoverflow.com/questions/3263161/cannot-set-boolean-values-in-localstorage
+│ │ │ +function boolean(value) {
+│ │ │ +    if (value === "true")
+│ │ │ +        return true;
+│ │ │ +    else if (value === "false")
+│ │ │ +        return false;
+│ │ │ +    else
+│ │ │ +        return Boolean(value);
+│ │ │ +};
+│ │ │ +
+│ │ │ +// Boolean value from localStorage with a default
+│ │ │ +function b(idx, def) {
+│ │ │ +    return boolean(localStorage[idx] || def);
+│ │ │ +};
+│ │ │ -function boolean(e) {
+│ │ │ -    return "true" === e || "false" !== e && Boolean(e)
+│ │ │ -}
+│ │ │ -
+│ │ │ -function b(e, o) {
+│ │ │ -    return boolean(localStorage[e] || o)
+│ │ │ -}
+│ │ │  
+│ │ │  function migrate_to_chrome_storage() {
+│ │ │ +    chrome.storage.sync.get("migration", function(v) {
+│ │ │ +        // console.log(v);
+│ │ │ +        // Only migrate if another migration hasn't been done in a different computer.
+│ │ │ +        if (v["migration"]) {
+│ │ │ +            console.log("Migration from localStorage already happened in another computer");
+│ │ │ +        } else {
+│ │ │ +            console.log("Migrate localStorage data to Chrome Storage Sync");
+│ │ │ +
+│ │ │ +            // Don't migrate toggles as they're just a temporary per-session value.
+│ │ │ +            // // Backwards compatibility -- restore old toggled-off format if the new one fails.
+│ │ │ +            // // Keeping this for a while until everyone upgrades.
+│ │ │ +            // try {
+│ │ │ +            //   // New version -- stringified array
+│ │ │ +            //   var toggled = JSON.parse(localStorage["toggled"] || "[]");
+│ │ │ +            // } catch(e) {
+│ │ │ +            //   // Old version -- comma-separated values.
+│ │ │ +            //   var toggled = (localStorage['toggled'] || "").split(",").filter(function(e){return e;})
+│ │ │ +            // }
+│ │ │ +
+│ │ │ +            var data = {
+│ │ │ +                dismissals: JSON.parse(localStorage['dismissals'] || "[]"),
+│ │ │ +                profiles: JSON.parse(localStorage['profiles'] || "{}"),
+│ │ │ +                // toggled:      toggled,
+│ │ │ +                showHeader: b('showHeader', true),
+│ │ │ +                groupApps: b('groupApps', true),
+│ │ │ +                appsFirst: b('appsFirst', false),
+│ │ │ +                enabledFirst: b('enabledFirst', false),
+│ │ │ +                searchBox: b('searchBox', true),
+│ │ │ +                migration: "1.4.0"
+│ │ │ +            };
+│ │ │ +            chrome.storage.sync.set(data, function() {
+│ │ │ +                // Remove localStorage settings when done.
+│ │ │ +                localStorage.removeItem('dismissals');
+│ │ │ +                localStorage.removeItem('profiles');
+│ │ │ +                localStorage.removeItem('toggled');
+│ │ │ +                localStorage.removeItem('showHeader');
+│ │ │ +                localStorage.removeItem('groupApps');
+│ │ │ +                localStorage.removeItem('appsFirst');
+│ │ │ +                localStorage.removeItem('enabledFirst');
+│ │ │ +                localStorage.removeItem('searchBox');
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +// Listeners for the event page.
+│ │ │ +chrome.runtime.onInstalled.addListener(function(details) {
+│ │ │ +    if (details["reason"] == 'update' && details["previousVersion"] < "1.4.0") {
+│ │ │ +        migrate_to_chrome_storage();
+│ │ │ +    }
+│ │ │ -    chrome.storage.sync.get("migration", function(e) {
+│ │ │ -        e.migration ? console.log("Migration from localStorage already happened in another computer") : (console.log("Migrate localStorage data to Chrome Storage Sync"), e = {
+│ │ │ -            dismissals: JSON.parse(localStorage.dismissals || "[]"),
+│ │ │ -            profiles: JSON.parse(localStorage.profiles || "{}"),
+│ │ │ -            showHeader: b("showHeader", !0),
+│ │ │ -            groupApps: b("groupApps", !0),
+│ │ │ -            appsFirst: b("appsFirst", !1),
+│ │ │ -            enabledFirst: b("enabledFirst", !1),
+│ │ │ -            searchBox: b("searchBox", !0),
+│ │ │ -            migration: "1.4.0"
+│ │ │ -        }, chrome.storage.sync.set(e, function() {
+│ │ │ -            localStorage.removeItem("dismissals"), localStorage.removeItem("profiles"), localStorage.removeItem("toggled"), localStorage.removeItem("showHeader"), localStorage.removeItem("groupApps"), localStorage.removeItem("appsFirst"), localStorage.removeItem("enabledFirst"), localStorage.removeItem("searchBox")
+│ │ │ -        }))
+│ │ │ -    })
+│ │ │ -}
+│ │ │ -chrome.runtime.onInstalled.addListener(function(e) {
+│ │ │ -    "update" == e.reason && e.previousVersion < "1.4.0" && migrate_to_chrome_storage()
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/js/options.js
+│ ├── +++ /workspace/pipeline_output/Extensity/js/options.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,12 +1,21 @@
+│ │ │  document.addEventListener("DOMContentLoaded", function() {
+│ │ │ +    var OptionsViewModel = function() {
+│ │ │ +        var self = this;
+│ │ │ +        self.options = new OptionsCollection();
+│ │ │ +
+│ │ │ +        self.save = function() {
+│ │ │ +            self.options.save(function() {
+│ │ │ +                fadeOutMessage("save-result");
+│ │ │ +            });
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.close = function() {
+│ │ │ +            window.close();
+│ │ │ -    vm = new function() {
+│ │ │ -        var n = this;
+│ │ │ -        n.options = new OptionsCollection, n.save = function() {
+│ │ │ -            n.options.save(function() {
+│ │ │ -                fadeOutMessage("save-result")
+│ │ │ -            })
+│ │ │ -        }, n.close = function() {
+│ │ │ -            window.close()
+│ │ │          }
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    vm = new OptionsViewModel();
+│ │ │ +
+│ │ │ +    ko.bindingProvider.instance = new ko.secureBindingsProvider({});
+│ │ │ +    ko.applyBindings(vm, document.getElementById('options'));
+│ │ │ -    }, ko.bindingProvider.instance = new ko.secureBindingsProvider({}), ko.applyBindings(vm, document.getElementById("options"))
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/js/profiles.js
+│ ├── +++ /workspace/pipeline_output/Extensity/js/profiles.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,43 +1,98 @@
+│ │ │  document.addEventListener("DOMContentLoaded", function() {
+│ │ │ +
+│ │ │ +    var ProfilesViewModel = function() {
+│ │ │ +        var self = this;
+│ │ │ +
+│ │ │ +        self.ext = new ExtensionCollectionModel();
+│ │ │ +        self.profiles = new ProfileCollectionModel();
+│ │ │ +        self.current_profile = ko.observable();
+│ │ │ +        self.add_name = ko.observable("");
+│ │ │ +
+│ │ │ +        self.current_name = ko.pureComputed(function() {
+│ │ │ +            return (self.current_profile()) ? self.current_profile().name() : null;
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.editable = ko.computed(function() {
+│ │ │ +            return self.current_profile() || false;
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        self.select = function(data) {
+│ │ │ +            self.current_profile(data);
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.selectAlwaysOn = function(data) {
+│ │ │ +            self.selectReserved(data, "always_on");
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        self.selectFavorites = function(data) {
+│ │ │ +            self.selectReserved(data, "favorites");
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        self.selectReserved = function(data, n) {
+│ │ │ +            self.add_name("__" + n);
+│ │ │ +            self.add();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.selectByIndex = function(idx) {
+│ │ │ +            self.current_profile(self.profiles.items()[idx]);
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.add = function() {
+│ │ │ +            var n = self.add_name();
+│ │ │ +            var enabled = self.ext.enabled.pluck();
+│ │ │ +            if (n) {
+│ │ │ +                var p = self.profiles.find(n);
+│ │ │ +                if (!p) {
+│ │ │ +                    // Warning! slice or the array reference will mix up between all instances.
+│ │ │ +                    self.profiles.add(n, enabled.slice());
+│ │ │ +                    self.selectByIndex(self.profiles.items().length - 1);
+│ │ │ +                } else {
+│ │ │ +                    self.current_profile(p);
+│ │ │ +                }
+│ │ │ +                self.add_name("");
+│ │ │ +            }
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.remove = function(profile) {
+│ │ │ +            var c = (profile == self.current_profile());
+│ │ │ +            if (confirm("Are you sure you want to remove this profile?")) {
+│ │ │ +                self.profiles.remove(profile);
+│ │ │ +                if (c) self.selectByIndex(0); // Select first one if removing the current.
+│ │ │ +            }
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.save = function() {
+│ │ │ +            self.profiles.save(function() {
+│ │ │ +                fadeOutMessage("save-result");
+│ │ │ +            });
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.close = function() {
+│ │ │ +            window.close();
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        self.toggleAll = function() {
+│ │ │ +            var exts = _(self.ext.extensions()).map(function(i) {
+│ │ │ +                return i.id();
+│ │ │ -    vm = new function() {
+│ │ │ -        var t = this;
+│ │ │ -        t.ext = new ExtensionCollectionModel, t.profiles = new ProfileCollectionModel, t.current_profile = ko.observable(), t.add_name = ko.observable(""), t.current_name = ko.pureComputed(function() {
+│ │ │ -            return t.current_profile() ? t.current_profile().name() : null
+│ │ │ -        }), t.editable = ko.computed(function() {
+│ │ │ -            return t.current_profile() || !1
+│ │ │ -        }), t.select = function(e) {
+│ │ │ -            t.current_profile(e)
+│ │ │ -        }, t.selectAlwaysOn = function(e) {
+│ │ │ -            t.selectReserved(e, "always_on")
+│ │ │ -        }, t.selectFavorites = function(e) {
+│ │ │ -            t.selectReserved(e, "favorites")
+│ │ │ -        }, t.selectReserved = function(e, n) {
+│ │ │ -            t.add_name("__" + n), t.add()
+│ │ │ -        }, t.selectByIndex = function(e) {
+│ │ │ -            t.current_profile(t.profiles.items()[e])
+│ │ │ -        }, t.add = function() {
+│ │ │ -            var e, n = t.add_name(),
+│ │ │ -                o = t.ext.enabled.pluck();
+│ │ │ -            n && ((e = t.profiles.find(n)) ? t.current_profile(e) : (t.profiles.add(n, o.slice()), t.selectByIndex(t.profiles.items().length - 1)), t.add_name(""))
+│ │ │ -        }, t.remove = function(e) {
+│ │ │ -            var n = e == t.current_profile();
+│ │ │ -            confirm("Are you sure you want to remove this profile?") && (t.profiles.remove(e), n) && t.selectByIndex(0)
+│ │ │ -        }, t.save = function() {
+│ │ │ -            t.profiles.save(function() {
+│ │ │ -                fadeOutMessage("save-result")
+│ │ │ -            })
+│ │ │ -        }, t.close = function() {
+│ │ │ -            window.close()
+│ │ │ -        }, t.toggleAll = function() {
+│ │ │ -            var e = _(t.ext.extensions()).map(function(e) {
+│ │ │ -                return e.id()
+│ │ │              });
+│ │ │ +            self.current_profile().items(exts);
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        self.toggleNone = function() {
+│ │ │ +            if (self.current_profile()) self.current_profile().items([]);
+│ │ │ -            t.current_profile().items(e)
+│ │ │ -        }, t.toggleNone = function() {
+│ │ │ -            t.current_profile() && t.current_profile().items([])
+│ │ │          };
+│ │ │ +
+│ │ │          try {
+│ │ │ +            (new DismissalsCollection()).dismiss("profile_page_viewed");
+│ │ │ +            self.selectByIndex(0);
+│ │ │ +        } catch (e) {
+│ │ │ +            /*No profiles*/ }
+│ │ │ +
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    vm = new ProfilesViewModel();
+│ │ │ +
+│ │ │ +    ko.bindingProvider.instance = new ko.secureBindingsProvider({});
+│ │ │ +    ko.applyBindings(vm, document.getElementById('profiles'));
+│ │ │ +
+│ │ │ -            (new DismissalsCollection).dismiss("profile_page_viewed"), t.selectByIndex(0)
+│ │ │ -        } catch (e) {}
+│ │ │ -    }, ko.bindingProvider.instance = new ko.secureBindingsProvider({}), ko.applyBindings(vm, document.getElementById("profiles"))
+│ │ │  });
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Extensity/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -16,10 +16,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Extensity",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "management",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.14.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/styles
+├── +++ /workspace/pipeline_output/Extensity/styles
+│ │   --- /workspace/pipeline_output/chromex_data/styles/index.css
+│ ├── +++ /workspace/pipeline_output/Extensity/styles/index.css
+│ │ @@ -1 +1,280 @@
+│ │ +body {
+│ │ +	overflow-x:hidden;
+│ │ +	overflow-y:auto;
+│ │ +	font-family: Lucida Grande, Arial, sans-serif;
+│ │ +	font-size: 12px;
+│ │ +	min-height: fit-content;
+│ │ +	user-select: none;
+│ │ +	padding: 0px;
+│ │ +}
+│ │ +
+│ │ +@media (prefers-color-scheme: dark) {
+│ │ +	body {
+│ │ +		background-color: #333;
+│ │ +	}
+│ │ +	section#header a#title {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	section#header .fa {
+│ │ +		color: #eee;
+│ │ +	}
+│ │ +	section#header a.switch i.fa-toggle-off {
+│ │ +		color: #aaa;
+│ │ +	}	
+│ │ +	section#search p {
+│ │ +		background-image: linear-gradient(to bottom, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+│ │ +	}
+│ │ +	section#search input {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	section#content h1 {
+│ │ +		background-color: #516C97;
+│ │ +		background-image: linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -o-linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -moz-linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -webkit-linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -ms-linear-gradient(top, #7F97B9, #516C97);	
+│ │ +		text-shadow: 0 1px 1px rgba(0,0,0,.7);
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	section#content ul li {
+│ │ +		color: #ccc;
+│ │ +	}	
+│ │ +	section#content ul li:hover {
+│ │ +		color: #ccc;
+│ │ +		text-shadow: 0 1px 0 black;
+│ │ +		background-color: #777;
+│ │ +		box-shadow: 0px 0px 15px rgba(0,0,0,.2) inset;
+│ │ +		border-radius: 2px;
+│ │ +	}
+│ │ +	section#content li i.fa-gear:hover {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +}
+│ │ +
+│ │ +@media (prefers-color-scheme: light) {
+│ │ +	body {
+│ │ +		background-color: #fff;
+│ │ +	}
+│ │ +	section#header a#title {
+│ │ +		color: #304669;
+│ │ +	}
+│ │ +	section#header .fa {
+│ │ +		color: black;
+│ │ +	}
+│ │ +	section#header a.switch i.fa-toggle-off {
+│ │ +		color: #444;
+│ │ +	}
+│ │ +	section#search p {
+│ │ +		background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+│ │ +	}
+│ │ +	section#search input {
+│ │ +		color: #555;
+│ │ +	}
+│ │ +	section#content h1 {
+│ │ +		background-color: #516C97;
+│ │ +		background-image: linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -o-linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -moz-linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -webkit-linear-gradient(top, #7F97B9, #516C97);
+│ │ +		background-image: -ms-linear-gradient(top, #7F97B9, #516C97);	
+│ │ +		text-shadow: 0 1px 1px rgba(0,0,0,.7);
+│ │ +		color: white;
+│ │ +	}
+│ │ +	section#content ul li {
+│ │ +		color: black;
+│ │ +	}
+│ │ +	section#content ul li:hover {
+│ │ +		color: black;
+│ │ +		text-shadow: 0 1px 0 white;
+│ │ +		background-color: #e0e0e0;
+│ │ +		box-shadow: 0px 0px 15px rgba(0,0,0,.2) inset;
+│ │ +		border-radius: 2px;
+│ │ +	}
+│ │ +	section#content li.disabled {
+│ │ +		background-color: #eee;
+│ │ +		color: #555;
+│ │ +	}
+│ │ +	section#content li i.fa-gear:hover {
+│ │ +		color: #333;
+│ │ +	}
+│ │ +}
+│ │ +
+│ │ +a {
+│ │ +	text-decoration: none;
+│ │ +}
+│ │ +
+│ │ +section.main {
+│ │ +	float: left;
+│ │ +	clear: both;
+│ │ +	min-width:280px;
+│ │ +	padding: 0px 7px;
+│ │ +	width: 95%;
+│ │ +}
+│ │ +
+│ │ +section#header {
+│ │ +	vertical-align: middle;
+│ │ +	margin-top: -5px;
+│ │ +	margin-bottom: 3px;
+│ │ +}
+│ │ +
+│ │ +section#header h1 {
+│ │ +	font-size: 1em;
+│ │ +}
+│ │ +
+│ │ +section#header h1 img {
+│ │ +	vertical-align: middle;
+│ │ +	max-width: 16px;
+│ │ +	max-height: 16px;
+│ │ +}
+│ │ +
+│ │ +section#header .page, section#header .switch {
+│ │ +	float: right;
+│ │ +	clear: none;
+│ │ +}
+│ │ +
+│ │ +section#header a#title {
+│ │ +	float: left;
+│ │ +	clear: left;
+│ │ +	font-weight: bold;
+│ │ +	font-size: 1.15em;
+│ │ +	text-decoration: none;
+│ │ +	vertical-align: middle;
+│ │ +	outline: none;
+│ │ +	margin-top: 2px;
+│ │ +}
+│ │ +
+│ │ +section#header a#title img{
+│ │ +	margin-top: -3px;
+│ │ +}
+│ │ +
+│ │ +section#header a.page, section#header a.switch {
+│ │ +	margin-left: 7px;
+│ │ +	font-size: 1.4em;
+│ │ +	cursor: pointer;
+│ │ +	outline:none;
+│ │ +}
+│ │ +
+│ │ +section#header .fa {
+│ │ +	opacity: .6;
+│ │ +}
+│ │ +
+│ │ +section#header .fa-facebook-official {
+│ │ +	color: #3b5998;
+│ │ +}
+│ │ +
+│ │ +section#header .fa-twitter {
+│ │ +	color: #55A4DA;
+│ │ +}
+│ │ +
+│ │ +section#header .fa-star {
+│ │ +	color: #FF9300;
+│ │ +}
+│ │ +
+│ │ +section#header .fa-user-circle-o {
+│ │ +	zoom: 95%;
+│ │ +}
+│ │ +
+│ │ +section#header .fa-lightbulb-o {
+│ │ +	margin-right: 3px;
+│ │ +}
+│ │ +
+│ │ +section#header .fa:hover {
+│ │ +	opacity: 1;
+│ │ +}
+│ │ +
+│ │ +section#search {
+│ │ +	margin: 0px;
+│ │ +}
+│ │ +
+│ │ +section#search p {
+│ │ +	margin: 0px;
+│ │ +	padding: 1px 1px 1px 5px;
+│ │ +	border-radius: 3px 3px 0px 0px;
+│ │ +}
+│ │ +
+│ │ +section#search i {
+│ │ +  color: #777;
+│ │ +}
+│ │ +
+│ │ +section#search input {
+│ │ +	border: 0px;
+│ │ +	border-radius: 3px;
+│ │ +	background: transparent;
+│ │ +	padding: 3px;
+│ │ +	outline: none;
+│ │ +	width: auto;
+│ │ +	min-width: 200px;
+│ │ +}
+│ │ +
+│ │ +/* Profiles */
+│ │ +section#profiles i.fa-check {
+│ │ +	color: green;
+│ │ +}
+│ │ +
+│ │ +section#profiles i.fa {
+│ │ +	min-width: 15px;
+│ │ +	text-align: center;
+│ │ +}
+│ │ +
+│ │ +/* Content */
+│ │ +section#content {
+│ │ +	margin-bottom: .5em;
+│ │ +}
+│ │ +
+│ │ +section#content h1 {
+│ │ +	padding: 3px 4px 3px 4px;
+│ │ +	margin: 0px;
+│ │ +	border-radius: 2px;
+│ │ +	font-size: 1em;
+│ │ +}
+│ │ +
+│ │ +section#content ul {
+│ │ +	margin: 0px 0px;
+│ │ +	padding: 0px 0px;
+│ │ +	list-style-type: none;
+│ │ +}
+│ │ +
+│ │ +section#content ul li {
+│ │ +	padding: 3px 2px;
+│ │ +	cursor: pointer;
+│ │ +}
+│ │ +
+│ │ +section#content ul li:hover {
+│ │ +	border-radius: 2px;
+│ │ +}
+│ │ +
+│ │ +section#content ul li img {
+│ │ +	vertical-align: middle;
+│ │ +	margin-top: -2px;
+│ │ +}
+│ │ +
+│ │ +/** Disabled Status */
+│ │ +section#content li.disabled {
+│ │ +	opacity: 0.7;
+│ │ +}
+│ │ +
+│ │ +section#content li.disabled img {
+│ │ +	opacity: 0.3;
+│ │ +}
+│ │ +
+│ │ +section#content li i.fa-gear {
+│ │ +	float: right;
+│ │ +	margin-top: 2px;
+│ │ +	color: #777;
+│ │ +	font-size: 1.1em;
+│ │ +}
+│ │ +
+│ │ +section#content li i.fa-flask {
+│ │ +	color: #777;
+│ │ +}
+│ │ +
+│ │ +section p.empty {
+│ │ +	text-align: center;
+│ │ +	color: #777;
+│ │ +}
+│ │ +
+│ │ +section p.empty i.fa {
+│ │ +	font-size: 2em;
+│ │ +	margin-bottom: 10px;
+│ │ +}
+│ │ -body{overflow-x:hidden;overflow-y:auto;font-family:Lucida Grande,Arial,sans-serif;font-size:12px;min-height:fit-content;user-select:none;padding:0px}@media(prefers-color-scheme: dark){body{background-color:#333}section#header a#title{color:#ccc}section#header .fa{color:#eee}section#header a.switch i.fa-toggle-off{color:#aaa}section#search p{background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)}section#search input{color:#ccc}section#content h1{background-color:#516c97;background-image:linear-gradient(top, #7F97B9, #516C97);background-image:-o-linear-gradient(top, #7F97B9, #516C97);background-image:-moz-linear-gradient(top, #7F97B9, #516C97);background-image:-webkit-linear-gradient(top, #7F97B9, #516C97);background-image:-ms-linear-gradient(top, #7F97B9, #516C97);text-shadow:0 1px 1px rgba(0,0,0,.7);color:#ccc}section#content ul li{color:#ccc}section#content ul li:hover{color:#ccc;text-shadow:0 1px 0 #000;background-color:#777;box-shadow:0px 0px 15px rgba(0,0,0,.2) inset;border-radius:2px}section#content li i.fa-gear:hover{color:#ccc}}@media(prefers-color-scheme: light){body{background-color:#fff}section#header a#title{color:#304669}section#header .fa{color:#000}section#header a.switch i.fa-toggle-off{color:#444}section#search p{background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%)}section#search input{color:#555}section#content h1{background-color:#516c97;background-image:linear-gradient(top, #7F97B9, #516C97);background-image:-o-linear-gradient(top, #7F97B9, #516C97);background-image:-moz-linear-gradient(top, #7F97B9, #516C97);background-image:-webkit-linear-gradient(top, #7F97B9, #516C97);background-image:-ms-linear-gradient(top, #7F97B9, #516C97);text-shadow:0 1px 1px rgba(0,0,0,.7);color:#fff}section#content ul li{color:#000}section#content ul li:hover{color:#000;text-shadow:0 1px 0 #fff;background-color:#e0e0e0;box-shadow:0px 0px 15px rgba(0,0,0,.2) inset;border-radius:2px}section#content li.disabled{background-color:#eee;color:#555}section#content li i.fa-gear:hover{color:#333}}a{text-decoration:none}section.main{float:left;clear:both;min-width:280px;padding:0px 7px;width:95%}section#header{vertical-align:middle;margin-top:-5px;margin-bottom:3px}section#header h1{font-size:1em}section#header h1 img{vertical-align:middle;max-width:16px;max-height:16px}section#header .page,section#header .switch{float:right;clear:none}section#header a#title{float:left;clear:left;font-weight:bold;font-size:1.15em;text-decoration:none;vertical-align:middle;outline:none;margin-top:2px}section#header a#title img{margin-top:-3px}section#header a.page,section#header a.switch{margin-left:7px;font-size:1.4em;cursor:pointer;outline:none}section#header .fa{opacity:.6}section#header .fa-facebook-official{color:#3b5998}section#header .fa-twitter{color:#55a4da}section#header .fa-star{color:#ff9300}section#header .fa-user-circle-o{zoom:95%}section#header .fa-lightbulb-o{margin-right:3px}section#header .fa:hover{opacity:1}section#search{margin:0px}section#search p{margin:0px;padding:1px 1px 1px 5px;border-radius:3px 3px 0px 0px}section#search i{color:#777}section#search input{border:0px;border-radius:3px;background:rgba(0,0,0,0);padding:3px;outline:none;width:auto;min-width:200px}section#profiles i.fa-check{color:green}section#profiles i.fa{min-width:15px;text-align:center}section#content{margin-bottom:.5em}section#content h1{padding:3px 4px 3px 4px;margin:0px;border-radius:2px;font-size:1em}section#content ul{margin:0px 0px;padding:0px 0px;list-style-type:none}section#content ul li{padding:3px 2px;cursor:pointer}section#content ul li:hover{border-radius:2px}section#content ul li img{vertical-align:middle;margin-top:-2px}section#content li.disabled{opacity:.7}section#content li.disabled img{opacity:.3}section#content li i.fa-gear{float:right;margin-top:2px;color:#777;font-size:1.1em}section#content li i.fa-flask{color:#777}section p.empty{text-align:center;color:#777}section p.empty i.fa{font-size:2em;margin-bottom:10px}
+│ │   --- /workspace/pipeline_output/chromex_data/styles/normalize.css
+│ ├── +++ /workspace/pipeline_output/Extensity/styles/normalize.css
+│ │ @@ -1 +1,349 @@
+│ │ +/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+│ │ +
+│ │ +/* Document
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * 1. Correct the line height in all browsers.
+│ │ + * 2. Prevent adjustments of font size after orientation changes in iOS.
+│ │ + */
+│ │ +
+│ │ + html {
+│ │ +  line-height: 1.15; /* 1 */
+│ │ +  -webkit-text-size-adjust: 100%; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/* Sections
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * Remove the margin in all browsers.
+│ │ + */
+│ │ +
+│ │ +body {
+│ │ +  margin: 0;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Render the `main` element consistently in IE.
+│ │ + */
+│ │ +
+│ │ +main {
+│ │ +  display: block;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Correct the font size and margin on `h1` elements within `section` and
+│ │ + * `article` contexts in Chrome, Firefox, and Safari.
+│ │ + */
+│ │ +
+│ │ +h1 {
+│ │ +  font-size: 2em;
+│ │ +  margin: 0.67em 0;
+│ │ +}
+│ │ +
+│ │ +/* Grouping content
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * 1. Add the correct box sizing in Firefox.
+│ │ + * 2. Show the overflow in Edge and IE.
+│ │ + */
+│ │ +
+│ │ +hr {
+│ │ +  box-sizing: content-box; /* 1 */
+│ │ +  height: 0; /* 1 */
+│ │ +  overflow: visible; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Correct the inheritance and scaling of font size in all browsers.
+│ │ + * 2. Correct the odd `em` font sizing in all browsers.
+│ │ + */
+│ │ +
+│ │ +pre {
+│ │ +  font-family: monospace, monospace; /* 1 */
+│ │ +  font-size: 1em; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/* Text-level semantics
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * Remove the gray background on active links in IE 10.
+│ │ + */
+│ │ +
+│ │ +a {
+│ │ +  background-color: transparent;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Remove the bottom border in Chrome 57-
+│ │ + * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+│ │ + */
+│ │ +
+│ │ +abbr[title] {
+│ │ +  border-bottom: none; /* 1 */
+│ │ +  text-decoration: underline; /* 2 */
+│ │ +  text-decoration: underline dotted; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Add the correct font weight in Chrome, Edge, and Safari.
+│ │ + */
+│ │ +
+│ │ +b,
+│ │ +strong {
+│ │ +  font-weight: bolder;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Correct the inheritance and scaling of font size in all browsers.
+│ │ + * 2. Correct the odd `em` font sizing in all browsers.
+│ │ + */
+│ │ +
+│ │ +code,
+│ │ +kbd,
+│ │ +samp {
+│ │ +  font-family: monospace, monospace; /* 1 */
+│ │ +  font-size: 1em; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Add the correct font size in all browsers.
+│ │ + */
+│ │ +
+│ │ +small {
+│ │ +  font-size: 80%;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Prevent `sub` and `sup` elements from affecting the line height in
+│ │ + * all browsers.
+│ │ + */
+│ │ +
+│ │ +sub,
+│ │ +sup {
+│ │ +  font-size: 75%;
+│ │ +  line-height: 0;
+│ │ +  position: relative;
+│ │ +  vertical-align: baseline;
+│ │ +}
+│ │ +
+│ │ +sub {
+│ │ +  bottom: -0.25em;
+│ │ +}
+│ │ +
+│ │ +sup {
+│ │ +  top: -0.5em;
+│ │ +}
+│ │ +
+│ │ +/* Embedded content
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * Remove the border on images inside links in IE 10.
+│ │ + */
+│ │ +
+│ │ +img {
+│ │ +  border-style: none;
+│ │ +}
+│ │ +
+│ │ +/* Forms
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * 1. Change the font styles in all browsers.
+│ │ + * 2. Remove the margin in Firefox and Safari.
+│ │ + */
+│ │ +
+│ │ +button,
+│ │ +input,
+│ │ +optgroup,
+│ │ +select,
+│ │ +textarea {
+│ │ +  font-family: inherit; /* 1 */
+│ │ +  font-size: 100%; /* 1 */
+│ │ +  line-height: 1.15; /* 1 */
+│ │ +  margin: 0; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Show the overflow in IE.
+│ │ + * 1. Show the overflow in Edge.
+│ │ + */
+│ │ +
+│ │ +button,
+│ │ +input { /* 1 */
+│ │ +  overflow: visible;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Remove the inheritance of text transform in Edge, Firefox, and IE.
+│ │ + * 1. Remove the inheritance of text transform in Firefox.
+│ │ + */
+│ │ +
+│ │ +button,
+│ │ +select { /* 1 */
+│ │ +  text-transform: none;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Correct the inability to style clickable types in iOS and Safari.
+│ │ + */
+│ │ +
+│ │ +button,
+│ │ +[type="button"],
+│ │ +[type="reset"],
+│ │ +[type="submit"] {
+│ │ +  -webkit-appearance: button;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Remove the inner border and padding in Firefox.
+│ │ + */
+│ │ +
+│ │ +button::-moz-focus-inner,
+│ │ +[type="button"]::-moz-focus-inner,
+│ │ +[type="reset"]::-moz-focus-inner,
+│ │ +[type="submit"]::-moz-focus-inner {
+│ │ +  border-style: none;
+│ │ +  padding: 0;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Restore the focus styles unset by the previous rule.
+│ │ + */
+│ │ +
+│ │ +button:-moz-focusring,
+│ │ +[type="button"]:-moz-focusring,
+│ │ +[type="reset"]:-moz-focusring,
+│ │ +[type="submit"]:-moz-focusring {
+│ │ +  outline: 1px dotted ButtonText;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Correct the padding in Firefox.
+│ │ + */
+│ │ +
+│ │ +fieldset {
+│ │ +  padding: 0.35em 0.75em 0.625em;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Correct the text wrapping in Edge and IE.
+│ │ + * 2. Correct the color inheritance from `fieldset` elements in IE.
+│ │ + * 3. Remove the padding so developers are not caught out when they zero out
+│ │ + *    `fieldset` elements in all browsers.
+│ │ + */
+│ │ +
+│ │ +legend {
+│ │ +  box-sizing: border-box; /* 1 */
+│ │ +  color: inherit; /* 2 */
+│ │ +  display: table; /* 1 */
+│ │ +  max-width: 100%; /* 1 */
+│ │ +  padding: 0; /* 3 */
+│ │ +  white-space: normal; /* 1 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+│ │ + */
+│ │ +
+│ │ +progress {
+│ │ +  vertical-align: baseline;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Remove the default vertical scrollbar in IE 10+.
+│ │ + */
+│ │ +
+│ │ +textarea {
+│ │ +  overflow: auto;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Add the correct box sizing in IE 10.
+│ │ + * 2. Remove the padding in IE 10.
+│ │ + */
+│ │ +
+│ │ +[type="checkbox"],
+│ │ +[type="radio"] {
+│ │ +  box-sizing: border-box; /* 1 */
+│ │ +  padding: 0; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Correct the cursor style of increment and decrement buttons in Chrome.
+│ │ + */
+│ │ +
+│ │ +[type="number"]::-webkit-inner-spin-button,
+│ │ +[type="number"]::-webkit-outer-spin-button {
+│ │ +  height: auto;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Correct the odd appearance in Chrome and Safari.
+│ │ + * 2. Correct the outline style in Safari.
+│ │ + */
+│ │ +
+│ │ +[type="search"] {
+│ │ +  -webkit-appearance: textfield; /* 1 */
+│ │ +  outline-offset: -2px; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Remove the inner padding in Chrome and Safari on macOS.
+│ │ + */
+│ │ +
+│ │ +[type="search"]::-webkit-search-decoration {
+│ │ +  -webkit-appearance: none;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * 1. Correct the inability to style clickable types in iOS and Safari.
+│ │ + * 2. Change font properties to `inherit` in Safari.
+│ │ + */
+│ │ +
+│ │ +::-webkit-file-upload-button {
+│ │ +  -webkit-appearance: button; /* 1 */
+│ │ +  font: inherit; /* 2 */
+│ │ +}
+│ │ +
+│ │ +/* Interactive
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/*
+│ │ + * Add the correct display in Edge, IE 10+, and Firefox.
+│ │ + */
+│ │ +
+│ │ +details {
+│ │ +  display: block;
+│ │ +}
+│ │ +
+│ │ +/*
+│ │ + * Add the correct display in all browsers.
+│ │ + */
+│ │ +
+│ │ +summary {
+│ │ +  display: list-item;
+│ │ +}
+│ │ +
+│ │ +/* Misc
+│ │ +   ========================================================================== */
+│ │ +
+│ │ +/**
+│ │ + * Add the correct display in IE 10+.
+│ │ + */
+│ │ +
+│ │ +template {
+│ │ +  display: none;
+│ │ +}
+│ │ +
+│ │ +/**
+│ │ + * Add the correct display in IE 10.
+│ │ + */
+│ │ +
+│ │ +[hidden] {
+│ │ +  display: none;
+│ │ +}
+│ │ -/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:rgba(0,0,0,0)}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+│ │   --- /workspace/pipeline_output/chromex_data/styles/options.css
+│ ├── +++ /workspace/pipeline_output/Extensity/styles/options.css
+│ │ @@ -1 +1,319 @@
+│ │ +/* Options */
+│ │ +body {
+│ │ +	margin: 50px;
+│ │ +	overflow-x:hidden;
+│ │ +	overflow-y:auto;
+│ │ +	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+│ │ +}
+│ │ +
+│ │ +@media (prefers-color-scheme: dark) {
+│ │ +	body {
+│ │ +		background-color: #333;
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	.blue {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	h1 {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	fieldset legend {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	a {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	span#save-result {
+│ │ +		color: #ccc;
+│ │ +	}
+│ │ +	#header .help {
+│ │ +		background-color: #516C97;
+│ │ +	}	
+│ │ +	#profiles .sidebar ul.items li.active {
+│ │ +		background-color: #777;
+│ │ +	}
+│ │ +	#profiles .extensions p.toggle {
+│ │ +		background-color: #777;
+│ │ +	}
+│ │ +	#profiles input#name {
+│ │ +		background-color: #777;
+│ │ +		color: white;
+│ │ +		border: 1px solid #999;
+│ │ +	}
+│ │ +	.info {
+│ │ +		background-color: #777;
+│ │ +	}	
+│ │ +}
+│ │ +
+│ │ +@media (prefers-color-scheme: light) {
+│ │ +	body {
+│ │ +		background-color: #fff;
+│ │ +		color: black;
+│ │ +	}
+│ │ +	.blue {
+│ │ +		color: #516C97;
+│ │ +	}
+│ │ +	h1 {
+│ │ +		color: #516C97;
+│ │ +	}
+│ │ +	fieldset legend {
+│ │ +		color: #516C97;
+│ │ +	}
+│ │ +	a {
+│ │ +		color: #516C97;
+│ │ +	}
+│ │ +	span#save-result {
+│ │ +		color: #304669;
+│ │ +	}
+│ │ +	fieldset#options .field label {
+│ │ +		color: black;
+│ │ +	}
+│ │ +	#header .help {
+│ │ +		background-color: #FFD478;
+│ │ +	}
+│ │ +	#profiles .sidebar ul.items li.active {
+│ │ +		background-color: #ddd;
+│ │ +	}
+│ │ +	#profiles .extensions p.toggle {
+│ │ +		background-color: #ddd;
+│ │ +	}
+│ │ +	#profiles input#name {
+│ │ +		background-color: white;
+│ │ +		color: black;
+│ │ +		border: 1px solid #bbb;
+│ │ +	}
+│ │ +	.info {
+│ │ +		background-color: #aaa;
+│ │ +	}	
+│ │ +}
+│ │ +
+│ │ +hr {
+│ │ +	border: 0px;
+│ │ +	height: 1px;
+│ │ +}
+│ │ +
+│ │ +.clear {
+│ │ +	clear: both;
+│ │ +}
+│ │ +
+│ │ +img {
+│ │ +	vertical-align: middle;
+│ │ +}
+│ │ +
+│ │ +h1 {
+│ │ +	vertical-align: middle;
+│ │ +	font-weight: bold;
+│ │ +	font-size: 1.5em;
+│ │ +}
+│ │ +
+│ │ +fieldset {
+│ │ +	margin-top: .5em;
+│ │ +	border: none;
+│ │ +}
+│ │ +
+│ │ +fieldset legend {
+│ │ +	float: left;
+│ │ +	clear: left;
+│ │ +	padding: 10px 3px;
+│ │ +	border-bottom: 1px solid #304669;
+│ │ +	font-weight: bold;
+│ │ +}
+│ │ +
+│ │ +fieldset .field {
+│ │ +	float: left;
+│ │ +	clear: left;
+│ │ +}
+│ │ +
+│ │ +fieldset .field.right {
+│ │ +	float: right;
+│ │ +	clear: right;
+│ │ +}
+│ │ +
+│ │ +button {
+│ │ +	cursor: pointer;
+│ │ +	font-weight: bold;
+│ │ +	font-size: 1em;
+│ │ +	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+│ │ +	color: #ffffff;
+│ │ +	background-color: #516C97;
+│ │ +	border-color: #516C97;
+│ │ +	border-width: 1px;
+│ │ +	border-style: solid;
+│ │ +	border-radius: 5px;
+│ │ +	padding: 7px 10px;
+│ │ +}
+│ │ +
+│ │ +button:hover {
+│ │ +	opacity: .8;
+│ │ +}
+│ │ +
+│ │ +a {
+│ │ +	text-decoration: none;
+│ │ +}
+│ │ +
+│ │ +a:hover {
+│ │ +	text-decoration: underline;
+│ │ +}
+│ │ +
+│ │ +#header h1 {
+│ │ +	margin: 0px;
+│ │ +}
+│ │ +
+│ │ +#header .tabs {
+│ │ +	float: left;
+│ │ +	width: 300px;
+│ │ +	max-width: 300px;
+│ │ +}
+│ │ +
+│ │ +#header .help {
+│ │ +	float: right;
+│ │ +	padding: 20px 20px;
+│ │ +	border-radius: 10px;
+│ │ +	line-height: 150%;
+│ │ +	width: 320px;
+│ │ +	max-width: 320px;
+│ │ +}
+│ │ +
+│ │ +#header #menu {
+│ │ +	margin-left: 10px;
+│ │ +	padding-top: 20px;
+│ │ +	padding-bottom: 10px;
+│ │ +}
+│ │ +
+│ │ +#header #menu a {
+│ │ +	cursor: pointer;
+│ │ +	font-weight: bold;
+│ │ +	font-size: 1em;
+│ │ +	color: #516C97;
+│ │ +	background-color: #fff;
+│ │ +	border: 1px solid #516C97;
+│ │ +	border-radius: 5px;
+│ │ +	padding: 5px 10px;
+│ │ +}
+│ │ +#header #menu a:hover {
+│ │ +	text-decoration: none;
+│ │ +}
+│ │ +#header #menu a.selected {
+│ │ +	background-color: #516C97;
+│ │ +	color: white;
+│ │ +}
+│ │ +
+│ │ +/* Options */
+│ │ +fieldset#options .field {
+│ │ +	margin: .8em 0em;
+│ │ +}
+│ │ +
+│ │ +/* Profiles */
+│ │ +.instructions {
+│ │ +	float: right;
+│ │ +}
+│ │ +
+│ │ +#profiles fieldset {
+│ │ +	float: left;
+│ │ +	min-width: 600px;
+│ │ +	max-width: 70%;
+│ │ +}
+│ │ +
+│ │ +#profiles .fa {
+│ │ +	cursor: pointer;
+│ │ +	min-width: 15px;
+│ │ +	text-align: center;
+│ │ +}
+│ │ +
+│ │ +#profiles .fa-trash {
+│ │ +	zoom: 110%;
+│ │ +}
+│ │ +
+│ │ +#profiles .sidebar {
+│ │ +	float: left;
+│ │ +	width: 200px;
+│ │ +	max-width: 200px;
+│ │ +}
+│ │ +
+│ │ +#profiles .extensions {
+│ │ +	float: left;
+│ │ +}
+│ │ +
+│ │ +#profiles ul {
+│ │ +	padding-left: 0px;
+│ │ +}
+│ │ +
+│ │ +#profiles .sidebar ul.items li {
+│ │ +	cursor: pointer;
+│ │ +	padding: 7px;
+│ │ +	margin: 10px 0px;
+│ │ +}
+│ │ +
+│ │ +#profiles .sidebar .quota-error {
+│ │ +	background-color: #FFEEEE;
+│ │ +	border: 1px solid red;
+│ │ +	border-radius: 5px;
+│ │ +	padding: 8px;
+│ │ +	margin-right: 5px;
+│ │ +}
+│ │ +
+│ │ +#profiles label {
+│ │ +	line-height: 200%;
+│ │ +}
+│ │ +
+│ │ +#profiles label.disabled {
+│ │ +	opacity: 0.5;
+│ │ +}
+│ │ +
+│ │ +#profiles ul {
+│ │ +	list-style-type: none;
+│ │ +}
+│ │ +
+│ │ +#profiles .extensions {
+│ │ +	border-left: 1px solid #ddd;
+│ │ +	padding-left: 10px;
+│ │ +	padding-right: 10px;
+│ │ +}
+│ │ +
+│ │ +#profiles .extensions p.toggle {
+│ │ +	margin: 0px;
+│ │ +	margin-left: -10px;
+│ │ +	margin-right: -10px;
+│ │ +	padding: 10px;
+│ │ +}
+│ │ +
+│ │ +#profiles input#name {
+│ │ +	padding: 5px;
+│ │ +	border-radius: 5px 0px 0px 5px;
+│ │ +	border-right: 0px;
+│ │ +	font-size: 1.05em;
+│ │ +	outline: none;
+│ │ +}
+│ │ +
+│ │ +#profiles button.add {
+│ │ +	padding: 5px 8px;
+│ │ +	border-radius: 0px 5px 5px 0px;
+│ │ +}
+│ │ +
+│ │ +.info {
+│ │ +	padding: 20px 20px;
+│ │ +	border-radius: 10px;
+│ │ +	line-height: 150%;
+│ │ +	width: 320px;
+│ │ +	max-width: 320px;
+│ │ +}
+│ │ +
+│ │ +.fa.right {
+│ │ +	float: right;
+│ │ +	cursor: pointer;
+│ │ +}
+│ │ +
+│ │ +.fadeout {
+│ │ +  visibility: hidden;
+│ │ +  opacity: 0;
+│ │ +  transition: visibility 0s .5s, opacity .5s linear;
+│ │ +}
+│ │ +
+│ │ +.visible {
+│ │ +  visibility: visible;
+│ │ +  opacity: 1;
+│ │ +}
+│ │ +
+│ │ +.hidden {
+│ │ +	visibility: hidden;
+│ │ +}
+│ │ -body{margin:50px;overflow-x:hidden;overflow-y:auto;font-family:Lucida Sans Unicode,Lucida Grande,sans-serif}@media(prefers-color-scheme: dark){body{background-color:#333;color:#ccc}.blue{color:#ccc}h1{color:#ccc}fieldset legend{color:#ccc}a{color:#ccc}span#save-result{color:#ccc}#header .help{background-color:#516c97}#profiles .sidebar ul.items li.active{background-color:#777}#profiles .extensions p.toggle{background-color:#777}#profiles input#name{background-color:#777;color:#fff;border:1px solid #999}.info{background-color:#777}}@media(prefers-color-scheme: light){body{background-color:#fff;color:#000}.blue{color:#516c97}h1{color:#516c97}fieldset legend{color:#516c97}a{color:#516c97}span#save-result{color:#304669}fieldset#options .field label{color:#000}#header .help{background-color:#ffd478}#profiles .sidebar ul.items li.active{background-color:#ddd}#profiles .extensions p.toggle{background-color:#ddd}#profiles input#name{background-color:#fff;color:#000;border:1px solid #bbb}.info{background-color:#aaa}}hr{border:0px;height:1px}.clear{clear:both}img{vertical-align:middle}h1{vertical-align:middle;font-weight:bold;font-size:1.5em}fieldset{margin-top:.5em;border:none}fieldset legend{float:left;clear:left;padding:10px 3px;border-bottom:1px solid #304669;font-weight:bold}fieldset .field{float:left;clear:left}fieldset .field.right{float:right;clear:right}button{cursor:pointer;font-weight:bold;font-size:1em;font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;color:#fff;background-color:#516c97;border-color:#516c97;border-width:1px;border-style:solid;border-radius:5px;padding:7px 10px}button:hover{opacity:.8}a{text-decoration:none}a:hover{text-decoration:underline}#header h1{margin:0px}#header .tabs{float:left;width:300px;max-width:300px}#header .help{float:right;padding:20px 20px;border-radius:10px;line-height:150%;width:320px;max-width:320px}#header #menu{margin-left:10px;padding-top:20px;padding-bottom:10px}#header #menu a{cursor:pointer;font-weight:bold;font-size:1em;color:#516c97;background-color:#fff;border:1px solid #516c97;border-radius:5px;padding:5px 10px}#header #menu a:hover{text-decoration:none}#header #menu a.selected{background-color:#516c97;color:#fff}fieldset#options .field{margin:.8em 0em}.instructions{float:right}#profiles fieldset{float:left;min-width:600px;max-width:70%}#profiles .fa{cursor:pointer;min-width:15px;text-align:center}#profiles .fa-trash{zoom:110%}#profiles .sidebar{float:left;width:200px;max-width:200px}#profiles .extensions{float:left}#profiles ul{padding-left:0px}#profiles .sidebar ul.items li{cursor:pointer;padding:7px;margin:10px 0px}#profiles .sidebar .quota-error{background-color:#fee;border:1px solid red;border-radius:5px;padding:8px;margin-right:5px}#profiles label{line-height:200%}#profiles label.disabled{opacity:.5}#profiles ul{list-style-type:none}#profiles .extensions{border-left:1px solid #ddd;padding-left:10px;padding-right:10px}#profiles .extensions p.toggle{margin:0px;margin-left:-10px;margin-right:-10px;padding:10px}#profiles input#name{padding:5px;border-radius:5px 0px 0px 5px;border-right:0px;font-size:1.05em;outline:none}#profiles button.add{padding:5px 8px;border-radius:0px 5px 5px 0px}.info{padding:20px 20px;border-radius:10px;line-height:150%;width:320px;max-width:320px}.fa.right{float:right;cursor:pointer}.fadeout{visibility:hidden;opacity:0;transition:visibility 0s .5s,opacity .5s linear}.visible{visibility:visible;opacity:1}.hidden{visibility:hidden}

@@ -1,0 +1,2293 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Redirect-Blocker/extension
+├── file list
+│ @@ -1,4 +1,3 @@
+│ -_metadata
+│  dist
+│  img
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/dist
+├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/dist
+│ │   --- /workspace/pipeline_output/chromex_data/dist/popup
+│ ├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/dist/popup
+│ │ │   --- /workspace/pipeline_output/chromex_data/dist/popup/help.html
+│ │ ├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/dist/popup/help.html
+│ │ │┄ Ordering differences only
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,291 +1,291 @@
+│ │ │ -<!-- help.html created by staFF6773 (https://github.com/staFF6773)-->
+│ │ │ -<!DOCTYPE html>
+│ │ │ -<html lang="en">
+│ │ │ -  <head>
+│ │ │ -    <meta charset="UTF-8" />
+│ │ │ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ │ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ │ -    <title>Need Help?</title>
+│ │ │ -    <link
+│ │ │ -      rel="stylesheet"
+│ │ │ -      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+│ │ │ -    />
+│ │ │ -    <style>
+│ │ │ -      :root {
+│ │ │ -        --primary-color: #7c7cff;
+│ │ │ -        --bg-color: #111111;
+│ │ │ -        --card-bg: rgba(255, 255, 255, 0.05);
+│ │ │ -        --text-color: #ffffff;
+│ │ │ -        --link-color: #64ffda;
+│ │ │ -        --link-hover-color: #9effeb;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      body {
+│ │ │ -        background-color: var(--bg-color);
+│ │ │ -        color: var(--text-color);
+│ │ │ -        font-family: "Inter", system-ui, sans-serif;
+│ │ │ -        line-height: 1.7;
+│ │ │ -        margin: 0;
+│ │ │ -        height: 100vh;
+│ │ │ -        padding: 0 2rem;
+│ │ │ -        display: flex;
+│ │ │ -        flex-direction: column;
+│ │ │ -        align-items: center;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .container {
+│ │ │ -        max-width: 800px;
+│ │ │ -        width: 100%;
+│ │ │ -        margin: 0 auto;
+│ │ │ -        padding: 2rem;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      h1 {
+│ │ │ -        text-align: center;
+│ │ │ -        font-size: 3rem;
+│ │ │ -        font-weight: 800;
+│ │ │ -        margin: 1rem 0;
+│ │ │ -        background: linear-gradient(45deg, var(--primary-color), #a5a5ff);
+│ │ │ -        -webkit-background-clip: text;
+│ │ │ -        -webkit-text-fill-color: transparent;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .logo-container {
+│ │ │ -        width: 100%;
+│ │ │ -        display: flex;
+│ │ │ -        justify-content: center;
+│ │ │ -        align-items: center;
+│ │ │ -        margin: 2rem 0;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .logo {
+│ │ │ -        filter: drop-shadow(0 0 10px rgba(124, 124, 255, 0.3));
+│ │ │ -        display: block;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .card {
+│ │ │ -        background: var(--card-bg);
+│ │ │ -        border-radius: 16px;
+│ │ │ -        padding: 1rem 2rem;
+│ │ │ -        margin: 1.5rem 0;
+│ │ │ -        border: 1px solid rgba(255, 255, 255, 0.1);
+│ │ │ -        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+│ │ │ -        backdrop-filter: blur(10px);
+│ │ │ -        font-size: 0.95rem;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .possible-fixes {
+│ │ │ -        text-align: left;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .possible-fixes h2 {
+│ │ │ -        font-size: 1.5rem;
+│ │ │ -        margin-bottom: 1.5rem;
+│ │ │ -        color: var(--primary-color);
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .possible-fixes p {
+│ │ │ -        margin: 0.8rem 0;
+│ │ │ -        padding-left: 1.5rem;
+│ │ │ -        position: relative;
+│ │ │ -        font-size: 0.95rem;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .possible-fixes p:before {
+│ │ │ -        content: "•";
+│ │ │ -        position: absolute;
+│ │ │ -        left: 0;
+│ │ │ -        color: var(--primary-color);
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .warning {
+│ │ │ -        color: #ff6b6b;
+│ │ │ -        font-size: 0.9rem;
+│ │ │ -        padding: 1rem;
+│ │ │ -        border-radius: 8px;
+│ │ │ -        background: rgba(255, 107, 107, 0.1);
+│ │ │ -        margin: 1rem 0;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .social-bar {
+│ │ │ -        position: fixed;
+│ │ │ -        bottom: 2rem;
+│ │ │ -        left: 50%;
+│ │ │ -        transform: translateX(-50%);
+│ │ │ -        display: flex;
+│ │ │ -        gap: 2rem;
+│ │ │ -        align-items: center;
+│ │ │ -        background: rgba(255, 255, 255, 0.08);
+│ │ │ -        padding: 1rem 2rem;
+│ │ │ -        border-radius: 100px;
+│ │ │ -        backdrop-filter: blur(10px);
+│ │ │ -        border: 1px solid rgba(255, 255, 255, 0.1);
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .social-link {
+│ │ │ -        display: flex;
+│ │ │ -        align-items: center;
+│ │ │ -        gap: 0.5rem;
+│ │ │ -        color: var(--text-color);
+│ │ │ -        text-decoration: none;
+│ │ │ -        transition: all 0.3s ease;
+│ │ │ -        border-bottom: none;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .social-link:hover {
+│ │ │ -        color: var(--link-color);
+│ │ │ -        transform: translateY(-2px);
+│ │ │ -        border-bottom: none;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .social-link i {
+│ │ │ -        font-size: 1.5rem;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .advertisement {
+│ │ │ -        position: fixed;
+│ │ │ -        bottom: 2rem;
+│ │ │ -        right: 2rem;
+│ │ │ -        background: var(--card-bg);
+│ │ │ -        padding: 1.5rem;
+│ │ │ -        border-radius: 16px;
+│ │ │ -        backdrop-filter: blur(10px);
+│ │ │ -        border: 1px solid rgba(255, 255, 255, 0.1);
+│ │ │ -        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+│ │ │ -        max-width: 250px;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      a {
+│ │ │ -        color: var(--link-color);
+│ │ │ -        text-decoration: none;
+│ │ │ -        transition: all 0.3s ease;
+│ │ │ -        border-bottom: 1px solid transparent;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      a:hover {
+│ │ │ -        color: var(--link-hover-color);
+│ │ │ -        border-bottom: 1px solid var(--link-hover-color);
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      @media (max-width: 768px) {
+│ │ │ -        .social-bar {
+│ │ │ -          position: static;
+│ │ │ -          transform: none;
+│ │ │ -          margin-top: 2rem;
+│ │ │ -          flex-wrap: wrap;
+│ │ │ -          justify-content: center;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        .advertisement {
+│ │ │ -          position: static;
+│ │ │ -          margin-top: 2rem;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        body {
+│ │ │ -          padding: 1rem;
+│ │ │ -        }
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      /* So the footer is always at the bottom of the page, and not covering anything */
+│ │ │ -      .footer-spacer {
+│ │ │ -        height: 100px;
+│ │ │ -        display: none;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      @media (min-height: 855px) {
+│ │ │ -        .footer-spacer {
+│ │ │ -          display: none;
+│ │ │ -        }
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      @media (max-height: 855px) {
+│ │ │ -        .footer-spacer {
+│ │ │ -          display: block;
+│ │ │ -        }
+│ │ │ -      }
+│ │ │ -    </style>
+│ │ │ -  </head>
+│ │ │ -
+│ │ │ -  <body>
+│ │ │ -    <div class="container">
+│ │ │ -      <h1>Redirect Blocker</h1>
+│ │ │ -      <div class="logo-container">
+│ │ │ -        <img
+│ │ │ -          src="../../img/Icon128.png"
+│ │ │ -          width="64"
+│ │ │ -          height="64"
+│ │ │ -          alt="Logo"
+│ │ │ -          class="logo"
+│ │ │ -        />
+│ │ │ -      </div>
+│ │ │ -
+│ │ │ -      <div class="card">
+│ │ │ -        <p>
+│ │ │ -          Having issues? Report them on the
+│ │ │ -          <a
+│ │ │ -            target="_blank"
+│ │ │ -            href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ -            >Github issues page</a
+│ │ │ -          >
+│ │ │ -          with detailed information.
+│ │ │ -        </p>
+│ │ │ -        <p>
+│ │ │ -          If you have suggestions or feature requests, you can also share them
+│ │ │ -          on the
+│ │ │ -          <a
+│ │ │ -            target="_blank"
+│ │ │ -            href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ -            >Github issues page</a
+│ │ │ -          >
+│ │ │ -        </p>
+│ │ │ -      </div>
+│ │ │ -
+│ │ │ -      <div class="card possible-fixes">
+│ │ │ -        <h2>Possible fixes for common issues:</h2>
+│ │ │ -        <p>Restart Chrome and re-open/close tabs</p>
+│ │ │ -        <p>Refresh/Re-toggle of tabs/extension may be needed</p>
+│ │ │ -        <p>Reinstallation of extension may be needed</p>
+│ │ │ -      </div>
+│ │ │ -
+│ │ │ -      <div class="warning">
+│ │ │ -        Before creating an issue on Github, try the above solutions.
+│ │ │ -      </div>
+│ │ │ -
+│ │ │ -      <div class="footer-spacer"></div>
+│ │ │ -    </div>
+│ │ │ -
+│ │ │ -    <div class="social-bar">
+│ │ │ -      <a href="https://youtube.com/@Tyson3101" class="social-link">
+│ │ │ -        <i class="fa fa-youtube"></i>
+│ │ │ -        <span>Tyson3101</span>
+│ │ │ -      </a>
+│ │ │ -      <a
+│ │ │ -        href="https://github.com/Tyson3101/Redirect-Blocker"
+│ │ │ -        class="social-link"
+│ │ │ -      >
+│ │ │ -        <i class="fa fa-github"></i>
+│ │ │ -        <span>Github</span>
+│ │ │ -      </a>
+│ │ │ -    </div>
+│ │ │ -
+│ │ │ -    <div class="advertisement">
+│ │ │ -      <p>
+│ │ │ -
+│ │ │ -        <strong>My other extensions:</strong>
+│ │ │ -        <div style="padding: 0.1rem;"></div>
+│ │ │ -        <a
+│ │ │ -          href="https://chrome.google.com/webstore/detail/auto-youtube-shorts-scroller/ckbnikemebopgknkpgjlkbffpkkhblbe"
+│ │ │ -        >
+│ │ │ -          Auto Youtube Shorts Scroller
+│ │ │ -        </a>
+│ │ │ -        <div style="padding: 0.3rem;"></div>
+│ │ │ -        <a
+│ │ │ -          href="https://chromewebstore.google.com/detail/auto-reels-scroller/bpgleagdakihfeingnhnknblcfgbfcdo"
+│ │ │ -        >
+│ │ │ -          Auto Reels Scroller
+│ │ │ -        </a>
+│ │ │ -      </p>
+│ │ │ -    </div>
+│ │ │ -
+│ │ │ -  </body>
+│ │ │ -</html>
+│ │ │ +<!-- help.html created by staFF6773 (https://github.com/staFF6773)-->
+│ │ │ +<!DOCTYPE html>
+│ │ │ +<html lang="en">
+│ │ │ +  <head>
+│ │ │ +    <meta charset="UTF-8" />
+│ │ │ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ │ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ │ +    <title>Need Help?</title>
+│ │ │ +    <link
+│ │ │ +      rel="stylesheet"
+│ │ │ +      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+│ │ │ +    />
+│ │ │ +    <style>
+│ │ │ +      :root {
+│ │ │ +        --primary-color: #7c7cff;
+│ │ │ +        --bg-color: #111111;
+│ │ │ +        --card-bg: rgba(255, 255, 255, 0.05);
+│ │ │ +        --text-color: #ffffff;
+│ │ │ +        --link-color: #64ffda;
+│ │ │ +        --link-hover-color: #9effeb;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      body {
+│ │ │ +        background-color: var(--bg-color);
+│ │ │ +        color: var(--text-color);
+│ │ │ +        font-family: "Inter", system-ui, sans-serif;
+│ │ │ +        line-height: 1.7;
+│ │ │ +        margin: 0;
+│ │ │ +        height: 100vh;
+│ │ │ +        padding: 0 2rem;
+│ │ │ +        display: flex;
+│ │ │ +        flex-direction: column;
+│ │ │ +        align-items: center;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .container {
+│ │ │ +        max-width: 800px;
+│ │ │ +        width: 100%;
+│ │ │ +        margin: 0 auto;
+│ │ │ +        padding: 2rem;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      h1 {
+│ │ │ +        text-align: center;
+│ │ │ +        font-size: 3rem;
+│ │ │ +        font-weight: 800;
+│ │ │ +        margin: 1rem 0;
+│ │ │ +        background: linear-gradient(45deg, var(--primary-color), #a5a5ff);
+│ │ │ +        -webkit-background-clip: text;
+│ │ │ +        -webkit-text-fill-color: transparent;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .logo-container {
+│ │ │ +        width: 100%;
+│ │ │ +        display: flex;
+│ │ │ +        justify-content: center;
+│ │ │ +        align-items: center;
+│ │ │ +        margin: 2rem 0;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .logo {
+│ │ │ +        filter: drop-shadow(0 0 10px rgba(124, 124, 255, 0.3));
+│ │ │ +        display: block;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .card {
+│ │ │ +        background: var(--card-bg);
+│ │ │ +        border-radius: 16px;
+│ │ │ +        padding: 1rem 2rem;
+│ │ │ +        margin: 1.5rem 0;
+│ │ │ +        border: 1px solid rgba(255, 255, 255, 0.1);
+│ │ │ +        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+│ │ │ +        backdrop-filter: blur(10px);
+│ │ │ +        font-size: 0.95rem;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .possible-fixes {
+│ │ │ +        text-align: left;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .possible-fixes h2 {
+│ │ │ +        font-size: 1.5rem;
+│ │ │ +        margin-bottom: 1.5rem;
+│ │ │ +        color: var(--primary-color);
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .possible-fixes p {
+│ │ │ +        margin: 0.8rem 0;
+│ │ │ +        padding-left: 1.5rem;
+│ │ │ +        position: relative;
+│ │ │ +        font-size: 0.95rem;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .possible-fixes p:before {
+│ │ │ +        content: "•";
+│ │ │ +        position: absolute;
+│ │ │ +        left: 0;
+│ │ │ +        color: var(--primary-color);
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .warning {
+│ │ │ +        color: #ff6b6b;
+│ │ │ +        font-size: 0.9rem;
+│ │ │ +        padding: 1rem;
+│ │ │ +        border-radius: 8px;
+│ │ │ +        background: rgba(255, 107, 107, 0.1);
+│ │ │ +        margin: 1rem 0;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .social-bar {
+│ │ │ +        position: fixed;
+│ │ │ +        bottom: 2rem;
+│ │ │ +        left: 50%;
+│ │ │ +        transform: translateX(-50%);
+│ │ │ +        display: flex;
+│ │ │ +        gap: 2rem;
+│ │ │ +        align-items: center;
+│ │ │ +        background: rgba(255, 255, 255, 0.08);
+│ │ │ +        padding: 1rem 2rem;
+│ │ │ +        border-radius: 100px;
+│ │ │ +        backdrop-filter: blur(10px);
+│ │ │ +        border: 1px solid rgba(255, 255, 255, 0.1);
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .social-link {
+│ │ │ +        display: flex;
+│ │ │ +        align-items: center;
+│ │ │ +        gap: 0.5rem;
+│ │ │ +        color: var(--text-color);
+│ │ │ +        text-decoration: none;
+│ │ │ +        transition: all 0.3s ease;
+│ │ │ +        border-bottom: none;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .social-link:hover {
+│ │ │ +        color: var(--link-color);
+│ │ │ +        transform: translateY(-2px);
+│ │ │ +        border-bottom: none;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .social-link i {
+│ │ │ +        font-size: 1.5rem;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .advertisement {
+│ │ │ +        position: fixed;
+│ │ │ +        bottom: 2rem;
+│ │ │ +        right: 2rem;
+│ │ │ +        background: var(--card-bg);
+│ │ │ +        padding: 1.5rem;
+│ │ │ +        border-radius: 16px;
+│ │ │ +        backdrop-filter: blur(10px);
+│ │ │ +        border: 1px solid rgba(255, 255, 255, 0.1);
+│ │ │ +        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+│ │ │ +        max-width: 250px;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      a {
+│ │ │ +        color: var(--link-color);
+│ │ │ +        text-decoration: none;
+│ │ │ +        transition: all 0.3s ease;
+│ │ │ +        border-bottom: 1px solid transparent;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      a:hover {
+│ │ │ +        color: var(--link-hover-color);
+│ │ │ +        border-bottom: 1px solid var(--link-hover-color);
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      @media (max-width: 768px) {
+│ │ │ +        .social-bar {
+│ │ │ +          position: static;
+│ │ │ +          transform: none;
+│ │ │ +          margin-top: 2rem;
+│ │ │ +          flex-wrap: wrap;
+│ │ │ +          justify-content: center;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        .advertisement {
+│ │ │ +          position: static;
+│ │ │ +          margin-top: 2rem;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        body {
+│ │ │ +          padding: 1rem;
+│ │ │ +        }
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      /* So the footer is always at the bottom of the page, and not covering anything */
+│ │ │ +      .footer-spacer {
+│ │ │ +        height: 100px;
+│ │ │ +        display: none;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      @media (min-height: 855px) {
+│ │ │ +        .footer-spacer {
+│ │ │ +          display: none;
+│ │ │ +        }
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      @media (max-height: 855px) {
+│ │ │ +        .footer-spacer {
+│ │ │ +          display: block;
+│ │ │ +        }
+│ │ │ +      }
+│ │ │ +    </style>
+│ │ │ +  </head>
+│ │ │ +
+│ │ │ +  <body>
+│ │ │ +    <div class="container">
+│ │ │ +      <h1>Redirect Blocker</h1>
+│ │ │ +      <div class="logo-container">
+│ │ │ +        <img
+│ │ │ +          src="../../img/Icon128.png"
+│ │ │ +          width="64"
+│ │ │ +          height="64"
+│ │ │ +          alt="Logo"
+│ │ │ +          class="logo"
+│ │ │ +        />
+│ │ │ +      </div>
+│ │ │ +
+│ │ │ +      <div class="card">
+│ │ │ +        <p>
+│ │ │ +          Having issues? Report them on the
+│ │ │ +          <a
+│ │ │ +            target="_blank"
+│ │ │ +            href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ +            >Github issues page</a
+│ │ │ +          >
+│ │ │ +          with detailed information.
+│ │ │ +        </p>
+│ │ │ +        <p>
+│ │ │ +          If you have suggestions or feature requests, you can also share them
+│ │ │ +          on the
+│ │ │ +          <a
+│ │ │ +            target="_blank"
+│ │ │ +            href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ +            >Github issues page</a
+│ │ │ +          >
+│ │ │ +        </p>
+│ │ │ +      </div>
+│ │ │ +
+│ │ │ +      <div class="card possible-fixes">
+│ │ │ +        <h2>Possible fixes for common issues:</h2>
+│ │ │ +        <p>Restart Chrome and re-open/close tabs</p>
+│ │ │ +        <p>Refresh/Re-toggle of tabs/extension may be needed</p>
+│ │ │ +        <p>Reinstallation of extension may be needed</p>
+│ │ │ +      </div>
+│ │ │ +
+│ │ │ +      <div class="warning">
+│ │ │ +        Before creating an issue on Github, try the above solutions.
+│ │ │ +      </div>
+│ │ │ +
+│ │ │ +      <div class="footer-spacer"></div>
+│ │ │ +    </div>
+│ │ │ +
+│ │ │ +    <div class="social-bar">
+│ │ │ +      <a href="https://youtube.com/@Tyson3101" class="social-link">
+│ │ │ +        <i class="fa fa-youtube"></i>
+│ │ │ +        <span>Tyson3101</span>
+│ │ │ +      </a>
+│ │ │ +      <a
+│ │ │ +        href="https://github.com/Tyson3101/Redirect-Blocker"
+│ │ │ +        class="social-link"
+│ │ │ +      >
+│ │ │ +        <i class="fa fa-github"></i>
+│ │ │ +        <span>Github</span>
+│ │ │ +      </a>
+│ │ │ +    </div>
+│ │ │ +
+│ │ │ +    <div class="advertisement">
+│ │ │ +      <p>
+│ │ │ +
+│ │ │ +        <strong>My other extensions:</strong>
+│ │ │ +        <div style="padding: 0.1rem;"></div>
+│ │ │ +        <a
+│ │ │ +          href="https://chrome.google.com/webstore/detail/auto-youtube-shorts-scroller/ckbnikemebopgknkpgjlkbffpkkhblbe"
+│ │ │ +        >
+│ │ │ +          Auto Youtube Shorts Scroller
+│ │ │ +        </a>
+│ │ │ +        <div style="padding: 0.3rem;"></div>
+│ │ │ +        <a
+│ │ │ +          href="https://chromewebstore.google.com/detail/auto-reels-scroller/bpgleagdakihfeingnhnknblcfgbfcdo"
+│ │ │ +        >
+│ │ │ +          Auto Reels Scroller
+│ │ │ +        </a>
+│ │ │ +      </p>
+│ │ │ +    </div>
+│ │ │ +
+│ │ │ +  </body>
+│ │ │ +</html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/dist/popup/install.html
+│ │ ├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/dist/popup/install.html
+│ │ │┄ Ordering differences only
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,153 +1,153 @@
+│ │ │ -<!DOCTYPE html>
+│ │ │ -<html lang="en">
+│ │ │ -  <head>
+│ │ │ -    <meta charset="UTF-8" />
+│ │ │ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ │ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ │ -    <title>Thanks for installing!</title>
+│ │ │ -    <link rel="icon" href="../../img/Icon128.png" type="image/x-icon" />
+│ │ │ -    <link
+│ │ │ -      rel="stylesheet"
+│ │ │ -      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+│ │ │ -    />
+│ │ │ -    <style>
+│ │ │ -      body {
+│ │ │ -        background-color: rgb(72, 49, 49);
+│ │ │ -        color: whitesmoke;
+│ │ │ -        font-family: sans-serif;
+│ │ │ -        text-align: center;
+│ │ │ -      }
+│ │ │ -      h1 {
+│ │ │ -        font-size: 2rem;
+│ │ │ -      }
+│ │ │ -      p {
+│ │ │ -        font-size: max(1.5vw, 1rem);
+│ │ │ -      }
+│ │ │ -      a {
+│ │ │ -        color: rgb(135, 135, 232);
+│ │ │ -      }
+│ │ │ -      .author {
+│ │ │ -        position: absolute;
+│ │ │ -        bottom: 15px;
+│ │ │ -        border: 0;
+│ │ │ -        left: 50%;
+│ │ │ -        display: flex;
+│ │ │ -        justify-content: center;
+│ │ │ -        align-items: center;
+│ │ │ -        transform: translateX(-50%);
+│ │ │ -        text-decoration: none;
+│ │ │ -        display: inline;
+│ │ │ -        color: whitesmoke;
+│ │ │ -      }
+│ │ │ -      .youtube {
+│ │ │ -        padding: 2rem;
+│ │ │ -        display: inline-block;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .extensionInfo {
+│ │ │ -        padding-top: 7px;
+│ │ │ -        margin: 0 auto; /* Center the div horizontally */
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .extensionInfo h2 {
+│ │ │ -        font-size: 1.5rem;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .extensionInfo p.smaller {
+│ │ │ -        font-size: 1.02rem;
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .advertisement {
+│ │ │ -        color: rgb(239, 239, 239);
+│ │ │ -        position: fixed;
+│ │ │ -        bottom: 20px;
+│ │ │ -        right: 20px;
+│ │ │ -        padding: 10px;
+│ │ │ -        border: 1px solid #ccc;
+│ │ │ -        border-radius: 5px;
+│ │ │ -        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .advertisement p {
+│ │ │ -        font-size: min(1.3vw, 15px);
+│ │ │ -      }
+│ │ │ -
+│ │ │ -      .advertisement a {
+│ │ │ -        color: rgb(239, 239, 239);
+│ │ │ -      }
+│ │ │ -    </style>
+│ │ │ -  </head>
+│ │ │ -  <body>
+│ │ │ -    <h1>Redirect Blocker</h1>
+│ │ │ -    <img src="../../img/Icon128.png" width="64" height="64" alt="" />
+│ │ │ -    <p>Thanks for installing the extension!<br /></p>
+│ │ │ -    <p>
+│ │ │ -      If you face any issues, please report them on the
+│ │ │ -      <a
+│ │ │ -        target="_blank"
+│ │ │ -        href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ -        >Github page</a
+│ │ │ -      >
+│ │ │ -      with helpful information.
+│ │ │ -    </p>
+│ │ │ -
+│ │ │ -    <p style="padding-top: 3px">
+│ │ │ -      If you have a feature request / suggestion, please report them on the
+│ │ │ -      <a
+│ │ │ -        target="_blank"
+│ │ │ -        href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ -        >Github page</a
+│ │ │ -      >.
+│ │ │ -    </p>
+│ │ │ -
+│ │ │ -    <div class="extensionInfo">
+│ │ │ -      <h2>Information before use!</h2>
+│ │ │ -      <p>
+│ │ │ -        - Redirect Blocker main purpose is to stop those harmful or annoying new
+│ │ │ -        tab redirects mostly seen on them shadey sites.
+│ │ │ -        <span style="font-size: 0.6em"
+│ │ │ -          ><br />As well can block same-tab redirects through links.</span
+│ │ │ -        >
+│ │ │ -      </p>
+│ │ │ -      <p class="smaller">
+│ │ │ -        - It won’t block necessary redirects, like when a site automatically
+│ │ │ -        takes you to a local version (e.g., from bbc.co.uk to bbc.com). It also
+│ │ │ -        won’t interfere with normal page navigation.
+│ │ │ -      </p>
+│ │ │ -      <p class="smaller">- BUT THIS MAY BE ADDED IN THE FUTURE!</p>
+│ │ │ -    </div>
+│ │ │ -
+│ │ │ -    <div class="author">
+│ │ │ -      <h3>
+│ │ │ -        <a
+│ │ │ -          target="_blank"
+│ │ │ -          href="https://youtube.com/@Tyson3101"
+│ │ │ -          style="text-decoration: none; color: whitesmoke"
+│ │ │ -          >By Tyson3101</a
+│ │ │ -        >
+│ │ │ -        <hr />
+│ │ │ -      </h3>
+│ │ │ -      <a
+│ │ │ -        aria-label="Github Page"
+│ │ │ -        target="_blank"
+│ │ │ -        href="https://github.com/Tyson3101/Redirect-Blocker"
+│ │ │ -        class="github-corner"
+│ │ │ -      >
+│ │ │ -        <i style="font-size: 6rem; color: white" class="fa fa-github"></i
+│ │ │ -      ></a>
+│ │ │ -
+│ │ │ -      <a class="youtube" href="https://youtube.com/@Tyson3101">
+│ │ │ -        <i class="fa fa-youtube" style="font-size: 6rem; color: red"></i>
+│ │ │ -      </a>
+│ │ │ -    </div>
+│ │ │ -    <div class="advertisement">
+│ │ │ -      <p>
+│ │ │ -        <span style="font-weight: bold">My other extensions:</span> <br /><br />
+│ │ │ -        <a
+│ │ │ -          href="https://chrome.google.com/webstore/detail/auto-youtube-shorts-scroller/ckbnikemebopgknkpgjlkbffpkkhblbe"
+│ │ │ -          >Auto Youtube Shorts Scroller</a
+│ │ │ -        >
+│ │ │ -      </p>
+│ │ │ -    </div>
+│ │ │ -  </body>
+│ │ │ -</html>
+│ │ │ +<!DOCTYPE html>
+│ │ │ +<html lang="en">
+│ │ │ +  <head>
+│ │ │ +    <meta charset="UTF-8" />
+│ │ │ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ │ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ │ +    <title>Thanks for installing!</title>
+│ │ │ +    <link rel="icon" href="../../img/Icon128.png" type="image/x-icon" />
+│ │ │ +    <link
+│ │ │ +      rel="stylesheet"
+│ │ │ +      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+│ │ │ +    />
+│ │ │ +    <style>
+│ │ │ +      body {
+│ │ │ +        background-color: rgb(72, 49, 49);
+│ │ │ +        color: whitesmoke;
+│ │ │ +        font-family: sans-serif;
+│ │ │ +        text-align: center;
+│ │ │ +      }
+│ │ │ +      h1 {
+│ │ │ +        font-size: 2rem;
+│ │ │ +      }
+│ │ │ +      p {
+│ │ │ +        font-size: max(1.5vw, 1rem);
+│ │ │ +      }
+│ │ │ +      a {
+│ │ │ +        color: rgb(135, 135, 232);
+│ │ │ +      }
+│ │ │ +      .author {
+│ │ │ +        position: absolute;
+│ │ │ +        bottom: 15px;
+│ │ │ +        border: 0;
+│ │ │ +        left: 50%;
+│ │ │ +        display: flex;
+│ │ │ +        justify-content: center;
+│ │ │ +        align-items: center;
+│ │ │ +        transform: translateX(-50%);
+│ │ │ +        text-decoration: none;
+│ │ │ +        display: inline;
+│ │ │ +        color: whitesmoke;
+│ │ │ +      }
+│ │ │ +      .youtube {
+│ │ │ +        padding: 2rem;
+│ │ │ +        display: inline-block;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .extensionInfo {
+│ │ │ +        padding-top: 7px;
+│ │ │ +        margin: 0 auto; /* Center the div horizontally */
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .extensionInfo h2 {
+│ │ │ +        font-size: 1.5rem;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .extensionInfo p.smaller {
+│ │ │ +        font-size: 1.02rem;
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .advertisement {
+│ │ │ +        color: rgb(239, 239, 239);
+│ │ │ +        position: fixed;
+│ │ │ +        bottom: 20px;
+│ │ │ +        right: 20px;
+│ │ │ +        padding: 10px;
+│ │ │ +        border: 1px solid #ccc;
+│ │ │ +        border-radius: 5px;
+│ │ │ +        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .advertisement p {
+│ │ │ +        font-size: min(1.3vw, 15px);
+│ │ │ +      }
+│ │ │ +
+│ │ │ +      .advertisement a {
+│ │ │ +        color: rgb(239, 239, 239);
+│ │ │ +      }
+│ │ │ +    </style>
+│ │ │ +  </head>
+│ │ │ +  <body>
+│ │ │ +    <h1>Redirect Blocker</h1>
+│ │ │ +    <img src="../../img/Icon128.png" width="64" height="64" alt="" />
+│ │ │ +    <p>Thanks for installing the extension!<br /></p>
+│ │ │ +    <p>
+│ │ │ +      If you face any issues, please report them on the
+│ │ │ +      <a
+│ │ │ +        target="_blank"
+│ │ │ +        href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ +        >Github page</a
+│ │ │ +      >
+│ │ │ +      with helpful information.
+│ │ │ +    </p>
+│ │ │ +
+│ │ │ +    <p style="padding-top: 3px">
+│ │ │ +      If you have a feature request / suggestion, please report them on the
+│ │ │ +      <a
+│ │ │ +        target="_blank"
+│ │ │ +        href="https://github.com/Tyson3101/Redirect-Blocker/issues"
+│ │ │ +        >Github page</a
+│ │ │ +      >.
+│ │ │ +    </p>
+│ │ │ +
+│ │ │ +    <div class="extensionInfo">
+│ │ │ +      <h2>Information before use!</h2>
+│ │ │ +      <p>
+│ │ │ +        - Redirect Blocker main purpose is to stop those harmful or annoying new
+│ │ │ +        tab redirects mostly seen on them shadey sites.
+│ │ │ +        <span style="font-size: 0.6em"
+│ │ │ +          ><br />As well can block same-tab redirects through links.</span
+│ │ │ +        >
+│ │ │ +      </p>
+│ │ │ +      <p class="smaller">
+│ │ │ +        - It won’t block necessary redirects, like when a site automatically
+│ │ │ +        takes you to a local version (e.g., from bbc.co.uk to bbc.com). It also
+│ │ │ +        won’t interfere with normal page navigation.
+│ │ │ +      </p>
+│ │ │ +      <p class="smaller">- BUT THIS MAY BE ADDED IN THE FUTURE!</p>
+│ │ │ +    </div>
+│ │ │ +
+│ │ │ +    <div class="author">
+│ │ │ +      <h3>
+│ │ │ +        <a
+│ │ │ +          target="_blank"
+│ │ │ +          href="https://youtube.com/@Tyson3101"
+│ │ │ +          style="text-decoration: none; color: whitesmoke"
+│ │ │ +          >By Tyson3101</a
+│ │ │ +        >
+│ │ │ +        <hr />
+│ │ │ +      </h3>
+│ │ │ +      <a
+│ │ │ +        aria-label="Github Page"
+│ │ │ +        target="_blank"
+│ │ │ +        href="https://github.com/Tyson3101/Redirect-Blocker"
+│ │ │ +        class="github-corner"
+│ │ │ +      >
+│ │ │ +        <i style="font-size: 6rem; color: white" class="fa fa-github"></i
+│ │ │ +      ></a>
+│ │ │ +
+│ │ │ +      <a class="youtube" href="https://youtube.com/@Tyson3101">
+│ │ │ +        <i class="fa fa-youtube" style="font-size: 6rem; color: red"></i>
+│ │ │ +      </a>
+│ │ │ +    </div>
+│ │ │ +    <div class="advertisement">
+│ │ │ +      <p>
+│ │ │ +        <span style="font-weight: bold">My other extensions:</span> <br /><br />
+│ │ │ +        <a
+│ │ │ +          href="https://chrome.google.com/webstore/detail/auto-youtube-shorts-scroller/ckbnikemebopgknkpgjlkbffpkkhblbe"
+│ │ │ +          >Auto Youtube Shorts Scroller</a
+│ │ │ +        >
+│ │ │ +      </p>
+│ │ │ +    </div>
+│ │ │ +  </body>
+│ │ │ +</html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/dist/popup/popup.html
+│ │ ├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/dist/popup/popup.html
+│ │ │┄ Ordering differences only
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,235 +1,235 @@
+│ │ │ -<!--- Styles by https://github.com/Cristofer543 -->
+│ │ │ -<html>
+│ │ │ -  <link
+│ │ │ -    rel="stylesheet"
+│ │ │ -    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+│ │ │ -  />
+│ │ │ -
+│ │ │ -  <link rel="stylesheet" href="popupStyles.css" />
+│ │ │ -
+│ │ │ -  <body>
+│ │ │ -    <h1>Redirect Blocker</h1>
+│ │ │ -    <span class="desc"
+│ │ │ -      ><i style="font-size: 3.9vw">
+│ │ │ -        <br />Stops Potential Malcious/Annoying Redirects<br /></i
+│ │ │ -    ></span>
+│ │ │ -    <div class="toggleContainer">
+│ │ │ -      <button class="toggleBtn">Start</button>
+│ │ │ -
+│ │ │ -      <div class="shortCuts remove">
+│ │ │ -        <div class="shortCut">
+│ │ │ -          <p>
+│ │ │ -            <span class="titleShortCut">Toggle Active Tab:</span>
+│ │ │ -            <span id="shortCutSingleDisplay">alt + shift + s</span>
+│ │ │ -          </p>
+│ │ │ -          <p>
+│ │ │ -            <span class="titleShortCut">Toggle All Tabs:</span>
+│ │ │ -            <span id="shortCutAllDisplay">alt + shift + a</span>
+│ │ │ -          </p>
+│ │ │ -        </div>
+│ │ │ -      </div>
+│ │ │ -
+│ │ │ -      <div class="extensionModes">
+│ │ │ -        <p>
+│ │ │ -          <a href="#" class="currentTabExtMode selected">Current Tab</a>
+│ │ │ -        </p>
+│ │ │ -        <p>
+│ │ │ -          <a href="#" class="allTabsExtMode">All Tabs</a>
+│ │ │ -        </p>
+│ │ │ -      </div>
+│ │ │ -      <i id="error" style="color: red; display: block"></i>
+│ │ │ -      <button id="shortCutBtn">Show Shortcuts</button>
+│ │ │ -    </div>
+│ │ │ -    <div class="settings">
+│ │ │ -      <h2>Settings</h2>
+│ │ │ -      <div data-settingIndex="0" class="settingsPage list active">
+│ │ │ -        <div id="savedURLsPage">
+│ │ │ -          <label
+│ │ │ -            ><p style="font-size: 1rem">
+│ │ │ -              Saved URLS
+│ │ │ -              <i style="font-size: 0.69em; display: block"
+│ │ │ -                >Automatically activate on a saved URL (one URL per line)</i
+│ │ │ -              >
+│ │ │ -            </p></label
+│ │ │ -          >
+│ │ │ -          <textarea id="savedURLs" class="urlsList"></textarea>
+│ │ │ -          <p><a href="#" id="changeToAllowedURLPage">Show Allowed URLs</a></p>
+│ │ │ -        </div>
+│ │ │ -        <div id="allowedURLsPage" class="remove">
+│ │ │ -          <label
+│ │ │ -            ><p style="font-size: 1rem">
+│ │ │ -              Allowed URLS
+│ │ │ -              <i style="font-size: 0.7em; display: block"
+│ │ │ -                >Allow redirects to these URLS (one URL per line)</i
+│ │ │ -              >
+│ │ │ -            </p></label
+│ │ │ -          >
+│ │ │ -          <textarea id="allowedURLS" class="urlsList"></textarea>
+│ │ │ -          <p><a href="#" id="changeToSavedURLPage">Show Saved URLs</a></p>
+│ │ │ -        </div>
+│ │ │ -      </div>
+│ │ │ -
+│ │ │ -      <div data-settingIndex="1" class="settingsPage">
+│ │ │ -        <label
+│ │ │ -          ><p style="font-size: 1rem">
+│ │ │ -            Tab exclusive or URL exclusive
+│ │ │ -            <i style="font-size: 0.7em; display: block"
+│ │ │ -              >Auto turn off when tab deleted OR when the URL hostname changes
+│ │ │ -            </i>
+│ │ │ -          </p></label
+│ │ │ -        >
+│ │ │ -        <select name="turnOffOnWhen" id="turnOffOnWhen">
+│ │ │ -          <option value="tab">Tab</option>
+│ │ │ -          <option value="url">URL</option>
+│ │ │ -        </select>
+│ │ │ -        <i>Only applies for single toggled tabs</i>
+│ │ │ -      </div>
+│ │ │ -      <div data-settingIndex="2" class="settingsPage">
+│ │ │ -        <label
+│ │ │ -          ><p style="font-size: 1rem">
+│ │ │ -            Shortcut
+│ │ │ -            <i style="font-size: 0.7em; display: block"
+│ │ │ -              >Customize the key(s) to toggle the extension on/off. (Seperate
+│ │ │ -              with
+│ │ │ -              <span
+│ │ │ -                style="
+│ │ │ -                  background-color: rgb(220, 209, 209);
+│ │ │ -                  font-weight: bold;
+│ │ │ -                  font-size: larger;
+│ │ │ -                "
+│ │ │ -                >+</span
+│ │ │ -              >)</i
+│ │ │ -            >
+│ │ │ -          </p></label
+│ │ │ -        >
+│ │ │ -        <div class="shortCutSettings">
+│ │ │ -          <span class="shortCutSingleContainer" style="display: block"
+│ │ │ -            >Current Tab:
+│ │ │ -            <input
+│ │ │ -              type="text"
+│ │ │ -              name="shortCutSingleInput"
+│ │ │ -              id="shortCutSingleInput"
+│ │ │ -              value="alt + shift + s"
+│ │ │ -              style="width: 40%"
+│ │ │ -          /></span>
+│ │ │ -          <span class="shortCutAllContainer" style="display: block"
+│ │ │ -            >All Tabs:
+│ │ │ -            <input
+│ │ │ -              type="text"
+│ │ │ -              name="shortCutAllInput"
+│ │ │ -              id="shortCutAllInput"
+│ │ │ -              value="alt + shift + a"
+│ │ │ -              style="width: 40%"
+│ │ │ -          /></span>
+│ │ │ -        </div>
+│ │ │ -        <p>
+│ │ │ -          See
+│ │ │ -          <a
+│ │ │ -            href="https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values"
+│ │ │ -            target="_blank"
+│ │ │ -            >this link</a
+│ │ │ -          >
+│ │ │ -          to match the key(s) you want to use.
+│ │ │ -        </p>
+│ │ │ -      </div>
+│ │ │ -      <div data-settingIndex="3" class="settingsPage">
+│ │ │ -        <label
+│ │ │ -          ><p style="font-size: 1rem">
+│ │ │ -            Startup Options
+│ │ │ -            <i style="font-size: 0.7em; display: block"
+│ │ │ -              >Allows the extension to be toggled on for all tabs from when
+│ │ │ -              Chrome starts up.<br />
+│ │ │ -            </i></p
+│ │ │ -        ></label>
+│ │ │ -
+│ │ │ -        <select name="startupOptions" id="onStartup">
+│ │ │ -          <option value="false">Off</option>
+│ │ │ -          <option value="true">On</option>
+│ │ │ -        </select>
+│ │ │ -
+│ │ │ -        <p>May not work if chrome is runs in background</p>
+│ │ │ -      </div>
+│ │ │ -      <div class="settingsPage" data-settingIndex="4">
+│ │ │ -        <label
+│ │ │ -          ><p style="font-size: 1rem">
+│ │ │ -            Prevent Redirects on Same Tab
+│ │ │ -            <i style="font-size: 0.7em; display: block"
+│ │ │ -              >Disables links taking you to a different site <br />(On the Same
+│ │ │ -              Tab)</i
+│ │ │ -            >
+│ │ │ -          </p></label
+│ │ │ -        >
+│ │ │ -        <select name="preventSameTabRedirects" id="preventSameTabRedirects">
+│ │ │ -          <option value="true">Prevent</option>
+│ │ │ -          <option value="false">Allow</option>
+│ │ │ -        </select>
+│ │ │ -      </div>
+│ │ │ -      <div id="backSettings"><a href="#">&#8592; Last Page</a></div>
+│ │ │ -      <div id="pageNumber">1/5</div>
+│ │ │ -      <div id="nextSettings"><a href="#">Next Page &#8594;</a></div>
+│ │ │ -    </div>
+│ │ │ -    <div class="pageList">
+│ │ │ -      <a href="#" data-pageIndex="0" class="active">URL Settings</a>
+│ │ │ -      <a href="#" data-pageIndex="1">Tab/URL Exclusive</a>
+│ │ │ -      <a href="#" data-pageIndex="2">Shortcuts</a>
+│ │ │ -      <a href="#" data-pageIndex="3">Startup Options</a>
+│ │ │ -      <a href="#" data-pageIndex="4">Same Tab Redirects</a>
+│ │ │ -    </div>
+│ │ │ -    <i id="footerRedirectNote"
+│ │ │ -      >If redirect needed, just toogle off then back on,<br />Or go to a tab/url
+│ │ │ -      without the extension activated.</i
+│ │ │ -    >
+│ │ │ -    <h4 id="adChrome">
+│ │ │ -      Do you enjoy this extension? Make sure to give it 5 stars on the
+│ │ │ -      <a
+│ │ │ -        href="https://chrome.google.com/webstore/detail/redirect-blocker/egmgebeelgaakhaoodlmnimbfemfgdah"
+│ │ │ -        target="_blank"
+│ │ │ -        >Chrome Web Store!</a
+│ │ │ -      >
+│ │ │ -    </h4>
+│ │ │ -
+│ │ │ -    <div>
+│ │ │ -      <a
+│ │ │ -        aria-label="Github Page"
+│ │ │ -        target="_blank"
+│ │ │ -        style="
+│ │ │ -          position: absolute;
+│ │ │ -          top: 0;
+│ │ │ -          left: 0;
+│ │ │ -          border: 0;
+│ │ │ -          transform: scale(0.6);
+│ │ │ -          text-decoration: none;
+│ │ │ -          display: inline;
+│ │ │ -          color: inherit;
+│ │ │ -        "
+│ │ │ -        href="https://github.com/Tyson3101/Redirect-Blocker"
+│ │ │ -        class="github-corner"
+│ │ │ -      >
+│ │ │ -        <i style="font-size: 3rem" class="fa fa-github"></i
+│ │ │ -      ></a>
+│ │ │ -      <a
+│ │ │ -        aria-label="Github Page"
+│ │ │ -        target="_blank"
+│ │ │ -        style="
+│ │ │ -          position: absolute;
+│ │ │ -          top: 0;
+│ │ │ -          right: 0;
+│ │ │ -          border: 0;
+│ │ │ -          transform: scale(0.6);
+│ │ │ -          text-decoration: none;
+│ │ │ -          display: inline;
+│ │ │ -          color: inherit;
+│ │ │ -        "
+│ │ │ -        href="/dist/popup/help.html"
+│ │ │ -        class="help-corner"
+│ │ │ -      >
+│ │ │ -        <i
+│ │ │ -          style="font-size: 3rem"
+│ │ │ -          class="fa fa-question-circle"
+│ │ │ -          aria-hidden="true"
+│ │ │ -        ></i
+│ │ │ -      ></a>
+│ │ │ -    </div>
+│ │ │ -    <script src="../script.js"></script>
+│ │ │ -  </body>
+│ │ │ -</html>
+│ │ │ +<!--- Styles by https://github.com/Cristofer543 -->
+│ │ │ +<html>
+│ │ │ +  <link
+│ │ │ +    rel="stylesheet"
+│ │ │ +    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+│ │ │ +  />
+│ │ │ +
+│ │ │ +  <link rel="stylesheet" href="popupStyles.css" />
+│ │ │ +
+│ │ │ +  <body>
+│ │ │ +    <h1>Redirect Blocker</h1>
+│ │ │ +    <span class="desc"
+│ │ │ +      ><i style="font-size: 3.9vw">
+│ │ │ +        <br />Stops Potential Malcious/Annoying Redirects<br /></i
+│ │ │ +    ></span>
+│ │ │ +    <div class="toggleContainer">
+│ │ │ +      <button class="toggleBtn">Start</button>
+│ │ │ +
+│ │ │ +      <div class="shortCuts remove">
+│ │ │ +        <div class="shortCut">
+│ │ │ +          <p>
+│ │ │ +            <span class="titleShortCut">Toggle Active Tab:</span>
+│ │ │ +            <span id="shortCutSingleDisplay">alt + shift + s</span>
+│ │ │ +          </p>
+│ │ │ +          <p>
+│ │ │ +            <span class="titleShortCut">Toggle All Tabs:</span>
+│ │ │ +            <span id="shortCutAllDisplay">alt + shift + a</span>
+│ │ │ +          </p>
+│ │ │ +        </div>
+│ │ │ +      </div>
+│ │ │ +
+│ │ │ +      <div class="extensionModes">
+│ │ │ +        <p>
+│ │ │ +          <a href="#" class="currentTabExtMode selected">Current Tab</a>
+│ │ │ +        </p>
+│ │ │ +        <p>
+│ │ │ +          <a href="#" class="allTabsExtMode">All Tabs</a>
+│ │ │ +        </p>
+│ │ │ +      </div>
+│ │ │ +      <i id="error" style="color: red; display: block"></i>
+│ │ │ +      <button id="shortCutBtn">Show Shortcuts</button>
+│ │ │ +    </div>
+│ │ │ +    <div class="settings">
+│ │ │ +      <h2>Settings</h2>
+│ │ │ +      <div data-settingIndex="0" class="settingsPage list active">
+│ │ │ +        <div id="savedURLsPage">
+│ │ │ +          <label
+│ │ │ +            ><p style="font-size: 1rem">
+│ │ │ +              Saved URLS
+│ │ │ +              <i style="font-size: 0.69em; display: block"
+│ │ │ +                >Automatically activate on a saved URL (one URL per line)</i
+│ │ │ +              >
+│ │ │ +            </p></label
+│ │ │ +          >
+│ │ │ +          <textarea id="savedURLs" class="urlsList"></textarea>
+│ │ │ +          <p><a href="#" id="changeToAllowedURLPage">Show Allowed URLs</a></p>
+│ │ │ +        </div>
+│ │ │ +        <div id="allowedURLsPage" class="remove">
+│ │ │ +          <label
+│ │ │ +            ><p style="font-size: 1rem">
+│ │ │ +              Allowed URLS
+│ │ │ +              <i style="font-size: 0.7em; display: block"
+│ │ │ +                >Allow redirects to these URLS (one URL per line)</i
+│ │ │ +              >
+│ │ │ +            </p></label
+│ │ │ +          >
+│ │ │ +          <textarea id="allowedURLS" class="urlsList"></textarea>
+│ │ │ +          <p><a href="#" id="changeToSavedURLPage">Show Saved URLs</a></p>
+│ │ │ +        </div>
+│ │ │ +      </div>
+│ │ │ +
+│ │ │ +      <div data-settingIndex="1" class="settingsPage">
+│ │ │ +        <label
+│ │ │ +          ><p style="font-size: 1rem">
+│ │ │ +            Tab exclusive or URL exclusive
+│ │ │ +            <i style="font-size: 0.7em; display: block"
+│ │ │ +              >Auto turn off when tab deleted OR when the URL hostname changes
+│ │ │ +            </i>
+│ │ │ +          </p></label
+│ │ │ +        >
+│ │ │ +        <select name="turnOffOnWhen" id="turnOffOnWhen">
+│ │ │ +          <option value="tab">Tab</option>
+│ │ │ +          <option value="url">URL</option>
+│ │ │ +        </select>
+│ │ │ +        <i>Only applies for single toggled tabs</i>
+│ │ │ +      </div>
+│ │ │ +      <div data-settingIndex="2" class="settingsPage">
+│ │ │ +        <label
+│ │ │ +          ><p style="font-size: 1rem">
+│ │ │ +            Shortcut
+│ │ │ +            <i style="font-size: 0.7em; display: block"
+│ │ │ +              >Customize the key(s) to toggle the extension on/off. (Seperate
+│ │ │ +              with
+│ │ │ +              <span
+│ │ │ +                style="
+│ │ │ +                  background-color: rgb(220, 209, 209);
+│ │ │ +                  font-weight: bold;
+│ │ │ +                  font-size: larger;
+│ │ │ +                "
+│ │ │ +                >+</span
+│ │ │ +              >)</i
+│ │ │ +            >
+│ │ │ +          </p></label
+│ │ │ +        >
+│ │ │ +        <div class="shortCutSettings">
+│ │ │ +          <span class="shortCutSingleContainer" style="display: block"
+│ │ │ +            >Current Tab:
+│ │ │ +            <input
+│ │ │ +              type="text"
+│ │ │ +              name="shortCutSingleInput"
+│ │ │ +              id="shortCutSingleInput"
+│ │ │ +              value="alt + shift + s"
+│ │ │ +              style="width: 40%"
+│ │ │ +          /></span>
+│ │ │ +          <span class="shortCutAllContainer" style="display: block"
+│ │ │ +            >All Tabs:
+│ │ │ +            <input
+│ │ │ +              type="text"
+│ │ │ +              name="shortCutAllInput"
+│ │ │ +              id="shortCutAllInput"
+│ │ │ +              value="alt + shift + a"
+│ │ │ +              style="width: 40%"
+│ │ │ +          /></span>
+│ │ │ +        </div>
+│ │ │ +        <p>
+│ │ │ +          See
+│ │ │ +          <a
+│ │ │ +            href="https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values"
+│ │ │ +            target="_blank"
+│ │ │ +            >this link</a
+│ │ │ +          >
+│ │ │ +          to match the key(s) you want to use.
+│ │ │ +        </p>
+│ │ │ +      </div>
+│ │ │ +      <div data-settingIndex="3" class="settingsPage">
+│ │ │ +        <label
+│ │ │ +          ><p style="font-size: 1rem">
+│ │ │ +            Startup Options
+│ │ │ +            <i style="font-size: 0.7em; display: block"
+│ │ │ +              >Allows the extension to be toggled on for all tabs from when
+│ │ │ +              Chrome starts up.<br />
+│ │ │ +            </i></p
+│ │ │ +        ></label>
+│ │ │ +
+│ │ │ +        <select name="startupOptions" id="onStartup">
+│ │ │ +          <option value="false">Off</option>
+│ │ │ +          <option value="true">On</option>
+│ │ │ +        </select>
+│ │ │ +
+│ │ │ +        <p>May not work if chrome is runs in background</p>
+│ │ │ +      </div>
+│ │ │ +      <div class="settingsPage" data-settingIndex="4">
+│ │ │ +        <label
+│ │ │ +          ><p style="font-size: 1rem">
+│ │ │ +            Prevent Redirects on Same Tab
+│ │ │ +            <i style="font-size: 0.7em; display: block"
+│ │ │ +              >Disables links taking you to a different site <br />(On the Same
+│ │ │ +              Tab)</i
+│ │ │ +            >
+│ │ │ +          </p></label
+│ │ │ +        >
+│ │ │ +        <select name="preventSameTabRedirects" id="preventSameTabRedirects">
+│ │ │ +          <option value="true">Prevent</option>
+│ │ │ +          <option value="false">Allow</option>
+│ │ │ +        </select>
+│ │ │ +      </div>
+│ │ │ +      <div id="backSettings"><a href="#">&#8592; Last Page</a></div>
+│ │ │ +      <div id="pageNumber">1/5</div>
+│ │ │ +      <div id="nextSettings"><a href="#">Next Page &#8594;</a></div>
+│ │ │ +    </div>
+│ │ │ +    <div class="pageList">
+│ │ │ +      <a href="#" data-pageIndex="0" class="active">URL Settings</a>
+│ │ │ +      <a href="#" data-pageIndex="1">Tab/URL Exclusive</a>
+│ │ │ +      <a href="#" data-pageIndex="2">Shortcuts</a>
+│ │ │ +      <a href="#" data-pageIndex="3">Startup Options</a>
+│ │ │ +      <a href="#" data-pageIndex="4">Same Tab Redirects</a>
+│ │ │ +    </div>
+│ │ │ +    <i id="footerRedirectNote"
+│ │ │ +      >If redirect needed, just toogle off then back on,<br />Or go to a tab/url
+│ │ │ +      without the extension activated.</i
+│ │ │ +    >
+│ │ │ +    <h4 id="adChrome">
+│ │ │ +      Do you enjoy this extension? Make sure to give it 5 stars on the
+│ │ │ +      <a
+│ │ │ +        href="https://chrome.google.com/webstore/detail/redirect-blocker/egmgebeelgaakhaoodlmnimbfemfgdah"
+│ │ │ +        target="_blank"
+│ │ │ +        >Chrome Web Store!</a
+│ │ │ +      >
+│ │ │ +    </h4>
+│ │ │ +
+│ │ │ +    <div>
+│ │ │ +      <a
+│ │ │ +        aria-label="Github Page"
+│ │ │ +        target="_blank"
+│ │ │ +        style="
+│ │ │ +          position: absolute;
+│ │ │ +          top: 0;
+│ │ │ +          left: 0;
+│ │ │ +          border: 0;
+│ │ │ +          transform: scale(0.6);
+│ │ │ +          text-decoration: none;
+│ │ │ +          display: inline;
+│ │ │ +          color: inherit;
+│ │ │ +        "
+│ │ │ +        href="https://github.com/Tyson3101/Redirect-Blocker"
+│ │ │ +        class="github-corner"
+│ │ │ +      >
+│ │ │ +        <i style="font-size: 3rem" class="fa fa-github"></i
+│ │ │ +      ></a>
+│ │ │ +      <a
+│ │ │ +        aria-label="Github Page"
+│ │ │ +        target="_blank"
+│ │ │ +        style="
+│ │ │ +          position: absolute;
+│ │ │ +          top: 0;
+│ │ │ +          right: 0;
+│ │ │ +          border: 0;
+│ │ │ +          transform: scale(0.6);
+│ │ │ +          text-decoration: none;
+│ │ │ +          display: inline;
+│ │ │ +          color: inherit;
+│ │ │ +        "
+│ │ │ +        href="/dist/popup/help.html"
+│ │ │ +        class="help-corner"
+│ │ │ +      >
+│ │ │ +        <i
+│ │ │ +          style="font-size: 3rem"
+│ │ │ +          class="fa fa-question-circle"
+│ │ │ +          aria-hidden="true"
+│ │ │ +        ></i
+│ │ │ +      ></a>
+│ │ │ +    </div>
+│ │ │ +    <script src="../script.js"></script>
+│ │ │ +  </body>
+│ │ │ +</html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/dist/popup/popupStyles.css
+│ │ ├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/dist/popup/popupStyles.css
+│ │ │┄ Ordering differences only
+│ │ │ @@ -1,445 +1,445 @@
+│ │ │ -:root {
+│ │ │ -  --primary: #3b82f6;
+│ │ │ -  --primary-dark: #2563eb;
+│ │ │ -  --primary-light: #60a5fa;
+│ │ │ -  --danger: #ef4444;
+│ │ │ -  --success: #10b981;
+│ │ │ -  --gray-50: #f9fafb;
+│ │ │ -  --gray-100: #f3f4f6;
+│ │ │ -  --gray-200: #e5e7eb;
+│ │ │ -  --gray-300: #d1d5db;
+│ │ │ -  --gray-400: #9ca3af;
+│ │ │ -  --gray-500: #6b7280;
+│ │ │ -  --gray-600: #4b5563;
+│ │ │ -  --gray-700: #374151;
+│ │ │ -  --gray-800: #1f2937;
+│ │ │ -  --surface: #ffffff;
+│ │ │ -  --text: var(--gray-800);
+│ │ │ -  --border-sm: 6px;
+│ │ │ -  --border-md: 8px;
+│ │ │ -  --border-lg: 12px;
+│ │ │ -  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+│ │ │ -  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+│ │ │ -  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+│ │ │ -    0 4px 6px -4px rgb(0 0 0 / 0.1);
+│ │ │ -  --shadow-xxl: 0 15px 25px -5px rgba(0, 0, 0, 0.15),
+│ │ │ -    0 10px 10px -5px rgba(0, 0, 0, 0.1), 0 30px 30px -15px rgba(0, 0, 0, 0.05);
+│ │ │ -}
+│ │ │ -
+│ │ │ -* {
+│ │ │ -  margin: 0;
+│ │ │ -  padding: 0;
+│ │ │ -  box-sizing: border-box;
+│ │ │ -  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+│ │ │ -}
+│ │ │ -
+│ │ │ -body {
+│ │ │ -  min-width: 380px;
+│ │ │ -  background: var(--gray-50);
+│ │ │ -  color: var(--text);
+│ │ │ -  line-height: 1.5;
+│ │ │ -  padding: 1rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Header Section */
+│ │ │ -h1 {
+│ │ │ -  font-size: 1.5rem;
+│ │ │ -  font-weight: 600;
+│ │ │ -  color: var(--gray-800);
+│ │ │ -  margin-bottom: 0.5rem;
+│ │ │ -  display: flex;
+│ │ │ -  align-items: center;
+│ │ │ -  justify-content: center;
+│ │ │ -  gap: 0.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -h1::before {
+│ │ │ -  content: "";
+│ │ │ -  display: inline-block;
+│ │ │ -  width: 24px;
+│ │ │ -  height: 24px;
+│ │ │ -  background-color: var(--primary);
+│ │ │ -  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z' /%3E%3C/svg%3E")
+│ │ │ -    no-repeat center;
+│ │ │ -  mask-size: contain;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.desc {
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  color: var(--gray-500);
+│ │ │ -  margin-bottom: 1.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.desc i {
+│ │ │ -  display: block;
+│ │ │ -  text-align: center;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Toggle Container */
+│ │ │ -.toggleContainer {
+│ │ │ -  background: var(--surface);
+│ │ │ -  border-radius: var(--border-lg);
+│ │ │ -  padding: 1.25rem;
+│ │ │ -  box-shadow: var(--shadow);
+│ │ │ -  margin-bottom: 1.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.toggleBtn {
+│ │ │ -  width: 100%;
+│ │ │ -  padding: 0.75rem;
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  font-weight: 500;
+│ │ │ -  border: none;
+│ │ │ -  border-radius: var(--border-md);
+│ │ │ -  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+│ │ │ -  position: relative;
+│ │ │ -  display: flex;
+│ │ │ -  align-items: center;
+│ │ │ -  justify-content: center;
+│ │ │ -  gap: 0.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.toggleBtn::before {
+│ │ │ -  content: "";
+│ │ │ -  display: inline-block;
+│ │ │ -  width: 16px;
+│ │ │ -  height: 16px;
+│ │ │ -  background-color: currentColor;
+│ │ │ -  mask-size: contain;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.off {
+│ │ │ -  background-color: var(--success);
+│ │ │ -  color: white;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.off::before {
+│ │ │ -  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E")
+│ │ │ -    no-repeat center;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.on {
+│ │ │ -  background-color: var(--danger);
+│ │ │ -  color: white;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.on::before {
+│ │ │ -  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z' /%3E%3C/svg%3E")
+│ │ │ -    no-repeat center;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.extensionModes {
+│ │ │ -  display: flex;
+│ │ │ -  gap: 0.5rem;
+│ │ │ -  margin-top: 1rem;
+│ │ │ -  padding: 0.25rem;
+│ │ │ -  background: var(--gray-100);
+│ │ │ -  border-radius: var(--border-sm);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.extensionModes a {
+│ │ │ -  flex: 1;
+│ │ │ -  padding: 0.5rem;
+│ │ │ -  text-decoration: none;
+│ │ │ -  color: var(--gray-600);
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  border-radius: var(--border-sm);
+│ │ │ -  transition: all 0.2s ease;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.extensionModes .selected {
+│ │ │ -  background: var(--surface);
+│ │ │ -  color: var(--primary);
+│ │ │ -  font-weight: 500;
+│ │ │ -  box-shadow: var(--shadow-sm);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.remove {
+│ │ │ -  display: none;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.shortCutSettings .hideShortCut {
+│ │ │ -  display: none;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.settingsPage:not(.active) {
+│ │ │ -  display: none;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.settingsPage {
+│ │ │ -  padding-bottom: 1.8rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.settingsPage[data-settingIndex="0"] {
+│ │ │ -  padding-bottom: 1.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Settings Section */
+│ │ │ -.settings {
+│ │ │ -  background: var(--surface);
+│ │ │ -  border-radius: var(--border-lg);
+│ │ │ -  padding: 1.25rem;
+│ │ │ -  box-shadow: var(--shadow-lg);
+│ │ │ -  margin-bottom: 1rem;
+│ │ │ -  position: relative;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.settings h2 {
+│ │ │ -  font-size: 1rem;
+│ │ │ -  font-weight: 600;
+│ │ │ -  color: var(--gray-700);
+│ │ │ -  margin-bottom: 1rem;
+│ │ │ -  padding-bottom: 0.5rem;
+│ │ │ -  border-bottom: 1px solid var(--gray-200);
+│ │ │ -}
+│ │ │ -
+│ │ │ -textarea.urlsList {
+│ │ │ -  width: 100%;
+│ │ │ -  min-height: 120px;
+│ │ │ -  padding: 0.75rem;
+│ │ │ -  border: 1px solid var(--gray-200);
+│ │ │ -  border-radius: var(--border-md);
+│ │ │ -  background: var(--gray-50);
+│ │ │ -  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+│ │ │ -  font-size: 0.86rem;
+│ │ │ -  line-height: 1.5;
+│ │ │ -  resize: vertical;
+│ │ │ -}
+│ │ │ -
+│ │ │ -textarea.urlsList:focus {
+│ │ │ -  outline: 2px solid var(--primary-light);
+│ │ │ -  outline-offset: 2px;
+│ │ │ -  border-color: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -select {
+│ │ │ -  width: 100%;
+│ │ │ -  padding: 0.5rem;
+│ │ │ -  border: 1px solid var(--gray-200);
+│ │ │ -  border-radius: var(--border-md);
+│ │ │ -  background: var(--surface);
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  color: var(--gray-700);
+│ │ │ -  cursor: pointer;
+│ │ │ -}
+│ │ │ -
+│ │ │ -select:focus {
+│ │ │ -  outline: 2px solid var(--primary-light);
+│ │ │ -  outline-offset: 2px;
+│ │ │ -  border-color: var(--primary);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Navigation */
+│ │ │ -.pageList {
+│ │ │ -  display: flex;
+│ │ │ -  flex-wrap: wrap;
+│ │ │ -  gap: 0.5rem;
+│ │ │ -  margin: 1rem 0;
+│ │ │ -  padding: 0.5rem;
+│ │ │ -  background: var(--gray-100);
+│ │ │ -  border-radius: var(--border-lg);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.pageList a {
+│ │ │ -  flex: 1;
+│ │ │ -  min-width: max-content;
+│ │ │ -  padding: 0.5rem 1rem;
+│ │ │ -  text-decoration: none;
+│ │ │ -  color: var(--gray-600);
+│ │ │ -  font-size: 0.75rem;
+│ │ │ -  border-radius: var(--border-sm);
+│ │ │ -  transition: all 0.2s ease;
+│ │ │ -  text-align: center;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.pageList .active {
+│ │ │ -  background: var(--surface);
+│ │ │ -  color: var(--primary);
+│ │ │ -  font-weight: 500;
+│ │ │ -  box-shadow: var(--shadow-sm);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Shortcuts */
+│ │ │ -.shortCuts:not(.remove) {
+│ │ │ -  background: var(--surface);
+│ │ │ -  border-radius: var(--border-md);
+│ │ │ -  padding: 0.3rem 1rem;
+│ │ │ -  margin: 1rem 0;
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  border: 1px solid rgba(0, 0, 0, 0.05);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.shortCut {
+│ │ │ -  display: flex;
+│ │ │ -  flex-direction: column;
+│ │ │ -  gap: 0.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.shortCut span.titleShortCut {
+│ │ │ -  color: var(--gray-600);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.shortCut span#shortCutSingleDisplay,
+│ │ │ -.shortCut span#shortCutAllDisplay {
+│ │ │ -  display: inline-block;
+│ │ │ -  padding: 0.25rem 0.5rem;
+│ │ │ -  background: var(--gray-100);
+│ │ │ -  border-radius: var(--border-sm);
+│ │ │ -  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+│ │ │ -  color: var(--gray-700);
+│ │ │ -}
+│ │ │ -
+│ │ │ -.shortCutSettings {
+│ │ │ -  max-width: 300px;
+│ │ │ -  font-family: Arial, sans-serif;
+│ │ │ -  color: #333;
+│ │ │ -  font-size: 1rem;
+│ │ │ -  padding-bottom: 4px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Navigation buttons */
+│ │ │ -#backSettings,
+│ │ │ -#nextSettings {
+│ │ │ -  position: absolute;
+│ │ │ -  bottom: 1rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#backSettings {
+│ │ │ -  left: 1rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#nextSettings {
+│ │ │ -  right: 1rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#backSettings a,
+│ │ │ -#nextSettings a {
+│ │ │ -  color: var(--primary);
+│ │ │ -  text-decoration: none;
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  font-weight: 500;
+│ │ │ -  display: flex;
+│ │ │ -  align-items: center;
+│ │ │ -  gap: 0.25rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#pageNumber {
+│ │ │ -  position: absolute;
+│ │ │ -  bottom: 1rem;
+│ │ │ -  left: 50%;
+│ │ │ -  transform: translateX(-50%);
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  color: var(--gray-500);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Error message */
+│ │ │ -#error {
+│ │ │ -  color: var(--danger);
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  margin-top: 0.5rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Buttons */
+│ │ │ -#shortCutBtn {
+│ │ │ -  width: 100%;
+│ │ │ -  padding: 0.5rem;
+│ │ │ -  margin-top: 0.5rem;
+│ │ │ -  background: var(--gray-100);
+│ │ │ -  border: 1px solid var(--gray-200);
+│ │ │ -  border-radius: var(--border-md);
+│ │ │ -  color: var(--gray-700);
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  cursor: pointer;
+│ │ │ -  transition: all 0.2s ease;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#shortCutBtn:hover {
+│ │ │ -  background: var(--gray-200);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Footer */
+│ │ │ -#footerRedirectNote {
+│ │ │ -  display: block;
+│ │ │ -  text-align: center;
+│ │ │ -  font-size: 0.795rem;
+│ │ │ -  color: var(--gray-700);
+│ │ │ -}
+│ │ │ -
+│ │ │ -#adChrome {
+│ │ │ -  text-align: center;
+│ │ │ -  margin-top: 0.8rem;
+│ │ │ -  font-size: 0.875rem;
+│ │ │ -  color: var(--gray-700);
+│ │ │ -}
+│ │ │ -
+│ │ │ -#adChrome a {
+│ │ │ -  color: var(--primary);
+│ │ │ -  text-decoration: none;
+│ │ │ -  font-weight: 500;
+│ │ │ -}
+│ │ │ -
+│ │ │ -#adChrome a:hover {
+│ │ │ -  text-decoration: underline;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Corner icons */
+│ │ │ -.github-corner,
+│ │ │ -.help-corner {
+│ │ │ -  position: fixed;
+│ │ │ -  top: 1rem;
+│ │ │ -  color: var(--gray-400);
+│ │ │ -  transition: color 0.2s ease;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.github-corner {
+│ │ │ -  left: 1rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.help-corner {
+│ │ │ -  right: 1rem;
+│ │ │ -}
+│ │ │ -
+│ │ │ -.github-corner:hover,
+│ │ │ -.help-corner:hover {
+│ │ │ -  color: var(--gray-600);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Responsiveness */
+│ │ │ -@media (max-width: 480px) {
+│ │ │ -  body {
+│ │ │ -    padding: 0.75rem;
+│ │ │ -  }
+│ │ │ -
+│ │ │ -  .toggleContainer,
+│ │ │ -  .settings {
+│ │ │ -    padding: 1rem;
+│ │ │ -  }
+│ │ │ -
+│ │ │ -  .pageList {
+│ │ │ -    flex-direction: column;
+│ │ │ -  }
+│ │ │ -
+│ │ │ -  .pageList a {
+│ │ │ -    width: 100%;
+│ │ │ -  }
+│ │ │ -}
+│ │ │ -
+│ │ │ -/* Custom scrollbar */
+│ │ │ -::-webkit-scrollbar {
+│ │ │ -  width: 8px;
+│ │ │ -  height: 8px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -::-webkit-scrollbar-track {
+│ │ │ -  background: var(--gray-100);
+│ │ │ -  border-radius: 4px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -::-webkit-scrollbar-thumb {
+│ │ │ -  background: var(--gray-300);
+│ │ │ -  border-radius: 4px;
+│ │ │ -}
+│ │ │ -
+│ │ │ -::-webkit-scrollbar-thumb:hover {
+│ │ │ -  background: var(--gray-400);
+│ │ │ -}
+│ │ │ +:root {
+│ │ │ +  --primary: #3b82f6;
+│ │ │ +  --primary-dark: #2563eb;
+│ │ │ +  --primary-light: #60a5fa;
+│ │ │ +  --danger: #ef4444;
+│ │ │ +  --success: #10b981;
+│ │ │ +  --gray-50: #f9fafb;
+│ │ │ +  --gray-100: #f3f4f6;
+│ │ │ +  --gray-200: #e5e7eb;
+│ │ │ +  --gray-300: #d1d5db;
+│ │ │ +  --gray-400: #9ca3af;
+│ │ │ +  --gray-500: #6b7280;
+│ │ │ +  --gray-600: #4b5563;
+│ │ │ +  --gray-700: #374151;
+│ │ │ +  --gray-800: #1f2937;
+│ │ │ +  --surface: #ffffff;
+│ │ │ +  --text: var(--gray-800);
+│ │ │ +  --border-sm: 6px;
+│ │ │ +  --border-md: 8px;
+│ │ │ +  --border-lg: 12px;
+│ │ │ +  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+│ │ │ +  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+│ │ │ +  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+│ │ │ +    0 4px 6px -4px rgb(0 0 0 / 0.1);
+│ │ │ +  --shadow-xxl: 0 15px 25px -5px rgba(0, 0, 0, 0.15),
+│ │ │ +    0 10px 10px -5px rgba(0, 0, 0, 0.1), 0 30px 30px -15px rgba(0, 0, 0, 0.05);
+│ │ │ +}
+│ │ │ +
+│ │ │ +* {
+│ │ │ +  margin: 0;
+│ │ │ +  padding: 0;
+│ │ │ +  box-sizing: border-box;
+│ │ │ +  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+│ │ │ +}
+│ │ │ +
+│ │ │ +body {
+│ │ │ +  min-width: 380px;
+│ │ │ +  background: var(--gray-50);
+│ │ │ +  color: var(--text);
+│ │ │ +  line-height: 1.5;
+│ │ │ +  padding: 1rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Header Section */
+│ │ │ +h1 {
+│ │ │ +  font-size: 1.5rem;
+│ │ │ +  font-weight: 600;
+│ │ │ +  color: var(--gray-800);
+│ │ │ +  margin-bottom: 0.5rem;
+│ │ │ +  display: flex;
+│ │ │ +  align-items: center;
+│ │ │ +  justify-content: center;
+│ │ │ +  gap: 0.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +h1::before {
+│ │ │ +  content: "";
+│ │ │ +  display: inline-block;
+│ │ │ +  width: 24px;
+│ │ │ +  height: 24px;
+│ │ │ +  background-color: var(--primary);
+│ │ │ +  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z' /%3E%3C/svg%3E")
+│ │ │ +    no-repeat center;
+│ │ │ +  mask-size: contain;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.desc {
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  color: var(--gray-500);
+│ │ │ +  margin-bottom: 1.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.desc i {
+│ │ │ +  display: block;
+│ │ │ +  text-align: center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Toggle Container */
+│ │ │ +.toggleContainer {
+│ │ │ +  background: var(--surface);
+│ │ │ +  border-radius: var(--border-lg);
+│ │ │ +  padding: 1.25rem;
+│ │ │ +  box-shadow: var(--shadow);
+│ │ │ +  margin-bottom: 1.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.toggleBtn {
+│ │ │ +  width: 100%;
+│ │ │ +  padding: 0.75rem;
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  font-weight: 500;
+│ │ │ +  border: none;
+│ │ │ +  border-radius: var(--border-md);
+│ │ │ +  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+│ │ │ +  position: relative;
+│ │ │ +  display: flex;
+│ │ │ +  align-items: center;
+│ │ │ +  justify-content: center;
+│ │ │ +  gap: 0.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.toggleBtn::before {
+│ │ │ +  content: "";
+│ │ │ +  display: inline-block;
+│ │ │ +  width: 16px;
+│ │ │ +  height: 16px;
+│ │ │ +  background-color: currentColor;
+│ │ │ +  mask-size: contain;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.off {
+│ │ │ +  background-color: var(--success);
+│ │ │ +  color: white;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.off::before {
+│ │ │ +  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E")
+│ │ │ +    no-repeat center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.on {
+│ │ │ +  background-color: var(--danger);
+│ │ │ +  color: white;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.on::before {
+│ │ │ +  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z' /%3E%3C/svg%3E")
+│ │ │ +    no-repeat center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.extensionModes {
+│ │ │ +  display: flex;
+│ │ │ +  gap: 0.5rem;
+│ │ │ +  margin-top: 1rem;
+│ │ │ +  padding: 0.25rem;
+│ │ │ +  background: var(--gray-100);
+│ │ │ +  border-radius: var(--border-sm);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.extensionModes a {
+│ │ │ +  flex: 1;
+│ │ │ +  padding: 0.5rem;
+│ │ │ +  text-decoration: none;
+│ │ │ +  color: var(--gray-600);
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  border-radius: var(--border-sm);
+│ │ │ +  transition: all 0.2s ease;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.extensionModes .selected {
+│ │ │ +  background: var(--surface);
+│ │ │ +  color: var(--primary);
+│ │ │ +  font-weight: 500;
+│ │ │ +  box-shadow: var(--shadow-sm);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.remove {
+│ │ │ +  display: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.shortCutSettings .hideShortCut {
+│ │ │ +  display: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.settingsPage:not(.active) {
+│ │ │ +  display: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.settingsPage {
+│ │ │ +  padding-bottom: 1.8rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.settingsPage[data-settingIndex="0"] {
+│ │ │ +  padding-bottom: 1.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Settings Section */
+│ │ │ +.settings {
+│ │ │ +  background: var(--surface);
+│ │ │ +  border-radius: var(--border-lg);
+│ │ │ +  padding: 1.25rem;
+│ │ │ +  box-shadow: var(--shadow-lg);
+│ │ │ +  margin-bottom: 1rem;
+│ │ │ +  position: relative;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.settings h2 {
+│ │ │ +  font-size: 1rem;
+│ │ │ +  font-weight: 600;
+│ │ │ +  color: var(--gray-700);
+│ │ │ +  margin-bottom: 1rem;
+│ │ │ +  padding-bottom: 0.5rem;
+│ │ │ +  border-bottom: 1px solid var(--gray-200);
+│ │ │ +}
+│ │ │ +
+│ │ │ +textarea.urlsList {
+│ │ │ +  width: 100%;
+│ │ │ +  min-height: 120px;
+│ │ │ +  padding: 0.75rem;
+│ │ │ +  border: 1px solid var(--gray-200);
+│ │ │ +  border-radius: var(--border-md);
+│ │ │ +  background: var(--gray-50);
+│ │ │ +  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+│ │ │ +  font-size: 0.86rem;
+│ │ │ +  line-height: 1.5;
+│ │ │ +  resize: vertical;
+│ │ │ +}
+│ │ │ +
+│ │ │ +textarea.urlsList:focus {
+│ │ │ +  outline: 2px solid var(--primary-light);
+│ │ │ +  outline-offset: 2px;
+│ │ │ +  border-color: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +select {
+│ │ │ +  width: 100%;
+│ │ │ +  padding: 0.5rem;
+│ │ │ +  border: 1px solid var(--gray-200);
+│ │ │ +  border-radius: var(--border-md);
+│ │ │ +  background: var(--surface);
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  color: var(--gray-700);
+│ │ │ +  cursor: pointer;
+│ │ │ +}
+│ │ │ +
+│ │ │ +select:focus {
+│ │ │ +  outline: 2px solid var(--primary-light);
+│ │ │ +  outline-offset: 2px;
+│ │ │ +  border-color: var(--primary);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Navigation */
+│ │ │ +.pageList {
+│ │ │ +  display: flex;
+│ │ │ +  flex-wrap: wrap;
+│ │ │ +  gap: 0.5rem;
+│ │ │ +  margin: 1rem 0;
+│ │ │ +  padding: 0.5rem;
+│ │ │ +  background: var(--gray-100);
+│ │ │ +  border-radius: var(--border-lg);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.pageList a {
+│ │ │ +  flex: 1;
+│ │ │ +  min-width: max-content;
+│ │ │ +  padding: 0.5rem 1rem;
+│ │ │ +  text-decoration: none;
+│ │ │ +  color: var(--gray-600);
+│ │ │ +  font-size: 0.75rem;
+│ │ │ +  border-radius: var(--border-sm);
+│ │ │ +  transition: all 0.2s ease;
+│ │ │ +  text-align: center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.pageList .active {
+│ │ │ +  background: var(--surface);
+│ │ │ +  color: var(--primary);
+│ │ │ +  font-weight: 500;
+│ │ │ +  box-shadow: var(--shadow-sm);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Shortcuts */
+│ │ │ +.shortCuts:not(.remove) {
+│ │ │ +  background: var(--surface);
+│ │ │ +  border-radius: var(--border-md);
+│ │ │ +  padding: 0.3rem 1rem;
+│ │ │ +  margin: 1rem 0;
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  border: 1px solid rgba(0, 0, 0, 0.05);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.shortCut {
+│ │ │ +  display: flex;
+│ │ │ +  flex-direction: column;
+│ │ │ +  gap: 0.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.shortCut span.titleShortCut {
+│ │ │ +  color: var(--gray-600);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.shortCut span#shortCutSingleDisplay,
+│ │ │ +.shortCut span#shortCutAllDisplay {
+│ │ │ +  display: inline-block;
+│ │ │ +  padding: 0.25rem 0.5rem;
+│ │ │ +  background: var(--gray-100);
+│ │ │ +  border-radius: var(--border-sm);
+│ │ │ +  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+│ │ │ +  color: var(--gray-700);
+│ │ │ +}
+│ │ │ +
+│ │ │ +.shortCutSettings {
+│ │ │ +  max-width: 300px;
+│ │ │ +  font-family: Arial, sans-serif;
+│ │ │ +  color: #333;
+│ │ │ +  font-size: 1rem;
+│ │ │ +  padding-bottom: 4px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Navigation buttons */
+│ │ │ +#backSettings,
+│ │ │ +#nextSettings {
+│ │ │ +  position: absolute;
+│ │ │ +  bottom: 1rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#backSettings {
+│ │ │ +  left: 1rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#nextSettings {
+│ │ │ +  right: 1rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#backSettings a,
+│ │ │ +#nextSettings a {
+│ │ │ +  color: var(--primary);
+│ │ │ +  text-decoration: none;
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  font-weight: 500;
+│ │ │ +  display: flex;
+│ │ │ +  align-items: center;
+│ │ │ +  gap: 0.25rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#pageNumber {
+│ │ │ +  position: absolute;
+│ │ │ +  bottom: 1rem;
+│ │ │ +  left: 50%;
+│ │ │ +  transform: translateX(-50%);
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  color: var(--gray-500);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Error message */
+│ │ │ +#error {
+│ │ │ +  color: var(--danger);
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  margin-top: 0.5rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Buttons */
+│ │ │ +#shortCutBtn {
+│ │ │ +  width: 100%;
+│ │ │ +  padding: 0.5rem;
+│ │ │ +  margin-top: 0.5rem;
+│ │ │ +  background: var(--gray-100);
+│ │ │ +  border: 1px solid var(--gray-200);
+│ │ │ +  border-radius: var(--border-md);
+│ │ │ +  color: var(--gray-700);
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  cursor: pointer;
+│ │ │ +  transition: all 0.2s ease;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#shortCutBtn:hover {
+│ │ │ +  background: var(--gray-200);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Footer */
+│ │ │ +#footerRedirectNote {
+│ │ │ +  display: block;
+│ │ │ +  text-align: center;
+│ │ │ +  font-size: 0.795rem;
+│ │ │ +  color: var(--gray-700);
+│ │ │ +}
+│ │ │ +
+│ │ │ +#adChrome {
+│ │ │ +  text-align: center;
+│ │ │ +  margin-top: 0.8rem;
+│ │ │ +  font-size: 0.875rem;
+│ │ │ +  color: var(--gray-700);
+│ │ │ +}
+│ │ │ +
+│ │ │ +#adChrome a {
+│ │ │ +  color: var(--primary);
+│ │ │ +  text-decoration: none;
+│ │ │ +  font-weight: 500;
+│ │ │ +}
+│ │ │ +
+│ │ │ +#adChrome a:hover {
+│ │ │ +  text-decoration: underline;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Corner icons */
+│ │ │ +.github-corner,
+│ │ │ +.help-corner {
+│ │ │ +  position: fixed;
+│ │ │ +  top: 1rem;
+│ │ │ +  color: var(--gray-400);
+│ │ │ +  transition: color 0.2s ease;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.github-corner {
+│ │ │ +  left: 1rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.help-corner {
+│ │ │ +  right: 1rem;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.github-corner:hover,
+│ │ │ +.help-corner:hover {
+│ │ │ +  color: var(--gray-600);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Responsiveness */
+│ │ │ +@media (max-width: 480px) {
+│ │ │ +  body {
+│ │ │ +    padding: 0.75rem;
+│ │ │ +  }
+│ │ │ +
+│ │ │ +  .toggleContainer,
+│ │ │ +  .settings {
+│ │ │ +    padding: 1rem;
+│ │ │ +  }
+│ │ │ +
+│ │ │ +  .pageList {
+│ │ │ +    flex-direction: column;
+│ │ │ +  }
+│ │ │ +
+│ │ │ +  .pageList a {
+│ │ │ +    width: 100%;
+│ │ │ +  }
+│ │ │ +}
+│ │ │ +
+│ │ │ +/* Custom scrollbar */
+│ │ │ +::-webkit-scrollbar {
+│ │ │ +  width: 8px;
+│ │ │ +  height: 8px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +::-webkit-scrollbar-track {
+│ │ │ +  background: var(--gray-100);
+│ │ │ +  border-radius: 4px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +::-webkit-scrollbar-thumb {
+│ │ │ +  background: var(--gray-300);
+│ │ │ +  border-radius: 4px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +::-webkit-scrollbar-thumb:hover {
+│ │ │ +  background: var(--gray-400);
+│ │ │ +}
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Redirect-Blocker/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Redirect Blocker",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.4.2"
+│ │  }

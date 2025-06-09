@@ -1,0 +1,129 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/csgo-trader-extension/extension/src
+├── file list
+│ @@ -1,40 +1,13 @@
+│ -056ed9161856c662f49b.png
+│ -40a22ea4c782836e6e4c.gif
+│ -423.bundle.js
+│ -423.bundle.js.map
+│ -458.bundle.js
+│ -458.bundle.js.map
+│ -458.css
+│ -458.css.map
+│ -530.bundle.js
+│ -530.bundle.js.map
+│ -562.bundle.js
+│ -562.bundle.js.map
+│ -562.css
+│ -562.css.map
+│ -668.bundle.js
+│ -668.bundle.js.map
+│ -770.bundle.js
+│ -770.bundle.js.map
+│ -856.bundle.js
+│ -856.bundle.js.map
+│ -951.bundle.js
+│ -951.bundle.js.map
+│ -99.bundle.js
+│ -99.bundle.js.map
+│ -993.bundle.js
+│ -993.bundle.js.map
+│ -_locales
+│ -_metadata
+│ -css
+│ -images
+│ -index.bundle.js
+│ -index.bundle.js.map
+│ -index.css
+│ -index.css.map
+│ +App.js
+│ +App.scss
+│ +assets
+│ +backgroundScripts
+│ +components
+│ +contentScripts
+│  index.html
+│ -js
+│ +index.js
+│ +injectToPage
+│  manifest.json
+│ -manifest_ff.json
+│  offScreen
+│ -sounds
+│ +pages
+│ +utils
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/csgo-trader-extension/extension/src/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1 +1,15 @@
+│ -<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="icon" href="/images/cstlogo48.png"/><title>CS2 Trader - Steam Trading Enhancer</title><script defer="defer" src="/index.bundle.js"></script><link href="/index.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +  <meta charset="utf-8" />
+│ +  <meta name="viewport" content="width=device-width, initial-scale=1" />
+│ +
+│ +  <link rel="icon" href="/images/cstlogo48.png" />
+│ +
+│ +  <title>CS2 Trader - Steam Trading Enhancer</title>
+│ +</head>
+│ +<body>
+│ +<noscript>You need to enable JavaScript to run this app.</noscript>
+│ +<div id="root"></div>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/csgo-trader-extension/extension/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -4,18 +4,14 @@
+│ │              "128": "images/cstlogo128.png",
+│ │              "16": "images/cstlogo16.png",
+│ │              "32": "images/cstlogo32.png",
+│ │              "48": "images/cstlogo48.png"
+│ │          },
+│ │          "default_popup": "index.html?page=popup"
+│ │      },
+│ │ -    "background": {
+│ │ -        "service_worker": "js/backgroundScripts/background.bundle.js",
+│ │ -        "type": "module"
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "css": [
+│ │                  "/css/generalCSTStyle.css"
+│ │              ],
+│ │              "js": [
+│ │                  "js/contentScripts/steam/inventory.bundle.js"
+│ │ @@ -248,24 +244,21 @@
+│ │      "optional_host_permissions": [
+│ │          "*://csgotraders.net/*",
+│ │          "*://discord.com/*"
+│ │      ],
+│ │      "optional_permissions": [
+│ │          "tabs"
+│ │      ],
+│ │ -    "options_page": "index.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "notifications",
+│ │          "alarms",
+│ │ -        "unlimitedStorage",
+│ │ -        "offscreen"
+│ │ +        "unlimitedStorage"
+│ │      ],
+│ │      "short_name": "CS2 Trader",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.3.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://steamcommunity.com/*"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/offScreen
+├── +++ /workspace/pipeline_output/csgo-trader-extension/extension/src/offScreen
+│ ├── file list
+│ │ @@ -1 +1,2 @@
+│ │ +offscreen.html
+│ │ +offscreen.js
+│ │ -offscreen.html

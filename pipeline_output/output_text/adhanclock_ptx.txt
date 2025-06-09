@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ptx
+├── file list
+│ @@ -1,10 +1,16 @@
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  adhans
+│  css
+│  images
+│  index.html
+│  js
+│  manifest.json
+│  offscreen.html
+│ +package-lock.json
+│ +raw
+│ +readme
+│  serviceWorker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ptx/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "notifications",
+│ │          "alarms",
+│ │          "offscreen"
+│ │      ],
+│ │      "short_name": "__MSG_short_name__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.14"
+│ │  }

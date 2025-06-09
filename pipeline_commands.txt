@@ -13,3 +13,53 @@ rm -rf pipeline_output/ && mkdir pipeline_output ; rm src/repo_build/pipeline_up
 ------------------------- i stored my PAT to use for github api
 import os
 token = os.getenv("GITHUB_TOKEN")
+
+List of errors:
+
+
+Error processing index 215 — https://github.com/danny0838/webscrapbook / https://chromewebstore.google.com/detail/webscrapbook/oegnpmiddfljlloiklpkeelagaeejfai: Command '['git', 'checkout', '--quiet', 'd637523d83a7e68ee6da74bcc313dc46f7907889']' returned non-zero exit status 1.
+Error processing index 287 — https://github.com/avi12/youtube-auto-hd / https://chromewebstore.google.com/detail/youtube-auto-hd-+-fps/fcphghnknhkimeagdglkljinmpbagone: Not a CRX file (missing Cr24 magic)
+Error processing index 422 — github.com/mailvelope/mailvelope / https://chromewebstore.google.com/detail/mailvelope-secure-your-em/kajibbejlbohfaggdiogboambcijhkke: Not a CRX file (missing Cr24 magic)
+Error processing index 445 — https://github.com/k08045kk/CopyTabTitleUrl / https://chromewebstore.google.com/detail/copytabtitleurl/lmgbdjfoaihhgdphombpgjpaohjfeapp: Not a CRX file (missing Cr24 magic)
+Error processing index 471 — https://github.com/dessant/search-by-image / https://chromewebstore.google.com/detail/search-by-image/cnojnbdhbhnkbcieeekonklommdnndci: Not a CRX file (missing Cr24 magic)
+Error processing index 692 — https://github.com/openstyles/stylus / https://chromewebstore.google.com/detail/stylus-beta/apmmpaebfobifelkijhaljbmpcgbjbdo: Not a CRX file (missing Cr24 magic)
+Error processing index 712 — github.com/J2TEAM/f984aa9d3ceac441803b2a85868c2ae1 / https://chromewebstore.google.com/detail/j2team-security/hmlcjjclebjnfohgmgikjfnbmfkigocc: 404 Client Error: Not Found for url: https://api.github.com/repos/J2TEAM/f984aa9d3ceac441803b2a85868c2ae1/releases
+Error processing index 829 — https://github.com/pixiebrix/pixiebrix-extension / https://chromewebstore.google.com/detail/pixiebrix/mpjjildhmpddojocokjkgmlkkkfjnepo: Not a CRX file (missing Cr24 magic)
+Error processing index 954 — https://github.com/DeepSRT/roadmap / https://chromewebstore.google.com/detail/deepsrt-experience-the-fa/mdaaadlpcanoofcoeanghbmpbdbhladd: Not a CRX file (missing Cr24 magic)
+Error processing index 1100 — https://github.com/sersorrel/mute-tab / https://chromewebstore.google.com/detail/tab-muter/bnclejfcblondkjliiblkojdeloomadd: Not a CRX file (missing Cr24 magic)
+Error processing index 1242 — https://github.com/dessant/clear-browsing-data / https://chromewebstore.google.com/detail/clear-browsing-data/bjilljlpencdcpihofiobpnfgcakfdbe: Not a CRX file (missing Cr24 magic)
+Error processing index 1505 — https://github.com/tarampampam/random-user-agent / https://chromewebstore.google.com/detail/random-user-agent-switche/einpaelgookohagofgnnkcfjbkkgepnp: Not a CRX file (missing Cr24 magic)
+Error processing index 1668 — https://github.com/sixcious/infy-scroll / https://chromewebstore.google.com/detail/infy-scroll-a-next-page-a/gdnpnkfophbmbpcjdlbiajpkgdndlino: Not a CRX file (missing Cr24 magic)
+Error processing index 1677 — https://github.com/GaurangTandon/ProKeys / https://chromewebstore.google.com/detail/prokeys/ekfnbpgmmeahnnlpjibofkobpdkifapn: Not a CRX file (missing Cr24 magic)
+Error processing index 1709 — https://github.com/dessant/buster / https://chromewebstore.google.com/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl: Not a CRX file (missing Cr24 magic)
+Error processing index 1960 — https://github.com/AdguardTeam/AdguardBrowserExtension / https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg: Not a CRX file (missing Cr24 magic)
+Error processing index 1985 — https://github.com/openstyles/stylus / https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne: Not a CRX file (missing Cr24 magic)
+Error processing index 2294 — https://github.com/panicsteve/shutup-css / https://chromewebstore.google.com/detail/shut-up-comment-blocker/oklfoejikkmejobodofaimigojomlfim: Not a CRX file (missing Cr24 magic)
+Error processing index 2326 — https://github.com/extesy/hoverzoom / https://chromewebstore.google.com/detail/hover-zoom+/pccckmaobkjjboncdfnnofkonhgpceea: Not a CRX file (missing Cr24 magic)
+Error processing index 2518 — https://github.com/fwextensions/QuicKey / https://chromewebstore.google.com/detail/quickey-%E2%80%93-the-quick-tab-s/ldlghkoiihaelfnggonhjnfiabmaficg: Not a CRX file (missing Cr24 magic)
+Error processing index 2803 — https://github.com/Rob--W/display-anchors / https://chromewebstore.google.com/detail/display-anchors/poahndpaaanbpbeafbkploiobpiiieko: Not a CRX file (missing Cr24 magic)
+Error processing index 2972 — https://github.com/jebibot/mullive-extension / https://chromewebstore.google.com/detail/mullive-plus/pahcphmhihleneomklgfbbneokhjiaim: Not a CRX file (missing Cr24 magic)
+Error processing index 3045 — https://github.com/dessant/youtube-video-quality / https://chromewebstore.google.com/detail/video-quality-settings-fo/hlbopkdbimgihmpcaohopplcbpanmjlb: Not a CRX file (missing Cr24 magic)
+Error processing index 3297 — https://github.com/google/iba-opt-out-plugin / https://chromewebstore.google.com/detail/iba-opt-out-by-google/gbiekjoijknlhijdjbaadobpkdhmoebb: Not a CRX file (missing Cr24 magic)
+Error processing index 3387 — https://github.com/ettoolong/MaximizeVideo / https://chromewebstore.google.com/detail/maximize-video/bfpkgjlnboeecjmnbhbknmemmckmpomb: Not a CRX file (missing Cr24 magic)
+Error processing index 3566 — https://github.com/rutoXpath/Ruto / https://chromewebstore.google.com/detail/ruto-xpath-finder/ilcoelkkcokgeeijnopjnolmmighnppp: 404 Client Error: Not Found for url: https://api.github.com/repos/rutoXpath/Ruto/releases
+Error processing index 3749 — https://github.com/hubbleiq/hubblesdk / https://chromewebstore.google.com/detail/fix-it-mate-wifi-speed-te/cbfnbdgmjknfjeidohbhmpdliofaopne: 404 Client Error: Not Found for url: https://api.github.com/repos/hubbleiq/hubblesdk/releases
+Error processing index 4202 — https://github.com/makaroni4/focused_youtubeThis / https://chromewebstore.google.com/detail/focused-youtube/nfghbmabdoakhobmimnjkamfdnpfammn: 404 Client Error: Not Found for url: https://api.github.com/repos/makaroni4/focused_youtubeThis/releases
+Error processing index 4284 — https://github.com/IITC-CE/IITC-Button / https://chromewebstore.google.com/detail/iitc-button/febaefghpimpenpigafpolgljcfkeakn: Not a CRX file (missing Cr24 magic)
+Error processing index 4346 — https://github.com/Tampermonkey/tampermonkey / https://chromewebstore.google.com/detail/tampermonkey-beta/gcalenpjmijncebpfijmoaglllgpjagf: Not a CRX file (missing Cr24 magic)
+Error processing index 4348 — https://github.com/AutomaApp/automa / https://chromewebstore.google.com/detail/automa/infppggnoaenmfagbfknfkancpbljcca: Not a CRX file (missing Cr24 magic)
+Error processing index 4382 — https://github.com/cuiliang/QuickerConnectorExtension / https://chromewebstore.google.com/detail/quicker-connector/klggbkjfmbonefdcfkiidhcmfjdfnepa: Not a CRX file (missing Cr24 magic)
+Error processing index 4421 — https://github.com/sergiokas/Extensity / https://chromewebstore.google.com/detail/extensity/jjmflmamggggndanpgfnpelongoepncg: too many values to unpack (expected 2)
+Error processing index 4635 — https://github.com/duckduckgo/duckduckgo-privacy-extension / https://chromewebstore.google.com/detail/duckduckgo-search-tracker/bkdgflcldnnnapblkhphbgpggdiikppg: Not a CRX file (missing Cr24 magic)
+Error processing index 4680 — https://github.com/AdguardTeam/AdGuardMV3 / https://chromewebstore.google.com/detail/adguard-adblocker-beta/apjcbfpjihpedihablmalmbbhjpklbdf: Not a CRX file (missing Cr24 magic)Error processing index 4680 — https://github.com/AdguardTeam/AdGuardMV3 / https://chromewebstore.google.com/detail/adguard-adblocker-beta/apjcbfpjihpedihablmalmbbhjpklbdf: Not a CRX file (missing Cr24 magic)
+Error processing index 4795 — https://github.com/C4illin/Google-Meet-Attendees / https://chromewebstore.google.com/detail/google-meet-attendees-bre/olmgpgbhojeoalaimckcpgkadjkejacl: [Errno 2] No such file or directory: '/workspace/pipeline_output/output_text/C4illin_Google-Meet-Attendees.txt'
+Error processing index 4829 — https://github.com/Windscribe/browser-extension-mv3 / https://chromewebstore.google.com/detail/windscribe-free-proxy-and/hnmpcagpplmpfojmgmnngilcnanddlhb: Not a CRX file (missing Cr24 magic)Error processing index 4829 — https://github.com/Windscribe/browser-extension-mv3 / https://chromewebstore.google.com/detail/windscribe-free-proxy-and/hnmpcagpplmpfojmgmnngilcnanddlhb: Not a CRX file (missing Cr24 magic)
+Error processing index 4833 — https://github.com/harshayburadkar/clut-chrome-extension.git / https://chromewebstore.google.com/detail/clut-cycle-last-used-tabs/cobieddmkhhnbeldhncnfcgcaccmehgn: 404 Client Error: Not Found for url: https://api.github.com/repos/harshayburadkar/clut-chrome-extension.git/releases
+Error processing index 4842 — https://github.com/woshifyz/mobi_reader / https://chromewebstore.google.com/detail/mobi-reader/jinidhfimoamcgohkmjdadnhbbdlmokn: 404 Client Error: Not Found for url: https://api.github.com/repos/woshifyz/mobi_reader/releases
+Error processing index 4873 — https://github.com/timbru31/quickjira / https://chromewebstore.google.com/detail/quick-jira/acdnmaeifljongleeegkkfnfcopblokj: Not a CRX file (missing Cr24 magic)
+Error processing index 5080 — https://github.com/sveltejs/svelte-devtools / https://chromewebstore.google.com/detail/svelte-devtools/kfidecgcdjjfpeckbblhmfkhmlgecoff: Not a CRX file (missing Cr24 magic)
+
+
+
+
+

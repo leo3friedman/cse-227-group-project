@@ -1,0 +1,37 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/simple-autoscrollv2
+├── file list
+│ @@ -1,5 +1,17 @@
+│ +.git
+│ +.gitignore
+│ +.prettierrc.json
+│ +INSTALL.md
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  images
+│ +index.html
+│  manifest.json
+│ -scripts
+│ +node_modules
+│ +pack.sh
+│ +package-lock.json
+│ +package.json
+│ +scripts
+│ +src
+│ +tsconfig.json
+│ +vite.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/simple-autoscrollv2/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -36,10 +36,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Simple Autoscroll",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "s-autoscroll",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3"
+│ │  }

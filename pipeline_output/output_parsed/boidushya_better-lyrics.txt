@@ -1,0 +1,75 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/better-lyrics
+  - files: _metadata, src
+  + files: .all-contributorsrc, .git, .github, .gitignore, .gitmodules, .prettierignore, .vscode, FUNDING.json, LICENSE, README.md, STYLING.md, api, biome.json, package-lock.json, scripts, src, templates, www
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/better-lyrics/manifest.json; File type: json
+  - Original: 6–6
+  - Original: 11–11
+  - Original: 14–23
+  - Original: 28–28
+  - Original: 43–43
+  + Modified: 6–55
+
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/better-lyrics/src
+  - files: background.min.js, index.min.css, index.min.js
+  + files: background.js, earlyInject.js, index.css, index.js
+
+---/workspace/pipeline_output/chromex_data/src/core <-> +++/workspace/pipeline_output/better-lyrics/src/core
+  - files: constants.min.js, storage.min.js, utils.min.js
+  + files: constants.js, storage.js, utils.js
+
+---/workspace/pipeline_output/chromex_data/src/libs/codemirror <-> +++/workspace/pipeline_output/better-lyrics/src/libs/codemirror
+  - files: 
+  + files: Sortable.min.js
+
+---/workspace/pipeline_output/chromex_data/src/modules/lyrics <-> +++/workspace/pipeline_output/better-lyrics/src/modules/lyrics
+  - files: lyrics.min.js, providers.min.js, translation.min.js
+  + files: lyrics.js, providers.js, requestSniffer.js, translation.js
+
+---/workspace/pipeline_output/chromex_data/src/modules/settings <-> +++/workspace/pipeline_output/better-lyrics/src/modules/settings
+  - files: settings.min.js
+  + files: settings.js
+
+---/workspace/pipeline_output/chromex_data/src/modules/settings/settings.min.js <-> +++/workspace/pipeline_output/better-lyrics/src/modules/settings/settings.js; File type: js
+  - Original: 3–21
+  - Original: 23–23
+  - Original: 25–28
+  - Original: 30–30
+  - Original: 32–35
+  - Original: 37–37
+  - Original: 39–42
+  - Original: 44–44
+  - Original: 46–49
+  - Original: 51–51
+  - Original: 53–56
+  - Original: 61–62
+  - Original: 64–66
+  - Original: 68–69
+  - Original: 71–74
+  - Original: 77–89
+  - Original: 91–92
+  + Modified: 3–192
+
+---/workspace/pipeline_output/chromex_data/src/modules/ui <-> +++/workspace/pipeline_output/better-lyrics/src/modules/ui
+  - files: dom.min.js, observer.min.js
+  + files: dom.js, observer.js
+
+---/workspace/pipeline_output/chromex_data/src/options <-> +++/workspace/pipeline_output/better-lyrics/src/options
+  - files: editor.min.js, options.min.css, options.min.js
+  + files: editor.js, options.css, options.js
+
+---/workspace/pipeline_output/chromex_data/src/options/options.html <-> +++/workspace/pipeline_output/better-lyrics/src/options/options.html; File type: html
+  - Original: 8–8
+  + Modified: 8–19
+  - Original: 83–83
+  + Modified: 84–85
+  - Original: 111–119
+  + Modified: 350–392
+  - Original: 419–420
+  + Modified: 455–456
+
+---/workspace/pipeline_output/chromex_data/src/script.js <-> +++/workspace/pipeline_output/better-lyrics/src/script.js; File type: js
+  - Original: 29–29
+  - Original: 41–41
+  + Modified: 29–44
+

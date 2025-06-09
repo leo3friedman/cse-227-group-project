@@ -1,0 +1,13 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/DeArrow/manifest
+  - files: _locales, _metadata, casual.css, content.css, help.css, help.html, icons, js, options, oss-attribution, payment.html, popup.css, popup.html, shared.css
+  + files: beta-manifest-extra.json, chrome-manifest-extra.json, firefox-beta-manifest-extra.json, firefox-manifest-extra.json, manifest-v2-extra.json, safari-manifest-extra.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/DeArrow/manifest/manifest.json; File type: json
+  - Original: 2–65
+  - Original: 69–75
+  - Original: 85–85
+  - Original: 94–95
+  - Original: 98–98 -> Update URL
+  - Original: 99–127
+  + Modified: 22–25
+

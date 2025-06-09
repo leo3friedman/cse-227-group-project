@@ -1,0 +1,43 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/FindSomething
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/_locales/ar/messages.json <-> +++/workspace/pipeline_output/FindSomething/_locales/ar/messages.json; File type: json
+  - Original: 1–101
+  - Original: 103–211
+  - Original: 213–327
+  + Modified: 1–322
+
+---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/FindSomething/_locales/en/messages.json; File type: json
+  - Original: 1–43
+  - Original: 45–270
+  + Modified: 1–265
+
+---/workspace/pipeline_output/chromex_data/_locales/zh_CN/messages.json <-> +++/workspace/pipeline_output/FindSomething/_locales/zh_CN/messages.json; File type: json
+  - Original: 1–59
+  - Original: 61–223
+  + Modified: 1–218
+
+---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/FindSomething/background.js; File type: js
+  - Original: 1–1186
+  + Modified: 1–1186
+
+---/workspace/pipeline_output/chromex_data/content.js <-> +++/workspace/pipeline_output/FindSomething/content.js; File type: js
+  - Original: 1–406
+  + Modified: 1–406
+
+---/workspace/pipeline_output/chromex_data/getstarted.js <-> +++/workspace/pipeline_output/FindSomething/getstarted.js; File type: js
+  - Original: 4–4
+  + Modified: 4–4
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/FindSomething/manifest.json; File type: json
+  - Original: 39–39 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup.js <-> +++/workspace/pipeline_output/FindSomething/popup.js; File type: js
+  - Original: 1–182
+  + Modified: 1–182
+
+---/workspace/pipeline_output/chromex_data/settings.js <-> +++/workspace/pipeline_output/FindSomething/settings.js; File type: js
+  - Original: 1–161
+  + Modified: 1–161
+

@@ -1,0 +1,19 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/dyslexia-friendly/src/extension
+  - files: _metadata, contentscript.css, contentscript.js, contentscript.js.LICENSE.txt, fonts, img, options.js, popup.css, popup.html, popup.js, popup.js.LICENSE.txt, serviceWorker.js
+  + files: css, js, popup.html
+
+---/workspace/pipeline_output/chromex_data/about.html <-> +++/workspace/pipeline_output/dyslexia-friendly/src/extension/about.html; File type: html
+  - Original: 1–1
+  + Modified: 1–59
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/dyslexia-friendly/src/extension/manifest.json; File type: json
+  - Original: 46–46 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/dyslexia-friendly/src/extension/options.html; File type: html
+  - Original: 1–1
+  + Modified: 1–28
+
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/dyslexia-friendly/src/extension/popup.html; File type: html
+  - Original: 1–1
+  + Modified: 1–177
+

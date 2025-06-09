@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/picture-in-picture-chrome-extension/src
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  assets
+│  autoPip.js
+│  background.js
+│  manifest.json
+│  script.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/picture-in-picture-chrome-extension/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,18 +21,16 @@
+│ │      "description": "Watch video using Picture-in-Picture",
+│ │      "host_permissions": [
+│ │          "<all_urls>"
+│ │      ],
+│ │      "icons": {
+│ │          "128": "assets/icon128.png"
+│ │      },
+│ │ -    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv8eLaJQ6wOCJcEAwbGwvMwYd5mriEwIGINwnkCS9wXMJjAV+z6MbVdrjWYH9z/wV21wqFH3Mh/Rs3Yu9X6IydWzjw1L/ZSGY36zW1oev9wkCo3p9IlWQkZrRzfwtEMA6hhzNTsReb5/zD9EfgqCZPvw37vyFCrXcpmmgP5fR7ge2yiDvA625yvdw0cQQwEkiTrFKhRrVzvHmTHGne8GFOv77pz2HYySElt/SYq1dYeiNliDR4k40BrupgtrNnUWOZlMKa5olXJD4zTPykfcnqORUcV7qIOwvygJJ2edDQDW1GyO7NiH9GYR8QCiHVnHA5ipjRm8ui+IdwZRRiYdQ9QIDAQAB",
+│ │      "manifest_version": 3,
+│ │      "name": "Picture-in-Picture Extension (by Google)",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.14"
+│ │  }

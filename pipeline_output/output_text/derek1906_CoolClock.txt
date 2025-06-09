@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CoolClock
+├── file list
+│ @@ -1,10 +1,11 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│  about.html
+│  alarm_interface.html
+│  background.html
+│  bootstrap
+│  calendar.html
+│  calendar_full.html
+│  check.png
+│ @@ -23,14 +24,15 @@
+│  jquery.scrollTo-min.js
+│  jstimezone.js
+│  manifest.json
+│  n_icon.png
+│  new_popup.html
+│  new_popup2.html
+│  options_new.html
+│ +package-lock.json
+│  popup.html
+│  radio.png
+│  radio2.png
+│  scripts
+│  sounds
+│  speech.html
+│  speech.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CoolClock/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │          "*://www.google.com/calendar/feeds/*",
+│ │          "clipboardWrite",
+│ │          "activeTab",
+│ │          "alarms",
+│ │          "power",
+│ │          "idle"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.3.2"
+│ │  }

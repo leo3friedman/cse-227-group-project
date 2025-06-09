@@ -1,0 +1,181 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TinySuspender/src/tiny-suspender
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  css
+│  img
+│  js
+│  manifest.json
+│  popup.html
+│  settings.html
+│  suspend.html
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/TinySuspender/src/tiny-suspender/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/core.js
+│ ├── +++ /workspace/pipeline_output/TinySuspender/src/tiny-suspender/js/core.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -201,18 +201,18 @@
+│ │ │              'suspendable:auto': 'green',
+│ │ │              'suspendable:form_changed': 'yellow',
+│ │ │              'suspendable:audible': 'yellow',
+│ │ │              'suspendable:pinned': 'yellow',
+│ │ │              'suspendable:tab_whitelist': 'yellow',
+│ │ │              'suspendable:url_whitelist': 'yellow',
+│ │ │              'suspendable:domain_whitelist': 'yellow',
+│ │ │ +            'nonsuspendible:temporary_disabled': 'yellow',
+│ │ │ +            'nonsuspendible:system_page': 'gray',
+│ │ │ +            'nonsuspendible:not_running': 'red',
+│ │ │ +            'nonsuspendible:error': 'red'
+│ │ │ -            'nonsuspenable:temporary_disabled': 'yellow',
+│ │ │ -            'nonsuspenable:system_page': 'gray',
+│ │ │ -            'nonsuspenable:not_running': 'red',
+│ │ │ -            'nonsuspenable:error': 'red'
+│ │ │          };
+│ │ │  
+│ │ │          const iconState = stateToIconMap[state] || 'red'; // Default to 'red' for unknown states
+│ │ │  
+│ │ │          this.setIconState(iconState, tabId);
+│ │ │      }
+│ │ │  
+│ │ │ @@ -232,43 +232,43 @@
+│ │ │                              state: 'suspended:suspended'
+│ │ │                          });
+│ │ │                          return;
+│ │ │                      }
+│ │ │  
+│ │ │                      if (tab.discarded) {
+│ │ │                          resolve({
+│ │ │ +                            state: 'nonsuspendible:discarded'
+│ │ │ -                            state: 'nonsuspenable:discarded'
+│ │ │                          });
+│ │ │                          return;
+│ │ │                      }
+│ │ │  
+│ │ │                      if (url && url.protocol === 'chrome-extension:') {
+│ │ │                          resolve({
+│ │ │ +                            state: 'nonsuspendible:system_page'
+│ │ │ -                            state: 'nonsuspenable:system_page'
+│ │ │                          });
+│ │ │                          return;
+│ │ │                      }
+│ │ │  
+│ │ │                      if (url && url.protocol === 'chrome:') {
+│ │ │                          resolve({
+│ │ │ +                            state: 'nonsuspendible:system_page'
+│ │ │ -                            state: 'nonsuspenable:system_page'
+│ │ │                          });
+│ │ │                          return;
+│ │ │                      }
+│ │ │  
+│ │ │                      if (this.excludedDomains[url.hostname]) {
+│ │ │                          resolve({
+│ │ │                              state: 'suspendable:domain_whitelist'
+│ │ │                          });
+│ │ │                          return;
+│ │ │                      }
+│ │ │                  } catch (error) {
+│ │ │                      console.log(error);
+│ │ │                      resolve({
+│ │ │ +                        state: 'nonsuspendible:system_page'
+│ │ │ -                        state: 'nonsuspenable:system_page'
+│ │ │                      });
+│ │ │                      return;
+│ │ │                  }
+│ │ │  
+│ │ │                  let answered = false;
+│ │ │  
+│ │ │                  // if content script did not answer within 2 seconds, return state as 'suspendable:auto'
+│ │   --- /workspace/pipeline_output/chromex_data/js/popup.js
+│ ├── +++ /workspace/pipeline_output/TinySuspender/src/tiny-suspender/js/popup.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -220,65 +220,65 @@
+│ │ │              document.querySelector('.restore-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-domain-btn').style.display = 'block';
+│ │ │              document.querySelector('.add-to-whitelist-btn').style.display = 'block';
+│ │ │              setColor('yellow');
+│ │ │ +        } else if (state === 'nonsuspendible:temporary_disabled') {
+│ │ │ -        } else if (state === 'nonsuspenable:temporary_disabled') {
+│ │ │              statusText = 'This tab will not be suspended automatically for now.';
+│ │ │              document.querySelector('.suspend-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-others-btn').style.display = 'block';
+│ │ │              document.querySelector('.restore-btn').style.display = 'none';
+│ │ │              document.querySelector('.restore-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.add-to-whitelist-btn').style.display = 'block';
+│ │ │              setColor('yellow');
+│ │ │ +        } else if (state === 'nonsuspendible:discarded') {
+│ │ │ -        } else if (state === 'nonsuspenable:discarded') {
+│ │ │              statusText = 'This tab is currently suspended via native tab discard.';
+│ │ │              document.querySelector('.suspend-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-others-btn').style.display = 'block';
+│ │ │              document.querySelector('.restore-btn').style.display = 'none';
+│ │ │              document.querySelector('.restore-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.add-to-whitelist-btn').style.display = 'block';
+│ │ │              setColor('yellow');
+│ │ │ +        } else if (state === 'nonsuspendible:system_page') {
+│ │ │ -        } else if (state === 'nonsuspenable:system_page') {
+│ │ │              statusText = 'System page cannot be suspended.';
+│ │ │              document.querySelector('.suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.suspend-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-others-btn').style.display = 'block';
+│ │ │              document.querySelector('.restore-btn').style.display = 'none';
+│ │ │              document.querySelector('.restore-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.add-to-whitelist-btn').style.display = 'none';
+│ │ │              setColor('gray');
+│ │ │ +        } else if (state === 'nonsuspendible:not_running') {
+│ │ │ -        } else if (state === 'nonsuspenable:not_running') {
+│ │ │              statusText = "Content script is not running. Reload the tab to make sure it's running.";
+│ │ │              document.querySelector('.suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.suspend-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-others-btn').style.display = 'block';
+│ │ │              document.querySelector('.restore-btn').style.display = 'none';
+│ │ │              document.querySelector('.restore-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.enable-tab-auto-suspend-domain-btn').style.display = 'none';
+│ │ │              document.querySelector('.add-to-whitelist-btn').style.display = 'block';
+│ │ │              setColor('red');
+│ │ │ +        } else if (state === 'nonsuspendible:error') {
+│ │ │ -        } else if (state === 'nonsuspenable:error') {
+│ │ │              statusText = "Cannot suspend this page.";
+│ │ │              document.querySelector('.suspend-btn').style.display = 'none';
+│ │ │              document.querySelector('.suspend-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.suspend-others-btn').style.display = 'block';
+│ │ │              document.querySelector('.restore-btn').style.display = 'none';
+│ │ │              document.querySelector('.restore-all-btn').style.display = 'block';
+│ │ │              document.querySelector('.disable-tab-auto-suspend-btn').style.display = 'none';
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TinySuspender/src/tiny-suspender/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -80,15 +80,14 @@
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "contextMenus",
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │      "short_name": "Tiny Suspender",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.4",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/burkybang_Google-Meet-Auto-Disable-Mic-Cam.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">8.15 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">412 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 7 lines modified</td><td colspan="2">Offset 1, 24 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent"><del>_met</del><del>ada</del>t<del>a</del></td><td class="diffline">1 </td><td class="diffpresent"><ins>.gi</ins>t</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">.gitignore</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">Google<span class="dp">·</span>Meet<span class="dp">·</span>Auto<span class="dp">·</span>Disable<span class="dp">·</span>Mic-Cam<span class="dp">·</span>-<span class="dp">·</span>Chrome.zip</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">Google<span class="dp">·</span>Meet<span class="dp">·</span>Auto<span class="dp">·</span>Disable<span class="dp">·</span>Mic-Cam<span class="dp">·</span>-<span class="dp">·</span>Firefox.zip</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">LICENSE</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">README.md</td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent">content.js</td><td class="diffline">7 </td><td class="diffpresent">content.js</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">content.ts</td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">icon</td><td class="diffline">9 </td><td class="diffpresent">icon</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">icon.png</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">image</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">lib.js</td><td class="diffline">12 </td><td class="diffpresent">lib.js</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">lib.ts</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">manifest.json</td><td class="diffline">14 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">manifest_chrome.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">manifest_firefox.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">node</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">18 </td><td class="diffpresent">node_modules</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">19 </td><td class="diffpresent">package-lock.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">20 </td><td class="diffpresent">package.json</td></tr>
+<tr class="diffunmodified"><td class="diffline">6 </td><td class="diffpresent">popup.html</td><td class="diffline">21 </td><td class="diffpresent">popup.html</td></tr>
+<tr class="diffunmodified"><td class="diffline">7 </td><td class="diffpresent">popup.js</td><td class="diffline">22 </td><td class="diffpresent">popup.js</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">23 </td><td class="diffpresent">popup.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">24 </td><td class="diffpresent">tsconfig.json</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">437 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">311 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 21, 10 lines modified</td><td colspan="2">Offset 21, 9 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon/icon48.png&quot;</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon/icon48.png&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td></tr>
+<tr class="diffunmodified"><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;Google<span class="dp">·</span>Meet<span class="dp">·</span>Auto<span class="dp">·</span>Disable<span class="dp">·</span>Mic/Cam&quot;,</td><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;Google<span class="dp">·</span>Meet<span class="dp">·</span>Auto<span class="dp">·</span>Disable<span class="dp">·</span>Mic/Cam&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;</td><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffdeleted"><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;3.1.3&quot;</td><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;3.1.3&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">30 </td><td class="diffpresent">}</td><td class="diffline">29 </td><td class="diffpresent">}</td></tr>
+</table>    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">7.22 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/popup.html</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-popup.html"><span class="source">/workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam/popup.html</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-popup.html">¶</a>
+    </div>
+    </div>
+    <div class="comment multiline">Ordering differences only
+&#x27;html2text&#x27; not available in path. Installing the &#x27;html2text&#x27; package may produce better output.
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 80 lines modified</td><td colspan="2">Offset 1, 80 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent">&lt;!DOCTYPE<span class="dp">·</span>html&gt;<del>.</del></td><td class="diffline">1 </td><td class="diffpresent">&lt;!DOCTYPE<span class="dp">·</span>html&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">2 </td><td class="diffpresent">&lt;html<span class="dp">·</span>lang=&quot;en&quot;&gt;<del>.</del></td><td class="diffline">2 </td><td class="diffpresent">&lt;html<span class="dp">·</span>lang=&quot;en&quot;&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent">&lt;head&gt;<del>.</del></td><td class="diffline">3 </td><td class="diffpresent">&lt;head&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">4 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;meta<span class="dp">·</span>charset=&quot;UTF-8&quot;&gt;<del>.</del></td><td class="diffline">4 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;meta<span class="dp">·</span>charset=&quot;UTF-8&quot;&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">5 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;title&gt;Settings&lt;/title&gt;<del>.</del></td><td class="diffline">5 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;title&gt;Settings&lt;/title&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">6 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;link<span class="dp">·</span>rel=&quot;stylesheet&quot;<span class="dp">·</span>href=&quot;https://fonts.googleapis.com/css?family=Roboto:500&quot;&gt;<del>.</del></td><td class="diffline">6 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;link<span class="dp">·</span>rel=&quot;stylesheet&quot;<span class="dp">·</span>href=&quot;https://fonts.googleapis.com/css?family=Roboto:500&quot;&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">7 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;style&gt;<del>.</del></td><td class="diffline">7 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;style&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">8 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>body<span class="dp">·</span>{<del>.</del></td><td class="diffline">8 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>body<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">9 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>0;<del>.</del></td><td class="diffline">9 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>0;</td></tr>
+<tr class="diffchanged"><td class="diffline">10 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>font-size:<span class="dp">·</span>0.875rem;<del>.</del></td><td class="diffline">10 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>font-size:<span class="dp">·</span>0.875rem;</td></tr>
+<tr class="diffchanged"><td class="diffline">11 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>font-family:<span class="dp">·</span>Roboto,<span class="dp">·</span>Arial,<span class="dp">·</span>sans-serif;<del>.</del></td><td class="diffline">11 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>font-family:<span class="dp">·</span>Roboto,<span class="dp">·</span>Arial,<span class="dp">·</span>sans-serif;</td></tr>
+<tr class="diffchanged"><td class="diffline">12 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>font-weight:<span class="dp">·</span>500;<del>.</del></td><td class="diffline">12 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>font-weight:<span class="dp">·</span>500;</td></tr>
+<tr class="diffchanged"><td class="diffline">13 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>letter-spacing:<span class="dp">·</span>.01785714em;<del>.</del></td><td class="diffline">13 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>letter-spacing:<span class="dp">·</span>.01785714em;</td></tr>
+<tr class="diffchanged"><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#202124;<del>.</del></td><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#202124;</td></tr>
+<tr class="diffchanged"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">16 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#logo<span class="dp">·</span>{<del>.</del></td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#logo<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0.3rem<span class="dp">·</span>1rem<span class="dp">·</span>0.1rem<span class="dp">·</span>1rem;<del>.</del></td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0.3rem<span class="dp">·</span>1rem<span class="dp">·</span>0.1rem<span class="dp">·</span>1rem;</td></tr>
+<tr class="diffchanged"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#e8eaed;<del>.</del></td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#e8eaed;</td></tr>
+<tr class="diffchanged"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">21 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#toggles<span class="dp">·</span>{<del>.</del></td><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#toggles<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0.25rem<span class="dp">·</span>0.75rem;<del>.</del></td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>padding:<span class="dp">·</span>0.25rem<span class="dp">·</span>0.75rem;</td></tr>
+<tr class="diffchanged"><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">25 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>label<span class="dp">·</span>{<del>.</del></td><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>label<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>block;<del>.</del></td><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>display:<span class="dp">·</span>block;</td></tr>
+<tr class="diffchanged"><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>cursor:<span class="dp">·</span>pointer;<del>.</del></td><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>cursor:<span class="dp">·</span>pointer;</td></tr>
+<tr class="diffchanged"><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>white-space:<span class="dp">·</span>nowrap;<del>.</del></td><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>white-space:<span class="dp">·</span>nowrap;</td></tr>
+<tr class="diffchanged"><td class="diffline">30 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>0.75rem<span class="dp">·</span>0.5rem;<del>.</del></td><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>0.75rem<span class="dp">·</span>0.5rem;</td></tr>
+<tr class="diffchanged"><td class="diffline">31 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">32 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">33 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>input[type=&quot;checkbox&quot;]<span class="dp">·</span>{<del>.</del></td><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>input[type=&quot;checkbox&quot;]<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">34 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>cursor:<span class="dp">·</span>pointer;<del>.</del></td><td class="diffline">30 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>cursor:<span class="dp">·</span>pointer;</td></tr>
+<tr class="diffchanged"><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>relative;<del>.</del></td><td class="diffline">31 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>position:<span class="dp">·</span>relative;</td></tr>
+<tr class="diffchanged"><td class="diffline">36 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>top:<span class="dp">·</span>1px;<del>.</del></td><td class="diffline">32 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>top:<span class="dp">·</span>1px;</td></tr>
+<tr class="diffchanged"><td class="diffline">37 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>0<span class="dp">·</span>0.5rem<span class="dp">·</span>0<span class="dp">·</span>0;<del>.</del></td><td class="diffline">33 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>margin:<span class="dp">·</span>0<span class="dp">·</span>0.5rem<span class="dp">·</span>0<span class="dp">·</span>0;</td></tr>
+<tr class="diffchanged"><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">34 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">39 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">40 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>@media<span class="dp">·</span>(prefers-color-scheme:<span class="dp">·</span>dark)<span class="dp">·</span>{<del>.</del></td><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>@media<span class="dp">·</span>(prefers-color-scheme:<span class="dp">·</span>dark)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">41 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>body<span class="dp">·</span>{<del>.</del></td><td class="diffline">36 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>body<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#141416;<del>.</del></td><td class="diffline">37 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#141416;</td></tr>
+<tr class="diffchanged"><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#dfdedb;<del>.</del></td><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>color:<span class="dp">·</span>#dfdedb;</td></tr>
+<tr class="diffchanged"><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">39 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">45 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#logo<span class="dp">·</span>{<del>.</del></td><td class="diffline">40 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>#logo<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#202124;<del>.</del></td><td class="diffline">41 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>background-color:<span class="dp">·</span>#202124;</td></tr>
+<tr class="diffchanged"><td class="diffline">48 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffdeleted"><td class="diffline">49 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">50 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>svg<span class="dp">·</span>&gt;<span class="dp">·</span>path:first-child<span class="dp">·</span>{<del>.</del></td><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>svg<span class="dp">·</span>&gt;<span class="dp">·</span>path:first-child<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">51 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>fill:<span class="dp">·</span>#dfdedb;<del>.</del></td><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>fill:<span class="dp">·</span>#dfdedb;</td></tr>
+<tr class="diffchanged"><td class="diffline">52 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">45 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffchanged"><td class="diffline">53 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffchanged"><td class="diffline">54 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;/style&gt;<del>.</del></td><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;/style&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">55 </td><td class="diffpresent">&lt;/head&gt;<del>.</del></td><td class="diffline">48 </td><td class="diffpresent">&lt;/head&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">56 </td><td class="diffpresent">&lt;body&gt;<del>.</del></td><td class="diffline">49 </td><td class="diffpresent">&lt;body&gt;</td></tr>
+<tr class="diffdeleted"><td class="diffline">57 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">58 </td><td class="diffpresent">&lt;div<span class="dp">·</span>id=&quot;logo&quot;&gt;<del>.</del></td><td class="diffline">50 </td><td class="diffpresent">&lt;div<span class="dp">·</span>id=&quot;logo&quot;&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;svg<span class="dp">·</span>height=&quot;2rem&quot;<span class="dp">·</span>fill=&quot;none&quot;<span class="dp">·</span>xmlns=&quot;http://www.w3.org/2000/svg&quot;<span class="dp">·</span>viewBox=&quot;0<span class="dp">·</span>0<span class="dp">·</span>377<span class="dp">·</span>140&quot;&gt;<del>.</del></td><td class="diffline">51 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;svg<span class="dp">·</span>height=&quot;2rem&quot;<span class="dp">·</span>fill=&quot;none&quot;<span class="dp">·</span>xmlns=&quot;http://www.w3.org/2000/svg&quot;<span class="dp">·</span>viewBox=&quot;0<span class="dp">·</span>0<span class="dp">·</span>377<span class="dp">·</span>140&quot;&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<del>.</del></td><td class="diffline">52 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path</td></tr>
+<tr class="diffchanged"><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>d=&quot;M181.62<span class="dp">·</span>105.8V39.93h8.46L213<span class="dp">·</span>80.04h.37l22.91-40.11h8.46v65.87h-8.46V66.7l.37-11.04h-.37l-20.61<span class="dp">·</span>36.16h-4.97l-20.61-36.16h-.37l.37<span class="dp">·</span>11.04v39.1h-8.47zm94.04<span class="dp">·</span>1.47c-6.81<span class="dp">·</span>0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2<span class="dp">·</span>0-6.56<span class="dp">·</span>2.07-12.2<span class="dp">·</span>6.21-16.93<span class="dp">·</span>4.14-4.72<span class="dp">·</span>9.43-7.08<span class="dp">·</span>15.87-7.08<span class="dp">·</span>6.68<span class="dp">·</span>0<span class="dp">·</span>12.04<span class="dp">·</span>2.18<span class="dp">·</span>16.05<span class="dp">·</span>6.53<span class="dp">·</span>4.02<span class="dp">·</span>4.36<span class="dp">·</span>6.03<span class="dp">·</span>10.18<span class="dp">·</span>6.03<span class="dp">·</span>17.48l-.09<span class="dp">·</span>1.56h-35.6c.24<span class="dp">·</span>4.54<span class="dp">·</span>1.76<span class="dp">·</span>8.13<span class="dp">·</span>4.55<span class="dp">·</span>10.76<span class="dp">·</span>2.79<span class="dp">·</span>2.64<span class="dp">·</span>6.06<span class="dp">·</span>3.96<span class="dp">·</span>9.8<span class="dp">·</span>3.96<span class="dp">·</span>6.07<span class="dp">·</span>0<span class="dp">·</span>10.18-2.58<span class="dp">·</span>12.33-7.73l7.54<span class="dp">·</span>3.13c-1.47<span class="dp">·</span>3.5-3.9<span class="dp">·</span>6.43-7.27<span class="dp">·</span>8.79-3.38<span class="dp">·</span>2.36-7.52<span class="dp">·</span>3.54-12.42<span class="dp">·</span>3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13<span class="dp">·</span>0-5.84.98-8.14<span class="dp">·</span>2.94-2.3<span class="dp">·</span>1.96-3.88<span class="dp">·</span>4.6-4.74<span class="dp">·</span>7.91h26.13v.01zm35.77<span class="dp">·</span>29.44c-6.81<span class="dp">·</span>0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2<span class="dp">·</span>0-6.56<span class="dp">·</span>2.07-12.2<span class="dp">·</span>6.21-16.93<span class="dp">·</span>4.14-4.72<span class="dp">·</span>9.43-7.08<span class="dp">·</span>15.87-7.08<span class="dp">·</span>6.68<span class="dp">·</span>0<span class="dp">·</span>12.04<span class="dp">·</span>2.18<span class="dp">·</span>16.05<span class="dp">·</span>6.53<span class="dp">·</span>4.02<span class="dp">·</span>4.36<span class="dp">·</span>6.03<span class="dp">·</span>10.18<span class="dp">·</span>6.03<span class="dp">·</span>17.48l-.09<span class="dp">·</span>1.56h-35.6c.24<span class="dp">·</span>4.54<span class="dp">·</span>1.76<span class="dp">·</span>8.13<span class="dp">·</span>4.55<span class="dp">·</span>10.76<span class="dp">·</span>2.79<span class="dp">·</span>2.64<span class="dp">·</span>6.06<span class="dp">·</span>3.96<span class="dp">·</span>9.8<span class="dp">·</span>3.96<span class="dp">·</span>6.07<span class="dp">·</span>0<span class="dp">·</span>10.18-2.58<span class="dp">·</span>12.33-7.73l7.54<span class="dp">·</span>3.13c-1.47<span class="dp">·</span>3.5-3.9<span class="dp">·</span>6.43-7.27<span class="dp">·</span>8.79-3.37<span class="dp">·</span>2.36-7.51<span class="dp">·</span>3.54-12.42<span class="dp">·</span>3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13<span class="dp">·</span>0-5.84.98-8.14<span class="dp">·</span>2.94-2.3<span class="dp">·</span>1.96-3.88<span class="dp">·</span>4.6-4.74<span class="dp">·</span>7.91h26.13v.01zm33.34<span class="dp">·</span>28.7c-4.72<span class="dp">·</span>0-8.33-1.26-10.81-3.77-2.48-2.51-3.73-6.07-3.73-10.67V68.45h-7.91v-7.73h7.91v-13.8h8.46v13.8h11.04v7.73h-11.04v23c0<span class="dp">·</span>4.91<span class="dp">·</span>2.02<span class="dp">·</span>7.36<span class="dp">·</span>6.07<span class="dp">·</span>7.36<span class="dp">·</span>1.53<span class="dp">·</span>0<span class="dp">·</span>2.82-.24<span class="dp">·</span>3.86-.74l2.94<span class="dp">·</span>7.27c-1.83.79-4.1<span class="dp">·</span>1.19-6.79<span class="dp">·</span>1.19z&quot;<del>.</del></td><td class="diffline">53 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>d=&quot;M181.62<span class="dp">·</span>105.8V39.93h8.46L213<span class="dp">·</span>80.04h.37l22.91-40.11h8.46v65.87h-8.46V66.7l.37-11.04h-.37l-20.61<span class="dp">·</span>36.16h-4.97l-20.61-36.16h-.37l.37<span class="dp">·</span>11.04v39.1h-8.47zm94.04<span class="dp">·</span>1.47c-6.81<span class="dp">·</span>0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2<span class="dp">·</span>0-6.56<span class="dp">·</span>2.07-12.2<span class="dp">·</span>6.21-16.93<span class="dp">·</span>4.14-4.72<span class="dp">·</span>9.43-7.08<span class="dp">·</span>15.87-7.08<span class="dp">·</span>6.68<span class="dp">·</span>0<span class="dp">·</span>12.04<span class="dp">·</span>2.18<span class="dp">·</span>16.05<span class="dp">·</span>6.53<span class="dp">·</span>4.02<span class="dp">·</span>4.36<span class="dp">·</span>6.03<span class="dp">·</span>10.18<span class="dp">·</span>6.03<span class="dp">·</span>17.48l-.09<span class="dp">·</span>1.56h-35.6c.24<span class="dp">·</span>4.54<span class="dp">·</span>1.76<span class="dp">·</span>8.13<span class="dp">·</span>4.55<span class="dp">·</span>10.76<span class="dp">·</span>2.79<span class="dp">·</span>2.64<span class="dp">·</span>6.06<span class="dp">·</span>3.96<span class="dp">·</span>9.8<span class="dp">·</span>3.96<span class="dp">·</span>6.07<span class="dp">·</span>0<span class="dp">·</span>10.18-2.58<span class="dp">·</span>12.33-7.73l7.54<span class="dp">·</span>3.13c-1.47<span class="dp">·</span>3.5-3.9<span class="dp">·</span>6.43-7.27<span class="dp">·</span>8.79-3.38<span class="dp">·</span>2.36-7.52<span class="dp">·</span>3.54-12.42<span class="dp">·</span>3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13<span class="dp">·</span>0-5.84.98-8.14<span class="dp">·</span>2.94-2.3<span class="dp">·</span>1.96-3.88<span class="dp">·</span>4.6-4.74<span class="dp">·</span>7.91h26.13v.01zm35.77<span class="dp">·</span>29.44c-6.81<span class="dp">·</span>0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2<span class="dp">·</span>0-6.56<span class="dp">·</span>2.07-12.2<span class="dp">·</span>6.21-16.93<span class="dp">·</span>4.14-4.72<span class="dp">·</span>9.43-7.08<span class="dp">·</span>15.87-7.08<span class="dp">·</span>6.68<span class="dp">·</span>0<span class="dp">·</span>12.04<span class="dp">·</span>2.18<span class="dp">·</span>16.05<span class="dp">·</span>6.53<span class="dp">·</span>4.02<span class="dp">·</span>4.36<span class="dp">·</span>6.03<span class="dp">·</span>10.18<span class="dp">·</span>6.03<span class="dp">·</span>17.48l-.09<span class="dp">·</span>1.56h-35.6c.24<span class="dp">·</span>4.54<span class="dp">·</span>1.76<span class="dp">·</span>8.13<span class="dp">·</span>4.55<span class="dp">·</span>10.76<span class="dp">·</span>2.79<span class="dp">·</span>2.64<span class="dp">·</span>6.06<span class="dp">·</span>3.96<span class="dp">·</span>9.8<span class="dp">·</span>3.96<span class="dp">·</span>6.07<span class="dp">·</span>0<span class="dp">·</span>10.18-2.58<span class="dp">·</span>12.33-7.73l7.54<span class="dp">·</span>3.13c-1.47<span class="dp">·</span>3.5-3.9<span class="dp">·</span>6.43-7.27<span class="dp">·</span>8.79-3.37<span class="dp">·</span>2.36-7.51<span class="dp">·</span>3.54-12.42<span class="dp">·</span>3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13<span class="dp">·</span>0-5.84.98-8.14<span class="dp">·</span>2.94-2.3<span class="dp">·</span>1.96-3.88<span class="dp">·</span>4.6-4.74<span class="dp">·</span>7.91h26.13v.01zm33.34<span class="dp">·</span>28.7c-4.72<span class="dp">·</span>0-8.33-1.26-10.81-3.77-2.48-2.51-3.73-6.07-3.73-10.67V68.45h-7.91v-7.73h7.91v-13.8h8.46v13.8h11.04v7.73h-11.04v23c0<span class="dp">·</span>4.91<span class="dp">·</span>2.02<span class="dp">·</span>7.36<span class="dp">·</span>6.07<span class="dp">·</span>7.36<span class="dp">·</span>1.53<span class="dp">·</span>0<span class="dp">·</span>2.82-.24<span class="dp">·</span>3.86-.74l2.94<span class="dp">·</span>7.27c-1.83.79-4.1<span class="dp">·</span>1.19-6.79<span class="dp">·</span>1.19z&quot;</td></tr>
+<tr class="diffchanged"><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>fill=&quot;#5F6368&quot;/&gt;<del>.</del></td><td class="diffline">54 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>fill=&quot;#5F6368&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<del>.</del></td><td class="diffline">55 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path</td></tr>
+<tr class="diffchanged"><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>d=&quot;M100.625<span class="dp">·</span>88.923V54.067l3.614-7.522L122.31<span class="dp">·</span>32.23c2.409-2.021<span class="dp">·</span>6.023-.323<span class="dp">·</span>6.023<span class="dp">·</span>2.831v68.42c0<span class="dp">·</span>3.154-3.694<span class="dp">·</span>4.852-6.104<span class="dp">·</span>2.83l-21.604-17.388z&quot;<del>.</del></td><td class="diffline">56 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>d=&quot;M100.625<span class="dp">·</span>88.923V54.067l3.614-7.522L122.31<span class="dp">·</span>32.23c2.409-2.021<span class="dp">·</span>6.023-.323<span class="dp">·</span>6.023<span class="dp">·</span>2.831v68.42c0<span class="dp">·</span>3.154-3.694<span class="dp">·</span>4.852-6.104<span class="dp">·</span>2.83l-21.604-17.388z&quot;</td></tr>
+<tr class="diffchanged"><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>fill=&quot;#00AC47&quot;/&gt;<del>.</del></td><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>fill=&quot;#00AC47&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M40.833<span class="dp">·</span>21.875L11.667<span class="dp">·</span>51.042h29.166V21.875z&quot;<span class="dp">·</span>fill=&quot;#EA4335&quot;/&gt;<del>.</del></td><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M40.833<span class="dp">·</span>21.875L11.667<span class="dp">·</span>51.042h29.166V21.875z&quot;<span class="dp">·</span>fill=&quot;#EA4335&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M40.833<span class="dp">·</span>51.042H11.667v37.916h29.166V51.042z&quot;<span class="dp">·</span>fill=&quot;#2684FC&quot;/&gt;<del>.</del></td><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M40.833<span class="dp">·</span>51.042H11.667v37.916h29.166V51.042z&quot;<span class="dp">·</span>fill=&quot;#2684FC&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">68 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M11.667<span class="dp">·</span>88.958v19.445c0<span class="dp">·</span>5.347<span class="dp">·</span>4.375<span class="dp">·</span>9.722<span class="dp">·</span>9.722<span class="dp">·</span>9.722h19.444V88.958H11.667z&quot;<span class="dp">·</span>fill=&quot;#0066DA&quot;/&gt;<del>.</del></td><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M11.667<span class="dp">·</span>88.958v19.445c0<span class="dp">·</span>5.347<span class="dp">·</span>4.375<span class="dp">·</span>9.722<span class="dp">·</span>9.722<span class="dp">·</span>9.722h19.444V88.958H11.667z&quot;<span class="dp">·</span>fill=&quot;#0066DA&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">69 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M104.271<span class="dp">·</span>31.486c0-5.286-4.282-9.611-9.516-9.611H40.834v29.167h35.728V70l27.709-.873V31.486z&quot;<span class="dp">·</span>fill=&quot;#FFBA00&quot;/&gt;<del>.</del></td><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M104.271<span class="dp">·</span>31.486c0-5.286-4.282-9.611-9.516-9.611H40.834v29.167h35.728V70l27.709-.873V31.486z&quot;<span class="dp">·</span>fill=&quot;#FFBA00&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M76.563<span class="dp">·</span>88.958h-35.73v29.167h53.922c5.234<span class="dp">·</span>0<span class="dp">·</span>9.516-4.319<span class="dp">·</span>9.516-9.597V70H76.562v18.958z&quot;<span class="dp">·</span>fill=&quot;#00AC47&quot;/&gt;<del>.</del></td><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M76.563<span class="dp">·</span>88.958h-35.73v29.167h53.922c5.234<span class="dp">·</span>0<span class="dp">·</span>9.516-4.319<span class="dp">·</span>9.516-9.597V70H76.562v18.958z&quot;<span class="dp">·</span>fill=&quot;#00AC47&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M104.271<span class="dp">·</span>46.667v45.208L76.562<span class="dp">·</span>70l27.709-23.333z&quot;<span class="dp">·</span>fill=&quot;#00832D&quot;/&gt;<del>.</del></td><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M104.271<span class="dp">·</span>46.667v45.208L76.562<span class="dp">·</span>70l27.709-23.333z&quot;<span class="dp">·</span>fill=&quot;#00832D&quot;/&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">72 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;/svg&gt;<del>.</del></td><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;/svg&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">73 </td><td class="diffpresent">&lt;/div&gt;<del>.</del></td><td class="diffline">65 </td><td class="diffpresent">&lt;/div&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">74 </td><td class="diffpresent">&lt;div<span class="dp">·</span>id=&quot;toggles&quot;&gt;&lt;/div&gt;<del>.</del></td><td class="diffline">66 </td><td class="diffpresent">&lt;div<span class="dp">·</span>id=&quot;toggles&quot;&gt;&lt;/div&gt;</td></tr>
+<tr class="diffdeleted"><td class="diffline">75 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">76 </td><td class="diffpresent">&lt;script<span class="dp">·</span>src=&quot;lib.js&quot;&gt;&lt;/script&gt;<del>.</del></td><td class="diffline">67 </td><td class="diffpresent">&lt;script<span class="dp">·</span>src=&quot;lib.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">77 </td><td class="diffpresent">&lt;script<span class="dp">·</span>src=&quot;popup.js&quot;&gt;&lt;/script&gt;<del>.</del></td><td class="diffline">68 </td><td class="diffpresent">&lt;script<span class="dp">·</span>src=&quot;popup.js&quot;&gt;&lt;/script&gt;</td></tr>
+<tr class="diffdeleted"><td class="diffline">78 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">79 </td><td class="diffpresent">&lt;/body&gt;<del>.</del></td><td class="diffline">69 </td><td class="diffpresent">&lt;/body&gt;</td></tr>
+<tr class="diffunmodified"><td class="diffline">80 </td><td class="diffpresent">&lt;/html&gt;</td><td class="diffline">70 </td><td class="diffpresent">&lt;/html&gt;</td></tr>
+</table>  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

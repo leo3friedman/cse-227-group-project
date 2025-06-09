@@ -1,0 +1,186 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/aria-devtools/extension
+├── file list
+│ @@ -1,7 +1,4 @@
+│ -_metadata
+│  background.js
+│ -inject.js
+│ -inject.js.map
+│  logo-128.png
+│  logo-256.png
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/aria-devtools/extension/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,79 +1,79 @@
+│ │ -const executeScript = (tabId, options) => chrome.scripting.executeScript({
+│ │ -    ...options,
+│ │ -    target: {
+│ │ -        tabId
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -chrome.action.onClicked.addListener(async function(tab) {
+│ │ -    if (!(await hasPermissionToTab(tab.id))) {
+│ │ -        console.log(`No permission to tab with ID ${tab.id}. Ignoring action onClicked.`);
+│ │ -        return;
+│ │ -    }
+│ │ -
+│ │ -    const [{
+│ │ -        result: isLoaded
+│ │ -    }] = await executeScript(tab.id, {
+│ │ -        func: () => window.isAriaDevToolsLoaded
+│ │ -    });
+│ │ -
+│ │ -    if (!isLoaded) {
+│ │ -        await executeScript(tab.id, {
+│ │ -            files: ["inject.js"]
+│ │ -        });
+│ │ -        await setTabState(tab.id, false);
+│ │ -    }
+│ │ -
+│ │ -    if (await getTabState(tab.id)) {
+│ │ -        await executeScript(tab.id, {
+│ │ -            func: () => window.disableAriaDevTools()
+│ │ -        });
+│ │ -        await setTabState(tab.id, false);
+│ │ -    } else {
+│ │ -        await executeScript(tab.id, {
+│ │ -            func: () => window.enableAriaDevTools()
+│ │ -        });
+│ │ -        await setTabState(tab.id, true);
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -chrome.tabs.onUpdated.addListener(async function(tabId) {
+│ │ -    if (!(await hasPermissionToTab(tabId))) {
+│ │ -        console.log(`No permission to tab with ID ${tabId}. Ignoring tab onUpdated.`);
+│ │ -        return;
+│ │ -    }
+│ │ -
+│ │ -    const {
+│ │ -        result: isLoaded
+│ │ -    } = await executeScript(tabId, {
+│ │ -        func: () => window.isAriaDevToolsLoaded
+│ │ -    });
+│ │ -    const tabState = await getTabState(tabId);
+│ │ -
+│ │ -    if (tabState && !isLoaded) {
+│ │ -        await executeScript(tabId, {
+│ │ -            files: ["inject.js"]
+│ │ -        });
+│ │ -        await executeScript(tabId, {
+│ │ -            func: () => window.enableAriaDevTools()
+│ │ -        });
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -const tabStateKey = (tabId) => `tab-state-${tabId}`;
+│ │ -const setTabState = (tabId, value) => chrome.storage.local.set({
+│ │ -    [tabStateKey(tabId)]: value
+│ │ -});
+│ │ -const getTabState = async (tabId) => {
+│ │ -    const key = tabStateKey(tabId);
+│ │ -    const value = await chrome.storage.local.get([key]);
+│ │ -    return value[key];
+│ │ -};
+│ │ -
+│ │ -const hasPermissionToTab = (tabId) =>
+│ │ -    executeScript(tabId, {
+│ │ -        func: () => window.isAriaDevToolsLoaded
+│ │ -    }).then(
+│ │ -        () => true,
+│ │ -        () => false
+│ │ +const executeScript = (tabId, options) => chrome.scripting.executeScript({
+│ │ +    ...options,
+│ │ +    target: {
+│ │ +        tabId
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +chrome.action.onClicked.addListener(async function(tab) {
+│ │ +    if (!(await hasPermissionToTab(tab.id))) {
+│ │ +        console.log(`No permission to tab with ID ${tab.id}. Ignoring action onClicked.`);
+│ │ +        return;
+│ │ +    }
+│ │ +
+│ │ +    const [{
+│ │ +        result: isLoaded
+│ │ +    }] = await executeScript(tab.id, {
+│ │ +        func: () => window.isAriaDevToolsLoaded
+│ │ +    });
+│ │ +
+│ │ +    if (!isLoaded) {
+│ │ +        await executeScript(tab.id, {
+│ │ +            files: ["inject.js"]
+│ │ +        });
+│ │ +        await setTabState(tab.id, false);
+│ │ +    }
+│ │ +
+│ │ +    if (await getTabState(tab.id)) {
+│ │ +        await executeScript(tab.id, {
+│ │ +            func: () => window.disableAriaDevTools()
+│ │ +        });
+│ │ +        await setTabState(tab.id, false);
+│ │ +    } else {
+│ │ +        await executeScript(tab.id, {
+│ │ +            func: () => window.enableAriaDevTools()
+│ │ +        });
+│ │ +        await setTabState(tab.id, true);
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +chrome.tabs.onUpdated.addListener(async function(tabId) {
+│ │ +    if (!(await hasPermissionToTab(tabId))) {
+│ │ +        console.log(`No permission to tab with ID ${tabId}. Ignoring tab onUpdated.`);
+│ │ +        return;
+│ │ +    }
+│ │ +
+│ │ +    const {
+│ │ +        result: isLoaded
+│ │ +    } = await executeScript(tabId, {
+│ │ +        func: () => window.isAriaDevToolsLoaded
+│ │ +    });
+│ │ +    const tabState = await getTabState(tabId);
+│ │ +
+│ │ +    if (tabState && !isLoaded) {
+│ │ +        await executeScript(tabId, {
+│ │ +            files: ["inject.js"]
+│ │ +        });
+│ │ +        await executeScript(tabId, {
+│ │ +            func: () => window.enableAriaDevTools()
+│ │ +        });
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +const tabStateKey = (tabId) => `tab-state-${tabId}`;
+│ │ +const setTabState = (tabId, value) => chrome.storage.local.set({
+│ │ +    [tabStateKey(tabId)]: value
+│ │ +});
+│ │ +const getTabState = async (tabId) => {
+│ │ +    const key = tabStateKey(tabId);
+│ │ +    const value = await chrome.storage.local.get([key]);
+│ │ +    return value[key];
+│ │ +};
+│ │ +
+│ │ +const hasPermissionToTab = (tabId) =>
+│ │ +    executeScript(tabId, {
+│ │ +        func: () => window.isAriaDevToolsLoaded
+│ │ +    }).then(
+│ │ +        () => true,
+│ │ +        () => false
+│ │      );
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/aria-devtools/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "ARIA DevTools",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.0"
+│ │  }

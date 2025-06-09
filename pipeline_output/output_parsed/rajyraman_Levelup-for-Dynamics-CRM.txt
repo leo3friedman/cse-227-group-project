@@ -1,0 +1,19 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Levelup-for-Dynamics-CRM/app
+  - files: _metadata, icon-128.png, icon-16.png, icon-48.png, styles
+  + files: images, libraries, styles, tsd
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Levelup-for-Dynamics-CRM/app/manifest.json; File type: json
+  - Original: 42–42 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/Levelup-for-Dynamics-CRM/app/scripts
+  - files: Sdk.Soap.min.js, app.js, background.js, copytexttoclipboard.js, grid.js, levelup.extension.js, list.min.js, lodashmoment.bundle.js, material.min.js, options.js, optionsets.js, organisationdetails.js, processes.js, userroles.js
+  + files: app.ts, background.ts, grid.ts, inject, interfaces, levelup.extension.ts, options.ts, pages, tsconfig.json
+
+---/workspace/pipeline_output/chromex_data/styles/material-icons.min.css <-> +++/workspace/pipeline_output/Levelup-for-Dynamics-CRM/app/styles/material-icons.min.css; File type: css
+  - Original: 1–2
+  + Modified: 1–1
+
+---/workspace/pipeline_output/chromex_data/styles/material.min.css <-> +++/workspace/pipeline_output/Levelup-for-Dynamics-CRM/app/styles/material.min.css; File type: css
+  - Original: 8–9
+  + Modified: 8–8
+

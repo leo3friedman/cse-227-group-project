@@ -1,0 +1,50 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/shortkeys/app
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/shortkeys/app/manifest.json; File type: json
+  - Original: 236–236 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options <-> +++/workspace/pipeline_output/shortkeys/app/options
+  - files: options.js.LICENSE.txt
+  + files: components, options.vue
+
+---/workspace/pipeline_output/chromex_data/options/options.js <-> +++/workspace/pipeline_output/shortkeys/app/options/options.js; File type: js
+  - Original: 1–15397
+  + Modified: 1–9
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/shortkeys/app/scripts
+  - files: service_worker.js
+  + files: actions, service_worker.js, utils.js
+
+---/workspace/pipeline_output/chromex_data/scripts/content.js <-> +++/workspace/pipeline_output/shortkeys/app/scripts/content.js; File type: js
+  - Original: 1–243
+  - Original: 245–246
+  - Original: 248–254
+  - Original: 256–302
+  - Original: 304–305
+  + Modified: 1–126
+
+---/workspace/pipeline_output/chromex_data/scripts/service_worker.js <-> +++/workspace/pipeline_output/shortkeys/app/scripts/service_worker.js; File type: js
+  - Original: 1–7
+  - Original: 9–14
+  - Original: 16–25
+  - Original: 27–27
+  - Original: 29–96
+  - Original: 98–100
+  - Original: 102–109
+  - Original: 111–142
+  - Original: 144–162
+  - Original: 164–286
+  - Original: 288–288
+  - Original: 290–296
+  - Original: 298–304
+  - Original: 306–326
+  - Original: 328–352
+  - Original: 354–368
+  - Original: 370–473
+  - Original: 475–504
+  - Original: 507–522
+  - Original: 524–574
+  + Modified: 1–685
+

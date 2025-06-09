@@ -1,0 +1,1540 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/newtab-blocker/extension
+├── file list
+│ @@ -1,6 +1,5 @@
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│  popup
+│  service-worker.js
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/newtab-blocker/extension/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/de
+│ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/_locales/de
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/de/messages.json
+│ │ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/_locales/de/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,30 +1,30 @@
+│ │ │ -7b0d0a20202020226578744465736372697074696f6e223a207b0d0a20202020
+│ │ │ -20202020226d657373616765223a2022426c6f636b69657274206e6575652054
+│ │ │ -61627320616e6765676562656e657220576562736974656e220d0a202020207d
+│ │ │ -2c0d0a2020202022616374697665223a7b0d0a2020202020202020226d657373
+│ │ │ -616765223a2022416b74697669657274222c0d0a202020202020202022646573
+│ │ │ -6372697074696f6e223a202274657874206265666f7265207468652073776974
+│ │ │ -6368220d0a202020207d2c0d0a202020202275726c426567696e5469746c6522
+│ │ │ -3a7b0d0a2020202020202020226d657373616765223a202255524c2d416e66c3
+│ │ │ -a46e6765220d0a202020207d2c0d0a202020202275726c426567696e44657363
+│ │ │ -223a207b0d0a2020202020202020226d657373616765223a202255524c732c20
+│ │ │ -77656c636865206d69742065696e656d2064657220666f6c67656e64656e2055
+│ │ │ -524c2d416e66c3a46e676520616e66616e67656e2c2077657264656e20646172
+│ │ │ -616e20676568696e64657274206e6575652054616273207a7520c3b666666e65
+│ │ │ -6e220d0a202020207d2c0d0a20202020226578616d706c6555726c223a7b0d0a
+│ │ │ -2020202020202020226d657373616765223a202268747470733a2f2f7777772e
+│ │ │ -626569737069656c2e6465220d0a202020207d2c0d0a202020202277726f6e67
+│ │ │ -55726c5061747465726e50726f6d74223a7b0d0a2020202020202020226d6573
+│ │ │ -73616765223a20224469652045696e6761626520272475726c24272073636865
+│ │ │ -696e74206e696368742064656d204d7573746572202768747470733a2f2f7777
+│ │ │ -772e626569737069656c2e646527207a7520666f6c67656e2e5c6e5c6e536f6c
+│ │ │ -6c206469652055524c2074726f7a64656d2068696e7a75676566c3bc67742077
+│ │ │ -657264656e3f222c0d0a202020202020202022706c616365686f6c6465727322
+│ │ │ -3a7b0d0a2020202020202020202020202275726c223a7b0d0a20202020202020
+│ │ │ -20202020202020202022636f6e74656e74223a20222431220d0a202020202020
+│ │ │ -2020202020207d0d0a20202020202020207d0d0a202020207d2c0d0a20202020
+│ │ │ -22656d70747955726c50726f6d74223a7b0d0a2020202020202020226d657373
+│ │ │ -616765223a20224469652045696e6761626520697374206c6565722e20446965
+│ │ │ -732077697264206e6575652054616273206a6564657220576562736569746520
+│ │ │ -626c6f636b696572656e2e5c6e5c6e536f6c6c206469652045696e6761626520
+│ │ │ -68696e7a75676566c3bc67742077657264656e3f220d0a202020207d0d0a7d
+│ │ │ +7b0a20202020226578744465736372697074696f6e223a207b0a202020202020
+│ │ │ +2020226d657373616765223a2022426c6f636b69657274206e65756520546162
+│ │ │ +7320616e6765676562656e657220576562736974656e220a202020207d2c0a20
+│ │ │ +20202022616374697665223a7b0a2020202020202020226d657373616765223a
+│ │ │ +2022416b74697669657274222c0a202020202020202022646573637269707469
+│ │ │ +6f6e223a202274657874206265666f72652074686520737769746368220a2020
+│ │ │ +20207d2c0a202020202275726c426567696e5469746c65223a7b0a2020202020
+│ │ │ +202020226d657373616765223a202255524c2d416e66c3a46e6765220a202020
+│ │ │ +207d2c0a202020202275726c426567696e44657363223a207b0a202020202020
+│ │ │ +2020226d657373616765223a202255524c732c2077656c636865206d69742065
+│ │ │ +696e656d2064657220666f6c67656e64656e2055524c2d416e66c3a46e676520
+│ │ │ +616e66616e67656e2c2077657264656e20646172616e20676568696e64657274
+│ │ │ +206e6575652054616273207a7520c3b666666e656e220a202020207d2c0a2020
+│ │ │ +2020226578616d706c6555726c223a7b0a2020202020202020226d6573736167
+│ │ │ +65223a202268747470733a2f2f7777772e626569737069656c2e6465220a2020
+│ │ │ +20207d2c0a202020202277726f6e6755726c5061747465726e50726f6d74223a
+│ │ │ +7b0a2020202020202020226d657373616765223a20224469652045696e676162
+│ │ │ +6520272475726c24272073636865696e74206e696368742064656d204d757374
+│ │ │ +6572202768747470733a2f2f7777772e626569737069656c2e646527207a7520
+│ │ │ +666f6c67656e2e5c6e5c6e536f6c6c206469652055524c2074726f7a64656d20
+│ │ │ +68696e7a75676566c3bc67742077657264656e3f222c0a202020202020202022
+│ │ │ +706c616365686f6c64657273223a7b0a2020202020202020202020202275726c
+│ │ │ +223a7b0a2020202020202020202020202020202022636f6e74656e74223a2022
+│ │ │ +2431220a2020202020202020202020207d0a20202020202020207d0a20202020
+│ │ │ +7d2c0a2020202022656d70747955726c50726f6d74223a7b0a20202020202020
+│ │ │ +20226d657373616765223a20224469652045696e6761626520697374206c6565
+│ │ │ +722e20446965732077697264206e6575652054616273206a6564657220576562
+│ │ │ +736569746520626c6f636b696572656e2e5c6e5c6e536f6c6c20646965204569
+│ │ │ +6e676162652068696e7a75676566c3bc67742077657264656e3f220a20202020
+│ │ │ +7d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,29 +1,28 @@
+│ │ │ -7b0d0a20202020226578744465736372697074696f6e223a207b0d0a20202020
+│ │ │ -20202020226d657373616765223a2022426c6f636b73206e6577207461627320
+│ │ │ -66726f6d20737065636966696564207765627369746573220d0a202020207d2c
+│ │ │ -0d0a2020202022616374697665223a7b0d0a2020202020202020226d65737361
+│ │ │ -6765223a2022456e61626c6564222c0d0a202020202020202022646573637269
+│ │ │ -7074696f6e223a202274657874206265666f7265207468652073776974636822
+│ │ │ -0d0a202020207d2c0d0a202020202275726c426567696e5469746c65223a7b0d
+│ │ │ -0a2020202020202020226d657373616765223a202255524c20426567696e6e69
+│ │ │ -6e6773220d0a202020207d2c0d0a202020202275726c426567696e4465736322
+│ │ │ -3a207b0d0a2020202020202020226d657373616765223a202255524c73207468
+│ │ │ -61742073746172742077697468206f6e65206f6620746865206c697374656420
+│ │ │ -55524c20626567696e6e696e67732077696c6c20626520626c6f636b65642066
+│ │ │ -726f6d206f70656e696e67206e65772074616273220d0a202020207d2c0d0a20
+│ │ │ -202020226578616d706c6555726c223a7b0d0a2020202020202020226d657373
+│ │ │ -616765223a202268747470733a2f2f7777772e6578616d706c652e636f6d220d
+│ │ │ -0a202020207d2c0d0a202020202277726f6e6755726c5061747465726e50726f
+│ │ │ -6d74223a7b0d0a2020202020202020226d657373616765223a20225468652069
+│ │ │ -6e70757420272475726c242720646f6573206e6f74207365656d20746f20666f
+│ │ │ -6c6c6f7720746865207061747465726e202768747470733a2f2f7777772e6578
+│ │ │ -616d706c652e636f6d272e5c6e5c6e446f20796f752077616e7420746f206164
+│ │ │ -6420697420616e79776179733f222c0d0a202020202020202022706c61636568
+│ │ │ -6f6c64657273223a7b0d0a2020202020202020202020202275726c223a7b0d0a
+│ │ │ -2020202020202020202020202020202022636f6e74656e74223a20222431220d
+│ │ │ -0a2020202020202020202020207d0d0a20202020202020207d0d0a202020207d
+│ │ │ -2c0d0a2020202022656d70747955726c50726f6d74223a7b0d0a202020202020
+│ │ │ -2020226d657373616765223a202254686520696e70757420697320656d707479
+│ │ │ -2e20546869732077696c6c20626c6f636b20746162206f70656e696e67206672
+│ │ │ -6f6d20657665727920776562736974652e5c6e5c6e446f20796f752077616e74
+│ │ │ -20746f206164642069743f220d0a202020207d0d0a7d
+│ │ │ +7b0a20202020226578744465736372697074696f6e223a207b0a202020202020
+│ │ │ +2020226d657373616765223a2022426c6f636b73206e65772074616273206672
+│ │ │ +6f6d20737065636966696564207765627369746573220a202020207d2c0a2020
+│ │ │ +202022616374697665223a7b0a2020202020202020226d657373616765223a20
+│ │ │ +22456e61626c6564222c0a2020202020202020226465736372697074696f6e22
+│ │ │ +3a202274657874206265666f72652074686520737769746368220a202020207d
+│ │ │ +2c0a202020202275726c426567696e5469746c65223a7b0a2020202020202020
+│ │ │ +226d657373616765223a202255524c20426567696e6e696e6773220a20202020
+│ │ │ +7d2c0a202020202275726c426567696e44657363223a207b0a20202020202020
+│ │ │ +20226d657373616765223a202255524c73207468617420737461727420776974
+│ │ │ +68206f6e65206f6620746865206c69737465642055524c20626567696e6e696e
+│ │ │ +67732077696c6c20626520626c6f636b65642066726f6d206f70656e696e6720
+│ │ │ +6e65772074616273220a202020207d2c0a20202020226578616d706c6555726c
+│ │ │ +223a7b0a2020202020202020226d657373616765223a202268747470733a2f2f
+│ │ │ +7777772e6578616d706c652e636f6d220a202020207d2c0a202020202277726f
+│ │ │ +6e6755726c5061747465726e50726f6d74223a7b0a2020202020202020226d65
+│ │ │ +7373616765223a202254686520696e70757420272475726c242720646f657320
+│ │ │ +6e6f74207365656d20746f20666f6c6c6f7720746865207061747465726e2027
+│ │ │ +68747470733a2f2f7777772e6578616d706c652e636f6d272e5c6e5c6e446f20
+│ │ │ +796f752077616e7420746f2061646420697420616e79776179733f222c0a2020
+│ │ │ +20202020202022706c616365686f6c64657273223a7b0a202020202020202020
+│ │ │ +2020202275726c223a7b0a2020202020202020202020202020202022636f6e74
+│ │ │ +656e74223a20222431220a2020202020202020202020207d0a20202020202020
+│ │ │ +207d0a202020207d2c0a2020202022656d70747955726c50726f6d74223a7b0a
+│ │ │ +2020202020202020226d657373616765223a202254686520696e707574206973
+│ │ │ +20656d7074792e20546869732077696c6c20626c6f636b20746162206f70656e
+│ │ │ +696e672066726f6d20657665727920776562736974652e5c6e5c6e446f20796f
+│ │ │ +752077616e7420746f206164642069743f220a202020207d0a7d
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/newtab-blocker/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,10 +14,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "New-Tab Blocker",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage",
+│ │          "sessions"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.4"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/newtab-blocker/extension/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/index.html
+│ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/popup/index.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,30 +1,30 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +    <head>
+│ │ +        <link rel="stylesheet" href="style.css">
+│ │ +    </head>
+│ │ +    <body>
+│ │ +        <div id="title"><img src="img/logo.png" alt="logo" width="35" height="35"><h1>New-Tab Blocker</h1></div>
+│ │ +        <div id="activeDiv">
+│ │ +            <p>__MSG_active__: </p>
+│ │ +            <label class="switch">
+│ │ +                <input type="checkbox" id="activeSwitch">
+│ │ +                <span class="slider"></span>
+│ │ +            </label>
+│ │ +        </div>
+│ │ +        <br>
+│ │ +        <h2>
+│ │ +            __MSG_urlBeginTitle__
+│ │ +        </h2>
+│ │ +        <p>
+│ │ +            __MSG_urlBeginDesc__
+│ │ +        </p>
+│ │ +        <div id="inpDiv">
+│ │ +            <input placeholder="__MSG_exampleUrl__" id="inpBox">
+│ │ +            <button id="addBtn"></button>
+│ │ +        </div>
+│ │ +        <div id="con">
+│ │ +        </div>
+│ │ +        <script src="script.js"></script>
+│ │ +    </body>
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -    <head>
+│ │ -        <link rel="stylesheet" href="style.css">
+│ │ -    </head>
+│ │ -    <body>
+│ │ -        <div id="title"><img src="img/logo.png" alt="logo" width="35" height="35"><h1>New-Tab Blocker</h1></div>
+│ │ -        <div id="activeDiv">
+│ │ -            <p>__MSG_active__: </p>
+│ │ -            <label class="switch">
+│ │ -                <input type="checkbox" id="activeSwitch">
+│ │ -                <span class="slider"></span>
+│ │ -            </label>
+│ │ -        </div>
+│ │ -        <br>
+│ │ -        <h2>
+│ │ -            __MSG_urlBeginTitle__
+│ │ -        </h2>
+│ │ -        <p>
+│ │ -            __MSG_urlBeginDesc__
+│ │ -        </p>
+│ │ -        <div id="inpDiv">
+│ │ -            <input placeholder="__MSG_exampleUrl__" id="inpBox">
+│ │ -            <button id="addBtn"></button>
+│ │ -        </div>
+│ │ -        <div id="con">
+│ │ -        </div>
+│ │ -        <script src="script.js"></script>
+│ │ -    </body>
+│ │  </html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/script.js
+│ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/popup/script.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,179 +1,179 @@
+│ │ │ +// localize (code from https://stackoverflow.com/questions/25467009/internationalization-of-html-pages-for-my-google-chrome-extension)
+│ │ │ +function localizeHtmlPage() {
+│ │ │ +    //Localize by replacing __MSG_***__ meta tags
+│ │ │ +    var objects = document.getElementsByTagName('html');
+│ │ │ +    for (var j = 0; j < objects.length; j++) {
+│ │ │ +        var obj = objects[j];
+│ │ │ +
+│ │ │ +        var valStrH = obj.innerHTML.toString();
+│ │ │ +        var valNewH = valStrH.replace(/__MSG_(\w+)__/g, function(match, v1) {
+│ │ │ +            return v1 ? chrome.i18n.getMessage(v1) : "";
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        if (valNewH != valStrH) {
+│ │ │ +            obj.innerHTML = valNewH;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +localizeHtmlPage();
+│ │ │ +
+│ │ │ +const inpBox = document.getElementById("inpBox");
+│ │ │ +const con = document.getElementById("con");
+│ │ │ +const btn = document.getElementById("addBtn");
+│ │ │ +const activeSwitch = document.getElementById("activeSwitch");
+│ │ │ +
+│ │ │ +let curUrl;
+│ │ │ +
+│ │ │ +class Item {
+│ │ │ +    static allItems = [];
+│ │ │ +    urlStart;
+│ │ │ +    htmlElement;
+│ │ │ +    constructor(urlStart) {
+│ │ │ +        this.urlStart = urlStart;
+│ │ │ +        this.htmlElement = this.createElement();
+│ │ │ +
+│ │ │ +        Item.allItems.push(this);
+│ │ │ +
+│ │ │ +        con.appendChild(this.htmlElement);
+│ │ │ +        con.scrollTo(0, con.scrollHeight);
+│ │ │ +    }
+│ │ │ +    delete() {
+│ │ │ +        con.removeChild(this.htmlElement);
+│ │ │ +        Item.allItems.splice(Item.allItems.indexOf(this), 1);
+│ │ │ +    }
+│ │ │ +    createElement() {
+│ │ │ +        // <div class="listItem"><button>x</button> <div class="spacer"></div>text</div>
+│ │ │ +        // (from chatGPT)
+│ │ │ +
+│ │ │ +
+│ │ │ +        // <span class="listRow">
+│ │ │ +        //   <div class="listItem">
+│ │ │ +        //     <button>x</button><div class="spacer"></div>text
+│ │ │ +        //   </div><br>
+│ │ │ +        // </span>
+│ │ │ +        // (from chatGPT)
+│ │ │ +
+│ │ │ +        // Create the elements
+│ │ │ +        const listRowSpan = document.createElement('span');
+│ │ │ +        listRowSpan.classList.add('listRow');
+│ │ │ +
+│ │ │ +        const listItemDiv = document.createElement('div');
+│ │ │ +        listItemDiv.classList.add('listItem');
+│ │ │ +
+│ │ │ +        const closeButton = document.createElement('button');
+│ │ │ +        closeButton.onclick = () => {
+│ │ │ +            this.delete.bind(this)();
+│ │ │ +            saveState();
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        const spacerDiv = document.createElement('div');
+│ │ │ +        spacerDiv.classList.add('spacer');
+│ │ │ +
+│ │ │ +        const textNode = document.createTextNode(this.urlStart + "...");
+│ │ │ +
+│ │ │ +        // Assemble the elements
+│ │ │ +        listItemDiv.appendChild(closeButton);
+│ │ │ +        listItemDiv.appendChild(spacerDiv);
+│ │ │ +        listItemDiv.appendChild(textNode);
+│ │ │ +        listRowSpan.appendChild(listItemDiv);
+│ │ │ +
+│ │ │ +        return listRowSpan;
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +function trimUrl(url) {
+│ │ │ +    let startIndex = url.indexOf("://");
+│ │ │ +    startIndex = startIndex === -1 ? 0 : (startIndex + 3)
+│ │ │ +
+│ │ │ +    let endIndex = url.indexOf("/", startIndex);
+│ │ │ +    if (endIndex === -1) {
+│ │ │ +        return url;
+│ │ │ +    }
+│ │ │ +    return url.substring(0, endIndex);
+│ │ │ +}
+│ │ │ +
+│ │ │ +function isValid(urlStart) {
+│ │ │ +    // if item in list remove it (and add it afterwards to the end in onClick)
+│ │ │ +    for (let i = 0; i < Item.allItems.length; i++) {
+│ │ │ +        if (Item.allItems[i].urlStart === urlStart) {
+│ │ │ +            Item.allItems[i].delete();
+│ │ │ +            return true;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (curUrl === urlStart) {
+│ │ │ +        return true;
+│ │ │ +    }
+│ │ │ +    if (/^https?:\/\/[a-z0-9\-_]+(\.[a-z0-9\-_]+)+\/?$/.test(urlStart)) {
+│ │ │ +        return true;
+│ │ │ +    }
+│ │ │ +    let t0 = Date.now();
+│ │ │ +    let res = (urlStart !== "") ? confirm(chrome.i18n.getMessage("wrongUrlPatternPromt", urlStart)) :
+│ │ │ +        confirm(chrome.i18n.getMessage("emptyUrlPromt"));
+│ │ │ +    if (Date.now() - t0 < 50) {
+│ │ │ +        //probably alerts blocked
+│ │ │ +        return true;
+│ │ │ +    }
+│ │ │ +    return res;
+│ │ │ +}
+│ │ │ +
+│ │ │ +function saveState() {
+│ │ │ +    chrome.storage.local.set({
+│ │ │ +        urls: Item.allItems.map(item => item.urlStart),
+│ │ │ +        active: activeSwitch.checked
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function loadState() {
+│ │ │ +    let data = await chrome.storage.local.get();
+│ │ │ +    data["urls"].forEach(urlStart => new Item(urlStart));
+│ │ │ +    activeSwitch
+│ │ │ +    activeSwitch.checked = data["active"];
+│ │ │ +}
+│ │ │ +
+│ │ │ +function onClick() {
+│ │ │ +    let newUrlStart = inpBox.value.trim();
+│ │ │ +    if (!isValid(newUrlStart)) {
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +    new Item(newUrlStart);
+│ │ │ +    inpBox.value = "";
+│ │ │ +
+│ │ │ +    saveState();
+│ │ │ +}
+│ │ │ +
+│ │ │ +// try to set inpBox-value to current url
+│ │ │ +chrome.tabs.query({
+│ │ │ +    currentWindow: true,
+│ │ │ +    active: true
+│ │ │ +}).then(
+│ │ │ +    function(tabs) {
+│ │ │ +        curUrl = trimUrl(tabs[0].url);
+│ │ │ +        inpBox.value = curUrl;
+│ │ │ +    }).catch((error) => console.warn("could not read current url"));
+│ │ │ +
+│ │ │ +btn.onclick = onClick;
+│ │ │ +inpBox.onkeyup = (e) => {
+│ │ │ +    if (e.key === "Enter") {
+│ │ │ +        onClick();
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +activeSwitch.onchange = () => {
+│ │ │ +    saveState();
+│ │ │ +    chrome.runtime.sendMessage({
+│ │ │ +        name: "changeIcon",
+│ │ │ +        path: activeSwitch.checked ? "icons/default.png" : "icons/gray.png"
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +loadState();
+│ │ │ +
+│ │ │ +inpBox.focus();
+│ │ │ +
+│ │ │ +//can not be added to css-file (because the state is changed by code at the start and we don not want to animate that)
+│ │ │ +setTimeout(() => {
+│ │ │ +    let style_element = document.createElement("style");
+│ │ │ +    style_element.innerHTML = ".slider::before{transition: .2s;}";
+│ │ │ +    document.head.appendChild(style_element);
+│ │ │ -// localize (code from https://stackoverflow.com/questions/25467009/internationalization-of-html-pages-for-my-google-chrome-extension)
+│ │ │ -function localizeHtmlPage() {
+│ │ │ -    //Localize by replacing __MSG_***__ meta tags
+│ │ │ -    var objects = document.getElementsByTagName('html');
+│ │ │ -    for (var j = 0; j < objects.length; j++) {
+│ │ │ -        var obj = objects[j];
+│ │ │ -
+│ │ │ -        var valStrH = obj.innerHTML.toString();
+│ │ │ -        var valNewH = valStrH.replace(/__MSG_(\w+)__/g, function(match, v1) {
+│ │ │ -            return v1 ? chrome.i18n.getMessage(v1) : "";
+│ │ │ -        });
+│ │ │ -
+│ │ │ -        if (valNewH != valStrH) {
+│ │ │ -            obj.innerHTML = valNewH;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -localizeHtmlPage();
+│ │ │ -
+│ │ │ -const inpBox = document.getElementById("inpBox");
+│ │ │ -const con = document.getElementById("con");
+│ │ │ -const btn = document.getElementById("addBtn");
+│ │ │ -const activeSwitch = document.getElementById("activeSwitch");
+│ │ │ -
+│ │ │ -let curUrl;
+│ │ │ -
+│ │ │ -class Item {
+│ │ │ -    static allItems = [];
+│ │ │ -    urlStart;
+│ │ │ -    htmlElement;
+│ │ │ -    constructor(urlStart) {
+│ │ │ -        this.urlStart = urlStart;
+│ │ │ -        this.htmlElement = this.createElement();
+│ │ │ -
+│ │ │ -        Item.allItems.push(this);
+│ │ │ -
+│ │ │ -        con.appendChild(this.htmlElement);
+│ │ │ -        con.scrollTo(0, con.scrollHeight);
+│ │ │ -    }
+│ │ │ -    delete() {
+│ │ │ -        con.removeChild(this.htmlElement);
+│ │ │ -        Item.allItems.splice(Item.allItems.indexOf(this), 1);
+│ │ │ -    }
+│ │ │ -    createElement() {
+│ │ │ -        // <div class="listItem"><button>x</button> <div class="spacer"></div>text</div>
+│ │ │ -        // (from chatGPT)
+│ │ │ -
+│ │ │ -
+│ │ │ -        // <span class="listRow">
+│ │ │ -        //   <div class="listItem">
+│ │ │ -        //     <button>x</button><div class="spacer"></div>text
+│ │ │ -        //   </div><br>
+│ │ │ -        // </span>
+│ │ │ -        // (from chatGPT)
+│ │ │ -
+│ │ │ -        // Create the elements
+│ │ │ -        const listRowSpan = document.createElement('span');
+│ │ │ -        listRowSpan.classList.add('listRow');
+│ │ │ -
+│ │ │ -        const listItemDiv = document.createElement('div');
+│ │ │ -        listItemDiv.classList.add('listItem');
+│ │ │ -
+│ │ │ -        const closeButton = document.createElement('button');
+│ │ │ -        closeButton.onclick = () => {
+│ │ │ -            this.delete.bind(this)();
+│ │ │ -            saveState();
+│ │ │ -        };
+│ │ │ -
+│ │ │ -        const spacerDiv = document.createElement('div');
+│ │ │ -        spacerDiv.classList.add('spacer');
+│ │ │ -
+│ │ │ -        const textNode = document.createTextNode(this.urlStart + "...");
+│ │ │ -
+│ │ │ -        // Assemble the elements
+│ │ │ -        listItemDiv.appendChild(closeButton);
+│ │ │ -        listItemDiv.appendChild(spacerDiv);
+│ │ │ -        listItemDiv.appendChild(textNode);
+│ │ │ -        listRowSpan.appendChild(listItemDiv);
+│ │ │ -
+│ │ │ -        return listRowSpan;
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -function trimUrl(url) {
+│ │ │ -    let startIndex = url.indexOf("://");
+│ │ │ -    startIndex = startIndex === -1 ? 0 : (startIndex + 3)
+│ │ │ -
+│ │ │ -    let endIndex = url.indexOf("/", startIndex);
+│ │ │ -    if (endIndex === -1) {
+│ │ │ -        return url;
+│ │ │ -    }
+│ │ │ -    return url.substring(0, endIndex);
+│ │ │ -}
+│ │ │ -
+│ │ │ -function isValid(urlStart) {
+│ │ │ -    // if item in list remove it (and add it afterwards to the end in onClick)
+│ │ │ -    for (let i = 0; i < Item.allItems.length; i++) {
+│ │ │ -        if (Item.allItems[i].urlStart === urlStart) {
+│ │ │ -            Item.allItems[i].delete();
+│ │ │ -            return true;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (curUrl === urlStart) {
+│ │ │ -        return true;
+│ │ │ -    }
+│ │ │ -    if (/^https?:\/\/[a-z0-9\-_]+(\.[a-z0-9\-_]+)+\/?$/.test(urlStart)) {
+│ │ │ -        return true;
+│ │ │ -    }
+│ │ │ -    let t0 = Date.now();
+│ │ │ -    let res = (urlStart !== "") ? confirm(chrome.i18n.getMessage("wrongUrlPatternPromt", urlStart)) :
+│ │ │ -        confirm(chrome.i18n.getMessage("emptyUrlPromt"));
+│ │ │ -    if (Date.now() - t0 < 50) {
+│ │ │ -        //probably alerts blocked
+│ │ │ -        return true;
+│ │ │ -    }
+│ │ │ -    return res;
+│ │ │ -}
+│ │ │ -
+│ │ │ -function saveState() {
+│ │ │ -    chrome.storage.local.set({
+│ │ │ -        urls: Item.allItems.map(item => item.urlStart),
+│ │ │ -        active: activeSwitch.checked
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function loadState() {
+│ │ │ -    let data = await chrome.storage.local.get();
+│ │ │ -    data["urls"].forEach(urlStart => new Item(urlStart));
+│ │ │ -    activeSwitch
+│ │ │ -    activeSwitch.checked = data["active"];
+│ │ │ -}
+│ │ │ -
+│ │ │ -function onClick() {
+│ │ │ -    let newUrlStart = inpBox.value.trim();
+│ │ │ -    if (!isValid(newUrlStart)) {
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -    new Item(newUrlStart);
+│ │ │ -    inpBox.value = "";
+│ │ │ -
+│ │ │ -    saveState();
+│ │ │ -}
+│ │ │ -
+│ │ │ -// try to set inpBox-value to current url
+│ │ │ -chrome.tabs.query({
+│ │ │ -    currentWindow: true,
+│ │ │ -    active: true
+│ │ │ -}).then(
+│ │ │ -    function(tabs) {
+│ │ │ -        curUrl = trimUrl(tabs[0].url);
+│ │ │ -        inpBox.value = curUrl;
+│ │ │ -    }).catch((error) => console.warn("could not read current url"));
+│ │ │ -
+│ │ │ -btn.onclick = onClick;
+│ │ │ -inpBox.onkeyup = (e) => {
+│ │ │ -    if (e.key === "Enter") {
+│ │ │ -        onClick();
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -activeSwitch.onchange = () => {
+│ │ │ -    saveState();
+│ │ │ -    chrome.runtime.sendMessage({
+│ │ │ -        name: "changeIcon",
+│ │ │ -        path: activeSwitch.checked ? "icons/default.png" : "icons/gray.png"
+│ │ │ -    });
+│ │ │ -};
+│ │ │ -
+│ │ │ -loadState();
+│ │ │ -
+│ │ │ -inpBox.focus();
+│ │ │ -
+│ │ │ -//can not be added to css-file (because the state is changed by code at the start and we don not want to animate that)
+│ │ │ -setTimeout(() => {
+│ │ │ -    let style_element = document.createElement("style");
+│ │ │ -    style_element.innerHTML = ".slider::before{transition: .2s;}";
+│ │ │ -    document.head.appendChild(style_element);
+│ │ │  }, 50);
+│ │   --- /workspace/pipeline_output/chromex_data/popup/style.css
+│ ├── +++ /workspace/pipeline_output/newtab-blocker/extension/popup/style.css
+│ │┄ Ordering differences only
+│ │ @@ -1,211 +1,211 @@
+│ │ +html, body{
+│ │ +    width: 470px;
+│ │ +    height: 600px; 
+│ │ +    margin: 0; 
+│ │ +    padding: 0;
+│ │ +    background-color: #333333;
+│ │ +    color: white;
+│ │ +}
+│ │ +body{
+│ │ +    display: flex;
+│ │ +    flex-flow: column;
+│ │ +}
+│ │ +br{
+│ │ +    user-select: none;
+│ │ +}
+│ │ +
+│ │ +#title {
+│ │ +    display: flex;
+│ │ +    align-items: center;
+│ │ +    margin: 10px 10px 5px 10px;
+│ │ +}
+│ │ +#title img {
+│ │ +    margin-right: 7px;
+│ │ +    user-select: none;
+│ │ +}
+│ │ +#title h1 {
+│ │ +    margin: 0;
+│ │ +}
+│ │ +
+│ │ +h2{
+│ │ +    margin: 10px 10px 5px 10px;
+│ │ +}
+│ │ +p{
+│ │ +   margin: 0px 10px 10px 10px;
+│ │ +}
+│ │ +
+│ │ +#activeDiv{
+│ │ +    display: flex;
+│ │ +    align-items: center;
+│ │ +    /* margin-left: 10px; */
+│ │ +    margin: 0 10px 0 10px;
+│ │ +    font-size: 20px;
+│ │ +}
+│ │ +#activeDiv p{
+│ │ +    padding-right: 10px;
+│ │ +    margin: 0px;
+│ │ +}
+│ │ +
+│ │ +/* listItem */
+│ │ +.listItem button{
+│ │ +    background-color: #ff0000;
+│ │ +    background-image: url('img/x.png');
+│ │ +    color: white;
+│ │ +    border-radius: 50%;
+│ │ +    border: 0px;
+│ │ +    width: 20px;
+│ │ +    height: 20px;
+│ │ +
+│ │ +    /* center x*/
+│ │ +    display: flex;
+│ │ +    justify-content: center;
+│ │ +    align-items: center;
+│ │ +}
+│ │ +.listItem button:hover{
+│ │ +    background-color: #c05555;
+│ │ +}
+│ │ +.listItem {
+│ │ +    display: inline-flex;
+│ │ +    align-items: center;
+│ │ +    border-radius: 20px;
+│ │ +    background-color:#333333;
+│ │ +    height: 30px;
+│ │ +    padding: 0 10px 0 5px;
+│ │ +    margin: 5px;
+│ │ +}
+│ │ +.listItem>.spacer{
+│ │ +    width: 4px;
+│ │ +    height: 0px;
+│ │ +}
+│ │ +.listRow{
+│ │ +    display: block;
+│ │ +}
+│ │ +/* inpDiv */
+│ │ +#inpDiv {
+│ │ +    display: flex; /* Use flexbox */
+│ │ +    width: 100%; /* Fill the whole width */
+│ │ +    background-color: #333333;
+│ │ +    align-items: center;
+│ │ +}
+│ │ +
+│ │ +#inpBox {
+│ │ +    flex-grow: 1;
+│ │ +    margin: 0 10px 0 10px;
+│ │ +    color: white;
+│ │ +    background-color: #000000;
+│ │ +    border: 0;
+│ │ +    border-radius: 15px;
+│ │ +    height: 30px;
+│ │ +    padding: 0 10px 0  10px;
+│ │ +}
+│ │ +
+│ │ +#inpBox:focus{
+│ │ +    outline: 2px solid #008800;
+│ │ +}
+│ │ +
+│ │ +#addBtn {
+│ │ +    width: 40px;
+│ │ +    height: 40px;
+│ │ +    margin: 0 10px 0 0;
+│ │ +    z-index: 1;
+│ │ +
+│ │ +    background-image: url('img/plus.png');
+│ │ +    background-color: #00a000;
+│ │ +    border-radius: 50%;
+│ │ +    border: 0px;
+│ │ +    
+│ │ +    /* center +*/
+│ │ +    display: flex;
+│ │ +    justify-content: center;
+│ │ +    align-items: center;
+│ │ +}
+│ │ +#addBtn:hover{
+│ │ +    background-color: #448844;
+│ │ +}
+│ │ +
+│ │ +#con {
+│ │ +    padding: 5px;
+│ │ +    background-color: #000000;
+│ │ +    overflow-y: auto;
+│ │ +    height: 200px;
+│ │ +    border-radius: 18px;
+│ │ +    border: 10px solid #333333;
+│ │ +    flex: 1;
+│ │ +}
+│ │ +
+│ │ +#con::-webkit-scrollbar {
+│ │ +    width: 12px;
+│ │ +    height: 12px;
+│ │ +}
+│ │ +
+│ │ +#con::-webkit-scrollbar-track {
+│ │ +    border-radius: 6px;
+│ │ +    background-color: #222222;
+│ │ +    border: 3px solid black;
+│ │ +}
+│ │ +
+│ │ +#con::-webkit-scrollbar-thumb {
+│ │ +    border-radius: 9px;
+│ │ +    border: 3px solid transparent;
+│ │ +    background-clip: content-box;
+│ │ +    background-color: #969696;
+│ │ +}
+│ │ +
+│ │ +#con::-webkit-scrollbar-corner{
+│ │ +    background-color: transparent;
+│ │ +}
+│ │ +
+│ │ +
+│ │ +/* https://www.w3schools.com/howto/howto_css_switch.asp */
+│ │ +/* The switch - the box around the slider */
+│ │ +.switch {
+│ │ +    position: relative;
+│ │ +    display: inline-block;
+│ │ +    width: 37px;
+│ │ +    height: 20px;
+│ │ +  }
+│ │ +  
+│ │ +  /* Hide default HTML checkbox */
+│ │ +  .switch input {
+│ │ +    opacity: 0;
+│ │ +    width: 0;
+│ │ +    height: 0;
+│ │ +  }
+│ │ +
+│ │ +  /* The slider */
+│ │ +  .slider {
+│ │ +    position: absolute;
+│ │ +    top: 0;
+│ │ +    left: 0;
+│ │ +    right: 0;
+│ │ +    bottom: 0;
+│ │ +    border-radius: 20px;
+│ │ +
+│ │ +    cursor: pointer;
+│ │ +
+│ │ +    background-color: #000000;
+│ │ +    border: 1px solid #777;
+│ │ +  }
+│ │ +  
+│ │ +  .slider:before {
+│ │ +    position: absolute;
+│ │ +    content: "";
+│ │ +    height: 14px;
+│ │ +    width: 14px;
+│ │ +    left: 2px;
+│ │ +    bottom: 2px;
+│ │ +    background-color: white;
+│ │ +    border-radius: 50%;
+│ │ +  }
+│ │ +
+│ │ +  input:checked + .slider {
+│ │ +    background-color: #ff0000;
+│ │ +    border: 1px solid #ffffff;
+│ │ +  }
+│ │ +  input:checked + .slider:before {
+│ │ +    transform: translateX(17px);
+│ │ +  }
+│ │ +  
+│ │ +  input:focus + .slider, input:hover + .slider{
+│ │ +    box-shadow: 0 0 10px #ffffffd0;
+│ │ -html, body{
+│ │ -    width: 470px;
+│ │ -    height: 600px; 
+│ │ -    margin: 0; 
+│ │ -    padding: 0;
+│ │ -    background-color: #333333;
+│ │ -    color: white;
+│ │ -}
+│ │ -body{
+│ │ -    display: flex;
+│ │ -    flex-flow: column;
+│ │ -}
+│ │ -br{
+│ │ -    user-select: none;
+│ │ -}
+│ │ -
+│ │ -#title {
+│ │ -    display: flex;
+│ │ -    align-items: center;
+│ │ -    margin: 10px 10px 5px 10px;
+│ │ -}
+│ │ -#title img {
+│ │ -    margin-right: 7px;
+│ │ -    user-select: none;
+│ │ -}
+│ │ -#title h1 {
+│ │ -    margin: 0;
+│ │ -}
+│ │ -
+│ │ -h2{
+│ │ -    margin: 10px 10px 5px 10px;
+│ │ -}
+│ │ -p{
+│ │ -   margin: 0px 10px 10px 10px;
+│ │ -}
+│ │ -
+│ │ -#activeDiv{
+│ │ -    display: flex;
+│ │ -    align-items: center;
+│ │ -    /* margin-left: 10px; */
+│ │ -    margin: 0 10px 0 10px;
+│ │ -    font-size: 20px;
+│ │ -}
+│ │ -#activeDiv p{
+│ │ -    padding-right: 10px;
+│ │ -    margin: 0px;
+│ │ -}
+│ │ -
+│ │ -/* listItem */
+│ │ -.listItem button{
+│ │ -    background-color: #ff0000;
+│ │ -    background-image: url('img/x.png');
+│ │ -    color: white;
+│ │ -    border-radius: 50%;
+│ │ -    border: 0px;
+│ │ -    width: 20px;
+│ │ -    height: 20px;
+│ │ -
+│ │ -    /* center x*/
+│ │ -    display: flex;
+│ │ -    justify-content: center;
+│ │ -    align-items: center;
+│ │ -}
+│ │ -.listItem button:hover{
+│ │ -    background-color: #c05555;
+│ │ -}
+│ │ -.listItem {
+│ │ -    display: inline-flex;
+│ │ -    align-items: center;
+│ │ -    border-radius: 20px;
+│ │ -    background-color:#333333;
+│ │ -    height: 30px;
+│ │ -    padding: 0 10px 0 5px;
+│ │ -    margin: 5px;
+│ │ -}
+│ │ -.listItem>.spacer{
+│ │ -    width: 4px;
+│ │ -    height: 0px;
+│ │ -}
+│ │ -.listRow{
+│ │ -    display: block;
+│ │ -}
+│ │ -/* inpDiv */
+│ │ -#inpDiv {
+│ │ -    display: flex; /* Use flexbox */
+│ │ -    width: 100%; /* Fill the whole width */
+│ │ -    background-color: #333333;
+│ │ -    align-items: center;
+│ │ -}
+│ │ -
+│ │ -#inpBox {
+│ │ -    flex-grow: 1;
+│ │ -    margin: 0 10px 0 10px;
+│ │ -    color: white;
+│ │ -    background-color: #000000;
+│ │ -    border: 0;
+│ │ -    border-radius: 15px;
+│ │ -    height: 30px;
+│ │ -    padding: 0 10px 0  10px;
+│ │ -}
+│ │ -
+│ │ -#inpBox:focus{
+│ │ -    outline: 2px solid #008800;
+│ │ -}
+│ │ -
+│ │ -#addBtn {
+│ │ -    width: 40px;
+│ │ -    height: 40px;
+│ │ -    margin: 0 10px 0 0;
+│ │ -    z-index: 1;
+│ │ -
+│ │ -    background-image: url('img/plus.png');
+│ │ -    background-color: #00a000;
+│ │ -    border-radius: 50%;
+│ │ -    border: 0px;
+│ │ -    
+│ │ -    /* center +*/
+│ │ -    display: flex;
+│ │ -    justify-content: center;
+│ │ -    align-items: center;
+│ │ -}
+│ │ -#addBtn:hover{
+│ │ -    background-color: #448844;
+│ │ -}
+│ │ -
+│ │ -#con {
+│ │ -    padding: 5px;
+│ │ -    background-color: #000000;
+│ │ -    overflow-y: auto;
+│ │ -    height: 200px;
+│ │ -    border-radius: 18px;
+│ │ -    border: 10px solid #333333;
+│ │ -    flex: 1;
+│ │ -}
+│ │ -
+│ │ -#con::-webkit-scrollbar {
+│ │ -    width: 12px;
+│ │ -    height: 12px;
+│ │ -}
+│ │ -
+│ │ -#con::-webkit-scrollbar-track {
+│ │ -    border-radius: 6px;
+│ │ -    background-color: #222222;
+│ │ -    border: 3px solid black;
+│ │ -}
+│ │ -
+│ │ -#con::-webkit-scrollbar-thumb {
+│ │ -    border-radius: 9px;
+│ │ -    border: 3px solid transparent;
+│ │ -    background-clip: content-box;
+│ │ -    background-color: #969696;
+│ │ -}
+│ │ -
+│ │ -#con::-webkit-scrollbar-corner{
+│ │ -    background-color: transparent;
+│ │ -}
+│ │ -
+│ │ -
+│ │ -/* https://www.w3schools.com/howto/howto_css_switch.asp */
+│ │ -/* The switch - the box around the slider */
+│ │ -.switch {
+│ │ -    position: relative;
+│ │ -    display: inline-block;
+│ │ -    width: 37px;
+│ │ -    height: 20px;
+│ │ -  }
+│ │ -  
+│ │ -  /* Hide default HTML checkbox */
+│ │ -  .switch input {
+│ │ -    opacity: 0;
+│ │ -    width: 0;
+│ │ -    height: 0;
+│ │ -  }
+│ │ -
+│ │ -  /* The slider */
+│ │ -  .slider {
+│ │ -    position: absolute;
+│ │ -    top: 0;
+│ │ -    left: 0;
+│ │ -    right: 0;
+│ │ -    bottom: 0;
+│ │ -    border-radius: 20px;
+│ │ -
+│ │ -    cursor: pointer;
+│ │ -
+│ │ -    background-color: #000000;
+│ │ -    border: 1px solid #777;
+│ │ -  }
+│ │ -  
+│ │ -  .slider:before {
+│ │ -    position: absolute;
+│ │ -    content: "";
+│ │ -    height: 14px;
+│ │ -    width: 14px;
+│ │ -    left: 2px;
+│ │ -    bottom: 2px;
+│ │ -    background-color: white;
+│ │ -    border-radius: 50%;
+│ │ -  }
+│ │ -
+│ │ -  input:checked + .slider {
+│ │ -    background-color: #ff0000;
+│ │ -    border: 1px solid #ffffff;
+│ │ -  }
+│ │ -  input:checked + .slider:before {
+│ │ -    transform: translateX(17px);
+│ │ -  }
+│ │ -  
+│ │ -  input:focus + .slider, input:hover + .slider{
+│ │ -    box-shadow: 0 0 10px #ffffffd0;
+│ │    }
+│   --- /workspace/pipeline_output/chromex_data/service-worker.js
+├── +++ /workspace/pipeline_output/newtab-blocker/extension/service-worker.js
+│ ├── js-beautify {}
+│ │ @@ -1,264 +1,264 @@
+│ │ -function increaseBadgeCounter(tabId) {
+│ │ -    chrome.action.getBadgeText({
+│ │ -        tabId: tabId
+│ │ -    }).then((text) => {
+│ │ -        let count = parseInt(text);
+│ │ -        if (isNaN(count)) {
+│ │ -            count = 0;
+│ │ -        }
+│ │ -        count++;
+│ │ -        chrome.action.setBadgeText({
+│ │ -            tabId: tabId,
+│ │ -            text: count.toString()
+│ │ -        });
+│ │ -    });
+│ │ -    chrome.action.setBadgeBackgroundColor({
+│ │ -        tabId: tabId,
+│ │ -        color: "black"
+│ │ -    });
+│ │ -    chrome.action.setBadgeTextColor({
+│ │ -        tabId: tabId,
+│ │ -        color: "white"
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function setBadgeToError(tabId) {
+│ │ -    chrome.action.setBadgeText({
+│ │ -        tabId: tabId,
+│ │ -        text: "X"
+│ │ -    });
+│ │ -    chrome.action.setBadgeBackgroundColor({
+│ │ -        tabId: tabId,
+│ │ -        color: "orange"
+│ │ -    });
+│ │ -    chrome.action.setBadgeTextColor({
+│ │ -        tabId: tabId,
+│ │ -        color: "black"
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -chrome.tabs.onCreated.addListener(async function(tab) {
+│ │ -    freezeCurTabId = true;
+│ │ -    if (!await closeInCase(tab) && tmpCurTabId !== undefined) {
+│ │ -        console.log(`new active tab: ${tmpCurTabId} (was on hold)`);
+│ │ -        curTabId = tmpCurTabId;
+│ │ -        tmpCurTabId = undefined;
+│ │ -    }
+│ │ -    freezeCurTabId = false;
+│ │ -});
+│ │ -
+│ │ -let stopFlashIcon;
+│ │ -
+│ │ -function flashIcon() {
+│ │ -    let flashTime = 800;
+│ │ -    chrome.action.setIcon({
+│ │ -        path: "icons/flash.png"
+│ │ -    });
+│ │ -    stopFlashIcon = new Date().getTime() + flashTime;
+│ │ -    setTimeout(() => {
+│ │ -        if (new Date().getTime() < stopFlashIcon) {
+│ │ -            return;
+│ │ -        }
+│ │ -        chrome.action.setIcon({
+│ │ -            path: "icons/default.png"
+│ │ -        });
+│ │ -    }, flashTime);
+│ │ -}
+│ │ -
+│ │ -async function closeInCase(tab) {
+│ │ -    function closeTab(tab, openerTabId) {
+│ │ -        chrome.tabs.remove(tab.id).then(() => {
+│ │ -            flashIcon();
+│ │ -            if (openerTabId !== undefined) {
+│ │ -                increaseBadgeCounter(openerTabId);
+│ │ -            }
+│ │ -            console.log(`opening '${tab.pendingUrl}' (${tab.url}) (id: ${tab.id}) was blocked`);
+│ │ -        }).catch((error) => {
+│ │ -            setBadgeToError(openerTabId);
+│ │ -            console.warn(`could not close new tab: ${error}`);
+│ │ -        });
+│ │ -    }
+│ │ -    let tab_url = tab.pendingUrl ? tab.pendingUrl : (tab.url ? tab.url : "");
+│ │ -    console.log(`'${tab_url}' (id: ${tab.id}) wants to be opened in a new tab`);
+│ │ -
+│ │ -    if (tab_url && !tab_url.startsWith("http")) {
+│ │ -        // probably user input (i. e. chrome://newtab/)
+│ │ -        console.log("probably user input");
+│ │ -        return false;
+│ │ -    }
+│ │ -    if (/^https:\/\/www.google.com\/search\?.*q=.*&sourceid=((opera)|(chrome))/.test(tab_url)) {
+│ │ -        // sse issue #1 (2/2)
+│ │ -        console.log('search on highlighted text => no blocking');
+│ │ -        return false;
+│ │ -    }
+│ │ -    if ((tab.url && tab.pendingUrl !== tab.url) || (tab.lastAccessed > 0 && tab.lastAccessed < Date.now() - 100)) {
+│ │ -        console.log(`probably restored tab ${tab.pendingUrl} ${tab.url}`);
+│ │ -        return false;
+│ │ -    }
+│ │ -
+│ │ -    let recentlyClosed = (await chrome.sessions.getRecentlyClosed({
+│ │ -        maxResults: 1
+│ │ -    }));
+│ │ -    let curRecentlyClosedId = "-1";
+│ │ -    if (recentlyClosed.length !== 0) {
+│ │ -        curRecentlyClosedId = recentlyClosed[0].tab ? recentlyClosed[0].tab.sessionId : recentlyClosed[0].window.sessionId;
+│ │ -    }
+│ │ -    if (curRecentlyClosedId != recentlyClosedId) {
+│ │ -        // recentlyClosedCount probably decresed because recently closed tab was restored and is therefore not "closed"
+│ │ -        console.log("tab is probably restored tab (i. e. with Ctrl+Shift+T)");
+│ │ -        recentlyClosedId = curRecentlyClosedId;
+│ │ -        return false;
+│ │ -    }
+│ │ -
+│ │ -    let resolved = await Promise.all([chrome.tabs.query({}), chrome.storage.local.get()]);
+│ │ -    let tabs = resolved[0];
+│ │ -    let data = resolved[1];
+│ │ -
+│ │ -    if (!data.active || data.urls.length === 0) {
+│ │ -        console.log('not active or empty list');
+│ │ -        return false;
+│ │ -    }
+│ │ -
+│ │ -    if (tabs.length <= 1) {
+│ │ -        console.log('only tab existing => no blocking');
+│ │ -        return false;
+│ │ -    }
+│ │ -
+│ │ -    // get opener Url
+│ │ -    // recover openerTabId if necessary
+│ │ -    let openerTabId = tab.openerTabId;
+│ │ -    if (openerTabId === undefined) {
+│ │ -        console.log('could not read openerTabId directly');
+│ │ -
+│ │ -        // lets make an assumption
+│ │ -        openerTabId = curTabId;
+│ │ -
+│ │ -        if (openerTabId === undefined) {
+│ │ -            console.warn('could not recover openerTabId: curTabId === undefind');
+│ │ -        }
+│ │ -    }
+│ │ -
+│ │ -    if (openerTabId === undefined) {
+│ │ -        if (data.urls.includes("")) {
+│ │ -            closeTab(tab, openerTabId);
+│ │ -            return true;
+│ │ -        }
+│ │ -        // warning already logged
+│ │ -        return false;
+│ │ -    }
+│ │ -
+│ │ -    let openerUrl;
+│ │ -    try {
+│ │ -        openerUrl = (await chrome.tabs.get(openerTabId)).url;
+│ │ -    } catch (error) {
+│ │ -        console.warn(`could not get openerUrl: ${error}`);
+│ │ -        return false;
+│ │ -    }
+│ │ -    if (openerUrl === undefined || openerUrl === "") {
+│ │ -        console.warn(`could not get openerUrl: openerUrl = '${openerUrl}' of tab: ${openerTabId}`);
+│ │ -        return false;
+│ │ -    }
+│ │ -    console.log(`openerUrl: ${openerUrl}`);
+│ │ -
+│ │ -    if (openerUrl === tab_url) {
+│ │ -        // see issue #1 (1/2)
+│ │ -        console.log('tab duplication => no blocking');
+│ │ -        return false;
+│ │ -    }
+│ │ -
+│ │ -    for (let i = 0; i < data.urls.length; i++) {
+│ │ -        if (openerUrl.startsWith(data.urls[i])) {
+│ │ -            closeTab(tab, openerTabId);
+│ │ -            return true;
+│ │ -        }
+│ │ -    }
+│ │ -
+│ │ -    console.log(`opening '${tab_url}' (id: ${tab.id}) from '${openerUrl}' (id: ${openerTabId}) was allowed`);
+│ │ -    return false;
+│ │ -}
+│ │ -
+│ │ -// initialize storage if necessary and set icon
+│ │ -chrome.storage.local.get().then((res) => {
+│ │ -    if (Object.keys(res).length === 0) {
+│ │ -        chrome.storage.local.set({
+│ │ -            urls: [],
+│ │ -            active: true
+│ │ -        });
+│ │ -        return;
+│ │ -    }
+│ │ -    chrome.action.setIcon({
+│ │ -        path: res["active"] ? "icons/default.png" : "icons/gray.png"
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+│ │ -    if (request.name === "changeIcon") {
+│ │ -        chrome.action.setIcon({
+│ │ -            path: request.path
+│ │ -        });
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -// use curTabId as backup (sometimes new_tab.openerTabId === undefind)
+│ │ -let curTabId = undefined;
+│ │ -let freezeCurTabId = false;
+│ │ -let tmpCurTabId = undefined;
+│ │ -
+│ │ -function setCurTabId(newId, eventInfo = "") {
+│ │ -    if (freezeCurTabId) {
+│ │ -        tmpCurTabId = newId;
+│ │ -        console.log(`new active tab on hold (${eventInfo}): ${newId}`);
+│ │ -        return;
+│ │ -    }
+│ │ -    curTabId = newId;
+│ │ -
+│ │ -    console.log(`new active tab (${eventInfo}): ${newId}`);
+│ │ -}
+│ │ -
+│ │ -chrome.tabs.onActivated.addListener(function(activeInfo) {
+│ │ -    setCurTabId(activeInfo.tabId);
+│ │ -});
+│ │ -
+│ │ -// tab change on window change is not covered by tabs.onActivated
+│ │ -chrome.windows.onFocusChanged.addListener(windowId => {
+│ │ -    if (windowId === -1) {
+│ │ -        return;
+│ │ -    }
+│ │ -    chrome.tabs.query({
+│ │ -        "active": true,
+│ │ -        "windowId": windowId
+│ │ -    }).then((tabs) => {
+│ │ -        setCurTabId(tabs[0].id, "window change");
+│ │ -    }).catch((error) => {
+│ │ -        console.warn(`could not get curtabId on window change: ${error}`);
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -// set curTabId on extension startup
+│ │ -chrome.tabs.query({
+│ │ -    "active": true,
+│ │ -    "lastFocusedWindow": true
+│ │ -}).then((tabs) => {
+│ │ -    setCurTabId(tabs[0].id, "startup");
+│ │ -}).catch((error) => {
+│ │ -    console.warn(`could not get curtabId on startup: ${error}`);
+│ │ -});
+│ │ -
+│ │ -let recentlyClosedId = "-1"; // to detect if new tab is a restored tab (with Ctrl+Shift+T)
+│ │ -
+│ │ -function updateRecentlyClosedId() {
+│ │ -    chrome.sessions.getRecentlyClosed({
+│ │ -        maxResults: 1
+│ │ -    }, (recentlyClosed) => {
+│ │ -        if (recentlyClosed.length === 0) {
+│ │ -            recentlyClosedId = "-1";
+│ │ -            return;
+│ │ -        }
+│ │ -        recentlyClosedId = recentlyClosed[0].tab ? recentlyClosed[0].tab.sessionId : recentlyClosed[0].window.sessionId;
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -updateRecentlyClosedId(); // udpate on startup
+│ │ -chrome.tabs.onRemoved.addListener(updateRecentlyClosedId); // update when tab if removed (and counts now as recently closed)
+│ │ -
+│ │ +function increaseBadgeCounter(tabId) {
+│ │ +    chrome.action.getBadgeText({
+│ │ +        tabId: tabId
+│ │ +    }).then((text) => {
+│ │ +        let count = parseInt(text);
+│ │ +        if (isNaN(count)) {
+│ │ +            count = 0;
+│ │ +        }
+│ │ +        count++;
+│ │ +        chrome.action.setBadgeText({
+│ │ +            tabId: tabId,
+│ │ +            text: count.toString()
+│ │ +        });
+│ │ +    });
+│ │ +    chrome.action.setBadgeBackgroundColor({
+│ │ +        tabId: tabId,
+│ │ +        color: "black"
+│ │ +    });
+│ │ +    chrome.action.setBadgeTextColor({
+│ │ +        tabId: tabId,
+│ │ +        color: "white"
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function setBadgeToError(tabId) {
+│ │ +    chrome.action.setBadgeText({
+│ │ +        tabId: tabId,
+│ │ +        text: "X"
+│ │ +    });
+│ │ +    chrome.action.setBadgeBackgroundColor({
+│ │ +        tabId: tabId,
+│ │ +        color: "orange"
+│ │ +    });
+│ │ +    chrome.action.setBadgeTextColor({
+│ │ +        tabId: tabId,
+│ │ +        color: "black"
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +chrome.tabs.onCreated.addListener(async function(tab) {
+│ │ +    freezeCurTabId = true;
+│ │ +    if (!await closeInCase(tab) && tmpCurTabId !== undefined) {
+│ │ +        console.log(`new active tab: ${tmpCurTabId} (was on hold)`);
+│ │ +        curTabId = tmpCurTabId;
+│ │ +        tmpCurTabId = undefined;
+│ │ +    }
+│ │ +    freezeCurTabId = false;
+│ │ +});
+│ │ +
+│ │ +let stopFlashIcon;
+│ │ +
+│ │ +function flashIcon() {
+│ │ +    let flashTime = 800;
+│ │ +    chrome.action.setIcon({
+│ │ +        path: "icons/flash.png"
+│ │ +    });
+│ │ +    stopFlashIcon = new Date().getTime() + flashTime;
+│ │ +    setTimeout(() => {
+│ │ +        if (new Date().getTime() < stopFlashIcon) {
+│ │ +            return;
+│ │ +        }
+│ │ +        chrome.action.setIcon({
+│ │ +            path: "icons/default.png"
+│ │ +        });
+│ │ +    }, flashTime);
+│ │ +}
+│ │ +
+│ │ +async function closeInCase(tab) {
+│ │ +    function closeTab(tab, openerTabId) {
+│ │ +        chrome.tabs.remove(tab.id).then(() => {
+│ │ +            flashIcon();
+│ │ +            if (openerTabId !== undefined) {
+│ │ +                increaseBadgeCounter(openerTabId);
+│ │ +            }
+│ │ +            console.log(`opening '${tab.pendingUrl}' (${tab.url}) (id: ${tab.id}) was blocked`);
+│ │ +        }).catch((error) => {
+│ │ +            setBadgeToError(openerTabId);
+│ │ +            console.warn(`could not close new tab: ${error}`);
+│ │ +        });
+│ │ +    }
+│ │ +    let tab_url = tab.pendingUrl ? tab.pendingUrl : (tab.url ? tab.url : "");
+│ │ +    console.log(`'${tab_url}' (id: ${tab.id}) wants to be opened in a new tab`);
+│ │ +
+│ │ +    if (tab_url && !tab_url.startsWith("http")) {
+│ │ +        // probably user input (i. e. chrome://newtab/)
+│ │ +        console.log("probably user input");
+│ │ +        return false;
+│ │ +    }
+│ │ +    if (/^https:\/\/www.google.com\/search\?.*q=.*&sourceid=((opera)|(chrome))/.test(tab_url)) {
+│ │ +        // sse issue #1 (2/2)
+│ │ +        console.log('search on highlighted text => no blocking');
+│ │ +        return false;
+│ │ +    }
+│ │ +    if ((tab.url && tab.pendingUrl !== tab.url) || (tab.lastAccessed > 0 && tab.lastAccessed < Date.now() - 100)) {
+│ │ +        console.log(`probably restored tab ${tab.pendingUrl} ${tab.url}`);
+│ │ +        return false;
+│ │ +    }
+│ │ +
+│ │ +    let recentlyClosed = (await chrome.sessions.getRecentlyClosed({
+│ │ +        maxResults: 1
+│ │ +    }));
+│ │ +    let curRecentlyClosedId = "-1";
+│ │ +    if (recentlyClosed.length !== 0) {
+│ │ +        curRecentlyClosedId = recentlyClosed[0].tab ? recentlyClosed[0].tab.sessionId : recentlyClosed[0].window.sessionId;
+│ │ +    }
+│ │ +    if (curRecentlyClosedId != recentlyClosedId) {
+│ │ +        // recentlyClosedCount probably decresed because recently closed tab was restored and is therefore not "closed"
+│ │ +        console.log("tab is probably restored tab (i. e. with Ctrl+Shift+T)");
+│ │ +        recentlyClosedId = curRecentlyClosedId;
+│ │ +        return false;
+│ │ +    }
+│ │ +
+│ │ +    let resolved = await Promise.all([chrome.tabs.query({}), chrome.storage.local.get()]);
+│ │ +    let tabs = resolved[0];
+│ │ +    let data = resolved[1];
+│ │ +
+│ │ +    if (!data.active || data.urls.length === 0) {
+│ │ +        console.log('not active or empty list');
+│ │ +        return false;
+│ │ +    }
+│ │ +
+│ │ +    if (tabs.length <= 1) {
+│ │ +        console.log('only tab existing => no blocking');
+│ │ +        return false;
+│ │ +    }
+│ │ +
+│ │ +    // get opener Url
+│ │ +    // recover openerTabId if necessary
+│ │ +    let openerTabId = tab.openerTabId;
+│ │ +    if (openerTabId === undefined) {
+│ │ +        console.log('could not read openerTabId directly');
+│ │ +
+│ │ +        // lets make an assumption
+│ │ +        openerTabId = curTabId;
+│ │ +
+│ │ +        if (openerTabId === undefined) {
+│ │ +            console.warn('could not recover openerTabId: curTabId === undefind');
+│ │ +        }
+│ │ +    }
+│ │ +
+│ │ +    if (openerTabId === undefined) {
+│ │ +        if (data.urls.includes("")) {
+│ │ +            closeTab(tab, openerTabId);
+│ │ +            return true;
+│ │ +        }
+│ │ +        // warning already logged
+│ │ +        return false;
+│ │ +    }
+│ │ +
+│ │ +    let openerUrl;
+│ │ +    try {
+│ │ +        openerUrl = (await chrome.tabs.get(openerTabId)).url;
+│ │ +    } catch (error) {
+│ │ +        console.warn(`could not get openerUrl: ${error}`);
+│ │ +        return false;
+│ │ +    }
+│ │ +    if (openerUrl === undefined || openerUrl === "") {
+│ │ +        console.warn(`could not get openerUrl: openerUrl = '${openerUrl}' of tab: ${openerTabId}`);
+│ │ +        return false;
+│ │ +    }
+│ │ +    console.log(`openerUrl: ${openerUrl}`);
+│ │ +
+│ │ +    if (openerUrl === tab_url) {
+│ │ +        // see issue #1 (1/2)
+│ │ +        console.log('tab duplication => no blocking');
+│ │ +        return false;
+│ │ +    }
+│ │ +
+│ │ +    for (let i = 0; i < data.urls.length; i++) {
+│ │ +        if (openerUrl.startsWith(data.urls[i])) {
+│ │ +            closeTab(tab, openerTabId);
+│ │ +            return true;
+│ │ +        }
+│ │ +    }
+│ │ +
+│ │ +    console.log(`opening '${tab_url}' (id: ${tab.id}) from '${openerUrl}' (id: ${openerTabId}) was allowed`);
+│ │ +    return false;
+│ │ +}
+│ │ +
+│ │ +// initialize storage if necessary and set icon
+│ │ +chrome.storage.local.get().then((res) => {
+│ │ +    if (Object.keys(res).length === 0) {
+│ │ +        chrome.storage.local.set({
+│ │ +            urls: [],
+│ │ +            active: true
+│ │ +        });
+│ │ +        return;
+│ │ +    }
+│ │ +    chrome.action.setIcon({
+│ │ +        path: res["active"] ? "icons/default.png" : "icons/gray.png"
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+│ │ +    if (request.name === "changeIcon") {
+│ │ +        chrome.action.setIcon({
+│ │ +            path: request.path
+│ │ +        });
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +// use curTabId as backup (sometimes new_tab.openerTabId === undefind)
+│ │ +let curTabId = undefined;
+│ │ +let freezeCurTabId = false;
+│ │ +let tmpCurTabId = undefined;
+│ │ +
+│ │ +function setCurTabId(newId, eventInfo = "") {
+│ │ +    if (freezeCurTabId) {
+│ │ +        tmpCurTabId = newId;
+│ │ +        console.log(`new active tab on hold (${eventInfo}): ${newId}`);
+│ │ +        return;
+│ │ +    }
+│ │ +    curTabId = newId;
+│ │ +
+│ │ +    console.log(`new active tab (${eventInfo}): ${newId}`);
+│ │ +}
+│ │ +
+│ │ +chrome.tabs.onActivated.addListener(function(activeInfo) {
+│ │ +    setCurTabId(activeInfo.tabId);
+│ │ +});
+│ │ +
+│ │ +// tab change on window change is not covered by tabs.onActivated
+│ │ +chrome.windows.onFocusChanged.addListener(windowId => {
+│ │ +    if (windowId === -1) {
+│ │ +        return;
+│ │ +    }
+│ │ +    chrome.tabs.query({
+│ │ +        "active": true,
+│ │ +        "windowId": windowId
+│ │ +    }).then((tabs) => {
+│ │ +        setCurTabId(tabs[0].id, "window change");
+│ │ +    }).catch((error) => {
+│ │ +        console.warn(`could not get curtabId on window change: ${error}`);
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +// set curTabId on extension startup
+│ │ +chrome.tabs.query({
+│ │ +    "active": true,
+│ │ +    "lastFocusedWindow": true
+│ │ +}).then((tabs) => {
+│ │ +    setCurTabId(tabs[0].id, "startup");
+│ │ +}).catch((error) => {
+│ │ +    console.warn(`could not get curtabId on startup: ${error}`);
+│ │ +});
+│ │ +
+│ │ +let recentlyClosedId = "-1"; // to detect if new tab is a restored tab (with Ctrl+Shift+T)
+│ │ +
+│ │ +function updateRecentlyClosedId() {
+│ │ +    chrome.sessions.getRecentlyClosed({
+│ │ +        maxResults: 1
+│ │ +    }, (recentlyClosed) => {
+│ │ +        if (recentlyClosed.length === 0) {
+│ │ +            recentlyClosedId = "-1";
+│ │ +            return;
+│ │ +        }
+│ │ +        recentlyClosedId = recentlyClosed[0].tab ? recentlyClosed[0].tab.sessionId : recentlyClosed[0].window.sessionId;
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +updateRecentlyClosedId(); // udpate on startup
+│ │ +chrome.tabs.onRemoved.addListener(updateRecentlyClosedId); // update when tab if removed (and counts now as recently closed)
+│ │ +
+│ │  console.log("welcome to the console");

@@ -1,0 +1,24 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Image-Reverse-Search-WebExtension/public
+├── file list
+│ @@ -1,6 +1,5 @@
+│  _locales
+│ -_metadata
+│  build
+│  icons
+│  manifest.json
+│  options
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Image-Reverse-Search-WebExtension/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,10 +42,9 @@
+│ │          "open_in_tab": true,
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.3.1"
+│ │  }

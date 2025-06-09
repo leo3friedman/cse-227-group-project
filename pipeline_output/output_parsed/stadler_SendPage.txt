@@ -1,0 +1,17 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/SendPage
+  - files: _metadata
+  + files: .git, .gitignore, .project, TermsOfUse.md, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/SendPage/README.md; File type: md
+  - Original: 10–11
+  - Original: 18–18
+  + Modified: 10–10
+  - Original: 28–28
+  - Original: 33–33
+  + Modified: 32–36
+  - Original: 64–64
+  + Modified: 72–75
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/SendPage/manifest.json; File type: json
+  - Original: 22–22 -> Update URL
+

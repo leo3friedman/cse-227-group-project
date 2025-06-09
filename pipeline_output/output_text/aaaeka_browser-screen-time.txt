@@ -1,0 +1,59 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/browser-screen-time/public
+├── file list
+│ @@ -1,15 +1,4 @@
+│ -_metadata
+│  assets
+│ -background.js
+│ -background.js.map
+│  index.html
+│ -index.js
+│ -index.js.LICENSE.txt
+│ -index.js.map
+│  manifest.json
+│ -popup.html
+│ -popup.js
+│ -popup.js.LICENSE.txt
+│ -popup.js.map
+│ -videoCheck.js
+│ -videoCheck.js.map
+│ +popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/browser-screen-time/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,15 +9,23 @@
+│ │              "512": "assets/icons/512px.png",
+│ │              "64": "assets/icons/64px.png"
+│ │          },
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "Screen Time"
+│ │      },
+│ │      "background": {
+│ │ -        "service_worker": "background.js"
+│ │ +        "scripts": [
+│ │ +            "background.js"
+│ │ +        ]
+│ │ +    },
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "{68e1a6af-c5f7-4cb2-ad46-170e1a2acd01}",
+│ │ +            "strict_min_version": "109.0"
+│ │ +        }
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": true,
+│ │              "js": [
+│ │                  "videoCheck.js"
+│ │              ],
+│ │ @@ -42,10 +50,9 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "idle",
+│ │          "tabs",
+│ │          "notifications"
+│ │      ],
+│ │      "short_name": "Screen Time",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.3.0"
+│ │  }

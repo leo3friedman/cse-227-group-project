@@ -1,0 +1,1004 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/FastStream/chrome
+  - files: LICENSE.md, _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/background/BackgroundUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/BackgroundUtils.mjs; File type: mjs
+  + Modified: 8–19
+  + Modified: 35–35
+  + Modified: 71–87
+
+---/workspace/pipeline_output/chromex_data/background/MultiRegexMatcher.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/MultiRegexMatcher.mjs; File type: mjs
+  + Modified: 6–66
+
+---/workspace/pipeline_output/chromex_data/background/NetRequestRuleManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/NetRequestRuleManager.mjs; File type: mjs
+  + Modified: 7–15
+  + Modified: 33–113
+
+---/workspace/pipeline_output/chromex_data/background/SponsorBlockIntegration.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/SponsorBlockIntegration.mjs; File type: mjs
+  + Modified: 2–53
+
+---/workspace/pipeline_output/chromex_data/background/StreamSaverBackend.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/StreamSaverBackend.mjs; File type: mjs
+  + Modified: 1–90
+
+---/workspace/pipeline_output/chromex_data/background/TabTracker.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/TabTracker.mjs; File type: mjs
+  + Modified: 2–82
+  + Modified: 108–150
+
+---/workspace/pipeline_output/chromex_data/background/background.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/background.mjs; File type: mjs
+  + Modified: 13–159
+  + Modified: 181–265
+  + Modified: 349–357
+  + Modified: 373–373
+  + Modified: 393–393
+  + Modified: 421–468
+  + Modified: 487–675
+  + Modified: 697–864
+  + Modified: 884–1072
+  + Modified: 1088–1131
+  + Modified: 1151–1291
+  + Modified: 1309–1403
+
+---/workspace/pipeline_output/chromex_data/content.js <-> +++/workspace/pipeline_output/FastStream/chrome/content.js; File type: js
+  + Modified: 23–53
+  + Modified: 99–176
+  + Modified: 205–212
+  + Modified: 239–239
+  + Modified: 272–305
+  + Modified: 335–434
+  + Modified: 453–465
+  + Modified: 507–507
+  + Modified: 524–549
+  + Modified: 569–569
+  + Modified: 589–609
+  + Modified: 632–645
+  + Modified: 663–668
+  + Modified: 689–689
+  + Modified: 719–773
+  + Modified: 843–846
+  + Modified: 865–915
+  + Modified: 932–932
+  + Modified: 955–985
+  + Modified: 1018–1099
+  + Modified: 1120–1169
+  + Modified: 1193–1193
+  + Modified: 1218–1333
+
+---/workspace/pipeline_output/chromex_data/custom/bilibili_content.js <-> +++/workspace/pipeline_output/FastStream/chrome/custom/bilibili_content.js; File type: js
+  + Modified: 5–20
+  + Modified: 44–85
+  + Modified: 106–106
+
+---/workspace/pipeline_output/chromex_data/custom/facebook_content.js <-> +++/workspace/pipeline_output/FastStream/chrome/custom/facebook_content.js; File type: js
+  + Modified: 5–5
+  + Modified: 26–71
+
+---/workspace/pipeline_output/chromex_data/custom/instagram_content.js <-> +++/workspace/pipeline_output/FastStream/chrome/custom/instagram_content.js; File type: js
+  + Modified: 6–34
+
+---/workspace/pipeline_output/chromex_data/custom/instagram_inject.js <-> +++/workspace/pipeline_output/FastStream/chrome/custom/instagram_inject.js; File type: js
+  + Modified: 6–6
+  + Modified: 27–33
+  + Modified: 49–78
+
+---/workspace/pipeline_output/chromex_data/custom/yt_content.js <-> +++/workspace/pipeline_output/FastStream/chrome/custom/yt_content.js; File type: js
+  + Modified: 11–25
+  + Modified: 52–62
+  + Modified: 81–82
+  + Modified: 100–100
+  + Modified: 126–136
+  + Modified: 163–195
+  + Modified: 217–231
+  + Modified: 249–267
+  + Modified: 287–295
+  + Modified: 315–315
+  + Modified: 334–422
+  + Modified: 447–458
+  + Modified: 480–551
+  + Modified: 584–585
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/FastStream/chrome/manifest.json; File type: json
+  - Original: 102–102 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/perms.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/perms.mjs; File type: mjs
+  + Modified: 11–11
+  + Modified: 34–36
+
+---/workspace/pipeline_output/chromex_data/player/FastStreamClient.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/FastStreamClient.mjs; File type: mjs
+  + Modified: 35–42
+  + Modified: 101–166
+  + Modified: 183–461
+  + Modified: 484–504
+  + Modified: 520–1063
+  + Modified: 1085–1606
+
+---/workspace/pipeline_output/chromex_data/player/SubtitleTrack.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/SubtitleTrack.mjs; File type: mjs
+  + Modified: 3–79
+
+---/workspace/pipeline_output/chromex_data/player/VideoSource.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/VideoSource.mjs; File type: mjs
+  + Modified: 2–2
+  + Modified: 23–59
+  + Modified: 78–141
+
+---/workspace/pipeline_output/chromex_data/player/enums/DefaultPlayerEvents.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/enums/DefaultPlayerEvents.mjs; File type: mjs
+  + Modified: 2–137
+
+---/workspace/pipeline_output/chromex_data/player/i18n.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/i18n.mjs; File type: mjs
+  + Modified: 2–8
+
+---/workspace/pipeline_output/chromex_data/player/main.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/main.mjs; File type: mjs
+  + Modified: 1–13
+  + Modified: 57–154
+  + Modified: 171–416
+
+---/workspace/pipeline_output/chromex_data/player/modules/FSBlob.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/FSBlob.mjs; File type: mjs
+  + Modified: 3–32
+  + Modified: 48–153
+
+---/workspace/pipeline_output/chromex_data/player/modules/LargeBuffer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/LargeBuffer.mjs; File type: mjs
+  + Modified: 11–74
+
+---/workspace/pipeline_output/chromex_data/player/modules/Localize.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/Localize.mjs; File type: mjs
+  + Modified: 2–53
+
+---/workspace/pipeline_output/chromex_data/player/modules/SVGDaltonizer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/SVGDaltonizer.mjs; File type: mjs
+  - Original: 57–57
+  + Modified: 8–99
+  - Original: 245–245
+  + Modified: 262–272
+  + Modified: 299–299
+  + Modified: 316–316
+  + Modified: 340–340
+  + Modified: 356–356
+  + Modified: 373–451
+  + Modified: 467–505
+
+---/workspace/pipeline_output/chromex_data/player/modules/SecureMemory.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/SecureMemory.mjs; File type: mjs
+  + Modified: 2–149
+  + Modified: 167–174
+
+---/workspace/pipeline_output/chromex_data/player/modules/StreamSaver.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/StreamSaver.mjs; File type: mjs
+  + Modified: 4–27
+  + Modified: 43–114
+  + Modified: 132–132
+
+---/workspace/pipeline_output/chromex_data/player/modules/analyzer/AudioAnalyzer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/analyzer/AudioAnalyzer.mjs; File type: mjs
+  + Modified: 5–37
+  + Modified: 61–359
+  + Modified: 376–445
+  + Modified: 462–462
+
+---/workspace/pipeline_output/chromex_data/player/modules/analyzer/AudioAnalyzerNode.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/analyzer/AudioAnalyzerNode.mjs; File type: mjs
+  + Modified: 4–123
+
+---/workspace/pipeline_output/chromex_data/player/modules/analyzer/PreviewFrameExtractor.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/analyzer/PreviewFrameExtractor.mjs; File type: mjs
+  + Modified: 3–61
+  + Modified: 78–257
+  + Modified: 280–290
+  + Modified: 307–392
+
+---/workspace/pipeline_output/chromex_data/player/modules/analyzer/VideoAligner.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/analyzer/VideoAligner.mjs; File type: mjs
+  + Modified: 6–47
+  + Modified: 63–76
+  + Modified: 94–566
+
+---/workspace/pipeline_output/chromex_data/player/modules/analyzer/VideoAnalyzer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/analyzer/VideoAnalyzer.mjs; File type: mjs
+  + Modified: 10–438
+
+---/workspace/pipeline_output/chromex_data/player/modules/analyzer/dHash.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/analyzer/dHash.mjs; File type: mjs
+  + Modified: 7–37
+
+---/workspace/pipeline_output/chromex_data/player/modules/coloris.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/coloris.mjs; File type: mjs
+  + Modified: 7–13
+  + Modified: 51–77
+  + Modified: 94–97
+  + Modified: 127–131
+  + Modified: 148–839
+  + Modified: 855–976
+  - Original: 1104–1104
+  + Modified: 1018–1310
+
+---/workspace/pipeline_output/chromex_data/player/modules/crosstalk/convolution.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/crosstalk/convolution.mjs; File type: mjs
+  + Modified: 3–198
+
+---/workspace/pipeline_output/chromex_data/player/modules/crosstalk/crossover.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/crosstalk/crossover.mjs; File type: mjs
+  + Modified: 9–50
+
+---/workspace/pipeline_output/chromex_data/player/modules/crosstalk/crossover.worklet.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/crosstalk/crossover.worklet.mjs; File type: mjs
+  + Modified: 8–44
+  + Modified: 63–94
+  + Modified: 113–170
+
+---/workspace/pipeline_output/chromex_data/player/modules/crosstalk/crosstalk.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/crosstalk/crosstalk.mjs; File type: mjs
+  + Modified: 9–119
+
+---/workspace/pipeline_output/chromex_data/player/modules/crosstalk/fft.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/crosstalk/fft.mjs; File type: mjs
+  + Modified: 10–143
+  + Modified: 159–329
+  + Modified: 345–515
+
+---/workspace/pipeline_output/chromex_data/player/modules/dash.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/dash.mjs; File type: mjs
+  - Original: 31571–31571
+  + Modified: 31571–31571
+
+---/workspace/pipeline_output/chromex_data/player/modules/dash2mp4/dash2mp4.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/dash2mp4/dash2mp4.mjs; File type: mjs
+  + Modified: 3–11
+  + Modified: 29–33
+
+---/workspace/pipeline_output/chromex_data/player/modules/dash2mp4/mp4merger.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/dash2mp4/mp4merger.mjs; File type: mjs
+  + Modified: 7–110
+  + Modified: 141–170
+  + Modified: 188–285
+  + Modified: 304–317
+
+---/workspace/pipeline_output/chromex_data/player/modules/decrypter-worker.js <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/decrypter-worker.js; File type: js
+  + Modified: 47–48
+  + Modified: 87–98
+  + Modified: 121–121
+  + Modified: 154–198
+  + Modified: 230–347
+  + Modified: 364–364
+  + Modified: 424–502
+  + Modified: 531–553
+  + Modified: 570–728
+  + Modified: 750–761
+  + Modified: 778–778
+  + Modified: 794–797
+  + Modified: 816–820
+  + Modified: 843–902
+  + Modified: 924–933
+  + Modified: 950–1166
+
+---/workspace/pipeline_output/chromex_data/player/modules/eventemitter.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/eventemitter.mjs; File type: mjs
+  + Modified: 2–118
+  + Modified: 135–174
+
+---/workspace/pipeline_output/chromex_data/player/modules/gif/gif.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/gif/gif.mjs; File type: mjs
+  + Modified: 5–35
+  + Modified: 460–469
+
+---/workspace/pipeline_output/chromex_data/player/modules/hls.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/hls.mjs; File type: mjs
+  - Original: 12730–12730
+  + Modified: 12730–12730
+
+---/workspace/pipeline_output/chromex_data/player/modules/hls2mp4/MP4Generator.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/hls2mp4/MP4Generator.mjs; File type: mjs
+  + Modified: 71–71
+  + Modified: 88–88
+  + Modified: 107–132
+  + Modified: 194–205
+  + Modified: 255–342
+  + Modified: 358–434
+  + Modified: 454–486
+  + Modified: 572–600
+  + Modified: 690–690
+  + Modified: 719–744
+  + Modified: 779–779
+
+---/workspace/pipeline_output/chromex_data/player/modules/hls2mp4/hls2mp4.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/hls2mp4/hls2mp4.mjs; File type: mjs
+  + Modified: 5–80
+  + Modified: 97–110
+  + Modified: 128–134
+  + Modified: 153–153
+  + Modified: 171–295
+  + Modified: 314–331
+
+---/workspace/pipeline_output/chromex_data/player/modules/hls2mp4/transmuxer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/hls2mp4/transmuxer.mjs; File type: mjs
+  + Modified: 2–2
+  + Modified: 23–23
+  + Modified: 42–62
+  + Modified: 94–116
+  + Modified: 171–171
+  + Modified: 195–201
+
+---/workspace/pipeline_output/chromex_data/player/modules/knob.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/knob.mjs; File type: mjs
+  - Original: 53–53
+  - Original: 55–55
+  - Original: 69–69
+  - Original: 71–71
+  - Original: 90–90
+  - Original: 92–92
+  + Modified: 10–118
+  + Modified: 145–145
+  - Original: 229–229
+  - Original: 231–231
+  - Original: 252–252
+  - Original: 254–254
+  - Original: 277–277
+  - Original: 279–279
+  - Original: 290–290
+  - Original: 292–292
+  - Original: 303–303
+  - Original: 305–305
+  - Original: 367–367
+  - Original: 369–369
+  + Modified: 163–573
+  - Original: 516–516
+  - Original: 518–518
+  + Modified: 601–903
+
+---/workspace/pipeline_output/chromex_data/player/modules/mp4box.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/mp4box.mjs; File type: mjs
+  + Modified: 51–51
+  + Modified: 82–136
+  + Modified: 191–299
+  + Modified: 320–324
+  + Modified: 355–406
+  + Modified: 424–424
+  + Modified: 441–441
+  + Modified: 459–845
+  + Modified: 865–894
+  + Modified: 915–915
+  + Modified: 935–953
+  + Modified: 971–974
+  + Modified: 992–995
+  + Modified: 1012–1015
+  + Modified: 1033–1036
+  + Modified: 1054–1057
+  + Modified: 1074–1077
+  + Modified: 1095–1098
+  + Modified: 1116–1217
+  + Modified: 1233–1236
+  + Modified: 1262–1268
+  + Modified: 1289–1307
+  + Modified: 1332–1340
+  + Modified: 1359–1359
+  + Modified: 1378–1378
+  + Modified: 1397–1417
+  + Modified: 1436–1580
+  + Modified: 1600–1618
+  + Modified: 1641–1655
+  + Modified: 1671–1671
+  + Modified: 1742–1742
+  + Modified: 1786–1799
+  + Modified: 1822–1849
+  + Modified: 1867–1880
+  + Modified: 1908–1948
+  + Modified: 1974–2026
+  + Modified: 2052–2085
+  + Modified: 2111–2178
+  + Modified: 2227–2227
+  + Modified: 2368–2438
+  + Modified: 2542–2582
+  + Modified: 2607–2656
+  + Modified: 2679–2690
+  + Modified: 2724–2724
+  + Modified: 2793–2797
+  + Modified: 2829–2859
+  + Modified: 2875–2875
+  + Modified: 2939–2945
+  + Modified: 2965–2977
+  + Modified: 3004–3017
+  + Modified: 3041–3111
+  + Modified: 3129–3129
+  + Modified: 3146–3156
+  + Modified: 3175–3175
+  + Modified: 3199–3199
+  + Modified: 3222–3340
+  + Modified: 3366–3366
+  + Modified: 3384–3384
+  + Modified: 3406–3406
+  + Modified: 3508–3508
+  + Modified: 3574–3581
+  + Modified: 3605–3605
+  + Modified: 3646–3675
+  + Modified: 3692–3725
+  + Modified: 3751–3816
+  + Modified: 3836–3836
+  + Modified: 3852–3852
+  + Modified: 3871–3871
+  + Modified: 3903–3945
+  + Modified: 3962–3962
+  + Modified: 3980–3988
+  + Modified: 4014–4036
+  + Modified: 4059–4080
+  + Modified: 4097–4129
+  + Modified: 4147–4157
+  + Modified: 4185–4199
+  + Modified: 4216–4216
+  + Modified: 4282–4282
+  + Modified: 4310–4310
+  + Modified: 4327–4327
+  + Modified: 4344–4364
+  + Modified: 4382–4418
+  + Modified: 4435–4435
+  + Modified: 4466–4504
+  + Modified: 4521–4521
+  + Modified: 4542–4542
+  + Modified: 4564–4569
+  + Modified: 4599–4599
+  + Modified: 4629–4629
+  + Modified: 4655–4655
+  + Modified: 4691–4691
+  + Modified: 4715–4715
+  + Modified: 4740–4783
+  + Modified: 4803–4832
+  + Modified: 4875–4907
+  + Modified: 4942–4957
+  + Modified: 4974–4974
+  + Modified: 5009–5025
+  + Modified: 5042–5042
+  + Modified: 5075–5198
+  + Modified: 5218–5318
+  + Modified: 5369–5464
+  + Modified: 5508–5515
+  + Modified: 5532–5552
+  + Modified: 5586–5613
+  + Modified: 5631–5631
+  + Modified: 5647–5656
+  + Modified: 5672–5726
+  + Modified: 5765–5797
+  + Modified: 5822–5852
+  + Modified: 5873–5902
+  + Modified: 5918–5918
+  + Modified: 5955–5956
+  + Modified: 5976–5976
+  + Modified: 5996–6011
+  + Modified: 6029–6053
+  + Modified: 6088–6102
+  + Modified: 6120–6120
+  + Modified: 6158–6158
+  + Modified: 6180–6193
+  + Modified: 6244–6244
+  + Modified: 6260–6283
+  + Modified: 6299–6321
+  + Modified: 6341–6357
+  + Modified: 6390–6390
+  + Modified: 6411–6424
+  + Modified: 6447–6450
+  + Modified: 6471–6489
+  + Modified: 6545–6545
+  + Modified: 6564–6577
+  + Modified: 6594–6621
+  + Modified: 6679–6744
+  + Modified: 6780–6799
+  + Modified: 6910–6926
+  + Modified: 6964–6964
+  + Modified: 6996–7076
+  + Modified: 7106–7116
+  + Modified: 7154–7167
+  - Original: 6586–6588
+  + Modified: 7181–7200
+  + Modified: 7270–7281
+  + Modified: 7297–7307
+  + Modified: 7325–7325
+  + Modified: 7343–7354
+  + Modified: 7370–7382
+  + Modified: 7464–7479
+  + Modified: 7510–7528
+  + Modified: 7549–7556
+  + Modified: 7588–7588
+  + Modified: 7658–7658
+  + Modified: 7707–7707
+  + Modified: 7724–7740
+  + Modified: 7756–7770
+  + Modified: 7790–7790
+  + Modified: 7823–7834
+  + Modified: 7901–7910
+  + Modified: 8046–8054
+  + Modified: 8180–8292
+  + Modified: 8309–8309
+  + Modified: 8413–8472
+  + Modified: 8490–8490
+  + Modified: 8507–8556
+  + Modified: 8573–8651
+  + Modified: 8683–8683
+  + Modified: 8700–8744
+  - Original: 8070–8070
+  + Modified: 8763–8770
+
+---/workspace/pipeline_output/chromex_data/player/modules/reencoder/demuxers.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/demuxers.mjs; File type: mjs
+  + Modified: 3–6
+  + Modified: 30–97
+  + Modified: 114–129
+  + Modified: 146–345
+
+---/workspace/pipeline_output/chromex_data/player/modules/reencoder/mp4-muxer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/mp4-muxer.mjs; File type: mjs
+  + Modified: 34–34
+  + Modified: 146–146
+  + Modified: 782–782
+  + Modified: 800–800
+  + Modified: 1122–1122
+  + Modified: 1601–1601
+
+---/workspace/pipeline_output/chromex_data/player/modules/reencoder/reencoder.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/reencoder.mjs; File type: mjs
+  + Modified: 8–8
+  + Modified: 29–185
+  + Modified: 205–365
+  + Modified: 381–466
+  + Modified: 485–523
+
+---/workspace/pipeline_output/chromex_data/player/modules/reencoder/resampler-worker.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/resampler-worker.mjs; File type: mjs
+  + Modified: 2–9
+  + Modified: 51–51
+  + Modified: 74–139
+
+---/workspace/pipeline_output/chromex_data/player/modules/reencoder/resampler.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/resampler.mjs; File type: mjs
+  + Modified: 24–24
+  + Modified: 56–106
+  + Modified: 145–167
+  + Modified: 184–326
+
+---/workspace/pipeline_output/chromex_data/player/modules/reencoder/webm.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/webm.mjs; File type: mjs
+  + Modified: 4–33
+  + Modified: 179–189
+  + Modified: 306–327
+  + Modified: 351–367
+  + Modified: 433–433
+  + Modified: 526–557
+  + Modified: 591–602
+  + Modified: 656–656
+  + Modified: 683–691
+  + Modified: 786–800
+  + Modified: 846–859
+  + Modified: 896–958
+  + Modified: 995–1015
+  + Modified: 1034–1048
+  + Modified: 1070–1095
+  + Modified: 1111–1141
+  + Modified: 1164–1179
+  + Modified: 1200–1210
+  + Modified: 1241–1252
+  + Modified: 1302–1398
+  + Modified: 1426–1455
+  + Modified: 1486–1494
+  + Modified: 1521–1642
+  + Modified: 1658–1792
+  + Modified: 1833–1853
+  + Modified: 1892–1914
+  + Modified: 1931–1997
+  + Modified: 2018–2058
+  + Modified: 2079–2082
+  + Modified: 2121–2152
+  + Modified: 2185–2207
+  + Modified: 2233–2338
+  + Modified: 2378–2378
+  + Modified: 2399–2445
+  + Modified: 2487–2502
+  + Modified: 2542–2551
+  + Modified: 2569–2579
+  + Modified: 2607–2607
+  + Modified: 2625–2643
+  + Modified: 2660–2672
+  + Modified: 2703–2703
+  + Modified: 2741–2791
+  + Modified: 2807–2823
+  + Modified: 2868–2906
+  + Modified: 2924–2924
+  + Modified: 2948–3007
+  + Modified: 3023–3023
+  + Modified: 3074–3096
+  + Modified: 3126–3192
+  + Modified: 3217–3231
+  + Modified: 3264–3272
+  + Modified: 3301–3301
+  + Modified: 3482–3506
+  - Original: 3279–3279
+  + Modified: 3547–3555
+
+---/workspace/pipeline_output/chromex_data/player/modules/sweetalert.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/sweetalert.mjs; File type: mjs
+  - Original: 1–160
+  - Original: 162–475
+  - Original: 481–502
+  - Original: 504–505
+  - Original: 507–560
+  - Original: 562–633
+  - Original: 635–806
+  - Original: 815–920
+  - Original: 922–1033
+  - Original: 1035–1206
+  - Original: 1208–1221
+  - Original: 1224–1283
+  - Original: 1285–1345
+  - Original: 1347–1356
+  - Original: 1359–1573
+  - Original: 1582–1688
+  - Original: 1690–1758
+  - Original: 1761–1818
+  - Original: 1820–1845
+  - Original: 1847–1893
+  - Original: 1896–2226
+  - Original: 2229–2362
+  - Original: 2364–2622
+  - Original: 2624–2744
+  - Original: 2750–2760
+  - Original: 2762–2963
+  - Original: 2968–3035
+  - Original: 3037–3129
+  - Original: 3131–3177
+  - Original: 3179–3382
+  - Original: 3390–3495
+  - Original: 3497–3889
+  - Original: 3899–4110
+  - Original: 4114–4408
+  - Original: 4416–4690
+  - Original: 4692–4734
+  + Modified: 1–4745
+
+---/workspace/pipeline_output/chromex_data/player/modules/vad/ort-wasm-simd-threaded.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/vad/ort-wasm-simd-threaded.mjs; File type: mjs
+  + Modified: 4–8
+  + Modified: 63–73
+
+---/workspace/pipeline_output/chromex_data/player/modules/vad/vad.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/vad/vad.mjs; File type: mjs
+  + Modified: 2–49
+  + Modified: 86–99
+  + Modified: 198–199
+  + Modified: 229–249
+  + Modified: 271–272
+
+---/workspace/pipeline_output/chromex_data/player/modules/vad/vad.worklet.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/vad/vad.worklet.mjs; File type: mjs
+  + Modified: 4–4
+  + Modified: 43–63
+  + Modified: 81–86
+
+---/workspace/pipeline_output/chromex_data/player/modules/yt.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/yt.mjs; File type: mjs
+  + Modified: 10–13
+  - Original: 48–48
+  + Modified: 50–50
+
+---/workspace/pipeline_output/chromex_data/player/network/DownloadEntry.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/network/DownloadEntry.mjs; File type: mjs
+  + Modified: 4–157
+
+---/workspace/pipeline_output/chromex_data/player/network/DownloadManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/network/DownloadManager.mjs; File type: mjs
+  + Modified: 6–262
+  + Modified: 282–368
+
+---/workspace/pipeline_output/chromex_data/player/network/IndexedDBManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/network/IndexedDBManager.mjs; File type: mjs
+  + Modified: 2–99
+  + Modified: 121–121
+  + Modified: 138–230
+  + Modified: 248–248
+
+---/workspace/pipeline_output/chromex_data/player/network/SpeedTracker.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/network/SpeedTracker.mjs; File type: mjs
+  + Modified: 7–35
+
+---/workspace/pipeline_output/chromex_data/player/network/StandardDownloader.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/network/StandardDownloader.mjs; File type: mjs
+  + Modified: 4–87
+
+---/workspace/pipeline_output/chromex_data/player/network/XHRLoader.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/network/XHRLoader.mjs; File type: mjs
+  + Modified: 4–18
+  + Modified: 47–111
+  + Modified: 128–128
+  + Modified: 151–201
+  + Modified: 224–252
+  + Modified: 279–279
+  + Modified: 297–320
+
+---/workspace/pipeline_output/chromex_data/player/options/defaults/DefaultKeybinds.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/options/defaults/DefaultKeybinds.mjs; File type: mjs
+  + Modified: 36–36
+
+---/workspace/pipeline_output/chromex_data/player/options/defaults/DefaultOptions.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/options/defaults/DefaultOptions.mjs; File type: mjs
+  + Modified: 8–8
+
+---/workspace/pipeline_output/chromex_data/player/options/defaults/DefaultSubtitlesSettings.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/options/defaults/DefaultSubtitlesSettings.mjs; File type: mjs
+  + Modified: 11–11
+
+---/workspace/pipeline_output/chromex_data/player/options/defaults/VisChangeActions.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/options/defaults/VisChangeActions.mjs; File type: mjs
+  + Modified: 2–9
+
+---/workspace/pipeline_output/chromex_data/player/options/options.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/options/options.mjs; File type: mjs
+  + Modified: 8–19
+  + Modified: 56–87
+  + Modified: 104–152
+  + Modified: 168–226
+  + Modified: 245–294
+  + Modified: 310–433
+  + Modified: 449–470
+  + Modified: 491–563
+  + Modified: 581–637
+
+---/workspace/pipeline_output/chromex_data/player/players/DirectVideoPlayer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/DirectVideoPlayer.mjs; File type: mjs
+  + Modified: 4–125
+
+---/workspace/pipeline_output/chromex_data/player/players/Fragment.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/Fragment.mjs; File type: mjs
+  + Modified: 2–31
+
+---/workspace/pipeline_output/chromex_data/player/players/PlayerLoader.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/PlayerLoader.mjs; File type: mjs
+  + Modified: 2–22
+
+---/workspace/pipeline_output/chromex_data/player/players/SyncedAudioPlayer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/SyncedAudioPlayer.mjs; File type: mjs
+  + Modified: 5–142
+  + Modified: 158–318
+
+---/workspace/pipeline_output/chromex_data/player/players/dash/DashFragment.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/dash/DashFragment.mjs; File type: mjs
+  + Modified: 3–12
+
+---/workspace/pipeline_output/chromex_data/player/players/dash/DashFragmentRequester.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/dash/DashFragmentRequester.mjs; File type: mjs
+  + Modified: 3–17
+  + Modified: 61–61
+
+---/workspace/pipeline_output/chromex_data/player/players/dash/DashLoader.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/dash/DashLoader.mjs; File type: mjs
+  + Modified: 2–53
+  + Modified: 70–91
+  + Modified: 119–149
+
+---/workspace/pipeline_output/chromex_data/player/players/dash/DashPlayer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/dash/DashPlayer.mjs; File type: mjs
+  + Modified: 12–120
+  + Modified: 154–315
+  + Modified: 338–407
+  + Modified: 427–481
+
+---/workspace/pipeline_output/chromex_data/player/players/dash/TrackFilter.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/dash/TrackFilter.mjs; File type: mjs
+  + Modified: 2–2
+  + Modified: 19–172
+  + Modified: 193–264
+
+---/workspace/pipeline_output/chromex_data/player/players/hls/HLSDecrypter.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/hls/HLSDecrypter.mjs; File type: mjs
+  + Modified: 1–1
+  + Modified: 27–43
+
+---/workspace/pipeline_output/chromex_data/player/players/hls/HLSFragment.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/hls/HLSFragment.mjs; File type: mjs
+  + Modified: 2–15
+
+---/workspace/pipeline_output/chromex_data/player/players/hls/HLSFragmentRequester.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/hls/HLSFragmentRequester.mjs; File type: mjs
+  + Modified: 4–30
+  + Modified: 59–82
+  + Modified: 123–123
+
+---/workspace/pipeline_output/chromex_data/player/players/hls/HLSLoader.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/hls/HLSLoader.mjs; File type: mjs
+  + Modified: 2–2
+  + Modified: 22–22
+  + Modified: 39–101
+  + Modified: 120–165
+  + Modified: 192–199
+
+---/workspace/pipeline_output/chromex_data/player/players/hls/HLSPlayer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/hls/HLSPlayer.mjs; File type: mjs
+  + Modified: 11–27
+  + Modified: 93–93
+  + Modified: 109–127
+  + Modified: 147–247
+  + Modified: 269–425
+  + Modified: 444–464
+
+---/workspace/pipeline_output/chromex_data/player/players/mp4/MP4Fragment.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/mp4/MP4Fragment.mjs; File type: mjs
+  + Modified: 2–10
+
+---/workspace/pipeline_output/chromex_data/player/players/mp4/MP4FragmentRequester.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/mp4/MP4FragmentRequester.mjs; File type: mjs
+  + Modified: 3–17
+  + Modified: 61–61
+
+---/workspace/pipeline_output/chromex_data/player/players/mp4/MP4Player.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/mp4/MP4Player.mjs; File type: mjs
+  + Modified: 12–193
+  + Modified: 213–292
+  + Modified: 309–655
+  + Modified: 671–711
+  + Modified: 737–772
+
+---/workspace/pipeline_output/chromex_data/player/players/mp4/SourceBufferWrapper.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/mp4/SourceBufferWrapper.mjs; File type: mjs
+  + Modified: 2–2
+  + Modified: 21–49
+  + Modified: 70–70
+
+---/workspace/pipeline_output/chromex_data/player/players/vm/VMPlayer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/vm/VMPlayer.mjs; File type: mjs
+  + Modified: 6–62
+
+---/workspace/pipeline_output/chromex_data/player/players/vm/Vimeo2Dash.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/vm/Vimeo2Dash.mjs; File type: mjs
+  + Modified: 5–122
+
+---/workspace/pipeline_output/chromex_data/player/players/yt/YTPlayer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/players/yt/YTPlayer.mjs; File type: mjs
+  + Modified: 12–71
+  + Modified: 91–137
+  + Modified: 159–177
+  + Modified: 193–207
+  + Modified: 236–241
+  + Modified: 257–317
+  + Modified: 348–420
+
+---/workspace/pipeline_output/chromex_data/player/ui/DOMElements.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/DOMElements.mjs; File type: mjs
+  + Modified: 34–90
+
+---/workspace/pipeline_output/chromex_data/player/ui/FineTimeControls.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/FineTimeControls.mjs; File type: mjs
+  + Modified: 6–58
+  + Modified: 82–147
+  + Modified: 165–479
+  + Modified: 496–496
+  + Modified: 512–582
+
+---/workspace/pipeline_output/chromex_data/player/ui/InterfaceController.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/InterfaceController.mjs; File type: mjs
+  + Modified: 27–121
+  + Modified: 137–150
+  + Modified: 169–433
+  + Modified: 460–539
+  + Modified: 561–610
+  + Modified: 628–687
+  + Modified: 714–725
+  + Modified: 745–925
+  + Modified: 942–1043
+  + Modified: 1063–1130
+
+---/workspace/pipeline_output/chromex_data/player/ui/KeybindManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/KeybindManager.mjs; File type: mjs
+  + Modified: 5–261
+
+---/workspace/pipeline_output/chromex_data/player/ui/OptionsWindow.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/OptionsWindow.mjs; File type: mjs
+  + Modified: 5–43
+
+---/workspace/pipeline_output/chromex_data/player/ui/ProgressBar.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/ProgressBar.mjs; File type: mjs
+  + Modified: 8–121
+  + Modified: 139–517
+  + Modified: 534–534
+  + Modified: 552–651
+
+---/workspace/pipeline_output/chromex_data/player/ui/SaveManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/SaveManager.mjs; File type: mjs
+  + Modified: 15–147
+  + Modified: 177–177
+  + Modified: 193–287
+  + Modified: 312–368
+
+---/workspace/pipeline_output/chromex_data/player/ui/SourcesBrowser.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/SourcesBrowser.mjs; File type: mjs
+  + Modified: 11–117
+  + Modified: 137–190
+  + Modified: 206–243
+  + Modified: 262–333
+
+---/workspace/pipeline_output/chromex_data/player/ui/StatusManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/StatusManager.mjs; File type: mjs
+  + Modified: 2–116
+
+---/workspace/pipeline_output/chromex_data/player/ui/ToolManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/ToolManager.mjs; File type: mjs
+  + Modified: 8–23
+  + Modified: 41–142
+  + Modified: 167–175
+  + Modified: 194–305
+
+---/workspace/pipeline_output/chromex_data/player/ui/VolumeControls.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/VolumeControls.mjs; File type: mjs
+  + Modified: 7–22
+  + Modified: 38–159
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AbstractAudioModule.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AbstractAudioModule.mjs; File type: mjs
+  + Modified: 3–22
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AudioChannelMixer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AudioChannelMixer.mjs; File type: mjs
+  + Modified: 11–148
+  + Modified: 166–646
+  + Modified: 663–687
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AudioCompressor.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AudioCompressor.mjs; File type: mjs
+  + Modified: 6–398
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AudioConfigManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AudioConfigManager.mjs; File type: mjs
+  + Modified: 14–52
+  + Modified: 72–162
+  + Modified: 197–296
+  + Modified: 316–316
+  + Modified: 332–453
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AudioCrosstalk.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AudioCrosstalk.mjs; File type: mjs
+  + Modified: 8–264
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AudioEqualizer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AudioEqualizer.mjs; File type: mjs
+  + Modified: 8–271
+  + Modified: 297–554
+  + Modified: 570–700
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/AudioGain.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/AudioGain.mjs; File type: mjs
+  + Modified: 2–31
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/MonoUpscaler.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/MonoUpscaler.mjs; File type: mjs
+  + Modified: 2–61
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/VirtualAudioNode.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/VirtualAudioNode.mjs; File type: mjs
+  + Modified: 7–138
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/config/AudioChannelControl.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/config/AudioChannelControl.mjs; File type: mjs
+  + Modified: 3–36
+  + Modified: 61–61
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/config/AudioCompressionControl.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/config/AudioCompressionControl.mjs; File type: mjs
+  + Modified: 1–33
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/config/AudioCrosstalkControl.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/config/AudioCrosstalkControl.mjs; File type: mjs
+  + Modified: 12–34
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/config/AudioEQNode.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/config/AudioEQNode.mjs; File type: mjs
+  + Modified: 8–22
+
+---/workspace/pipeline_output/chromex_data/player/ui/audio/config/AudioProfile.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/audio/config/AudioProfile.mjs; File type: mjs
+  + Modified: 5–61
+
+---/workspace/pipeline_output/chromex_data/player/ui/components/Dropdown.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/components/Dropdown.mjs; File type: mjs
+  + Modified: 2–80
+  + Modified: 96–101
+  + Modified: 117–126
+
+---/workspace/pipeline_output/chromex_data/player/ui/components/Knob.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/components/Knob.mjs; File type: mjs
+  + Modified: 5–157
+
+---/workspace/pipeline_output/chromex_data/player/ui/components/PagesBar.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/components/PagesBar.mjs; File type: mjs
+  + Modified: 2–22
+  + Modified: 63–70
+
+---/workspace/pipeline_output/chromex_data/player/ui/menus/LanguageChanger.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/menus/LanguageChanger.mjs; File type: mjs
+  + Modified: 4–67
+  + Modified: 87–87
+  + Modified: 113–180
+  + Modified: 197–197
+
+---/workspace/pipeline_output/chromex_data/player/ui/menus/LoopMenu.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/menus/LoopMenu.mjs; File type: mjs
+  + Modified: 7–317
+  + Modified: 340–366
+
+---/workspace/pipeline_output/chromex_data/player/ui/menus/PlaybackRateChanger.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/menus/PlaybackRateChanger.mjs; File type: mjs
+  + Modified: 6–6
+  + Modified: 27–144
+  + Modified: 164–399
+
+---/workspace/pipeline_output/chromex_data/player/ui/menus/VideoQualityChanger.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/menus/VideoQualityChanger.mjs; File type: mjs
+  + Modified: 4–90
+  + Modified: 110–190
+
+---/workspace/pipeline_output/chromex_data/player/ui/subtitles/OpenSubtitlesSearch.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/subtitles/OpenSubtitlesSearch.mjs; File type: mjs
+  + Modified: 11–110
+  + Modified: 126–178
+  + Modified: 197–295
+  + Modified: 314–501
+
+---/workspace/pipeline_output/chromex_data/player/ui/subtitles/SubtitleSyncer.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/subtitles/SubtitleSyncer.mjs; File type: mjs
+  + Modified: 6–159
+
+---/workspace/pipeline_output/chromex_data/player/ui/subtitles/SubtitlesManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/subtitles/SubtitlesManager.mjs; File type: mjs
+  + Modified: 14–89
+  + Modified: 106–419
+  + Modified: 438–699
+
+---/workspace/pipeline_output/chromex_data/player/ui/subtitles/SubtitlesSettingsManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/subtitles/SubtitlesSettingsManager.mjs; File type: mjs
+  + Modified: 7–116
+  + Modified: 134–159
+
+---/workspace/pipeline_output/chromex_data/player/utils <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils
+  - files: 
+  + files: UpdateChecker.mjs
+
+---/workspace/pipeline_output/chromex_data/player/utils/AlertPolyfill.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/AlertPolyfill.mjs; File type: mjs
+  + Modified: 4–34
+  + Modified: 52–77
+
+---/workspace/pipeline_output/chromex_data/player/utils/AudioUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/AudioUtils.mjs; File type: mjs
+  + Modified: 2–48
+
+---/workspace/pipeline_output/chromex_data/player/utils/BlobManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/BlobManager.mjs; File type: mjs
+  + Modified: 4–4
+  + Modified: 23–83
+
+---/workspace/pipeline_output/chromex_data/player/utils/CSSFilterUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/CSSFilterUtils.mjs; File type: mjs
+  + Modified: 3–66
+
+---/workspace/pipeline_output/chromex_data/player/utils/EnvUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/EnvUtils.mjs; File type: mjs
+  + Modified: 7–52
+
+---/workspace/pipeline_output/chromex_data/player/utils/FastStreamArchiveUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/FastStreamArchiveUtils.mjs; File type: mjs
+  + Modified: 4–4
+  + Modified: 23–137
+
+---/workspace/pipeline_output/chromex_data/player/utils/InterfaceUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/InterfaceUtils.mjs; File type: mjs
+  + Modified: 2–19
+
+---/workspace/pipeline_output/chromex_data/player/utils/RequestUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/RequestUtils.mjs; File type: mjs
+  + Modified: 5–5
+  + Modified: 33–78
+  + Modified: 94–135
+  + Modified: 157–157
+
+---/workspace/pipeline_output/chromex_data/player/utils/StringUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/StringUtils.mjs; File type: mjs
+  + Modified: 17–17
+  + Modified: 37–68
+  + Modified: 89–175
+  + Modified: 204–209
+  + Modified: 229–261
+
+---/workspace/pipeline_output/chromex_data/player/utils/SubtitleUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/SubtitleUtils.mjs; File type: mjs
+  + Modified: 10–37
+  + Modified: 54–54
+  + Modified: 70–110
+  + Modified: 151–151
+
+---/workspace/pipeline_output/chromex_data/player/utils/URLUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/URLUtils.mjs; File type: mjs
+  + Modified: 3–180
+
+---/workspace/pipeline_output/chromex_data/player/utils/Utils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/Utils.mjs; File type: mjs
+  + Modified: 5–29
+  + Modified: 53–214
+  + Modified: 238–243
+  + Modified: 260–260
+
+---/workspace/pipeline_output/chromex_data/player/utils/VideoUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/VideoUtils.mjs; File type: mjs
+  + Modified: 2–118
+
+---/workspace/pipeline_output/chromex_data/player/utils/WebUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils/WebUtils.mjs; File type: mjs
+  + Modified: 8–57
+

@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/google-image-sizer
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/google-image-sizer/manifest.json; File type: json
+  + Modified: 2–6
+  - Original: 216–216 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/run.user.js <-> +++/workspace/pipeline_output/google-image-sizer/run.user.js; File type: js
+  + Modified: 97–117
+

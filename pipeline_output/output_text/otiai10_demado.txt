@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/demado/src/public
+├── file list
+│ @@ -1,9 +1,2 @@
+│ -_metadata
+│ -assets
+│ -background.js
+│ -content-script.js
+│ -dynamic-config.js
+│  icons
+│ -index.html
+│ -index.js
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/demado/src/public/icons
+│ ├── file list
+│ │ @@ -1,2 +1,3 @@
+│ │  128.png
+│ │ +480.png
+│ │ +beta
+│ │ -480.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/demado/src/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,10 +39,9 @@
+│ │          "activeTab",
+│ │          "downloads",
+│ │          "scripting",
+│ │          "storage",
+│ │          "tabs",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.60"
+│ │  }

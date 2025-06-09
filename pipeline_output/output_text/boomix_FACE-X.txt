@@ -1,0 +1,911 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/FACE-X
+├── file list
+│ @@ -1,6 +1,7 @@
+│ +.git
+│  README.md
+│ -_metadata
+│  img
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/FACE-X/README.md
+│ @@ -1,26 +1,28 @@
+│ -# FACE-X
+│ -
+│ -https://chrome.google.com/webstore/detail/face-x/pkhmoinpecjngkokbmjfdhgecfljcegi
+│ -
+│ ----
+│ -
+│ -FACE-X is a Google Chrome extension made by boomix together with BananaGaming that displays user stats from FACEIT.com on their Steam profile. Therefore it may be used as a shortcut to find more information quickly on the users FACEIT stats without having to go over to the platform.
+│ -
+│ -![alt text](https://i.imgur.com/lBQ6mXo.png)
+│ -
+│ -Extensions provides you:
+│ -
+│ -- Elo
+│ -- Level
+│ -- Registration date
+│ -- If player is banned and ban reason
+│ -- Free or premium membership
+│ -- Average kills
+│ -- Average headshot percentage
+│ -- How maches player has player
+│ -- Winrate
+│ -- Click on username to redirect to FaceIT profile
+│ -
+│ ----
+│ -
+│ -Feel free to make new PR or submit any ideas.
+│ +# Faceit stats by Eloking
+│ +
+│ +https://chrome.google.com/webstore/detail/faceit-stats-by-eloking/pkhmoinpecjngkokbmjfdhgecfljcegi?hl=lv&authuser=0
+│ +
+│ +https://eloking.com
+│ +
+│ +---
+│ +
+│ +Faceit stats by Eloking is a Google Chrome extension made by boomix, original idea from BananaGaming that displays user stats from FACEIT.com on their Steam profile. Therefore it may be used as a shortcut to find more information quickly on the users FACEIT stats without having to go over to the platform.
+│ +
+│ +![alt text](https://i.imgur.com/lBQ6mXo.png)
+│ +
+│ +Extensions provides you:
+│ +
+│ +- Elo
+│ +- Level
+│ +- Registration date
+│ +- If player is banned and ban reason
+│ +- Free or premium membership
+│ +- Average kills
+│ +- Average headshot percentage
+│ +- How maches player has player
+│ +- Winrate
+│ +- Click on username to redirect to FaceIT profile
+│ +
+│ +---
+│ +
+│ +Feel free to make new PR or submit any ideas.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/FACE-X/manifest.json
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ @@ -1,44 +1,43 @@
+│ -7b0d0a09227570646174655f75726c223a202268747470733a2f2f636c69656e
+│ -7473322e676f6f676c652e636f6d2f736572766963652f757064617465322f63
+│ -7278222c0d0a09226e616d65223a202246616365697420537461747320627920
+│ -456c6f6b696e67222c0d0a092269636f6e73223a207b0d0a0909223136223a20
+│ -22696d672f6c6f676f2e706e67222c0d0a0909223438223a2022696d672f6c6f
+│ -676f2e706e67222c0d0a090922313238223a2022696d672f6c6f676f2e706e67
+│ -220d0a097d2c0d0a092276657273696f6e223a202233222c0d0a09226d616e69
+│ -666573745f76657273696f6e223a20332c0d0a0922686f6d65706167655f7572
+│ -6c223a202268747470733a2f2f656c6f6b696e672e636f6d222c0d0a09226465
+│ -736372697074696f6e223a202246616365697420537461747320627920456c6f
+│ -6b696e67206973206120476f6f676c65204368726f6d6520657874656e73696f
+│ -6e207468617420646973706c6179732061207573657273207374617473206f6e
+│ -20464143454954206f6e20746865697220537465616d2070726f66696c652e22
+│ -2c0d0a0922616374696f6e223a207b0d0a09092264656661756c745f69636f6e
+│ -223a2022696d672f6c6f676f2e706e67222c0d0a09092264656661756c745f74
+│ -69746c65223a202246616365697420537461747320627920456c6f6b696e6722
+│ -0d0a097d2c0d0a09226261636b67726f756e64223a207b0d0a09092273657276
+│ -6963655f776f726b6572223a2022736372697074732f6261636b67726f756e64
+│ -2e6a73220d0a097d2c0d0a0922686f73745f7065726d697373696f6e73223a20
+│ -5b0d0a09092268747470733a2f2f6170692e6661636569742e636f6d2f2a220d
+│ -0a095d2c0d0a0922636f6e74656e745f73637269707473223a205b0d0a09097b
+│ -0d0a090909226d617463686573223a205b0d0a09090909222a3a2f2f2a2e7374
+│ -65616d636f6d6d756e6974792e636f6d2f69642f2a222c0d0a09090909222a3a
+│ +7b0a09227570646174655f75726c223a202268747470733a2f2f636c69656e74
+│ +73322e676f6f676c652e636f6d2f736572766963652f757064617465322f6372
+│ +78222c0a09226e616d65223a202246616365697420537461747320627920456c
+│ +6f6b696e67222c0a092269636f6e73223a207b0a0909223136223a2022696d67
+│ +2f6c6f676f2e706e67222c0a0909223438223a2022696d672f6c6f676f2e706e
+│ +67222c0a090922313238223a2022696d672f6c6f676f2e706e67220a097d2c0a
+│ +092276657273696f6e223a202233222c0a09226d616e69666573745f76657273
+│ +696f6e223a20332c0a0922686f6d65706167655f75726c223a20226874747073
+│ +3a2f2f656c6f6b696e672e636f6d222c0a09226465736372697074696f6e223a
+│ +202246616365697420537461747320627920456c6f6b696e6720697320612047
+│ +6f6f676c65204368726f6d6520657874656e73696f6e20746861742064697370
+│ +6c6179732061207573657273207374617473206f6e20464143454954206f6e20
+│ +746865697220537465616d2070726f66696c652e222c0a0922616374696f6e22
+│ +3a207b0a09092264656661756c745f69636f6e223a2022696d672f6c6f676f2e
+│ +706e67222c0a09092264656661756c745f7469746c65223a2022466163656974
+│ +20537461747320627920456c6f6b696e67220a097d2c0a09226261636b67726f
+│ +756e64223a207b0a090922736572766963655f776f726b6572223a2022736372
+│ +697074732f6261636b67726f756e642e6a73220a097d2c0a0922686f73745f70
+│ +65726d697373696f6e73223a205b0a09092268747470733a2f2f6170692e6661
+│ +636569742e636f6d2f2a220a095d2c0a0922636f6e74656e745f736372697074
+│ +73223a205b0a09097b0a090909226d617463686573223a205b0a09090909222a
+│ +3a2f2f2a2e737465616d636f6d6d756e6974792e636f6d2f69642f2a222c0a09
+│ +090909222a3a2f2f2a2e737465616d636f6d6d756e6974792e636f6d2f70726f
+│ +66696c65732f2a220a0909095d2c0a090909226578636c7564655f6d61746368
+│ +6573223a205b0a09090909222a3a2f2f2a2e737465616d636f6d6d756e697479
+│ +2e636f6d2f69642f2a2f616c6c636f6d6d656e74732a222c0a09090909222a3a
+│  2f2f2a2e737465616d636f6d6d756e6974792e636f6d2f70726f66696c65732f
+│ -2a220d0a0909095d2c0d0a090909226578636c7564655f6d617463686573223a
+│ -205b0d0a09090909222a3a2f2f2a2e737465616d636f6d6d756e6974792e636f
+│ -6d2f69642f2a2f616c6c636f6d6d656e74732a222c0d0a09090909222a3a2f2f
+│ -2a2e737465616d636f6d6d756e6974792e636f6d2f70726f66696c65732f2a2f
+│ -616c6c636f6d6d656e74732a220d0a0909095d2c0d0a09090922637373223a20
+│ -5b0d0a09090909227374796c652e637373220d0a0909095d2c0d0a090909226a
+│ -73223a205b0d0a0909090922736372697074732f6d61696e5f6e65772e6a7322
+│ -0d0a0909095d0d0a09097d0d0a095d2c0d0a09227765625f6163636573736962
+│ -6c655f7265736f7572636573223a205b0d0a09097b0d0a090909227265736f75
+│ -72636573223a205b0d0a0909090922696d672f6c6576656c732f312e73766722
+│ -2c0d0a0909090922696d672f6c6576656c732f322e737667222c0d0a09090909
+│ -22696d672f6c6576656c732f332e737667222c0d0a0909090922696d672f6c65
+│ -76656c732f342e737667222c0d0a0909090922696d672f6c6576656c732f352e
+│ -737667222c0d0a0909090922696d672f6c6576656c732f362e737667222c0d0a
+│ -0909090922696d672f6c6576656c732f372e737667222c0d0a0909090922696d
+│ -672f6c6576656c732f382e737667222c0d0a0909090922696d672f6c6576656c
+│ -732f392e737667222c0d0a0909090922696d672f6c6576656c732f31302e7376
+│ -67222c0d0a0909090922696d672f6c6576656c732f756e72616e6b65642e7376
+│ -67220d0a0909095d2c0d0a090909226d617463686573223a205b0d0a09090909
+│ -223c616c6c5f75726c733e220d0a0909095d0d0a09097d0d0a095d0d0a7d
+│ +2a2f616c6c636f6d6d656e74732a220a0909095d2c0a09090922637373223a20
+│ +5b0a09090909227374796c652e637373220a0909095d2c0a090909226a73223a
+│ +205b0a0909090922736372697074732f6d61696e5f6e65772e6a73220a090909
+│ +5d0a09097d0a095d2c0a09227765625f61636365737369626c655f7265736f75
+│ +72636573223a205b0a09097b0a090909227265736f7572636573223a205b0a09
+│ +09090922696d672f6c6576656c732f312e737667222c0a0909090922696d672f
+│ +6c6576656c732f322e737667222c0a0909090922696d672f6c6576656c732f33
+│ +2e737667222c0a0909090922696d672f6c6576656c732f342e737667222c0a09
+│ +09090922696d672f6c6576656c732f352e737667222c0a0909090922696d672f
+│ +6c6576656c732f362e737667222c0a0909090922696d672f6c6576656c732f37
+│ +2e737667222c0a0909090922696d672f6c6576656c732f382e737667222c0a09
+│ +09090922696d672f6c6576656c732f392e737667222c0a0909090922696d672f
+│ +6c6576656c732f31302e737667222c0a0909090922696d672f6c6576656c732f
+│ +756e72616e6b65642e737667220a0909095d2c0a090909226d61746368657322
+│ +3a205b0a09090909223c616c6c5f75726c733e220a0909095d0a09097d0a095d
+│ +0a7d
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/FACE-X/scripts
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/background.js
+│ ├── +++ /workspace/pipeline_output/FACE-X/scripts/background.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,9 +1,9 @@
+│ │ │ +chrome.runtime.onMessage.addListener(
+│ │ │ +    function(url, sender, onSuccess) {
+│ │ │ +        fetch(url)
+│ │ │ +            .then(response => response.json())
+│ │ │ +            .then(responseJson => onSuccess(responseJson.payload ?? responseJson))
+│ │ │ +
+│ │ │ +        return true; // Will respond asynchronously.
+│ │ │ +    }
+│ │ │ -chrome.runtime.onMessage.addListener(
+│ │ │ -    function(url, sender, onSuccess) {
+│ │ │ -        fetch(url)
+│ │ │ -            .then(response => response.json())
+│ │ │ -            .then(responseJson => onSuccess(responseJson.payload ?? responseJson))
+│ │ │ -
+│ │ │ -        return true; // Will respond asynchronously.
+│ │ │ -    }
+│ │ │  );
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/main_new.js
+│ ├── +++ /workspace/pipeline_output/FACE-X/scripts/main_new.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,241 +1,241 @@
+│ │ │ +// Get steamID
+│ │ │ +const steamid = getSteamID();
+│ │ │ +loadFaceITProfile(steamid);
+│ │ │ +
+│ │ │ +// Create global variables
+│ │ │ +let id,
+│ │ │ +    level,
+│ │ │ +    levelImg,
+│ │ │ +    username,
+│ │ │ +    country,
+│ │ │ +    banned,
+│ │ │ +    banReason,
+│ │ │ +    membership = '',
+│ │ │ +    elo = '',
+│ │ │ +    avgHS = '-',
+│ │ │ +    avgKD = '-',
+│ │ │ +    matches = '-',
+│ │ │ +    winrate = '-',
+│ │ │ +    avgKR = '-',
+│ │ │ +    avgKills = '-',
+│ │ │ +    registred = '';
+│ │ │ +
+│ │ │ +function loadFaceITProfile(steamid) {
+│ │ │ +    // Check if steamID was recieved successfully
+│ │ │ +    if (steamid === null) {
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    // Get FaceIT profile
+│ │ │ +    chrome.runtime.sendMessage('https://api.faceit.com/search/v1/?limit=3&query=' + steamid,
+│ │ │ +        result => onFaceITProfileLoaded(result)
+│ │ │ +    );
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function onFaceITProfileLoaded(result) {
+│ │ │ +    const profile = await getMainProfile(result);
+│ │ │ +
+│ │ │ +    if (profile !== null) {
+│ │ │ +
+│ │ │ +        //Fill in start data
+│ │ │ +        id = profile.guid;
+│ │ │ +        username = profile.nickname;
+│ │ │ +        country = profile.country;
+│ │ │ +        level = getLevel(profile.games, 'csgo');
+│ │ │ +        levelImg = chrome.runtime.getURL(`./img/levels/${level}.svg`);
+│ │ │ +
+│ │ │ +        updateDOM();
+│ │ │ +
+│ │ │ +        // Check for bans
+│ │ │ +        chrome.runtime.sendMessage('https://api.faceit.com/sheriff/v1/bans/' + id,
+│ │ │ +            result => {
+│ │ │ +                if (result[0]) {
+│ │ │ +                    banned = true;
+│ │ │ +                    banReason = result[0].reason;
+│ │ │ +                    updateDOM();
+│ │ │ +                }
+│ │ │ +            }
+│ │ │ +        );
+│ │ │ +
+│ │ │ +        // Get additional data
+│ │ │ +        chrome.runtime.sendMessage('https://api.faceit.com/users/v1/nicknames/' + username,
+│ │ │ +            result => {
+│ │ │ +                membership = ((result.memberships.includes('csgo') || result.memberships.includes('premium')) ? 'Premium' : 'Free')
+│ │ │ +                elo = result.games.csgo.faceit_elo;
+│ │ │ +                registred = new Date(result.created_at).toLocaleString('en-us', {
+│ │ │ +                    year: 'numeric',
+│ │ │ +                    month: '2-digit',
+│ │ │ +                    day: '2-digit'
+│ │ │ +                });
+│ │ │ +                updateDOM();
+│ │ │ +            }
+│ │ │ +        );
+│ │ │ +
+│ │ │ +        // Get lifetime CS:GO stats
+│ │ │ +        chrome.runtime.sendMessage('https://api.faceit.com/stats/v1/stats/users/' + id + '/games/csgo',
+│ │ │ +            result => {
+│ │ │ +                // avgHS = result.lifetime.k8;
+│ │ │ +                // avgKD = result.lifetime.k5;
+│ │ │ +                matches = result.lifetime.m1;
+│ │ │ +                // winrate = result.lifetime.k6;
+│ │ │ +                updateDOM();
+│ │ │ +            }
+│ │ │ +        );
+│ │ │ +
+│ │ │ +        // Get last 20 game CS:GO stats
+│ │ │ +        chrome.runtime.sendMessage(`https://api.faceit.com/stats/v1/stats/time/users/${id}/games/csgo?size=20`,
+│ │ │ +            json => {
+│ │ │ +                let kills = 0,
+│ │ │ +                    HS = 0,
+│ │ │ +                    divid = 0,
+│ │ │ +                    KD = 0,
+│ │ │ +                    KR = 0;
+│ │ │ +                for (i = 0; i < json.length; i++) {
+│ │ │ +                    if (json[i].gameMode !== '5v5') {
+│ │ │ +                        length = length + 1;
+│ │ │ +                    } else {
+│ │ │ +                        divid = divid + 1;
+│ │ │ +                        kills = parseInt(json[i].i6) + kills;
+│ │ │ +                        HS = parseInt(json[i].c4 * 100) + HS;
+│ │ │ +                        KD = parseInt(json[i].c2 * 100) + KD;
+│ │ │ +                        KR = parseInt(json[i].c3 * 100) + KR;
+│ │ │ +                    }
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                avgKills = Math.round(kills / divid);
+│ │ │ +                avgHS = Math.round(HS / divid / 100);
+│ │ │ +                avgKD = (KD / divid / 100).toFixed(2);
+│ │ │ +                avgKR = (KR / divid / 100).toFixed(2);
+│ │ │ +
+│ │ │ +                updateDOM();
+│ │ │ +            }
+│ │ │ +        );
+│ │ │ +
+│ │ │ +    }
+│ │ │ +
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +
+│ │ │ +
+│ │ │ +function updateDOM() {
+│ │ │ +    //Select the element where to show faceit profile data
+│ │ │ +    const customize = (document.querySelector('.profile_customization_area') ?? document.querySelector('.profile_leftcol'));
+│ │ │ +
+│ │ │ +    //Add the box with the data
+│ │ │ +    let textNode = document.createElement("div");
+│ │ │ +    textNode.id = 'facex';
+│ │ │ +    textNode.innerHTML = `
+│ │ │ +    <div class="profile_customization">
+│ │ │ +        <div class="profile_customization_header">Faceit Stats <span style="color:#9b9b9b">by Eloking</span></div>
+│ │ │ +        <div class="profile_customization_block">
+│ │ │ +            <div class="favoritegroup_showcase">
+│ │ │ +                <div class="showcase_content_bg">
+│ │ │ +                    <div class="facex_content favoritegroup_showcase_group showcase_slot">                  
+│ │ │ +                        <div class="favoritegroup_content">
+│ │ │ +                            <div class="facex_namerow favoritegroup_namerow ellipsis" style="min-width:220px;float:left;margin-top: 10px;overflow:unset">
+│ │ │ +                                <img class="levelbox" src="${levelImg}">
+│ │ │ +                                <a class="favoritegroup_name whiteLink" target="_blank" href="https://www.faceit.com/en/players/` + username + `">
+│ │ │ +                                    <img class="facex_country" title="${country}" src="https://cdn-frontend.faceit.com/web/112-1536332382/src/app/assets/images-compress/flags/${country}.png">
+│ │ │ +                                    ` + username + ` 
+│ │ │ +                                </a>
+│ │ │ +                                <br>
+│ │ │ +                                <span class="facex_description favoritegroup_description">
+│ │ │ +                                ` + ((banned) ? `<span alt="${banReason}" class="faceit-banned">${banReason}</span> ` : `<strong>${membership} - ${registred}</strong>`) + `
+│ │ │ +                                </span>
+│ │ │ +                            </div>
+│ │ │ +                            <div class="facex_stats_block">
+│ │ │ +                                <div class="facex_stats_row2 favoritegroup_stats showcase_stats_row">
+│ │ │ +                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ +                                        <div class="value">${elo}</div>
+│ │ │ +                                        <div class="label">ELO</div>
+│ │ │ +                                    </div>
+│ │ │ +                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ +                                        <div class="value">${matches}</div>
+│ │ │ +                                        <div class="label">Matches</div>
+│ │ │ +                                    </div>
+│ │ │ +                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ +                                        <div class="value">${avgKills}</div>
+│ │ │ +                                        <div class="label">AVG kills</div>
+│ │ │ +                                    </div>
+│ │ │ +                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ +                                        <div class="value">${avgKD}</div>
+│ │ │ +                                        <div class="label">AVG K/D</div>
+│ │ │ +                                    </div>
+│ │ │ +                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ +                                        <div class="value">${avgKR}</div>
+│ │ │ +                                        <div class="label">AVG K/R</div>
+│ │ │ +                                    </div>
+│ │ │ +                                    <br>
+│ │ │ +                                    <a href="https://eloking.com/csgo/faceit-boost" target="_blank" class="facex_link">
+│ │ │ +                                        Get better at CS:GO with Eloking →
+│ │ │ +                                    </a>
+│ │ │ +                                    <div style="clear: left;"></div>
+│ │ │ +                                </div>
+│ │ │ +                            </div>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                </div>
+│ │ │ +            </div>
+│ │ │ +        </div>
+│ │ │ +    </div>`;
+│ │ │ +
+│ │ │ +    if (document.getElementById('facex')) {
+│ │ │ +        document.getElementById('facex').innerHTML = textNode.innerHTML;
+│ │ │ +    } else {
+│ │ │ +        customize.prepend(textNode);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +function getLevel(games, searchGame) {
+│ │ │ +    let level = 1;
+│ │ │ +    games.map((game) => {
+│ │ │ +        if (game.name === searchGame) {
+│ │ │ +            level = game.skill_level;
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    return level;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Gets last profile with CS:GO
+│ │ │ + * @param {*} result 
+│ │ │ + * @returns 
+│ │ │ + */
+│ │ │ +async function getMainProfile(result) {
+│ │ │ +    let profile = null;
+│ │ │ +    const allPlayers = result.players.results;
+│ │ │ +    if (allPlayers.length > 1) {
+│ │ │ +        allPlayers.map(async (user, index) => {
+│ │ │ +            if (user.games.length > 0) {
+│ │ │ +                user.games.map(async (game) => {
+│ │ │ +                    if (game.name == 'csgo') {
+│ │ │ +                        profile = allPlayers[index];
+│ │ │ +                    }
+│ │ │ +                });
+│ │ │ +            }
+│ │ │ +        });
+│ │ │ +    } else {
+│ │ │ +        profile = allPlayers[0];
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return profile;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Gets steamID from page report popup
+│ │ │ + * @returns string
+│ │ │ + */
+│ │ │ +function getSteamID() {
+│ │ │ +    //Getting steamID from report popup
+│ │ │ +    if (document.getElementsByName("abuseID") && document.getElementsByName("abuseID")[0]) {
+│ │ │ +        return document.getElementsByName("abuseID")[0].value
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    //If steamID somehow is not found, then try second method to get it (user is not logged in)
+│ │ │ +    else {
+│ │ │ +        return document.querySelector('.responsive_page_template_content').innerHTML.split('script')[2].split('"')[8] ?? null;
+│ │ │ +    }
+│ │ │ -// Get steamID
+│ │ │ -const steamid = getSteamID();
+│ │ │ -loadFaceITProfile(steamid);
+│ │ │ -
+│ │ │ -// Create global variables
+│ │ │ -let id,
+│ │ │ -    level,
+│ │ │ -    levelImg,
+│ │ │ -    username,
+│ │ │ -    country,
+│ │ │ -    banned,
+│ │ │ -    banReason,
+│ │ │ -    membership = '',
+│ │ │ -    elo = '',
+│ │ │ -    avgHS = '-',
+│ │ │ -    avgKD = '-',
+│ │ │ -    matches = '-',
+│ │ │ -    winrate = '-',
+│ │ │ -    avgKR = '-',
+│ │ │ -    avgKills = '-',
+│ │ │ -    registred = '';
+│ │ │ -
+│ │ │ -function loadFaceITProfile(steamid) {
+│ │ │ -    // Check if steamID was recieved successfully
+│ │ │ -    if (steamid === null) {
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    // Get FaceIT profile
+│ │ │ -    chrome.runtime.sendMessage('https://api.faceit.com/search/v1/?limit=3&query=' + steamid,
+│ │ │ -        result => onFaceITProfileLoaded(result)
+│ │ │ -    );
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function onFaceITProfileLoaded(result) {
+│ │ │ -    const profile = await getMainProfile(result);
+│ │ │ -
+│ │ │ -    if (profile !== null) {
+│ │ │ -
+│ │ │ -        //Fill in start data
+│ │ │ -        id = profile.guid;
+│ │ │ -        username = profile.nickname;
+│ │ │ -        country = profile.country;
+│ │ │ -        level = getLevel(profile.games, 'csgo');
+│ │ │ -        levelImg = chrome.runtime.getURL(`./img/levels/${level}.svg`);
+│ │ │ -
+│ │ │ -        updateDOM();
+│ │ │ -
+│ │ │ -        // Check for bans
+│ │ │ -        chrome.runtime.sendMessage('https://api.faceit.com/sheriff/v1/bans/' + id,
+│ │ │ -            result => {
+│ │ │ -                if (result[0]) {
+│ │ │ -                    banned = true;
+│ │ │ -                    banReason = result[0].reason;
+│ │ │ -                    updateDOM();
+│ │ │ -                }
+│ │ │ -            }
+│ │ │ -        );
+│ │ │ -
+│ │ │ -        // Get additional data
+│ │ │ -        chrome.runtime.sendMessage('https://api.faceit.com/users/v1/nicknames/' + username,
+│ │ │ -            result => {
+│ │ │ -                membership = ((result.memberships.includes('csgo') || result.memberships.includes('premium')) ? 'Premium' : 'Free')
+│ │ │ -                elo = result.games.csgo.faceit_elo;
+│ │ │ -                registred = new Date(result.created_at).toLocaleString('en-us', {
+│ │ │ -                    year: 'numeric',
+│ │ │ -                    month: '2-digit',
+│ │ │ -                    day: '2-digit'
+│ │ │ -                });
+│ │ │ -                updateDOM();
+│ │ │ -            }
+│ │ │ -        );
+│ │ │ -
+│ │ │ -        // Get lifetime CS:GO stats
+│ │ │ -        chrome.runtime.sendMessage('https://api.faceit.com/stats/v1/stats/users/' + id + '/games/csgo',
+│ │ │ -            result => {
+│ │ │ -                // avgHS = result.lifetime.k8;
+│ │ │ -                // avgKD = result.lifetime.k5;
+│ │ │ -                matches = result.lifetime.m1;
+│ │ │ -                // winrate = result.lifetime.k6;
+│ │ │ -                updateDOM();
+│ │ │ -            }
+│ │ │ -        );
+│ │ │ -
+│ │ │ -        // Get last 20 game CS:GO stats
+│ │ │ -        chrome.runtime.sendMessage(`https://api.faceit.com/stats/v1/stats/time/users/${id}/games/csgo?size=20`,
+│ │ │ -            json => {
+│ │ │ -                let kills = 0,
+│ │ │ -                    HS = 0,
+│ │ │ -                    divid = 0,
+│ │ │ -                    KD = 0,
+│ │ │ -                    KR = 0;
+│ │ │ -                for (i = 0; i < json.length; i++) {
+│ │ │ -                    if (json[i].gameMode !== '5v5') {
+│ │ │ -                        length = length + 1;
+│ │ │ -                    } else {
+│ │ │ -                        divid = divid + 1;
+│ │ │ -                        kills = parseInt(json[i].i6) + kills;
+│ │ │ -                        HS = parseInt(json[i].c4 * 100) + HS;
+│ │ │ -                        KD = parseInt(json[i].c2 * 100) + KD;
+│ │ │ -                        KR = parseInt(json[i].c3 * 100) + KR;
+│ │ │ -                    }
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                avgKills = Math.round(kills / divid);
+│ │ │ -                avgHS = Math.round(HS / divid / 100);
+│ │ │ -                avgKD = (KD / divid / 100).toFixed(2);
+│ │ │ -                avgKR = (KR / divid / 100).toFixed(2);
+│ │ │ -
+│ │ │ -                updateDOM();
+│ │ │ -            }
+│ │ │ -        );
+│ │ │ -
+│ │ │ -    }
+│ │ │ -
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -
+│ │ │ -
+│ │ │ -function updateDOM() {
+│ │ │ -    //Select the element where to show faceit profile data
+│ │ │ -    const customize = (document.querySelector('.profile_customization_area') ?? document.querySelector('.profile_leftcol'));
+│ │ │ -
+│ │ │ -    //Add the box with the data
+│ │ │ -    let textNode = document.createElement("div");
+│ │ │ -    textNode.id = 'facex';
+│ │ │ -    textNode.innerHTML = `
+│ │ │ -    <div class="profile_customization">
+│ │ │ -        <div class="profile_customization_header">Faceit Stats <span style="color:#9b9b9b">by Eloking</span></div>
+│ │ │ -        <div class="profile_customization_block">
+│ │ │ -            <div class="favoritegroup_showcase">
+│ │ │ -                <div class="showcase_content_bg">
+│ │ │ -                    <div class="facex_content favoritegroup_showcase_group showcase_slot">                  
+│ │ │ -                        <div class="favoritegroup_content">
+│ │ │ -                            <div class="facex_namerow favoritegroup_namerow ellipsis" style="min-width:220px;float:left;margin-top: 10px;overflow:unset">
+│ │ │ -                                <img class="levelbox" src="${levelImg}">
+│ │ │ -                                <a class="favoritegroup_name whiteLink" target="_blank" href="https://www.faceit.com/en/players/` + username + `">
+│ │ │ -                                    <img class="facex_country" title="${country}" src="https://cdn-frontend.faceit.com/web/112-1536332382/src/app/assets/images-compress/flags/${country}.png">
+│ │ │ -                                    ` + username + ` 
+│ │ │ -                                </a>
+│ │ │ -                                <br>
+│ │ │ -                                <span class="facex_description favoritegroup_description">
+│ │ │ -                                ` + ((banned) ? `<span alt="${banReason}" class="faceit-banned">${banReason}</span> ` : `<strong>${membership} - ${registred}</strong>`) + `
+│ │ │ -                                </span>
+│ │ │ -                            </div>
+│ │ │ -                            <div class="facex_stats_block">
+│ │ │ -                                <div class="facex_stats_row2 favoritegroup_stats showcase_stats_row">
+│ │ │ -                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ -                                        <div class="value">${elo}</div>
+│ │ │ -                                        <div class="label">ELO</div>
+│ │ │ -                                    </div>
+│ │ │ -                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ -                                        <div class="value">${matches}</div>
+│ │ │ -                                        <div class="label">Matches</div>
+│ │ │ -                                    </div>
+│ │ │ -                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ -                                        <div class="value">${avgKills}</div>
+│ │ │ -                                        <div class="label">AVG kills</div>
+│ │ │ -                                    </div>
+│ │ │ -                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ -                                        <div class="value">${avgKD}</div>
+│ │ │ -                                        <div class="label">AVG K/D</div>
+│ │ │ -                                    </div>
+│ │ │ -                                    <div class="facex_stat showcase_stat favoritegroup_online">
+│ │ │ -                                        <div class="value">${avgKR}</div>
+│ │ │ -                                        <div class="label">AVG K/R</div>
+│ │ │ -                                    </div>
+│ │ │ -                                    <br>
+│ │ │ -                                    <a href="https://eloking.com/csgo/faceit-boost" target="_blank" class="facex_link">
+│ │ │ -                                        Get better at CS:GO with Eloking →
+│ │ │ -                                    </a>
+│ │ │ -                                    <div style="clear: left;"></div>
+│ │ │ -                                </div>
+│ │ │ -                            </div>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                </div>
+│ │ │ -            </div>
+│ │ │ -        </div>
+│ │ │ -    </div>`;
+│ │ │ -
+│ │ │ -    if (document.getElementById('facex')) {
+│ │ │ -        document.getElementById('facex').innerHTML = textNode.innerHTML;
+│ │ │ -    } else {
+│ │ │ -        customize.prepend(textNode);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -function getLevel(games, searchGame) {
+│ │ │ -    let level = 1;
+│ │ │ -    games.map((game) => {
+│ │ │ -        if (game.name === searchGame) {
+│ │ │ -            level = game.skill_level;
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    return level;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Gets last profile with CS:GO
+│ │ │ - * @param {*} result 
+│ │ │ - * @returns 
+│ │ │ - */
+│ │ │ -async function getMainProfile(result) {
+│ │ │ -    let profile = null;
+│ │ │ -    const allPlayers = result.players.results;
+│ │ │ -    if (allPlayers.length > 1) {
+│ │ │ -        allPlayers.map(async (user, index) => {
+│ │ │ -            if (user.games.length > 0) {
+│ │ │ -                user.games.map(async (game) => {
+│ │ │ -                    if (game.name == 'csgo') {
+│ │ │ -                        profile = allPlayers[index];
+│ │ │ -                    }
+│ │ │ -                });
+│ │ │ -            }
+│ │ │ -        });
+│ │ │ -    } else {
+│ │ │ -        profile = allPlayers[0];
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return profile;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Gets steamID from page report popup
+│ │ │ - * @returns string
+│ │ │ - */
+│ │ │ -function getSteamID() {
+│ │ │ -    //Getting steamID from report popup
+│ │ │ -    if (document.getElementsByName("abuseID") && document.getElementsByName("abuseID")[0]) {
+│ │ │ -        return document.getElementsByName("abuseID")[0].value
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    //If steamID somehow is not found, then try second method to get it (user is not logged in)
+│ │ │ -    else {
+│ │ │ -        return document.querySelector('.responsive_page_template_content').innerHTML.split('script')[2].split('"')[8] ?? null;
+│ │ │ -    }
+│ │ │  }
+│   --- /workspace/pipeline_output/chromex_data/style.css
+├── +++ /workspace/pipeline_output/FACE-X/style.css
+│┄ Ordering differences only
+│ @@ -1,120 +1,120 @@
+│ -.facex_content {
+│ -    padding-left: 0px !important;
+│ -    height: 55px !important;
+│ -}
+│ -
+│ -.levelbox {
+│ -    float: left;
+│ -    height: 50px;
+│ -    margin-top: 4px;
+│ -    margin-right: 10px;
+│ -    margin-left: 4px;
+│ -}
+│ -
+│ -.faceit-banned {
+│ -    font-family: Play, sans-serif;
+│ -    font-size: 0.75rem;
+│ -    font-weight: 700;
+│ -    line-height: 1.6;
+│ -    display: inline-block;
+│ -    background-color: red;
+│ -    color: rgb(255, 255, 255);
+│ -    text-transform: initial;
+│ -    border-radius: 2px;
+│ -    padding: 0px 8px;
+│ -    vertical-align: middle;
+│ -}
+│ -
+│ -.facex_description {
+│ -    display: block;
+│ -    margin-top: -10px;
+│ -    font-size: 12px;
+│ -    text-transform: capitalize;
+│ -}
+│ -
+│ -.facex_country {
+│ -    height: 14px;
+│ -}
+│ -
+│ -.facex_stat {
+│ -    font-size: 25px !important;
+│ -    text-align: center;
+│ -}
+│ -
+│ -.facex_namerow {
+│ -    max-width: 220px;
+│ -    overflow: hidden !important;
+│ -    margin-top: 30px !important;
+│ -}
+│ -
+│ -/* .facex_namerow > span:nth-child(1) {
+│ -    display: block;
+│ -    text-align: center;
+│ -    font-size: 12px;
+│ -    color: #62a7e3;
+│ -    opacity: 0.9;
+│ -    font-style: italic;
+│ -} */
+│ -
+│ -.facex_stats_row {
+│ -    position: unset !important;
+│ -    float: right;
+│ -    margin-right: 10px;
+│ -    margin-top: -5px;
+│ -}
+│ -
+│ -.facex_stats_row2 {
+│ -    position: unset !important;
+│ -    float: right;
+│ -    margin-right: 10px;
+│ -    margin-top: 10px;
+│ -    padding-top: 5px;
+│ -    margin-bottom: 5px;
+│ -    padding-bottom: 9px;
+│ -}
+│ -
+│ -.facex_stat .value {
+│ -    margin-bottom: 3px;
+│ -}
+│ -
+│ -.facex_stat .label {
+│ -    text-transform: uppercase;
+│ -    font-size: 11px !important
+│ -}
+│ -
+│ -.facex_stats_block {
+│ -    display: flex;
+│ -    flex-flow: wrap-reverse;
+│ -    justify-content: center;
+│ -    float: right;
+│ -    width: 380px;
+│ -    justify-content: right;
+│ -}
+│ -
+│ -.last20 {
+│ -    color: #62a7e3;
+│ -    text-transform: uppercase;
+│ -    font-size: 15px;
+│ -    text-align: center;
+│ -    float: left;
+│ -    width: 100%;
+│ -    margin-top: 13px;
+│ -}
+│ -
+│ -.facex_link {
+│ -    width: 100%;
+│ -    background: green;
+│ -    color: #fff;
+│ -    margin-top: 10px;
+│ -    border-radius: 5px;
+│ -    -moz-border-radius: 5px;
+│ -    -webkit-border-radius: 5px;
+│ -    display: block;
+│ -    text-align: center;
+│ -    padding: 6px;
+│ -    opacity: 0.5;
+│ -}
+│ -
+│ -.facex_link:hover {
+│ -    opacity: 1;
+│ +.facex_content {
+│ +    padding-left: 0px !important;
+│ +    height: 55px !important;
+│ +}
+│ +
+│ +.levelbox {
+│ +    float: left;
+│ +    height: 50px;
+│ +    margin-top: 4px;
+│ +    margin-right: 10px;
+│ +    margin-left: 4px;
+│ +}
+│ +
+│ +.faceit-banned {
+│ +    font-family: Play, sans-serif;
+│ +    font-size: 0.75rem;
+│ +    font-weight: 700;
+│ +    line-height: 1.6;
+│ +    display: inline-block;
+│ +    background-color: red;
+│ +    color: rgb(255, 255, 255);
+│ +    text-transform: initial;
+│ +    border-radius: 2px;
+│ +    padding: 0px 8px;
+│ +    vertical-align: middle;
+│ +}
+│ +
+│ +.facex_description {
+│ +    display: block;
+│ +    margin-top: -10px;
+│ +    font-size: 12px;
+│ +    text-transform: capitalize;
+│ +}
+│ +
+│ +.facex_country {
+│ +    height: 14px;
+│ +}
+│ +
+│ +.facex_stat {
+│ +    font-size: 25px !important;
+│ +    text-align: center;
+│ +}
+│ +
+│ +.facex_namerow {
+│ +    max-width: 220px;
+│ +    overflow: hidden !important;
+│ +    margin-top: 30px !important;
+│ +}
+│ +
+│ +/* .facex_namerow > span:nth-child(1) {
+│ +    display: block;
+│ +    text-align: center;
+│ +    font-size: 12px;
+│ +    color: #62a7e3;
+│ +    opacity: 0.9;
+│ +    font-style: italic;
+│ +} */
+│ +
+│ +.facex_stats_row {
+│ +    position: unset !important;
+│ +    float: right;
+│ +    margin-right: 10px;
+│ +    margin-top: -5px;
+│ +}
+│ +
+│ +.facex_stats_row2 {
+│ +    position: unset !important;
+│ +    float: right;
+│ +    margin-right: 10px;
+│ +    margin-top: 10px;
+│ +    padding-top: 5px;
+│ +    margin-bottom: 5px;
+│ +    padding-bottom: 9px;
+│ +}
+│ +
+│ +.facex_stat .value {
+│ +    margin-bottom: 3px;
+│ +}
+│ +
+│ +.facex_stat .label {
+│ +    text-transform: uppercase;
+│ +    font-size: 11px !important
+│ +}
+│ +
+│ +.facex_stats_block {
+│ +    display: flex;
+│ +    flex-flow: wrap-reverse;
+│ +    justify-content: center;
+│ +    float: right;
+│ +    width: 380px;
+│ +    justify-content: right;
+│ +}
+│ +
+│ +.last20 {
+│ +    color: #62a7e3;
+│ +    text-transform: uppercase;
+│ +    font-size: 15px;
+│ +    text-align: center;
+│ +    float: left;
+│ +    width: 100%;
+│ +    margin-top: 13px;
+│ +}
+│ +
+│ +.facex_link {
+│ +    width: 100%;
+│ +    background: green;
+│ +    color: #fff;
+│ +    margin-top: 10px;
+│ +    border-radius: 5px;
+│ +    -moz-border-radius: 5px;
+│ +    -webkit-border-radius: 5px;
+│ +    display: block;
+│ +    text-align: center;
+│ +    padding: 6px;
+│ +    opacity: 0.5;
+│ +}
+│ +
+│ +.facex_link:hover {
+│ +    opacity: 1;
+│  }

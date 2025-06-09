@@ -1,0 +1,215 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/fix-yt-traditional-chinese-subtitle/dist
+├── file list
+│ @@ -1,7 +1,6 @@
+│  128.png
+│  _locales
+│ -_metadata
+│  js
+│  manifest.json
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/fix-yt-traditional-chinese-subtitle/dist/_locales
+│ ├── file list
+│ │ @@ -1,4 +1,3 @@
+│ │  en
+│ │ -zh
+│ │  zh_CN
+│ │  zh_TW
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/fix-yt-traditional-chinese-subtitle/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,15 +17,14 @@
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_extDescription__",
+│ │      "icons": {
+│ │          "128": "128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extName__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.9",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://www.youtube.com/*",
+│ │                  "*://youtube.com/*"
+│ │              ],
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/fix-yt-traditional-chinese-subtitle/dist/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,86 +1,86 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -  <head>
+│ -    <meta charset="UTF-8" />
+│ -    <title>fix-yt-traditional-chinese-subtitle</title>
+│ -    <style>
+│ -      body {
+│ -        font-family: monospace, Microsoft JhengHei;
+│ -        background: #212121;
+│ -        color: white;
+│ -        padding: 25px 15px;
+│ -        font-size: 14px;
+│ -        margin: 0;
+│ -      }
+│ -      main {
+│ -        width: 350px;
+│ -        display: flex;
+│ -        flex-direction: column;
+│ -      }
+│ -      img {
+│ -        margin: auto;
+│ -      }
+│ -      .title {
+│ -        margin: auto;
+│ -        margin-top: 22px;
+│ -        margin-bottom: 28px;
+│ -        line-height: 1.2rem;
+│ -      }
+│ -      a {
+│ -        background: #e9e9e9;
+│ -        padding: 8px 12px;
+│ -        font-size: small;
+│ -        color: black;
+│ -        text-decoration: none;
+│ -        border-radius: 7px;
+│ -        margin-right: 3px;
+│ -        transition: all 0.4s ease-in-out;
+│ -      }
+│ -      a:hover {
+│ -        background: #bfeeff;
+│ -      }
+│ -      .footer {
+│ -        margin-top: 40px;
+│ -        font-size: smaller;
+│ -        display: flex;
+│ -        align-items: end;
+│ -        justify-content: space-between;
+│ -      }
+│ -      .contactUs {
+│ -        line-height: 1.1rem;
+│ -      }
+│ -      .version {
+│ -        background: #3f3f3f;
+│ -        padding: 4px 10px;
+│ -        border-radius: 10px;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <main>
+│ -      <img src="128.png" width="64" height="64" alt="icon" />
+│ -      <span class="title"></span>
+│ -      <div class="btns">
+│ -        <a
+│ -          id="buymeacoffee"
+│ -          target="_blank"
+│ -          href="https://www.buymeacoffee.com/yuanchuang"
+│ -        ></a>
+│ -        <a
+│ -          target="_blank"
+│ -          href="https://github.com/Frank0945/fix-yt-traditional-chinese-subtitle"
+│ -          >Github</a
+│ -        >
+│ -      </div>
+│ -      <div class="footer">
+│ -        <span class="contactUs">
+│ -          <span id="contact"></span>
+│ -          <br />
+│ -          yuanchuang940@gmail.com
+│ -        </span>
+│ -        <span class="version">v1.0.9</span>
+│ -      </div>
+│ -    </main>
+│ -    <script src="popup.js"></script>
+│ -  </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +  <head>
+│ +    <meta charset="UTF-8" />
+│ +    <title>fix-yt-traditional-chinese-subtitle</title>
+│ +    <style>
+│ +      body {
+│ +        font-family: monospace, Microsoft JhengHei;
+│ +        background: #212121;
+│ +        color: white;
+│ +        padding: 25px 15px;
+│ +        font-size: 14px;
+│ +        margin: 0;
+│ +      }
+│ +      main {
+│ +        width: 350px;
+│ +        display: flex;
+│ +        flex-direction: column;
+│ +      }
+│ +      img {
+│ +        margin: auto;
+│ +      }
+│ +      .title {
+│ +        margin: auto;
+│ +        margin-top: 22px;
+│ +        margin-bottom: 28px;
+│ +        line-height: 1.2rem;
+│ +      }
+│ +      a {
+│ +        background: #e9e9e9;
+│ +        padding: 8px 12px;
+│ +        font-size: small;
+│ +        color: black;
+│ +        text-decoration: none;
+│ +        border-radius: 7px;
+│ +        margin-right: 3px;
+│ +        transition: all 0.4s ease-in-out;
+│ +      }
+│ +      a:hover {
+│ +        background: #bfeeff;
+│ +      }
+│ +      .footer {
+│ +        margin-top: 40px;
+│ +        font-size: smaller;
+│ +        display: flex;
+│ +        align-items: end;
+│ +        justify-content: space-between;
+│ +      }
+│ +      .contactUs {
+│ +        line-height: 1.1rem;
+│ +      }
+│ +      .version {
+│ +        background: #3f3f3f;
+│ +        padding: 4px 10px;
+│ +        border-radius: 10px;
+│ +      }
+│ +    </style>
+│ +  </head>
+│ +  <body>
+│ +    <main>
+│ +      <img src="128.png" width="64" height="64" alt="icon" />
+│ +      <span class="title"></span>
+│ +      <div class="btns">
+│ +        <a
+│ +          id="buymeacoffee"
+│ +          target="_blank"
+│ +          href="https://www.buymeacoffee.com/yuanchuang"
+│ +        ></a>
+│ +        <a
+│ +          target="_blank"
+│ +          href="https://github.com/Frank0945/fix-yt-traditional-chinese-subtitle"
+│ +          >Github</a
+│ +        >
+│ +      </div>
+│ +      <div class="footer">
+│ +        <span class="contactUs">
+│ +          <span id="contact"></span>
+│ +          <br />
+│ +          yuanchuang940@gmail.com
+│ +        </span>
+│ +        <span class="version">v1.0.9</span>
+│ +      </div>
+│ +    </main>
+│ +    <script src="popup.js"></script>
+│ +  </body>
+│ +</html>

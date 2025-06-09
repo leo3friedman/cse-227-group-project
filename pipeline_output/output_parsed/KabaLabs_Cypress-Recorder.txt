@@ -1,0 +1,31 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Cypress-Recorder/src
+  - files: _metadata, cypresscone128.png, cypresscone16.png, cypresscone32.png, cypresscone48.png, cypressconeICON.png, cypressconeREC.png, options.e902a088.js, options.e902a088.js.map, popup.5db843da.css, popup.5db843da.css.map, popup.5e6261ca.js, popup.5e6261ca.js.map
+  + files: __mocks__, __tests__, assets, constants, helpers, setupTests.ts, types
+
+---/workspace/pipeline_output/chromex_data/background <-> +++/workspace/pipeline_output/Cypress-Recorder/src/background
+  - files: background.js, background.js.map
+  + files: background.ts
+
+---/workspace/pipeline_output/chromex_data/content-scripts <-> +++/workspace/pipeline_output/Cypress-Recorder/src/content-scripts
+  - files: eventRecorder.js, eventRecorder.js.map
+  + files: eventRecorder.ts
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Cypress-Recorder/src/manifest.json; File type: json
+  - Original: 54–54 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options <-> +++/workspace/pipeline_output/Cypress-Recorder/src/options
+  - files: index.html
+  + files: index.html, index.tsx
+
+---/workspace/pipeline_output/chromex_data/options/index.html <-> +++/workspace/pipeline_output/Cypress-Recorder/src/options/index.html; File type: html
+  - Original: 1–2
+  + Modified: 1–26
+
+---/workspace/pipeline_output/chromex_data/popup <-> +++/workspace/pipeline_output/Cypress-Recorder/src/popup
+  - files: index.html
+  + files: components, index.html, index.tsx
+
+---/workspace/pipeline_output/chromex_data/popup/index.html <-> +++/workspace/pipeline_output/Cypress-Recorder/src/popup/index.html; File type: html
+  - Original: 1–2
+  + Modified: 1–14
+

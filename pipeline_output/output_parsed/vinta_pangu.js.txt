@@ -1,23 +1,10 @@
----/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/pangu.js/browser_extensions/chrome
-  - files: _metadata
-  + files: 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/pangu.js/node_modules/puppeteer/.local-chromium/linux-637110/chrome-linux/MEIPreload
+  - files: _locales, _metadata, images, js, pages, sounds, stylesheets, vendors
+  + files: preloaded_data.pb
 
----/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/pangu.js/browser_extensions/chrome/manifest.json; File type: json
-  - Original: 48–48 -> Update URL
-
----/workspace/pipeline_output/chromex_data/vendors/pangu/pangu.min.js <-> +++/workspace/pipeline_output/pangu.js/browser_extensions/chrome/vendors/pangu/pangu.min.js; File type: js
-  - Original: 100–100
-  + Modified: 100–100
-  - Original: 161–169
-  - Original: 171–177
-  - Original: 180–194
-  - Original: 198–203
-  - Original: 207–207
-  - Original: 209–209
-  + Modified: 161–208
-  - Original: 379–380
-  - Original: 383–385
-  + Modified: 380–386
-  - Original: 416–416
-  + Modified: 417–417
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/pangu.js/node_modules/puppeteer/.local-chromium/linux-637110/chrome-linux/MEIPreload/manifest.json; File type: json
+  - Original: 2–34
+  - Original: 36–47
+  - Original: 49–49
+  + Modified: 2–7
 

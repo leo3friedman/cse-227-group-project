@@ -1,0 +1,75 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Tree-Style-Tab/public
+├── file list
+│ @@ -1,10 +1,5 @@
+│ -_metadata
+│ -asset-manifest.json
+│  favicon.ico
+│  images
+│  index.html
+│  manifest.json
+│ -precache-manifest.e3becbd65129b24f451b57eee19118ea.js
+│ -service-worker.js
+│ -service_worker.js
+│ -static
+│ +service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/Tree-Style-Tab/public/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1 +1,41 @@
+│ -<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="shortcut icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/><meta name="theme-color" content="#000000"/><link rel="manifest" href="/manifest.json"/><title>React App</title><link href="/static/css/1.21982fd0.chunk.css" rel="stylesheet"><link href="/static/css/main.6ad95113.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script src="/static/js/runtime~main.229c360f.js"></script><script src="/static/js/1.6ac730dd.chunk.js"></script><script src="/static/js/main.d5bbd82d.chunk.js"></script></body></html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <meta charset="utf-8" />
+│ +    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+│ +    <meta
+│ +      name="viewport"
+│ +      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+│ +    />
+│ +    <meta name="theme-color" content="#000000" />
+│ +    <!--
+│ +      manifest.json provides metadata used when your web app is added to the
+│ +      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+│ +    -->
+│ +    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+│ +    <!--
+│ +      Notice the use of %PUBLIC_URL% in the tags above.
+│ +      It will be replaced with the URL of the `public` folder during the build.
+│ +      Only files inside the `public` folder can be referenced from the HTML.
+│ +
+│ +      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+│ +      work correctly both with client-side routing and a non-root public URL.
+│ +      Learn how to configure a non-root public URL by running `npm run build`.
+│ +    -->
+│ +    <title>React App</title>
+│ +  </head>
+│ +  <body>
+│ +    <noscript>You need to enable JavaScript to run this app.</noscript>
+│ +    <div id="root"></div>
+│ +    <!--
+│ +      This HTML file is a template.
+│ +      If you open it directly in the browser, you will see an empty page.
+│ +
+│ +      You can add webfonts, meta tags, or analytics to this file.
+│ +      The build step will place the bundled scripts into the <body> tag.
+│ +
+│ +      To begin the development, run `npm start` or `yarn start`.
+│ +      To create a production bundle, use `npm run build` or `yarn build`.
+│ +    -->
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Tree-Style-Tab/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,10 +33,9 @@
+│ │      "name": "Tree Style Tab",
+│ │      "permissions": [
+│ │          "bookmarks",
+│ │          "tabs",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "Tab Tree",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.5.0"
+│ │  }

@@ -1,0 +1,42 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/visual-bookmarks-chrome/static
+├── file list
+│ @@ -1,10 +1,4 @@
+│  _locales
+│ -_metadata
+│ -background.js
+│ -css
+│  icons
+│  img
+│ -js
+│ -manifest.json
+│ -newtab.html
+│ -options.html
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/visual-bookmarks-chrome/static/img
+│ ├── file list
+│ │ @@ -2,9 +2,8 @@
+│ │  check.svg
+│ │  folder-open.svg
+│ │  folder.svg
+│ │  more.svg
+│ │  return-back.svg
+│ │  select-arrow-light.svg
+│ │  select-arrow.svg
+│ │ -symbol.svg
+│ │  turn-up.svg
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/visual-bookmarks-chrome/static/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -34,10 +34,9 @@
+│ │          "bookmarks",
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "tabs",
+│ │          "notifications",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "6.7.0"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Daily-Motivation
+├── file list
+│ @@ -1,10 +1,13 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  index.html
+│  manifest.json
+│ +node_modules
+│  package-lock.json
+│  package.json
+│  src
+│  vendor
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Daily-Motivation/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -5,10 +5,9 @@
+│ │      },
+│ │      "chrome_url_overrides": {
+│ │          "newtab": "index.html"
+│ │      },
+│ │      "description": "Start every search with motivation. This extension presents you with a motivational quote every time you open a new tab.",
+│ │      "manifest_version": 3,
+│ │      "name": "Daily Motivation - Motivational Quotes",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.4.15"
+│ │  }

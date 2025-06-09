@@ -1,0 +1,19 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/DoNotDiscard
+  - files: _metadata, manifest.json
+  + files: .git, README.md, manifest.json, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/DoNotDiscard/_locales/en/messages.json; File type: json
+  - Original: 1–16
+  + Modified: 1–16
+
+---/workspace/pipeline_output/chromex_data/_locales/es/messages.json <-> +++/workspace/pipeline_output/DoNotDiscard/_locales/es/messages.json; File type: json
+  - Original: 1–17
+  + Modified: 1–17
+
+---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/DoNotDiscard/background.js; File type: js
+  - Original: 1–49
+  + Modified: 1–49
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/DoNotDiscard/manifest.json; File type: json
+  - Original: 21–21 -> Update URL
+

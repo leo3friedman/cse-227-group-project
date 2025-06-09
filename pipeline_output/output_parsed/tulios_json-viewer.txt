@@ -1,0 +1,17 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/json-viewer/extension
+  - files: _metadata, assets
+  + files: src, styles
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/json-viewer/extension/manifest.json; File type: json
+  - Original: 40–40 -> Update URL
+  - Original: 46–72
+  + Modified: 45–45
+
+---/workspace/pipeline_output/chromex_data/themes/dark <-> +++/workspace/pipeline_output/json-viewer/extension/themes/dark
+  - files: 3024-night.css, ambiance.css, base16-dark.css, cobalt.css, dark.css, dracula-custom.css, dracula.css, jellybeans.css, material.css, mbo.css, mehdi.css, midnight.css, monokai.css, okaidia.css, panda-syntax.css, solarized_dark.css, tomorrow.css, twilight.css, zenburn.css
+  + files: 3024-night, 3024-night.js, ambiance, ambiance.js, base16-dark, base16-dark.js, cobalt, cobalt.js, dark, dark.js, dracula, dracula-custom, dracula-custom.js, dracula.js, jellybeans, jellybeans.js, material, material.js, mbo, mbo.js, mehdi, mehdi.js, midnight, midnight.js, monokai, monokai.js, okaidia, okaidia.js, panda-syntax, panda-syntax.js, solarized-dark, solarized_dark.js, tomorrow, tomorrow.js, twilight, twilight.js, zenburn, zenburn.js
+
+---/workspace/pipeline_output/chromex_data/themes/light <-> +++/workspace/pipeline_output/json-viewer/extension/themes/light
+  - files: base16-light.css, coy.css, funky.css, mdn-like.css, neo.css, solarized_light.css, yeti.css
+  + files: base16-light, base16-light.js, coy, coy.js, funky, funky.js, mdn-like, mdn-like.js, neo, neo.js, solarized-light, solarized_light.js, yeti, yeti.js
+

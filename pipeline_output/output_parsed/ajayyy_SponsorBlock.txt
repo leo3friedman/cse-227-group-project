@@ -1,0 +1,13 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/SponsorBlock/manifest
+  - files: _locales, _metadata, content.css, help, icons, js, libs, options, oss-attribution, permissions, popup.css, popup.html, res, shared.css
+  + files: beta-manifest-extra.json, chrome-manifest-extra.json, firefox-beta-manifest-extra.json, firefox-manifest-extra.json, manifest-v2-extra.json, safari-manifest-extra.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/SponsorBlock/manifest/manifest.json; File type: json
+  - Original: 2–87
+  - Original: 91–94
+  - Original: 104–104
+  - Original: 106–108
+  - Original: 118–118 -> Update URL
+  - Original: 119–183
+  + Modified: 24–24
+

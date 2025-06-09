@@ -1,0 +1,124 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/live-css-editor/extension
+├── file list
+│ @@ -1,13 +1,25 @@
+│  README-FOR-EXTENSION-REVIEWERS.md
+│  _locales
+│ -_metadata
+│  alert.html
+│ +alert.js
+│  background-magicss.html
+│ -dist
+│ +background-magicss.js
+│ +commonAppUtils
+│ +constants.js
+│  external-editor-base.js
+│  external-editor.css
+│  external-editor.html
+│  icons
+│ +manifest-chrome.json
+│ +manifest-edge.json
+│ +manifest-firefox.json
+│ +manifest-generator.mjs
+│ +manifest-kiwi.json
+│ +manifest-opera.json
+│ +manifest-puppeteer.json
+│  manifest.json
+│  options.html
+│ -scripts
+│ +scripts
+│ +src
+│ +ui-images
+│ +webpack
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/live-css-editor/extension/icons
+│ ├── file list
+│ │ @@ -1,7 +1,9 @@
+│ │ +archived
+│ │ +generate-icons.sh
+│ │  icon-128.png
+│ │  icon-16.png
+│ │  icon-24.png
+│ │  icon-256.png
+│ │  icon-256.svg
+│ │  icon-32.png
+│ │  icon-40.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/live-css-editor/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -54,10 +54,9 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "scripting",
+│ │          "offscreen"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "8.22.5"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/live-css-editor/extension/scripts
+│ ├── file list
+│ │ @@ -1,4 +1,18 @@
+│ │  3rdparty
+│ │ +3rdparty-custom-fixes
+│ │ +actions.js
+│ │ +appUtils
+│ │  appVersion.js
+│ │ +background-magicss-include.js
+│ │ +background-operations.js
+│ │ +chrome-extension-lib
+│ │ +load-editor.js
+│ │ +load-reapply.js
+│ │ +loading-magic-css.js
+│ │ +magicss
+│ │ +migrate-storage.js
+│ │  platformInfoOs-android.js
+│ │ +platformInfoOs-non-android.js
+│ │ +reapply-css.js
+│ │ +utils
+│ │ +utils.js
+│ │ -platformInfoOs-non-android.js
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/3rdparty
+│ ├── +++ /workspace/pipeline_output/live-css-editor/extension/scripts/3rdparty
+│ │ ├── file list
+│ │ │ @@ -1,2 +1,30 @@
+│ │ │ +.editorconfig
+│ │ │ +amplify-store.js
+│ │ │ +amplify-store.js.source.txt
+│ │ │  basic-less-with-sourcemap-support.browserified.js
+│ │ │ -sass
+│ │ │ +basic-less-with-sourcemap-support.browserified.js.source.description.txt
+│ │ │ +basic-less-with-sourcemap-support.browserified.js.source.txt
+│ │ │ +codemirror
+│ │ │ +css.escape.js
+│ │ │ +css.escape.js.source.txt
+│ │ │ +csslint
+│ │ │ +csspretty
+│ │ │ +jquery-ui.css
+│ │ │ +jquery-ui.css.source.txt
+│ │ │ +jquery-ui.js
+│ │ │ +jquery-ui.js.source.txt
+│ │ │ +jquery-ui_customized.css
+│ │ │ +jquery-ui_customized.css.source.txt
+│ │ │ +jquery.js
+│ │ │ +jquery.js.source.txt
+│ │ │ +jquery.ui-touch-punch_customized.js.source.txt
+│ │ │ +jquery.ui.touch-punch.js
+│ │ │ +jquery.ui.touch-punch.js.source.txt
+│ │ │ +jquery.ui.touch-punch_customized.js
+│ │ │ +magicsuggest
+│ │ │ +sass
+│ │ │ +socket.io
+│ │ │ +source-map.js
+│ │ │ +source-map.js.source.txt
+│ │ │ +toastr
+│ │ │ +tooltipster
+│ │ │   --- /workspace/pipeline_output/chromex_data/scripts/3rdparty/sass
+│ │ ├── +++ /workspace/pipeline_output/live-css-editor/extension/scripts/3rdparty/sass
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1,2 @@
+│ │ │ │ +sass.sync.min.js
+│ │ │ │ +sass.sync.min.js.source.txt
+│ │ │ │ -sass.sync.min.js

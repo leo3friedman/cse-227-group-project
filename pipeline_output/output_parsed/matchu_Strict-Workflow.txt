@@ -1,0 +1,14 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Strict-Workflow
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/Strict-Workflow/_locales
+  - files: 
+  + files: pt_BR
+
+---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/Strict-Workflow/background.js; File type: js
+  + Modified: 322–322
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Strict-Workflow/manifest.json; File type: json
+  - Original: 25–25 -> Update URL
+

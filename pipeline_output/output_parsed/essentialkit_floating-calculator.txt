@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/floating-calculator/build/chrome-prod
+  - files: _metadata
+  + files: archive.zip
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/floating-calculator/build/chrome-prod/_locales
+  - files: zh-CN, zh-TW
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/floating-calculator/build/chrome-prod/manifest.json; File type: json
+  - Original: 56–56 -> Update URL
+

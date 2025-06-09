@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/darkness/chrome-extension
+├── file list
+│ @@ -1,12 +1,13 @@
+│ +.gitignore
+│ +.vscode
+│  _locales
+│ -_metadata
+│  flaticon
+│  fonts
+│  html
+│  icons
+│  images
+│  js
+│  libs
+│  manifest.json
+│ -style-css
+│ -themes-css
+│ +style
+│ +themes
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/darkness/chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -51,15 +51,14 @@
+│ │          "tabs",
+│ │          "storage",
+│ │          "cookies",
+│ │          "http://*/",
+│ │          "https://*/"
+│ │      ],
+│ │      "short_name": "__MSG_appShortName__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.0",
+│ │      "web_accessible_resources": [
+│ │          "themes-css/*.css",
+│ │          "themes-css/*.map",
+│ │          "style-css/*.css",
+│ │          "style-css/*.map",
+│ │          "js/*.js",

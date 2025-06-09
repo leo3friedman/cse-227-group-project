@@ -1,0 +1,81 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NewTab-Redirect
+├── file list
+│ @@ -1,16 +1,20 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.jshintrc
+│  LICENSE
+│  README.md
+│ -_metadata
+│  changes.txt
+│  css
+│  dev
+│  example.html
+│  examples
+│  fonts
+│  images
+│  js
+│  main.html
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  upgraded
+│  welcome.html
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/NewTab-Redirect/README.md
+│ @@ -15,14 +15,21 @@
+│  Your custom tab can also be a local file, allowing you to create your own new tab page. Saving blank text will cause your new tab to be about:blank.
+│  
+│  Files can begin with: `file:\\`, `file://`, and `file:///`
+│  
+│  **Important:** 
+│  This is not meant to replace your homepage, only new tabs.  If your browser is set to load the New Tab page as your homepage, there may be odd consequences.
+│  
+│ +## Missing Local Files?
+│ +
+│ +This is due to a change in Google Chrome, not a change to the extension.
+│ +
+│ +You'll now need to navigate to `chrome://extensions` and find the New Tab Redirect options. Click Details here, then scroll down and toggle on `Allow access to file URLs`.
+│ +
+│ +Chrome doesn't allow for an extension developer to warn/notify on changed behavior, and there's no logical place for me to embed browser tutorials into the extension. Whenever you see an extension update with changed permissions, you should always be reviewing the extension's settings and detais.
+│  
+│  ## Omnibar support
+│  
+│  If you use the built-in New Tab Redirect Apps page, you will be able to type directly into the omnibar. If you use a custom url, the architecture of the extension can not allow for focusing or clearing of the omnibar.
+│  
+│  Google Chrome extensions do not currently have access to interact with the omnibar for highlighting after the new page is created.  There is an experimental API to retrieve values and detect user input in the omnibar, but it does not allow extensions to highlight the text.  I've tested version 1.0.1 of New Tab Redirect! across numerous developer builds, and the cursor only occasionally ends at the end of the omnibar.  However, this is handled by Chrome itself and can not be modified via the extension.  As soon as Chrome offers this functionality, I will implement it.  Until then, it is possible to use `CTRL+L` to quickly highlight the omnibar.
+│   --- /workspace/pipeline_output/chromex_data/examples
+├── +++ /workspace/pipeline_output/NewTab-Redirect/examples
+│ │   --- /workspace/pipeline_output/chromex_data/examples/empty
+│ ├── +++ /workspace/pipeline_output/NewTab-Redirect/examples/empty
+│ │ │   --- /workspace/pipeline_output/chromex_data/examples/empty/manifest.txt
+│ │ ├── +++ /workspace/pipeline_output/NewTab-Redirect/examples/empty/manifest.txt
+│ │ │ ├── Pretty-printed
+│ │ │ │ @@ -1,10 +1,10 @@
+│ │ │ │  {
+│ │ │ │      "chrome_url_overrides": {
+│ │ │ │          "newtab": "empty.html"
+│ │ │ │      },
+│ │ │ │      "description": "Override the new tab page with an empty page, for users who don't like the original or custom new tab pages",
+│ │ │ │      "incognito": "split",
+│ │ │ │ -    "manifest_version": 2,
+│ │ │ │ +    "manifest_version": 3,
+│ │ │ │      "name": "Empty new tab page",
+│ │ │ │      "version": "1.0"
+│ │ │ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NewTab-Redirect/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,10 +28,9 @@
+│ │      ],
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "favicon"
+│ │      ],
+│ │      "short_name": "NTR!",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.6"
+│ │  }

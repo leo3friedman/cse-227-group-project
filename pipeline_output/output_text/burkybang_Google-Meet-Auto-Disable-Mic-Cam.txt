@@ -1,0 +1,208 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam
+├── file list
+│ @@ -1,7 +1,24 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +Google Meet Auto Disable Mic-Cam - Chrome.zip
+│ +Google Meet Auto Disable Mic-Cam - Firefox.zip
+│ +LICENSE
+│ +README.md
+│  content.js
+│ +content.ts
+│  icon
+│ +icon.png
+│ +image
+│  lib.js
+│ +lib.ts
+│  manifest.json
+│ +manifest_chrome.json
+│ +manifest_firefox.json
+│ +node
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  popup.html
+│ -popup.js
+│ +popup.js
+│ +popup.ts
+│ +tsconfig.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "48": "icon/icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Google Meet Auto Disable Mic/Cam",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/Google-Meet-Auto-Disable-Mic-Cam/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,80 +1,80 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -<head>
+│ -  <meta charset="UTF-8">
+│ -  <title>Settings</title>
+│ -  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500">
+│ -  <style>
+│ -    body {
+│ -      margin: 0;
+│ -      font-size: 0.875rem;
+│ -      font-family: Roboto, Arial, sans-serif;
+│ -      font-weight: 500;
+│ -      letter-spacing: .01785714em;
+│ -      color: #202124;
+│ -    }
+│ -
+│ -    #logo {
+│ -      padding: 0.3rem 1rem 0.1rem 1rem;
+│ -      background-color: #e8eaed;
+│ -    }
+│ -
+│ -    #toggles {
+│ -      padding: 0.25rem 0.75rem;
+│ -    }
+│ -
+│ -    label {
+│ -      display: block;
+│ -      cursor: pointer;
+│ -      white-space: nowrap;
+│ -      margin: 0.75rem 0.5rem;
+│ -    }
+│ -
+│ -    input[type="checkbox"] {
+│ -      cursor: pointer;
+│ -      position: relative;
+│ -      top: 1px;
+│ -      margin: 0 0.5rem 0 0;
+│ -    }
+│ -
+│ -    @media (prefers-color-scheme: dark) {
+│ -      body {
+│ -        background-color: #141416;
+│ -        color: #dfdedb;
+│ -      }
+│ -
+│ -      #logo {
+│ -        background-color: #202124;
+│ -      }
+│ -
+│ -      svg > path:first-child {
+│ -        fill: #dfdedb;
+│ -      }
+│ -    }
+│ -  </style>
+│ -</head>
+│ -<body>
+│ -
+│ -<div id="logo">
+│ -  <svg height="2rem" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 377 140">
+│ -    <path
+│ -        d="M181.62 105.8V39.93h8.46L213 80.04h.37l22.91-40.11h8.46v65.87h-8.46V66.7l.37-11.04h-.37l-20.61 36.16h-4.97l-20.61-36.16h-.37l.37 11.04v39.1h-8.47zm94.04 1.47c-6.81 0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2 0-6.56 2.07-12.2 6.21-16.93 4.14-4.72 9.43-7.08 15.87-7.08 6.68 0 12.04 2.18 16.05 6.53 4.02 4.36 6.03 10.18 6.03 17.48l-.09 1.56h-35.6c.24 4.54 1.76 8.13 4.55 10.76 2.79 2.64 6.06 3.96 9.8 3.96 6.07 0 10.18-2.58 12.33-7.73l7.54 3.13c-1.47 3.5-3.9 6.43-7.27 8.79-3.38 2.36-7.52 3.54-12.42 3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13 0-5.84.98-8.14 2.94-2.3 1.96-3.88 4.6-4.74 7.91h26.13v.01zm35.77 29.44c-6.81 0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2 0-6.56 2.07-12.2 6.21-16.93 4.14-4.72 9.43-7.08 15.87-7.08 6.68 0 12.04 2.18 16.05 6.53 4.02 4.36 6.03 10.18 6.03 17.48l-.09 1.56h-35.6c.24 4.54 1.76 8.13 4.55 10.76 2.79 2.64 6.06 3.96 9.8 3.96 6.07 0 10.18-2.58 12.33-7.73l7.54 3.13c-1.47 3.5-3.9 6.43-7.27 8.79-3.37 2.36-7.51 3.54-12.42 3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13 0-5.84.98-8.14 2.94-2.3 1.96-3.88 4.6-4.74 7.91h26.13v.01zm33.34 28.7c-4.72 0-8.33-1.26-10.81-3.77-2.48-2.51-3.73-6.07-3.73-10.67V68.45h-7.91v-7.73h7.91v-13.8h8.46v13.8h11.04v7.73h-11.04v23c0 4.91 2.02 7.36 6.07 7.36 1.53 0 2.82-.24 3.86-.74l2.94 7.27c-1.83.79-4.1 1.19-6.79 1.19z"
+│ -        fill="#5F6368"/>
+│ -    <path
+│ -        d="M100.625 88.923V54.067l3.614-7.522L122.31 32.23c2.409-2.021 6.023-.323 6.023 2.831v68.42c0 3.154-3.694 4.852-6.104 2.83l-21.604-17.388z"
+│ -        fill="#00AC47"/>
+│ -    <path d="M40.833 21.875L11.667 51.042h29.166V21.875z" fill="#EA4335"/>
+│ -    <path d="M40.833 51.042H11.667v37.916h29.166V51.042z" fill="#2684FC"/>
+│ -    <path d="M11.667 88.958v19.445c0 5.347 4.375 9.722 9.722 9.722h19.444V88.958H11.667z" fill="#0066DA"/>
+│ -    <path d="M104.271 31.486c0-5.286-4.282-9.611-9.516-9.611H40.834v29.167h35.728V70l27.709-.873V31.486z" fill="#FFBA00"/>
+│ -    <path d="M76.563 88.958h-35.73v29.167h53.922c5.234 0 9.516-4.319 9.516-9.597V70H76.562v18.958z" fill="#00AC47"/>
+│ -    <path d="M104.271 46.667v45.208L76.562 70l27.709-23.333z" fill="#00832D"/>
+│ -  </svg>
+│ -</div>
+│ -<div id="toggles"></div>
+│ -
+│ -<script src="lib.js"></script>
+│ -<script src="popup.js"></script>
+│ -
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +  <meta charset="UTF-8">
+│ +  <title>Settings</title>
+│ +  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500">
+│ +  <style>
+│ +    body {
+│ +      margin: 0;
+│ +      font-size: 0.875rem;
+│ +      font-family: Roboto, Arial, sans-serif;
+│ +      font-weight: 500;
+│ +      letter-spacing: .01785714em;
+│ +      color: #202124;
+│ +    }
+│ +
+│ +    #logo {
+│ +      padding: 0.3rem 1rem 0.1rem 1rem;
+│ +      background-color: #e8eaed;
+│ +    }
+│ +
+│ +    #toggles {
+│ +      padding: 0.25rem 0.75rem;
+│ +    }
+│ +
+│ +    label {
+│ +      display: block;
+│ +      cursor: pointer;
+│ +      white-space: nowrap;
+│ +      margin: 0.75rem 0.5rem;
+│ +    }
+│ +
+│ +    input[type="checkbox"] {
+│ +      cursor: pointer;
+│ +      position: relative;
+│ +      top: 1px;
+│ +      margin: 0 0.5rem 0 0;
+│ +    }
+│ +
+│ +    @media (prefers-color-scheme: dark) {
+│ +      body {
+│ +        background-color: #141416;
+│ +        color: #dfdedb;
+│ +      }
+│ +
+│ +      #logo {
+│ +        background-color: #202124;
+│ +      }
+│ +
+│ +      svg > path:first-child {
+│ +        fill: #dfdedb;
+│ +      }
+│ +    }
+│ +  </style>
+│ +</head>
+│ +<body>
+│ +
+│ +<div id="logo">
+│ +  <svg height="2rem" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 377 140">
+│ +    <path
+│ +        d="M181.62 105.8V39.93h8.46L213 80.04h.37l22.91-40.11h8.46v65.87h-8.46V66.7l.37-11.04h-.37l-20.61 36.16h-4.97l-20.61-36.16h-.37l.37 11.04v39.1h-8.47zm94.04 1.47c-6.81 0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2 0-6.56 2.07-12.2 6.21-16.93 4.14-4.72 9.43-7.08 15.87-7.08 6.68 0 12.04 2.18 16.05 6.53 4.02 4.36 6.03 10.18 6.03 17.48l-.09 1.56h-35.6c.24 4.54 1.76 8.13 4.55 10.76 2.79 2.64 6.06 3.96 9.8 3.96 6.07 0 10.18-2.58 12.33-7.73l7.54 3.13c-1.47 3.5-3.9 6.43-7.27 8.79-3.38 2.36-7.52 3.54-12.42 3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13 0-5.84.98-8.14 2.94-2.3 1.96-3.88 4.6-4.74 7.91h26.13v.01zm35.77 29.44c-6.81 0-12.34-2.27-16.61-6.81-4.26-4.54-6.39-10.27-6.39-17.2 0-6.56 2.07-12.2 6.21-16.93 4.14-4.72 9.43-7.08 15.87-7.08 6.68 0 12.04 2.18 16.05 6.53 4.02 4.36 6.03 10.18 6.03 17.48l-.09 1.56h-35.6c.24 4.54 1.76 8.13 4.55 10.76 2.79 2.64 6.06 3.96 9.8 3.96 6.07 0 10.18-2.58 12.33-7.73l7.54 3.13c-1.47 3.5-3.9 6.43-7.27 8.79-3.37 2.36-7.51 3.54-12.42 3.54zm12.14-29.44c-.18-2.58-1.37-5.03-3.54-7.36-2.18-2.33-5.41-3.5-9.71-3.5-3.13 0-5.84.98-8.14 2.94-2.3 1.96-3.88 4.6-4.74 7.91h26.13v.01zm33.34 28.7c-4.72 0-8.33-1.26-10.81-3.77-2.48-2.51-3.73-6.07-3.73-10.67V68.45h-7.91v-7.73h7.91v-13.8h8.46v13.8h11.04v7.73h-11.04v23c0 4.91 2.02 7.36 6.07 7.36 1.53 0 2.82-.24 3.86-.74l2.94 7.27c-1.83.79-4.1 1.19-6.79 1.19z"
+│ +        fill="#5F6368"/>
+│ +    <path
+│ +        d="M100.625 88.923V54.067l3.614-7.522L122.31 32.23c2.409-2.021 6.023-.323 6.023 2.831v68.42c0 3.154-3.694 4.852-6.104 2.83l-21.604-17.388z"
+│ +        fill="#00AC47"/>
+│ +    <path d="M40.833 21.875L11.667 51.042h29.166V21.875z" fill="#EA4335"/>
+│ +    <path d="M40.833 51.042H11.667v37.916h29.166V51.042z" fill="#2684FC"/>
+│ +    <path d="M11.667 88.958v19.445c0 5.347 4.375 9.722 9.722 9.722h19.444V88.958H11.667z" fill="#0066DA"/>
+│ +    <path d="M104.271 31.486c0-5.286-4.282-9.611-9.516-9.611H40.834v29.167h35.728V70l27.709-.873V31.486z" fill="#FFBA00"/>
+│ +    <path d="M76.563 88.958h-35.73v29.167h53.922c5.234 0 9.516-4.319 9.516-9.597V70H76.562v18.958z" fill="#00AC47"/>
+│ +    <path d="M104.271 46.667v45.208L76.562 70l27.709-23.333z" fill="#00832D"/>
+│ +  </svg>
+│ +</div>
+│ +<div id="toggles"></div>
+│ +
+│ +<script src="lib.js"></script>
+│ +<script src="popup.js"></script>
+│ +
+│ +</body>
+│  </html>

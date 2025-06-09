@@ -1,0 +1,23 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Meet-Simultaneous-Interpretation/src
+│   --- /workspace/pipeline_output/chromex_data/_metadata
+├── +++ /workspace/pipeline_output/Meet-Simultaneous-Interpretation/src/_metadata
+│ ├── file list
+│ │ @@ -1,2 +1 @@
+│ │ +generated_indexed_rulesets
+│ │ -generated_indexed_rulesets
+│ │ -verified_contents.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Meet-Simultaneous-Interpretation/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │      "name": "__MSG_appName__",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab",
+│ │          "scripting",
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.7"
+│ │  }

@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/livewire-devtools/shells/chrome
+├── file list
+│ @@ -1,7 +1,7 @@
+│ -_metadata
+│ -build
+│  devtools-background.html
+│  devtools.html
+│  icons
+│  manifest.json
+│ -popups
+│ +popups
+│ +src
+│ +webpack.config.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/livewire-devtools/shells/chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -45,15 +45,14 @@
+│ │          "48": "/icons/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Livewire devtools",
+│ │      "permissions": [
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1",
+│ │      "version_name": "1.1.1-chrome",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],

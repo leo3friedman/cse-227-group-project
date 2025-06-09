@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/stickyscribble
+├── file list
+│ @@ -1,8 +1,9 @@
+│ +.git
+│  CONTRIBUTING.md
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  contentscript.js
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/stickyscribble/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │          "19": "images/icons/19.png",
+│ │          "38": "images/icons/38.png",
+│ │          "64": "images/icons/64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_appName__",
+│ │      "offline_enabled": true,
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.3"
+│ │  }

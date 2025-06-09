@@ -1,0 +1,31 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Twitch-Lurker/app
+  - files: _metadata, assets, icons, kick-icon.png, service-worker-loader.js, twitch-icon-white.svg, twitch-icon.svg, youtube-icon.svg
+  + files: .eslintignore, .eslintrc.yml, .gitignore, LICENSE, logo.png, nodemon.json, package-lock.json, package.json, public, tsconfig.json, vite-plugins, vite.config.ts
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Twitch-Lurker/app/manifest.json; File type: json
+  - Original: 6–7
+  + Modified: 6–11
+  - Original: 33–33 -> Update URL
+  - Original: 34–46
+  + Modified: 37–37
+
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/Twitch-Lurker/app/src
+  - files: ui
+  + files: __tests__, app-constants.ts, chrome-utils.ts, content-scripts, logging.ts, service-worker, storage.ts, types.ts, ui, utils.ts
+
+---/workspace/pipeline_output/chromex_data/src/ui <-> +++/workspace/pipeline_output/Twitch-Lurker/app/src/ui
+  - files: pages
+  + files: atoms, components, hooks.ts, pages, stores, theme.ts, widgets
+
+---/workspace/pipeline_output/chromex_data/src/ui/pages <-> +++/workspace/pipeline_output/Twitch-Lurker/app/src/ui/pages
+  - files: 
+  + files: fullscreen, popup
+
+---/workspace/pipeline_output/chromex_data/src/ui/pages/fullscreen.html <-> +++/workspace/pipeline_output/Twitch-Lurker/app/src/ui/pages/fullscreen.html; File type: html
+  - Original: 7–11
+  + Modified: 10–10
+
+---/workspace/pipeline_output/chromex_data/src/ui/pages/popup.html <-> +++/workspace/pipeline_output/Twitch-Lurker/app/src/ui/pages/popup.html; File type: html
+  - Original: 7–11
+  + Modified: 10–10
+

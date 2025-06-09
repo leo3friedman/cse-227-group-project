@@ -1,0 +1,13 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/extension/dist
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/data/bluegem.json.gz <-> +++/workspace/pipeline_output/extension/dist/data/bluegem.json.gz; File type: gz
+  - Original: 1–4597
+  - Original: 4601–4841
+  - Original: 4845–22485
+  + Modified: 1–22383
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/extension/dist/manifest.json; File type: json
+  - Original: 116–116 -> Update URL
+

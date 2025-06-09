@@ -1,0 +1,53 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/cheese-knife
+├── file list
+│ @@ -1,19 +1,29 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│ +LICENSE
+│ +README-en.md
+│ +README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  config.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│ +images
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  permission.css
+│  permission.html
+│  permission.js
+│  popup.css
+│  popup.html
+│  popup.js
+│ +renovate.json
+│  styles
+│  styles.css
+│  styles.html
+│  styles.js
+│  web
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/cheese-knife/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,15 +42,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_ext_name__",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "__MSG_ext_shortName__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.7.11",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.chzzk.naver.com/*"
+│ │              ],
+│ │              "resources": [

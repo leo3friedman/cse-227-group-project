@@ -1,0 +1,59 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/figma-ui3
+├── file list
+│ @@ -1,7 +1,11 @@
+│ -_metadata
+│ +.DS_Store
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  readme.md
+│  rules
+│  screenshot.webp
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/figma-ui3/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,15 +23,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Enable UI3 Beta for Figma",
+│ │      "permissions": [
+│ │          "declarativeNetRequest",
+│ │          "declarativeNetRequestWithHostAccess"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/readme.md
+├── +++ /workspace/pipeline_output/figma-ui3/readme.md
+│ @@ -1,9 +1,11 @@
+│  # Enable UI3 Beta for Figma
+│  
+│ +> [!NOTE]
+│ +> [As of October 10, 2024, all users should have access to UI3 without needing to install an extension.](https://help.figma.com/hc/en-us/articles/24919293730327-How-do-I-get-access-to-UI3-and-AI-features)
+│  
+│  **Install: [Chrome](https://chrome.google.com/webstore/detail/enable-ui3-beta-for-figma/gdjldebhilhckhblmhklofdebemiahhi) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/enable-ui3-beta-for-figma/) | [Manually](#manual-installation)**
+│  
+│  ![Screenshot of Figma UI3 Beta](screenshot.webp)
+│  
+│  This extension enables UI3 Beta for Figma for all users.
+│  
+│ @@ -24,8 +26,8 @@
+│  
+│  ### Firefox
+│  
+│  1. At the top of this page, click **Code** and select **Download ZIP**
+│  2. Unzip the archive
+│  3. Go to `about:debugging#/runtime/this-firefox`
+│  4. Press "Load Temporary Add-on" and select zip file you downloaded
+│ -5. Installing this way on Firefox will remove it after closing browser
+│ +5. Installing this way on Firefox will remove it after closing browser

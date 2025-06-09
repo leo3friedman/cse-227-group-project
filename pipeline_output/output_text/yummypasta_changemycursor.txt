@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/changemycursor/mousechrome
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  img
+│  manifest.json
+│  popup.css
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/changemycursor/mousechrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -8,15 +8,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Change My Cursor",
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*/*"
+│ │              ],
+│ │              "resources": [

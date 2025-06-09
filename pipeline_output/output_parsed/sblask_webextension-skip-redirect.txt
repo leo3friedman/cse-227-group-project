@@ -1,0 +1,8 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/webextension-skip-redirect
+  - files: _metadata
+  + files: .agignore, .editorconfig, .eslintignore, .eslintrc.json, .git, .github, .gitignore, .npmrc, bin, node_modules, package.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/webextension-skip-redirect/manifest.json; File type: json
+  + Modified: 2–22
+  - Original: 43–43 -> Update URL
+

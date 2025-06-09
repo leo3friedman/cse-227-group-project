@@ -1,0 +1,273 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gif-scrubber
+├── file list
+│ @@ -1,16 +1,15 @@
+│ -_metadata
+│ -eventPage.dcc7d401.js
+│ -fa-solid-900.977e2c2d.woff2
+│ -fa-solid-900.a3c6e01f.ttf
+│ -icon-128.0d3f4eb2.png
+│ -icon-16.0be88e78.png
+│ -icon-48.e406ea6f.png
+│ +.git
+│ +.gitignore
+│ +.parcelrc
+│ +.prettierrc.json
+│ +LICENSE
+│ +README.md
+│ +css
+│ +img
+│ +js
+│ +lib
+│  manifest.json
+│ -options.06db9cb9.js
+│ -options.116549f9.css
+│ -options.26b25654.css
+│ -options.a9307223.css
+│  options.html
+│ -popup.184ea263.js
+│ -popup.2ca5ef99.js
+│ +package-lock.json
+│ +package.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gif-scrubber/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,31 +1,36 @@
+│ │  {
+│ │      "background": {
+│ │ -        "service_worker": "eventPage.dcc7d401.js"
+│ │ +        "service_worker": "js/eventPage.js",
+│ │ +        "type": "module"
+│ │ +    },
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "{a30f1ea6-8738-4402-b45c-8d3fe7c87273}"
+│ │ +        }
+│ │      },
+│ │      "description": "GIF scrubber is like a movie player for animated GIFS. Play it fast, slow, backwards, or use the scrubber to go back and forth!",
+│ │      "host_permissions": [
+│ │          "<all_urls>"
+│ │      ],
+│ │      "icons": {
+│ │ -        "128": "icon-128.0d3f4eb2.png",
+│ │ -        "16": "icon-16.0be88e78.png",
+│ │ -        "48": "icon-48.e406ea6f.png"
+│ │ +        "128": "img/icon-128.png",
+│ │ +        "16": "img/icon-16.png",
+│ │ +        "48": "img/icon-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "GIF Scrubber",
+│ │      "options_ui": {
+│ │          "browser_style": false,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.1.3",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/gif-scrubber/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1 +1,103 @@
+│ -<html><head><script type="module" src="/popup.2ca5ef99.js"></script><meta charset="utf-8"><title>GIF Scrubber Options</title><link rel="stylesheet" href="/options.116549f9.css"><link href="/options.a9307223.css" rel="stylesheet"><link href="/options.26b25654.css" rel="stylesheet"></head><body class="options"> <form id="options-form"> <h3><i class="fa fa-gear" style="width:1em"></i> Options</h3> <ul class="options-list"> <li> <input type="checkbox" id="open-tabs" name="open-tabs"> <label for="open-tabs">Open scrubber in new tab instead of new window</label> </li> <li> <input type="checkbox" id="auto-open" name="auto-open"> <label for="auto-open">Automatically open scrubber when opening GIFs</label> </li> <li> <input type="checkbox" id="auto-play" name="auto-play"> <label for="auto-play">Start playing as soon as image loads</label> </li> <li> <input type="checkbox" id="loop-anim" name="loop-anim"> <label for="loop-anim">Loop animation</label> </li> <li> <input type="checkbox" id="mouse-scrub" name="mouse-scrub"> <label for="mouse-scrub">Mouse hover automatically scrubs</label> </li> </ul> <h3 class="header-background"> <i class="fa fa-tint" style="width:1em"></i> Player Background </h3> <p class="explainer">Visible only with transparent GIF</p> <ul class="background-colors-list"> <li> <label class="input-radio" data-color="light"> <input name="background-color" type="radio" value="light"> <div class="sample"></div> Light </label> </li> <li> <label class="input-radio" data-color="dark"> <input name="background-color" type="radio" value="dark"> <div class="sample"></div> Dark </label> </li> <li> <label class="input-radio" data-color="checker"> <input name="background-color" type="radio" value="checker"> <div class="sample"></div> Checker </label> </li> </ul> <p id="status">-</p> <div class="shortcuts"> <h3><i class="fa fa-2x fa-keyboard"></i> Keyboard Shortcuts</h3> <table> <tr> <td>Pause/play GIF</td> <td>Space Bar</td> </tr> <tr> <td>Go back one frame</td> <td>Left Arrow</td> </tr> <tr> <td>Go forward one frame</td> <td>Right Arrow</td> </tr> <tr> <td>Toggle explode view</td> <td>E, Esc, Backspace</td> </tr> <tr> <td>Open options (this page)</td> <td>O</td> </tr> </table> </div> </form> <script type="module" src="/options.06db9cb9.js"></script> </body></html>
+│ +<html>
+│ +  <head>
+│ +    <meta charset="utf-8" />
+│ +    <title>GIF Scrubber Options</title>
+│ +    <link rel="stylesheet" href="css/scrubber.css" />
+│ +    <link
+│ +      href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css"
+│ +      rel="stylesheet"
+│ +    />
+│ +    <link
+│ +      href="./node_modules/@fortawesome/fontawesome-free/css/solid.css"
+│ +      rel="stylesheet"
+│ +    />
+│ +  </head>
+│ +
+│ +  <body class="options">
+│ +    <form id="options-form">
+│ +      <h3><i class="fa fa-gear" style="width: 1em"></i> Options</h3>
+│ +      <ul class="options-list">
+│ +        <li>
+│ +          <input type="checkbox" id="open-tabs" name="open-tabs" />
+│ +          <label for="open-tabs"
+│ +            >Open scrubber in new tab instead of new window</label
+│ +          >
+│ +        </li>
+│ +        <li>
+│ +          <input type="checkbox" id="auto-open" name="auto-open" />
+│ +          <label for="auto-open"
+│ +            >Automatically open scrubber when opening GIFs</label
+│ +          >
+│ +        </li>
+│ +        <li>
+│ +          <input type="checkbox" id="auto-play" name="auto-play" />
+│ +          <label for="auto-play">Start playing as soon as image loads</label>
+│ +        </li>
+│ +        <li>
+│ +          <input type="checkbox" id="loop-anim" name="loop-anim" />
+│ +          <label for="loop-anim">Loop animation</label>
+│ +        </li>
+│ +        <li>
+│ +          <input type="checkbox" id="mouse-scrub" name="mouse-scrub" />
+│ +          <label for="mouse-scrub">Mouse hover automatically scrubs</label>
+│ +        </li>
+│ +      </ul>
+│ +      <h3 class="header-background">
+│ +        <i class="fa fa-tint" style="width: 1em"></i> Player Background
+│ +      </h3>
+│ +      <p class="explainer">Visible only with transparent GIF</p>
+│ +      <ul class="background-colors-list">
+│ +        <li>
+│ +          <label class="input-radio" data-color="light">
+│ +            <input name="background-color" type="radio" value="light" />
+│ +            <div class="sample"></div>
+│ +            Light
+│ +          </label>
+│ +        </li>
+│ +        <li>
+│ +          <label class="input-radio" data-color="dark">
+│ +            <input name="background-color" type="radio" value="dark" />
+│ +            <div class="sample"></div>
+│ +            Dark
+│ +          </label>
+│ +        </li>
+│ +        <li>
+│ +          <label class="input-radio" data-color="checker">
+│ +            <input name="background-color" type="radio" value="checker" />
+│ +            <div class="sample"></div>
+│ +            Checker
+│ +          </label>
+│ +        </li>
+│ +      </ul>
+│ +
+│ +      <p id="status">-</p>
+│ +
+│ +      <div class="shortcuts">
+│ +        <h3><i class="fa fa-2x fa-keyboard"></i> Keyboard Shortcuts</h3>
+│ +        <table>
+│ +          <tr>
+│ +            <td>Pause/play GIF</td>
+│ +            <td>Space Bar</td>
+│ +          </tr>
+│ +          <tr>
+│ +            <td>Go back one frame</td>
+│ +            <td>Left Arrow</td>
+│ +          </tr>
+│ +          <tr>
+│ +            <td>Go forward one frame</td>
+│ +            <td>Right Arrow</td>
+│ +          </tr>
+│ +          <tr>
+│ +            <td>Toggle explode view</td>
+│ +            <td>E, Esc, Backspace</td>
+│ +          </tr>
+│ +          <tr>
+│ +            <td>Open options (this page)</td>
+│ +            <td>O</td>
+│ +          </tr>
+│ +        </table>
+│ +      </div>
+│ +    </form>
+│ +    <script type="module" src="js/options.js"></script>
+│ +  </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/gif-scrubber/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1 +1,83 @@
+│ -<html><head><script type="module" src="/popup.2ca5ef99.js"></script><meta charset="utf-8"><title>GIF Scrubber</title><link rel="stylesheet" href="/options.116549f9.css"><link href="/options.a9307223.css" rel="stylesheet"><link href="/options.26b25654.css" rel="stylesheet"></head><body class="displayed"> <div id="messages" class="displayed"> <div> <h2 class="download">Download</h2> <div id="download-progress-bar" class="download"></div> </div> <div> <h2 class="render">Render</h2> <div id="render-progress-bar" class="render"></div> </div> <div id="error-message"></div> </div> <div id="content"> <div id="bubble-spacer" class="displayed"> <div id="toolbar"> <a href="#" id="bomb"><i class="fa-bomb far"></i> Explode</a> <a href="#" id="zip"><i class="fa-download fas"></i> Download</a> <a href="#" id="gear"><i class="fa-gear fas"></i> Options</a> <input type="text" id="url"> </div> <div id="image-holder" class="cf"> <canvas id="canvas-display"></canvas> <canvas id="canvas-render" class="blur displayed"></canvas> </div> <div id="scrubber-bar"> <div id="scrubber-bar-line"></div> <div id="scrubber-bar-filler"></div> <div id="scrubber-bar-controller"></div> </div> </div> <table id="speed-list"> <tr> <td>-8</td> <td>-4</td> <td>-2</td> <td>-1</td> <td>-0.5</td> <td id="play-pause"> <i id="play-pause-icon" class="fa fa-play"></i> </td> <td>0.5</td> <td class="selected">1</td> <td>2</td> <td>4</td> <td>8</td> </tr> </table> <div id="exploded-frames"> <a class="close"> <i class="fa fa-arrow-left"></i> <div class="subtitle">Return</div> </a> <div id="exploding-message"> Exploding GIF frames <i class="fa fa-spin fa-spinner"></i> </div> </div> </div> <script type="module" src="/popup.184ea263.js"></script> </body></html>
+│ +<html>
+│ +  <head>
+│ +    <meta charset="utf-8" />
+│ +    <title>GIF Scrubber</title>
+│ +    <link rel="stylesheet" href="css/scrubber.css" />
+│ +    <link
+│ +      href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css"
+│ +      rel="stylesheet"
+│ +    />
+│ +    <link
+│ +      href="./node_modules/@fortawesome/fontawesome-free/css/solid.css"
+│ +      rel="stylesheet"
+│ +    />
+│ +  </head>
+│ +
+│ +  <body class="displayed">
+│ +    <div id="messages" class="displayed">
+│ +      <div>
+│ +        <h2 class="download">Download</h2>
+│ +        <div id="download-progress-bar" class="download"></div>
+│ +      </div>
+│ +
+│ +      <div>
+│ +        <h2 class="render">Render</h2>
+│ +        <div id="render-progress-bar" class="render"></div>
+│ +      </div>
+│ +
+│ +      <div id="error-message"></div>
+│ +    </div>
+│ +
+│ +    <div id="content">
+│ +      <div id="bubble-spacer" class="displayed">
+│ +        <div id="toolbar">
+│ +          <a href="#" id="bomb"><i class="far fa-bomb"></i> Explode</a>
+│ +          <a href="#" id="zip"><i class="fas fa-download"></i> Download</a>
+│ +          <a href="#" id="gear"><i class="fas fa-gear"></i> Options</a>
+│ +          <input type="text" id="url" />
+│ +        </div>
+│ +
+│ +        <div id="image-holder" class="cf">
+│ +          <canvas id="canvas-display"></canvas>
+│ +          <canvas id="canvas-render" class="displayed blur"></canvas>
+│ +        </div>
+│ +
+│ +        <div id="scrubber-bar">
+│ +          <div id="scrubber-bar-line"></div>
+│ +          <div id="scrubber-bar-filler"></div>
+│ +          <div id="scrubber-bar-controller"></div>
+│ +        </div>
+│ +      </div>
+│ +
+│ +      <table id="speed-list">
+│ +        <tr>
+│ +          <td>-8</td>
+│ +          <td>-4</td>
+│ +          <td>-2</td>
+│ +          <td>-1</td>
+│ +          <td>-0.5</td>
+│ +          <td id="play-pause">
+│ +            <i id="play-pause-icon" class="fa fa-play"></i>
+│ +          </td>
+│ +          <td>0.5</td>
+│ +          <td class="selected">1</td>
+│ +          <td>2</td>
+│ +          <td>4</td>
+│ +          <td>8</td>
+│ +        </tr>
+│ +      </table>
+│ +
+│ +      <div id="exploded-frames">
+│ +        <a class="close">
+│ +          <i class="fa fa-arrow-left"></i>
+│ +          <div class="subtitle">Return</div>
+│ +        </a>
+│ +        <div id="exploding-message">
+│ +          Exploding GIF frames <i class="fa fa-spinner fa-spin"></i>
+│ +        </div>
+│ +      </div>
+│ +    </div>
+│ +
+│ +    <script type="module" src="js/scrubber.js"></script>
+│ +  </body>
+│ +</html>

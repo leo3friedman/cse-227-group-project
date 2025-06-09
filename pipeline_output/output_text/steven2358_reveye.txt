@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/reveye/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  i
+│  manifest.json
+│  options.html
+│  options.js
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/reveye/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,15 +24,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "RevEye Reverse Image Search",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

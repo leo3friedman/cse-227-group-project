@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Screenshot-YouTube/extension
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  icon-128.png
+│  icon-16.png
+│  icon-48.png
+│  manifest.json
+│  options.html
+│  options.js
+│  page.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Screenshot-YouTube/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Screenshot YouTube",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.0"
+│ │  }

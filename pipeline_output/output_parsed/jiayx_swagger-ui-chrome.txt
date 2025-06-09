@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/swagger-ui-chrome
+  - files: _metadata, swagger
+  + files: .git, .gitignore, package-lock.json, swagger, update.sh
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/swagger-ui-chrome/manifest.json; File type: json
+  - Original: 25–25 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/swagger <-> +++/workspace/pipeline_output/swagger-ui-chrome/swagger
+  - files: favicon-16x16.png, favicon-32x32.png, index.html, oauth2-redirect.html, swagger-ui-bundle.js, swagger-ui-standalone-preset.js, swagger-ui.css
+  + files: .gitkeep
+

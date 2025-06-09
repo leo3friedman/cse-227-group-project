@@ -27,12 +27,19 @@ def find_manifest_json_file(start_path):
       return None
     
 def get_commit_date(repo_path, ref):
-    """Returns the commit timestamp for a given ref."""
-    result = subprocess.run(
-        ['git', 'show', '-s', '--format=%ct', ref],
-        cwd=repo_path, capture_output=True, text=True, check=True
-    )
-    return int(result.stdout.strip())
+    """Returns the commit timestamp for a given ref (commit, tag, etc.)."""
+    try:
+        result = subprocess.run(
+            ['git', 'log', '-1', '--format=%ct', ref],
+            cwd=repo_path,
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        return int(result.stdout.strip())
+    except Exception as e:
+        print(f"Failed to get commit date for ref '{ref}': {e}")
+        raise
 
 def extract_version_from_manifest(file_path):
     try:

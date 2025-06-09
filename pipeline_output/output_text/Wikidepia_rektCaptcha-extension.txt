@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/rektCaptcha-extension/public
+├── file list
+│ @@ -1,15 +1,7 @@
+│ -_metadata
+│ -background.js
+│ -dist
+│  icons
+│ +manifest.firefox.json
+│  manifest.json
+│  models
+│ -popup.css
+│  popup.html
+│ -popup.js
+│ -recaptcha-visibility.js
+│ -recaptcha.js
+│ -recaptcha.js.LICENSE.txt
+│  rules.json
+│ -setup.html
+│ -setup.js
+│ +setup.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/rektCaptcha-extension/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -55,15 +55,14 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "rektCaptcha: reCaptcha Solver",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.1.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

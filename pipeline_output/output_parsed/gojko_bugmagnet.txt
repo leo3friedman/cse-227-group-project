@@ -1,0 +1,17 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/bugmagnet/template
+  - files: _metadata, extension.js, inject-value.js, options.html, options.js, paste.js
+  + files: options.html
+
+---/workspace/pipeline_output/chromex_data/config.json <-> +++/workspace/pipeline_output/bugmagnet/template/config.json; File type: json
+  - Original: 156–157
+  + Modified: 156–157
+  - Original: 176–177
+  - Original: 191–191
+  - Original: 194–197
+  + Modified: 176–197
+  - Original: 279–280
+  + Modified: 279–280
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/bugmagnet/template/manifest.json; File type: json
+  - Original: 29–29 -> Update URL
+

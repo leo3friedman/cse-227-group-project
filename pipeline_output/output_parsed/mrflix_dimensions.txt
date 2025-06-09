@@ -1,0 +1,22 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/dimensions/extension
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/chrome.js <-> +++/workspace/pipeline_output/dimensions/extension/chrome.js; File type: js
+  + Modified: 152–154
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/dimensions/extension/manifest.json; File type: json
+  - Original: 37–37 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/tooltip.chrome.js <-> +++/workspace/pipeline_output/dimensions/extension/tooltip.chrome.js; File type: js
+  + Modified: 25–25
+  + Modified: 174–183
+
+---/workspace/pipeline_output/chromex_data/tooltip.css <-> +++/workspace/pipeline_output/dimensions/extension/tooltip.css; File type: css
+  - Original: 8–8
+  - Original: 15–15
+  - Original: 23–23
+  + Modified: 8–23
+  - Original: 109–109
+  + Modified: 109–109
+

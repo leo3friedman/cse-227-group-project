@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/universalvideomaximizer/src
+├── file list
+│ @@ -1,9 +1,8 @@
+│  _locales
+│ -_metadata
+│  background.js
+│  background_executescripts.js
+│  beta_ending.html
+│  chota.css
+│  cmd_tagonly_inject.js
+│  cmd_unzoom_inject.js
+│  cmd_zoom_inject.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/universalvideomaximizer/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,15 +27,14 @@
+│ │          "scripting"
+│ │      ],
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.115",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "extension_ids": [],
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],

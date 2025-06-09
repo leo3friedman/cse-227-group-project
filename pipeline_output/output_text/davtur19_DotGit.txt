@@ -1,0 +1,239 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DotGit
+├── file list
+│ @@ -1,9 +1,13 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  about.html
+│  content_script.js
+│  dotgit.js
+│  icons
+│  lib
+│  manifest.json
+│  options
+│ +package-lock.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DotGit/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -50,15 +50,14 @@
+│ │          "webRequest",
+│ │          "storage",
+│ │          "notifications",
+│ │          "downloads",
+│ │          "tabs",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "5.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/options
+├── +++ /workspace/pipeline_output/DotGit/options
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.css
+│ ├── +++ /workspace/pipeline_output/DotGit/options/options.css
+│ │┄ Ordering differences only
+│ │ @@ -1,36 +1,36 @@
+│ │ +@media (prefers-color-scheme: dark) {
+│ │ +    body {
+│ │ +        background-color: #202023;
+│ │ +        color: #f9f9fa;
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +.option {
+│ │ +    display: flex;
+│ │ +    flex-direction: column;
+│ │ +    margin-top: 10px;
+│ │ +    border-bottom: 1px solid rgba(249, 249, 250, 0.2);
+│ │ +}
+│ │ +
+│ │ +.title-option {
+│ │ +    align-items: center;
+│ │ +    display: flex;
+│ │ +    font-weight: 600;
+│ │ +}
+│ │ +
+│ │ +.input-text {
+│ │ +    margin-left: 29px;
+│ │ +    max-width: 320px;
+│ │ +}
+│ │ +
+│ │ +a:visited {
+│ │ +    color: #0060df;
+│ │ +}
+│ │ +
+│ │ +a:hover {
+│ │ +    color: #45a1ff;
+│ │ +}
+│ │ +
+│ │ +.textarea {
+│ │ +    margin-left: 0;
+│ │ -@media (prefers-color-scheme: dark) {
+│ │ -    body {
+│ │ -        background-color: #202023;
+│ │ -        color: #f9f9fa;
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -.option {
+│ │ -    display: flex;
+│ │ -    flex-direction: column;
+│ │ -    margin-top: 10px;
+│ │ -    border-bottom: 1px solid rgba(249, 249, 250, 0.2);
+│ │ -}
+│ │ -
+│ │ -.title-option {
+│ │ -    align-items: center;
+│ │ -    display: flex;
+│ │ -    font-weight: 600;
+│ │ -}
+│ │ -
+│ │ -.input-text {
+│ │ -    margin-left: 29px;
+│ │ -    max-width: 320px;
+│ │ -}
+│ │ -
+│ │ -a:visited {
+│ │ -    color: #0060df;
+│ │ -}
+│ │ -
+│ │ -a:hover {
+│ │ -    color: #45a1ff;
+│ │ -}
+│ │ -
+│ │ -.textarea {
+│ │ -    margin-left: 0;
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/DotGit/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/icon.css
+│ ├── +++ /workspace/pipeline_output/DotGit/popup/icon.css
+│ │┄ Ordering differences only
+│ │ @@ -1,23 +1,23 @@
+│ │ +/* fallback */
+│ │ +@font-face {
+│ │ +    font-family: 'Material Icons';
+│ │ +    font-style: normal;
+│ │ +    font-weight: 400;
+│ │ +    src: url('icon.woff2') format('woff2');
+│ │ +}
+│ │ +
+│ │ +.material-icons {
+│ │ +    font-family: 'Material Icons';
+│ │ +    font-weight: normal;
+│ │ +    font-style: normal;
+│ │ +    font-size: 24px;
+│ │ +    line-height: 1;
+│ │ +    letter-spacing: normal;
+│ │ +    text-transform: none;
+│ │ +    display: inline-block;
+│ │ +    white-space: nowrap;
+│ │ +    word-wrap: normal;
+│ │ +    direction: ltr;
+│ │ +    -moz-font-feature-settings: 'liga';
+│ │ +    -moz-osx-font-smoothing: grayscale;
+│ │ +}
+│ │ -/* fallback */
+│ │ -@font-face {
+│ │ -    font-family: 'Material Icons';
+│ │ -    font-style: normal;
+│ │ -    font-weight: 400;
+│ │ -    src: url('icon.woff2') format('woff2');
+│ │ -}
+│ │ -
+│ │ -.material-icons {
+│ │ -    font-family: 'Material Icons';
+│ │ -    font-weight: normal;
+│ │ -    font-style: normal;
+│ │ -    font-size: 24px;
+│ │ -    line-height: 1;
+│ │ -    letter-spacing: normal;
+│ │ -    text-transform: none;
+│ │ -    display: inline-block;
+│ │ -    white-space: nowrap;
+│ │ -    word-wrap: normal;
+│ │ -    direction: ltr;
+│ │ -    -moz-font-feature-settings: 'liga';
+│ │ -    -moz-osx-font-smoothing: grayscale;
+│ │ -}
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.css
+│ ├── +++ /workspace/pipeline_output/DotGit/popup/popup.css
+│ │┄ Ordering differences only
+│ │ @@ -1,35 +1,35 @@
+│ │ +body {
+│ │ +    display: flex;
+│ │ +    min-height: 100vh;
+│ │ +    min-width: 400px;
+│ │ +    flex-direction: column;
+│ │ +    font-size: 1rem;
+│ │ +}
+│ │ +
+│ │ +ul.collection {
+│ │ +    max-height: 500px;
+│ │ +    overflow-y: auto;
+│ │ +    margin: 7px;
+│ │ +}
+│ │ +
+│ │ +#hostsFoundTitle {
+│ │ +    white-space: pre;
+│ │ +    font-size: 1.4rem;
+│ │ +}
+│ │ +
+│ │ +.brand-logo {
+│ │ +    font-weight: bold;
+│ │ +}
+│ │ +
+│ │ +.btn-small {
+│ │ +    padding: 0 0;
+│ │ +    height: auto;
+│ │ +    transform: translateY(-2px);
+│ │ +    margin-left: 4px;
+│ │ +}
+│ │ +
+│ │ +.download-status {
+│ │ +    padding: 0 10px;
+│ │ +    height: auto;
+│ │ +    color: black;
+│ │ -body {
+│ │ -    display: flex;
+│ │ -    min-height: 100vh;
+│ │ -    min-width: 400px;
+│ │ -    flex-direction: column;
+│ │ -    font-size: 1rem;
+│ │ -}
+│ │ -
+│ │ -ul.collection {
+│ │ -    max-height: 500px;
+│ │ -    overflow-y: auto;
+│ │ -    margin: 7px;
+│ │ -}
+│ │ -
+│ │ -#hostsFoundTitle {
+│ │ -    white-space: pre;
+│ │ -    font-size: 1.4rem;
+│ │ -}
+│ │ -
+│ │ -.brand-logo {
+│ │ -    font-weight: bold;
+│ │ -}
+│ │ -
+│ │ -.btn-small {
+│ │ -    padding: 0 0;
+│ │ -    height: auto;
+│ │ -    transform: translateY(-2px);
+│ │ -    margin-left: 4px;
+│ │ -}
+│ │ -
+│ │ -.download-status {
+│ │ -    padding: 0 10px;
+│ │ -    height: auto;
+│ │ -    color: black;
+│ │  }

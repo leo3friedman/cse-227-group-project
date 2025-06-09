@@ -1,0 +1,7 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-extensions-reloader
+  - files: _metadata, options.js
+  + files: .eslintrc, .git, LICENSE, README.md, options.js, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/chrome-extensions-reloader/manifest.json; File type: json
+  - Original: 38–38 -> Update URL
+

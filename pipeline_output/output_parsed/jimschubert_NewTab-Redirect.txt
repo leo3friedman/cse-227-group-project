@@ -1,0 +1,14 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/NewTab-Redirect
+  - files: _metadata
+  + files: .git, .github, .gitignore, .jshintrc, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/NewTab-Redirect/README.md; File type: md
+  + Modified: 22–28
+
+---/workspace/pipeline_output/chromex_data/examples/empty/manifest.txt <-> +++/workspace/pipeline_output/NewTab-Redirect/examples/empty/manifest.txt; File type: txt
+  - Original: 7–7
+  + Modified: 7–7
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/NewTab-Redirect/manifest.json; File type: json
+  - Original: 35–35 -> Update URL
+

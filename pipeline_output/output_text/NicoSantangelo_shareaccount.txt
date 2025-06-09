@@ -1,0 +1,3413 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/shareaccount
+├── file list
+│ @@ -1,7 +1,12 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│ +PRIVACY.md
+│  README.md
+│ -_metadata
+│ +gulpfile.js
+│  icons
+│ -images
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/shareaccount/README.md
+│ @@ -6,26 +6,23 @@
+│  
+│  ### What?
+│  
+│  Chrome Extension to share your account **without** giving out your **password**.
+│  
+│  ### Use
+│  
+│ -1. Ask the recipient for their code (found on the extension menu `RESTORE SESSION`) 
+│ +1. Ask the recipient for their code (found on the extension menu `RECEIVE ACCOUNT`) 
+│  2. Go to the site from where you want to share the account and click the extension icon.
+│ -3. Press `SHARE SESSION` and enter the code
+│ +3. Press `SHARE ACCOUNT` and enter the code with an optional timeout.
+│  4. Press `SHARE` and copy the result.
+│ -5. Who only has to add it in the textbox of the `RESTORE SESSION` and press `RESTORE`
+│ +5. The recipient, still on the `RECEIVE ACCOUNT`, menu pastes the text on the `Share result` textbox and presses the `RECEIVE` button.
+│  
+│  :tophat:
+│  **Voilà**
+│  
+│ -[See graph](https://i.imgur.com/LrDWrW2.png)
+│ -
+│  ### How it works?
+│  
+│ -The extension uses the Standford Javascript Crypto Lib implementation of EC-ElGamal. It generates a new public-private key combination for each extension upon frist use and uses it for encrypt/decrypt the session.
+│ +The extension uses the Standford Javascript Crypto Lib implementation of EC-ElGamal. It generates a new public-private key combination for each extension upon first use and uses it to encrypt/decrypt the session.
+│  
+│ -Appart for the keys, it doesn't store anything more than the URL/title of the sessions stored (to show them on the `SESSION HISTORY` menu).
+│ +Appart for the keys, it doesn't store anything more than the URL/title of the sessions stored (to show them on the `ACCOUNT HISTORY` menu).
+│  
+│  If you want to be extra careful, you can always regenerate your keys on the extension.
+│ -
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/shareaccount/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -18,10 +18,9 @@
+│ │          "tabs",
+│ │          "storage",
+│ │          "cookies",
+│ │          "http://*/*",
+│ │          "https://*/*"
+│ │      ],
+│ │      "short_name": "ShareAccount",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/shareaccount/popup
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │ +.eslintrc
+│ │  css
+│ │  images
+│ │  index.html
+│ │  js
+│ │   --- /workspace/pipeline_output/chromex_data/popup/css
+│ ├── +++ /workspace/pipeline_output/shareaccount/popup/css
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/css/styles.css
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/css/styles.css
+│ │ │ @@ -1 +1,350 @@
+│ │ │ -body,pre{margin:0}input,textarea{box-shadow:none;box-sizing:border-box}body,input,textarea{box-sizing:border-box}.btn,.link,a{outline:0;cursor:pointer}.btn,.delete{font-weight:500}.delete,img{vertical-align:middle}.app,section{position:relative}body{font-family:Helvetica,Tahoma,sans-serif;font-size:100%;background:#FFF;color:#000}.link,a{font-size:.8em;text-decoration:none;color:#F1B70F}.link:hover,a:hover{color:#F2C40F}pre{padding:0;word-wrap:break-word;white-space:normal}input{padding:0 5px}textarea{padding:8px}input[type=text],input[type=number]{height:3em}input[type=text],input[type=number],textarea{width:100%}input,textarea{font-size:.7em;border:none;border-bottom:1px solid #8e8e8e}input:focus,textarea:focus{outline:0;box-shadow:0 -1px 2px 0 rgba(241,183,15,.7)}input[type=submit]:focus{box-shadow:0 2px 6px 0 #F1B70F;outline:0}section{margin:25px 0 15px}hr{width:50%}.m-t{margin-top:20px}.m-t-sm{margin-top:15px}.m-b-xs{margin-bottom:10px}.text-center{text-align:center}.text-right{text-align:right}.pull-left{float:left}.delete,.pull-right{float:right}.small{font-size:smaller}.hidden{display:none}.flex-container{display:flex;align-items:center;justify-content:space-between}.body{width:25em;max-height:40em}.app{padding:0 1em}.btn{padding:6px 20px;line-height:20px;border-radius:20px;text-transform:uppercase;border:1px solid #F1B70F;background-color:transparent;color:#F1B70F;display:block}.action-icon,.delete,.go-back,.sessions .session-url{display:inline-block}.btn:hover{border-color:#F2C40F;background-color:#F2C40F;color:#FFF}.btn[disabled]{cursor:default;color:#CCC;border:1px solid #CCC}.btn[disabled]:hover{background-color:#FFF;color:#CCC;border-color:#CCC}.delete,.delete:hover,.error{color:#D00909}.title{font-size:1.1em}.explanation{font-size:12px;margin-top:8px;word-break:break-all}.action-icon{cursor:pointer}.error{margin-bottom:15px;font-size:.8em;line-height:16px}.delete{font-size:.9em}.menu{width:80%;margin-bottom:25px;margin-left:auto;margin-right:auto}.menu-app-logo{margin-top:20px;text-align:center}.menu .btn{width:100%}.share .save-password{width:12%;background:0 0;border:none}.share .input-container{width:100%;margin:.3em 8px 1.5em 0;position:relative;display:inline-block}.share .timeout-container .expires-on{margin-top:8px;font-size:.7em}.share .flex-container{padding-bottom:5px}.share .shared-session{margin-top:15px;margin-bottom:15px}.share .shared-session .delete{margin-right:4px}.share .shared-session .share-result{max-height:12.8em;overflow:auto;color:rgba(34,34,40,.7);font-family:monospace}.share .shared-session .encrypted-data{margin:15px 0 5px}.share .shared-session .share-text-link{padding-right:5px;margin-bottom:5px;word-break:break-all}.history,.sessions{margin-bottom:15px}.restore .your-code{margin-top:25px}.restore .your-code .action-icon{margin-right:8px}.restore .your-code [name=pubkey]{width:85%;margin-right:5px}.restore [name=pubkey],.restore form textarea{margin-top:8px}.restore-session-actions{margin-top:15px;padding-bottom:5px}.sessions{max-height:280px;margin-top:20px;overflow:auto}.sessions .delete{margin-right:18px}.sessions h5{margin:0;font-size:16px;font-weight:400}.sessions ul{font-size:15px}.sessions .session-url{width:94%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  Common */
+│ │ │ +
+│ │ │ +body {
+│ │ │ +  font-family: Helvetica, Tahoma, sans-serif;
+│ │ │ +  font-size: 100%;
+│ │ │ +  margin: 0;
+│ │ │ +  background: #FFF;
+│ │ │ +  color: #000;
+│ │ │ +  box-sizing: border-box;
+│ │ │ +}
+│ │ │ +
+│ │ │ +a, .link {
+│ │ │ +  font-size: 0.8em;
+│ │ │ +  outline: none;
+│ │ │ +  text-decoration: none;
+│ │ │ +  cursor: pointer;
+│ │ │ +  color: #F1B70F;
+│ │ │ +}
+│ │ │ +
+│ │ │ +a:hover, .link:hover {
+│ │ │ +  color: #F2C40F;
+│ │ │ +}
+│ │ │ +
+│ │ │ +pre {
+│ │ │ +  margin: 0;
+│ │ │ +  padding: 0;
+│ │ │ +  word-wrap: break-word;
+│ │ │ +  white-space: normal;
+│ │ │ +}
+│ │ │ +
+│ │ │ +input {
+│ │ │ +  padding: 0 5px;
+│ │ │ +  box-shadow: none;
+│ │ │ +  box-sizing: border-box;
+│ │ │ +}
+│ │ │ +
+│ │ │ +textarea {
+│ │ │ +  box-shadow: none;
+│ │ │ +  padding: 8px;
+│ │ │ +  box-sizing: border-box;
+│ │ │ +}
+│ │ │ +
+│ │ │ +input[type="text"], input[type="number"] {
+│ │ │ +  height: 3em;
+│ │ │ +}
+│ │ │ +
+│ │ │ +input[type="text"], input[type="number"], textarea {
+│ │ │ +  width: 100%;
+│ │ │ +}
+│ │ │ +
+│ │ │ +input, textarea {
+│ │ │ +  font-size: 0.7em;
+│ │ │ +  border: none;
+│ │ │ +  border-bottom: 1px solid #8e8e8e;
+│ │ │ +}
+│ │ │ +
+│ │ │ +input:focus, textarea:focus {
+│ │ │ +  outline: none;
+│ │ │ +  box-shadow: 0 -1px 2px 0 rgba(241, 183, 15, 0.7);
+│ │ │ +}
+│ │ │ +input[type="submit"]:focus {
+│ │ │ +  box-shadow: 0 2px 6px 0 #F1B70F;
+│ │ │ +  outline: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +section {
+│ │ │ +  margin: 25px 0 15px;
+│ │ │ +  position: relative;
+│ │ │ +}
+│ │ │ +
+│ │ │ +img {
+│ │ │ +  vertical-align: middle;
+│ │ │ +}
+│ │ │ +
+│ │ │ +hr {
+│ │ │ +  width: 50%;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.m-t {
+│ │ │ +  margin-top: 20px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.m-t-sm {
+│ │ │ +  margin-top: 15px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.m-b-xs {
+│ │ │ +  margin-bottom: 10px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.text-center {
+│ │ │ +  text-align: center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.text-right {
+│ │ │ +  text-align: right;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.pull-left {
+│ │ │ +  float: left;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.pull-right {
+│ │ │ +  float: right;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.small {
+│ │ │ +  font-size: smaller;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.hidden {
+│ │ │ +  display: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.flex-container {
+│ │ │ +  display: flex;
+│ │ │ +  align-items: center;
+│ │ │ +  justify-content: space-between
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  Main */
+│ │ │ +
+│ │ │ +.body {
+│ │ │ +  width: 25em;
+│ │ │ +  max-height: 40em;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.app {
+│ │ │ +  position: relative;
+│ │ │ +  padding: 0 1em;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.btn {
+│ │ │ +  padding: 6px 20px;
+│ │ │ +
+│ │ │ +  line-height: 20px;
+│ │ │ +  border-radius: 20px;
+│ │ │ +  outline: none;
+│ │ │ +
+│ │ │ +  font-weight: 500;
+│ │ │ +  text-transform: uppercase;
+│ │ │ +
+│ │ │ +  border: 1px solid #F1B70F;
+│ │ │ +  background-color: transparent;
+│ │ │ +  color: #F1B70F;
+│ │ │ +
+│ │ │ +  cursor: pointer;
+│ │ │ +  display: block;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.btn:hover {
+│ │ │ +  border-color: #F2C40F;
+│ │ │ +  background-color: #F2C40F;
+│ │ │ +  color: #FFF;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.btn[disabled] {
+│ │ │ +  cursor: default;
+│ │ │ +  color: #CCC;
+│ │ │ +  border: 1px solid #CCC;
+│ │ │ +}
+│ │ │ +.btn[disabled]:hover {
+│ │ │ +  background-color: #FFF;
+│ │ │ +  color: #CCC;
+│ │ │ +  border-color: #CCC;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.title {
+│ │ │ +  font-size: 1.1em;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.explanation {
+│ │ │ +  font-size: 12px;
+│ │ │ +  margin-top: 8px;
+│ │ │ +  word-break: break-all;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.action-icon {
+│ │ │ +  display: inline-block;
+│ │ │ +  cursor: pointer;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.error {
+│ │ │ +  margin-bottom: 15px;
+│ │ │ +  font-size: 0.8em;
+│ │ │ +  line-height: 16px;
+│ │ │ +  color: #D00909;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.delete {
+│ │ │ +  font-size: 0.9em;
+│ │ │ +  float: right;
+│ │ │ +  font-weight: 500;
+│ │ │ +  color: #D00909;
+│ │ │ +  vertical-align: middle;
+│ │ │ +  display: inline-block;
+│ │ │ +}
+│ │ │ +.delete:hover {
+│ │ │ +  color: #D00909;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.go-back {
+│ │ │ +  display: inline-block;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  Menu */
+│ │ │ +
+│ │ │ +.menu {
+│ │ │ +  width: 80%;
+│ │ │ +  margin-bottom: 25px;
+│ │ │ +  margin-left: auto;
+│ │ │ +  margin-right: auto;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.menu-app-logo {
+│ │ │ +  margin-top: 20px;
+│ │ │ +  text-align: center;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.menu .btn {
+│ │ │ +  width: 100%;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  Share - Password */
+│ │ │ +
+│ │ │ +.share .save-password {
+│ │ │ +  width: 12%;
+│ │ │ +  background: none;
+│ │ │ +  border: none;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .input-container {
+│ │ │ +  width: 100%;
+│ │ │ +  margin: 0.3em 8px 1.5em 0;
+│ │ │ +  position: relative;
+│ │ │ +  display: inline-block;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .timeout-container .expires-on {
+│ │ │ +  margin-top: 8px;
+│ │ │ +  font-size: 0.7em;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .flex-container {
+│ │ │ +  padding-bottom: 5px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  Share - Result */
+│ │ │ +
+│ │ │ +.share .shared-session {
+│ │ │ +  margin-top: 15px;
+│ │ │ +  margin-bottom: 15px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .shared-session .delete {
+│ │ │ +  margin-right: 4px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .shared-session .share-result {
+│ │ │ +  max-height: 12.8em;
+│ │ │ +  overflow: auto;
+│ │ │ +  color: rgba(34, 34, 40, 0.7);
+│ │ │ +  font-family: monospace;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .shared-session .encrypted-data {
+│ │ │ +  margin: 15px 0 5px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.share .shared-session .share-text-link {
+│ │ │ +  padding-right: 5px;
+│ │ │ +  margin-bottom: 5px;
+│ │ │ +  word-break: break-all;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  Restore */
+│ │ │ +
+│ │ │ +.restore {
+│ │ │ +}
+│ │ │ +
+│ │ │ +.restore .your-code {
+│ │ │ +  margin-top: 25px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.restore .your-code .action-icon {
+│ │ │ +  margin-right: 8px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.restore .your-code [name="pubkey"] {
+│ │ │ +  width: 85%;
+│ │ │ +  margin-right: 5px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.restore [name="pubkey"],
+│ │ │ +.restore form textarea {
+│ │ │ +  margin-top: 8px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.restore-session-actions {
+│ │ │ +  margin-top: 15px;
+│ │ │ +  padding-bottom: 5px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/* ----------------------------------------------
+│ │ │ +  History */
+│ │ │ +
+│ │ │ +.history {
+│ │ │ +  margin-bottom: 15px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.sessions {
+│ │ │ +  max-height: 280px;
+│ │ │ +  margin-top: 20px;
+│ │ │ +  margin-bottom: 15px;
+│ │ │ +  overflow: auto;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.sessions .delete {
+│ │ │ +  margin-right: 18px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.sessions h5 {
+│ │ │ +  margin: 0;
+│ │ │ +  font-size: 16px;
+│ │ │ +  font-weight: 400;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.sessions ul {
+│ │ │ +  font-size: 15px;
+│ │ │ +}
+│ │ │ +
+│ │ │ +.sessions .session-url {
+│ │ │ +  display: inline-block;
+│ │ │ +  width: 94%;
+│ │ │ +  overflow: hidden;
+│ │ │ +  text-overflow: ellipsis;
+│ │ │ +  white-space: nowrap;
+│ │ │ +}
+│ │   --- /workspace/pipeline_output/chromex_data/popup/images
+│ ├── +++ /workspace/pipeline_output/shareaccount/popup/images
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/images/header-logo.png
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/images/header-logo.png
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ 'sng' not available in path. Falling back to binary comparison. Installing the 'sng' package may produce better output.
+│ │ │ @@ -1,589 +1,902 @@
+│ │ │ -89504e470d0a1a0a0000000d4948445200000188000001c80802000000db79ea
+│ │ │ -1d0000494a4944415478daed9d07781455d7c7b3699bb61b420725f4aa205d14
+│ │ │ -51da0b22a0d215698f1411105450aa0a0828201d69a124a477d21be940688124
+│ │ │ -94402821840408e98584d4f7e286c964d2b6cceecc6efeffe73cdff37e929d9d
+│ │ │ -bdf79edfdc7be6dc73b52a20a886ca2b2af20b5e3e7f91fef051d2cddb77a263
+│ │ │ -e22e5cba1a1a79c13f38ccd32fe88c4f80ab97afb3878fa39ba7bdab07f9bfce
+│ │ │ -67bcc97f71f7f1f7f40bf43f1b161279e1fca5ab57afc7ddb87de74162d2b3b4
+│ │ │ -17f9f905e5e5e56858484a69a10920828c9cdcdca4e427b1376f879fbf48d0e3
+│ │ │ -e0e669e772865d7370f5f0f00d0c3d77e1fa8d5b898f93b37272ca802a086082
+│ │ │ -18307a919e7133fe6e70f83947772fd6312415aadc3c83c222e36ec593a95959
+│ │ │ -59193a0502981aa932b3b2e313ee879d8b228b2f4e605497113886449cbf7527
+│ │ │ -213d23138b3e0860d27cbd2a2ebefff05164d465174f5f5ec1a82e73f6f0212b
+│ │ │ -cabbf71f141615a1fb002648d3166b4f529f121e392a2160a4b2b55ed8f9a8a4
+│ │ │ -e4142cf4002648ed959199753526ced5cb4f4d7954d35c3c7c2e455f4f4bcf40
+│ │ │ -e7024c909aa9e065e1ad3b09de81c11ac3a39ae6e9171477fb4e5e7e3eba1b60
+│ │ │ -82f8ae9cdcdc0b97a31d5c3d34184974b377f58888ba94919585ae0798203e2a
+│ │ │ -332b3b32eab27da34112c342cf5d7881f51dc004f1472f3232c3ce45354e1e31
+│ │ │ -ec6cf8b9a7cfd330240026884b3d4b7b111c7e0e3c62584048f893d4a7181e00
+│ │ │ -13a46a65e5e40485458241f598ffd9b0f48c4c0c15800952854a4a4aaec5de70
+│ │ │ -68acb1245943e397a2afbf7a558c610330414a545272ca199f0010472673f5f4
+│ │ │ -bd9ff80883076082d8576e5e5e48c47950466e0b0c8dc8cccec6400298207654
+│ │ │ -5a56167bf3b6faee26e1d1be16578fe898b8e292120c2a80095248e919999e7e
+│ │ │ -41600a8be6eeed8f94028009925ff109f71d3051524e503cf6563c2aaa004c90
+│ │ │ -6c7a555c1c7efe2208a2ec6ccc978585186c001324955e64647af8e2d59b2acc
+│ │ │ -cdcb2ff5d9730c3980096a40b7efdec3f24dd5cbba9bb7512a136082ea58bebd
+│ │ │ -2a0e3b8f2d6fdc585058e4cb9758d6014c5075e5e6e57bfa05aabb7bdbfe67ea
+│ │ │ -baacf3f6cbcc42a213c004bd514656969b3a1499b475723fede86a69ef7cd2c6
+│ │ │ -f1b8b5bdc569fb63a7ed8e59d91db5b23d62697398d829ebd7666943fedfa396
+│ │ │ -b6e4bf937f257f43fef884ad83a59d9395a38b8d931b9f4b8c3f4b7b81010930
+│ │ │ -41154f9fa7f1ed9c924a737e8da193764e276c0880fe438f843b0adb9153d684
+│ │ │ -5916d6f6276d1dadec5d6c9ddd7974468b9b67d293140c4b80a951eb51f213be
+│ │ │ -85ba098c4ed9395a9cb63bcc1e891a3432b122b3302b075e40caded523e1c143
+│ │ │ -0c4e80a991eaeebd073c2938497070cade894c615409a33a2175da8ecca4ac9d
+│ │ │ -5cb96d93b85bf118a20053a353eccddb7c401299a41cb7b63fc2358cea9846d9
+│ │ │ -5ada39d938731693ba1c1d83240280a911e952f475ced76b276c1c8ef0607ed4
+│ │ │ -b059da90a99c95bdb3ad33070d15197519294e0053a3d0b5d89b5c4e91ec9dc9
+│ │ │ -4c440d78545bc89c2cf1541f848aba1c8d410b3069b86edfbdc75114e98ca59d
+│ │ │ -f3514bb54452353c595a9fb47154f1faee5adc4d0c5d804963f5f0511227498f
+│ │ │ -a7ec9cd463d5268b1db771b056614a1479a26000034c1aa894d467aa2ed4edec
+│ │ │ -ae9148aa86276b075b55cd9e1e3e7a8c610c3069945ea46738b97ba938bc7dd4
+│ │ │ -ca568391448f3d11feda293ff6e4e0e699f2f4190633c0a421cacec975f1f451
+│ │ │ -19926c9cdcc932a73120896e84c284c5ca6e5bf274c179bf009326a8e0e54b95
+│ │ │ -9d6b2209271dd6e8b55b432b3b7b65c7c55d3c7d73727331b001263556797979
+│ │ │ -4048b86aa864ede47af4b46da34512fdb59da59db3529bda3b20b8a4b414c31b
+│ │ │ -605257a92c65c9d2de993824a8447b6767afd48ca70b486e0298d4544f529faa
+│ │ │ -669b1b7f224a47fe4bd4e64fd4c95a9951a707894918e40093ba85960a5eba78
+│ │ │ -fa2a7df9e6e8a6e29cc963567664cd78c63720ecfcc5eb376e253c78f8382525
+│ │ │ -2d3d232f3fbfb4ac8c2c700a0b8b7272f39ea7bd7894fce4cebdfb57aec70647
+│ │ │ -9c77f3f23bede86a616dfffa6e55492e4b9b53f64eca0b8467e720d80430a955
+│ │ │ -6829302442d954222ea702273f6a6563efe6111975393925f5d5ab578a344b49
+│ │ │ -49494656d69dbbf78242230952c96aeb88958d6a22e24a5ad621d8043021b454
+│ │ │ -cd4ed82a77f966e3ec167efe22598d9695952985dd1515199959b7ef24f80587
+│ │ │ -5ad93b1f5772c51532d1b3717247b0096042684989f6da8d95e3c096f64e172e
+│ │ │ -5f256b3155b61859fdc527dcf70e0cb6b4773e76da4e79533f2555f545b00960
+│ │ │ -e2bb5e16162a35b4449624164a705d8283c0d008cecb5d6765e790c9a6b387f7
+│ │ │ -293b2765a4ad1fb1b4514638dcc9dd4bc528079820d974eee215a552892c4958
+│ │ │ -7fad7ee57a6c7171317fdab0b4b4f44ec27d771f7f2b0717f6296c6963e5e8c2
+│ │ │ -7ad704879fc3e0079878aaa7cfd394b9d184e51770276d9d626ede2ee56becb6
+│ │ │ -acacecde83440fbfc0d30e2e2cafef2c6dc89a91f50e4a7c9c0c170098f8e848
+│ │ │ -5efe6795b7fd8d452a9159d2ad3b77cbd4a130637979f9fdc447ae5e7e6409c6
+│ │ │ -eeecc9ca816536b97bfb171797c01100267ee9e6ed3bcaa292b33b5b01972396
+│ │ │ -3661e7a25ef169e1268dc80d5fbe1663efea6169efc256159723a7acc95c8cdd
+│ │ │ -9eba7a3d0e8e0030f14879f9058e4aaa6ae2ec7e8ca51d708e67bcd23332d5b7
+│ │ │ -91d33333fdcf86d93abb9fb0756425b780b089dd58384127cef205987824320d
+│ │ │ -51d274c9828dcc8063a7ed6e27dcd78076268bcf3bf7ee3bba795a3bb9b1f21e
+│ │ │ -80ccbfd8cd21080809873b004cbc50724a2a9ff3951cdc3c35ec6536999578fa
+│ │ │ -07d9bd9e3a39b0c42636732fef3d4c8453004c1cabb4b4f48caf52ca2d9db471
+│ │ │ -54dcebc22f5c5252ea36b72a2e299164665839b010753a6a65cbe29e15174fdf
+│ │ │ -22c5f6ee400093a28a57cea927c4df14df20f628f98966377ec283878eee5eb6
+│ │ │ -ce6e8abfb023cdc562f75dc7a92a001387229311776f7f65240728380b38ede4
+│ │ │ -969b97df18ba20ed45ba8bc7ebb2c58ad77eb1b463ad0e81f319ef57af8ae120
+│ │ │ -0013474fecfb0f9571009c82f9848e67bc8b8a1ad152222b27c7dde7f5e3e1a4
+│ │ │ -ada3828997d64eacbda48bbb150f07019838507979b98712a24b27147bf27bf8
+│ │ │ -0535c2421cf905055e016725953c79126c72f1f4292941be25c0a4723d4864ff
+│ │ │ -f44a4b7b85424b416191e5ea90cfad0c15bd7ae51f1cf6261c2e7f1b5ab0176c
+│ │ │ -ba7527016e0230a976ba5451e1e51fc47686b79b221e151279be91774a7171b1
+│ │ │ -6f60c8eb33f51c5c14c9c064eb2c03572fbf529491039854a9c4c7c9ec672d9d
+│ │ │ -963f6bc93728049d52f15fd9190fdfc0d7f32605d674af339b583a03ea8e46e4
+│ │ │ -b5024c6a239fc060fee407b87bfb6964b2927ccacdcb235395d7eb623b6745f6
+│ │ │ -39b3b3b3d7c71f5d0330a948aca77adb3a9f392a6ff56b0777cf9212ac17aa29
+│ │ │ -2333cbe98cb79de4f84fb9532e58da4677ffe123f408c0a40ab1be334eeef7dc
+│ │ │ -560ece4832ae55548163b9df729247052b9deb1f1c86ee009894aec2a2220757
+│ │ │ -0f764fd095db73d233b3d02375e95adc4d497906b9f3c2c90383952ec691e200
+│ │ │ -93d27527e13ecbf503e4759b5b77eea23bea117588d67faf3be55c29b3b2bf37
+│ │ │ -e6c62d7407c0a45cf99d0d65914aa7e58d79fb61812085a86347e56ee7136c44
+│ │ │ -c1cff806a02f0026252a2b27870fd3256b47379cb3286bb049ee401e2ba903cf
+│ │ │ -9ea7a12f002665e97adc4deea74b96361959082dc9a0a8cbd16f6a81dac93569
+│ │ │ -6221d2147505e762024c4a8a595454b05b4b40bee952c4858be80b99545854e4
+│ │ │ -e2f9ba02019969ca578157f14893d3196f4c720126a528f5d97336a74b8ef2bc
+│ │ │ -8c3b69e784f12d87ee3d487c537e4f9eec81936c4c9a12931ea3230026f675fe
+│ │ │ -d255cea74b0f31b8e5554070b8e4d050f90ec252bcea4048c479f402c0c4f63a
+│ │ │ -aebcdcf9bf8264ece42ec9b5a6f0f00d4447c8ad8cac2cfbff12d0ac1c9c39c9
+│ │ │ -697270f5282e46f5388089553d4f7bc16dd1a523963679f905e80885e6bc6f0e
+│ │ │ -709763ba4ada5ff17e4f4a4e412f004c6ceafa8d5b2c82498e7c3f242e29aeac
+│ │ │ -9c1cc9a449be009f95a3a207645ebc720dbd0030b129dfa0104e0b09d834921a
+│ │ │ -deca56c4854b724f9a143fb0c0dddb1f5d0030b1a6972f0bb93dc3d2273018bd
+│ │ │ -c04ea429334bfe24324b1bc543e099d938aa176062498f1e3f61afc289bb1cd1
+│ │ │ -0d0d3bb1925b859ebb20e90b39ce5e3f65afe8492a77ee3d4017004cece8caf5
+│ │ │ -58b6c04446b6ece70be0651c9b7afa3c4dee49d3312b3b0507c0b98b57d00500
+│ │ │ -133bf20b626de3ae1cbb229ea4a6a20bd8d5199fcae36de4c869b2717253b0a6
+│ │ │ -25da1f606241c52525f62c156092631d77d2ce115dc0ba62debc63956367afe2
+│ │ │ -4715e423ed03606271e6cfc6fb389953fbc2cf63671cfbcac9cd7d73e8b19bea
+│ │ │ -cf774a7c9c8c2e009814d5edbbf738ccab4496809224d9a122c7e2fa75a6a562
+│ │ │ -efe6aec7dd44fb034c8aea82a468061b76d44ab688869deb19b4bf9274f7cdf1
+│ │ │ -ee72bc8eb0765428cc141a7901ed0f30292ab6522b6d9c655e355cbe1683f657
+│ │ │ -92f2f30baa027f3226e29fb273449a25c0c4a5cacbcb1ddc3cd939fe5bf663ce
+│ │ │ -90bea45479f805ca97d044567f0a0e86a2229c6d033029a0ec9c5cd60edab576
+│ │ │ -90f1cc4507b4bf5275e9eaf537efe69c640c3359db3a2b566937ed05da1f6092
+│ │ │ -5f54c56836024c36c8abe4951ebd39e7dd5af63dbd0a1e87f9203109ed0f30c9
+│ │ │ -afbbf71eb075d6aeac433ff6d66db4bf5255585844f50e9904c996cd64af50a5
+│ │ │ -81d89be85c80490145c7de6027f22d7b65b8c2a222b4bfb2e51d102cdfce6a05
+│ │ │ -ebc65db874158d0f30c92faa4a86a2a995f6b245be4fd822c0a40a455ebc2c5f
+│ │ │ -0ab8822550024323d0f80093fc62eb78cb53328e7b7b370f34be0a449654f225
+│ │ │ -e51fb3b2c58e3980893351bb3d55fc4ace2728048daf022526bd897fcbba3745
+│ │ │ -b1fc6f07374f343ec024bf1cddbdd8292a6025dbbe878b5751835515a2eac6d9
+│ │ │ -c9bebfda5ab1137a8b4b4ad0fe00933c2a292d65afc8b76c831efb3c55d4c525
+│ │ │ -25726f183aede0821a03001307ca2f78c955ae4011cef95195dcbcfddebc98b3
+│ │ │ -93316340a1fa2764b286c60798e4516656362765988e58d9a0f15526efc0ca8c
+│ │ │ -8113b60e32166652a8cc6eeab3e7687c80491ebd48cfe064fbeeb1d376687c95
+│ │ │ -2920245cbe8d290a6ee54d4e41615280492e3d63e9904b59773c9cc02e39152a
+│ │ │ -24e27c654a879d932a732c93929fa0f10126794426db2c81c945d635021a5f65
+│ │ │ -a27268652dff40967e0ad5b14c7a8cc60798e4115b3b78ad6404139961a1f155
+│ │ │ -a6a83785002ded5d642dffa0c8a8b89ff8088d0f30c9a3c74f523829f58dc295
+│ │ │ -aa14753697ac27242bb82b25e1c143343ec0248f9292d90193a58c1be51ccf20
+│ │ │ -2d58758a8e89ab3c664ec650a08562e5e2eede07980026350393171a1f608200
+│ │ │ -2680096002980026800960029800268009608200268009600298002680096002
+│ │ │ -9820800960029800268009600298002608600298208009600298002680096002
+│ │ │ -9820800960820026800960029800268009600298208009600298002680096002
+│ │ │ -9800260860029800268009600298002680090298208009600298002680096002
+│ │ │ -980026343ec00430410013c00430014c0013c00430014c10c00430014c0013c0
+│ │ │ -0430014c00130430014c10c00430014c0013c00430014c905a83a924b3ace056
+│ │ │ -695648c973dbe2d4a3cab367b77644f92e55dc22bd1687b82f90de2efaffa0d4
+│ │ │ -df05a3db832b7f48bae99cf71299ba29eccc224546c593d86dcafb51c4358883
+│ │ │ -103721ce02302955a5a5d911450fd7e45fed937bce14c6470b83b16f39e1a6b9
+│ │ │ -11a6b991f2f70b7119e238c47d8813014ceca9acf0d5933d79973ac2f3796e39
+│ │ │ -7e30659abf694ea069ee59d3dcd0ff50257b07112722ae441c0a605250e525cf
+│ │ │ -adf3aff482cf034c30a60598e6482025eb04ea4a2fe256c4b90026f9966e592f
+│ │ │ -6f7e016f0798600dcfa408a1c265eb2ce25cc4c5002619576f2f13f2a3fbc1d5
+│ │ │ -0126980c16f85f584afaa953743fe2680093d454cabd9c77d11c7e0e30c1948d
+│ │ │ -27e268c4dd002629a24aaf9ee45fee0a270798600a5990b42ff288bb11a70398
+│ │ │ -1a58c215c40c8387034c3056624f5286c689d311d70398ea54e1bd25706f8009
+│ │ │ -c6a69d95aaef88eb014c75cc96f263f3ce37817b034c30d6130b1acc7b22ae47
+│ │ │ -1c1060aa452f6f7e09df069860ca5ad6351411270e0830d5485aca0e8563034c
+│ │ │ -30a55a836c226e0830558f2edd9d0fc70698604a6753bde170e2860053b59d27
+│ │ │ -485c0298609ccf9b881b12670498b08e0398605cb0295c9d56739c81a9e8e15a
+│ │ │ -7835c00453692cbc8ef44be28c00d39b0053fc4c7835c00453f5ce955ac34cf1
+│ │ │ -3301a64a15c48e8057034c4ab23b36a213ab0d57cf144efe58af4f67ed762d05
+│ │ │ -6626025d1d2d7d3dada66241fb568201dd74a68fd45b3f4768fb9b51a293a811
+│ │ │ -b129b8b62cf0d8110053a5f2aff48457034c2c5ab6afd87fa7f1c209fa5dded2
+│ │ │ -d69251bd3b69af98aa7fee5f9346c1a6f09ad59a7a024c95ca3bdf0c5e0d30b1
+│ │ │ -620f1d446bbe1192799096c27aa7a3f6dfdf19a4ba8b353c293c929102de0c60
+│ │ │ -aa145c1a6052dceeda8a964ed23712d64e99a64d9b7ef0c107f3e6cd5bb76edd
+│ │ │ -5f7ffd75e0c081fdfbf76fddba75cd9a353367ce1c3060804824aafd8362c186
+│ │ │ -39c26417cdc55308b31f012680096062c132bcc55b1618181b30996264643475
+│ │ │ -ead423478e2424345c0eadbcbc3c262666cf9e3de3c68dd3d5d5655caa4513c1
+│ │ │ -d155861a9b3d100130014c0013ab16b6dfa4677b6620894c8e4e9e3c999b9b2b
+│ │ │ -df804c4b4bdbb76f5faf5ebd18971dda5b27f6942646c7cf024c0013c0c49e6d
+│ │ │ -5f6ca0577d723372e4c8d050765204c91ccad5d5b55fbf7ef4eb9b1a6b596f30
+│ │ │ -d2ec4913c00430014c725a9a8778f2c77a7464b46fdfdec3c383fded52e5e5c7
+│ │ │ -8e1d6bd6ac19fdbb964fd1cff6156beaa4096002980026792cd945fc516f1d3a
+│ │ │ -29162d5a545050a0bc219a9e9e3e7efc78fa374e1fa997eea5516ca25ecf014c
+│ │ │ -0013c024b325398bfb74ae0a2ae9eaea1e38704005a3b4acacec975f7ea1b369
+│ │ │ -cc205d8d625328c00430014c72d9730ff19077aae64a66666667cf9e55e558b5
+│ │ │ -b2b2120aab5212a60dd7d39c355d20c00430014cb25b968ff8b32155b1eeeedd
+│ │ │ -bbdfbb774ff5c3352a2aaa65cb96d46d2c9da4af61ab39800960029864b0f573
+│ │ │ -aaa62a040d4949495c8dd8cb972f1b1854e54d9d5ca321294e9232720013c004
+│ │ │ -30496b3edb8db5df4496f4f5f5cf9d3bc7adb7d8dada52603231d4ba76c24463
+│ │ │ -decd014c0013c02495a5b889db36afdafe76f2e4493e38ccdab56ba95b1ad05d
+│ │ │ -4713824dfe0013c00430496d3f4cd1a710f0d34f3ff1c461cacaca3efffc73ea
+│ │ │ -c6f6fea0110bba088009600298a4b08b474c74de2ce2faf6ed5b5a5aca1f9fc9
+│ │ │ -cece6eddba75e52b4213c14307b5dfb0921b0630014c00931436f1c3ca377102
+│ │ │ -81202a2a8a6f6e636363434d9a7e9c26547b3085004c0013c0d4905d3a6242b9
+│ │ │ -fddcb9732b78a9a143875251f0474eea1d69ca3d0b30014c005343366364e586
+│ │ │ -381d1d1d4eb296a45140400045cff573d47bd2941b0830014c0053437be2846f
+│ │ │ -36ea7efdf5d7153cd6a0418324f769de52a0deafe7020026800960aad70eac30
+│ │ │ -a46622e7cf9fe733982c2d2da95bf5dd61acd619030013c00430d567540981ce
+│ │ │ -9d3b57f05b79797946464692bb9d374ebd37a9004c0013c054a7a5ba8b75df6c
+│ │ │ -d7fdfdf7df2b782fb2d894dc6dbb9602800960826926985cb718a9cb3aaee66a
+│ │ │ -2ee6a408600298601a08a61fa7556ed9353131292929e13f981e3f7e4c81e9c0
+│ │ │ -0a4380096082692098fe37a832af72f4e8d1156aa2f6eddb4bee79f117fa0013
+│ │ │ -c004d34030756c53b90f65d9b265ea02a6b163c756c274802ec00430c1340d4c
+│ │ │ -2f3cc554919383070faa0b98962f5f5e7932422b01c00430c1340d4c776caace
+│ │ │ -c5f5f2f2521730eddebd5b72cf86422d80096082691a98ae5a546d910b0b0b53
+│ │ │ -173059585850b79de5230698002698468129749f31e5e1d1d1d1ea0226070707
+│ │ │ -eab61fbb004c00134cb3c0e4bbd394f2f05bb76ea90b985c5c5ca8db4e741201
+│ │ │ -4c00134c43c094ed2b3ebacab095595521dd9898187501133dc7f28527664c00
+│ │ │ -134c23c07476b771ff6ed58ed8258a8d8d5517301d38704072cf7aba087e034c
+│ │ │ -30f50753bcb568fa083d0692faf5eb17111151a13e5abf7ebde4ce5b3441ba00
+│ │ │ -c0045367303df710ff36576824ac86a4162d5a1c3e7cb8acacac42ad3475ea54
+│ │ │ -c9fdbfdf4b0760029860ea0a26eb0d46ed5a0ae848d2d3d3fbf1c71fb3b3b32b
+│ │ │ -d450bd7bf796fc8a5963f400268009a67e608a386032b437339cf4e9a79fdebd
+│ │ │ -7bb7423d959797a7ab5bb9bfefcff9060013c0045327303db0177dfb99bea0da
+│ │ │ -3c49ab478f1e7e7e7e15ea2c5f5f5feae79cdd6d0c30014c30f50053ba97f8af
+│ │ │ -450662a36a486ad2a4c99e3d7b8a8b8b2bd45c2b57aea4ce4ac9f016034c0013
+│ │ │ -4c0dc0e4bcc9a8cb5bda7424e9e8e82c5cb8f0c58b1715eaaff2f272737373c9
+│ │ │ -ef1a3b588d4b0b004c00536301d3550b93d1037519e1a4e1c387ab518252830a
+│ │ │ -0d0da57edad155860013c004e32f98929cc54b27e9eb568f7177e8d0c1c5c5a5
+│ │ │ -42b3f4cd37df487e9d91502bd55d0c30014c303e8229cb47bce70783a6e26a21
+│ │ │ -6e6363e33ffffcb3b0b050c3a8f4f0e143ea7ddcd7a3f5d49a4a0013c0a4b160
+│ │ │ -f2de6efc6ec76ae1248140307bf6ec9494940a4dd4a2458ba85f7ae19009c004
+│ │ │ -30c1f805a6384bd197c3983b4bde7ffffd8b172f5668a86edcb8414d973e1ba2
+│ │ │ -abee54029800268db2a741e2555f0985d5a1d4b66d5b4b4bcbf2f2724da512f9
+│ │ │ -69c3860dabaa69b7df0460029860fc9828458a2d7e376cddac5a38492814ae5b
+│ │ │ -b72e2f2faf42a3b577ef5eea27abfb01bc0013c0a4391672cc78602fe6ce9249
+│ │ │ -93262526265668ba82828274742a7f7b53b1407d2bc3014c0093e6d8dd33a2af
+│ │ │ -3f658693faf4e913121252d10894909060666646fdf0536b0d35834a0013c0a4
+│ │ │ -aef62244bcf13ba1b1613524356fdefcd0a143a5a5a58d814ad9d9d93d7af4a0
+│ │ │ -7efbfcf1fa1a4325800960524bb3d962d4be4db57092aeaeee8f3ffe98959555
+│ │ │ -d138949f9f3f7af468eae7f7eda293e62106980026183776c1d26458bf5a0a95
+│ │ │ -c4c7c757341a3d7af4e8bdf7dea37e7ec736daf7ec449a4425800960521b4bf4
+│ │ │ -16cdff525fbb5acaa456f7eeddbdbdbdb91db2b9b9b9070f1eccc9c951cdd745
+│ │ │ -4646b668d1a2aacc661341cc494da312c00430a981658689b7af303035a98624
+│ │ │ -5353d35dbb76715ba8a4bcbcfce4c993ad5ab57a3d6de9d8313c3c5cd9df78fc
+│ │ │ -f8717d7d7daa11cc5b0aa22d4c348f4a0013c0c47773fdc7a8ab79b56992b6b6
+│ │ │ -f682050bd2d2d2b81da9e7cf9f1f3870206351397bf6eca74f9f2ae3eb929393
+│ │ │ -a74c9942ffae5e1db4efda8a34924a0013c0c45f8bb633f9f44366a1928f3ffe
+│ │ │ -98f323de082366ce9ca95587c462f19e3d7b4a4a4ad8fa3ab248dcb2658bb1b1
+│ │ │ -31fd5ba67ea297e226d6542a014c00131f2dd95ffcc357cc4225eddbb7777474
+│ │ │ -e47674be7cf972f3e6cd4646d5ca5f363715cc1eaba7a7cbdc07f3db6fbf3d7e
+│ │ │ -fc5841026ed8b0a1499326f42b1b0ab5f62d37d46024014c0013ef2c3b427c60
+│ │ │ -b561f326d552010808080e382f5442b048e0582d4741476bc924fd6497d73397
+│ │ │ -6bc74d46f567ceef747474264c98606767471023138f4e9e3c396ad4286d46a8
+│ │ │ -5f4b6bdcfbba7196228da712c00430f1c8fc0e1af7eec22c54f2cd37df3c79f2
+│ │ │ -84db41191d1dfdd1471f317314ded7ad1978b6a97112147dc6477ecbfefdfb9d
+│ │ │ -9c9c424242626363535252525353efdebd7bf5ea557777f7bffffe7bdebc795d
+│ │ │ -bb76adf5e3bd3b693b6e346a0c4802980026bed84d17d1a491cc9d2583060dba
+│ │ │ -70e102b7c3f1f9f3e7f3e7cf67cc5cbab5d376dd6254cf610796eb8c3e7e4f47
+│ │ │ -8b25bddf4bc76953234212c00430f1a250c9ea794203fd6aaed8ba75eb53a74e
+│ │ │ -715ba8a4b8b8f89f7ffe313535ad76988a8960db4203294f1fb96a61f2fd97fa
+│ │ │ -6d9a09e4e351fb5682555f0935351b00600298f85ba8e4f8ef866d5b300b95ac
+│ │ │ -59b386f34225dedededdba75ab9ea3f07a33da430779e23bb1a74447561ace19
+│ │ │ -abd7e52d6dddba275284ceef76d49e365c6fdf72c3eb271a298f002680894b0b
+│ │ │ -3b6e3cf81da68f7ef9e5970f1e3ce076fcddbe7d7becd8b18c1b1bd64727ea30
+│ │ │ -6ba478ec2226dc09de634c16680e7f18796f370edb6f72d34a94ed2b6ee43002
+│ │ │ -980026ceec9e8768d667cc70d2bbefbe7bf6ec596e475e5656d64f3ffd4415a8
+│ │ │ -a5d653a7d71b01130013c0a4c9854a362d3630a95ea8a459b366fffefb2fb785
+│ │ │ -4ac8b71f397284dc49b5c3540cb436cc116ad8967d800960825533fbbf8c3ab6
+│ │ │ -d566142a59be7c79666626b7032e3838b877efde8c19dc8c917a1abcdb036002
+│ │ │ -9860a6174f9b7c3280194e1a3366cceddbb7b91d6a0f1e3c983c7932e3c606f6
+│ │ │ -d009de6b0c2e004c0093e6162af1112d9ccc2c54d2a54b174f4f4f6e07595e5e
+│ │ │ -deba75eb844221fdc6da34131c5969880834c004306972a1921d3f1a34110918
+│ │ │ -bb5b77ecd8f1ead52b0e87577979f9e9d3a7dbb469532d47414f6be50ca1ba9f
+│ │ │ -a90d30014c9a1fa54ef416c53989aed99bdcf7143d3b2b96e9e367761b75efc0
+│ │ │ -2c54327ffefc67cf9e713bb6a2a2a2060f1ecc58bb7df15163d97d0630014cea
+│ │ │ -6459e1e2500be3cd4b0cbe1aab37a0a78ed8b896dc3f5d1dadaee6da133fd15d
+│ │ │ -3547e8f0b7516a60eda8baee60326e287323eb471f7d141d1dcdeda87af2e4c9
+│ │ │ -9c397304020163f799ef0e8493002680894f961e2ab6db66f4f927bab592a87e
+│ │ │ -114e7df89ece96a5060fbc4492ab3d0910aff85a9f51faa35dbb76f6f6f6dc8e
+│ │ │ -a7c2c2c2ad5bb7328a19353315ecfdc130cb076b37800960e28dc5bb89964cd7
+│ │ │ -37130914df5f4a0845a6519bbf376861c62c54b271e3c6972f5f723b985c5c5c
+│ │ │ -3a74e850b350499233900430014cbcb15b2ea2b9139925cda8ca41fdfaf59b39
+│ │ │ -73e6a64d9b2c2d2ddddcdc8282824242423c3c3c6c6c6c76efdebd68d1a261c3
+│ │ │ -863136b5d6aaafbefa4ac102698a2b2626e6934f3e61dcd8e881ba572d4ce0f3
+│ │ │ -0013c0c4a385db1f8b84864226445ab468b16cd9322f2f2f290ff9282d2d8d8a
+│ │ │ -8adabc7973fffefd6b2269c08001e7ce9de37600bd78f1e2bbefbe63142ae9f2
+│ │ │ -96b6f326ec2c019800263e59e449936eed99b510c78e1debe9e9a94869eaebd7
+│ │ │ -af2f5dba542c1693abb56ad5eac489136565651c0e9de2e26232b36314a2151b
+│ │ │ -696d5b6890ee85b51bc00430f1c976fd6ca05f7dcfecc48913af5cb9c256bb91
+│ │ │ -a9d6e9d3a7737373b91d373e3e3eddbb77af5efd526beea77a0fec910a003001
+│ │ │ -4c3ccb729c39ae1a933a77eeecebeb5ba159ba73e7ce679f7dc6980f0eedad73
+│ │ │ -ee5f84930026808967f6ecac78cc906a51eeb973e7725ecf9f5d656767fffcf3
+│ │ │ -cf7a7ad5e06bde5260b90ee124800960e29f3d0f167fd047879e78bd73e74e4d
+│ │ │ -42525959d9d1a347e92765bfce5130d0dab040f81c854a002680899f99dc9fd1
+│ │ │ -d2afc562b18f8f8f2651292c2cac6fdfbe8cb5dbf4ffe9dd717f9ded09970698
+│ │ │ -00263edadc89554b1b737373ceab8bb0a8c4c4c469d3a63173147aea9c3d625c
+│ │ │ -554a1c5e0d30014c7cb3c3ebaa0a449a9898c4c5c5690692f2f3f3376cd86060
+│ │ │ -60404752ab6602f27b7322ab6ddc834b034c0013bfec8a8d099542291008dcdd
+│ │ │ -dd350049e5e5e53636366fbdf5161d49fa7a5a3fcd12d6ba97182e0d30014cfc
+│ │ │ -3a5cbb7f8faa80f7962d5b34804a972e5d1a32640863ed36e163dd3827519da7
+│ │ │ -42c1ab012680893fb66795017db79aba2329353575eedcb98c4225bd3a697bed
+│ │ │ -336ee0b83a7835c00430f1a7882d552eb24d9b36526e7ce3a78a8a8afefaeb2f
+│ │ │ -1313133a929a8a05bb571a6485375cb20e2e0d30014c7cb15573aab6e7dad9d9
+│ │ │ -a92f95dcdcdc3a75ea54bdec81d6e2a9fa49bed256d1844b034c00132f2cd95f
+│ │ │ -4c157bfbf0c30fd5144971717123478e648493460dd6bd626322dbc9e3f06a80
+│ │ │ -0960e2836d5a5c155d52c7ad70e9e9e9df7fffbd8e4eb5239e3abfadedb8dd48
+│ │ │ -8ed6804b034c00132fac6bbbca9226fdfaf5532f24959494ecdbb7cfcccc8c8e
+│ │ │ -249191d69f4b0c32c2c4f2b5065c1a600298b8b7906355d5ac8f1c39a24654f2
+│ │ │ -f7f7efd9b327a350c99c097a541d718009600298d4154c4ba6eb571e8e261472
+│ │ │ -7edcb6944a484898306102239cf4411f9dc893268a37085c1a600298b8b79e1d
+│ │ │ -2bd7715f7cf105ff91f4ead5ab55ab56e9ebebd391f4762b81e52643b61a042e
+│ │ │ -0d30014c1c1b59f550ee7de0c001b500139d4a8642ad75f385cf83c52cb6095c
+│ │ │ -1a60029838b6d37f1a514e7eebd62db558c70d18304072c35dcdb5e3dd44acb7
+│ │ │ -095c1a60029838b6b5df56e6559a9a9a56a889162c5820b967b20855469bc0a5
+│ │ │ -01268089639b3abab2f4d2e0c183d5054c3b77eea42a04644788012618c0a469
+│ │ │ -60eadbbd322971f6ecd9ea02260f0f0f6af979c3194b3918c0a47160326f5db9
+│ │ │ -7177eddab5ea02a6e8e8680a4c61c78d012618c0a469606a2aae04d3b66ddbd4
+│ │ │ -054c0909091498bcf7034c308049e3c0a4a7ab4eb902123d7dfa940293fddf46
+│ │ │ -00130c600298b8576a6a2a0526f9b6e9024c0013c084a51ccb8a8f8fa7c0e477
+│ │ │ -104b3918c084e0370f74e9d2250a4ce74f99004c308009e902dccbdbdb9b02d3
+│ │ │ -4d17a40bc000262458f240dbb76faf2c87a0af254d0d6f8009600298b02545e9
+│ │ │ -9a356b96e49efb74c5961418c0a4896052c74dbc7dfaf491dcf0d79fea014c30
+│ │ │ -804903c1a476654f727373a9dadea306eb3ef2458c090630691c98d4ae509cbf
+│ │ │ -bf3fbd449c9948b0eb6783cc30d46382014c9a0526f52aad9b9696367ffe7c6d
+│ │ │ -6d6d3a9e7a74d476df6d0430c10026cd01933a1e46101d1d3d74e85046cdeff1
+│ │ │ -c374af3ba0e6370c60d20830a9eff14df6f6f6eddab5a3b3494f57eba759c294
+│ │ │ -4031c0040398d41e4cea7be0654141c16fbffd66686848c7530b33c1c1358639
+│ │ │ -9138570e600298704438774a4a4a9a3163066365d7b7bb4ee021638009600298
+│ │ │ -4cd5d756cd11522e6d676757a1868a8c8cecdfbf3f034fd3fea777db55043001
+│ │ │ -4c00935a5aa28fa889a872436f9b366d727272d4914d656565c78f1f6fd5aa15
+│ │ │ -9d4d8642adb5dfca70c4135c1a60029878647b5655459abefaeaab0ab515a1ea
+│ │ │ -ca952be53e14132e0d30014c3cb2ec0871ff1e3a94276fd9b2a5429d95909030
+│ │ │ -7efc78c6ca6e481f9d8813260013c00430a9935db131317c136b120804eeeeee
+│ │ │ -156aae8080805ebd7ad1d9241068cd9da8f7c04b0430014c0093dad8e17555af
+│ │ │ -de4d4c4ce2e2e2d49d4d2525257bf7ee353333a3e34964a4b565a9417aa81860
+│ │ │ -02980026f53032a1a01cd8dcdcfcf6eddb15eaaff4f4f4254b96501b8025eafc
+│ │ │ -b6b6438de30ce0d20013c0c447cb0a177f365497f25eb158ece3e353a111ba71
+│ │ │ -e3c6a851a31881a7918374c91a166002980026bedbf360f1077daa2617dadada
+│ │ │ -fffcf34f85a6c8d5d5b573e7ce74369189d4f7d3f4254554e0d20013c0c45f7b
+│ │ │ -76563c66882edd7be7ce9d5b5858a8196c2a2a2adab66d9b4824a2ffc0a662c1
+│ │ │ -ee950699de627835c00430f1d732c3c433c7e9550bca74eeac5e9be9ea576a6a
+│ │ │ -ea9c3973040201fd37f6eaa0edb1cd188e0d30014cbcb65d3f1be857a393d6c4
+│ │ │ -8913af5cb9a2317822bfe5830f3e60049e267ea81b735204f706980026fe5ae4
+│ │ │ -49936eedb519ae3b76ec584f4fcf929212b95bece6cd9b2b57ae6cdfbe3d5955
+│ │ │ -91b5158783a6bcbcdcc6c6e6edb7dfa6ff4082e39fa60b53dcb0b203980026be
+│ │ │ -5a7aa8f88f45424321834e5a2d5ab458b66c9997979794dbeb4a4b4b2f5fbe4c
+│ │ │ -48449d292051a74e9d38cfe7941451313030a0df582b33c1919586d9bec013c0
+│ │ │ -0430f1d56eb988e64ed4d3d3d5aa291d1d9d7efdfacd9c3973d3a64d9696966e
+│ │ │ -6e6e414141a1a1a18459767676bb76ed5abc78f188112318f166e69bfb912363
+│ │ │ -6363b91d408f1e3d9a366d1ae3c6fa77d309da8dc013c00430f1d8e2dd444ba6
+│ │ │ -eb9b89045a0a4b5b5bab65530103704b962c494f4fe77618454444f4eddb9771
+│ │ │ -b7d347e8dd3e8dc013c00430f17b7167bbd5e8f34f74c5c6f2f068f03b3adb57
+│ │ │ -18dcf71491ebfcb9c48071113333b383070f2a12c0525c656565478f1e256b55
+│ │ │ -fa8d1909b5d6cf113e3b83951dc00430f13e533cd4c278f312831963f4faf7d0
+│ │ │ -a9955364f5d7adbdf66743757f9a2574de69f42480b9498d106af604bdea2fee
+│ │ │ -b57af6ec191010c0ed78cacecefef9e79ff5f4aabd986cd75260b9ce08ce0f30
+│ │ │ -014cea642f42c489dea23827d1357b938433a29440b19415b8234e980ce9a3c3
+│ │ │ -80da175f7c919090c0eda8ba7bf76ecd222a1fbeab1379d00408009800a64661
+│ │ │ -27fe307cbb55b5b993bebefe2fbffcc2795d4d7f7fff1e3d7a308aa8cc1ba7ff
+│ │ │ -c01e81278009606a04f63c58bc7a1e333ba155ab56c78f1f2f2b2be370789594
+│ │ │ -94ecdebdbb499326f41b131b696d5b6890ee85c013c004303502bbed2a9a3c52
+│ │ │ -8fb180ead7af5f444404b783ecc58b178b172f661651794bdb7913024f0013c0
+│ │ │ -d4382cf09071dfeeccc0d38c1933929292b81d6ab1b1b123468c60dcd8e801ba
+│ │ │ -578e21f00430014c8dc0b223c407561bb630ab1678323434dcb46953414101b7
+│ │ │ -03cec5c5a563c78ef41bd3d5d1fafe4bfd2467acec002680a911584aa078f9d7
+│ │ │ -fa8cbcf376edda393838703be68a8a8ab66cd9626c6ccc28a2b2e70714510198
+│ │ │ -00a6c661d71d4ce80536251a3a74e8d5ab57b91d79292929b367cf66145179a7
+│ │ │ -a3b6f77696f7b2a4ba8b634f8982f71a3b6d3272dc6844ae1fb6dfe4a695081b
+│ │ │ -fa0026808963f3d863dca3a376f56c72ed6fbffdf6d9b367dc8ebf8b172fbeff
+│ │ │ -fefb0c6e7e3e5437ce52fe9482dba745c75619ce1aa3d7a9adb6817e9df9f4e4
+│ │ │ -9fdeeda83d7d84debee586d74f98004c0013c0c44dc6f9ce1f0d185bf64422d1
+│ │ │ -ce9d3b5fbd7ac5e1102c2f2fb7b2b26adbb62dfdc6847a5aabbe1292c98ef4ae
+│ │ │ -75e988c9c209fa9dda68cbb70fb17d2bc12f5f09a32d4c00268009a66a7be42b
+│ │ │ -5a30495fbbbaf376eedcd9cbcb8bdb81989f9fbf6edd3a461195d64d05475735
+│ │ │ -504485fc2b59a00defababc59286bca3e3d4f8f218002680897bbb6c6d326210
+│ │ │ -d393478f1e7df3e64d6e87e3c3870fa74c99c2b8b101dd7582f7d41e783af68b
+│ │ │ -615d53247373f3d9b367efddbbd7cece2e2828282626262525253535f5eeddbb
+│ │ │ -57af5e757777fffbefbfe7cd9bd7b56bd75a3fdebb9336e11dc00430c1546db6
+│ │ │ -5b8d3ab6ade6d5bababacb962dcbc8c8e07650868686320ae3bd4ec51aa977c7
+│ │ │ -a62af01467291ad55fb76695abc993279f3a758a004efaaf4b4e4e3e71e2c4a8
+│ │ │ -51a3b4b5998c1bf7be42d12e80096082c9598c65e3774213c36aded8b469d383
+│ │ │ -070f96969672382ec9b71f3e7cb879f3e68c222abfcd7d1d78dabad080b1ffa6
+│ │ │ -59b3666bd6ac79fcf8b1225f4a08b561c306c6061af245fb961b024c00134cd5
+│ │ │ -76cf43c438dfe5f59bfb77de212b206e47675656d68f3ffec828a222d463d6a2
+│ │ │ -faf7df7f593c292b2727a7669ad5b4e17a9a5dce1c600298786a61c78ddf7f97
+│ │ │ -b99765d2a449f7efdfe7768cc6c7c77ffae9a7b54682a64f9faea48c07327b62
+│ │ │ -44bbdee9a87dd7560430014c300ecce277c3b62daaa514088542b24acacdcde5
+│ │ │ -76a47a7b7b77ebd68d9ec2ae823789c78f1fd7d7af4a85326f29b876dc046002
+│ │ │ -9860dc9c2afceb3c212335b175ebd6969696e5e5e51c0ed6e2e2e25dbb76999a
+│ │ │ -9a4e9c3831333353355f1a191949af17dca28940234fd003980026b539e2e5cb
+│ │ │ -11ccc0d3c08103cf9f3fcf79e049c57c7cf4e8d17befbd473542c736daf7ec44
+│ │ │ -0013c004e3cc02fe35eed395f9127de6cc99c9c9c9158d49f9f9f9fffbdfffa8
+│ │ │ -16e8db4527cd430c30014c302e8ba8ecffd5b079936a81272323a3cd9b37bf7c
+│ │ │ -f9b2f1b0293b3b9b5e2978fe787d80096082716c4f02c4cb66308ba8989b9b3b
+│ │ │ -3939351e36252424989999513fffd45a4380096082716fd7ec4dc67ec0ccb71e
+│ │ │ -366cd8b56bd71a099b828282a81ac14dc582442711c00430c178616ebb8cbab5
+│ │ │ -67165159b870e1f3e7cf1b039bf6eedd4bfdf079e3f401268009c617cb0c13ff
+│ │ │ -bddca049f5222aa6a6a6bb76ed2a2e2ed66c30959797934922f5abc3f69b004c
+│ │ │ -00138c4796e823faf6336611956eddba797b7b6b369b6edcb8a1ab5bb9a4fd6c
+│ │ │ -882ec00430c1f865644c5f386432acc681c063c78ebd7dfbb606b369d1a245d4
+│ │ │ -8f252d0030014c307e814962d61b8cda573f1098cc2956ac58919595a591607a
+│ │ │ -f8f0213569fa7ab41ec00430c1f8082662691ee2dfe60a8dab15a1d46adebcf9
+│ │ │ -a14387b82da2a2247df3cd37543d1699aa00034c00134c756092d85d5bd157a3
+│ │ │ -987b59faf4e9131212a261600a0d0da57ee0d155860013c004e32f982416bcd7
+│ │ │ -78600f66e069f2e4c932d596e4ffeb397373f3ca98da605d80096082f11d4c92
+│ │ │ -63028ead326cd38c594465eddab57979799ac1a6952b574a7e9789a156863a9f
+│ │ │ -d60930014c8d054cd47993abbe1232ca4eb669d3c6caca8adb222aacc8d7d797
+│ │ │ -fa5167771b034c00134c3dc0449d1df0c547ccbd2c83070f8e8a8a526b3091a9
+│ │ │ -1ff56eeecff9060013c00453273049cc67bbf1bbd50f04160804b366cd4a4949
+│ │ │ -515f36f5eedd5bf25b668dd10398002698fa818958968f78cf0f06cd4cab059e
+│ │ │ -8c8d8db76cd9c2e28102aad4d4a95325bfe2fd5e3a0013c004534b3049ecb18b
+│ │ │ -78c9247dddea6fed3a74e8e0ececac76605abf7e3d557517600298606a0c2689
+│ │ │ -5db530193d9019781a3e7c784c4c8c1a81e9c08103923bd7d3d50298002698da
+│ │ │ -8349622e9b8dbabcc52ca2929898a82e60b2b4b4a4eefc85a718600298609a00
+│ │ │ -2662e95ee26d0b0dc446556c8a8f8f571730b9b8b850b79de828029800269886
+│ │ │ -8049627e3bab0ebf55a3d59c83830375dbc92e9831014c30cd02d3550b93aaea
+│ │ │ -6b6161ea02260b0b0beab6b37c00268009a659604ab015511eeee1e1a12e60da
+│ │ │ -bd7bb7e49e0d85087e034c308d03d30b4fb1e04d7ad3a14387d4054ccb972f97
+│ │ │ -dc73fb5648170098601a0726621d5a57be9e5bb66c99ba8069ecd8b1927b1e3d
+│ │ │ -4017600298601a08a631832ad39a468e1ca92e606adfbebde49e177fa10f3001
+│ │ │ -4c300d04d38fd3841227178944252525fca7d2e3c78fa9b8d88115860013c004
+│ │ │ -d34030b9fc5995cb74fefc79f5caae8c39290298002698068229d55d4c9d42fe
+│ │ │ -fbefbff31f4c5f7ffdb5e46edbb554e3c837c00430014c0d18751254972e5d78
+│ │ │ -4ea5bcbc3c232323cd38921760029800a6fa6cff0a436a7174eedc397559c7f9
+│ │ │ -ee300698002698c68229d9456ca05fe9edd3a74fe73398060d1a24b94ff39682
+│ │ │ -6c5f753ebec91f60029800a6866cc6483daabee5a54b97f849a58080006abab4
+│ │ │ -7e8e50bd0fbc0498002680a941bb78a46ad3dcb061c3f809a6a1438752e7a33c
+│ │ │ -7252efd32e7302002680096092c2e827179c3973866f6e63636343ddde8fd3d4
+│ │ │ -7cbae4679a1b0430014c0093141675d844e74df1b8eeddbbf32ad9323b3bbb75
+│ │ │ -ebd6927b3333113c7410a93d9882012680096092ce7e98a24fcd4a7efdf5579e
+│ │ │ -384c7979f9e79f7f4eddd8de1f0cd59d4aafc1140a30014c0093d4c9966f35af
+│ │ │ -3a4cc5d2d2920f0eb376ed5aea960674d751ef97711498c2012680096092da02
+│ │ │ -7719ebbf39c2575f5f9ff3b4265b5b5b8a4a26865ad74e986800955e83e91cc0
+│ │ │ -0430014cb2d8919555f9962d5ab4e0f09082cb972f1b1818503773728da16650
+│ │ │ -2927106002980026054a0e10f5e8d1e3c18307aa1fae5151512d5bb6a46e63e9
+│ │ │ -247d0da112b160800960029864b72c1ff16743aab2079a366d1a1c1caccab16a
+│ │ │ -6565251456c171da703dcd082d5101268009600298e4b1143771df2e55e7f6ea
+│ │ │ -eaeaeedfbf5f05a3b4acacec975f7ea19f793766906eba97e65029c7bfb21f01
+│ │ │ -2680096092f3251d3deb9268c182052f5fbe54de104d4f4f1f3f7e3cfd1ba78f
+│ │ │ -d4d3282abd59c7014c0013c024bf9105d4da59423a293a74e8a08cbcf0f2f2f2
+│ │ │ -63c78e356bd68cfe5dcba7e86bd20aae721d170130014c00131b66b3c1c8d880
+│ │ │ -4e0cad51a346858686b285245757d77efdfad1af6f6aac65bdc148c390f49a4a
+│ │ │ -8155fd0830014c0093a276e190490f736dadea1a3264c8a953a7727373e51b90
+│ │ │ -696969fbf6edebd5ab17e3b2437bebc49e12691e955e5b18c00430014cac5a86
+│ │ │ -b778cb0203c6d4e9f5a993868653a74e3d72e44842428234f3a3d8d8d83d7bf6
+│ │ │ -8c1b374e57579771a9164d044757196a2692dea42f014c0013c0c4beddb5152d
+│ │ │ -99a46f24d4aa554d9b36fde0830fe6cd9bb76eddbabffefaebe0c183fbf7efdf
+│ │ │ -ba75eb9a356b66ce9c3960c000914854fb07c5820d7384c92e628da5d27ffbe3
+│ │ │ -002680096052a2253a8ad67c236cdf4aa0a5b0dee9a8fdf77706a9ee9a8ca49a
+│ │ │ -d32580a94a79973ac0ab012676dfd9f9ef345e3041bff35bdab2f2a87727ed15
+│ │ │ -53f5cffd6ba2e13ca2729722aa7522714680a95205d73f8057034c4ab23b36a2
+│ │ │ -13ab0d7ffd5a3869985e9fcedaed5a0acc4c04ba3a5afa7aaf9769646e35a09b
+│ │ │ -cef4917aebe7086d7f334a7412350a1e518bb8b3cc4e24ce083055eae5ad49f0
+│ │ │ -6a8009a66a2a0598e646323b913823c054a9c27b4be1d500138cdb459cc48833
+│ │ │ -024c952a796e0baf0698601cbe89a38c3823c0f42685a42423ef7c533836c004
+│ │ │ -53919dadbd07891b126704986861a61b9fc1b10126982a2ca8ce1e246e58c13f
+│ │ │ -7109a6e2a7c7e0d800134c15594b9175f62071438089b19c2bcabff20e7c1b60
+│ │ │ -82a93297926ec401891b024c3542e06976f06d8009a6fa155c65d83bcdae8297
+│ │ │ -d2e2fa06ca0bae7f08f70698602a8b76d3f22a3f240e0830d5aeb2829b79516f
+│ │ │ -c1c30126189b9901610d741c713ae27a157c95161f6ea224c33bef7c133839c0
+│ │ │ -0463c1026acfa2ac9e22d084385d058fa5c593fb7895fc0f9c1c6082299ad81d
+│ │ │ -2255af1177abe0b7b4f8732bc529ff22e5126082c91fe78e68b8bf888b1147ab
+│ │ │ -e0bdb4787537a559c17917cde1ed00134c86705290694eb8549d459c8bb85885
+│ │ │ -3a488b6f37545e781f8507002698b4b3a470697b8ab81571ae0a3591163f6fab
+│ │ │ -343bb420e663b83dc004ab3567322754863e22ae441caa42ada4c5e79b2bcd3a
+│ │ │ -5b747f45fee56ef07f800975945ee72585d5b7b98499d57db91b711fe244156a
+│ │ │ -282db5b8cbb2bc2bc54f2d5e25fd59786fe9cb5b930be2c6c07862b9c16fc1d8
+│ │ │ -b49076b9a11d72c33be54674cd3bd72bffe280fcab430b624749d317c4358883
+│ │ │ -103721ce425ca6429da5550141100430411004014c1004014c10044100130441
+│ │ │ -0013044110c0044110c00441100430411004014c1004014c1004410013044100
+│ │ │ -13044110c0044110c0044110043041100430411004014c100441001304410013
+│ │ │ -044110c0044110c0044110043041100430411004014c10044100130441001304
+│ │ │ -4110c0044110c0044110043041100430411004014c1004014c10044100130441
+│ │ │ -90e260cacdcd757676fefbefbf172c58307cf8f0f6eddb77e9d265c89021e3c7
+│ │ │ -8f5fb468d1891327eedcb923e5a5323333afbc517c7c3cfa80574a4f4fbf4253
+│ │ │ -6c6c2cda04e223980a0a0a76ecd8d1ac5933ad86d4b66ddbe2e2e2062f480047
+│ │ │ -7de4fdf7df471ff04a3ffcf003bd4fb5b5b59f3d7b866681f805a6c3870fb76e
+│ │ │ -dd5a4b3a7df4d147d27c25c0c45b959797bff5d65b8c6e3d74e8105a06e21198
+│ │ │ -56ad5a552b80c462719f3e7d7af6ec69666646ffef1b376e0498d45a172e5ca8
+│ │ │ -d9dda3468d42cb40d2cbc2c242fb8d162e5cc832988e1e3dca18a0c3860df3f6
+│ │ │ -f6cecccca4ffd9ab57afa2a2a2b66cd93262c408f23f0026b5d6cf3fff5c134c
+│ │ │ -3a3a3a2f5ebc40e34052ead8b163d4e059b060019b602203b1499326d4d50d0d
+│ │ │ -0d030303d9ba6f8089b76adfbe3d9d47d4ff3e7efc381a07e21e4c070e1ca02e
+│ │ │ -2d10085c5c5c58bc6f80899fba72e50ad52f42a1f0fbefbfa7fedf4f3ffd14ed
+│ │ │ -03710fa651a34651979e346912bbf70d30f153ab57afa6fae5b3cf3e230b73ea
+│ │ │ -ffd5d3d3cbcaca4213411c83a95dbb76d4a577ecd80130350675e9d285ea170b
+│ │ │ -0b8bf2f2f2b66ddb52ffc5caca0a4d04710c267d7d7dead24141419c80293b3b
+│ │ │ -9b116867512525254f9f3e2d2b2b53413f151515b1fe5d2f5fbe4c4e4e26ff97
+│ │ │ -ad0bc6c4c4d073979e3f7f4efe237d353771e24465344e6161e193274f94371d
+│ │ │ -53def5333232525252c840d20094b0eb6b4a04d3db6fbf4d5ddad2d252656022
+│ │ │ -0d447ed5c71f7f6c6a6a4a256d8e193366ebd6adaf5ebd52e44bd3d3d38f1e3d
+│ │ │ -ba7cf972b248e9dab52b599b908b1b1818bcfbeebb53a64cd9b66d5b7e7ebe1c
+│ │ │ -97bd76eddab637727575a5ffd383070fbefdf6db4e9d3a113f97ac863a74e830
+│ │ │ -61c2041b1b9bbcbc3c39be2b2d2deddf7fff1d3d7a34d538444d9a34216b6d72
+│ │ │ -4d69525bebd1860d1b6ae6a3050606d2a34eb9b9b9ac3c1202020256ae5cf9de
+│ │ │ -7bef99989850d727cf4232ea060d1a44fac8d7d7576ee62aeffa640a491a64e9
+│ │ │ -d2a59d3b77a69edc0281a079f3e69f7ffef9891327e4f0edd8d8586afcd8dbdb
+│ │ │ -4bf3913b77ee501f69d037e3e3e3ebfa63167dcdcdcd6d1b4d5f7ef925d5ec03
+│ │ │ -070edc568776edda25339848435397265fa302309109c5be7dfbe82389a10103
+│ │ │ -06242424c8f1756161613367ce247e557f7628a1869f9f9fac173f72e448cd60
+│ │ │ -1cf92dc43124ecab55c6c6c6640e25fdb710e8fcf3cf3f2291a89efbefd1a3c7
+│ │ │ -d9b367e5ee949e3d7b5297a2460cf95efacb593b3b3b45fa9d34cbe9d3a78957
+│ │ │ -4b93ac4b9e19b226762af5fa515151046af55f93b4d5fefdfb659a43119c511f
+│ │ │ -ffdffffe27cd47c8f38ffac8e0c183f9e06b53a74ed5925d62b15866306ddcb8
+│ │ │ -917e09070707a58229292989fc8f067f09f14c99fc79efdebdddba7593a9b1d6
+│ │ │ -af5faf20984a4b4b67cd9a55ffb78c183142a6693699c24873f3e4e94d1c438e
+│ │ │ -1eb975eb16fd3a64ae47fd13fdb74c9e3c59ee4e4f4d4d1d3264884c7d111212
+│ │ │ -c293eb93a702695b292f3b6cd8b09c9c1cde824919bea63a30ddbf7fdfc8c888
+│ │ │ -3e8d3f75ea9492c074f3e64dfa3608329f9c3d7bf69f7ffeb96ad52ab26ca147
+│ │ │ -bb887efae927e9bf88acdae89fd5d5d52513cbc58b17938b6fd9b2857c0be957
+│ │ │ -f21f197f73fbf66d45c04416d50d7689f4e9176475d0bf7f7fc61df6eeddfb9b
+│ │ │ -6fbe21536eb254ecdebd3be3e2070e1c90b547366dda447dbc4f9f3e75b90119
+│ │ │ -1205050572f478747474cd9d2e3a3a3a64963763c60cd21de441f8dd77df4d9c
+│ │ │ -38917aebd2ac593382783e5c9ff190967401e914b2a6fbfdf7dfc78e1d4b5f59
+│ │ │ -53eb172997752a0693927c4d75602222cf5ec685881bc8346191a6b1dab469d3
+│ │ │ -b469536a3145a6e28c58c9b973e75ab66c494ff5947e4f2999e8493e4516d256
+│ │ │ -5656b54676ae5dbbc6f0fc71e3c6c90d265f5f5ffa3367c58a15919191e48693
+│ │ │ -9393c98a92a0e49d77de79fbedb7a59fed4f9932857e6f643541663735db93be
+│ │ │ -ca235374327d90a947088ca88ffff1c71ff47f2224226d4efd2bf92e59bb9bfc
+│ │ │ -767a0f4aa040baa6b0b0b0aeb008596890d92e1faeefe1e1c19893eed8b18341
+│ │ │ -67b23222bd4c4632fd2f49c7f10d4ccaf33532434ca3894c30a98b9027685a1d
+│ │ │ -aa7f3b81563da13ed252358323e429a160009fde589466ce9c59d704981e8225
+│ │ │ -3a7af4a8f46f64d6ad5b77f7eeddfaff8c3c393ff9e413fa575cbc78510e3091
+│ │ │ -670ef5402674ababdda5dfde41604abfabd5ab57d7f59027ce666e6e4e7f8448
+│ │ │ -df1d090909f46fb97efd3ae30fe8b14c320191a9af8b8a8a18a1993163c6a4a4
+│ │ │ -a4b035fb56eaf5494fb56ad58a1e3eaf27a6919898c898bddad8d8f00a4c4af5
+│ │ │ -3515bd95a37a9d0cf15ad79f64ee27eb63b99ec6dabe7d7bfd6f43e829368435
+│ │ │ -acbf2e25f3267a1081b4ac1c60a2f4f3cf3f937b56f0960883e8d964049df55f
+│ │ │ -d3dbdb9bfebe9ffc2229bf68dbb66dd4073b76ec583f1fc974acae9948addab5
+│ │ │ -6b17bd65962d5ba678cba8ecfaf48c53222f2faffaff3e3d3d9d3420f5f7d24c
+│ │ │ -8d550f2615f89ad2c12411a126a38a0015785abc783199482b022629e3b52b57
+│ │ │ -aea43e326bd6ac0a2568fcf8f1d457ac59b3466e3091453b2bbe416f2532517d
+│ │ │ -f8f061831f216b49faf44dca2f1a306040fd61858c8c0c7a24eecc9933525ef9
+│ │ │ -e5cb97f41947ebd6ade5cb93e0e4fae4e2f41a641f7cf081349f3a74e8107d30
+│ │ │ -383939f1074c2af335158149f262e88f3ffea80b4fe49f64ca1ea437169987cb
+│ │ │ -fa601c366c9832c0f4ebafbf525f316dda34f9c0449c5cc17c2b4a6431485df6
+│ │ │ -ebafbf96e623212121f47e91a65308efe8f71f1e1e5eeb9fd1b728493f58e903
+│ │ │ -9488c5f7272ab8be9d9d1dfde26e6e6e52e2ac458b16f475257fc0a4325f531d
+│ │ │ -9824228fa37ffef987be4d81fefe5bfab8b81c5b526c6d6da98ff4ecd9531960
+│ │ │ -a22386f0458e4f191818c8976955538429f4773d52be684b4b4ba3774a626262
+│ │ │ -831fa1c7298947d515c33a78f020f567e4c6a4842f3d72dfbf7f7f761771cabe
+│ │ │ -3e590d501727ab1be91fbd9b376fa64f75eb7ff7c7491e93b27d4dd56092880c
+│ │ │ -ca7dfbf6356fde9cc12632914e4a4a521298fcfdfde99984ca0013fd859af45f
+│ │ │ -4107138b9b366edcb8416f5be90346f4c775404040837f4fcffda92764fee4c9
+│ │ │ -137a0ccec7c7471ab652ef8088d6ae5dcb6e7f29fbfaf4379532553bbb7cf932
+│ │ │ -bdefa2a3a3d50b4c8afb1a37609228272767c3860df45c27c95606697243e468
+│ │ │ -2cfacb02d6c1545252f2ecd9b3e3c78f2b082616cb30383939d11b96b4b3b174
+│ │ │ -926c7f91729e959c9c4cc78db9b9f9c0ba450f3349f3d6effefdfb4a5dc729f5
+│ │ │ -fa64f2452f47b565cb16e93ffbfcf973fa8dd5bff999876052dcd7b804934431
+│ │ │ -3131f45d755256d7e5104c6475e3e8e8b87efdfad9b3670f1f3ebc5bb76e6666
+│ │ │ -6635937a390753ad2ffb64d5f2e5cbebff1632f395efcacd9a356bf07d13bd6a
+│ │ │ -0ad1f9f3e7d9059352af9f9d9d4dbfb8b5b5b54c1fa7677ed59f30053029054c
+│ │ │ -15ff6d0578e79d77e8e9b60d9ee3a4fac6cacfcf3f78f0a0f4db533807d35f7f
+│ │ │ -fda538981acc391a366c98dc176fb0a2a9979717fdef592fceabd4eb93079834
+│ │ │ -ef04ea12193fd4677ffffd778089033011454646d27b91913acc6d63656666ae
+│ │ │ -5ab58abe13b55691750afd9d23e760a207505bb66c794c2e050707d7f3154f9f
+│ │ │ -3ea5affbf4f4f4f41b12fdefbffbeebbfa7f029999d2f3aa142c7ea0e2eb9387
+│ │ │ -2b7d789095814c1fa747ee56af5e0d307103a68aea49400d1ee2a4b2c62213a5
+│ │ │ -9a1b3b89838d1a356ac58a15fbf7eff7f4f4bc7efd7a5a5a9aa4a2057fc0447f
+│ │ │ -0b26140aa5df3526bde8193752a64dd25331092eebbfabb367cfd29b5da61d88
+│ │ │ -d248a9d77ff6ec994ca9950cd1b7a790c92fc0c41998fefcf3cffab38755df58
+│ │ │ -e411fae9a79fd287179913ad5dbbb6ae84755e81c9dede9e7ee7f7eedd631d4c
+│ │ │ -23478ea4ae3f7dfa74693e121f1f4fbfabd0d0d07afe98109ffec78c62558a4b
+│ │ │ -a9d77ff5ea15fde232d56c2088a7472dc9080198380313fdf7376fde9c0f8d45
+│ │ │ -4f98942473d75f0a8e576062ac8e657d6237a8172f5ed0df3a495fd6861e3d59
+│ │ │ -b66c59fd5f41ff09e4d1c5fa4f50eaf5e969df3ffffcb3f41f64e0bbfebe0398
+│ │ │ -940b260b0b0be97f8c0a1aaba4a4849ed1f3cd37df28a93f9404a6a2a2220303
+│ │ │ -03f95e57cbda5f3295a624534e7ad18cfa731ae96f45264c98c0faa44fa9d7a7
+│ │ │ -d7cc193b76ac7cc12fa2b4b43429c124e541d600930c5aba7429752bc3870fe7
+│ │ │ -bcb1e2e2e2e883e3dcb9730d7e44bebc322581898834233d279bddaad5c4d3a8
+│ │ │ -8b8f1f3f5efa0f5eba7449fa97f43ffcf003fd8fc934905d7628f5faf4e884b6
+│ │ │ -b6b6f439fdf4aa7e5dba74a9ff8fe969d65dbb76d53c30cd9f3f9f4b307df8e1
+│ │ │ -87d2e7e0aaa0b1fcfcfce843b6c1bd9d050505f4ea197c0013fd683f22e2846c
+│ │ │ -5d393333935ef6973cb4a5ff2c9922d12b8dd55f4b8c3c0fe83fa16fdfbeec46
+│ │ │ -f1957a7dfae90cd2bc859488909a5167a2febf0f0f0f97b2701aa575ebd6a911
+│ │ │ -98e4de0ec10298dcdcdce89dd1e041e12a68ac0b172ed06f892cfbebf9e3b2b2
+│ │ │ -327ac921a26eddba710e26c676501d1d9d1b376eb072654b4b4b458effa6cf8e
+│ │ │ -cdcdcdebffe3112346d01b56d632de0d4aa9d7a7cf7dc8ca5a72724cfdfae28b
+│ │ │ -2fe8bbf9efdfbf5fffdf3f7af4a8aea2c60dcee3a4d997cb0998dcdddda92bf4
+│ │ │ -eedd9b1b30252525d13380a4d94ba982c6cacfcfa727ddd413a321a38dbe759e
+│ │ │ -aa2acf399888b66fdf4ebfabce9d3bd7ace22687264c98205ff5718918efe92f
+│ │ │ -5fbe5ccf1f474444d05f5111f73e7cf8308b4da4d4ebd3174d9218507676b6f4
+│ │ │ -d490e6148f929212fa40ddb061435d7f595c5c4ce6a78c81ca4f30c5c6c6d233
+│ │ │ -041ba4b30c602270193b762c594dd4ff38757474ecd0a183ac3b0354d358f43c
+│ │ │ -6fb272f1f5f5ad3926c80a9f2a96409f9e1049799a9352c14416268c1901713c
+│ │ │ -698a0ad653c32f2727877e608c1c05c249bbd11f45bffefa6bfd7fffc71f7f30
+│ │ │ -dc69dab469f57b78c57f2fdda4dcd0afd4eb33a6d2efbdf75ead553488bf30a8
+│ │ │ -419e6d52962aa3ef166ed5aa55ad0557efdcb9432f9bc57330e5e5e5d16ff2ab
+│ │ │ -afbeaa6bb29298985857025aed60a28ecd202e4d568964864c6ef7e1c3876450
+│ │ │ -92e60e090921ee51f3ac856ddbb64973dfaa69ac9a35cbc920233fc4cfcfefe4
+│ │ │ -c993c49de8f5218d8d8d199bc21b2cc8ab023055fc97e9c7d88da8f5dff9dde4
+│ │ │ -d75dbc78b1a8a848b2144d4b4bbb79f326e1ecfcf9f33b75ea441e53759d9b46
+│ │ │ -8fb692b9861c75fe8866cf9e4d9fc7351896a29f0646d59c5eb3668d93931379
+│ │ │ -9c4a466d61612119a66468ad5fbf7ee0c081e4dec88357cab097f2ae4f26d4f4
+│ │ │ -5a74922b6fdcb831282888b81f6979729183070f8e1933867103a49da56c4c7a
+│ │ │ -8f10356ddad4dada9aace9c86d676666921b9e3e7d3ab5839a3c47e92747f033
+│ │ │ -c65451bdfaa0c435e2e2e2c88396ccfb482f444646eedab58bdc3cf9a7458b16
+│ │ │ -c90026321f9669e714998e4a9f48a29ac6924cfaa4b979d2eb92aa8cf4bd97f5
+│ │ │ -efe7501998881e3f7e4c7fa8d2451e1bc46de819490dbea29a3c79b2ac8ddf60
+│ │ │ -54b1c10526799ed1cb1bd53c2da3d63d43d2173856eaf5e3e3e36b1ec12209cf
+│ │ │ -d57ad21f419e4ccb4942b79a47dd4866c78cffd2b56b57e2d5fc7f2b57f1df61
+│ │ │ -8eb51695acb961beae2054ed60faeebbefa4a7d2e8d1a3090ea5bf6995351659
+│ │ │ -d1f4ead5abfe9b27f30beae801faeaeff4e9d33c0193646e3c77ee5c7a30a241
+│ │ │ -eddcb9b3d6d01b1dbe7ffffdb77cf7c3383a45cac3f88e1f3fce38cea47ec9fa
+│ │ │ -a65979d727f31769ce6293d45d90f2405dbac2c3c31991849ab023330bc9fa54
+│ │ │ -2dc05451fd44c27a646666566bdd41adba284ea60cf3e6cdabfff4d79e3d7b7a
+│ │ │ -7b7bcb7ac7aa6c2cf29b7ffbedb75a0fc56dddbaf5ead5abe9c745cc983143d6
+│ │ │ -65a96ac024d18d1b37a64c994227424de9ebeb93650559b1d61a0a61947952a4
+│ │ │ -de263df8227d8f10a2edd8b1833cf9eb1facfdfaf5dbba75ab1cb7a7bceb9309
+│ │ │ -f8a953a76a9dda50853d972d5b969191215f7b92fe220ff85ae765e3c68da397
+│ │ │ -3750173055fc973e5a6b3d6eadffce86224b5432f5968423647e2b477a9a2ca7
+│ │ │ -49976cd9b265c992256421b074e952b2a8264b5f56ce98538d1e3d7a4456f2bf
+│ │ │ -fcf20bb9ffefbfff9e40c7d7d757a6a39cf9a3c2c2c2808080cd9b371337205d
+│ │ │ -4b5045fa65d3a64d04915e5e5ed29f01cb798f9009ceba75eb162e5c48803e73
+│ │ │ -e6cc952b57fef3cf3f7676760dbe32e7f6fa6465b767cf9e9f7efa895c930c27
+│ │ │ -b284dcb871237166c5cb1b10f6ddba75cbd1d171c3860d644e40e6a1e427b078
+│ │ │ -d4152722a426be465a8cf81d598791e781b5b535e16c83a9855a151004413c13
+│ │ │ -c0044110c0044110043041100430411004014c1004014c100441001304410013
+│ │ │ -044110c004411004304110c477fd1f8466a55889fd617f0000000049454e44ae
+│ │ │ -426082
+│ │ │ +89504e470d0a1a0a0000000d4948445200000188000001c80806000000541b7d
+│ │ │ +4a0000000467414d410000b18f0bfc610500004000494441547801ec5d078014
+│ │ │ +c5d2aebd1cc939e70c92254b121014030a3e0346c0677c2006044ca82882011e
+│ │ │ +2a8acf5f4511518ca080020a280292949c734e976f2fec5f35b8bb33b37b771b
+│ │ │ +26f56c951e93bbabbf9eed6fbabbaadae142011646407004e825cecaca86ccac
+│ │ │ +2cc8cccc94f6739d4ec8cdc53fdae29fd39907858585505058805b171416e016
+│ │ │ +5fff288703a2a2a2202a1aff701b8d7f71b17110171f07f171fffce17e526222
+│ │ │ +242727414a521224252582039f636104ec8c808309c2ced56bbfb2d1f74c7a46
+│ │ │ +065cb898e6f9bb98960e59d9d952e36f548989541291304a954a8132a54be35f
+│ │ │ +29e9af546aaa443846e9c1f930027a22c004a127ba9c76d80810219c3d771e4e
+│ │ │ +9e3e03274f9d8633b85f805ffe5615ea81942f57162a57ac00952b55840ab84f
+│ │ │ +e75818011111608210b1d66caef3f90b173d8470facc59c8cbcf17b6c4d1d1d1
+│ │ │ +50b17c39892c8834ca952dc34353c2d666e429ce041179756eb9123bf3f2e0f0
+│ │ │ +916370fce42989189c385f6057898d8d854a15ca4395ca15a1568dea90101f6f
+│ │ │ +d7a272b96c800013840d2a51c422d0d0d1b1132761ffc1c370ecf8099c382e14
+│ │ │ +b11861e94c434f4414756bd5821ad5aaf050545868f2c37a20c004a107aa9c66
+│ │ │ +91089c3b7f01f61f3a0c070f1f450ba3dc22ef8bb40b71d8b3a859a31ad4ad5d
+│ │ │ +4b1a928ab4f27379ad8900138435ebc5565a6565e7c0012405228634b4386229
+│ │ │ +1e8194e464a853bb26f62c6a00edb330026621c0046116f211906f5a7a3a6cdd
+│ │ │ +b11b0e1d3e22f91b444091352d22f95954c7a1a7e64d1a41b93265344d9b1363
+│ │ │ +0402418009221094f89ea010202ba4ad3b76c19163c781e61a58c247a06a954a
+│ │ │ +d0a24963a88016512c8c805108304118857404e4433e0a5bb7ef94269f23a0b8
+│ │ │ +a614b1129aca528fa20afa58b030027a23c004a137c211903e39b11131d096c5
+│ │ │ +1804c8198f88a27ad52ac664c8b94424024c101159edda14fa425a1aacdfb805
+│ │ │ +c8998dc51c04686ea27d9b5692f7b6391a70ae76468009c2ceb5ab53d9f2d1b3
+│ │ │ +f9af6d3b60d79e7d3cf9ac13c6c1244b93d9f5ead482d62d9a435c5c6c308ff2
+│ │ │ +bd8c40b1083041140b0f5f542370083d9e376ef95b0a8ea7bec6c7e622409167
+│ │ │ +2f6bd90cead7a96dae229cbb6d106082b04d55ea5b108aa04ac3492730601e8b
+│ │ │ +b511204b271a762a8b5166591881701060820807bd0878964260d004f48e5d7b
+│ │ │ +22321c86a8554ce1c81bd6af0b2d9b3785d89818518bc17a9b8c001384c91560
+│ │ │ +e5ec29ccf66f6bff840c5c8087454c04121312a05387b66c162b66f599ae3513
+│ │ │ +84e955604d0576ecde0b9bffde66e8223cd644427cad6812bb199ac4b66cd604
+│ │ │ +780d3cf1ebd3c81230411889b6007951e8ed35eb36c0518cb0ca622f04c8c9ae
+│ │ │ +4bc77640bd0a1646201004982002412942ee214fe8dffe5887eb3a6747488923
+│ │ │ +af98b4fe040d3955ad5c29f20acf250e1a012688a021b3e703db71127acbd6ed
+│ │ │ +3ca464cfea55944a1a726adcf0d290130e3fb130024521c0045114321172dee9
+│ │ │ +cc83dfd7ff898bf69c8c90127331dd0854c495edba766c0f89893ce4e4c684b7
+│ │ │ +4a049820947844d4517a4626ac58f51b5a29654554b9d58575c79b8dc46fe984
+│ │ │ +8478e8d9b533942dc33e13eaf7828f01982022f42d3877e102fcb26a0de4d874
+│ │ │ +553757a10b0a5c85d2905961016e719f228fbbf0bf4bffe31e9e90c8c11d921c
+│ │ │ +875b8824a47f71c7bd259f02479403a21d51e0888e92b6b45ca85d84d6c9eede
+│ │ │ +b92354c6496c1646408e0013841c8d08d9276fe855bfaf853c8ca924bc60e39e
+│ │ │ +8fce7cf90505e02a2c909cf90a911cf45e874222122409228a68e92f1a6262a2
+│ │ │ +81c6f745142a4327b470aa55bd9a88eab3ce3a21c004a113b0564df6e091a392
+│ │ │ +196b2136aaa20a914141413ee4e71748e420750d2c5298e828248ae8688846b2
+│ │ │ +a0ad488441bab66bdd121ad6ab6b1134590db311608230bb060ccc9fa2af6ec0
+│ │ │ +407b7a7f5d6b5d24d2d7999f778910901cac44082595351a498288223636067b
+│ │ │ +1ad125dd6e89eb2d9a36962c9c2ca10c2b612a024c10a6c26f5ce664c24acb80
+│ │ │ +8a24340496878e7b145edc3d912c92fe6a5d6918270ec7fb63902ca2703ec3ca
+│ │ │ +d2a06e1d68dff632f6bcb6722519a01b138401209b9dc5da0d9b60effe8366ab
+│ │ │ +1150fe347c44a440e4205a4f27a002d24d389443bd8a380ca21713134b879694
+│ │ │ +9a381fd1f5f2f6420d935912488195628210b8f202517de396adb063f79e406e
+│ │ │ +35f51e22855ca733e222c61237c4e13a0eb4968315e72bead6aa29795e9bfa72
+│ │ │ +70e6a621c004611af4fa674cded19bfedaaa7f4621e640d6a56e622033d44816
+│ │ │ +ea45c4c5c4415c7cace5869f9a346a006d5a368fe4ea89d8b23341d8b4eaf71f
+│ │ │ +3c046bd66fb464e9683ec189bd05ea31d87618290ce4c92f817a143467611569
+│ │ │ +8d04d114898225b2106082b0617d53d88c95bfff61bdf5a2b1cb90fbcf501213
+│ │ │ +43c92f5e2cce4f2426d0d0933588a253fbb650b776cd9215e73b6c830013846d
+│ │ │ +aaf25241ce9c3d07cb57fe26398e59a96834f99c9d93c3c10083ac149aa388c7
+│ │ │ +08acf1d8ab307b369b9c02c9e3ba5a95ca4196826f1715012608516bce8fde17
+│ │ │ +d3d2e1a75f56e2f04d9e9fabe69c22afe61c67ae34d7608e06f6c8951a675ac7
+│ │ │ +81ac9fcc14cabf57f72e40eb5eb3d81f0126089bd4715676362c5dbe12686b05
+│ │ │ +71cf33e4e03c83488e6d56c0ae381d687d690ab067a61f05595d5dd9b31b944a
+│ │ │ +4d2d4e55be660304ac31b8690320cd2c028de7af5ab3ce32e45080319132b232
+│ │ │ +2f050224532516cd1020ff105a23dccc5e221918acfc7d9de5863135039913f2
+│ │ │ +20c004e18142dc9d4d7f6d83b3b81a9c1584962ccdccca028aa0caa20f02c4b9
+│ │ │ +d9b9399095936d9a15585a7a3aacdbb0599f0272aa96418009c23255119a22b4
+│ │ │ +76b4151ce1a817938593d034112d5aa7417264b6aa3b7331af455e1ef626908c
+│ │ │ +0b283e950972e0d061d877e090093973964621106354469c8ff60864e1dad156
+│ │ │ +f07528c0de02cd7d58cdd98d82e32526c6436a4a0a94295d1a4a974a85e4a444
+│ │ │ +690c3f213e01277de3f17aa2f4159e8f8d2df57e7288e4708d0cdad2824a69e9
+│ │ │ +1970f1629ad41093df86b4b684b4a0843586ce282a6f06629f108fded8b171da
+│ │ │ +bf6425a4f8e7a62d50be5c5909db126ee5cb0222c093d402561aa94c5fec3fad
+│ │ │ +580567ce9d33b504b9794e9c6b307f223a0a17f4a149d31a55ab429d5a35a012
+│ │ │ +2ea74993a95a0a050d4ccbc880d3a7cec0e1632780d6d5c8cdcbfd672d0af309
+│ │ │ +8326b0c9d2c9e8901d847bff3e57986e61a5655d735a9710608210f44db0428c
+│ │ │ +251a073773b2343525196a56ab06f5ebd686aa952b498bf718599d4409e7cf5f
+│ │ │ +80934814078f1e8553481c52045a13439253af29097b454498464a1d8cd9d4b9
+│ │ │ +435b23b3e4bc0c408009c20090b5ce82e61d7efded0fad930d2a3d1a52a2c6d0
+│ │ │ +68a161a146f5eb41f3268db1c7906274f6c5e69793930b070e1f81bd070e0239
+│ │ │ +2cd2909519f303440ec989498613e6e5edda40bd3ab58ac5882f8a8500138458
+│ │ │ +f5254d022f5aba5c8a656486ead26434920379461b25b4e84e9d9a35a055f3a6
+│ │ │ +c2ac9b7c01e72df61f3c8c647100cd52b324b23072153f1a664ac69e04616794
+│ │ │ +90135dff3e3d2d47dc4695df8ef930410856ababff580f8770d9503384c82113
+│ │ │ +27c6c9cfc108a155d82e6bde0cff9ae28a6c186a4240a11ec49e7d07603b865c
+│ │ │ +a7096ff221308c5c91249212132036da385b94ca152b40ef1e5d05ac2956d91f
+│ │ │ +024c10fe50b1e8399a14a5384b66087dfd12391861a9141f170f6d2f6b012d9a
+│ │ │ +3432f40b584f5c093f3209ddb66bb76415451ee6860c3f214924622c275ac9ce
+│ │ │ +28e9dcb19dd4e3332a3fce473f049820f4c356d394a981a1a1a574b4a2315a28
+│ │ │ +9e92e4fca6f39a0dd463e88c11439b346a88a1248c9d64350a53ea85edc350ec
+│ │ │ +9bffde0e59e8c3908326b546f428a49e0446873542c8926a50bf3ed23adc46e4
+│ │ │ +c779e8870013847ed86a9af2d6ed3b61cbb61d9aa619486285d2b0127a462341
+│ │ │ +e925345edea4417da02f4f23bf74f52a4f20e9d204f6e6bfb7494bc1e66270c5
+│ │ │ +1cb40823f2d04b886ec9ba29064d618d10322468d7baa51159711e3a22c004a1
+│ │ │ +23b85a254d939c8b962e33664842ae34365819d9e4a9ab1f39942b5b06fa74ef
+│ │ │ +2a395bc9b38e94fdb3e7cfc3fa0d5b80b634ec44c4a1972b3a914472529221c3
+│ │ │ +7644fafd7b5f0165cb948e94aab46539992004a8d65f56af8163274e1aae6926
+│ │ │ +592be964ca4ad635dd3a7584a60deb1b5e2eab6548fd865d7bf6c2668ca9e544
+│ │ │ +bcb3b373743304a0863b054982c287eb2de461ddaf570fbdb3e1f47544800942
+│ │ │ +4770b548fac8b1e3183973ad16490595869e7e0e6531ecc5557d7bb139a4aa46
+│ │ │ +ce5fb808abfe58071968ed948d6b68e8e584788924920d71a6ebd0f6326850b7
+│ │ │ +8eaaa47c280a02fa7f4688828405f5242b973f37ff65b866e4f0a597135cb3c6
+│ │ │ +8de0a66b073139f8a9551a8e19807e04b5d0e723116345d19c0135e65a8b64ae
+│ │ │ +8c43877ace79b875a6c9788a61c52226024c1016aeb7dd7bf7a3a58bb10b0011
+│ │ │ +31507c25ad85e20451afa1072e5969c4f086d6fa1b951ee1d4f5f2f6d0be4d2b
+│ │ │ +0cc087810693937489714446071479576f21bf8fed3b77eb9d0da7af13024c10
+│ │ │ +3a011b6eb2f403deb17b6fb8c904f53c99b3ead168242727c3d0ebae81da35aa
+│ │ │ +07a54f24dfdcb05e5de8d5ad33904f084d2cebe128481f03d480eb2de428a8d7
+│ │ │ +7099deba477afa4c10167d03f6ee3fa84b635d5471c9c2528f0568ca952d0b43
+│ │ │ +070fc290dbc94565cde78b40a02246a4ed834b7b26a2377412fa16c46b1c9d96
+│ │ │ +b2cd4682d0db339e8868274ec2b3888700138405eb8cc686b7ef32b65b4e76f8
+│ │ │ +5a7bf656ab52056eb87a00c4e35a052ca12150a654295cffb93ba46260421a72
+│ │ │ +2227344d05dfb52cb49ad27b3e62d7de7dba59c4698a0727a640800942018735
+│ │ │ +0e28c81b85b5304a9cff2c96a3657e64b9724dff3eba8c9f6ba9a70869d11013
+│ │ │ +9104f98c9023e1a5c96bed34a7e14c5a0d504fa121a65d38a7c62216024c1016
+│ │ │ +ab2fb289dfb67397615a516ca59c5c6dc9a871837ad0f78a6eba58e018068cc5
+│ │ │ +32a2e1a5deddbb00f52868223b2921111060cdb4247f17bde709684e4deb5eaa
+│ │ │ +660070427e116082f00b8b79270f1e3e222d7569940639d9b99a3aeed24474af
+│ │ │ +6e5d8c523fa2f2a189ea9edd3b4b93d614322309879cb4941cf4bdd03318632e
+│ │ │ +c69da2096b1671106082b0585d6ddb615cef81260ff30ab45bf4a70a867aa6f0
+│ │ │ +0a2cfa21407310bd9024e2911c8830c85f422ba179080a1ea8a750d8733de37a
+│ │ │ +e9a97b24a6cd0461a15a27afe98b69e9866844564b3431ad959093d7d5fdaf64
+│ │ │ +1f07ad002d269dd49414e8d9b59314782f2e2e569abc2ee6f6a02ee5e17c949e
+│ │ │ +d165298c08cdb1b1888100138485ea894c5b8d925c1a4e40bf072d8442495f37
+│ │ │ +b03f3658c6ad5ea685de22a74113d65d30fa2d09cd4f681905373b47db392935
+│ │ │ +ce7bf61f509fe2638b22c00461918aa1aefd8993a70cd186ecdeb50a7f40eb1f
+│ │ │ +0fead757171b7d43c0103893ea55abe0da190da412d0a240b4e4a716421f0e7a
+│ │ │ +0e359d3b7f0157d733a6a7ac051e919c061384456affe0a1233841a8cd177d49
+│ │ │ +45a2584b5a49b7cb3b4079fc9a65310781d62d9a418572e5248b2672a8d32a76
+│ │ │ +137d4068d5c3f4870c0f33f943c57ae798202c5227fb0f19332e4be68c5a8d31
+│ │ │ +d7a9551328f81e8b7908102150eca6381c668a7244491ed75a6993ebd46e8e4a
+│ │ │ +add301b4d663b13e024c1016a8a30b696940a19e8d10ad8696529292255f0723
+│ │ │ +74e63c8a47202929113ab56f23dd44e6af5a85e420074abdcc5e2908e5495c63
+│ │ │ +9dc5da08304158a07e0e1864d5a159ef01bf5a07f6eba5d998b705aa40781568
+│ │ │ +3ea22ef6e84812b037410b326921b9b9b8c29d4e6254af5927f5232259260893
+│ │ │ +ab99661d0ee0fc8311a255efa1394e8c962bc3f30e46d4593079b46ed51c879a
+│ │ │ +622fcd4768e41f9187a1dff59a8b387cf4b866c39dc1e0c4f7068e001344e058
+│ │ │ +e97227592ee911625bad2ccd3b6831f7400e5a9d3bb65727cfc716408082f95d
+│ │ │ +d6bc99a449747414c4a3235db8421f307a8504a71eed91a3c7c255919fd71101
+│ │ │ +26081dc10d2469a3ac3928cc811622396869347ca1853e9c86128106f5eaa055
+│ │ │ +5959e92491394d5c872bb480945ed15e8d7affc3c520529f0fffed8954e43428
+│ │ │ +37fde88e9d38a9414ac527515050a849efa15ae5ca9e71eee273e4ab6622d0be
+│ │ │ +6d2bc9dc952c9c1212b409b5aed5f0a41a9753a7cf405e9e7ef31ceafcf83838
+│ │ │ +04982082c34bd3bb4f9f396bc88fc3a9c112a2d4d8f4eed155d3f27362fa2040
+│ │ │ +f343b5aa5793128f8d89d5c498c0a953234ebe3fc74fb235933e6f42f8a93241
+│ │ │ +848f61c8291c33c8739a82f2852bb56bd680145c1f99450c049a356de4719aa3
+│ │ │ +a1a670857abb5a067694eb73dc805eb43c3fde0f1c012688c0b1d2fc4e237e18
+│ │ │ +440ee18f1fa333164f4c6b5eff7a2648eb4690e92b0985e0d0220c471e2efaa3
+│ │ │ +871c37e843490fdded9e26138449354c512d2f5c4cd33d772d86066a55afca6b
+│ │ │ +4aeb5e53da67d0bc89d7cb5d0be7b93cb4840bff63c3b79c64c577fea2318ea2
+│ │ │ +beb9f399e2106082280e1d1daf9dc2f907bd857ecc644a188ed0dc43b74e1dc3
+│ │ │ +49829f3509018af85ab54a252977f2b026d3d7b004df2767be3ebd8853a7f5ff
+│ │ │ +3d8455f6087d38cc37264251d3a0d8a7cfeaff83d0e2c75cb5722528959aa241
+│ │ │ +893909331068d2f052b457ca3b212efcb9883c67781f1c456170e6ecb9a22ef1
+│ │ │ +79131160823009fc3367f4ff41d0e22fe14abbcb5a849b043f6f2202552a5584
+│ │ │ +a4445cbf1a857a11e1fa4550a8783d568433e283c9c46a10366b260813aa8e26
+│ │ │ +8e29409f9e42c34be12e101f1f1f87139d55f55493d33600813ab56a7872898d
+│ │ │ +8df1ec87ba939f5f10eaa3453e477372999959455ee70be620c0046102ee67cf
+│ │ │ +9dd765b24f5e947c0dd69aae5fbbb63c49de171481bab52f05f123f5b558794e
+│ │ │ +2f73d7d3e7f4ef550b5a85a6a9cd046102f44684f6d6e22baf4d2b1e5e32e1f5
+│ │ │ +d03ccb52a9a99ef01b51515161477a957aa6d843d55a2e1814f25e6bbded9c1e
+│ │ │ +138409b56b84796bb881f94a974a65d35613de0dbdb2ac23eb45843bcc240d5f
+│ │ │ +6ab49eb9bcbc46fc2ee4f9f17ec9083041948c91e6775cd0d9e69b1679097722
+│ │ │ +b141dd3a9a979b13340f81ea552a7b328fc3f01be866ed390e6527bf407b7357
+│ │ │ +2688506a42df679820f4c5d72775fafa4a4bcff039afe589fcbcf027111b37a8
+│ │ │ +afa54a9c96c90824639814fa2321df96e8a8f008224f8f896a7498cbcd759a8c
+│ │ │ +14672f478009428e8601fb440ee17edd97a466b8c34bb1b88e00fb3e9484b278
+│ │ │ +d7ab54ace8513a263abcb5220ad1dc55876908ddadfb3c00f04e400830410404
+│ │ │ +9376376564666a97581129151486e7ff50b17cb92252e6d3222350b952058ffa
+│ │ │ +b131e12d494ae4403e115a0b9bba6a8d6878e9314184875fd04febfd03a01f6e
+│ │ │ +b84b44caede6832e203f6059042acb7a105151d1e14e4384fd9ef903ca880f28
+│ │ │ +7ff9f239ff083041f8c745b7b31959fa3a03b90a0bc3d6bd51fd7a61a7c10958
+│ │ │ +0f818484781c3a4c9514a339eae8e8f09ce66898496bd1fb034a6b7ded9e1e13
+│ │ │ +84c135acf70f20dc6e3f2d7a4f6b1bb3d81381d2a52f1104952e1a7d22c2113d
+│ │ │ +e6d2f4fe800aa7bc91f86c786f4824221666993375ee4184fba375c7ed09b398
+│ │ │ +fcb845112895e20dbc186e74d770df357f10e9fdfbf097279f2b1a012688a2b1
+│ │ │ +d1e58ade667c05613a30b9872074293c276a3a02f2faa5798870a48026bc3436
+│ │ │ +65d2fbf7114e7923f1592608836b5dafc5dfddc508f7abae3cae21c0625f04e4
+│ │ │ +e6cbd1613acb1139a0b1aba660d1fbabc512b99a2a15c18931411858f9e49f10
+│ │ │ +6e84d592d42d748537715819c343b3d817013941901913c5660a475c05e11b45
+│ │ │ +a8f377b2b39c1a12d38ec37b3b4c535bcc8cf5ee3e6bd1e3af2a0bc92026caac
+│ │ │ +757108d09a1064cde496a8303daa0b351e6222bdf4ee65bbcbcedb9211608228
+│ │ │ +1923cdee703af50e23105e77df818d453c7a51b3d81b81b8b8384f01c3ed4168
+│ │ │ +3d07418a314178aac7f41d260803ab40efe1255798e3c1e1ae366620949c5518
+│ │ │ +08c4622fc22d38c8e4de0d691bee3be72f53bd7f27fef2e473fe1108efedf09f
+│ │ │ +269f2d0281020d9cd88a485a3aed0ad382295cbbf8e274e36bd641404110e1c5
+│ │ │ +ecd3a303a17bac32ebd484f535618230b08ec2b5302a59d5f0869898204a46d8
+│ │ │ +0e77d03c845b1c101e43e8d183d0ff77e22e3d6f4b428009a2248434bcaef78b
+│ │ │ +1fae3d4974747876f11a42c549e98880bc07116e40261de6a8310860b86fb28e
+│ │ │ +e04558d24c100656b8de04116e7f3f3acc089f0642c9598581404cacac07115e
+│ │ │ +07427347392a96eebf9330b08bb44799200cac713dbeb6e4ea879b7eb8a117e4
+│ │ │ +baf0be7511889239c8d1e241e1082d80a5b5e890a4d62a464c7a4c101153d581
+│ │ │ +1434bcc622901cf81e468011100701260871ea8a356504180146c0500498200c
+│ │ │ +859b336304180146401c049820c4a92bd69411600418014311608230146ece8c
+│ │ │ +11600418017110608210a7ae585346801160040c458009c250b8393346801160
+│ │ │ +04c4418009429cba624d1901468011301401260843e1e6cc1801468011100701
+│ │ │ +260871ea8a356504180146c0500498200c859b336304180146401c049820c4a9
+│ │ │ +2bd69411600418014311608230146ece8c11600418017110608210a7ae585346
+│ │ │ +801160040c458009c250b839334680116004c4418009429cba624d1901468011
+│ │ │ +301401260843e1e6cc1801468011100701260871ea8a356504180146c0500498
+│ │ │ +200c859b336304180146401c049820c4a92bd69411600418014311608230146e
+│ │ │ +ce8c11600418017110608210a7ae585346801160040c458009c250b839334680
+│ │ │ +116004c4418009429cba624d1901468011301401260843e1e6cc180146801110
+│ │ │ +0701260871ea8a356504180146c05004620ccdcd8cccf2cf43a1f338b89c27f1
+│ │ │ +0fb70519666821e5199f7611ea261dd42dfffc8202c84bc80f39fda48444c83b
+│ │ │ +7e2ce4e7f94131102893770cdfc33392b205852e70c63943563cca1105f171b1
+│ │ │ +213fefefc1e4cc6df81e96f77749f7738ee81470c455c5bfca10855b8829ab7b
+│ │ │ +9e56cec0e142b1b282c1eb560005177f83fc738ba4bfc21cfd1ae4e075e3272c
+│ │ │ +8740e87c6ab9a244b2422e078003ffc0fda711185109b521a6dc40e92fba7417
+│ │ │ +4c355aa394c548c63e04519803cee3ef80f3e87470e59d13037dd6d274045ce9
+│ │ │ +a6abc00a688d0091040e9e63e7e6527b4e6dba0683e98ed8721057fd6188ab7a
+│ │ │ +1fa697a0b5d6964ccf0604e182fc539f40eea1c950987bd49220b352d6458009
+│ │ │ +c2ba75a3a966ff908583c822cc11b1a8f8ea105f6b1cc454ba15132336b2af88
+│ │ │ +4d100517207bc79d907f61857d6b884ba62b024c10bac26bcdc4a94dc7d95707
+│ │ │ +114518234631657a426293ffc334ca58b39c1a68252c411466ef86ecedc3a030
+│ │ │ +7b9f06307012918a001344a4d6fc3fe5468270c4e17e88e63a5189f520b1e93c
+│ │ │ +884a6c684b20852488c2f47590b5ed4670e55fb465a570a18c438009c238ac2d
+│ │ │ +9d531844e188290d49cdbe80a8d40e962e6228ca0947102ee751c8dadc0b4d57
+│ │ │ +4f85525e7e86115020c004a180830f68e889e69f839c5a888aab0449972dc7de
+│ │ │ +48755b61a8c1dcbe81781466e3b0d2bf981c0c849cb36204220a01347b766562
+│ │ │ +89f3822b357db052db8463dec13d68f1bb8522889c7d63a120638bc52165f518
+│ │ │ +0146406804d033cc9573e92f987250db446d949d44188228ccdc82e6ac9fda09
+│ │ │ +7b2e0b23c008581901ec4548bd89c2c095a4368ada2abb883004917be019b09d
+│ │ │ +d3b75dde222e0723605704901c5c5958b8003deea98da2b6ca2e220441145c5c
+│ │ │ +81be0ecbed82399783116004444280869c686a214092a0b68ada2c3b88100491
+│ │ │ +77728e1db0e63230028c80c008482411e0e4b55dda2ceb13842b1ff2cf2f15f8
+│ │ │ +b562d5190146c02e08d0e475203d09a9cdc2b64b74b13c4114a4ad628738d1df
+│ │ │ +32d69f11b01102524fa2a0f80291132fb55da28be50922ffdc12d13166fd1901
+│ │ │ +46c066084824817313c5891dda2ecb13842bf7607175c0d71801468011301e01
+│ │ │ +f7c4753139dba1ed0a31445531a8687c8956836361041881e211387eb61056ff
+│ │ │ +950fbb0e17c2ee2385b0e768019c4f7741069a68a667bb200a3f0553121d909a
+│ │ │ +0850a17414d4af11050df1af59ed68e8d2321acaa55afe5bb17800ccb88ac34c
+│ │ │ +ae5c8cca11ef3f733bb45d96270897f3847ff4f92c2310c10890bdfd9aad05f0
+│ │ │ +e52f79b07c633e124209de5cd8989dcb73c1b9348083270be0cf5dca41f496f5
+│ │ │ +a2a077db18b8a9571cb4ac17460cec48ab135cadd585ada8b4ce84aaec7668bb
+│ │ │ +2c1fac2fe3b70ae82027be3580eadde1438b20205ab0beb3170be1ddef9c30f7
+│ │ │ +272736f4250c82878871f3ba51707bbf38183e200e9213828c5a17629e423f86
+│ │ │ +9d2f471296400595c31103295d2eadfd2d6af92c4f10e9abedbb1887a82f8d9d
+│ │ │ +f41685204e9c2b84e95fe4c2078b9c9085c31a4549b972e5a071e3c6d25fb56a
+│ │ │ +d520353515525252a42804e9e9e9407f870e1d829d3b77c2ae5dbba4e322d32a
+│ │ │ +e580fbaf8b835183e3a154b2aaf52beaa1483d8fc34cd2ba12aaf2a776bda03a
+│ │ │ +23d621138458f5c5da6a8c80d50922bfc0056f7fed84c9737220936cf0559294
+│ │ │ +940403070e84be7dfb42efdebda161c3c017aea161aa2d5bb6c0f2e5cb61c992
+│ │ │ +25b074e952c8cff7edad572ce38017ee4d809bfbd0ca3a2c4521e048c62baaa9
+│ │ │ +1c2688a2d0d2e83cf72034029293f18b80950962e3ee02f8f7b42cd87ed0777e
+│ │ │ +a173e7ce3062c408b8f1c61ba55e82dfc20579f2f4e9d33077ee5c98356b166c
+│ │ │ +dbb6cde7e9ae3899fdd69824a85345d50afadc19a127700953692d0959f19920
+│ │ │ +6460e8b1cb04a107aa9ca61b01ab12c43bdfe4c284d93990a7faa0a75ec2c489
+│ │ │ +13a167cf9eee2268bea59ec5575f7d052fbcf0026cdcb851917e69fc4afeefe8
+│ │ │ +2418dc951674665123a0ee453041a811d2f89809426340393905025623885ca7
+│ │ │ +0bee9b960d0b7e5506fda95dbb364c9f3e1d060f1eacd05fcf03228ad9b367c3
+│ │ │ +b871e3e0ecd9b38aac1e1e1207cfdf93000e07cf4d288051f522442708ee2b2a
+│ │ │ +6a970f1801f31048cb74c10d13327dc861e4c891d2908f91e4402850e34fc358
+│ │ │ +34a13d68d0200530d3bf74c2c8a9d9d8c3d1c7924a91994807c4eb3682840942
+│ │ │ +a4978f75b52d0217325c30e8890c58f597d73f2126260666cc9821cd09d064b4
+│ │ │ +5952be7c79f8f6db6fe1b1c71e53a8f0f9b23cb8e5f92c2609052ac80faa6141
+│ │ │ +d565a10e992084aa2e56d68e08e4e0b0d2b0673361cb5eef6474d9b265e1c71f
+│ │ │ +7f84071f7cd012458e4257ec2953a6c0871f7e08f1f15ed7e125ebf271223d9b
+│ │ │ +17f392d7927274507e45b87d2608e1aa8c15b6130285852eb86b7296e415ed2e
+│ │ │ +17f931ac5dbb16faf4e9e33e6599edf0e1c361c58a1550a952258f4ef357e4c1
+│ │ │ +f8f7fcd8e07aee88b01dea04da6498890922c2de5d2eaeb510983a2f1716adf1
+│ │ │ +8e4950c34b3e090d1a34b096a2326d3a75ea04df7fff3d24242478cecefcca89
+│ │ │ +613f30ee04cb2504bc552a34224c1042571f2b2f3202abb6e4a3039cd72d3a2e
+│ │ │ +2e0e162c5800b56ad5b27cb13a74e800efbfffbe42cf87dfcc86bdc7bc73288a
+│ │ │ +8b1176e0b2090c4c1011f6e27271ad81400646581df16a16147aa71de09d77de
+│ │ │ +81ae5dbb5a43c100b4b8e5965b241358f7ad19b86ef388293c1f21e1c13d08f7
+│ │ │ +6bc15b468011081681973fc9816367bc03d5a3478f86bbeeba2bd8644cbf9f9c
+│ │ │ +e9e4e6b77fee2c80fffbc146b3b4a1228c55eb92917fa8c998fd1cc76232bb06
+│ │ │ +387f531130c3516efbc102e87a7f0614fcd380b46edd1ad6af5f0fd1d16286d9
+│ │ │ +be78f1223469d2044e9cb8149abf6c8a03fe9c9d02e571dd89481607aebd917a
+│ │ │ +85d8c1fa22bb0623f9ede5b29b86c08b1fe578c8819cd1de7efb6d61c981402c
+│ │ │ +5dba344c9d3ad583e779f4e92047ba88171bf420982022fe2d66008c446007f6
+│ │ │ +1ebefbcd3b404d66a3641524badc7aebad8af993d9dfe74a2bda895eaeb0f467
+│ │ │ +82080b3e7e98118838045efbdc6bb544434a13264cb00d064f3ffdb4a72c3461
+│ │ │ +fd1e9244440b134444573f179e11080a018ab5f4f54aef04eed0a1432dedef10
+│ │ │ +54e1f0e67efdfa0199bfbae5e31f9d11ed618db10e85171e6212be0ab900a220
+│ │ │ +40e490ebe507cb84d1d012bf071e78c093dca1532ef8ed6f9b3804784a15c40e
+│ │ │ +13441060f1ad8c408423306f9977e2b67efdfad0a54b17db213264c810900716
+│ │ │ +fc7cb98c116d57da120ac4045102407c99116004240432735cb0669bf76b9a26
+│ │ │ +75ed28b4fef5b5d75eeb29dacf7f46304178501077878798c4ad3bd65c20047e
+│ │ │ +df9a0ff95e7e80fefdfb0ba47d70aacacb76188799f61fb7c16c6d7010d8e66e
+│ │ │ +2608db542517c4ca08acdcec6507facaeed8b1a395d50d4b375a16552e2b377b
+│ │ │ +cd7ae5e779dffa08304158bf8e58431b20b0f5809720c8ef811603b2abd4ac59
+│ │ │ +13688954b7c8cbee3ec75b3110608210a39e584bc111d873c43bcc426129ec2e
+│ │ │ +f232cacb6ef772dbad7c4c1076ab512e8fe51070e6b9e0e0c9c822085af4c82d
+│ │ │ +bb8f787b4fee73bc150301260831ea89b5141881b3692e45586ff9f08bc0c52a
+│ │ │ +56f53a75ea78ae9fba60037b4f4f69226b870922b2ea9b4b6b0202b4f6835c52
+│ │ │ +5353e587b6dc9797311b236ed0d2aa2ce221c004215e9db1c68221909ea56c1c
+│ │ │ +e58da7604509585d7519d33136138b78083041885767acb16008643b95164bf2
+│ │ │ +b59c052b4ac0eaaaadb40ab80711307656ba51f9e65a4933d68511101c011746
+│ │ │ +6b9bb72c0f9e7e3f475192bc3cfb7b1767646428ca9c92e0501cf38118083041
+│ │ │ +88514faca56008acdb9e0f8fbf93031b76f95af0d022417697f4f4744f1163b1
+│ │ │ +95898bb57f993d05b6d10e0f31d9a832b928e62370ec4c218c9892057dc764fa
+│ │ │ +90439b366de0d75f7f8556ad5a99afa8ce1ab8971fa56ccae012a42c6222c03d
+│ │ │ +0831eb8db5b61802394e17fc77412e4cfb2c17b254ebe454ac58119e7ffe7918
+│ │ │ +397224444545c637d9ce9d3b3d3554af5a6494d953601bed3041d8a832b928e6
+│ │ │ +20f0edea3c78eadd6ca0c07472898d8d055a1fe1d9679f95d66d965fb3fbbe9c
+│ │ │ +201ad6608210b5be992044ad39d6db740436ef298071480cabfff29d67183060
+│ │ │ +00bcf9e69bd0a85123d3f5345a019aa0debe7dbb27dbc635a33dfbbc2316024c
+│ │ │ +1062d5176b6b0104ce5c2884173fce850f7ea02535950a510ca2d75f7f1d8820
+│ │ │ +225556ae5c09f9f9de08ae9d9b334188fa2e3041885a73acb7e108e4e5bbe0bd
+│ │ │ +ef9c30794e0ea46529b32f53a60c3cf3cc33d290120d2d45b2fcfcf3cf9ee2a7
+│ │ │ +2402b469c404e10144b01d2608c12a8cd5350781256bf370382907f61cf506dd
+│ │ │ +234da2a3a3e1eebbef86975e7a092a54a8608e7216ca957c3fe6cf9fefd1a86b
+│ │ │ +cb188889662b260f2082ed3041085661acaeb1085024d22767e5c04febbd4326
+│ │ │ +6e0d7af6ec29cd334482d9aabbcc256d7ff9e5173874e890e7b61b7a44766fca
+│ │ │ +0384a03b4c1082561cabad2f0217325c30e5d31c98f5ad53b15428e54a914aa7
+│ │ │ +4e9d0a43860cd1570901539f3d7bb647eba478806bba324178001170870942c0
+│ │ │ +4a6395f54380a28efedf8f4e98f4612e9cc330dd72494e4e86279f7c12c68e1d
+│ │ │ +0b91104f495ef640f6f7efdf0ff3e6cdf3dc7a6df75848e6101b1e3c44dc6182
+│ │ │ +10b1d658675d1058b9251f9e7c271bfedeaf9c67a0d018b7dd761bbcfcf2cb50
+│ │ │ +ad5a355df2b643a2848fdc7ae9a11bb00bc12234024c1042571f2baf0502b4da
+│ │ │ +1b05d4fb7aa56f10bdcb2fbf5c9a67a02d4bd108fcfdf7dff0bffffdcf73c3c0
+│ │ │ +4e31d0bc2e5b2f79001174870942d08a63b5c347201317f29986434933becc85
+│ │ │ +5c1537504f812c93860f1f0e91105c2f1c34c972e9fefbef57f41e1ebf25219c
+│ │ │ +24f9598b20c00461918a60358c43801ab4cf97e6c1c4993970e2ac729e213e3e
+│ │ │ +1e1e7df45118376e1ca4a4a418a794c0394d9f3e1dc839ce2d775e15076d1a72
+│ │ │ +efc18d87c85b2608916b8f750f1a81f5db300cf71b39b07e9b6f788cebafbf1e
+│ │ │ +5e7bed35c94a29e88423f4819f7efa49225477f1cb9572c03377f1dc831b0fd1
+│ │ │ +b74c10a2d720eb1f1002c7310cf7b3b83ec3dc1f556349f834f931bcf1c61bd0
+│ │ │ +ab57af80d2e29b2e21b07bf76e183a7428141478c976da0309502e9583f3d9e5
+│ │ │ +1d6182b04b4d7239fc22908b61b867cecb85573fca854cd5bac8e4f9ec0ec34d
+│ │ │ +1ed12c812370f1e245183c78309c3f7fdef3d03d83e2e0861e719e63de111f01
+│ │ │ +2608f1eb904b500402dfaec883f133b3e1e071e53c03ad97fce0830f4ab19328
+│ │ │ +86124b7008646666c28d37de083b76ecf03cd8ba41344c1ec913d31e406cb2c3
+│ │ │ +0461938ae4627811f81bc3703ff16636acdce81dfa705fa528ab146d95a2aeb2
+│ │ │ +048fc0c18307e1da6baf85cd9b377b1eae5b350ae63f9f04f1711c73c9038a4d
+│ │ │ +7678b0d02615c9c500388b61b8474fcd866e7767f89043e3c68de1fbefbf871f
+│ │ │ +7ef8410872a0359d67ce9c0969696996a9da55ab5641870e1d14e450b18c03be
+│ │ │ +7a31192a95e5a6c43215a5a1225cab1a82c9499983403e86e17e7b7e2eb4be39
+│ │ │ +1ddeffda09853247e8d2a54bc3b469d3e0afbffe8241830699a36010b99209ee
+│ │ │ +071f7c000d1b369486c15ab76e2dad631d4412badcfafefbef439f3e7de0f4e9
+│ │ │ +d39ef46b5572c08faf2603f52058ec8900d7ac3deb35624ab5744d1e5c3e3c03
+│ │ │ +879472e06286b7d8b4f6f3bdf7de0b64693366cc1810618d86df7efb0d3a76ec
+│ │ │ +28850f3f79f2a454188a6f74c51557480e7b274e9cf016d0a0bd23478e48f30d
+│ │ │ +84a5d3e9f4e4daac4e142c7d3d051ad4e0c97d0f2836dc6182b061a546429176
+│ │ │ +1f2a80a18f67c290b159b0fb90accb8085efd1a3076cd8b001de7bef3da858b1
+│ │ │ +a2e5e1a046f8d65b6f85ae5dbbc2faf5ebfdeafbf1c71f030d939139ae3cde91
+│ │ │ +df9b353849435b2fbef8a2341cf7e5975f2a52bcf18a5858fa5a0a5429c7cd87
+│ │ │ +02181b1e38b04bab34f1b05821d357b39589c5aac454752e5218eeffcbc12125
+│ │ │ +df30dcb56bd7862953a648b6f9a62a1960e6d9d9d952d8700a729795a55ca2ae
+│ │ │ +4269075c85f18c3efb390ff2544b515018907beeb907468c1801356bd60c30b7
+│ │ │ +c06e23b29a356b16fcf7bfff850b172e281e4a44ffb797472502794ab3048640
+│ │ │ +a9014a0c037bca3a77314158a72e58936210a030dc1f2fcc83e770f19e331794
+│ │ │ +df344949495218eec71e7b4c9830dc9f7ffe393cfef8e34056417289c1119b91
+│ │ │ +83e360dcad09502ad9017b8f16c0636fe5c0cf1b542c810f91efc655575d05b7
+│ │ │ +dc720b74efde1d6ad4a8214f2ae07d2285a54b97c2279f7c02cb972fc7391c65
+│ │ │ +8f8c12baeaf21878e5df8950bb32f71a0206166f64820806ad10eee51e4408a0
+│ │ │ +d9ec91d59b283c4636fcb547d97051103d6a1c5f79e515a85ebdba10a5a6a1af
+│ │ │ +471e7904c822482d03b0117ef1de04bfe3fadfada6254fb3e1f0292539cad3a0
+│ │ │ +1e54b76edd8022cf56a952455a02b57cf9f2d296b022cb28fa3b7cf830ecdcb9
+│ │ │ +53f26358bd7ab5344f234f47bedfb25e144c189e00032ee7857fe4b804bacf04
+│ │ │ +11285221dec7041122703678ecd0894298885fcf5f2df30d8f41e6966fbef926
+│ │ │ +74eedc5988929e3a750a9e7aea29c94249fd85dea866144c1e95007ddb15df08
+│ │ │ +e7a1b5d6f7bfe7c3ff16e6c2af9b7d7d3cb404e2f266d1f0e8b078e8dfb1789d
+│ │ │ +b4ccd38e693141e85cab4c103a036cc1e4290cf71b9fe4c29b9fe6428ed77046
+│ │ │ +d294be8c274f9e0c77dc71871061b8f3f2f280a29d4e9a3409283c855ccaa438
+│ │ │ +e0f17fc5c3a86be320263a3827335a2bfbfd854e690d8be3aa88b4f23c82d9af
+│ │ │ +5dd90137f58a837ff589f5db8b09262dbef712024c103abf094c103a036ca1e4
+│ │ │ +c95e623e86e17efaed1c38765a39944261b8478f1e0de3c78f17260cf7c2850b
+│ │ │ +2513db5dbb762950460b5cb80b277ac7df1e0fe54b873fa67f007b5abfff9d0f
+│ │ │ +bf497f0540c7f925743012709eb941f528685a3b1abab58a811e974543bd6a6c
+│ │ │ +b2aaa8280d0e98203400b1b82498208a43c73ed736ecc07986d77360ed56df96
+│ │ │ +edbaebae939cddead5ab274481b76fdf2e91d9e2c58b7df4edde2a1aa6e0646f
+│ │ │ +b33afa36c617335d70f662a1b4aef6595c5b9be69d53921c9092e800b290aa51
+│ │ │ +d121440fcc0740c14e884e101c8b49b017ce6eea9e3c5b285926cd59e43bcfd0
+│ │ │ +a2450bc9ee9f3c784510320ba5e8b03366ccf0f155a0e19b49f726c2b5dd8c19
+│ │ │ +d32f8d1650a593a957200272aca355116082b06acdd85c2f0ac3fdd6e74e78f5
+│ │ │ +c31cc85085e126cb1b6a68478d1a2599725a1d0a5a0f61f6ecd9d2f0d7d9b367
+│ │ │ +15ea266380d3d143e3e1e121f11ccc4e810c1f888000138408b564331d17aecc
+│ │ │ +83a766e4c0fe634ab3550ac34d6b1b3ffbecb350b66c59214abd6cd932f8cf7f
+│ │ │ +fe23c57a522b3cac772c3c7f4f027b1cab81e1636110608210a6aac45774dbbe
+│ │ │ +4b61b87ff9d3779ea15fbf7ed27052d3a64d8528e8be7dfb801cf3162c58e0a3
+│ │ │ +6ffb26d1f0ca7d09d0be31ffbc7cc0e1134221c06fb050d525a6b23459fad2fb
+│ │ │ +b93e9156a9340d1a3490d681bee69a6b84285c46468664664b1162737373153a
+│ │ │ +572d8feb31df990037a3992839a6b13002a223c004217a0d5a587f0ac33d1bc3
+│ │ │ +6f13395c48579aad962a550a264c98207915c7c5593fb60f99e0ce9933079e78
+│ │ │ +e209387efcb802f5789c777ef0867878f4e678484e60625080c3074223c00421
+│ │ │ +74f569a33c4d186764b9201de3c5e517b8a41840641299144663b76c6d1e3c31
+│ │ │ +3d07761e50ce335018eebbeeba4b8a145ab972656d0aa0732a6bd6ac91886ced
+│ │ │ +dab53e395ddb2d46b24ee218453ed0f0091b20c00461834a0cb40805d8f86fda
+│ │ │ +5520adb6b66d6f8114269bc266a765fa4f8102c7d54567aa2675a3a0313a54b5
+│ │ │ +c7f00b3ddac648f6f4fe9f00d88b1ebe3401fdc36adfe072142788c263b46ddb
+│ │ │ +b6a8c72d75fee8d1a352780c0ab5ad0e7a4c318a5eb92f11bab6e49f90a52a8d
+│ │ │ +95d114018ee6aa299cd64bcc99e7822518bfe7b3c54e58b13ebf483208547322
+│ │ │ +8d8e2da26120daf3ff6b402c54fc67a9c93474cc7a15c370bf8561b8d5e1a929
+│ │ │ +243585e1bef9e69b03cdc6d4fb727272a47991975e7a09323395ec591e9dcc26
+│ │ │ +62f0ba3bb0ec51513c9c646a450990b9e88e724c1002bc64a1a878f45421ccf8
+│ │ │ +2c17e6fe9007e755e3ffa1a4e7ef19228bab7088a543b31829afd3e795f30c14
+│ │ │ +869b425ad35f6262a2bf242c778e16c7193b762c1c387040a11b9595c2703f71
+│ │ │ +4b02500c25164620100498200241298c7b38d44670e01dc6383c53d0f9ec5324
+│ │ │ +06f597bc3b255a47a055ab564026a5b44a198589a649e3d4d454c931cd1d169a
+│ │ │ +2290eed8b1032874c4962d5b7c82cdb9d3f3b7a5de02f51ab45ed0c65f5e5a9c
+│ │ │ +dbbc79b334cff0cb2fbff824d7b77d0c2e9493000d79794d1f6cf844f108884e
+│ │ │ +103c805a7cfd0a7395869266cccd4572c8856ca5f5a554065a7a73d8b061d0bf
+│ │ │ +7f7f69494e22846084bc85d7ad5b272d2cf3f5d75f4b4b7afa7bbe5dbb76d23c
+│ │ │ +032d9f29829c397346b2a6a2e549d561b82998dde49109d08f435e8b5095aca3
+│ │ │ +0e08f010930ea01a9de4669c78bee7b92cd875506931447a10213cf0c003d2ca
+│ │ │ +63e4a9ac956cdab4490a2f4113b8b47e315924d198fd9d77de8963f3e14728d5
+│ │ │ +4acfa2d2a130dcb4ac2685f4502fad592a09e0495cd18d869462637838a9280c
+│ │ │ +f97cc90888de83608228b98e2d7dc77b0b72611c5a0d3955b1eec8f1ece9a79f
+│ │ │ +86f6eddbebaa3f91c337df7c0314719586a84490458b164961b8695535b9906f
+│ │ │ +dbf0feb1f0f41d0950a18cf5494eae3bef5b130126089deb85e720fc034c4e68
+│ │ │ +0fbe922dcd35c8efa85fbfbe144d94d62a66512240843066cc182082504bd796
+│ │ │ +141e23115ad6c3d9681646402304442708edc61c34029493291981ac1c170c9f
+│ │ │ +90054bd6287d0d6895b577de790712123084288b07015ac9cd1d869b8696e452
+│ │ │ +ab92039ec730dcd77737260cb73c6fde6704ac8e001384d56b48a55f76ae0bae
+│ │ │ +1f9309bf6ff106bca331ff575e794532cf54dd1ed18734e94c61b829a4c7e9d3
+│ │ │ +a715582421878eb92d1e1eba261e12e2789e41010e1f3002ff20c00421d0ab40
+│ │ │ +9ed0773d9da52007b2469a3b772e0c1c3850a092e8af2a99ab52186e9a4c57cb
+│ │ │ +d02b310cf7fd0950ad6214b8d2d557f998116004dc083041b8911060fb9fa9d9
+│ │ │ +b04816c2a256ad5af0e38f3f4afe0c02a86f888ae4e0468e79f3e7cff7c9af5d
+│ │ │ +539c677824013dc1f9b5f701874f30027e10e05f8a1f50ac78ea93454ef8f03b
+│ │ │ +eff8794a4a0a7cfffdf74c0eff541685c478f9e59761ead4a940a132e45219c3
+│ │ │ +703f8b8e6eb75cc561b8e5b8f03e235012024c1025216481eb3b0f14c09869de
+│ │ │ +753969ad01f23f68d9b2a505b43357050aa2f7e9a79f4a61b829b89e5ce270de
+│ │ │ +f98161f1f0d8f0f862030cca9fe17d468011f022c004e1c5c2927b85852e18f5
+│ │ │ +42b6c23b7ad2a44992df8125153650290abffdc8238f0085e356cbd53d62e0a5
+│ │ │ +0713a14e35f6675063c3c78c40a0083041048a9449f77df0ad1336ecf05a2c51
+│ │ │ +8ca3f1e3c79ba48d35b2a5057bc68d1b071f7df4914f18ee661486fb9144b8a2
+│ │ │ +1dbfdad6a82dd6426404f85764e1daa3a53a9f9be50dac54b56a5598356b9685
+│ │ │ +35d657355ae2f3f5d75f97161ba2a53fe552ae9403268c8887bb303c4674349b
+│ │ │ +adcab1e17d4620540498204245ce80e766ce732a96eaa47590830db267809a86
+│ │ │ +64f1d5575f497e1efbf6ed53e487816961c4f57130eeee04288b24c1c2083002
+│ │ │ +da21c004a11d969aa67431c305ef7ee9ed3d74e9d205fef5af7f699a870889fd
+│ │ │ +f5d75f923fc3b265cb7cd4edd311c3703f9c008deb70780c1f70f80423a00102
+│ │ │ +4c101a80a84712fffbdaa958fd8dbc812349ce9e3d0b13274e8477df7d1728d4
+│ │ │ +b85cead78882971e4a80abba72780c392ebccf08688d001384d6886a94de9c85
+│ │ │ +4e4f4a6ddab491c2757b4ed878273f3f1fde7aeb2d78f6d967e1fcf9f38a92a6
+│ │ │ +6218eec7ef4c80fb8772186e05307cc008e8840013844ec08693ecfa6df9b0fb
+│ │ │ +b0776d8751a34685939c30cf2e5ebc18468f1e2dad6027579ac270df3e28169e
+│ │ │ +416737f71ad8f2ebbccf083002fa20c004a10fae61a5fac54f5e8fe9f8f87818
+│ │ │ +3a746858e959fde1ddbb774b61b8c9335c2d9d5b45c394ff24c2658d789e418d
+│ │ │ +0d1f33027a23c004a137c221a4bf7c9d378cf7800103a06cd9b221a462fd479c
+│ │ │ +4ea7e4d3317dfa74a07db9d4a8ec801730a0de0d7de2e4a7799f1160040c4480
+│ │ │ +09c240b003c9eaf4f942d8bedf3bbcd4b76fdf401e13f61e353924c6038cc630
+│ │ │ +dc8fdc120f89f16cb62a6cc5b2e2b64080e31058ac1a576f525aecf4eedddb62
+│ │ │ +1a6aa74e5c5c9c229e54c35a51b0616e2a3c79570293837630734a8c40c80830
+│ │ │ +41840c9d3e0f6edfef2588d2a54b43b366cdf4c9c822a99285965b62709aa17a
+│ │ │ +257e25dd78f09611301b01fe359a5d03aafc771ff20e2f356edc5875d57e87f2
+│ │ │ +32ee3d5208149c9085116004ac8100138435eac1a3c51e9979abbcf1f4dc60b3
+│ │ │ +9d468d1a794ae444e3adc32799203c80f00e236032024c102657803afb7318a0
+│ │ │ +cf2d356ad470efda76ab2e23052864610418016b20c004618d7af0689191e5d9
+│ │ │ +85d4d454ef814df7d4659497dfa645e6623102c220c00461b1aa4acff20eb1a8
+│ │ │ +1b4f8ba9aa893aea32cacbaf49069c0823c008848c001344c8d0f1835a20404b
+│ │ │ +86ca258a5d1fe470f03e23602a024c10a6c2ef9b796a92b7854c4f4ff7bdc166
+│ │ │ +672e5ebca82851a9646ff91517f8801160040c478009c270c88bcf30052396ba
+│ │ │ +251208222d2dcd5d5c69cb04a180830f18015311608230157edfcccb95f656c9
+│ │ │ +9123477c6fb0d999d3a74f2b4a543a957b100a40f880113011016f6b64a2129c
+│ │ │ +b517810635bd55b273e74eef059bee6dddbad553b2788ccb57bd2213840710de
+│ │ │ +61044c46c0db1a99ac08677f09018a47e4964820085a52d42d8d6b4741743413
+│ │ │ +841b0fde32026623e06d8dccd684f39710685ad7bbee014de06edbb6cdd6c86c
+│ │ │ +d9b2c553bee6f5bd65f79ce41d468011300d012608d3a0f79f71d7d6ca4672d9
+│ │ │ +b265fe6fb4c1599a84970f319d3ae7827369ec496d83aae522d8040126088b55
+│ │ │ +242da9d9b4aeb75a7efae9278b69a89d3abffdf61b141478a3d7febc361fda0c
+│ │ │ +cb80f716e4427ebed23f42bb5c39254680110814016f4b14e8137c9fee08f4ea
+│ │ │ +e05dc7e9c71f7f84f3e7cfeb9ea71919b46ddb16eeb9e71e888af2be86e7d35d
+│ │ │ +f0e86b39d0e5ae0cf879ad77e95533f4e33c19814847c0fbcb8c74242c54fe1b
+│ │ │ +fbc67ab4c9cdcd85cf3fffdc736ca79d8a152bc2ecd9b361ddba75d0b56b5745
+│ │ │ +d176e0aa7ad78fc9827f8dcb84bd47bcbd0cc54d7cc0083002ba22c004a12bbc
+│ │ │ +a125debe590c349499bbce9a352bb48404798a7a12ab56ad82b973e742cd9a35
+│ │ │ +155a2f5c990f1d6fcb8067dec9018ed3a480860f1801dd116082d01de2d032b8
+│ │ │ +6d103a05fc231b376e841f7ef8c17d68dbedcd37df0c3b76ec80891327426262
+│ │ │ +a2a79c79f900afcfc985d6c3d2e1a3ef9da08edfe4b991771801464053041cf8
+│ │ │ +63b3f46c60faea329a165894c42e66b8a0f9903448cbbca471972e5d60f5ead5
+│ │ │ +a2a81fb69e870e1d82c71f7f1ce6cd9be79356ebc6d130e59104e8d4ca3b57e3
+│ │ │ +735380275cf60f771520127c9b1e08941a70418f640d4b937b1086411d5c46a5
+│ │ │ +531c307248bce721b2f8a1219848915ab56ac1679f7d062b57ae041a8292cba6
+│ │ │ +9d05d0effe4cb8e7b92c387292cd62e5d8f03e23a02502dc83d0124d8dd3a2d5
+│ │ │ +d5dadc9c0117d0b287a46ad5aad2104ca952a534cec9dac9151616c2071f7c00
+│ │ │ +e3c78f8793274f2a944d440efdcfadf1d25f627cf05ed8dc8350c0c9071a23c0
+│ │ │ +3d088d01e5e4bc0894c7c07dcf8cf2f6228e1f3f0ea3468df2de10217b64064b
+│ │ │ +e6b0bb76ed82471f7d14e2e2bcf333d9b90093ff970bed6e4987053f3b230411
+│ │ │ +2e2623600c023cc4640cce21e772d7e03868dbc4eb5d4dc32e2fbef862c8e989
+│ │ │ +fc20f59ca64e9d0a7ffffd370c1a3448519423275d70e733d938f494013404c5
+│ │ │ +c2083002e123c0434ce163a87b0a3b0f14408f7b3280be96491c0e072c58b000
+│ │ │ +aebbeeba4b2722f4df254b96c0e8d1a37de255213c30fcea58787a640290677a
+│ │ │ +71c2434cc5a1c3d7c245808798c245909f2f1181c675a2e1b547bd669f647876
+│ │ │ +fbedb7833c126a8989d8f0867efdfac1e6cd9be18d37de80b265cb7a4a487679
+│ │ │ +1f7e972799c54e9f9b0bce3c4b1bea79f4e61d46c06a0814ff7965356d23589f
+│ │ │ +5b07c6c11dd7783dac333232e0eaabaf86eddbb747302a00313131f0c8238fc0
+│ │ │ +eeddbbe1fefbefc770e1dee1b8f42c80093373e0f2db3360d12a0edb11d12f0a
+│ │ │ +173e240498204282cd9c87de189b0803bb7a6dffc957a053a74eb068d1227314
+│ │ │ +b250aee5cb9787993367c2a64d9ba04f9f3e0acdf61e29849b9fcc82eb466702
+│ │ │ +0dd7b130028c406008304104869325eea2c5743e783e093ab7f27e25d39aced7
+│ │ │ +5c730d4c9b36cd123a9aad448b162d8022e07ef9e59750bf7e7d853acbd6e543
+│ │ │ +a73b32e08937b339acb802193e6004fc23c004e11f17cb9e255bffaf5e4b867e
+│ │ │ +9dbc3d09f213183b762cdc79e79d9093936359dd8d54ec861b6e90d69a78e9a5
+│ │ │ +97203535d5933545177f7bbe13daa27fc9ecaf7231dc38cf4f78c0e11d464085
+│ │ │ +0013840a10110e93121cf0d9cb4970cb55de3909d2fbc30f3f04fa828e84b84d
+│ │ │ +81d4537c7c3c8c1b370e68e9d6e1c3874bd65feee7cea5b960ccb41ce8f66006
+│ │ │ +acd888c19e58180146c0070126081f48c4381113e38077c627c1b431091027e3
+│ │ │ +89bd7bf7c2c0810361f0e0c1b07efd7a310aa3b396e4814ee4b976ed5ae8dcb9
+│ │ │ +b322b76d070ae1daa732e1b64999b0ff3887ed5080c307118f001384e0afc088
+│ │ │ +1be2e1e75929d0a8b6b22abffbee3be8d0a1030c183000683f3f5fdbaf645a2a
+│ │ │ +9486b5ead4a90393274f065ab7c2ead2be7d7b29e0e19c3973a0468d1a0a75bf
+│ │ │ +fb0dc38a8f4a87673fc8818c6c1e765280c307118b003bcad9a4eac9d67f06da
+│ │ │ +fc4ff930d7e350272f1a2dce336cd830e8dfbf3ff4e8d103828de7444b836ed8
+│ │ │ +b0419a00266fee2d5bb6c893877af5ea4913e5a238ef656565c1cb2fbf0cafbe
+│ │ │ +faaacfbc4de5b20e78eeee04b8b94fac62584a51603e60040240407447392688
+│ │ │ +002a59a45b0e9f284492c8814f7fc8035a47c19f90af40ab56ada069d3a6d0b8
+│ │ │ +7163a85dbbb6441834994b7e05e463919e9e0e14fb89fc0b680c9f86abe85c49
+│ │ │ +d2bb776f78fdf5d7a5f44bbad70ad70f1e3c088f3df618cc9f3fdf479db68da2
+│ │ │ +e195fb12a06353af4180cf4d7c8211280601268862c0d1e252a4ae07112e7647
+│ │ │ +4f15c28ccf72612e1205adf3ac87d052d215ca38e0d43965fa44401454f0f9e7
+│ │ │ +9f07f24f104128acf8c30f3f2cf951a8f51dda2b169ebd2b01aa57540ee3a9ef
+│ │ │ +e36346408d0013841a118d8f9920c20394869e16e3f8fabc254e58b13edfb300
+│ │ │ +51a8a91229b46f1a0d4370ddec2138045326d521998dbe8abd16f7e246eeb429
+│ │ │ +fcc5a4499324b2a09e89d585cc85698dec091326c0e9d3a715ea266150ddd1c3
+│ │ │ +e2e1219cf30925acb822313e881804982074ae6a2608ed00269bff4dbb0a60e5
+│ │ │ +c602d8baa700761f2a843d870b7c1a76778eb1d8a6d7ad1e050d6a4441e3bad1
+│ │ │ +d0e5b26874d28b8152c9beeb2e9c3a5708cfbd9b037316e6e192a0ee142e6d69
+│ │ │ +288be22551ec2411e4e2c58b52ef67c68c199097a70cd151b3920326dd9b08d7
+│ │ │ +7797998e895028d6d11404982074869d0942678031f95ca70b7af7bc84000030
+│ │ │ +5e4944415432b25c40b18bf2914452121d909ce4c0eda5c8b1c16840a1b61f47
+│ │ │ +4fe5355b7c435a5c7bedb5d2a470c3860d8349d2b47b69fd893163c6c0c2850b
+│ │ │ +7d74e8d282e62712a1557daf57bbcf4d7c22e2116082d0f9156082d019609d92
+│ │ │ +9fbfd409cfbc93834b822abb13b4d80f05d7a3619c602da97452b5c464172f5e
+│ │ │ +0cfff9cf7fa4d5fce4375358f13b06c4c1c4e1f13817c3f313726c78ff12024c
+│ │ │ +103abf094c103a03ac63f2d9b92e78ede35ca090dbeeb52cdcd955ae5c595af8
+│ │ │ +e8aebbee025a31ceea427e2434e44413ef172e2817a22f9504f0e4ad09301217
+│ │ │ +778a4507461646c08d0013841b099db64c103a016b60b2474e164a61b7172c53
+│ │ │ +8ee7930a6ddab48137df7c13ba77ef6ea046a16775e6cc1998387122bcf7de7b
+│ │ │ +18c749398c561fe76b5ec6458afa75e4f989d011b6d7934c103ad7271384ce00
+│ │ │ +1b98fc9a2df9383f91e377495072e29b32650ad4aa55cb408d42cf8a1c0569d8
+│ │ │ +69f9f2e53e89f46d170393472540a39a3c3fe1034e849d6082d0b9c299207406
+│ │ │ +d8e0e40b0b5df0315a3a3d8f164fa7cf2be727121313e1c9279f9442782425e1
+│ │ │ +b88d004261c5c9d16efffefd0a6d63901b465c13270d3d9549e1612705381174
+│ │ │ +c004a173653341e80cb049c9a7a3d5d42b18f788426fab3dbe6bd6ac29593b51
+│ │ │ +af4204a1385453a74e9562526566662a542e57ca0113ef88873bfac7e16a774c
+│ │ │ +140a7022e0800942e74a6682d019609393df7ba400c6cfc88145ab7de38274ed
+│ │ │ +da559a9f68d7ae9dc95a0696fdb163c7a41e100503a475c3e5d2bc6e946416db
+│ │ │ +1dfd488c90cc1c179cbee08233170be1ec4597e49b928ce6cb64c25ca1b4036a
+│ │ │ +5474709c29032a820942679099207406d822c92fc7d5de9e989e0d3bf62b436e
+│ │ │ +9385d39db810122dfc43964f22c81f7ffc2199f2d2562d8371c9d817462442ed
+│ │ │ +cada596e1d3d5d08ab707ee757fcfbedef023876a610729cea9c95c70971000d
+│ │ │ +7052bd599d68e8da32067aa01364bd6a3c67a24429fc232688f0312c36052688
+│ │ │ +62e1b1d545f2f49efd95135e7a3fd7277e1405127cfae9a7a57849e44b6175a1
+│ │ │ +1ec4c71f7f2c2d58443d0bb9c4a391d34343e2610c86ee48c6c59f42911d070b
+│ │ │ +60f6f74ef8f9cf7cd8a7d13a16b52b3b6068af38298a6d831a4c16a1d48bfa19
+│ │ │ +260835221a1f3341680ca800c99d4b2b8417decb85ff7de3040c8fa4105a679a
+│ │ │ +c2765c7df5d58af3563da03909eafdbcf6da6b3e61c5ab94bb14567c58efc0c2
+│ │ │ +8a13e92c5e9b0f6f7f8d71b536f90ec9698941a7e6d13066683cf46793ddb060
+│ │ │ +6582080bbe921f6682281923bbdeb1637f010e3be5000d3fa9a56fdfbe125134
+│ │ │ +6fde5c7dc992c764e544d64e64f5a496768da3610a86156fdfa4e8f98979cb9c
+│ │ │ +f0f29cdc627b0b64227cc5155700cdd954aa5409680d10f79f03ddbe295c3bfd
+│ │ │ +1d3e7c580ae1be63c70e6901250ae95e94b4ac1705138627c080cbd9b7a3288c
+│ │ │ +8a3bcf04511c3a1a5c6382d00044c193f8ee973cc9d16eff3165778222c4de77
+│ │ │ +df7df0dc73cf41b972e58428e58a152ba4f909f5824ba43cf52468a1a2aae5bd
+│ │ │ +f31307d1c97034cecdfcbcc1972429ac3ac5b7bae69a6b2462a85bb76e48181c
+│ │ │ +397204962c59029f7efaa9e4d741516dd572d5e531f0cabfb59d3b51e761c763
+│ │ │ +26089d6b950942678005499ec296ff17d7b798fa512e2e09aa549ac881426010
+│ │ │ +5950a36975210f6cf2c4268f6cf2cc960b85157ff4e678f8f775f1f0c12227bc
+│ │ │ +f0518e4f98125a6363c4881170fffdf70399046b294416b366cd82fffef7bf3e
+│ │ │ +21451251b7974725c29d57597f0e484b4cc2498b09221cf40278960922009022
+│ │ │ +e89693670ba52080b4629e5a68b889e62768f84904a1984ed4fb993973a64f58
+│ │ │ +719ac8ce551591d6d778e18517e0eebbef868484045d8b98969626c59ea2f5c6
+│ │ │ +d5be1d37f58c85371e4e944c667555c206893341e85c894c103a032c68f21b76
+│ │ │ +a059ec1b39f0079a75aae5faebaf971ced68425b04a1b980d1a347c38f3ffe58
+│ │ │ +a4ba43870e85e9d3a71b6eea4b3d0a0a29a29e3b21bf8e052f24439572dee1b0
+│ │ │ +22958fe00ba21304d76e04bfbc2217bd2d4ee82e7d2705de7b3a11aaa1d3975c
+│ │ │ +befaea2ba0dec4b871e3025a475bfeac19fb4d9a34811f7ef801befffe7b68d4
+│ │ │ +a89142051a42faeebbef60debc798693032952a3460df8e28b2fa495f6e4e6c5
+│ │ │ +5bd15fe5cad119b0f7a82f412b0ac0074223e040d339a5cba7c58ac33d088b55
+│ │ │ +8805d5c942afe1d7d0c267faa7b93e0e6255aa5481975f7e19860f1f2e84e730
+│ │ │ +ad60e70e2bdea3470ff8f0c30f818696ac20ab56ad821b6eb841b11c6b455c93
+│ │ │ +7ce96b2950b72a7f6bfaab23d17b104c10fe6a95cf0989c0e11385307e660e7c
+│ │ │ +bd5c35788fa569dfbebd14b6a34b972e42948de6274a972e6d39523b78f0a064
+│ │ │ +39b579f3660f8e440e4ba62543a5b24c121e50fed9119d20b846d535cac7c222
+│ │ │ +50b34a147c34290916cf4c86560d95aff6faf5eb81623bdd7aebad40e3ea5697
+│ │ │ +3265ca588e1c08b3dab56b4bbe13575e79a507c2fde8c97dd3d359d2d2b59e93
+│ │ │ +bc630b0494bf225b14890b11e90874be2c067e7d3f05a63f9e884b812ae727c8
+│ │ │ +d6bf71e3c63069d224c8ce56d9cb463a7001963f393919e6cf9f0f3477e2964d
+│ │ │ +7b0a601c867067b117024c10f6aa4f2ecd3f08444539e04e5c0274d3bc547870
+│ │ │ +182d05ea85262b2b4b8aeb440d1c35742cc12340c35fdf7efbad627ee4fd854e
+│ │ │ +58f06b09510283cf8a9f301101260813c1e7acf547a054b2035e7a2811fef838
+│ │ │ +05fa7796b104667de8d02120f3519a0cdeb871a3fecad82c87860d1bc2e79f7f
+│ │ │ +ae704e7c14e780cea5fb7a62dbace811531c268888a9eac82e68035cfe73feab
+│ │ │ +c9b0605a1234aaad7ced57ae5c294d628f1c39124e9d3a15d94005597a724a9c
+│ │ │ +366d9ae7a973692e78ee835ccf31ef888d005b31895d7fac7d0808e4e7bbe0dd
+│ │ │ +0518fc0e1bb20be94a2b6f1a3aa1b0e20f3df410c4c67280ba40e0254b790a12
+│ │ │ +4844eb9615d353a04d43eb873d71ebabd796ad98f44296d3650474422026c601
+│ │ │ +f76328eb8d9fa5c0dd03e300d724f2c8c58b17e1d1471f85162d5ac0c2850b3d
+│ │ │ +e779a768042852ec5b6fbd05143cd12d533ee5096b3716226f653f0d918bc1ba
+│ │ │ +3302c12350be7414bc8ef313abfe9b02dd5b29bf7677edda25ad393160c000d8
+│ │ │ +be7d7bf08947d81344a81423ca2d8bd6e4c3560cd7ce2236024c1062d71f6baf
+│ │ │ +0102cdeb46c3f7afa4c0c71392702950a559ece2c58ba155ab56523c22725e63
+│ │ │ +291a81279f7c52d18b98b180e7228a464b8c2b4c1062d4136b69000283bbc6c2
+│ │ │ +ba775361e21db414a837c3fcfc7cc90b9bac76de7efb6da070dd2cbe08d07a14
+│ │ │ +c3860df35cf866651e64621814167111608210b7ee58731d10888f73c0d89b13
+│ │ │ +60c3fba9d2daccf22c68ed065a83a16ddbb6d2c23af26bbc7f09817befbdd703
+│ │ │ +45167620be5bed1bf6c47303ef581e012608cb57112b68060214c67ad6d824f8
+│ │ │ +f98d645c0a54393f41abc1f5eedd1b860c1902b494288b1701b266a2a54fddb2
+│ │ │ +e05726083716226e992044ac35d6d93004da378e819f5e4b8677c726e252a0ca
+│ │ │ +f989050b1640d3a64de1a9a79e828c8c0cc374b2724664d174d34d3779545cfd
+│ │ │ +573ee417f030930710c176982004ab3056d77804a8d11bd6270efe9c9d8ac34f
+│ │ │ +f140abbdb92537371768d5355ac7e1a38f3e028b47cf77abadebb64f9f3e9ef4
+│ │ │ +6979d88dbb78cec60388603b4c10825518ab6b1e02c9090e9cc04e8075efa5c2
+│ │ │ +b5ddbc36ffa4d1f1e3c7e18e3bee804e9d3ac19a356bcc53d2023977efde5d61
+│ │ │ +cdf4fb5626080b544b482a304184041b3f14c908d4ae8c61c5c727c3c25792a1
+│ │ │ +052ebd2997b56bd702ad3971fbedb7c3b163c7e49722663f2525451a7a731778
+│ │ │ +e76126083716a26d956fb768dab3be8c808908746b15032bd1c9eef58712a07c
+│ │ │ +69effc040d33cd9933471a767af1c517212727f2bc8a29a4ba5b761fe1e07d6e
+│ │ │ +2c44db3241885663acafa510a0b0e2770fc4b01d68167bfff57110233378cacc
+│ │ │ +cc84091326485fd3b4ae7324899c20f61d638210b5ee992044ad39d6db520894
+│ │ │ +c6b0e2934726c29a7752a06f7be5fcc481030724cb9e5ebd7a817ca94e4b1540
+│ │ │ +6365682d70b75cc8602b263716a26d992044ab31d6d7d20834ac110d5f4e4a86
+│ │ │ +2f9e4f8206d5953faf152b56484e7644187697d4d4544f11f3f2019c794c121e
+│ │ │ +4004da51bec10229ceaa32025646e0ca0eb1526fe2a51109502ac9ab69616161
+│ │ │ +44cc49d044b55c32b29920e47888b2cf04214a4db19ec221108b61c51fb8211e
+│ │ │ +e63d97acd09d7c27ec2e14bf4a2e31d1de497cf979deb736024c10d6ae1fd6ce
+│ │ │ +0608542ca36c1c23212a6c7a7abaa2e6521215877c2008024c10825414ab292e
+│ │ │ +02a5929404418b12d95de40491180fb828931203bb97df2ee56382b04b4d7239
+│ │ │ +2c8b40d9540760b40e8f1c3d7ad4b36fd71df9447c25550fcaae65b663b99820
+│ │ │ +ec58ab5c264b211017ebc08588bc3fb56ddbb6594a3f3d94d9b973a72759b2ec
+│ │ │ +62111301ef5b2ba6feac35232004028d6a7a7f6a9140103b76ecf0d44b831ade
+│ │ │ +b27b4ef28e100870cd09514daca4e80834abe3fd8a5eb76e1da8ad7c442f9f5c
+│ │ │ +ffc3870fc3c183073da79acbcaee39c93b4220c004214435b192a223d0ad9597
+│ │ │ +2068029782fad955962d5ba6285af7cb949ee58a8b7c60690498202c5d3dac9c
+│ │ │ +5d10e8d222066265ede4e2c58bed52349f72c8cb56b39203ea56e566c6072441
+│ │ │ +4e70cd095251aca6d808d05a129d9a797b119f7efaa9d8052a427b5a59ef9b6f
+│ │ │ +bef15cedd34eb6ba92e72cef88820013842835c57a0a8fc04dbde23c65d8b367
+│ │ │ +0fac5ebdda736c979d2fbffc12b2b2b23cc519da8b09c20386803b4c1002561a
+│ │ │ +ab2c2602d7778f85042f47c0f4e9d3c52c48315acf9c39d373b5160e2f7569e1
+│ │ │ +ed35792e44ca8eccf745d4223341885a73acb7700894c290e0d776f37e51cf9f
+│ │ │ +3fdf5693d54b962c01b2d072cbed03e2d041d006ada4bb4011b8658288c04ae7
+│ │ │ +229b87c0e8a11877e21fa195e7c68e1deb3e147efbfcf3cf7bca40b197465ced
+│ │ │ +2dabe74224edd8801b992022e985e5b29a8e40d3dad1d88bf09a33ad5cb95231
+│ │ │ +a96bba82212af0c9279f28e654ee4572a01023912c0e1bb4ae0efc8ab174a0f6
+│ │ │ +f4d56522f91de3b2eb8c804b197454e7dc2e25bfed4001747b20030afe598993
+│ │ │ +96e7fcfbefbf2126c64b1c8628a25126147cb049932670e2c40929c5b2290ef8
+│ │ │ +73760aaed36d8316320c8c1c38df94dafb42182998ff6864d7a0f9f8b3061188
+│ │ │ +007955d3fad56ea1b845e3c78f771f0ab5a5efcbe1c3877bc881947fe6ae8488
+│ │ │ +2707a9126dd0badaa00842fd9e585946404260dc6d0950bd82770866ca9429f0
+│ │ │ +e1871f0a870e11dbb7df7eebd1bb5de368b8f32aef44bce74224eed8a075b541
+│ │ │ +1122f1cde3328b8e0039ce7d302e09e2646de9c8912315e3f8562f2339fb4d9e
+│ │ │ +3cd9a3264d4cbff778225b2eb911b181852f1384bb3279cb08188cc0e5cd6260
+│ │ │ +fac3dea5d69c4e275c7ffdf5205f4bc1609502ce8ecc59efb9e71ec5fdd31f49
+│ │ │ +84fad56cd02a2a4a15e2814d60608208b1fef93146400b04fed5370efe7393d7
+│ │ │ +1cf4f4e9d370d55557c1be7dfbb4485e9734d6ac5903575f7d35e4e4e478d27f
+│ │ │ +00e754865ce19d57f15c88d41d268848ad792e3723a02d02cfdc190f033b792d
+│ │ │ +98682d850e1d3a803a2aaab6b98696da471f7d043d7bf68453a74e7912b8a967
+│ │ │ +2cbc3822c173cc3b000e6f750a0d07f72084ae3e56de0e08d07acdef3d9e04ad
+│ │ │ +1b783f3bcf9d3b07fdfbf78719336658a288858585f0f8e38fc31d77dc01b9b9
+│ │ │ +b91e9dfa758881b71fe579070f20b443b607deaa545c12ed800942b41a637d6d
+│ │ │ +89404aa20316bd9aac70a2a345851e7ef861183162046467679b56eeb367cfc2
+│ │ │ +e0c183e1d5575f55e830b4772c7cfa74128631f75a63296e88d40399e181e810
+│ │ │ +3041885e83acbf6d1020cba60f9f4a8271b779e724a870b367cf8666cd9a19ee
+│ │ │ +714d3e0eefbdf71e9023dfc2850b15383f3c240ede1d9bc8e4a040e5d2818309
+│ │ │ +c20f2a7c8a116004c2468082db3d796b02cc999004c9b2617db26cbaeebaeba0
+│ │ │ +6fdfbeb062c58ab0f3292e012286050b1640bb76ed804c6fa907e196d2c9001f
+│ │ │ +a36e93eee561253726f2ad8386966cf4d9cda136e4b5cbfb11878019a1360205
+│ │ │ +79ebfe02b8fbe52cd871e89f981cb2073b75ea04a3468d82214386406a6aaaec
+│ │ │ +4ae8bb64413577ee5c98356b166cdbb6cd27a1ae2da3e1ad314950a78a8d5a40
+│ │ │ +9f52867902ad96e513d4a95dc50eb5c10411e6fbc08f8b8d8095098290cd2f70
+│ │ │ +c1db5f3b61f29c1cc8f45a957a404f4c4c84418306493d8bdebd7b43c3860d3d
+│ │ │ +d74adaa19ec25f7ffd25594b51a8eea54b9702cd7ba8a5621907bc706f02dcdc
+│ │ │ +87cd58d5d8288eb1f7e048529c012608251e9a1f71b03ecd21e5046508589d20
+│ │ │ +dcaa9e3857086f7e910bffb7c809595e2322f765cfb65cb972d29c01cd1b54ab
+│ │ │ +564dea5d500f83ac90d2d3d3a5bf43870e01c57fdab56b9774ec7958b553ae94
+│ │ │ +03eebf2e0e460d8e075acb82a578041c3424a89a7f6082281eb3b0af3241840d
+│ │ │ +2127500c02a21084bb08e7d20a61d6b74e98fb93130e9ed4271073f3ba51707b
+│ │ │ +bf38188e0bfed0c4394b0008f8e93dd0534c10016017ce2d196beb822bef7c38
+│ │ │ +49f0b38c409108884610ee82d0f0d09aad05f0c52f79b07c633eec3dea3b4fe1
+│ │ │ +be37906dcb7a51d0bb6d0cd0bad92debd9c4883f90826b710f72a834b4a49a9a
+│ │ │ +71c49685948efbb5c8c1b4342cefef171557150a98204c7b4138636b2240d64e
+│ │ │ +9d5bc4487fa4e1f1b385b0faaf7cd88913dabb8f14c2de6305703edd05195900
+│ │ │ +e9d92e88c2c68b7c2d527112b502aed350bf461434c4bf66b88051179c7c2e97
+│ │ │ +aa6addac596c4b6a254d4afb818fda2ed1c5f204e188ab0290e96b51213af0ac
+│ │ │ +3f23a0250255cb47c18d3d7912594b4c03494b5a354ee9b6e2794c6abb3c4762
+│ │ │ +eef8e13d6b15c41157cd5a0ab1368c0023c0081002343d43c1788b98a6b143db
+│ │ │ +6579828829d585aa828511600418014b21e0a09e43312da81ddaae628a678dba
+│ │ │ +882e37001720e149336bd4066bc1083002120264ceaa32699523436d16b55da2
+│ │ │ +8be509c211530ea24b75121d67d69f116004ec8200cedc4a3e0fc59487da2c6a
+│ │ │ +bb4417cb1304011c53e13ad17166fd190146c00e0890bf832c46565145b24b9b
+│ │ │ +250441c4561e0e51f1358aaa0b3ecf0830028c80fe08b89de18a9894762b406d
+│ │ │ +15b5597610210802703628bef6783be0cd65600418011111a06125559ca5a28a
+│ │ │ +21b555d20c76517788735e0c82403c632ade0cd1c9cdc5419635650418017b20
+│ │ │ +8093d10e32670d40a88da2b6ca2e220c4160154142a377c1119d6217ecb91c8c
+│ │ │ +00236071048818029973a06250db446d14b55576118108024d8e939a6305cc42
+│ │ │ +b357fb54805d5e242e0723602b04b06574e0e2481060ac096a93a86da236ca4e
+│ │ │ +22144110f031e506415cad0976aa032e0b23c008580501fcf6a4e903891c8268
+│ │ │ +1da94da2b6c96e62f905838a023cefd85b907b6022b85c0545ddc2e719811211
+│ │ │ +10359a6b8905e31b82478026a24bf08e56274a0e71f17526416cb5fbd5976c71
+│ │ │ +2c2c4110fa05179641f6cebbc0957fd11695c185301e012608e331b75a8e148d
+│ │ │ +d585710e830dd8e088290d898d3f80e832bdad5624cdf4119a20080557ce5ec8
+│ │ │ +d9f718e49f5fa619289c50e420c004113975ed5352ea315000dc1022f9c494ed
+│ │ │ +0d09f55ec509ecfa3ec9dae984f004e1ae8c828b2b70c8e91928c8d8ec3ec55b
+│ │ │ +46a0440498204a84c85e37101990d96a3171948a2b7074ca6538a4f41c4497ee
+│ │ │ +59dc6db6b9661b8270d748c1859f21ffec77907fee0728749e749fe62d23e017
+│ │ │ +012608bfb0d8e624add7e0220f68b246227208c100322aae324e405f0531e5af
+│ │ │ +c1e1a43eb6c1269082d88e20e4852ecc588f3d8a4de0729e40b23881dbe3e02a
+│ │ │ +c890dfc2fb118e40c1e9ad118e80e0c52706a0c9035a320fb78ea8582403745e
+│ │ │ +8849c05e02064d0a7262817c191cb8125c142e54460bfe44a7b486a894f68283
+│ │ │ +14bafab62688d061e127190146801160049076591801468011600418015f0498
+│ │ │ +207c31e1338c0023c008300288001304bf068c0023c00830027e116082f00b0b
+│ │ │ +9f640418014680116082e07780116004180146c02f024c107e61e1938c0023c0
+│ │ │ +0830024c10fc0e30028c0023c008f8458009c22f2c7c92116004180146800982
+│ │ │ +df0146801160041801bf083041f885854f32028c0023c0083041f03bc0083002
+│ │ │ +8c0023e017012608bfb0f0494680116004180126087e0718014680116004fc22
+│ │ │ +c004e117163ec90830028c0023c004c1ef0023c00830028c805f049820fcc2c2
+│ │ │ +27190146801160049820f81d60041801468011f08b0013845f58f82423c00830
+│ │ │ +028c001304bf038c0023c00830027e116082f00b0b9f640418014680116082e0
+│ │ │ +7780116004180146c02f024c107e61e1938c0023c00830024c10fc0e30028c00
+│ │ │ +23c008f8458009c22f2c7c92116004180146800982df0146801160041801bf08
+│ │ │ +3041f885854f32028c0023c0083041f03bc00830028c0023e017012608bfb0f0
+│ │ │ +494680116004180126087e0718014680116004fc22c004e117163ec90830028c
+│ │ │ +0023c004c1ef0023c00830028c805f049820fcc2c227190146801160049820f8
+│ │ │ +1d60041801468011f08b408cdfb3259c4c4f4f87c58b17c3debd7b61cf9e3dd2
+│ │ │ +dffefdfb213636162a54a800e5cb9787ead5abc3e5975f0e5dbb7685c68d1b97
+│ │ │ +90a2efe5f3e7cf4be9bbafa4a4a44093264ddc87bc65042404ce9e3d0bf4eec9
+│ │ │ +252e2e0e5ab56a253fc5fb8c00231002020e174aa0cf656565c1cc9933e19557
+│ │ │ +5e01fa61062ad5aa558303070e480412e8335f7cf105dc74d34d9edb896cd6ac
+│ │ │ +59e339e61d46801078f8e18761c68c190a30a2a2a2e0d8b16350b97265c5793e
+│ │ │ +60041881e010087888e99d77de81faf5ebc3e38f3f1e1439903af5ead50b8a1c
+│ │ │ +822b02df1da908d0b7cd82050b7c8a5f5858e8f7bccf8d7c821160048a452020
+│ │ │ +8278ecb1c7e0dffffe379c3871c26f62a54a9592baf44d9b3685b265cbfadcd3
+│ │ │ +b76f5f9f737c8211081701ea511e3d7ad46f325f7ef9a5dff37c9211b01b02b3
+│ │ │ +67cf86e8e868cfdfc89123352b62897310efbefb2e4c9d3ad527c3eeddbbc313
+│ │ │ +4f3c015dba74f12105a7d3091b366c809f7ffe59faebdfbfbfcff37c82110817
+│ │ │ +011a862c4a56ac580167ce9c91e6c48aba87cf33027640807ad2d46b764b10b3
+│ │ │ +06ee478adc164b10f4032312904b6262227cf3cd3770e59557ca4f2bf66992b0
+│ │ │ +53a74ed2dff8f1e315d7f88011d00a01752f81bea20a0a0aa4e4694befe93df7
+│ │ │ +dca355769c0e23107108143bc4f4d9679fc1850b173ca0381c0ef8f8e38f8b25
+│ │ │ +07cfcdbcc308e888c0faf5ebe1e0c1839e1ce2e3e341ddb52eae87e179907718
+│ │ │ +0146a048048a2588afbffe5af1e075d75d0743860c519ce30346c00c04d48d7f
+│ │ │ +9f3e7d60f8f0e10a55688853fe81a3b8c8078c0023502202c512c4ae5dbb1409
+│ │ │ +74eedc5971cc078c805908a88797aebffe7ac9ef864caadd92979707df7efbad
+│ │ │ +fb90b78c0023102402c512c4c9932715c9b569d346716cb5838b172f0239d899
+│ │ │ +21f9f9f99295977cb2c80c3ddc79e6e6e61aaa4f7676361c39720468abb76cde
+│ │ │ +bc5972ce74e7437e0f83070f061a02bdf6da6bdda7a5adbaa7a1b8a8d3414e4e
+│ │ │ +8e645d6556efc5acfccf9d3b27f99fd06f8105c0ccf6482bfc8b9da4ae54a992
+│ │ │ +f4a37767569449a1fbbad15baa80cf3fff1ce6cc9903d468d031097d45b668d1
+│ │ │ +02aeb8e20a183b762cd0a4b996424e82f405bb75eb56a9a1dabd7bb7e408485f
+│ │ │ +ac090909d0a04103c97bbc5dbb76922357727272d8d96fdcb8117efcf1474f3a
+│ │ │ +e49d7ec30d37788e6967dfbe7df0e28b2f0259f0906322911579b793573be171
+│ │ │ +f3cd374b0d2879a5872ba74f9f86f9f3e7c3575f7d05ebd6adf3604fe9962953
+│ │ │ +067af5ea250d470e1d3a54731f1875a34f9674f4ae92504fe2edb7df96f6e99f
+│ │ │ +254b960079fea7a6a67ace69b9438de1b265cba47c7efae927c9fb3f2323c393
+│ │ │ +05bd7ba45bd5aa55817ae003060c809e3d7b02197b682166e54f9632545e3204
+│ │ │ +a0f7f2f0e1c340d68b2444d4144d81ea85089beac49ff97b30e5dfb2650b2c5c
+│ │ │ +b8d0f348ddba75a5f7d97322809d9d3b772afc63a89db8e38e3b02781260c78e
+│ │ │ +1dd2bbeebed9dfb346b447f47b235de4b276ed5af9216cdab409264f9eac38a7
+│ │ │ +3ea039bb3163c6a84ffb1e63451729f855465ed69e3f9c8328f25ead2f60e3e3
+│ │ │ +c99774404f6a4f1668a1e27af3cd375dd8d029ee91ebeadec746da8543659e67
+│ │ │ +c3d9c186d775cb2db7b810dc12f375e75fa74e1dd70f3ffc104eb6d2b3e8a8a8
+│ │ │ +c8137f749e34098f471f7dd48564a0b8c7ad837c8b64e53a7efcb8e7d96077b0
+│ │ │ +1170a1d9b30b1bdc12f3a27c313c8a0b1b9260b329f67ef4b751e43d6dda34cf
+│ │ │ +fda41f1294e2faa79f7eeab9aed50e61fed1471fb9d0795491971ceba2f6f123
+│ │ │ +c2f5d65b6f85a58a99f9fffefbefae0e1d3a045c6eaa8fe9d3a7bbf0032ae432
+│ │ │ +bffffefb8afcd08a32e8b4f0a34e9146c78e1d034ec32aedd18d37dea8284351
+│ │ │ +ef5849e7d1772da0b24371773dfbecb33ecaa06553718f6876ada80a41cb1589
+│ │ │ +2c4a02407e9d1ab3701ac537de78c3d5a851231f2ce47994b48fe6be61615314
+│ │ │ +41e017a4ebb6db6e0b5837fcb20f590f1c327175ebd62de0bcdc98e017a5d440
+│ │ │ +849cb1ec41ecb5f9e48f31c16477b87cf0c09e96e27ab80718c6c38566dc3e7a
+│ │ │ +b8cb1bc8167b1d21ab6166fef47140f5194819d5f7a0ef940bbfb2432ab75509
+│ │ │ +c2e8f6c86882287688091b1e9832650a500c26b750978cc699efbcf34ef729c3
+│ │ │ +b634a4434e77f2a12eeaea91050b36e0d2300775af7efdf5574f779794a32106
+│ │ │ +2ac76bafbd1692ae344ca19eb08f898981d6ad5b43fbf6eda5211cea56531796
+│ │ │ +fec849503d0e4bf1ab6ebdf556206f732de5befbee9386d8024df381071e08f4
+│ │ │ +56c57d34b7431ef15436b9100e54260a8ed7ac5933698865f5ead5120eeefbb0
+│ │ │ +459086da08a3071f7cd07d3aa4ad7a7889f2a5502e72a1210d1a76740b0d81d0
+│ │ │ +3b9c9494e43e15f296ca4ff31df277d09d18f961346cd8102ebbec3269480fbf
+│ │ │ +f2013f4ca471797a2f69188684865f7af4e8e17e2ca8ad99f93ff7dc73801f8d
+│ │ │ +3efad23b40f540436854b63ffef8438a9be61ef2753fb072e54ae9b74abfa770
+│ │ │ +879cdc699ab935ab3d32b4cc25d139750d51219fbfbbefbe3bacaff292f255f7
+│ │ │ +20700cd755ae5c398f1e3474435d7c1a5250cbaa55ab5c38eeebb997f4c7315f
+│ │ │ +17860a51df1ad031f59adc18e00fdbf5e1871fba90748a7c167fc4aeb66ddb7a
+│ │ │ +9e713f7bd5555715f94c4917fcf520162d5aa4c8837a4a8f3cf2880b7f885259
+│ │ │ +b14172d1b018ce4bb89a376feeaa51a346c8dd7c346f56e44565a26106faa2f7
+│ │ │ +27547fea61281a12a4afdf70041b22851ecf3cf38c4f72999999527dbb71a72d
+│ │ │ +e913ae109eeaf78ad2c646d145ef087e38159bc5f6eddba5a151ea91862266e6
+│ │ │ +8f730d0adca9dcd493c00f2f17e1ad161a02a3f7907eb7f27aa07d7a978215ab
+│ │ │ +f520cc6a8fa80776ead429c51ff5eae418e387a8e2bafa7e3ac639c480aaa0d8
+│ │ │ +21264a01273a5d34de2757c0bd4fe3d94f3ffdb40bad1702ca2c989bd404e1ce
+│ │ │ +93b6340f50525715bf527c749e356b56302a78eea51ffe534f3de5c2de81e75c
+│ │ │ +493b34f48393e43e3a60fca0921ef57b5d4d10f835efaa59b3a6277d229f922a
+│ │ │ +bda4eb7e33c693448872fc691f3dec5d54c6e2841ac45ab56a299ea50f8b5085
+│ │ │ +e692d47ae0e4bddfe468be4c7eefb061c3fcde17e849b40cf23beedeaf5f3f17
+│ │ │ +f626024d26e4fbcccc9fde1b8c8cabc01327df25522ca940188add8506158a67
+│ │ │ +a95eb08757d2a38aeb562308f9bb65747ba400060f301c9202df7befbd577d4b
+│ │ │ +c8c7251204a54c2f27fdb0e5a0c8f7e94b11ad85c2fe3a9497a22882c0a11af9
+│ │ │ +6d45ee13b1a1359142676ae48d14ea49a8c76ba93243113541c8f1476b0489c8
+│ │ │ +4349b7a4678804e44444f912f111be81c8f7df7fafa803344975112ea1c84b2f
+│ │ │ +bda4480b2d598a4c464d6ad47b29e90bbfc8c4f0024d84cb31a77d1c2e0b1887
+│ │ │ +e2d20ee49a99f9d3c780baecdf7df75d206a4bf760c81e17d5953c8d607bb356
+│ │ │ +25082bb447a61384fb4da02f701c3b5454b4bcd2c9ba07c7c45dd4150e57d404
+│ │ │ +410d2d0d77052364d923d78f26738d96418306297478f2c9274352a12882b8fd
+│ │ │ +f6db756da4d4f540bd4634a70daa0c647125af07eafd84226491264f67f4e8d1
+│ │ │ +452683a6c82e1c1b57dc8f91018abcbfb80b387fe1f3055da54a956287198b4b
+│ │ │ +2fd86b66e64f79d3109a1c779c6b08b60892d5963c0dda4713f580d3b11a4158
+│ │ │ +a93dd293208a7594c34a5408c5bac12e23e0b8afdf492672cec2864cf203a0c9
+│ │ │ +2cb2c3d74a6832f8a1871e0a2a399ac0968b3c768ffcbc9efb38f6af489e56e1
+│ │ │ +d34ac8cf8242fde2cbaa55923ee9fcef7fff539ca3095ab2410f46d4f5469395
+│ │ │ +c1be1bf4defdf9e79f8a6c29f44b5182f355921f8cfcba7a825b7eadb87d9af0
+│ │ │ +563b8d929db916fe24c5e5ebbe6666fe146e47bd381885ff0f56c8a8a562c58a
+│ │ │ +8ac7e8dd1555446d8f82c53b2882a0c44b972e2d59321c3a74480a03ae6e84e9
+│ │ │ +1e220ab27820ab97a2d690a0fb8211f2960d56f02b4ff10845a7355ad41636e4
+│ │ │ +cca6859043dedcb97335770294eb468df86fbffd263f25393f294e0470404e7a
+│ │ │ +72a1f783de9f6044bd30103536b49c6d7142d64c72c1611185759bfc5a71fbb4
+│ │ │ +bcae5cd0002160072bf973a1ee9b993f5904ca859c40d5deeaf2eb45ed9363a0
+│ │ │ +fa4381acddc8d24b4411b53d0a16ebe05bdd7f72a0af271cc2917a14e8b4e637
+│ │ │ +eefef2e5cb81c27304db18045b88a2ee27933bb9607f567e68c83e4ed22af241
+│ │ │ +8b0fc571a807146e9d4c2af5946ddbb6293ca429af921a657ffa5063aefe7a54
+│ │ │ +9b0dfb7b4e7e4efdf57fcd35d7480ba4c8ef51ef530f43debb22b34bf2fe0d46
+│ │ │ +8824e93d960b995acbd3955fd37adfecfcd51f08e4211f4ae348b89017b95ce8
+│ │ │ +b74011102245acd01e058b75b17e10812446a104685d60ea42befaeaab92af01
+│ │ │ +d99cbb857a1064ff8fe69625fea0ddcf68b50df545d6227ff283a0ae39ad8dac
+│ │ │ +8790edb9de8256483e59a0a35c488d23f9cec88508022d80e4a78adca7184f64
+│ │ │ +5b2f176ae8d1cc567ecaef3ef926505db88542a40c1c38d07d58e29686b628c6
+│ │ │ +905cc8e7c62831337ffaa0225b7fb9d4ae5d5b7e18d4bebf67fffefb6fa01e59
+│ │ │ +248899ed51a8f86ad6cad0b2a393264d02f4f483abafbe5a11c309fd12e08517
+│ │ │ +5e90e62e4255d48acf51bc238a83427162a8978493f31221a059a01466da8c1e
+│ │ │ +8b9638a91b464a5b4efee1e445f1ab02151a5e5263497887d233a5d841686c01
+│ │ │ +81122cd5a55a8c240833f34f4b4bf31902f2d7c8abf129ea986252d15093fc63
+│ │ │ +c1ace09a45e9c8e79508684610ee64c98b941a4d1a02917f7d107950b0380a32
+│ │ │ +27b250b7f8fffeefff002daa7cbcab452e973fddf5fcf1aa277dfde5ef3ea71e
+│ │ │ +5e729f0f654bbd3a1a32a2f73310f1376f6524419899bfbffa570f990682a1fc
+│ │ │ +1e221879b0397f1f21f2fb79df5c043427082a0e45ae246b265ab7da2d341945
+│ │ │ +93aa64dd24a2d08f05edf025aba140c338d3572afa889816823c5c9c293aad5c
+│ │ │ +e80b907a825a0806b90b28191aa2a4c94cb95084da60e6006888496e3545c34c
+│ │ │ +811284bac744c30464a8619498993f1913a825dcb253a45fb9f8cb437e9df7cd
+│ │ │ +45401782a022d15835fa002842f4d20a5f221204f51a68dc1abda07d6a8be660
+│ │ │ +8808c952871a3d0c0102e85826c567aa50a18234291ae858bb4fe2269f205351
+│ │ │ +b9d0242f3a4c1a3a9744e18de58d3b1947d0b00b5971052a64928a4e929edb29
+│ │ │ +cd99336706540ef5c422e9b267cf1ecd636a799453ed9899bfba3127d5681895
+│ │ │ +46094215b5a9b9bf3c424d9b9fd31e8190ad98025105235e2a6ef317e04c7183
+│ │ │ +050fe82b9ae655d4e440c1c6c68d1b27adbb4013a6185f4732e323eb1a0ae247
+│ │ │ +563bc17ce55ab0e852e035b95ef4b54793a6468a7a7889883a1872205dd5e6ae
+│ │ │ +188b06c81723105137d0f48cbfc9fb40d20ae51e33f3f717502f9cfaa7858cd4
+│ │ │ +66effef20805277e461f047425085c0b40a1354555154d264c98a058a887f447
+│ │ │ +6f68e94b8a869c6838cdae82e1107c8a261f3ff6b9a8f1091a7fffe5975f14a9
+│ │ │ +aa1749525c2ce280de43f5bb48c34c81883f0cc8fcd72831337fea1dab098a0c
+│ │ │ +3342157a566d6c408b59b15817015d09423d564f432e22098d5d7ff0c1070a95
+│ │ │ +c96497862cb458254e91b0050fc88c54fdb56ea4dd3a79f1ca1da96815ac604c
+│ │ │ +54e590aa7b11fe2ca3e4f7bbf7e99d557bc3ab4d6eddf7eab1353b7f5ca84b51
+│ │ │ +2cb9e189e242000764eda71675faeaeb451dcb2da18aba87cf878f80ae044131
+│ │ │ +f0e5a2f66c965fb3e23e0d25a8cd0cfffdef7f07a5aa7cfc3ca8072d703335c8
+│ │ │ +ea6142728a5413bf5eaaaa8797c8339f26fd431175580ef24fc195d1024aaa77
+│ │ │ +efde8afb30002190e9b6516266feb4c6835c962e5d0ac19828cb9f9d316386fc
+│ │ │ +500ac9a376a054dc203b507fa8046305274b262276d5bdb4700aad2b41d03aca
+│ │ │ +7251bf6cf26b56dcf7376712cc041d59a04c9c38d18a450b58278cddafb89708
+│ │ │ +1343bc2bcee971405663b4d6b35c42195e723f4fbd21f570869a80dcf7aab718
+│ │ │ +2a5c7d4a9a6f92f76e7c6ed0f08499f9d39c9a5ce8830723cbca4f05b44f1ed9
+│ │ │ +6a52a5b85e818a7aa82d148250c7f20a346fd1eea33936ad443782204b11b59b
+│ │ │ +7e302f8456050c271d7f267de4d51b88d00f8986a3d6ad5ba7b85db41ec53df7
+│ │ │ +dce3132603d75306f280d553befdf65b909bd992477438ef0f190ca87b1181ce
+│ │ │ +435078110a312117ea1d63144df929ddf6cdcc9f3e88c822512e184a1d826d84
+│ │ │ +684547b9507ddc7ffffdf253c5eeab1df4c8892f98b866649e4d738672d1f24b
+│ │ │ +5b9eaed1fbea5e5838f3446add752108f270a586452ee44e1fea78a33c1d23f7
+│ │ │ +691945b57b7c208d0afd78c8b495c6d0d512ec0f4bfdbcd1c7e4f98a6b7d28b2
+│ │ │ +a52f676a6cd543888a9bc23c507fddd3129de1ce61a9e721e83d551378516a53
+│ │ │ +f049b5551aaec321f9fb14f58c96e7cdcc1fc3aa2b8a42d648d4b324b3e74084
+│ │ │ +1a67f260970b05fc0bd417869ea3de9ffab7a89e1f94a7efdea78f0caa27d17b
+│ │ │ +f2eef2f8dbaa0382d2d0b86651a391458b14fcda75616032178e1d96b85a993b
+│ │ │ +9179f3e6b9d017c0850551fca1b393fb9680b6ea7508905c027a4e7e937a5539
+│ │ │ +b464915f0e681fbd6615e540272d172df5e94ff065747df2c9ffb777c638d1c3
+│ │ │ +4014deff3820d15250d1720068b900350d353740e20008ae00f7e0105c808a66
+│ │ │ +fef7599a95e3b5bd21bb5296cd585a6ce2c4c93c279eb13df67b35ed70bbbe46
+│ │ │ +da7d9d764cbebfbf6b97778f957c106aecbae7ef335393f5260b7a430e8d0bdb
+│ │ │ +6f59fac6508ec21608b788e345cc3bb86ba07e4a3e93fbfbfbd1c5426f9a3f93
+│ │ │ +a7afafaf4df332a3cbd1309d49c98e3edf4f9cf3fe3208366457efa24b3b4cfb
+│ │ │ +016787e3e4b1d63e4ce28c29e96661b9ebb13ccae3ce4a0e117f06622873c786
+│ │ │ +43698f6acf0bfd712e1769ed5ab19527462ecb268fbc5a91eb635d4639f886fd
+│ │ │ +c6348c1a8f4cc41f34bc90c6f0c1410ea4b1e2d450d088fbf9790c13d86fc3a1
+│ │ │ +54488b939b0f46432df6fefe6ee24c301a9a92790d721d6d3bb28149efa56ee1
+│ │ │ +34a782e099e4bf9e38adf37af5b43c8b12991374aab00f126800d55b320d4525
+│ │ │ +a5a91ea5c9d249243e9a9b49e7b4fea064bd6c6259ee931a945af9102ce565cb
+│ │ │ +8aad9d563d4683a761aec1f55e164611645090e06821ddfae384c58e0f916fe4
+│ │ │ +e1e1c1c42390e4913758f51ebd8373de5f63fe1ba449c88edc5afc6a9abc4e04
+│ │ │ +4ad43bb23d3d3d997ad155aca8df29a17c2fb83f3cf52f2f2f268b39610efd31
+│ │ │ +58dfdcdc0c08a330dad40b1b3ccff9f9f9e8c73894f6a8f5c03545881129cfb1
+│ │ │ +440dfcf3f393de4378c261274476f013c74fabc874bcab209e9f9f0780fac730
+│ │ │ +365697d0b40753f7015a99875221de8b1a2bb39fa76d36cc19cc344c33c0512b
+│ │ │ +ca5b62378fcfad2078300dc95869c5b9bc1e634860d969ce6020b3e713f392f6
+│ │ │ +8226a307d74ee93db6ca977beba06c9ea7c56b5d2b03a308d6c45c9e5a5a9b57
+│ │ │ +1a96722d8f6353a967e7bcbf862e4c433d4d99a873e8875b32a3e86953a60694
+│ │ │ +4f8ddfdaef478fd6d379ac6df153e3a8e1e141fe312908ed963d902d979fde38
+│ │ │ +d8e7c73c7d7676d6ad8eee1cc42e63ccb824723d0bcdfe7260dc99b1ced3d3d3
+│ │ │ +d162302688c78613abb0f5461e6ade5179fea1a691837d916e6f6f37c683fd99
+│ │ │ +d58025f6357dcc7e68232e57a5e727b0ad897a65f9a18d95d083cc5ffe039703
+│ │ │ +f32a7928e73bf2bc32cdfe5a6ae4d29e5cec4dd50a4ca2f6dc81a7aea598f3fe
+│ │ │ +2c368440a83597489db716c3b2e0eeeded6d25e5da826ceb71e620700c282765
+│ │ │ +fd42e646f2c0b70b0b26f34ceae9e4594797164ffc4a94ca55b9d801415aa09a
+│ │ │ +87d38d7a17d5bc74b0a73ed0d858bbe27ae85a062a68ad9d4e4e4e0ca2fa5dc3
+│ │ │ +a1f4205c0e816c9ae8322ce45cde3c0d4f3104ef8ca1e7416e8a836ba60cb91d
+│ │ │ +420f2297e9f3f3d334516965ef28c7234f6b556e1a726058eeebeb2b2f6a9066
+│ │ │ +8826bf8eb4b82306e7ecfa4f399e3e656e8a6790323379e718166af9ccadff45
+│ │ │ +a0658f8f8f7b9169aefbd3ab96d1d4b5e65d7e7902dadddd9dc111beafc0fb23
+│ │ │ +03b489393d99abab2bd32afcc12d8fb907e182c2dd5dceb3795d78cc37cb101c
+│ │ │ +bd691f12f6ebcbf81f0774e1d6804f3f6eab681c2c60161ab1af0a5b4d482924
+│ │ │ +0b9bf8af2d86db2a7871029b8d6145d33bc25340c32969733ef65f6287502cbc
+│ │ │ +2505ac36ac4a2c623cb4f86149828bfff040c10b09ce90630dbc17ecc985eb25
+│ │ │ +6b45d826849e0adf073fa879b1bc4b8f937de131d7fdd97ae5e3e3237173b036
+│ │ │ +81f7819e15edc0c5c5c5eaf2f27225a36a5f62aecba1d9c25b07776b192ba95d
+│ │ │ +e23d832f5dca21e1bd3e796109b650e77bd45c67a22490425fb14dbbfff0281d
+│ │ │ +cba73e5a412c0ce310371008040281c523d09d83583c3a014020100804020b46
+│ │ │ +2014c4822b3f440f04028140a0874028881e3a911708040281c082110805b1e0
+│ │ │ +ca0fd10381402010e821100aa2874ee40502814020b0600442412cb8f243f440
+│ │ │ +201008047a088482e8a1137981402010082c188150100baefc103d1008040281
+│ │ │ +1e02a1207ae8445e20100804020b462014c4822b3f440f04028140a087c07fc0
+│ │ │ +d699339848f1840000000049454e44ae426082
+│ │   --- /workspace/pipeline_output/chromex_data/popup/index.html
+│ ├── +++ /workspace/pipeline_output/shareaccount/popup/index.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,3 +1,164 @@
+│ │ +<!doctype html>
+│ │ +<html>
+│ │ +  <head>
+│ │ +    <title>ShareAccount</title>
+│ │ +
+│ │ +    <link rel="stylesheet" href="css/vendor/balloon.min.css">
+│ │ +    <link rel="stylesheet" href="css/styles.css">
+│ │ +  </head>
+│ │ +  <body class="body">
+│ │ +
+│ │ +    <div id="app" class="app"></div>
+│ │ +
+│ │ +
+│ │ +    <template id="js-template-menu">
+│ │ +      <div class="menu-app-logo">
+│ │ +        <a href="https://shareaccount.nicosantangelo.com" target="_blank">
+│ │ +          <img src="./images/header-logo.png" alt="Share Account logo" width="110">
+│ │ +        </a>
+│ │ +      </div>
+│ │ +
+│ │ +      <section class="menu">
+│ │ +        <button class="btn"     data-menu="share">Share account</button>
+│ │ +        <button class="m-t btn" data-menu="restore">Receive account</button>
+│ │ +        <button class="m-t btn" data-menu="history">Share history</button>
+│ │ +      </section>
+│ │ +    </template>
+│ │ +
+│ │ +
+│ │ +    <template id="js-template-share">
+│ │ +      <section class="share">
+│ │ +        <div class="title">Current Account</div>
+│ │ +        <div class="explanation">You're about to share your <i>"{{=tab.title}}"</i> session.</div>
+│ │ +
+│ │ +        <form action="/" id="js-share-session" class="m-t">
+│ │ +          <div class="small">Recipient code <span class="link" data-balloon="Paste the code of the person you want to share your extension with. It can be found on the 'Receive account' seccion." data-balloon-length="medium-xl" data-balloon-pos="right">?</span></div>
+│ │ +
+│ │ +          <div class="input-container">
+│ │ +            <input type="text" name="pubkey" value="" placeholder="Code of the computer you're sharing with" autocomplete="off" required />
+│ │ +          </div>
+│ │ +
+│ │ +          <div class="small">Timeout in hours <span class="link" data-balloon="Explanation." data-balloon-length="medium" data-balloon-pos="right">?</span></div>
+│ │ +
+│ │ +          <div class="input-container timeout-container">
+│ │ +            <input type="number" name="timeout" value="" min="1" placeholder="It'll last a week by default." autocomplete="off" />
+│ │ +            <div id="js-expires-on" class="expires-on"></div>
+│ │ +          </div>
+│ │ +
+│ │ +          <div class="flex-container">
+│ │ +            <div class="js-go-back go-back link">&lsaquo; back</div>
+│ │ +            <input type="submit" name="submit" class="btn pull-right" value="Share" disabled />
+│ │ +          </div>
+│ │ +        </form>
+│ │ +
+│ │ +        <div id="js-shared-session" class="shared-session hidden">
+│ │ +          <div class="small">Share result <span class="link" data-balloon="Share this text with the owner of the code" data-balloon-length="medium" data-balloon-pos="right">?</span> <span id="js-session-hide" class="link delete">x</span></div>
+│ │ +
+│ │ +          <pre id="js-shared-session-text" class="encrypted-data share-result"></pre>
+│ │ +
+│ │ +          <div class="action-icon" data-clipboard data-clipboard-target="#js-shared-session-text" data-balloon="Copy encryption" data-balloon-pos="right"><img src="./images/copy.svg" alt="Copy encryption" width="12" /></div>
+│ │ +
+│ │ +          <div class="m-t-sm">
+│ │ +            <div class="small m-b-xs">or, share this link:</div>
+│ │ +
+│ │ +            <div id="js-share-text-link" class="share-text-link share-result">Creating link...</div>
+│ │ +
+│ │ +            <div id="js-share-text-actions" class="hidden">
+│ │ +              <div class="action-icon" data-balloon="Copy link" data-balloon-pos="right" data-clipboard data-clipboard-target="#js-share-text-link">
+│ │ +                <img src="./images/copy.svg" alt="Copy link" width="12" />
+│ │ +              </div>
+│ │ +              <small>
+│ │ +                &nbsp;
+│ │ +                <span class="link" data-balloon="The site contains the share result. It'll be deleted in 10 minutes or upon the first viewing."  data-balloon-pos="right" data-balloon-length="large" data-balloon-pos="top">?</span>
+│ │ +              </small>
+│ │ +            </div>
+│ │ +          </div>
+│ │ +        </div>
+│ │ +      </section>
+│ │ +
+│ │ +      <div id="js-error" class="error hidden"></div>
+│ │ +    </template>
+│ │ +
+│ │ +
+│ │ +    <template id="js-template-restore">
+│ │ +      <section class="restore">
+│ │ +        <div class="title">Receive account</div>
+│ │ +        <div class="explanation">Share your code with the account owner and paste the text he shares with you below</div>
+│ │ +
+│ │ +        <div class="your-code">
+│ │ +          <div class="small">Your code</div>
+│ │ +          <input id="js-user-pubkey" name="pubkey" type="text" value="{{=publicKey}}" readonly />
+│ │ +          <div class="action-icon" data-balloon="Copy code" data-clipboard data-clipboard-target="#js-user-pubkey"><img src="./images/copy.svg" alt="Copy code" width="12" /></div>
+│ │ +
+│ │ +          <div id="js-regenerate-keys" class="action-icon" data-balloon="Regenerate code. Remember that by regenerating your code you'll loose your current one forever, so you won't be able or regenerate old shares." data-balloon-length="large" data-balloon-pos="left"><img src="./images/refresh.svg" alt="Regenerate code" width="12" /></div>
+│ │ +        </div>
+│ │ +
+│ │ +        <form action="/" id="js-restore-session" class="m-t">
+│ │ +          <div>
+│ │ +            <div class="small">Share result <span class="link" data-balloon="Paste the share result here. If you gave the sender your code, you'll be the only one able to decrypt it." data-balloon-length="medium" data-balloon-pos="right">?</span></div>
+│ │ +
+│ │ +            <textarea name="encrypted-data" placeholder='For example: {"iv":"C+Qfxtx6UM6YkQ7glsVsLg==", "v":1, "iter":10000, "ks":128, "ts":64, "mode":"ccm", "adata":"", "cipher":"aes", "kemtag":"dJN3vJbV4C", "ct":"psRDxcWb"}
+│ │ +
+│ │ +Remember that the session might end at any time.' rows="10"></textarea>
+│ │ +            <div id="js-restore-notice" class="explanation"></div>
+│ │ +          </div>
+│ │ +
+│ │ +          <div class="restore-session-actions flex-container">
+│ │ +            <div class="js-go-back go-back link">&lsaquo; back</div>
+│ │ +            <input type="submit" name="submit" class="btn pull-right" value="Receive" disabled />
+│ │ +          </div>
+│ │ +        </form>
+│ │ +      </section>
+│ │ +
+│ │ +      <div id="js-error" class="error hidden"></div>
+│ │ +    </template>
+│ │ +
+│ │ +
+│ │ +    <template id="js-template-history">
+│ │ +      <section class="history">
+│ │ +        <div class="title">Shared accounts</div>
+│ │ +        <div class="explanation">We only keep track of URLs and titles and only for a month, nothing else is stored</div>
+│ │ +
+│ │ +        <div class="sessions">
+│ │ +          {{hasSessions}}
+│ │ +            {{@sessions}}
+│ │ +              <h5>Shared on {{=_key}} <span class="link delete js-delete" data-key="{{=_key}}">x</span></h5>
+│ │ +              <ul>
+│ │ +                {{@_val}}
+│ │ +                  <li>
+│ │ +                    <a class="session-url" href="{{=_val.url}}" target="_blank">{{=_val.title}}</a>
+│ │ +                  </li>
+│ │ +                {{/@_val}}
+│ │ +              </ul>
+│ │ +            {{/@sessions}}
+│ │ +          {{:hasSessions}}
+│ │ +            <div class="small">No shared accounts yet</div>
+│ │ +          {{/hasSessions}}
+│ │ +        </div>
+│ │ +
+│ │ +        <div class="js-go-back go-back link">&lsaquo; back</div>
+│ │ +      </section>
+│ │ +
+│ │ +      <div id="js-error" class="error hidden"></div>
+│ │ +    </template>
+│ │ +
+│ │ +
+│ │ +    <script src="js/vendor/clipboard.min.js"></script>
+│ │ +    <script src="js/vendor/sjcl.min.js"></script>
+│ │ +    <script src="js/vendor/_t.min.js"></script>
+│ │ +    <script async src="js/vendor/base64.min.js"></script>
+│ │ +    <script async src="js/vendor/rawdeflate.min.js"></script>
+│ │ +
+│ │ +    <script src="js/log.js"></script>
+│ │ +    <script src="js/http.js"></script>
+│ │ +    <script src="js/configuration.js"></script>
+│ │ +    <script src="js/cryptography.js"></script>
+│ │ +    <script async src="js/shareText.js"></script>
+│ │ +    <script async src="js/cookieManager.js"></script>
+│ │ +
+│ │ +    <script src="js/main.js"></script>
+│ │ +
+│ │ +    <script async src="js/analytics.js"></script>
+│ │ +  </body>
+│ │ +</html>
+│ │ -<!doctype html><html><head><title>ShareAccount</title><link rel="stylesheet" href="css/vendor/balloon.min.css"><link rel="stylesheet" href="css/styles.css"></head><body class="body"><div id="app" class="app"></div><template id="js-template-menu"><div class="menu-app-logo"><a href="https://shareaccount.nicosantangelo.com" target="_blank"><img src="./images/header-logo.png" alt="Share Account logo" width="110"></a></div><section class="menu"><button class="btn" data-menu="share">Share account</button> <button class="m-t btn" data-menu="restore">Receive account</button> <button class="m-t btn" data-menu="history">Share history</button></section></template><template id="js-template-share"><section class="share"><div class="title">Current Account</div><div class="explanation">You're about to share your <i>"{{=tab.title}}"</i> session.</div><form action="/" id="js-share-session" class="m-t"><div class="small">Recipient code <span class="link" data-balloon="Paste the code of the person you want to share your extension with. It can be found on the 'Receive account' seccion." data-balloon-length="medium-xl" data-balloon-pos="right">?</span></div><div class="input-container"><input type="text" name="pubkey" value="" placeholder="Code of the computer you're sharing with" autocomplete="off" required></div><div class="small">Timeout in hours <span class="link" data-balloon="Explanation." data-balloon-length="medium" data-balloon-pos="right">?</span></div><div class="input-container timeout-container"><input type="number" name="timeout" value="" min="1" placeholder="It'll last a week by deafult." autocomplete="off"><div id="js-expires-on" class="expires-on"></div></div><div class="flex-container"><div class="js-go-back go-back link">&lsaquo; back</div><input type="submit" name="submit" class="btn pull-right" value="Share" disabled="disabled"></div></form><div id="js-shared-session" class="shared-session hidden"><div class="small">Share result <span class="link" data-balloon="Share this text with the owner of the code" data-balloon-length="medium" data-balloon-pos="right">?</span> <span id="js-session-hide" class="link delete">x</span></div><pre id="js-shared-session-text" class="encrypted-data share-result"></pre><div class="action-icon" data-clipboard data-clipboard-target="#js-shared-session-text" data-balloon="Copy encryption" data-balloon-pos="right"><img src="./images/copy.svg" alt="Copy encryption" width="12"></div><div class="m-t-sm"><div class="small m-b-xs">or, share this link:</div><div id="js-share-text-link" class="share-text-link share-result">Creating link...</div><div id="js-share-text-actions" class="hidden"><div class="action-icon" data-balloon="Copy link" data-balloon-pos="right" data-clipboard data-clipboard-target="#js-share-text-link"><img src="./images/copy.svg" alt="Copy link" width="12"></div><small>&nbsp; <span class="link" data-balloon="The site contains the share result. It'll be deleted in 10 minutes or upon the first viewing." data-balloon-pos="right" data-balloon-length="large" data-balloon-pos="top">?</span></small></div></div></div></section><div id="js-error" class="error hidden"></div></template><template id="js-template-restore"><section class="restore"><div class="title">Receive account</div><div class="explanation">Share your code with the account owner and paste the text he shares with you below</div><div class="your-code"><div class="small">Your code</div><input id="js-user-pubkey" name="pubkey" type="text" value="{{=publicKey}}" readonly="readonly"><div class="action-icon" data-balloon="Copy code" data-clipboard data-clipboard-target="#js-user-pubkey"><img src="./images/copy.svg" alt="Copy code" width="12"></div><div id="js-regenerate-keys" class="action-icon" data-balloon="Regenerate code. Remember that by regenerating your code you'll loose your current one forever, so you won't be able or regenerate old shares." data-balloon-length="large" data-balloon-pos="left"><img src="./images/refresh.svg" alt="Regenerate code" width="12"></div></div><form action="/" id="js-restore-session" class="m-t"><div><div class="small">Share result <span class="link" data-balloon="Paste the share result here. If you gave the sender your code, you'll be the only one able to decrypt it." data-balloon-length="medium" data-balloon-pos="right">?</span></div><textarea name="encrypted-data" placeholder='For example: {"iv":"C+Qfxtx6UM6YkQ7glsVsLg==", "v":1, "iter":10000, "ks":128, "ts":64, "mode":"ccm", "adata":"", "cipher":"aes", "kemtag":"dJN3vJbV4C", "ct":"psRDxcWb"}
+│ │  
+│ │ -Remember that the session might end at any time.' rows="10"></textarea><div id="js-restore-notice" class="explanation"></div></div><div class="restore-session-actions flex-container"><div class="js-go-back go-back link">&lsaquo; back</div><input type="submit" name="submit" class="btn pull-right" value="Receive" disabled="disabled"></div></form></section><div id="js-error" class="error hidden"></div></template><template id="js-template-history"><section class="history"><div class="title">Shared accounts</div><div class="explanation">We only keep track of URLs and titles and only for a month, nothing else is stored</div><div class="sessions">{{hasSessions}} {{@sessions}}<h5>Shared on {{=_key}} <span class="link delete js-delete" data-key="{{=_key}}">x</span></h5><ul>{{@_val}}<li><a class="session-url" href="{{=_val.url}}" target="_blank">{{=_val.title}}</a></li>{{/@_val}}</ul>{{/@sessions}} {{:hasSessions}}<div class="small">No shared accounts yet</div>{{/hasSessions}}</div><div class="js-go-back go-back link">&lsaquo; back</div></section><div id="js-error" class="error hidden"></div></template><script src="js/vendor/clipboard.min.js"></script><script src="js/vendor/sjcl.min.js"></script><script src="js/vendor/_t.min.js"></script><script async src="js/vendor/base64.min.js"></script><script async src="js/vendor/rawdeflate.min.js"></script><script src="js/log.js"></script><script src="js/http.js"></script><script src="js/configuration.js"></script><script src="js/cryptography.js"></script><script async src="js/shareText.js"></script><script async src="js/cookieManager.js"></script><script src="js/main.js"></script><script async src="js/analytics.js"></script></body></html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/js
+│ ├── +++ /workspace/pipeline_output/shareaccount/popup/js
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/analytics.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/analytics.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,11 +1,30 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ -    ! function(e, t, a, n, c, o, s) {
+│ │ │ │ -        e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
+│ │ │ │ -            (e[c].q = e[c].q || []).push(arguments)
+│ │ │ │ -        }, e[c].l = 1 * new Date, o = t.createElement(a), s = t.getElementsByTagName(a)[0], o.async = 1, o.src = "https://www.google-analytics.com/analytics.js", s.parentNode.insertBefore(o, s)
+│ │ │ │ -    }(window, document, "script", 0, "ga"), ga("create", "UA-107288515-2", "auto"), ga("set", "checkProtocolTask", function() {}), ga("require", "displayfeatures"), ga("send", "pageview", {
+│ │ │ │ +/* globals ga */
+│ │ │ │ +
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │ +
+│ │ │ │ +    const TRACK_ID = ''
+│ │ │ │ +
+│ │ │ │ +    ;
+│ │ │ │ +    (function(i, s, o, g, r, a, m) {
+│ │ │ │ +        i['GoogleAnalyticsObject'] = r;
+│ │ │ │ +        i[r] = i[r] || function() {
+│ │ │ │ +            (i[r].q = i[r].q || []).push(arguments)
+│ │ │ │ +        }, i[r].l = 1 * new Date();
+│ │ │ │ +        a = s.createElement(o),
+│ │ │ │ +            m = s.getElementsByTagName(o)[0];
+│ │ │ │ +        a.async = 1;
+│ │ │ │ +        a.src = g;
+│ │ │ │ +        m.parentNode.insertBefore(a, m)
+│ │ │ │ +    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
+│ │ │ │ +
+│ │ │ │ +    ga('create', TRACK_ID, 'auto')
+│ │ │ │ +
+│ │ │ │ +    ga('set', 'checkProtocolTask', function() {}) // Removes failing protocol check. @see: http://stackoverflow.com/a/22152353/1958200
+│ │ │ │ +    ga('require', 'displayfeatures')
+│ │ │ │ +
+│ │ │ │ +    ga('send', 'pageview', {
+│ │ │ │          title: document.title,
+│ │ │ │          page: document.URL
+│ │ │ │      })
+│ │ │ │ -}();
+│ │ │ │ +})()
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/configuration.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/configuration.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,38 +1,65 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ -    var n = {
+│ │ │ │ -            publicKey: null,
+│ │ │ │ -            privateKey: null,
+│ │ │ │ -            sessions: {},
+│ │ │ │ -            hasSessions: !1
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │ +
+│ │ │ │ +    var DEFAULT_CONFIGURATION = {
+│ │ │ │ +        publicKey: null,
+│ │ │ │ +        privateKey: null,
+│ │ │ │ +
+│ │ │ │ +        sessions: {}, // { time: [{url, title}] }
+│ │ │ │ +        hasSessions: false
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    var configuration = {
+│ │ │ │ +        DEFAULT: DEFAULT_CONFIGURATION,
+│ │ │ │ +
+│ │ │ │ +        forEachDefault: function(callback) {
+│ │ │ │ +            for (var prop in DEFAULT_CONFIGURATION) {
+│ │ │ │ +                callback(prop, DEFAULT_CONFIGURATION[prop])
+│ │ │ │ +            }
+│ │ │ │          },
+│ │ │ │ -        o = {
+│ │ │ │ -            DEFAULT: n,
+│ │ │ │ -            forEachDefault: function(o) {
+│ │ │ │ -                for (var t in n) o(t, n[t])
+│ │ │ │ -            },
+│ │ │ │ -            get: function(o, t) {
+│ │ │ │ -                "function" == typeof o ? (t = o, chrome.storage.local.get(n, t)) : chrome.storage.local.get(o, function(e) {
+│ │ │ │ -                    let c = [],
+│ │ │ │ -                        i = {};
+│ │ │ │ -                    "string" == typeof o ? i[o] = null : i = Object.assign({}, o), c = Object.keys(i).map(function(o) {
+│ │ │ │ -                        return e[o] || n[o]
+│ │ │ │ -                    }), t.apply(null, c)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            set: function(n, o) {
+│ │ │ │ -                chrome.storage.local.set(n, o)
+│ │ │ │ -            },
+│ │ │ │ -            onChanged: function(n) {
+│ │ │ │ -                chrome.storage.onChanged.addListener(function(o, t) {
+│ │ │ │ -                    n(o)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            forEachCurrent: function(n) {
+│ │ │ │ -                o.get(function(o) {
+│ │ │ │ -                    for (var t in o) n(t, o[t])
+│ │ │ │ +
+│ │ │ │ +        get: function(search, callback) {
+│ │ │ │ +            if (typeof search === 'function') {
+│ │ │ │ +                callback = search
+│ │ │ │ +                chrome.storage.local.get(DEFAULT_CONFIGURATION, callback)
+│ │ │ │ +            } else {
+│ │ │ │ +                chrome.storage.local.get(search, function(result) {
+│ │ │ │ +                    let values = []
+│ │ │ │ +                    let keys = {}
+│ │ │ │ +
+│ │ │ │ +                    if (typeof search === 'string') {
+│ │ │ │ +                        keys[search] = null
+│ │ │ │ +                    } else {
+│ │ │ │ +                        keys = Object.assign({}, search)
+│ │ │ │ +                    }
+│ │ │ │ +
+│ │ │ │ +                    values = Object.keys(keys).map(function(name) {
+│ │ │ │ +                        return result[name] || DEFAULT_CONFIGURATION[name]
+│ │ │ │ +                    })
+│ │ │ │ +
+│ │ │ │ +                    callback.apply(null, values)
+│ │ │ │                  })
+│ │ │ │              }
+│ │ │ │ -        };
+│ │ │ │ -    window.configuration = o
+│ │ │ │ -}();
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        set: function(values, callback) {
+│ │ │ │ +            chrome.storage.local.set(values, callback)
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        onChanged: function(callback) {
+│ │ │ │ +            chrome.storage.onChanged.addListener(function(changes, namespace) {
+│ │ │ │ +                callback(changes)
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        forEachCurrent: function(callback) {
+│ │ │ │ +            configuration.get(function(config) {
+│ │ │ │ +                for (var prop in config) {
+│ │ │ │ +                    callback(prop, config[prop])
+│ │ │ │ +                }
+│ │ │ │ +            })
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    window.configuration = configuration
+│ │ │ │ +})()
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/cookieManager.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/cookieManager.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,38 +1,49 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │  
+│ │ │ │ -    function t(t, n) {
+│ │ │ │ -        let e = {};
+│ │ │ │ -        return n.forEach(n => e[n] = t[n]), e
+│ │ │ │ +    const properties = [
+│ │ │ │ +        'name', 'domain', 'value', 'path', 'secure', 'httpOnly', 'expirationDate'
+│ │ │ │ +    ]
+│ │ │ │ +
+│ │ │ │ +    const cookieManager = {
+│ │ │ │ +        get: function(url, callback) {
+│ │ │ │ +            chrome.cookies.getAll({
+│ │ │ │ +                url
+│ │ │ │ +            }, function(cookies) {
+│ │ │ │ +                let newCookies = cookies.map(cookie => pick(cookie, properties))
+│ │ │ │ +                callback(newCookies)
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        setExpirationDate: function(cookies, expirationTime) {
+│ │ │ │ +            const expirationDate = toUNIX(expirationTime || Date.now())
+│ │ │ │ +
+│ │ │ │ +            return cookies.map(cookie => Object.assign(cookie, {
+│ │ │ │ +                expirationDate
+│ │ │ │ +            }))
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        set: function(url, cookies) {
+│ │ │ │ +            cookies.forEach(function(cookie) {
+│ │ │ │ +                let newCookie = Object.assign({
+│ │ │ │ +                    url
+│ │ │ │ +                }, pick(cookie, properties))
+│ │ │ │ +                chrome.cookies.set(newCookie)
+│ │ │ │ +            })
+│ │ │ │ +        }
+│ │ │ │      }
+│ │ │ │  
+│ │ │ │ -    function n(t) {
+│ │ │ │ -        return t / 1e3
+│ │ │ │ +
+│ │ │ │ +    function pick(base, properties) {
+│ │ │ │ +        let newObject = {}
+│ │ │ │ +        properties.forEach(key => newObject[key] = base[key])
+│ │ │ │ +
+│ │ │ │ +        return newObject
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function toUNIX(time) {
+│ │ │ │ +        return time / 1000
+│ │ │ │      }
+│ │ │ │ -    const e = ["name", "domain", "value", "path", "secure", "httpOnly", "expirationDate"],
+│ │ │ │ -        o = {
+│ │ │ │ -            get: function(n, o) {
+│ │ │ │ -                chrome.cookies.getAll({
+│ │ │ │ -                    url: n
+│ │ │ │ -                }, function(n) {
+│ │ │ │ -                    let i = n.map(n => t(n, e));
+│ │ │ │ -                    o(i)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            setExpirationDate: function(t, e) {
+│ │ │ │ -                const o = n(e || Date.now());
+│ │ │ │ -                return t.map(t => Object.assign(t, {
+│ │ │ │ -                    expirationDate: o
+│ │ │ │ -                }))
+│ │ │ │ -            },
+│ │ │ │ -            set: function(n, o) {
+│ │ │ │ -                o.forEach(function(o) {
+│ │ │ │ -                    let i = Object.assign({
+│ │ │ │ -                        url: n
+│ │ │ │ -                    }, t(o, e));
+│ │ │ │ -                    chrome.cookies.set(i)
+│ │ │ │ -                })
+│ │ │ │ -            }
+│ │ │ │ -        };
+│ │ │ │ -    window.cookieManager = o
+│ │ │ │ -}();
+│ │ │ │ +
+│ │ │ │ +    window.cookieManager = cookieManager
+│ │ │ │ +})()
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/cryptography.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/cryptography.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,39 +1,57 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ +/* global sjcl */
+│ │ │ │  
+│ │ │ │ -    function e(e) {
+│ │ │ │ -        return t.fromBits(e.x.concat(e.y))
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │ +
+│ │ │ │ +    // Thin wrapper around Standford Javascript Crypto Lib to provide a more generic interface.
+│ │ │ │ +
+│ │ │ │ +    // We'll serialize/deserialize binary objects using HEX:
+│ │ │ │ +    const codec = sjcl.codec.hex
+│ │ │ │ +
+│ │ │ │ +    // We'll use elliptic curves for asymmetric cryptography, with the k256 curve:
+│ │ │ │ +    const curve = sjcl.ecc.curves.k256
+│ │ │ │ +
+│ │ │ │ +    const scheme = sjcl.ecc.elGamal
+│ │ │ │ +
+│ │ │ │ +
+│ │ │ │ +    const cryptography = {
+│ │ │ │ +        encrypt: function(secret, plainText, options = {}) {
+│ │ │ │ +            return sjcl.encrypt(secret, plainText, options) // use all defaults
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        decrypt: function(secret, cipherText, options = {}) {
+│ │ │ │ +            return sjcl.decrypt(secret, cipherText, options) // use all defaults
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        createKeys: function() {
+│ │ │ │ +            const pair = scheme.generateKeys(curve)
+│ │ │ │ +
+│ │ │ │ +            return {
+│ │ │ │ +                privateKey: encodePrivateKey(pair.sec.get()),
+│ │ │ │ +                publicKey: encodePublicKey(pair.pub.get())
+│ │ │ │ +            }
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        randomkey: function() {
+│ │ │ │ +            return sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 0), 0)
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        decodePublicKey: function(text) {
+│ │ │ │ +            return new scheme.publicKey(curve, codec.toBits(text))
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        decodePrivateKey: function(text) {
+│ │ │ │ +            return new scheme.secretKey(curve, curve.field.fromBits(codec.toBits(text)))
+│ │ │ │ +        }
+│ │ │ │      }
+│ │ │ │  
+│ │ │ │ -    function c(e) {
+│ │ │ │ -        return t.fromBits(e)
+│ │ │ │ +    function encodePublicKey(pub) {
+│ │ │ │ +        return codec.fromBits(pub.x.concat(pub.y))
+│ │ │ │      }
+│ │ │ │ -    const t = sjcl.codec.hex,
+│ │ │ │ -        n = sjcl.ecc.curves.k256,
+│ │ │ │ -        r = sjcl.ecc.elGamal,
+│ │ │ │ -        o = {
+│ │ │ │ -            encrypt: function(e, c, t = {}) {
+│ │ │ │ -                return sjcl.encrypt(e, c, t)
+│ │ │ │ -            },
+│ │ │ │ -            decrypt: function(e, c, t = {}) {
+│ │ │ │ -                return sjcl.decrypt(e, c, t)
+│ │ │ │ -            },
+│ │ │ │ -            createKeys: function() {
+│ │ │ │ -                const t = r.generateKeys(n);
+│ │ │ │ -                return {
+│ │ │ │ -                    privateKey: c(t.sec.get()),
+│ │ │ │ -                    publicKey: e(t.pub.get())
+│ │ │ │ -                }
+│ │ │ │ -            },
+│ │ │ │ -            randomkey: function() {
+│ │ │ │ -                return sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 0), 0)
+│ │ │ │ -            },
+│ │ │ │ -            decodePublicKey: function(e) {
+│ │ │ │ -                return new r.publicKey(n, t.toBits(e))
+│ │ │ │ -            },
+│ │ │ │ -            decodePrivateKey: function(e) {
+│ │ │ │ -                return new r.secretKey(n, n.field.fromBits(t.toBits(e)))
+│ │ │ │ -            }
+│ │ │ │ -        };
+│ │ │ │ -    window.cryptography = o
+│ │ │ │ -}();
+│ │ │ │ +
+│ │ │ │ +    function encodePrivateKey(sec) {
+│ │ │ │ +        return codec.fromBits(sec)
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    window.cryptography = cryptography
+│ │ │ │ +})()
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/http.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/http.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,16 +1,35 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ -    window.http = function(e, s) {
+│ │ │ │ -        const t = new XMLHttpRequest;
+│ │ │ │ -        if (t.onreadystatechange = function(s) {
+│ │ │ │ -                if (4 === t.readyState)
+│ │ │ │ -                    if (t.status >= 400) e.error && e.error(t.responseText, t);
+│ │ │ │ -                    else {
+│ │ │ │ -                        const s = e.json ? JSON.parse(t.responseText) : t.responseText;
+│ │ │ │ -                        e.success && e.success(s, t)
+│ │ │ │ -                    }
+│ │ │ │ -            }, t.open(e.method, e.url, !0), e.json && (e.headers = e.headers || {}, e.headers["Content-Type"] = "application/json", e.data = JSON.stringify(e.data || null)), e.headers)
+│ │ │ │ -            for (const s in e.headers) t.setRequestHeader(s, e.headers[s]);
+│ │ │ │ -        t.send(e.data)
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │ +
+│ │ │ │ +    window.http = function(options, success) {
+│ │ │ │ +        const xmlhttp = new XMLHttpRequest()
+│ │ │ │ +
+│ │ │ │ +        xmlhttp.onreadystatechange = function(result) {
+│ │ │ │ +            if (xmlhttp.readyState === 4) {
+│ │ │ │ +                if (xmlhttp.status >= 400) {
+│ │ │ │ +                    options.error && options.error(xmlhttp.responseText, xmlhttp)
+│ │ │ │ +                } else {
+│ │ │ │ +                    const response = options.json ? JSON.parse(xmlhttp.responseText) : xmlhttp.responseText
+│ │ │ │ +                    options.success && options.success(response, xmlhttp)
+│ │ │ │ +                }
+│ │ │ │ +            }
+│ │ │ │ +        }
+│ │ │ │ +
+│ │ │ │ +        xmlhttp.open(options.method, options.url, true)
+│ │ │ │ +
+│ │ │ │ +        if (options.json) {
+│ │ │ │ +            options.headers = options.headers || {}
+│ │ │ │ +            options.headers['Content-Type'] = 'application/json'
+│ │ │ │ +            options.data = JSON.stringify(options.data || null)
+│ │ │ │ +        }
+│ │ │ │ +
+│ │ │ │ +        if (options.headers) {
+│ │ │ │ +            for (const header in options.headers) {
+│ │ │ │ +                xmlhttp.setRequestHeader(header, options.headers[header])
+│ │ │ │ +            }
+│ │ │ │ +        }
+│ │ │ │ +
+│ │ │ │ +        xmlhttp.send(options.data)
+│ │ │ │      }
+│ │ │ │ -}();
+│ │ │ │ +
+│ │ │ │ +})()
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/log.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/log.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1 +1,2 @@
+│ │ │ │ -window.log = console.log.bind(console, "[ShareAccount]");
+│ │ │ │ +// Easy access to log functions to be disabled on build
+│ │ │ │ +window.log = console.log.bind(console, '[ShareAccount]')
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/main.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/main.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,300 +1,496 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ +/* globals log, configuration, Clipboard, shareText, cryptography, cookieManager, _t */
+│ │ │ │  
+│ │ │ │ -    function t(t) {
+│ │ │ │ -        e(e => configuration.get(n => d.render(t, Object.assign({
+│ │ │ │ -            tab: e
+│ │ │ │ -        }, n))))
+│ │ │ │ -    }
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │  
+│ │ │ │ -    function e(t) {
+│ │ │ │ -        chrome.tabs.query({
+│ │ │ │ -            active: !0,
+│ │ │ │ -            currentWindow: !0
+│ │ │ │ -        }, function(e) {
+│ │ │ │ -            t(e[0])
+│ │ │ │ -        })
+│ │ │ │ -    }
+│ │ │ │ +    // --------------------------------------------------------------------
+│ │ │ │ +    // Main objects
+│ │ │ │  
+│ │ │ │ -    function n(t) {
+│ │ │ │ -        let e = l("js-error");
+│ │ │ │ -        e.innerHTML = t, c(e, "className", "error", 4500)
+│ │ │ │ -    }
+│ │ │ │ +    const template = {
+│ │ │ │ +        render: function(name, data) {
+│ │ │ │ +            log('[Template] Rendering', name, ' with data', data)
+│ │ │ │  
+│ │ │ │ -    function r(t, e, n) {
+│ │ │ │ -        let r = document.querySelectorAll(t);
+│ │ │ │ -        r.length || log("[WARN] Could not find an element for selector " + t);
+│ │ │ │ -        for (let t = 0; t < r.length; t++) r[t].addEventListener(e, o(n), !1)
+│ │ │ │ -    }
+│ │ │ │ +            let template = this.get(name)
+│ │ │ │ +            getElementById('app').innerHTML = template.render(data || {})
+│ │ │ │ +            events.attach(name)
+│ │ │ │ +        },
+│ │ │ │  
+│ │ │ │ -    function i(t, e) {
+│ │ │ │ -        let n = t.elements;
+│ │ │ │ -        for (let t = 0; t < n.length; t++)
+│ │ │ │ -            if (n[t].name === e) return n[t]
+│ │ │ │ -    }
+│ │ │ │ +        get: function(name) {
+│ │ │ │ +            let id = 'js-template-' + name
+│ │ │ │ +            let templateEl = getElementById(id)
+│ │ │ │ +            if (!templateEl) throw new Error('Whoops! template ' + id + ' does not exist')
+│ │ │ │  
+│ │ │ │ -    function o(t) {
+│ │ │ │ -        return function(e) {
+│ │ │ │ -            e.preventDefault(), t.call(this, e)
+│ │ │ │ +            return new _t(templateEl.innerHTML)
+│ │ │ │          }
+│ │ │ │      }
+│ │ │ │  
+│ │ │ │ -    function s(t, e) {
+│ │ │ │ -        t.trim() ? e.removeAttribute("disabled", !1) : e.setAttribute("disabled", !1)
+│ │ │ │ -    }
+│ │ │ │ -
+│ │ │ │ -    function c(t, e, n, r) {
+│ │ │ │ -        const i = function(n) {
+│ │ │ │ -            void 0 === t[e] ? t.setAttribute(e, n) : t[e] = n
+│ │ │ │ -        };
+│ │ │ │ -        let o = t[e] || t.getAttribute(e);
+│ │ │ │ -        i(n), setTimeout(() => i(o), r || 1e3)
+│ │ │ │ -    }
+│ │ │ │ +    const events = {
+│ │ │ │ +        attach: function(name, extra) {
+│ │ │ │ +            let attachName = 'attach-' + name
+│ │ │ │  
+│ │ │ │ -    function a(t) {
+│ │ │ │ -        let e = l(t);
+│ │ │ │ -        return e.classList.remove("hidden"), e
+│ │ │ │ -    }
+│ │ │ │ +            if (this[attachName]) {
+│ │ │ │ +                this[attachName](extra)
+│ │ │ │ +            }
+│ │ │ │  
+│ │ │ │ -    function u(t) {
+│ │ │ │ -        let e = l(t);
+│ │ │ │ -        return e.classList.add("hidden"), e
+│ │ │ │ -    }
+│ │ │ │ +            this.attachGoBack()
+│ │ │ │ +        },
+│ │ │ │  
+│ │ │ │ -    function l(t) {
+│ │ │ │ -        return document.getElementById(t)
+│ │ │ │ -    }
+│ │ │ │ +        'attach-menu': function() {
+│ │ │ │ +            log('[Events] Attaching Menu events')
+│ │ │ │  
+│ │ │ │ -    function h(t) {
+│ │ │ │ -        return 0 === Object.keys(t).length
+│ │ │ │ -    }
+│ │ │ │ -    const d = {
+│ │ │ │ -            render: function(t, e) {
+│ │ │ │ -                log("[Template] Rendering", t, " with data", e);
+│ │ │ │ -                let n = this.get(t);
+│ │ │ │ -                l("app").innerHTML = n.render(e || {}), g.attach(t)
+│ │ │ │ -            },
+│ │ │ │ -            get: function(t) {
+│ │ │ │ -                let e = "js-template-" + t,
+│ │ │ │ -                    n = l(e);
+│ │ │ │ -                if (!n) throw new Error("Whoops! template " + e + " does not exist");
+│ │ │ │ -                return new _t(n.innerHTML)
+│ │ │ │ -            }
+│ │ │ │ +            addEventListener('[data-menu]', 'click', function(event) {
+│ │ │ │ +                let menu = event.currentTarget.dataset.menu
+│ │ │ │ +                fullRender(menu)
+│ │ │ │ +            })
+│ │ │ │          },
+│ │ │ │ -        g = {
+│ │ │ │ -            attach: function(t, e) {
+│ │ │ │ -                let n = "attach-" + t;
+│ │ │ │ -                this[n] && this[n](e), this.attachGoBack()
+│ │ │ │ -            },
+│ │ │ │ -            "attach-menu": function() {
+│ │ │ │ -                log("[Events] Attaching Menu events"), r("[data-menu]", "click", function(e) {
+│ │ │ │ -                    t(e.currentTarget.dataset.menu)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            "attach-share": function() {
+│ │ │ │ -                function t(t) {
+│ │ │ │ -                    shareText.getLink(t, function(t) {
+│ │ │ │ -                        l("js-share-text-link").innerHTML = t, a("js-share-text-actions"), window.scrollBy({
+│ │ │ │ -                            top: 500,
+│ │ │ │ -                            left: 0,
+│ │ │ │ -                            behavior: "smooth"
+│ │ │ │ -                        })
+│ │ │ │ -                    }, function() {
+│ │ │ │ -                        l("js-share-text-link").innerHTML = "Whops, couldn't get the link"
+│ │ │ │ +
+│ │ │ │ +        'attach-share': function() {
+│ │ │ │ +            log('[Events] Attaching Share events')
+│ │ │ │ +
+│ │ │ │ +            let expiresTimeoutId = null
+│ │ │ │ +
+│ │ │ │ +            addEventListener('[name="timeout"]', 'keyup', function updateExpiresText(event) {
+│ │ │ │ +                clearTimeout(expiresTimeoutId)
+│ │ │ │ +
+│ │ │ │ +                let expiresOn = getElementById('js-expires-on')
+│ │ │ │ +                let timeout = event.target.value
+│ │ │ │ +
+│ │ │ │ +                if (timeout.trim()) {
+│ │ │ │ +                    expiresOn.innerText = `Expires on: ${expires.getExpirationString(timeout)}`
+│ │ │ │ +                    expiresTimeoutId = setTimeout(function() {
+│ │ │ │ +                        updateExpiresText(event)
+│ │ │ │ +                    }, 1000)
+│ │ │ │ +                } else {
+│ │ │ │ +                    expiresOn.innerText = ''
+│ │ │ │ +                }
+│ │ │ │ +            })
+│ │ │ │ +
+│ │ │ │ +            addEventListener('#js-share-session', 'submit', function() {
+│ │ │ │ +                try {
+│ │ │ │ +                    let publicKey = getFormElement(this, 'pubkey').value
+│ │ │ │ +                    let timeout = getFormElement(this, 'timeout').value
+│ │ │ │ +
+│ │ │ │ +                    let expirationTime = expires.getExpirationTime(timeout)
+│ │ │ │ +
+│ │ │ │ +                    session.store(publicKey, expirationTime, function(encryptedData, tab) {
+│ │ │ │ +                        show('js-shared-session')
+│ │ │ │ +
+│ │ │ │ +                        getElementById('js-shared-session-text').innerHTML = encryptedData
+│ │ │ │ +                        displayLink(encryptedData)
+│ │ │ │                      })
+│ │ │ │ +
+│ │ │ │ +                } catch (e) {
+│ │ │ │ +                    console.warn(e)
+│ │ │ │ +                    showError('An error occurred trying to encrypt your session. Check that the code is correct.')
+│ │ │ │                  }
+│ │ │ │ -                log("[Events] Attaching Share events");
+│ │ │ │ -                let e = null;
+│ │ │ │ -                r('[name="timeout"]', "keyup", function t(n) {
+│ │ │ │ -                    clearTimeout(e);
+│ │ │ │ -                    let r = l("js-expires-on"),
+│ │ │ │ -                        i = n.target.value;
+│ │ │ │ -                    i.trim() ? (r.innerText = `Expires on: ${y.getExpirationString(i)}`, e = setTimeout(function() {
+│ │ │ │ -                        t(n)
+│ │ │ │ -                    }, 1e3)) : r.innerText = ""
+│ │ │ │ -                }), r("#js-share-session", "submit", function() {
+│ │ │ │ -                    try {
+│ │ │ │ -                        let e = i(this, "pubkey").value,
+│ │ │ │ -                            r = i(this, "timeout").value,
+│ │ │ │ -                            o = y.getExpirationTime(r);
+│ │ │ │ -                        f.store(e, o, function(e, n) {
+│ │ │ │ -                            a("js-shared-session"), l("js-shared-session-text").innerHTML = e, t(e)
+│ │ │ │ +            })
+│ │ │ │ +
+│ │ │ │ +            addEventListener('#js-session-hide', 'click', () => hide('js-shared-session'))
+│ │ │ │ +
+│ │ │ │ +            addEventListener('#js-copy-share-text', 'click', () => hide('js-shared-session'))
+│ │ │ │ +
+│ │ │ │ +            this.onTextSubmitted('[name="pubkey"]', function(textarea) {
+│ │ │ │ +                const submitButton = document.querySelector('input[name="submit"]')
+│ │ │ │ +                enableIfText(textarea.value, submitButton)
+│ │ │ │ +            })
+│ │ │ │ +
+│ │ │ │ +            // --------------------------------------------------------------------
+│ │ │ │ +            // attach-share specific helpers
+│ │ │ │ +
+│ │ │ │ +            function displayLink(encryptedData) {
+│ │ │ │ +                shareText.getLink(encryptedData,
+│ │ │ │ +                    function success(link) {
+│ │ │ │ +                        getElementById('js-share-text-link').innerHTML = link
+│ │ │ │ +                        show('js-share-text-actions')
+│ │ │ │ +                        window.scrollBy({
+│ │ │ │ +                            top: 500,
+│ │ │ │ +                            left: 0,
+│ │ │ │ +                            behavior: 'smooth'
+│ │ │ │                          })
+│ │ │ │ -                    } catch (t) {
+│ │ │ │ -                        console.warn(t), n("An error occurred trying to encrypt your session. Check that the code is correct.")
+│ │ │ │ -                    }
+│ │ │ │ -                }), r("#js-session-hide", "click", () => u("js-shared-session")), r("#js-copy-share-text", "click", () => u("js-shared-session")), this.onTextSubmitted('[name="pubkey"]', function(t) {
+│ │ │ │ -                    const e = document.querySelector('input[name="submit"]');
+│ │ │ │ -                    s(t.value, e)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            "attach-restore": function() {
+│ │ │ │ -                log("[Events] Attaching Restore events"), r("#js-regenerate-keys", "click", function(t) {
+│ │ │ │ -                    const {
+│ │ │ │ -                        publicKey: e
+│ │ │ │ -                    } = p.generate();
+│ │ │ │ -                    f.removeAll(), l("js-user-pubkey").value = e, c(t.currentTarget, "data-balloon", "Restored!")
+│ │ │ │ -                }), r("#js-restore-session", "submit", function(t) {
+│ │ │ │ -                    try {
+│ │ │ │ -                        let e = i(t.currentTarget, "encrypted-data");
+│ │ │ │ -                        f.restore(e.value), t.currentTarget.reset()
+│ │ │ │ -                    } catch (t) {
+│ │ │ │ -                        console.warn(t), n("An error occurred trying to restore the session. Check that the encrypted text is correct and was generated with your code.")
+│ │ │ │ +                    },
+│ │ │ │ +                    function error() {
+│ │ │ │ +                        getElementById('js-share-text-link').innerHTML = 'Whops, couldn\'t get the link'
+│ │ │ │                      }
+│ │ │ │ -                }), this.onTextSubmitted('[name="encrypted-data"]', function(t) {
+│ │ │ │ -                    const e = document.querySelector('input[name="submit"]');
+│ │ │ │ -                    s(t.value, e);
+│ │ │ │ -                    let n = "";
+│ │ │ │ -                    try {
+│ │ │ │ -                        const {
+│ │ │ │ -                            title: e,
+│ │ │ │ -                            expirationTime: r
+│ │ │ │ -                        } = f.decrypt(t.value);
+│ │ │ │ -                        n = `Restore "${e}" session.`, y.isExpired(r) && (n += "\nThe session seems to be expired!")
+│ │ │ │ -                    } catch (t) {
+│ │ │ │ -                        n = "", console.warn(t)
+│ │ │ │ -                    }
+│ │ │ │ -                    l("js-restore-notice").innerText = n
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            "attach-history": function() {
+│ │ │ │ -                log("[Events] Attaching History events"), r(".js-delete", "click", function(e) {
+│ │ │ │ -                    let n = e.currentTarget.dataset.key;
+│ │ │ │ -                    f.remove(n, () => t("history"))
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            attachClipboard: function() {
+│ │ │ │ -                log("[Events] Attaching clipboard"), new Clipboard("[data-clipboard]").on("success", function(t) {
+│ │ │ │ -                    c(t.trigger, "data-balloon", "Copied!"), t.clearSelection()
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            attachGoBack: function() {
+│ │ │ │ -                log("[Events] Attaching go back"), r(".js-go-back", "click", () => d.render("menu"))
+│ │ │ │ -            },
+│ │ │ │ -            onTextSubmitted: function(t, e) {
+│ │ │ │ -                r(t, "keyup", t => {
+│ │ │ │ -                    e(t.currentTarget)
+│ │ │ │ -                }), r(t, "paste", t => {
+│ │ │ │ -                    const n = t.clipboardData.getData("Text");
+│ │ │ │ -                    window.document.execCommand("insertText", !1, n), e(t.currentTarget)
+│ │ │ │ -                })
+│ │ │ │ +                )
+│ │ │ │              }
+│ │ │ │          },
+│ │ │ │ -        f = {
+│ │ │ │ -            store: function(t, e, n) {
+│ │ │ │ -                this.getCurrent(function(r, i) {
+│ │ │ │ -                    let o = {
+│ │ │ │ -                        url: r.url,
+│ │ │ │ -                        title: r.title,
+│ │ │ │ -                        cookies: cookieManager.setExpirationDate(i, e),
+│ │ │ │ -                        expirationTime: e
+│ │ │ │ -                    };
+│ │ │ │ -                    const s = p.encrypt(t, o);
+│ │ │ │ -                    f.record(r.url, r.title), n(s, r)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            getCurrent(t) {
+│ │ │ │ -                e(function(e) {
+│ │ │ │ -                    cookieManager.get(e.url, function(n) {
+│ │ │ │ -                        return t(e, n)
+│ │ │ │ -                    })
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            record: function(t, e) {
+│ │ │ │ -                f.modify(function(n) {
+│ │ │ │ -                    let r = new Date,
+│ │ │ │ -                        i = f.getKey(r);
+│ │ │ │ -                    return n[i] = n[i] || [], n[i].push({
+│ │ │ │ -                        url: t,
+│ │ │ │ -                        title: e,
+│ │ │ │ -                        timestamp: r.getTime()
+│ │ │ │ -                    }), f.filterOlderKeys(n)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            restore: function(t) {
+│ │ │ │ +
+│ │ │ │ +        'attach-restore': function() {
+│ │ │ │ +            log('[Events] Attaching Restore events')
+│ │ │ │ +
+│ │ │ │ +            addEventListener('#js-regenerate-keys', 'click', function(event) {
+│ │ │ │                  const {
+│ │ │ │ -                    url: e,
+│ │ │ │ -                    cookies: n
+│ │ │ │ -                } = this.decrypt(t);
+│ │ │ │ -                cookieManager.set(e, n), chrome.tabs.create({
+│ │ │ │ -                    url: e
+│ │ │ │ +                    publicKey
+│ │ │ │ +                } = keys.generate()
+│ │ │ │ +                session.removeAll()
+│ │ │ │ +
+│ │ │ │ +                getElementById('js-user-pubkey').value = publicKey
+│ │ │ │ +                flash(event.currentTarget, 'data-balloon', 'Restored!')
+│ │ │ │ +            })
+│ │ │ │ +
+│ │ │ │ +            addEventListener('#js-restore-session', 'submit', function(event) {
+│ │ │ │ +                try {
+│ │ │ │ +                    let textarea = getFormElement(event.currentTarget, 'encrypted-data')
+│ │ │ │ +
+│ │ │ │ +                    session.restore(textarea.value)
+│ │ │ │ +                    event.currentTarget.reset()
+│ │ │ │ +
+│ │ │ │ +                } catch (e) {
+│ │ │ │ +                    console.warn(e)
+│ │ │ │ +                    showError('An error occurred trying to restore the session. Check that the encrypted text is correct and was generated with your code.')
+│ │ │ │ +                }
+│ │ │ │ +            })
+│ │ │ │ +
+│ │ │ │ +            this.onTextSubmitted('[name="encrypted-data"]', function(textarea) {
+│ │ │ │ +                const submitButton = document.querySelector('input[name="submit"]')
+│ │ │ │ +                enableIfText(textarea.value, submitButton)
+│ │ │ │ +
+│ │ │ │ +                let notice = ''
+│ │ │ │ +
+│ │ │ │ +                try {
+│ │ │ │ +                    const {
+│ │ │ │ +                        title,
+│ │ │ │ +                        expirationTime
+│ │ │ │ +                    } = session.decrypt(textarea.value)
+│ │ │ │ +                    notice = `Restore "${title}" session.`
+│ │ │ │ +
+│ │ │ │ +                    if (expires.isExpired(expirationTime)) notice += '\nThe session seems to be expired!'
+│ │ │ │ +
+│ │ │ │ +                } catch (e) {
+│ │ │ │ +                    notice = ''
+│ │ │ │ +                    console.warn(e)
+│ │ │ │ +                }
+│ │ │ │ +
+│ │ │ │ +                getElementById('js-restore-notice').innerText = notice
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        'attach-history': function() {
+│ │ │ │ +            log('[Events] Attaching History events')
+│ │ │ │ +
+│ │ │ │ +            addEventListener('.js-delete', 'click', function(event) {
+│ │ │ │ +                let key = event.currentTarget.dataset.key
+│ │ │ │ +                session.remove(key, () => fullRender('history'))
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        attachClipboard: function() {
+│ │ │ │ +            log('[Events] Attaching clipboard')
+│ │ │ │ +
+│ │ │ │ +            new Clipboard('[data-clipboard]')
+│ │ │ │ +                .on('success', function(event) {
+│ │ │ │ +                    flash(event.trigger, 'data-balloon', 'Copied!')
+│ │ │ │ +                    event.clearSelection()
+│ │ │ │                  })
+│ │ │ │ -            },
+│ │ │ │ -            decrypt: t => p.decrypt(t),
+│ │ │ │ -            removeAll: function(t) {
+│ │ │ │ -                f.modify(function() {
+│ │ │ │ -                    return {}
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        attachGoBack: function() {
+│ │ │ │ +            log('[Events] Attaching go back')
+│ │ │ │ +            addEventListener('.js-go-back', 'click', () => template.render('menu'))
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        onTextSubmitted: function(selector, callback) {
+│ │ │ │ +            addEventListener(selector, 'keyup', event => {
+│ │ │ │ +                callback(event.currentTarget)
+│ │ │ │ +            })
+│ │ │ │ +
+│ │ │ │ +            addEventListener(selector, 'paste', event => {
+│ │ │ │ +                const pastedData = event.clipboardData.getData('Text')
+│ │ │ │ +                window.document.execCommand('insertText', false, pastedData)
+│ │ │ │ +
+│ │ │ │ +                callback(event.currentTarget)
+│ │ │ │ +            })
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    const session = {
+│ │ │ │ +        store: function(publicKey, expirationTime, callback) {
+│ │ │ │ +            this.getCurrent(function(tab, cookies) {
+│ │ │ │ +                let data = {
+│ │ │ │ +                    url: tab.url,
+│ │ │ │ +                    title: tab.title,
+│ │ │ │ +                    cookies: cookieManager.setExpirationDate(cookies, expirationTime),
+│ │ │ │ +                    expirationTime: expirationTime
+│ │ │ │ +                }
+│ │ │ │ +
+│ │ │ │ +                const encryptedData = keys.encrypt(publicKey, data)
+│ │ │ │ +
+│ │ │ │ +                session.record(tab.url, tab.title)
+│ │ │ │ +                callback(encryptedData, tab)
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        getCurrent(callback) {
+│ │ │ │ +            getCurrentTab(function(tab) {
+│ │ │ │ +                cookieManager.get(tab.url, function(cookies) {
+│ │ │ │ +                    return callback(tab, cookies)
+│ │ │ │                  })
+│ │ │ │ -            },
+│ │ │ │ -            remove: function(t, e) {
+│ │ │ │ -                f.modify(function(e) {
+│ │ │ │ -                    return delete e[t], e
+│ │ │ │ -                }, e)
+│ │ │ │ -            },
+│ │ │ │ -            modify: function(t, e) {
+│ │ │ │ -                configuration.get("sessions", function(n) {
+│ │ │ │ -                    n = t(n), configuration.set({
+│ │ │ │ -                        sessions: n,
+│ │ │ │ -                        hasSessions: !h(n)
+│ │ │ │ -                    }), e && e()
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        record: function(url, title) {
+│ │ │ │ +            session.modify(function(sessions) {
+│ │ │ │ +                let timestamp = new Date()
+│ │ │ │ +                let sessionKey = session.getKey(timestamp)
+│ │ │ │ +
+│ │ │ │ +                sessions[sessionKey] = sessions[sessionKey] || []
+│ │ │ │ +                sessions[sessionKey].push({
+│ │ │ │ +                    url,
+│ │ │ │ +                    title,
+│ │ │ │ +                    timestamp: timestamp.getTime()
+│ │ │ │                  })
+│ │ │ │ -            },
+│ │ │ │ -            getKey: function(t) {
+│ │ │ │ -                return [t.getMonth(), t.getDate(), t.getYear()].join("/")
+│ │ │ │ -            },
+│ │ │ │ -            filterOlderKeys: function(t) {
+│ │ │ │ -                let e = (new Date).getMonth(),
+│ │ │ │ -                    n = {};
+│ │ │ │ -                for (let r in t) e == this.getMonthFromKey(r) && (n[r] = t[r]);
+│ │ │ │ -                return n
+│ │ │ │ -            },
+│ │ │ │ -            getMonthFromKey: function(t) {
+│ │ │ │ -                return t.split("/")[0]
+│ │ │ │ -            }
+│ │ │ │ +
+│ │ │ │ +                return session.filterOlderKeys(sessions)
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        restore: function(data) {
+│ │ │ │ +            const {
+│ │ │ │ +                url,
+│ │ │ │ +                cookies
+│ │ │ │ +            } = this.decrypt(data)
+│ │ │ │ +
+│ │ │ │ +            cookieManager.set(url, cookies)
+│ │ │ │ +            chrome.tabs.create({
+│ │ │ │ +                url
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        decrypt(data) {
+│ │ │ │ +            return keys.decrypt(data)
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        removeAll: function(key) {
+│ │ │ │ +            session.modify(function() {
+│ │ │ │ +                return {}
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        remove: function(key, callback) {
+│ │ │ │ +            session.modify(function(sessions) {
+│ │ │ │ +                delete sessions[key]
+│ │ │ │ +                return sessions
+│ │ │ │ +            }, callback)
+│ │ │ │          },
+│ │ │ │ -        p = {
+│ │ │ │ -            pair: {
+│ │ │ │ -                publicKey: null,
+│ │ │ │ -                privateKey: null
+│ │ │ │ -            },
+│ │ │ │ -            upsert: function() {
+│ │ │ │ -                this.isGenerated() || configuration.get(this.pair, function(t, e) {
+│ │ │ │ -                    t && e ? this.pair = {
+│ │ │ │ -                        publicKey: t,
+│ │ │ │ -                        privateKey: e
+│ │ │ │ -                    } : this.generate()
+│ │ │ │ -                }.bind(this))
+│ │ │ │ -            },
+│ │ │ │ -            generate: function() {
+│ │ │ │ -                log("Saving user keys for later signing");
+│ │ │ │ -                const t = cryptography.createKeys();
+│ │ │ │ -                return this.pair = t, configuration.set(t), this.pair
+│ │ │ │ -            },
+│ │ │ │ -            isGenerated: function() {
+│ │ │ │ -                return this.publicKey && this.privateKey
+│ │ │ │ -            },
+│ │ │ │ -            encrypt: function(t, e) {
+│ │ │ │ -                const n = cryptography.decodePublicKey(t);
+│ │ │ │ -                return cryptography.encrypt(n, JSON.stringify(e))
+│ │ │ │ -            },
+│ │ │ │ -            decrypt: function(t) {
+│ │ │ │ -                const e = cryptography.decodePrivateKey(this.pair.privateKey),
+│ │ │ │ -                    n = cryptography.decrypt(e, t);
+│ │ │ │ -                return JSON.parse(n)
+│ │ │ │ +
+│ │ │ │ +        modify: function(modifier, callback) {
+│ │ │ │ +            configuration.get('sessions', function(sessions) {
+│ │ │ │ +                sessions = modifier(sessions)
+│ │ │ │ +                configuration.set({
+│ │ │ │ +                    sessions,
+│ │ │ │ +                    hasSessions: !isEmptyObject(sessions)
+│ │ │ │ +                })
+│ │ │ │ +
+│ │ │ │ +                callback && callback()
+│ │ │ │ +            })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        getKey: function(timestamp) {
+│ │ │ │ +            return [
+│ │ │ │ +                timestamp.getMonth(),
+│ │ │ │ +                timestamp.getDate(),
+│ │ │ │ +                timestamp.getYear()
+│ │ │ │ +            ].join('/')
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        filterOlderKeys: function(sessions) {
+│ │ │ │ +            let currentMonth = new Date().getMonth()
+│ │ │ │ +            let filteredSessions = {}
+│ │ │ │ +
+│ │ │ │ +            for (let key in sessions) {
+│ │ │ │ +                let month = this.getMonthFromKey(key)
+│ │ │ │ +
+│ │ │ │ +                if (currentMonth == month) {
+│ │ │ │ +                    filteredSessions[key] = sessions[key]
+│ │ │ │ +                }
+│ │ │ │              }
+│ │ │ │ +
+│ │ │ │ +            return filteredSessions
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        getMonthFromKey: function(key) {
+│ │ │ │ +            return key.split('/')[0]
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    const keys = {
+│ │ │ │ +        pair: {
+│ │ │ │ +            publicKey: null,
+│ │ │ │ +            privateKey: null,
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        upsert: function() {
+│ │ │ │ +            if (this.isGenerated()) return
+│ │ │ │ +
+│ │ │ │ +            configuration.get(this.pair, function(publicKey, privateKey) {
+│ │ │ │ +                if (!publicKey || !privateKey) {
+│ │ │ │ +                    this.generate()
+│ │ │ │ +                } else {
+│ │ │ │ +                    this.pair = {
+│ │ │ │ +                        publicKey,
+│ │ │ │ +                        privateKey
+│ │ │ │ +                    }
+│ │ │ │ +                }
+│ │ │ │ +
+│ │ │ │ +            }.bind(this))
+│ │ │ │          },
+│ │ │ │ -        y = {
+│ │ │ │ -            DEFAULT: 168,
+│ │ │ │ -            getExpirationTime(t) {
+│ │ │ │ -                return t = this.isValidTimeout(t) ? t : this.DEFAULT, Date.now() + this.hoursToMs(t)
+│ │ │ │ -            },
+│ │ │ │ -            getExpirationString(t) {
+│ │ │ │ -                const e = this.getExpirationTime(t);
+│ │ │ │ -                return new Date(e).toLocaleString()
+│ │ │ │ -            },
+│ │ │ │ -            isExpired: t => Date.now() >= t,
+│ │ │ │ -            isValidTimeout: t => parseInt(t, 10) > 0,
+│ │ │ │ -            hoursToMs: t => 60 * t * 60 * 1e3
+│ │ │ │ -        };
+│ │ │ │ -    p.upsert(), d.render("menu"), g.attachClipboard()
+│ │ │ │ -}();
+│ │ │ │ +
+│ │ │ │ +        generate: function() {
+│ │ │ │ +            log('Saving user keys for later signing')
+│ │ │ │ +
+│ │ │ │ +            const pair = cryptography.createKeys()
+│ │ │ │ +
+│ │ │ │ +            this.pair = pair
+│ │ │ │ +            configuration.set(pair)
+│ │ │ │ +            return this.pair
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        isGenerated: function() {
+│ │ │ │ +            return this.publicKey && this.privateKey
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        encrypt: function(publicKey, message) {
+│ │ │ │ +            const secret = cryptography.decodePublicKey(publicKey)
+│ │ │ │ +            return cryptography.encrypt(secret, JSON.stringify(message))
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        decrypt: function(encrypted) {
+│ │ │ │ +            const secret = cryptography.decodePrivateKey(this.pair.privateKey)
+│ │ │ │ +            const decryption = cryptography.decrypt(secret, encrypted)
+│ │ │ │ +            return JSON.parse(decryption)
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    const expires = {
+│ │ │ │ +        DEFAULT: 7 * 24, // A week
+│ │ │ │ +
+│ │ │ │ +        getExpirationTime(timeoutInHours) {
+│ │ │ │ +            timeoutInHours = this.isValidTimeout(timeoutInHours) ? timeoutInHours : this.DEFAULT
+│ │ │ │ +
+│ │ │ │ +            return Date.now() + this.hoursToMs(timeoutInHours)
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        getExpirationString(timeout) {
+│ │ │ │ +            const expirationTime = this.getExpirationTime(timeout)
+│ │ │ │ +            return new Date(expirationTime).toLocaleString()
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        isExpired(time) {
+│ │ │ │ +            return Date.now() >= time
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        isValidTimeout(timeout) {
+│ │ │ │ +            return parseInt(timeout, 10) > 0
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        hoursToMs(hours) {
+│ │ │ │ +            return hours * 60 * 60 * 1000
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    // --------------------------------------------------------------------
+│ │ │ │ +    // Utils
+│ │ │ │ +
+│ │ │ │ +    function fullRender(name) {
+│ │ │ │ +        getCurrentTab(tab =>
+│ │ │ │ +            configuration.get(config =>
+│ │ │ │ +                template.render(name, Object.assign({
+│ │ │ │ +                    tab
+│ │ │ │ +                }, config))
+│ │ │ │ +            )
+│ │ │ │ +        )
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function getCurrentTab(callback) {
+│ │ │ │ +        chrome.tabs.query({
+│ │ │ │ +            active: true,
+│ │ │ │ +            currentWindow: true
+│ │ │ │ +        }, function(tabs) {
+│ │ │ │ +            callback(tabs[0])
+│ │ │ │ +        })
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function showError(text) {
+│ │ │ │ +        let errorEl = getElementById('js-error')
+│ │ │ │ +        errorEl.innerHTML = text
+│ │ │ │ +        flash(errorEl, 'className', 'error', 4500)
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function addEventListener(selector, event, fn) {
+│ │ │ │ +        let els = document.querySelectorAll(selector)
+│ │ │ │ +        if (!els.length) log('[WARN] Could not find an element for selector ' + selector)
+│ │ │ │ +
+│ │ │ │ +        for (let i = 0; i < els.length; i++) {
+│ │ │ │ +            els[i].addEventListener(event, preventDefault(fn), false)
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function getFormElement(form, name) {
+│ │ │ │ +        let elements = form.elements
+│ │ │ │ +
+│ │ │ │ +        for (let i = 0; i < elements.length; i++) {
+│ │ │ │ +            if (elements[i].name === name) {
+│ │ │ │ +                return elements[i]
+│ │ │ │ +            }
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function preventDefault(fn) {
+│ │ │ │ +        return function(event) {
+│ │ │ │ +            event.preventDefault()
+│ │ │ │ +            fn.call(this, event)
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function enableIfText(value, target) {
+│ │ │ │ +        if (value.trim()) {
+│ │ │ │ +            target.removeAttribute('disabled', false)
+│ │ │ │ +        } else {
+│ │ │ │ +            target.setAttribute('disabled', false)
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function flash(element, prop, value, delay) {
+│ │ │ │ +        const setVal = function(val) {
+│ │ │ │ +            if (element[prop] === undefined) {
+│ │ │ │ +                element.setAttribute(prop, val)
+│ │ │ │ +            } else {
+│ │ │ │ +                element[prop] = val
+│ │ │ │ +            }
+│ │ │ │ +        }
+│ │ │ │ +
+│ │ │ │ +        let originalValue = element[prop] || element.getAttribute(prop)
+│ │ │ │ +        setVal(value)
+│ │ │ │ +        setTimeout(() => setVal(originalValue), delay || 1000)
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function show(id) {
+│ │ │ │ +        let el = getElementById(id)
+│ │ │ │ +        el.classList.remove('hidden')
+│ │ │ │ +        return el
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function hide(id) {
+│ │ │ │ +        let el = getElementById(id)
+│ │ │ │ +        el.classList.add('hidden')
+│ │ │ │ +        return el
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function getElementById(id) {
+│ │ │ │ +        return document.getElementById(id)
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function isEmptyObject(obj) {
+│ │ │ │ +        return Object.keys(obj).length === 0
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +
+│ │ │ │ +    // --------------------------------------------------------------------
+│ │ │ │ +    // Start
+│ │ │ │ +
+│ │ │ │ +    keys.upsert()
+│ │ │ │ +
+│ │ │ │ +    template.render('menu')
+│ │ │ │ +    events.attachClipboard()
+│ │ │ │ +
+│ │ │ │ +})()
+│ │ │   --- /workspace/pipeline_output/chromex_data/popup/js/shareText.js
+│ │ ├── +++ /workspace/pipeline_output/shareaccount/popup/js/shareText.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,58 +1,94 @@
+│ │ │ │ -! function() {
+│ │ │ │ -    "use strict";
+│ │ │ │ +/* globals http, cryptography, Base64, RawDeflate */
+│ │ │ │  
+│ │ │ │ -    function e(e, n, s, r) {
+│ │ │ │ -        return t(e, n, "POST", s, r)
+│ │ │ │ +(function() {
+│ │ │ │ +    'use strict'
+│ │ │ │ +
+│ │ │ │ +    const log = window.log.bind('[ShareText]')
+│ │ │ │ +
+│ │ │ │ +    const BASE_URL = 'https://privatebin.net'
+│ │ │ │ +    const ENCRYPT_OPTIONS = {
+│ │ │ │ +        mode: 'gcm',
+│ │ │ │ +        ks: 256,
+│ │ │ │ +        ts: 128
+│ │ │ │      }
+│ │ │ │  
+│ │ │ │ -    function t(e, t, n, s, r) {
+│ │ │ │ +    const shareText = {
+│ │ │ │ +        getLink: function(text, success, error) {
+│ │ │ │ +            log('Request share link')
+│ │ │ │ +
+│ │ │ │ +            const secret = cryptography.randomkey()
+│ │ │ │ +            const encryption = this.encryptText(secret, text || '')
+│ │ │ │ +
+│ │ │ │ +            this.requestLink(this.getRequestData(encryption), response => {
+│ │ │ │ +                    log('Success', response)
+│ │ │ │ +                    success && success(this.getPasteURL(secret, response.id))
+│ │ │ │ +                },
+│ │ │ │ +                response => {
+│ │ │ │ +                    log('Error', response)
+│ │ │ │ +                    error && error(response)
+│ │ │ │ +                })
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        requestLink(data, success, error) {
+│ │ │ │ +            // {status: 1, message: "Please wait 10 seconds between each post."}
+│ │ │ │ +            return postJSON(BASE_URL, data, response => {
+│ │ │ │ +                    response = JSON.parse(response)
+│ │ │ │ +
+│ │ │ │ +                    if (response.status === 0) {
+│ │ │ │ +                        success(response)
+│ │ │ │ +                    } else if (response.message === 'Please wait 10 seconds between each post.') {
+│ │ │ │ +                        setTimeout(() => this.requestLink(data, success, error), 10000)
+│ │ │ │ +                    } else {
+│ │ │ │ +                        error(response)
+│ │ │ │ +                    }
+│ │ │ │ +                },
+│ │ │ │ +                response => error(response))
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        getRequestData: function(text) {
+│ │ │ │ +            return [
+│ │ │ │ +                `data=${encodeURIComponent(text)}`,
+│ │ │ │ +                'expire=10min',
+│ │ │ │ +                'formatter=plaintext',
+│ │ │ │ +                'burnafterreading=1',
+│ │ │ │ +                'opendiscussion=0'
+│ │ │ │ +            ].join('&')
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        getPasteURL: function(secret, id) {
+│ │ │ │ +            // https://privatebin.net/?SOME_ID#SOME_SECRET_KEY
+│ │ │ │ +            return `${BASE_URL}/?${id}#${secret}`
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        encryptText: function(secret, text) {
+│ │ │ │ +            return cryptography.encrypt(secret, this.compress(text), ENCRYPT_OPTIONS)
+│ │ │ │ +        },
+│ │ │ │ +
+│ │ │ │ +        compress: function(text) {
+│ │ │ │ +            return Base64.toBase64(RawDeflate.deflate(Base64.utob(text)))
+│ │ │ │ +        }
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +
+│ │ │ │ +    function postJSON(url, data, success, error) {
+│ │ │ │ +        return sendJSON(url, data, 'POST', success, error)
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function sendJSON(url, data, method, success, error) {
+│ │ │ │          http({
+│ │ │ │              headers: {
+│ │ │ │ -                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+│ │ │ │ -                "Accept-Language": "en-US",
+│ │ │ │ -                "X-Requested-With": "JSONHttpRequest"
+│ │ │ │ -            },
+│ │ │ │ -            url: e,
+│ │ │ │ -            method: n,
+│ │ │ │ -            data: t,
+│ │ │ │ -            success: s,
+│ │ │ │ -            error: r
+│ │ │ │ +                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+│ │ │ │ +                'Accept-Language': 'en-US',
+│ │ │ │ +                'X-Requested-With': 'JSONHttpRequest'
+│ │ │ │ +            },
+│ │ │ │ +            url,
+│ │ │ │ +            method,
+│ │ │ │ +            data,
+│ │ │ │ +            success,
+│ │ │ │ +            error
+│ │ │ │          })
+│ │ │ │      }
+│ │ │ │ -    const n = window.log.bind("[ShareText]"),
+│ │ │ │ -        s = {
+│ │ │ │ -            mode: "gcm",
+│ │ │ │ -            ks: 256,
+│ │ │ │ -            ts: 128
+│ │ │ │ -        },
+│ │ │ │ -        r = {
+│ │ │ │ -            getLink: function(e, t, s) {
+│ │ │ │ -                n("Request share link");
+│ │ │ │ -                const r = cryptography.randomkey(),
+│ │ │ │ -                    a = this.encryptText(r, e || "");
+│ │ │ │ -                this.requestLink(this.getRequestData(a), e => {
+│ │ │ │ -                    n("Success", e), t && t(this.getPasteURL(r, e.id))
+│ │ │ │ -                }, e => {
+│ │ │ │ -                    n("Error", e), s && s(e)
+│ │ │ │ -                })
+│ │ │ │ -            },
+│ │ │ │ -            requestLink(t, n, s) {
+│ │ │ │ -                return e("https://privatebin.net", t, e => {
+│ │ │ │ -                    0 === (e = JSON.parse(e)).status ? n(e) : "Please wait 10 seconds between each post." === e.message ? setTimeout(() => this.requestLink(t, n, s), 1e4) : s(e)
+│ │ │ │ -                }, e => s(e))
+│ │ │ │ -            },
+│ │ │ │ -            getRequestData: function(e) {
+│ │ │ │ -                return [`data=${encodeURIComponent(e)}`, "expire=10min", "formatter=plaintext", "burnafterreading=1", "opendiscussion=0"].join("&")
+│ │ │ │ -            },
+│ │ │ │ -            getPasteURL: function(e, t) {
+│ │ │ │ -                return `https://privatebin.net/?${t}#${e}`
+│ │ │ │ -            },
+│ │ │ │ -            encryptText: function(e, t) {
+│ │ │ │ -                return cryptography.encrypt(e, this.compress(t), s)
+│ │ │ │ -            },
+│ │ │ │ -            compress: function(e) {
+│ │ │ │ -                return Base64.toBase64(RawDeflate.deflate(Base64.utob(e)))
+│ │ │ │ -            }
+│ │ │ │ -        };
+│ │ │ │ -    window.shareText = r
+│ │ │ │ -}();
+│ │ │ │ +
+│ │ │ │ +
+│ │ │ │ +    window.shareText = shareText
+│ │ │ │ +})()

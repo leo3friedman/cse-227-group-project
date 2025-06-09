@@ -1,0 +1,2734 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DownloadBlocker/extension
+├── file list
+│ @@ -1,8 +1,7 @@
+│  _locales
+│ -_metadata
+│  config
+│  icons
+│  manifest.json
+│  schema.json
+│  src
+│  worker_wrapper.js
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/DownloadBlocker/extension/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/fr
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/_locales/fr
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/fr/messages.json
+│ │ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/_locales/fr/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,49 +1,47 @@
+│ │ │ -7b0d0a202022646f776e6c6f61645f626c6f636b65645f6d6573736167655f74
+│ │ │ -69746c65223a207b0d0a20202020226d657373616765223a202254c3a96cc3a9
+│ │ │ -6368617267656d656e7420626c6f7175c3a9222c0d0a20202020226465736372
+│ │ │ -697074696f6e223a2022546865207469746c65206f6620746865206d65737361
+│ │ │ -67652073686f776e20746f207468652075736572207768656e206120646f776e
+│ │ │ -6c6f616420697320626c6f636b6564220d0a20207d2c0d0a202022646f776e6c
+│ │ │ -6f61645f6e6f746966795f6d6573736167655f7469746c65223a207b0d0a2020
+│ │ │ -2020226d657373616765223a202254c3a96cc3a96368617267656d656e742064
+│ │ │ -c3a974656374c3a9222c0d0a20202020226465736372697074696f6e223a2022
+│ │ │ -546865207469746c65206f6620746865206d6573736167652073686f776e2074
+│ │ │ -6f207468652075736572207768656e206120646f776e6c6f6164206973206465
+│ │ │ -746563746564220d0a20207d2c0d0a202022646f776e6c6f61645f626c6f636b
+│ │ │ -65645f6d6573736167655f626f6479223a207b0d0a20202020226d6573736167
+│ │ │ -65223a20224c652074c3a96cc3a96368617267656d656e74206465202466696c
+│ │ │ -656e616d652420646570756973202475726c24206120c3a974c3a920626c6f71
+│ │ │ -75c3a92e204c69656e2064652074c3a96cc3a963686167656d656e743a202466
+│ │ │ -696c6555726c24222c0d0a20202020226465736372697074696f6e223a202254
+│ │ │ -686520626f6479206f6620746865206d6573736167652073686f776e20746f20
+│ │ │ -7468652075736572207768656e206120646f776e6c6f616420697320626c6f63
+│ │ │ -6b6564222c0d0a2020202022706c616365686f6c64657273223a207b0d0a2020
+│ │ │ -202020202266696c656e616d65223a207b0d0a202020202020202022636f6e74
+│ │ │ -656e74223a20222431222c0d0a2020202020202020226578616d706c65223a20
+│ │ │ -22706179736c69702e687461220d0a2020202020207d2c0d0a20202020202020
+│ │ │ -2275726c223a207b0d0a202020202020202022636f6e74656e74223a20222432
+│ │ │ -222c0d0a2020202020202020226578616d706c65223a202268747470733a2f2f
+│ │ │ -6578616d706c652e636f6d2f746573742e68746d6c220d0a2020202020207d2c
+│ │ │ -0d0a2020202020202266696c6555726c223a207b0d0a2020202020202022636f
+│ │ │ -6e74656e74223a20222433222c0d0a20202020202020226578616d706c65223a
+│ │ │ -202268747470733a2f2f6578616d706c652e636f6d2f706179736c69702e6874
+│ │ │ -61220d0a20202020207d0d0a202020207d0d0a20207d2c0d0a202022646f776e
+│ │ │ -6c6f61645f6e6f746966795f6d6573736167655f626f6479223a207b0d0a2020
+│ │ │ -2020226d657373616765223a20224c652074c3a96cc3a96368617267656d656e
+│ │ │ -74206465202466696c656e616d652420646570756973202475726c24206120c3
+│ │ │ -a974c3a92064c3a974656374c3a92e204c69656e2064652074c3a96cc3a96368
+│ │ │ -6167656d656e743a202466696c6555726c24222c0d0a20202020226465736372
+│ │ │ -697074696f6e223a202254686520626f6479206f6620746865206d6573736167
+│ │ │ -652073686f776e20746f207468652075736572207768656e206120646f776e6c
+│ │ │ -6f6164206973206465746563746564222c0d0a2020202022706c616365686f6c
+│ │ │ -64657273223a207b0d0a2020202020202266696c656e616d65223a207b0d0a20
+│ │ │ -2020202020202022636f6e74656e74223a20222431222c0d0a20202020202020
+│ │ │ -20226578616d706c65223a2022706179736c69702e687461220d0a2020202020
+│ │ │ -207d2c0d0a202020202020202275726c223a207b0d0a20202020202020202263
+│ │ │ -6f6e74656e74223a20222432222c0d0a2020202020202020226578616d706c65
+│ │ │ -223a202268747470733a2f2f6578616d706c652e636f6d2f746573742e68746d
+│ │ │ -6c220d0a2020202020207d2c0d0a2020202020202266696c6555726c223a207b
+│ │ │ -0d0a2020202020202022636f6e74656e74223a20222433222c0d0a2020202020
+│ │ │ -2020226578616d706c65223a202268747470733a2f2f6578616d706c652e636f
+│ │ │ -6d2f706179736c69702e687461220d0a20202020207d0d0a202020207d0d0a20
+│ │ │ -207d0d0a7d0d0a
+│ │ │ +7b0a202022646f776e6c6f61645f626c6f636b65645f6d6573736167655f7469
+│ │ │ +746c65223a207b0a20202020226d657373616765223a202254c3a96cc3a96368
+│ │ │ +617267656d656e7420626c6f7175c3a9222c0a20202020226465736372697074
+│ │ │ +696f6e223a2022546865207469746c65206f6620746865206d65737361676520
+│ │ │ +73686f776e20746f207468652075736572207768656e206120646f776e6c6f61
+│ │ │ +6420697320626c6f636b6564220a20207d2c0a202022646f776e6c6f61645f6e
+│ │ │ +6f746966795f6d6573736167655f7469746c65223a207b0a20202020226d6573
+│ │ │ +73616765223a202254c3a96cc3a96368617267656d656e742064c3a974656374
+│ │ │ +c3a9222c0a20202020226465736372697074696f6e223a202254686520746974
+│ │ │ +6c65206f6620746865206d6573736167652073686f776e20746f207468652075
+│ │ │ +736572207768656e206120646f776e6c6f616420697320646574656374656422
+│ │ │ +0a20207d2c0a202022646f776e6c6f61645f626c6f636b65645f6d6573736167
+│ │ │ +655f626f6479223a207b0a20202020226d657373616765223a20224c652074c3
+│ │ │ +a96cc3a96368617267656d656e74206465202466696c656e616d652420646570
+│ │ │ +756973202475726c24206120c3a974c3a920626c6f7175c3a92e204c69656e20
+│ │ │ +64652074c3a96cc3a963686167656d656e743a202466696c6555726c24222c0a
+│ │ │ +20202020226465736372697074696f6e223a202254686520626f6479206f6620
+│ │ │ +746865206d6573736167652073686f776e20746f207468652075736572207768
+│ │ │ +656e206120646f776e6c6f616420697320626c6f636b6564222c0a2020202022
+│ │ │ +706c616365686f6c64657273223a207b0a2020202020202266696c656e616d65
+│ │ │ +223a207b0a202020202020202022636f6e74656e74223a20222431222c0a2020
+│ │ │ +202020202020226578616d706c65223a2022706179736c69702e687461220a20
+│ │ │ +20202020207d2c0a202020202020202275726c223a207b0a2020202020202020
+│ │ │ +22636f6e74656e74223a20222432222c0a2020202020202020226578616d706c
+│ │ │ +65223a202268747470733a2f2f6578616d706c652e636f6d2f746573742e6874
+│ │ │ +6d6c220a2020202020207d2c0a2020202020202266696c6555726c223a207b0a
+│ │ │ +2020202020202022636f6e74656e74223a20222433222c0a2020202020202022
+│ │ │ +6578616d706c65223a202268747470733a2f2f6578616d706c652e636f6d2f70
+│ │ │ +6179736c69702e687461220a20202020207d0a202020207d0a20207d2c0a2020
+│ │ │ +22646f776e6c6f61645f6e6f746966795f6d6573736167655f626f6479223a20
+│ │ │ +7b0a20202020226d657373616765223a20224c652074c3a96cc3a96368617267
+│ │ │ +656d656e74206465202466696c656e616d652420646570756973202475726c24
+│ │ │ +206120c3a974c3a92064c3a974656374c3a92e204c69656e2064652074c3a96c
+│ │ │ +c3a963686167656d656e743a202466696c6555726c24222c0a20202020226465
+│ │ │ +736372697074696f6e223a202254686520626f6479206f6620746865206d6573
+│ │ │ +736167652073686f776e20746f207468652075736572207768656e206120646f
+│ │ │ +776e6c6f6164206973206465746563746564222c0a2020202022706c61636568
+│ │ │ +6f6c64657273223a207b0a2020202020202266696c656e616d65223a207b0a20
+│ │ │ +2020202020202022636f6e74656e74223a20222431222c0a2020202020202020
+│ │ │ +226578616d706c65223a2022706179736c69702e687461220a2020202020207d
+│ │ │ +2c0a202020202020202275726c223a207b0a202020202020202022636f6e7465
+│ │ │ +6e74223a20222432222c0a2020202020202020226578616d706c65223a202268
+│ │ │ +747470733a2f2f6578616d706c652e636f6d2f746573742e68746d6c220a2020
+│ │ │ +202020207d2c0a2020202020202266696c6555726c223a207b0a202020202020
+│ │ │ +2022636f6e74656e74223a20222433222c0a20202020202020226578616d706c
+│ │ │ +65223a202268747470733a2f2f6578616d706c652e636f6d2f706179736c6970
+│ │ │ +2e687461220a20202020207d0a202020207d0a20207d0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/config
+├── +++ /workspace/pipeline_output/DownloadBlocker/extension/config
+│ │   --- /workspace/pipeline_output/chromex_data/config/config.json
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/config/config.json
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ @@ -1,4 +1,4 @@
+│ │ +7b0a202020202272756c657322203a205b0a20202020202020207b0a20202020
+│ │ +20202020202020202262616e6e6564457874656e73696f6e7322203a205b222a
+│ │ +225d2c0a202020202020202020202020226f726967696e22203a20226c6f6361
+│ │ +6c220a20202020202020207d0a202020205d0a7d
+│ │ -7b0d0a202020202272756c657322203a205b0d0a20202020202020207b0d0a20
+│ │ -20202020202020202020202262616e6e6564457874656e73696f6e7322203a20
+│ │ -5b222a225d2c0d0a202020202020202020202020226f726967696e22203a2022
+│ │ -6c6f63616c220d0a20202020202020207d0d0a202020205d0d0a7d
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DownloadBlocker/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -41,10 +41,9 @@
+│ │          "storage",
+│ │          "scripting",
+│ │          "nativeMessaging"
+│ │      ],
+│ │      "storage": {
+│ │          "managed_schema": "schema.json"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/schema.json
+├── +++ /workspace/pipeline_output/DownloadBlocker/extension/schema.json
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ @@ -1,16 +1,16 @@
+│ -7b0d0a202020202274797065223a20226f626a656374222c0d0a0d0a20202020
+│ -2270726f70657274696573223a207b0d0a0d0a20202020202022436f6e666967
+│ -223a207b0d0a2020202020202020227469746c65223a2022436f6e666967222c
+│ -0d0a2020202020202020226465736372697074696f6e223a2022546865204a53
+│ -4f4e20636f6e66696775726174696f6e20666f7220746865206368726f6d6520
+│ -657874656e73696f6e222c0d0a20202020202020202274797065223a20227374
+│ -72696e67220d0a2020202020207d2c0d0a0d0a20202020202022486f73746e61
+│ -6d65223a207b0d0a2020202020202020227469746c65223a2022486f73746e61
+│ -6d65222c0d0a2020202020202020226465736372697074696f6e223a20225468
+│ -652064657669636520686f73746e616d65222c0d0a2020202020202020227479
+│ -7065223a2022737472696e67220d0a2020202020207d2c0d0a0d0a2020202020
+│ -2022557365726e616d65223a207b0d0a2020202020202020227469746c65223a
+│ -2022557365726e616d65222c0d0a202020202020202022646573637269707469
+│ -6f6e223a2022557365726e616d65206f66207468652063757272656e746c7920
+│ -6c6f6767656420696e2075736572222c0d0a2020202020202020227479706522
+│ -3a2022737472696e67220d0a2020202020207d0d0a20207d0d0a7d
+│ +7b0a202020202274797065223a20226f626a656374222c0a0a20202020227072
+│ +6f70657274696573223a207b0a0a20202020202022436f6e666967223a207b0a
+│ +2020202020202020227469746c65223a2022436f6e666967222c0a2020202020
+│ +202020226465736372697074696f6e223a2022546865204a534f4e20636f6e66
+│ +696775726174696f6e20666f7220746865206368726f6d6520657874656e7369
+│ +6f6e222c0a20202020202020202274797065223a2022737472696e67220a2020
+│ +202020207d2c0a0a20202020202022486f73746e616d65223a207b0a20202020
+│ +20202020227469746c65223a2022486f73746e616d65222c0a20202020202020
+│ +20226465736372697074696f6e223a20225468652064657669636520686f7374
+│ +6e616d65222c0a20202020202020202274797065223a2022737472696e67220a
+│ +2020202020207d2c0a0a20202020202022557365726e616d65223a207b0a2020
+│ +202020202020227469746c65223a2022557365726e616d65222c0a2020202020
+│ +202020226465736372697074696f6e223a2022557365726e616d65206f662074
+│ +68652063757272656e746c79206c6f6767656420696e2075736572222c0a2020
+│ +2020202020202274797065223a2022737472696e67220a2020202020207d0a20
+│ +207d0a7d
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src
+│ │   --- /workspace/pipeline_output/chromex_data/src/background.js
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src/background.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,396 +1,396 @@
+│ │ │ +async function initConfig() {
+│ │ │ +
+│ │ │ +    let managedConfig = await chrome.storage.managed.get();
+│ │ │ +
+│ │ │ +    if (managedConfig.Hostname) {
+│ │ │ +        Utils.Hostname = managedConfig.Hostname;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (managedConfig.Username) {
+│ │ │ +        Utils.Username = managedConfig.Username;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (managedConfig.Config) {
+│ │ │ +        console.log("Found managed config");
+│ │ │ +        try {
+│ │ │ +            return new configuration(JSON.parse(managedConfig.Config));
+│ │ │ +        } catch {
+│ │ │ +            console.log("Got JSON error when trying to parse configuration");
+│ │ │ +
+│ │ │ +            var title = await chrome.i18n.getMessage("config_error_title");
+│ │ │ +            var message = await chrome.i18n.getMessage("config_error_body");
+│ │ │ +            Utils.notifyUser(Utils.generateUuid(), title, message);
+│ │ │ +
+│ │ │ +            return await configuration.loadDefaultConfig();
+│ │ │ +        }
+│ │ │ +    } else {
+│ │ │ +        console.log("Didn't find managed config, using default.")
+│ │ │ +        return await configuration.loadDefaultConfig();
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// [GUID] => DownloadId
+│ │ │ +// GUID_[GUID] -> {macros, sha256 etc.}
+│ │ │ +// DownloadID_[ID] -> [GUID]
+│ │ │ +// UrlAtCreationForDownload_[ID] -> URL
+│ │ │ +
+│ │ │ +async function getStorageDataByKey(key) {
+│ │ │ +    let data = await chrome.storage.session.get(key);
+│ │ │ +    return data?.[key] ?? null;
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function writeStorageData(key, value) {
+│ │ │ +    var data = {};
+│ │ │ +    data[key] = value;
+│ │ │ +    return await chrome.storage.session.set(data);
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function getDownloadFromGuid(guid) {
+│ │ │ +
+│ │ │ +    let downloadId = await getStorageDataByKey(guid);
+│ │ │ +
+│ │ │ +    if (!downloadId) {
+│ │ │ +        return null;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    let matchingDownloads = await chrome.downloads.search({
+│ │ │ +        id: downloadId
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    return matchingDownloads?.[0];
+│ │ │ +
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function correlateDownloadWithMetaData(downloadItem) {
+│ │ │ +
+│ │ │ +    let downloadGuid = await getStorageDataByKey("DownloadID_" + downloadItem.id);
+│ │ │ +
+│ │ │ +    if (downloadGuid) {
+│ │ │ +        return await getStorageDataByKey("GUID_" + downloadGuid)
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    for (const [storageKey, storageData] of Object.entries(await chrome.storage.session.get())) {
+│ │ │ +
+│ │ │ +        /* 
+│ │ │ +          e.g. 
+│ │ │ +          "GUID_fbf5b3bd-2bb5-1f49-99ad-af49d8773b47" ->
+│ │ │ +            {
+│ │ │ +              guid: 'fbf5b3bd-2bb5-1f49-99ad-af49d8773b47',
+│ │ │ +              id: 'blob:https://www.outflank.nl/d740384d-8b10-4740-b489-9d97d0ba3017',
+│ │ │ +              referringPage: 'https://www.outflank.nl/demo/html_smuggling.html',
+│ │ │ +              sha256: 'Pending'
+│ │ │ +            }
+│ │ │ +        */
+│ │ │ +
+│ │ │ +        if (downloadItem.finalUrl == storageData.id) {
+│ │ │ +            await writeStorageData(storageData.guid, downloadItem.id);
+│ │ │ +            await writeStorageData("DownloadID_" + downloadItem.id, storageData.guid);
+│ │ │ +            return storageData;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return null;
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function generateSha256(input) {
+│ │ │ +    let digest = await crypto.subtle.digest("SHA-256", input);
+│ │ │ +    const hashArray = Array.from(new Uint8Array(digest)); // convert buffer to byte array
+│ │ │ +    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+│ │ │ +    return hashHex;
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Listen for async event giving us a file's metadata, including SHA256 hash, referer and file inspection data.
+│ │ │ +chrome.runtime.onMessage.addListener(
+│ │ │ +    async function(request, sender, sendResponse) {
+│ │ │ +        // console.log(sender.tab ? "from a content script:" + sender.tab.url : "from the extension");
+│ │ │ +        sendResponse(true);
+│ │ │ +        if (!request) {
+│ │ │ +            console.log("Request was null");
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        let guid = request.guid;
+│ │ │ +
+│ │ │ +        let existingData = await getStorageDataByKey("GUID_" + guid);
+│ │ │ +        if (existingData) {
+│ │ │ +            request.sha256 = request.sha256 && request.sha256 != "Pending" ? request.sha256 : existingData.sha256;
+│ │ │ +            request.referringPage = existingData.referringPage ?? request.initiatingPage;
+│ │ │ +            request.id = existingData.id ?? request.id;
+│ │ │ +            // This assumes that all file inspection data is sent together. Maybe we should merge arrays instead?
+│ │ │ +            request.fileInspectionData == existingData.fileInspectionData ?? request.fileInspectionData;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (request.sha256 instanceof Array) {
+│ │ │ +            request.sha256 = await generateSha256(new Uint8Array(request.sha256));
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        await writeStorageData("GUID_" + guid, request);
+│ │ │ +
+│ │ │ +        let downloadItem = await getDownloadFromGuid(guid);
+│ │ │ +
+│ │ │ +        if (downloadItem) {
+│ │ │ +            console.log("reprocessing with new metadata");
+│ │ │ +            await processDownload(downloadItem);
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +);
+│ │ │ +
+│ │ │ +// Cancel a download
+│ │ │ +async function cancelDownloadInProgress(downloadItem) {
+│ │ │ +    try {
+│ │ │ +        await chrome.downloads.cancel(downloadItem.id);
+│ │ │ +        await chrome.downloads.erase({
+│ │ │ +            "id": downloadItem.id
+│ │ │ +        });
+│ │ │ +        return true;
+│ │ │ +    } catch (ex) {
+│ │ │ +        console.log(ex);
+│ │ │ +        return false;
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Delete a download that has already finished
+│ │ │ +async function deleteSuccessfulDownload(downloadItem) {
+│ │ │ +    try {
+│ │ │ +        await chrome.downloads.removeFile(downloadItem.id);
+│ │ │ +        await chrome.downloads.erase({
+│ │ │ +            "id": downloadItem.id
+│ │ │ +        });
+│ │ │ +        return true;
+│ │ │ +    } catch (ex) {
+│ │ │ +        console.log(ex);
+│ │ │ +        return false;
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function abortDownload(downloadItem) {
+│ │ │ +
+│ │ │ +    if (downloadItem.state == "interrupted") {
+│ │ │ +        console.log("state was interrupted");
+│ │ │ +        return false;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (downloadItem.state == "complete") {
+│ │ │ +        return await deleteSuccessfulDownload(downloadItem);
+│ │ │ +    } else {
+│ │ │ +        return await cancelDownloadInProgress(downloadItem);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function clearSessionStorageData(downloadItem) {
+│ │ │ +    let downloadGuid = await getStorageDataByKey("DownloadID_" + downloadItem.id);
+│ │ │ +
+│ │ │ +    await chrome.storage.session.remove("DownloadID_" + downloadItem.id);
+│ │ │ +    await chrome.storage.session.remove("UrlAtCreationForDownload_" + downloadItem.id);
+│ │ │ +
+│ │ │ +    if (downloadGuid) {
+│ │ │ +        await chrome.storage.session.remove("GUID_" + downloadGuid);
+│ │ │ +        await chrome.storage.session.remove(downloadGuid);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +/*
+│ │ │ +  This function can be called multiple times per download (e.g.)
+│ │ │ +    When the download is first created
+│ │ │ +    When the download's filename has been determined
+│ │ │ +    Whenever the download changes state (in_progress, interrupted, complete)
+│ │ │ +    When the file's SHA256 hash has been calculated
+│ │ │ +    When file inspection has been completed
+│ │ │ +*/
+│ │ │ +async function processDownload(downloadItem) {
+│ │ │ +    if (downloadItem.state == "interrupted") {
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    let config = await initConfig();
+│ │ │ +
+│ │ │ +    if (!config) {
+│ │ │ +        console.log("Config wasn't loaded in time.");
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    let downloadData = await correlateDownloadWithMetaData(downloadItem);
+│ │ │ +    let urlAtCreationForDownload = await getStorageDataByKey("UrlAtCreationForDownload_" + downloadItem.id) ?? "";
+│ │ │ +    let nativeReferrer = downloadItem.referrer;
+│ │ │ +
+│ │ │ +    // getCurrentUrl() uses the currently active tab, which might not actually be the tab that initiated the download. Where possible, give priority to the URL provided by the content script.
+│ │ │ +    // The native referrer value doesn't always contain the full URL, but it is more reliable. We can balance the two by preferring the URL of the page the user was on when the download started if partial URL of the native referrer matches it.
+│ │ │ +    if (urlAtCreationForDownload.startsWith(downloadItem.referrer)) {
+│ │ │ +        downloadItem.referrer = urlAtCreationForDownload;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    downloadItem.referringPage = downloadData?.referringPage || downloadItem.referrer || urlAtCreationForDownload || await getCurrentUrl();
+│ │ │ +    downloadItem.referrer = nativeReferrer;
+│ │ │ +
+│ │ │ +    var matchedRule = config.getMatchedRule(downloadItem);
+│ │ │ +
+│ │ │ +    if (downloadItem.state == "in_progress" && matchedRule && config.getRuleResponsePriority(matchedRule) == "metadata") {
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    var filename = downloadItem.filename;
+│ │ │ +
+│ │ │ +    if (!filename) {
+│ │ │ +        console.log("filename was null");
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (downloadData?.sha256 == "Pending" || (downloadData && downloadData?.fileInspectionData == null)) {
+│ │ │ +        console.log(`[${downloadItem.filename}] Waiting for metadata, state is ` + downloadItem.state);
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    let isBlockPrioritised = matchedRule && config.getRuleResponsePriority(matchedRule) == "ruleaction" && config.getRuleAction(matchedRule) == "block";
+│ │ │ +
+│ │ │ +    if (downloadItem.state == "in_progress" && downloadItem.fileSize && downloadItem.totalBytes && downloadItem.fileSize == downloadItem.totalBytes && downloadItem.totalBytes > 0 && !isBlockPrioritised) {
+│ │ │ +        // Download has actually already finished, so to prevent a race condition here we will yield to the event about to be dispatched when the download finishes.
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (!downloadData && !isBlockPrioritised) {
+│ │ │ +        try {
+│ │ │ +            console.log("Waiting for Native Messaging host");
+│ │ │ +            downloadData = await chrome.runtime.sendNativeMessage('securityjosh.download_blocker', {
+│ │ │ +                FilePath: downloadItem.filename
+│ │ │ +            });
+│ │ │ +            console.log("Finished waiting for Native Messaging host");
+│ │ │ +            if (chrome.runtime.lastError) {
+│ │ │ +                console.log(chrome.runtime.lastError.message);
+│ │ │ +            }
+│ │ │ +        } catch (e) {
+│ │ │ +            console.log(e);
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (downloadData) {
+│ │ │ +        // Copy file metadata to updated DownloadItem for audit / notification
+│ │ │ +        downloadItem.sha256 = downloadData.sha256;
+│ │ │ +        downloadItem.fileInspectionData = downloadData.fileInspectionData;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    // Workaround for a bug in the Native Messaging Host between 1.1.0 and 1.2.0 which means that zipFileNames are accidentally returned inside of a double array
+│ │ │ +    if (downloadItem.fileInspectionData?.zipFileNames?.[0] instanceof Array) {
+│ │ │ +        downloadItem.fileInspectionData.zipFileNames = downloadItem.fileInspectionData?.zipFileNames?.[0];
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    console.log("Processing download with id: " + downloadItem.id + ", state is: " + downloadItem.state);
+│ │ │ +    console.log(structuredClone(downloadItem));
+│ │ │ +
+│ │ │ +    matchedRule = config.getMatchedRule(downloadItem);
+│ │ │ +
+│ │ │ +    if (!matchedRule) {
+│ │ │ +        console.log("Download didn't match any rules")
+│ │ │ +        await clearSessionStorageData(downloadItem);
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    console.log("Matched rule:");
+│ │ │ +    console.log(matchedRule);
+│ │ │ +
+│ │ │ +    // Default to block except where action is set explicitly to something else
+│ │ │ +
+│ │ │ +    var ruleAction = config.getRuleAction(matchedRule);
+│ │ │ +
+│ │ │ +    if (ruleAction == "audit" && !config.getAlertConfig()) {
+│ │ │ +        ruleAction = "block";
+│ │ │ +        console.log("Action set to audit, but no alertConfig is specified, overriding action to block download");
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    downloadItem["action"] = ruleAction; // For alerting purposes
+│ │ │ +
+│ │ │ +    var shouldBlockDownload = !["audit", "notify"].includes(ruleAction);
+│ │ │ +
+│ │ │ +    if (shouldBlockDownload) {
+│ │ │ +
+│ │ │ +        console.log("Action not set to audit or notify, blocking download");
+│ │ │ +        let actionResult = (await abortDownload(downloadItem)) ? "Successful" : "Unsuccessful";
+│ │ │ +        downloadItem.actionResult = actionResult;
+│ │ │ +    } else {
+│ │ │ +        console.log(`Rule action is set to ${ruleAction}, download won't be blocked.`);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +
+│ │ │ +    if (ruleAction != "audit") {
+│ │ │ +        // If the ruleAction is not audit, i.e. it's block or notify, we need to send the user a notification
+│ │ │ +        var titleTemplateName = ruleAction == "block" ? "download_blocked_message_title" : "download_notify_message_title";
+│ │ │ +        var bodyTemplateName = ruleAction == "block" ? "download_blocked_message_body" : "download_notify_message_body";
+│ │ │ +
+│ │ │ +        var title = Utils.parseString(matchedRule.titleTemplate, downloadItem) || await chrome.i18n.getMessage(titleTemplateName);
+│ │ │ +        var message = Utils.parseString(matchedRule.messageTemplate, downloadItem) || await chrome.i18n.getMessage(bodyTemplateName, [downloadItem.filename, downloadItem.referringPage, downloadItem.finalUrl]);
+│ │ │ +        Utils.notifyUser(Utils.generateUuid(), title, message);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    await config.sendAlertMessage(downloadItem);
+│ │ │ +
+│ │ │ +    await clearSessionStorageData(downloadItem);
+│ │ │ +}
+│ │ │ +
+│ │ │ +chrome.downloads.onCreated.addListener(async function(downloadItem) {
+│ │ │ +    if (chrome.runtime.lastError) {
+│ │ │ +        console.log(chrome.runtime.lastError.message);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (downloadItem.endTime) {
+│ │ │ +        // Workaround for a chrome bug (https://bugs.chromium.org/p/chromium/issues/detail?id=1476069)
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    await correlateDownloadWithMetaData(downloadItem);
+│ │ │ +    await writeStorageData("UrlAtCreationForDownload_" + downloadItem.id, await getCurrentUrl());
+│ │ │ +    processDownload(downloadItem);
+│ │ │ +});
+│ │ │ +
+│ │ │ +chrome.downloads.onChanged.addListener(
+│ │ │ +    function callback(downloadDelta) {
+│ │ │ +        if (chrome.runtime.lastError) {
+│ │ │ +            console.log(chrome.runtime.lastError.message);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (downloadDelta.state || downloadDelta.filename) {
+│ │ │ +            chrome.downloads.search({
+│ │ │ +                'id': downloadDelta.id
+│ │ │ +            }, function(items) {
+│ │ │ +                if (chrome.runtime.lastError) {
+│ │ │ +                    console.log(chrome.runtime.lastError.message);
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                if (items && items.length == 1) {
+│ │ │ +                    processDownload(items[0]);
+│ │ │ +                }
+│ │ │ +            });
+│ │ │ +
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +);
+│ │ │ +
+│ │ │ +try {
+│ │ │ +    const scriptId = "DownloadBlockerScript_" + Utils.generateGuid();
+│ │ │ +
+│ │ │ +    console.log(`Injecting script with ID '${scriptId}'`);
+│ │ │ +
+│ │ │ +    chrome.scripting.registerContentScripts([{
+│ │ │ +        allFrames: true,
+│ │ │ +        matchOriginAsFallback: true,
+│ │ │ +        id: scriptId,
+│ │ │ +        js: ["src/inject.js"],
+│ │ │ +        matches: ["<all_urls>"],
+│ │ │ +        runAt: "document_start",
+│ │ │ +        world: "MAIN"
+│ │ │ +    }]);
+│ │ │ +
+│ │ │ +    if (chrome.runtime.lastError) {
+│ │ │ +        console.log(chrome.runtime.lastError);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +} catch (e) {
+│ │ │ +    console.log(e);
+│ │ │ +}
+│ │ │ +
+│ │ │ +async function getCurrentUrl() {
+│ │ │ +    let queryOptions = {
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    };
+│ │ │ +    let [tab] = await chrome.tabs.query(queryOptions);
+│ │ │ +    return tab?.url || "";
+│ │ │ -async function initConfig() {
+│ │ │ -
+│ │ │ -    let managedConfig = await chrome.storage.managed.get();
+│ │ │ -
+│ │ │ -    if (managedConfig.Hostname) {
+│ │ │ -        Utils.Hostname = managedConfig.Hostname;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (managedConfig.Username) {
+│ │ │ -        Utils.Username = managedConfig.Username;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (managedConfig.Config) {
+│ │ │ -        console.log("Found managed config");
+│ │ │ -        try {
+│ │ │ -            return new configuration(JSON.parse(managedConfig.Config));
+│ │ │ -        } catch {
+│ │ │ -            console.log("Got JSON error when trying to parse configuration");
+│ │ │ -
+│ │ │ -            var title = await chrome.i18n.getMessage("config_error_title");
+│ │ │ -            var message = await chrome.i18n.getMessage("config_error_body");
+│ │ │ -            Utils.notifyUser(Utils.generateUuid(), title, message);
+│ │ │ -
+│ │ │ -            return await configuration.loadDefaultConfig();
+│ │ │ -        }
+│ │ │ -    } else {
+│ │ │ -        console.log("Didn't find managed config, using default.")
+│ │ │ -        return await configuration.loadDefaultConfig();
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -// [GUID] => DownloadId
+│ │ │ -// GUID_[GUID] -> {macros, sha256 etc.}
+│ │ │ -// DownloadID_[ID] -> [GUID]
+│ │ │ -// UrlAtCreationForDownload_[ID] -> URL
+│ │ │ -
+│ │ │ -async function getStorageDataByKey(key) {
+│ │ │ -    let data = await chrome.storage.session.get(key);
+│ │ │ -    return data?.[key] ?? null;
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function writeStorageData(key, value) {
+│ │ │ -    var data = {};
+│ │ │ -    data[key] = value;
+│ │ │ -    return await chrome.storage.session.set(data);
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function getDownloadFromGuid(guid) {
+│ │ │ -
+│ │ │ -    let downloadId = await getStorageDataByKey(guid);
+│ │ │ -
+│ │ │ -    if (!downloadId) {
+│ │ │ -        return null;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    let matchingDownloads = await chrome.downloads.search({
+│ │ │ -        id: downloadId
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    return matchingDownloads?.[0];
+│ │ │ -
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function correlateDownloadWithMetaData(downloadItem) {
+│ │ │ -
+│ │ │ -    let downloadGuid = await getStorageDataByKey("DownloadID_" + downloadItem.id);
+│ │ │ -
+│ │ │ -    if (downloadGuid) {
+│ │ │ -        return await getStorageDataByKey("GUID_" + downloadGuid)
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    for (const [storageKey, storageData] of Object.entries(await chrome.storage.session.get())) {
+│ │ │ -
+│ │ │ -        /* 
+│ │ │ -          e.g. 
+│ │ │ -          "GUID_fbf5b3bd-2bb5-1f49-99ad-af49d8773b47" ->
+│ │ │ -            {
+│ │ │ -              guid: 'fbf5b3bd-2bb5-1f49-99ad-af49d8773b47',
+│ │ │ -              id: 'blob:https://www.outflank.nl/d740384d-8b10-4740-b489-9d97d0ba3017',
+│ │ │ -              referringPage: 'https://www.outflank.nl/demo/html_smuggling.html',
+│ │ │ -              sha256: 'Pending'
+│ │ │ -            }
+│ │ │ -        */
+│ │ │ -
+│ │ │ -        if (downloadItem.finalUrl == storageData.id) {
+│ │ │ -            await writeStorageData(storageData.guid, downloadItem.id);
+│ │ │ -            await writeStorageData("DownloadID_" + downloadItem.id, storageData.guid);
+│ │ │ -            return storageData;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return null;
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function generateSha256(input) {
+│ │ │ -    let digest = await crypto.subtle.digest("SHA-256", input);
+│ │ │ -    const hashArray = Array.from(new Uint8Array(digest)); // convert buffer to byte array
+│ │ │ -    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+│ │ │ -    return hashHex;
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Listen for async event giving us a file's metadata, including SHA256 hash, referer and file inspection data.
+│ │ │ -chrome.runtime.onMessage.addListener(
+│ │ │ -    async function(request, sender, sendResponse) {
+│ │ │ -        // console.log(sender.tab ? "from a content script:" + sender.tab.url : "from the extension");
+│ │ │ -        sendResponse(true);
+│ │ │ -        if (!request) {
+│ │ │ -            console.log("Request was null");
+│ │ │ -            return;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        let guid = request.guid;
+│ │ │ -
+│ │ │ -        let existingData = await getStorageDataByKey("GUID_" + guid);
+│ │ │ -        if (existingData) {
+│ │ │ -            request.sha256 = request.sha256 && request.sha256 != "Pending" ? request.sha256 : existingData.sha256;
+│ │ │ -            request.referringPage = existingData.referringPage ?? request.initiatingPage;
+│ │ │ -            request.id = existingData.id ?? request.id;
+│ │ │ -            // This assumes that all file inspection data is sent together. Maybe we should merge arrays instead?
+│ │ │ -            request.fileInspectionData == existingData.fileInspectionData ?? request.fileInspectionData;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (request.sha256 instanceof Array) {
+│ │ │ -            request.sha256 = await generateSha256(new Uint8Array(request.sha256));
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        await writeStorageData("GUID_" + guid, request);
+│ │ │ -
+│ │ │ -        let downloadItem = await getDownloadFromGuid(guid);
+│ │ │ -
+│ │ │ -        if (downloadItem) {
+│ │ │ -            console.log("reprocessing with new metadata");
+│ │ │ -            await processDownload(downloadItem);
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -);
+│ │ │ -
+│ │ │ -// Cancel a download
+│ │ │ -async function cancelDownloadInProgress(downloadItem) {
+│ │ │ -    try {
+│ │ │ -        await chrome.downloads.cancel(downloadItem.id);
+│ │ │ -        await chrome.downloads.erase({
+│ │ │ -            "id": downloadItem.id
+│ │ │ -        });
+│ │ │ -        return true;
+│ │ │ -    } catch (ex) {
+│ │ │ -        console.log(ex);
+│ │ │ -        return false;
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Delete a download that has already finished
+│ │ │ -async function deleteSuccessfulDownload(downloadItem) {
+│ │ │ -    try {
+│ │ │ -        await chrome.downloads.removeFile(downloadItem.id);
+│ │ │ -        await chrome.downloads.erase({
+│ │ │ -            "id": downloadItem.id
+│ │ │ -        });
+│ │ │ -        return true;
+│ │ │ -    } catch (ex) {
+│ │ │ -        console.log(ex);
+│ │ │ -        return false;
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function abortDownload(downloadItem) {
+│ │ │ -
+│ │ │ -    if (downloadItem.state == "interrupted") {
+│ │ │ -        console.log("state was interrupted");
+│ │ │ -        return false;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (downloadItem.state == "complete") {
+│ │ │ -        return await deleteSuccessfulDownload(downloadItem);
+│ │ │ -    } else {
+│ │ │ -        return await cancelDownloadInProgress(downloadItem);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function clearSessionStorageData(downloadItem) {
+│ │ │ -    let downloadGuid = await getStorageDataByKey("DownloadID_" + downloadItem.id);
+│ │ │ -
+│ │ │ -    await chrome.storage.session.remove("DownloadID_" + downloadItem.id);
+│ │ │ -    await chrome.storage.session.remove("UrlAtCreationForDownload_" + downloadItem.id);
+│ │ │ -
+│ │ │ -    if (downloadGuid) {
+│ │ │ -        await chrome.storage.session.remove("GUID_" + downloadGuid);
+│ │ │ -        await chrome.storage.session.remove(downloadGuid);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -/*
+│ │ │ -  This function can be called multiple times per download (e.g.)
+│ │ │ -    When the download is first created
+│ │ │ -    When the download's filename has been determined
+│ │ │ -    Whenever the download changes state (in_progress, interrupted, complete)
+│ │ │ -    When the file's SHA256 hash has been calculated
+│ │ │ -    When file inspection has been completed
+│ │ │ -*/
+│ │ │ -async function processDownload(downloadItem) {
+│ │ │ -    if (downloadItem.state == "interrupted") {
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    let config = await initConfig();
+│ │ │ -
+│ │ │ -    if (!config) {
+│ │ │ -        console.log("Config wasn't loaded in time.");
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    let downloadData = await correlateDownloadWithMetaData(downloadItem);
+│ │ │ -    let urlAtCreationForDownload = await getStorageDataByKey("UrlAtCreationForDownload_" + downloadItem.id) ?? "";
+│ │ │ -    let nativeReferrer = downloadItem.referrer;
+│ │ │ -
+│ │ │ -    // getCurrentUrl() uses the currently active tab, which might not actually be the tab that initiated the download. Where possible, give priority to the URL provided by the content script.
+│ │ │ -    // The native referrer value doesn't always contain the full URL, but it is more reliable. We can balance the two by preferring the URL of the page the user was on when the download started if partial URL of the native referrer matches it.
+│ │ │ -    if (urlAtCreationForDownload.startsWith(downloadItem.referrer)) {
+│ │ │ -        downloadItem.referrer = urlAtCreationForDownload;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    downloadItem.referringPage = downloadData?.referringPage || downloadItem.referrer || urlAtCreationForDownload || await getCurrentUrl();
+│ │ │ -    downloadItem.referrer = nativeReferrer;
+│ │ │ -
+│ │ │ -    var matchedRule = config.getMatchedRule(downloadItem);
+│ │ │ -
+│ │ │ -    if (downloadItem.state == "in_progress" && matchedRule && config.getRuleResponsePriority(matchedRule) == "metadata") {
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    var filename = downloadItem.filename;
+│ │ │ -
+│ │ │ -    if (!filename) {
+│ │ │ -        console.log("filename was null");
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (downloadData?.sha256 == "Pending" || (downloadData && downloadData?.fileInspectionData == null)) {
+│ │ │ -        console.log(`[${downloadItem.filename}] Waiting for metadata, state is ` + downloadItem.state);
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    let isBlockPrioritised = matchedRule && config.getRuleResponsePriority(matchedRule) == "ruleaction" && config.getRuleAction(matchedRule) == "block";
+│ │ │ -
+│ │ │ -    if (downloadItem.state == "in_progress" && downloadItem.fileSize && downloadItem.totalBytes && downloadItem.fileSize == downloadItem.totalBytes && downloadItem.totalBytes > 0 && !isBlockPrioritised) {
+│ │ │ -        // Download has actually already finished, so to prevent a race condition here we will yield to the event about to be dispatched when the download finishes.
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (!downloadData && !isBlockPrioritised) {
+│ │ │ -        try {
+│ │ │ -            console.log("Waiting for Native Messaging host");
+│ │ │ -            downloadData = await chrome.runtime.sendNativeMessage('securityjosh.download_blocker', {
+│ │ │ -                FilePath: downloadItem.filename
+│ │ │ -            });
+│ │ │ -            console.log("Finished waiting for Native Messaging host");
+│ │ │ -            if (chrome.runtime.lastError) {
+│ │ │ -                console.log(chrome.runtime.lastError.message);
+│ │ │ -            }
+│ │ │ -        } catch (e) {
+│ │ │ -            console.log(e);
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (downloadData) {
+│ │ │ -        // Copy file metadata to updated DownloadItem for audit / notification
+│ │ │ -        downloadItem.sha256 = downloadData.sha256;
+│ │ │ -        downloadItem.fileInspectionData = downloadData.fileInspectionData;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    // Workaround for a bug in the Native Messaging Host between 1.1.0 and 1.2.0 which means that zipFileNames are accidentally returned inside of a double array
+│ │ │ -    if (downloadItem.fileInspectionData?.zipFileNames?.[0] instanceof Array) {
+│ │ │ -        downloadItem.fileInspectionData.zipFileNames = downloadItem.fileInspectionData?.zipFileNames?.[0];
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    console.log("Processing download with id: " + downloadItem.id + ", state is: " + downloadItem.state);
+│ │ │ -    console.log(structuredClone(downloadItem));
+│ │ │ -
+│ │ │ -    matchedRule = config.getMatchedRule(downloadItem);
+│ │ │ -
+│ │ │ -    if (!matchedRule) {
+│ │ │ -        console.log("Download didn't match any rules")
+│ │ │ -        await clearSessionStorageData(downloadItem);
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    console.log("Matched rule:");
+│ │ │ -    console.log(matchedRule);
+│ │ │ -
+│ │ │ -    // Default to block except where action is set explicitly to something else
+│ │ │ -
+│ │ │ -    var ruleAction = config.getRuleAction(matchedRule);
+│ │ │ -
+│ │ │ -    if (ruleAction == "audit" && !config.getAlertConfig()) {
+│ │ │ -        ruleAction = "block";
+│ │ │ -        console.log("Action set to audit, but no alertConfig is specified, overriding action to block download");
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    downloadItem["action"] = ruleAction; // For alerting purposes
+│ │ │ -
+│ │ │ -    var shouldBlockDownload = !["audit", "notify"].includes(ruleAction);
+│ │ │ -
+│ │ │ -    if (shouldBlockDownload) {
+│ │ │ -
+│ │ │ -        console.log("Action not set to audit or notify, blocking download");
+│ │ │ -        let actionResult = (await abortDownload(downloadItem)) ? "Successful" : "Unsuccessful";
+│ │ │ -        downloadItem.actionResult = actionResult;
+│ │ │ -    } else {
+│ │ │ -        console.log(`Rule action is set to ${ruleAction}, download won't be blocked.`);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -
+│ │ │ -    if (ruleAction != "audit") {
+│ │ │ -        // If the ruleAction is not audit, i.e. it's block or notify, we need to send the user a notification
+│ │ │ -        var titleTemplateName = ruleAction == "block" ? "download_blocked_message_title" : "download_notify_message_title";
+│ │ │ -        var bodyTemplateName = ruleAction == "block" ? "download_blocked_message_body" : "download_notify_message_body";
+│ │ │ -
+│ │ │ -        var title = Utils.parseString(matchedRule.titleTemplate, downloadItem) || await chrome.i18n.getMessage(titleTemplateName);
+│ │ │ -        var message = Utils.parseString(matchedRule.messageTemplate, downloadItem) || await chrome.i18n.getMessage(bodyTemplateName, [downloadItem.filename, downloadItem.referringPage, downloadItem.finalUrl]);
+│ │ │ -        Utils.notifyUser(Utils.generateUuid(), title, message);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    await config.sendAlertMessage(downloadItem);
+│ │ │ -
+│ │ │ -    await clearSessionStorageData(downloadItem);
+│ │ │ -}
+│ │ │ -
+│ │ │ -chrome.downloads.onCreated.addListener(async function(downloadItem) {
+│ │ │ -    if (chrome.runtime.lastError) {
+│ │ │ -        console.log(chrome.runtime.lastError.message);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (downloadItem.endTime) {
+│ │ │ -        // Workaround for a chrome bug (https://bugs.chromium.org/p/chromium/issues/detail?id=1476069)
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    await correlateDownloadWithMetaData(downloadItem);
+│ │ │ -    await writeStorageData("UrlAtCreationForDownload_" + downloadItem.id, await getCurrentUrl());
+│ │ │ -    processDownload(downloadItem);
+│ │ │ -});
+│ │ │ -
+│ │ │ -chrome.downloads.onChanged.addListener(
+│ │ │ -    function callback(downloadDelta) {
+│ │ │ -        if (chrome.runtime.lastError) {
+│ │ │ -            console.log(chrome.runtime.lastError.message);
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (downloadDelta.state || downloadDelta.filename) {
+│ │ │ -            chrome.downloads.search({
+│ │ │ -                'id': downloadDelta.id
+│ │ │ -            }, function(items) {
+│ │ │ -                if (chrome.runtime.lastError) {
+│ │ │ -                    console.log(chrome.runtime.lastError.message);
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                if (items && items.length == 1) {
+│ │ │ -                    processDownload(items[0]);
+│ │ │ -                }
+│ │ │ -            });
+│ │ │ -
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -);
+│ │ │ -
+│ │ │ -try {
+│ │ │ -    const scriptId = "DownloadBlockerScript_" + Utils.generateGuid();
+│ │ │ -
+│ │ │ -    console.log(`Injecting script with ID '${scriptId}'`);
+│ │ │ -
+│ │ │ -    chrome.scripting.registerContentScripts([{
+│ │ │ -        allFrames: true,
+│ │ │ -        matchOriginAsFallback: true,
+│ │ │ -        id: scriptId,
+│ │ │ -        js: ["src/inject.js"],
+│ │ │ -        matches: ["<all_urls>"],
+│ │ │ -        runAt: "document_start",
+│ │ │ -        world: "MAIN"
+│ │ │ -    }]);
+│ │ │ -
+│ │ │ -    if (chrome.runtime.lastError) {
+│ │ │ -        console.log(chrome.runtime.lastError);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -} catch (e) {
+│ │ │ -    console.log(e);
+│ │ │ -}
+│ │ │ -
+│ │ │ -async function getCurrentUrl() {
+│ │ │ -    let queryOptions = {
+│ │ │ -        active: true,
+│ │ │ -        currentWindow: true
+│ │ │ -    };
+│ │ │ -    let [tab] = await chrome.tabs.query(queryOptions);
+│ │ │ -    return tab?.url || "";
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/src/configuration.js
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src/configuration.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,303 +1,303 @@
+│ │ │ +class configuration {
+│ │ │ +
+│ │ │ +    rules = {};
+│ │ │ +    alertConfig = null;
+│ │ │ +
+│ │ │ +    constructor(json) {
+│ │ │ +
+│ │ │ +        if (json.rules && Array.isArray(json.rules)) {
+│ │ │ +            this.rules = json.rules.filter(x => this.isRuleValid(x));
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        console.log(this.rules.length + " rules loaded");
+│ │ │ +
+│ │ │ +        if (json.alertConfig) {
+│ │ │ +            this.alertConfig = json.alertConfig;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    isExtensionInList(list, fileExtension) {
+│ │ │ +        return list.map(x => x.toLowerCase()).includes(fileExtension.toLowerCase()) || list.includes("*");
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    isRuleValid(rule) {
+│ │ │ +        if (!rule.bannedExtensions || !Array.isArray(rule.bannedExtensions)) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (!rule.origin || !["local", "server", "any"].includes(rule.origin.toLowerCase())) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (rule.exceptions && !Array.isArray(rule.exceptions)) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (rule.urlScheme && !Array.isArray(rule.urlScheme)) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (rule.fileInspection && (!rule.fileInspection instanceof Object || Object.keys(rule.fileInspection).length == 0)) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (!["block", "audit", "notify"].includes(this.getRuleAction(rule))) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (!["ruleaction", "metadata"].includes(this.getRuleResponsePriority(rule))) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return true;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    doesDomainMatch(matchType, matchValue, downloadItem) {
+│ │ │ +
+│ │ │ +        // If the download is HTML smuggled, use the referring page, otherwise use the file URL.
+│ │ │ +
+│ │ │ +        var downloadHostname = Utils.createUrl(Utils.isJsDownload(downloadItem) ? downloadItem.referringPage || downloadItem.referrer : downloadItem.finalUrl)?.hostname?.toLowerCase() || "";
+│ │ │ +        var referrerHostname = new URL(downloadItem.referringPage || downloadItem.referrer)?.hostname?.toLowerCase() || "";
+│ │ │ +
+│ │ │ +        let domainMatch = (downloadHostname, referrerHostname, matchType, matchValue) => {
+│ │ │ +            let funcs = {
+│ │ │ +                "hostname": (downloadHostname, referrerHostname, matchValue) => downloadHostname == matchValue.toLowerCase(),
+│ │ │ +                "basedomain": (downloadHostname, referrerHostname, matchValue) => ('.' + downloadHostname).endsWith('.' + matchValue.toLowerCase()),
+│ │ │ +                "referrerhostname": (downloadHostname, referrerHostname, matchValue) => referrerHostname == matchValue.toLowerCase(),
+│ │ │ +                "referrerbasedomain": (downloadHostname, referrerHostname, matchValue) => ('.' + referrerHostname).endsWith('.' + matchValue.toLowerCase()),
+│ │ │ +            };
+│ │ │ +
+│ │ │ +            return funcs[matchType](downloadHostname, referrerHostname, matchValue);
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        if (Array.isArray(matchValue)) {
+│ │ │ +            return matchValue.some(x => domainMatch(downloadHostname, referrerHostname, matchType, x));
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return domainMatch(downloadHostname, referrerHostname, matchType, matchValue);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    checkException(exception, downloadItem) {
+│ │ │ +        var exceptionType = exception.type.toLowerCase();
+│ │ │ +        var exceptionValue = exception.value;
+│ │ │ +
+│ │ │ +        switch (exceptionType) {
+│ │ │ +            case "hostname":
+│ │ │ +            case "basedomain":
+│ │ │ +            case "referrerhostname":
+│ │ │ +            case "referrerbasedomain":
+│ │ │ +                return this.doesDomainMatch(exceptionType, exceptionValue, downloadItem);
+│ │ │ +            case "fileextensions":
+│ │ │ +                return this.isExtensionInList(exceptionValue, Utils.getFileExtension(downloadItem.filename));
+│ │ │ +            default:
+│ │ │ +                console.log(`exceptionType: '${exceptionType}' was not recognised. Value given: '${exceptionValue}'`);
+│ │ │ +                return false;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    doesExceptionExist(rule, downloadItem) {
+│ │ │ +
+│ │ │ +        if (!rule.exceptions) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        for (let exceptionIndex = 0; exceptionIndex < rule.exceptions.length; exceptionIndex++) {
+│ │ │ +            const exception = rule.exceptions[exceptionIndex];
+│ │ │ +
+│ │ │ +            if (this.checkException(exception, downloadItem)) {
+│ │ │ +                return true;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return false;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    doesFileNameRegexMatch(rule, downloadItem) {
+│ │ │ +        if (!downloadItem.filename) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        try {
+│ │ │ +            var regex = new RegExp(rule.fileNameRegex);
+│ │ │ +            return regex.test(downloadItem.filename) || (rule.matchFileNamesInZip && Array.from(downloadItem.fileInspectionData?.zipFileNames || []).some(x => regex.test(x)));
+│ │ │ +        } catch {
+│ │ │ +            console.log(`Failed to compile regex '${rule.fileNameRegex}'`);
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    doesFileInspectionMatch(rule, downloadItem) {
+│ │ │ +
+│ │ │ +        if (!downloadItem.fileInspectionData) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        for (var key of Object.keys(rule.fileInspection)) {
+│ │ │ +            if ((!downloadItem.fileInspectionData[key]) || downloadItem.fileInspectionData[key] !== rule.fileInspection[key]) {
+│ │ │ +                return false;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +        return true;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    doesDownloadMatchRule(rule, downloadItem) {
+│ │ │ +        var fileExtension = Utils.getFileExtension(downloadItem.filename);
+│ │ │ +
+│ │ │ +        var isJsDownload = Utils.isJsDownload(downloadItem);
+│ │ │ +
+│ │ │ +        if (!(this.isExtensionInList(rule.bannedExtensions, fileExtension) || (rule.matchFileNamesInZip && Array.from(downloadItem.fileInspectionData?.zipFileNames || []).some(x => this.isExtensionInList(rule.bannedExtensions, Utils.getFileExtension(x)))))) {
+│ │ │ +            console.log("File extension didn't match rule");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        var ruleOrigin = rule.origin.toLowerCase();
+│ │ │ +
+│ │ │ +        if ((ruleOrigin == "local" && !isJsDownload) || ruleOrigin == 'server' && isJsDownload) {
+│ │ │ +            console.log("Rule origin didn't match");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (rule.fileInspection && !this.doesFileInspectionMatch(rule, downloadItem)) {
+│ │ │ +            console.log("file inspection didn't match");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (rule.fileNameRegex && !this.doesFileNameRegexMatch(rule, downloadItem)) {
+│ │ │ +            console.log("fileNameRegex didn't match");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (rule.urlScheme) {
+│ │ │ +
+│ │ │ +            var ruleUrlScheme = rule.urlScheme.map(x => x.toLowerCase());
+│ │ │ +
+│ │ │ +            var downloadUrl = Utils.createUrl(Utils.isJsDownload(downloadItem) ? downloadItem.referringPage || downloadItem.referrer : downloadItem.finalUrl);
+│ │ │ +
+│ │ │ +            if (!downloadUrl) {
+│ │ │ +                return false;
+│ │ │ +            }
+│ │ │ +
+│ │ │ +            var urlScheme = downloadUrl.protocol.slice(0, -1).toLowerCase(); // e.g. file, http, https instead of file:, http:, https:
+│ │ │ +
+│ │ │ +            if (!ruleUrlScheme.includes(urlScheme)) {
+│ │ │ +                console.log("URL scheme didn't match");
+│ │ │ +                return false;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        var domainDoesntMatch = ["hostname", "basedomain", "referrerhostname", "referrerbasedomain"].some(domainMatchType => {
+│ │ │ +            return rule[domainMatchType] && !this.doesDomainMatch(domainMatchType, rule[domainMatchType], downloadItem);
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        if (domainDoesntMatch) {
+│ │ │ +            console.log("Download didn't match domain filter");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (this.doesExceptionExist(rule, downloadItem)) {
+│ │ │ +            console.log("exception found");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return true;
+│ │ │ +
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    getRuleResponsePriority(rule) {
+│ │ │ +        if (!rule.responsePriority) {
+│ │ │ +            return "ruleaction"
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return rule.responsePriority.toLowerCase();
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    getRuleAction(rule) {
+│ │ │ +        if (!rule.action) {
+│ │ │ +            return "block";
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return rule.action.toLowerCase();
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    getMatchedRule(downloadItem) {
+│ │ │ +
+│ │ │ +        var matchedRule = null;
+│ │ │ +
+│ │ │ +        for (let ruleIndex = 0; ruleIndex < this.rules.length; ruleIndex++) {
+│ │ │ +            const rule = this.rules[ruleIndex];
+│ │ │ +
+│ │ │ +            console.log(rule);
+│ │ │ +
+│ │ │ +            if (this.doesDownloadMatchRule(rule, downloadItem)) {
+│ │ │ +
+│ │ │ +                downloadItem.ruleName = rule.ruleName ?? "";
+│ │ │ +
+│ │ │ +                if (this.getRuleAction(rule) == "block") {
+│ │ │ +                    return rule;
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                matchedRule = rule;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return matchedRule;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    getBannedExtensionsJs() {
+│ │ │ +        return this.bannedExtensions;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    getAlertConfig() {
+│ │ │ +        return this.alertConfig;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    async sendAlertMessage(downloadItem) {
+│ │ │ +        console.log("in sendAlertMessage");
+│ │ │ +        console.log(this.alertConfig);
+│ │ │ +        if (!this.alertConfig) {
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        var url = Utils.parseUrl(this.alertConfig.url, downloadItem);
+│ │ │ +        var postData = null;
+│ │ │ +        var headers = this.alertConfig.headers ?? {};
+│ │ │ +
+│ │ │ +        if (this.alertConfig.method == "POST") {
+│ │ │ +            postData = Utils.parseTemplate(this.alertConfig.postData, downloadItem);
+│ │ │ +
+│ │ │ +            if (this.alertConfig.sendAsJson) {
+│ │ │ +                headers["Content-Type"] = 'application/json';
+│ │ │ +                postData = JSON.stringify(postData);
+│ │ │ +            } else {
+│ │ │ +                headers["Content-Type"] = 'application/x-www-form-urlencoded';
+│ │ │ +                postData = new URLSearchParams(postData);
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        try {
+│ │ │ +            return await Utils.XhrRequest(url, this.alertConfig.method, headers, postData);
+│ │ │ +        } catch (e) {
+│ │ │ +            console.log(e);
+│ │ │ +            console.log("Error sending alert");
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    static async loadDefaultConfig() {
+│ │ │ +        var configUrl = chrome.runtime.getURL("config/config.json");
+│ │ │ +
+│ │ │ +        try {
+│ │ │ +
+│ │ │ +            var config = await (await Utils.XhrRequest(configUrl)).json();
+│ │ │ +
+│ │ │ +            console.log(config);
+│ │ │ +
+│ │ │ +            console.log(`Loaded config from '${configUrl}'`);
+│ │ │ +            return new configuration(config);
+│ │ │ +        } catch (ex) {
+│ │ │ +            console.log("Failed to lod config" + ex);
+│ │ │ +            return null;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ -class configuration {
+│ │ │ -
+│ │ │ -    rules = {};
+│ │ │ -    alertConfig = null;
+│ │ │ -
+│ │ │ -    constructor(json) {
+│ │ │ -
+│ │ │ -        if (json.rules && Array.isArray(json.rules)) {
+│ │ │ -            this.rules = json.rules.filter(x => this.isRuleValid(x));
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        console.log(this.rules.length + " rules loaded");
+│ │ │ -
+│ │ │ -        if (json.alertConfig) {
+│ │ │ -            this.alertConfig = json.alertConfig;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    isExtensionInList(list, fileExtension) {
+│ │ │ -        return list.map(x => x.toLowerCase()).includes(fileExtension.toLowerCase()) || list.includes("*");
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    isRuleValid(rule) {
+│ │ │ -        if (!rule.bannedExtensions || !Array.isArray(rule.bannedExtensions)) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (!rule.origin || !["local", "server", "any"].includes(rule.origin.toLowerCase())) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (rule.exceptions && !Array.isArray(rule.exceptions)) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (rule.urlScheme && !Array.isArray(rule.urlScheme)) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (rule.fileInspection && (!rule.fileInspection instanceof Object || Object.keys(rule.fileInspection).length == 0)) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (!["block", "audit", "notify"].includes(this.getRuleAction(rule))) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (!["ruleaction", "metadata"].includes(this.getRuleResponsePriority(rule))) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return true;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    doesDomainMatch(matchType, matchValue, downloadItem) {
+│ │ │ -
+│ │ │ -        // If the download is HTML smuggled, use the referring page, otherwise use the file URL.
+│ │ │ -
+│ │ │ -        var downloadHostname = Utils.createUrl(Utils.isJsDownload(downloadItem) ? downloadItem.referringPage || downloadItem.referrer : downloadItem.finalUrl)?.hostname?.toLowerCase() || "";
+│ │ │ -        var referrerHostname = new URL(downloadItem.referringPage || downloadItem.referrer)?.hostname?.toLowerCase() || "";
+│ │ │ -
+│ │ │ -        let domainMatch = (downloadHostname, referrerHostname, matchType, matchValue) => {
+│ │ │ -            let funcs = {
+│ │ │ -                "hostname": (downloadHostname, referrerHostname, matchValue) => downloadHostname == matchValue.toLowerCase(),
+│ │ │ -                "basedomain": (downloadHostname, referrerHostname, matchValue) => ('.' + downloadHostname).endsWith('.' + matchValue.toLowerCase()),
+│ │ │ -                "referrerhostname": (downloadHostname, referrerHostname, matchValue) => referrerHostname == matchValue.toLowerCase(),
+│ │ │ -                "referrerbasedomain": (downloadHostname, referrerHostname, matchValue) => ('.' + referrerHostname).endsWith('.' + matchValue.toLowerCase()),
+│ │ │ -            };
+│ │ │ -
+│ │ │ -            return funcs[matchType](downloadHostname, referrerHostname, matchValue);
+│ │ │ -        };
+│ │ │ -
+│ │ │ -        if (Array.isArray(matchValue)) {
+│ │ │ -            return matchValue.some(x => domainMatch(downloadHostname, referrerHostname, matchType, x));
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return domainMatch(downloadHostname, referrerHostname, matchType, matchValue);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    checkException(exception, downloadItem) {
+│ │ │ -        var exceptionType = exception.type.toLowerCase();
+│ │ │ -        var exceptionValue = exception.value;
+│ │ │ -
+│ │ │ -        switch (exceptionType) {
+│ │ │ -            case "hostname":
+│ │ │ -            case "basedomain":
+│ │ │ -            case "referrerhostname":
+│ │ │ -            case "referrerbasedomain":
+│ │ │ -                return this.doesDomainMatch(exceptionType, exceptionValue, downloadItem);
+│ │ │ -            case "fileextensions":
+│ │ │ -                return this.isExtensionInList(exceptionValue, Utils.getFileExtension(downloadItem.filename));
+│ │ │ -            default:
+│ │ │ -                console.log(`exceptionType: '${exceptionType}' was not recognised. Value given: '${exceptionValue}'`);
+│ │ │ -                return false;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    doesExceptionExist(rule, downloadItem) {
+│ │ │ -
+│ │ │ -        if (!rule.exceptions) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        for (let exceptionIndex = 0; exceptionIndex < rule.exceptions.length; exceptionIndex++) {
+│ │ │ -            const exception = rule.exceptions[exceptionIndex];
+│ │ │ -
+│ │ │ -            if (this.checkException(exception, downloadItem)) {
+│ │ │ -                return true;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return false;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    doesFileNameRegexMatch(rule, downloadItem) {
+│ │ │ -        if (!downloadItem.filename) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        try {
+│ │ │ -            var regex = new RegExp(rule.fileNameRegex);
+│ │ │ -            return regex.test(downloadItem.filename) || (rule.matchFileNamesInZip && Array.from(downloadItem.fileInspectionData?.zipFileNames || []).some(x => regex.test(x)));
+│ │ │ -        } catch {
+│ │ │ -            console.log(`Failed to compile regex '${rule.fileNameRegex}'`);
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    doesFileInspectionMatch(rule, downloadItem) {
+│ │ │ -
+│ │ │ -        if (!downloadItem.fileInspectionData) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        for (var key of Object.keys(rule.fileInspection)) {
+│ │ │ -            if ((!downloadItem.fileInspectionData[key]) || downloadItem.fileInspectionData[key] !== rule.fileInspection[key]) {
+│ │ │ -                return false;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -        return true;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    doesDownloadMatchRule(rule, downloadItem) {
+│ │ │ -        var fileExtension = Utils.getFileExtension(downloadItem.filename);
+│ │ │ -
+│ │ │ -        var isJsDownload = Utils.isJsDownload(downloadItem);
+│ │ │ -
+│ │ │ -        if (!(this.isExtensionInList(rule.bannedExtensions, fileExtension) || (rule.matchFileNamesInZip && Array.from(downloadItem.fileInspectionData?.zipFileNames || []).some(x => this.isExtensionInList(rule.bannedExtensions, Utils.getFileExtension(x)))))) {
+│ │ │ -            console.log("File extension didn't match rule");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        var ruleOrigin = rule.origin.toLowerCase();
+│ │ │ -
+│ │ │ -        if ((ruleOrigin == "local" && !isJsDownload) || ruleOrigin == 'server' && isJsDownload) {
+│ │ │ -            console.log("Rule origin didn't match");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (rule.fileInspection && !this.doesFileInspectionMatch(rule, downloadItem)) {
+│ │ │ -            console.log("file inspection didn't match");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (rule.fileNameRegex && !this.doesFileNameRegexMatch(rule, downloadItem)) {
+│ │ │ -            console.log("fileNameRegex didn't match");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (rule.urlScheme) {
+│ │ │ -
+│ │ │ -            var ruleUrlScheme = rule.urlScheme.map(x => x.toLowerCase());
+│ │ │ -
+│ │ │ -            var downloadUrl = Utils.createUrl(Utils.isJsDownload(downloadItem) ? downloadItem.referringPage || downloadItem.referrer : downloadItem.finalUrl);
+│ │ │ -
+│ │ │ -            if (!downloadUrl) {
+│ │ │ -                return false;
+│ │ │ -            }
+│ │ │ -
+│ │ │ -            var urlScheme = downloadUrl.protocol.slice(0, -1).toLowerCase(); // e.g. file, http, https instead of file:, http:, https:
+│ │ │ -
+│ │ │ -            if (!ruleUrlScheme.includes(urlScheme)) {
+│ │ │ -                console.log("URL scheme didn't match");
+│ │ │ -                return false;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        var domainDoesntMatch = ["hostname", "basedomain", "referrerhostname", "referrerbasedomain"].some(domainMatchType => {
+│ │ │ -            return rule[domainMatchType] && !this.doesDomainMatch(domainMatchType, rule[domainMatchType], downloadItem);
+│ │ │ -        });
+│ │ │ -
+│ │ │ -        if (domainDoesntMatch) {
+│ │ │ -            console.log("Download didn't match domain filter");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (this.doesExceptionExist(rule, downloadItem)) {
+│ │ │ -            console.log("exception found");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return true;
+│ │ │ -
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    getRuleResponsePriority(rule) {
+│ │ │ -        if (!rule.responsePriority) {
+│ │ │ -            return "ruleaction"
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return rule.responsePriority.toLowerCase();
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    getRuleAction(rule) {
+│ │ │ -        if (!rule.action) {
+│ │ │ -            return "block";
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return rule.action.toLowerCase();
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    getMatchedRule(downloadItem) {
+│ │ │ -
+│ │ │ -        var matchedRule = null;
+│ │ │ -
+│ │ │ -        for (let ruleIndex = 0; ruleIndex < this.rules.length; ruleIndex++) {
+│ │ │ -            const rule = this.rules[ruleIndex];
+│ │ │ -
+│ │ │ -            console.log(rule);
+│ │ │ -
+│ │ │ -            if (this.doesDownloadMatchRule(rule, downloadItem)) {
+│ │ │ -
+│ │ │ -                downloadItem.ruleName = rule.ruleName ?? "";
+│ │ │ -
+│ │ │ -                if (this.getRuleAction(rule) == "block") {
+│ │ │ -                    return rule;
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                matchedRule = rule;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return matchedRule;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    getBannedExtensionsJs() {
+│ │ │ -        return this.bannedExtensions;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    getAlertConfig() {
+│ │ │ -        return this.alertConfig;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    async sendAlertMessage(downloadItem) {
+│ │ │ -        console.log("in sendAlertMessage");
+│ │ │ -        console.log(this.alertConfig);
+│ │ │ -        if (!this.alertConfig) {
+│ │ │ -            return;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        var url = Utils.parseUrl(this.alertConfig.url, downloadItem);
+│ │ │ -        var postData = null;
+│ │ │ -        var headers = this.alertConfig.headers ?? {};
+│ │ │ -
+│ │ │ -        if (this.alertConfig.method == "POST") {
+│ │ │ -            postData = Utils.parseTemplate(this.alertConfig.postData, downloadItem);
+│ │ │ -
+│ │ │ -            if (this.alertConfig.sendAsJson) {
+│ │ │ -                headers["Content-Type"] = 'application/json';
+│ │ │ -                postData = JSON.stringify(postData);
+│ │ │ -            } else {
+│ │ │ -                headers["Content-Type"] = 'application/x-www-form-urlencoded';
+│ │ │ -                postData = new URLSearchParams(postData);
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        try {
+│ │ │ -            return await Utils.XhrRequest(url, this.alertConfig.method, headers, postData);
+│ │ │ -        } catch (e) {
+│ │ │ -            console.log(e);
+│ │ │ -            console.log("Error sending alert");
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    static async loadDefaultConfig() {
+│ │ │ -        var configUrl = chrome.runtime.getURL("config/config.json");
+│ │ │ -
+│ │ │ -        try {
+│ │ │ -
+│ │ │ -            var config = await (await Utils.XhrRequest(configUrl)).json();
+│ │ │ -
+│ │ │ -            console.log(config);
+│ │ │ -
+│ │ │ -            console.log(`Loaded config from '${configUrl}'`);
+│ │ │ -            return new configuration(config);
+│ │ │ -        } catch (ex) {
+│ │ │ -            console.log("Failed to lod config" + ex);
+│ │ │ -            return null;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/src/contentscript.js
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src/contentscript.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,20 +1,20 @@
+│ │ │ +var onHashReceived = function(e) {
+│ │ │ +    if (!(chrome.runtime?.id)) {
+│ │ │ +        // https://stackoverflow.com/a/69603416
+│ │ │ +        // chrome.runtime can be null in this callback if the extension has been updated since the page was initially loaded.
+│ │ │ +        return;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (chrome.runtime.lastError) {
+│ │ │ +        console.log(chrome.runtime.lastError.message);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    // https://developer.chrome.com/docs/extensions/mv2/messaging/
+│ │ │ +    chrome.runtime.sendMessage(null, e.detail, function(response) {
+│ │ │ +        // console.log(response);
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ +const eventId = 'kippogcnigegkjidkpfpaeimabcoboak_Hash';
+│ │ │ +
+│ │ │ -var onHashReceived = function(e) {
+│ │ │ -    if (!(chrome.runtime?.id)) {
+│ │ │ -        // https://stackoverflow.com/a/69603416
+│ │ │ -        // chrome.runtime can be null in this callback if the extension has been updated since the page was initially loaded.
+│ │ │ -        return;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (chrome.runtime.lastError) {
+│ │ │ -        console.log(chrome.runtime.lastError.message);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    // https://developer.chrome.com/docs/extensions/mv2/messaging/
+│ │ │ -    chrome.runtime.sendMessage(null, e.detail, function(response) {
+│ │ │ -        // console.log(response);
+│ │ │ -    });
+│ │ │ -};
+│ │ │ -
+│ │ │ -const eventId = 'kippogcnigegkjidkpfpaeimabcoboak_Hash';
+│ │ │ -
+│ │ │  document.addEventListener(eventId, onHashReceived);
+│ │   --- /workspace/pipeline_output/chromex_data/src/inject.js
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src/inject.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,372 +1,372 @@
+│ │ │ +(function() {
+│ │ │ +    const eventId = 'kippogcnigegkjidkpfpaeimabcoboak_Hash';
+│ │ │ +    const scriptId = 'kippogcnigegkjidkpfpaeimabcoboak_Script';
+│ │ │ +
+│ │ │ +    const _createObjectURL = window.URL.createObjectURL;
+│ │ │ +    const URL = window.location.href;
+│ │ │ +    const _dispatchEvent = document.dispatchEvent.bind(document); // https://stackoverflow.com/a/10743608
+│ │ │ +
+│ │ │ +    const _randomUUID = crypto.randomUUID?.bind(crypto);
+│ │ │ +
+│ │ │ +    const generateGuid = function() {
+│ │ │ +        if (_randomUUID) {
+│ │ │ +            return _randomUUID();
+│ │ │ +        }
+│ │ │ +        // https://stackoverflow.com/a/2117523
+│ │ │ +        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/\d/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const processHash = function(guid, downloadUrl, initiatingPage, sha256, fileInspectionData) {
+│ │ │ +        if (guid == null) {
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +        // In insecure contexts, we don't have access to the functions required to perform SHA256 calculation, so we need to pass the raw data to our background script to be able to perform the calculation there.
+│ │ │ +        // ArrayBuffers cannot be JSON stringified, (which chrome.runtime.sendMessage relies on) so we need to convert it into something that can be stringified
+│ │ │ +        if (sha256 instanceof ArrayBuffer) {
+│ │ │ +            sha256 = [...new Uint8Array(sha256)]
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        let eventName = eventId;
+│ │ │ +        let eventData = {
+│ │ │ +            guid: guid,
+│ │ │ +            id: downloadUrl,
+│ │ │ +            sha256: sha256,
+│ │ │ +            initiatingPage: initiatingPage,
+│ │ │ +            fileInspectionData: fileInspectionData
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        let downloadEvent = new CustomEvent(eventName, {
+│ │ │ +            detail: eventData
+│ │ │ +        });
+│ │ │ +
+│ │ │ +        if (window == top) {
+│ │ │ +            _dispatchEvent(downloadEvent);
+│ │ │ +        } else {
+│ │ │ +            window.top.postMessage(eventData, "*");
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const inspectFile = function(data) {
+│ │ │ +        return {
+│ │ │ +            "macros": doesFileHaveMacros(data),
+│ │ │ +            "zipFileNames": extractZipFileNames(data),
+│ │ │ +            "zipContainsEncryptedFiles": Array.from(areAnyZipFilesEncrypted(data)).some(x => x)
+│ │ │ +        };
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const base64ToArrayBufferOld = function(base64) {
+│ │ │ +        var binary_string = window.atob(base64);
+│ │ │ +        var len = binary_string.length;
+│ │ │ +        var bytes = new Uint8Array(len);
+│ │ │ +        for (var i = 0; i < len; i++) {
+│ │ │ +            bytes[i] = binary_string.codePointAt(i);
+│ │ │ +        }
+│ │ │ +        return bytes.buffer;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const base64ToArrayBuffer = function(base64) {
+│ │ │ +        try {
+│ │ │ +            return Uint8Array.from(window.atob(base64).split("").map(x => x.charCodeAt(0))).buffer;
+│ │ │ +        } catch (e) {
+│ │ │ +            return new Uint8Array([]);
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const processUri = async function(url, downloadUrl) {
+│ │ │ +
+│ │ │ +        if (!url) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        url = url.replace(/^data:/i, "data:");
+│ │ │ +
+│ │ │ +        let downloadData = parseDataUri(url);
+│ │ │ +
+│ │ │ +        if (!downloadData) {
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        let encoded = downloadData;
+│ │ │ +
+│ │ │ +        let guid = generateGuid();
+│ │ │ +
+│ │ │ +        processHash(guid, url, downloadUrl, "Pending");
+│ │ │ +
+│ │ │ +        let sha256 = await generateSha256(encoded);
+│ │ │ +
+│ │ │ +        processHash(guid, url, downloadUrl, sha256, inspectFile(encoded));
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const parseDataUri = function(uri) {
+│ │ │ +        // e.g. 'data:text/something;charset=utf-8,fileContent'
+│ │ │ +        // e.g. 'data:text/something,fileContent'
+│ │ │ +        const regularExpression = /data:([A-Za-z-]+\/[A-Za-z-]+)?.*?(;charset=[A-Za-z-\d]+)?.*?(;base64)?,(.*)$/i;
+│ │ │ +        if (regularExpression.test(uri)) {
+│ │ │ +            let results = regularExpression.exec(uri)
+│ │ │ +            let downloadData = results[4];
+│ │ │ +
+│ │ │ +            if (results[3] != null) { // results[3] == ;base64
+│ │ │ +                return base64ToArrayBuffer(decodeURIComponent(downloadData));
+│ │ │ +            } else {
+│ │ │ +                return (new TextEncoder().encode(decodeURIComponent(downloadData))).buffer; // Blindly assume that the downloadData is urlEncoded?
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const extractZipFileNames = function(fileBytes) {
+│ │ │ +        const ZIP_HEADER = [0x50, 0x4b];
+│ │ │ +        const START_OF_CENTRAL_DIRECTORY = [0x50, 0x4b, 0x01, 0x02];
+│ │ │ +
+│ │ │ +        try {
+│ │ │ +            return byteSearch(fileBytes, ZIP_HEADER, START_OF_CENTRAL_DIRECTORY, zipFileNames) || [];
+│ │ │ +        } catch {
+│ │ │ +            return [];
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const areAnyZipFilesEncrypted = function(fileBytes) {
+│ │ │ +        const ZIP_HEADER = [0x50, 0x4b];
+│ │ │ +        const START_OF_CENTRAL_DIRECTORY = [0x50, 0x4b, 0x01, 0x02];
+│ │ │ +
+│ │ │ +        try {
+│ │ │ +            return byteSearch(fileBytes, ZIP_HEADER, START_OF_CENTRAL_DIRECTORY, isFileEncrypted) || false;
+│ │ │ +        } catch {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const digestToHex = function(digest) {
+│ │ │ +        const hashArray = Array.from(new Uint8Array(digest)); // convert buffer to byte array
+│ │ │ +        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+│ │ │ +        return hashHex;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    // https://www.30secondsofcode.org/articles/s/javascript-array-comparison
+│ │ │ +    const equals = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
+│ │ │ +
+│ │ │ +    // == File inspection functions ==
+│ │ │ +
+│ │ │ +    const byteSearch = function(fileBytes, fileHeader, searchBytes, callback) {
+│ │ │ +
+│ │ │ +        let results = [];
+│ │ │ +
+│ │ │ +        fileBytes = new Uint8Array(fileBytes);
+│ │ │ +
+│ │ │ +        if (fileBytes.length < fileHeader.length + searchBytes.length) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (!(equals(fileBytes.slice(0, fileHeader.length), fileHeader))) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        // fileBytes.some((e, i) => {return equals(fileBytes.slice(i, i + searchBytes.length), searchBytes)});
+│ │ │ +
+│ │ │ +        for (var i = Math.max(0, fileHeader.length - 1); i < fileBytes.length - (searchBytes.length - 1); i++) {
+│ │ │ +            var slice = fileBytes.slice(i, i + searchBytes.length);
+│ │ │ +            if (equals(slice, searchBytes)) {
+│ │ │ +
+│ │ │ +                if (!callback) {
+│ │ │ +                    return true;
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                let result = callback(i, fileBytes);
+│ │ │ +                if (result) {
+│ │ │ +                    results.push(result);
+│ │ │ +                }
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (callback) {
+│ │ │ +            return results;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return false;
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    const zipFileNames = function(fileOffset, fileBytes) {
+│ │ │ +        let startOfRecordIndex = fileOffset;
+│ │ │ +        const FILE_NAME_LENGTH_OFFSET = 28;
+│ │ │ +        const FILE_NAME_OFFSET = 46;
+│ │ │ +
+│ │ │ +        if (fileBytes.length <= startOfRecordIndex + FILE_NAME_LENGTH_OFFSET + 1) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        let fileNameLengthStartByte = startOfRecordIndex + FILE_NAME_LENGTH_OFFSET;
+│ │ │ +
+│ │ │ +        let fileNameLength = fileBytes[fileNameLengthStartByte] + (256 * fileBytes[fileNameLengthStartByte + 1])
+│ │ │ +
+│ │ │ +        let fileNameStartByte = startOfRecordIndex + FILE_NAME_OFFSET
+│ │ │ +        let fileNameBytes = (fileBytes.slice(fileNameStartByte, fileNameStartByte + fileNameLength));
+│ │ │ +
+│ │ │ +        let fileName = String.fromCharCode.apply(null, fileNameBytes);
+│ │ │ +
+│ │ │ +        return fileName;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const isFileEncrypted = function(fileOffset, fileBytes) {
+│ │ │ +        let startOfRecordIndex = fileOffset;
+│ │ │ +        const GENERAL_PURPOSE_FLAGS_OFFSET = 8;
+│ │ │ +        const GENERAL_PURPOSE_FLAGS_LENGTH = 2;
+│ │ │ +
+│ │ │ +        if (fileBytes.length <= startOfRecordIndex + GENERAL_PURPOSE_FLAGS_OFFSET + GENERAL_PURPOSE_FLAGS_LENGTH) {
+│ │ │ +            return false;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        let generalPurpleFlagsStartByte = startOfRecordIndex + GENERAL_PURPOSE_FLAGS_OFFSET;
+│ │ │ +        let generalPurpleFlags = (fileBytes.slice(generalPurpleFlagsStartByte, generalPurpleFlagsStartByte + 1));
+│ │ │ +        let isEncrypted = generalPurpleFlags & 0x1;
+│ │ │ +        return isEncrypted;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const doesFileHaveExcel4Macros = function(fileBytes) {
+│ │ │ +        /*
+│ │ │ +            // https://blog.reversinglabs.com/blog/excel-4.0-macros
+│ │ │ +            rule Excel_Macros40_String
+│ │ │ +            {
+│ │ │ +                strings:
+│ │ │ +                    $a = { 20 45 78 63 65 6C 20 34 2E 30 00 } 
+│ │ │ +                    $b = { 00 45 78 63 65 6C 20 34 2E 30 20 }
+│ │ │ +                    $c = { 00 45 78 63 65 6C 20 34 2E 30 2D }
+│ │ │ +                    $fp = { 31 39 39 32 20 45 78 63 65 6C 20 34 2E 30 00 }
+│ │ │ +                condition:
+│ │ │ +                    uint32(0) == 0xE011CFD0 and uint32(4) == 0xE11AB1A1 and any of ($a,$b,$c) and not $fp
+│ │ │ +            }
+│ │ │ +        */
+│ │ │ +        var compoundFileHeader = [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1]
+│ │ │ +
+│ │ │ +        var pattern1 = [0x20, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x00]; // " Excel 4.0[NUL]"
+│ │ │ +        var pattern2 = [0x00, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x00]; // "[NUL]Excel 4.0[NUL]"
+│ │ │ +        var pattern3 = [0x00, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x2D]; // "[NUL]Excel 4.0-"
+│ │ │ +        var falsePositive = [0x31, 0x39, 0x39, 0x32, 0x20, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x00]; // "1992 Excel 4.0"
+│ │ │ +
+│ │ │ +        return (
+│ │ │ +            byteSearch(fileBytes, compoundFileHeader, pattern1) ||
+│ │ │ +            byteSearch(fileBytes, compoundFileHeader, pattern2) ||
+│ │ │ +            byteSearch(fileBytes, compoundFileHeader, pattern3)
+│ │ │ +        ) && !byteSearch(fileBytes, compoundFileHeader, falsePositive)
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const doesFileHaveOfficeMacros = function(fileBytes) {
+│ │ │ +        // https://blog.rootshell.be/2015/01/08/searching-for-microsoft-office-files-containing-macro/
+│ │ │ +        // https://isc.sans.edu/forums/diary/Malicious+Excel+Sheet+with+a+NULL+VT+Score+More+Info/26516/
+│ │ │ +        // https://www.dshield.org/forums/diary/YARA+and+CyberChef/27180/
+│ │ │ +        /*
+│ │ │ +            rule office_macro
+│ │ │ +            {
+│ │ │ +                strings:
+│ │ │ +                    $a = {d0 cf 11 e0}
+│ │ │ +                    $b = {00 41 74 74 72 69 62 75 74 00}
+│ │ │ +                condition:
+│ │ │ +                    $a at 0 and $b
+│ │ │ +            }
+│ │ │ +        */
+│ │ │ +
+│ │ │ +        var officeHeaderBytes = [0xd0, 0xcf, 0x11, 0xe0];
+│ │ │ +        var macroBytes = [0x00, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x00]; // [NUL]Attribut[NUL]
+│ │ │ +
+│ │ │ +        return byteSearch(fileBytes, officeHeaderBytes, macroBytes);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    const doesFileHaveMacros = function(fileBytes) {
+│ │ │ +        return doesFileHaveOfficeMacros(fileBytes) || doesFileHaveExcel4Macros(fileBytes);
+│ │ │ +    }
+│ │ │ +    // == End file inspection functions ==
+│ │ │ +
+│ │ │ +    // Hook event dispatch to prevent unauthorized calls
+│ │ │ +    document.dispatchEvent = function(event) {
+│ │ │ +        if (event && event.type && event.type === eventId) {
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +        return _dispatchEvent(event);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    window.addEventListener("message", async function(x) {
+│ │ │ +
+│ │ │ +        if (x.data.initiatingPage?.toLowerCase().startsWith("data:")) {
+│ │ │ +            x.data.initiatingPage = window.location.href;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        x.data.sha256 = await generateSha256(x.data.sha256);
+│ │ │ +
+│ │ │ +        processHash(x.data.guid, x.data.id, x.data.initiatingPage, x.data.sha256, x.data.fileInspectionData);
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // embed src
+│ │ │ +    let embedObserver = new MutationObserver(function(m) {
+│ │ │ +        if (document.body) {
+│ │ │ +
+│ │ │ +            let embeds = Array.from(m).filter(x => x.target instanceof HTMLEmbedElement || x.target instanceof HTMLIFrameElement);
+│ │ │ +            //embeds = [...new Set([...embeds, ...(Array.from(m).map(x=> Array.from(x.addedNodes)).flat().filter(x=> x instanceof HTMLIFrameElement || x instanceof HTMLEmbedElement))])];
+│ │ │ +
+│ │ │ +            if (embeds.length) {
+│ │ │ +                let sources = Array.from(new Set(embeds)).map(x => x?.target?.attributes?.src?.value); // ?? x.attributes?.src?.value);
+│ │ │ +
+│ │ │ +                sources.forEach(x => processUri(x, window.location.href));
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    embedObserver.observe(document.documentElement, {
+│ │ │ +        childList: true,
+│ │ │ +        subtree: true,
+│ │ │ +        attributes: true
+│ │ │ +    });
+│ │ │ +
+│ │ │ +
+│ │ │ +    // Hook createObjectURL
+│ │ │ +    window.URL.createObjectURL = function(obj) {
+│ │ │ +        let url = _createObjectURL(obj);
+│ │ │ +
+│ │ │ +        // createObjectURL supports File, Blob and MediaSource objects. We're not interested in the latter. 
+│ │ │ +        if (obj instanceof MediaSource) {
+│ │ │ +            return url;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        let fileReader = new FileReader();
+│ │ │ +        fileReader.readAsArrayBuffer(obj);
+│ │ │ +
+│ │ │ +        let guid = generateGuid();
+│ │ │ +
+│ │ │ +        processHash(guid, url, window.location.href, "Pending");
+│ │ │ +
+│ │ │ +        fileReader.onloadend = async function() {
+│ │ │ +            let fileInspection = inspectFile(fileReader.result);
+│ │ │ +            processHash(guid, url, window.location.href, await generateSha256(fileReader.result), fileInspection);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return url;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    async function generateSha256(input) {
+│ │ │ +        if (crypto.subtle && input instanceof ArrayBuffer) {
+│ │ │ +            let digest = await crypto.subtle.digest("SHA-256", input);
+│ │ │ +            return digestToHex(digest);
+│ │ │ +        }
+│ │ │ +        return input;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +
+│ │ │ +    // anchor tag click hook
+│ │ │ +    // https://stackoverflow.com/a/26324641
+│ │ │ +    let observer = new MutationObserver(function() {
+│ │ │ +        if (document.body) {
+│ │ │ +            document.body.addEventListener("click", function(e) {
+│ │ │ +                let element = e.target;
+│ │ │ +                if (element.tagName.toLowerCase() == "a" && element.hasAttribute("download")) {
+│ │ │ +                    processUri(element.href, window.location.href);
+│ │ │ +                }
+│ │ │ +            });
+│ │ │ +            observer.disconnect();
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    observer.observe(document.documentElement, {
+│ │ │ +        childList: true
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    while (scriptElement = document.getElementById(scriptId)) {
+│ │ │ +        scriptElement.parentNode.removeChild(scriptElement);
+│ │ │ +    }
+│ │ │ -(function() {
+│ │ │ -    const eventId = 'kippogcnigegkjidkpfpaeimabcoboak_Hash';
+│ │ │ -    const scriptId = 'kippogcnigegkjidkpfpaeimabcoboak_Script';
+│ │ │ -
+│ │ │ -    const _createObjectURL = window.URL.createObjectURL;
+│ │ │ -    const URL = window.location.href;
+│ │ │ -    const _dispatchEvent = document.dispatchEvent.bind(document); // https://stackoverflow.com/a/10743608
+│ │ │ -
+│ │ │ -    const _randomUUID = crypto.randomUUID?.bind(crypto);
+│ │ │ -
+│ │ │ -    const generateGuid = function() {
+│ │ │ -        if (_randomUUID) {
+│ │ │ -            return _randomUUID();
+│ │ │ -        }
+│ │ │ -        // https://stackoverflow.com/a/2117523
+│ │ │ -        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/\d/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const processHash = function(guid, downloadUrl, initiatingPage, sha256, fileInspectionData) {
+│ │ │ -        if (guid == null) {
+│ │ │ -            return;
+│ │ │ -        }
+│ │ │ -        // In insecure contexts, we don't have access to the functions required to perform SHA256 calculation, so we need to pass the raw data to our background script to be able to perform the calculation there.
+│ │ │ -        // ArrayBuffers cannot be JSON stringified, (which chrome.runtime.sendMessage relies on) so we need to convert it into something that can be stringified
+│ │ │ -        if (sha256 instanceof ArrayBuffer) {
+│ │ │ -            sha256 = [...new Uint8Array(sha256)]
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        let eventName = eventId;
+│ │ │ -        let eventData = {
+│ │ │ -            guid: guid,
+│ │ │ -            id: downloadUrl,
+│ │ │ -            sha256: sha256,
+│ │ │ -            initiatingPage: initiatingPage,
+│ │ │ -            fileInspectionData: fileInspectionData
+│ │ │ -        };
+│ │ │ -
+│ │ │ -        let downloadEvent = new CustomEvent(eventName, {
+│ │ │ -            detail: eventData
+│ │ │ -        });
+│ │ │ -
+│ │ │ -        if (window == top) {
+│ │ │ -            _dispatchEvent(downloadEvent);
+│ │ │ -        } else {
+│ │ │ -            window.top.postMessage(eventData, "*");
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const inspectFile = function(data) {
+│ │ │ -        return {
+│ │ │ -            "macros": doesFileHaveMacros(data),
+│ │ │ -            "zipFileNames": extractZipFileNames(data),
+│ │ │ -            "zipContainsEncryptedFiles": Array.from(areAnyZipFilesEncrypted(data)).some(x => x)
+│ │ │ -        };
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const base64ToArrayBufferOld = function(base64) {
+│ │ │ -        var binary_string = window.atob(base64);
+│ │ │ -        var len = binary_string.length;
+│ │ │ -        var bytes = new Uint8Array(len);
+│ │ │ -        for (var i = 0; i < len; i++) {
+│ │ │ -            bytes[i] = binary_string.codePointAt(i);
+│ │ │ -        }
+│ │ │ -        return bytes.buffer;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const base64ToArrayBuffer = function(base64) {
+│ │ │ -        try {
+│ │ │ -            return Uint8Array.from(window.atob(base64).split("").map(x => x.charCodeAt(0))).buffer;
+│ │ │ -        } catch (e) {
+│ │ │ -            return new Uint8Array([]);
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const processUri = async function(url, downloadUrl) {
+│ │ │ -
+│ │ │ -        if (!url) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        url = url.replace(/^data:/i, "data:");
+│ │ │ -
+│ │ │ -        let downloadData = parseDataUri(url);
+│ │ │ -
+│ │ │ -        if (!downloadData) {
+│ │ │ -            return;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        let encoded = downloadData;
+│ │ │ -
+│ │ │ -        let guid = generateGuid();
+│ │ │ -
+│ │ │ -        processHash(guid, url, downloadUrl, "Pending");
+│ │ │ -
+│ │ │ -        let sha256 = await generateSha256(encoded);
+│ │ │ -
+│ │ │ -        processHash(guid, url, downloadUrl, sha256, inspectFile(encoded));
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const parseDataUri = function(uri) {
+│ │ │ -        // e.g. 'data:text/something;charset=utf-8,fileContent'
+│ │ │ -        // e.g. 'data:text/something,fileContent'
+│ │ │ -        const regularExpression = /data:([A-Za-z-]+\/[A-Za-z-]+)?.*?(;charset=[A-Za-z-\d]+)?.*?(;base64)?,(.*)$/i;
+│ │ │ -        if (regularExpression.test(uri)) {
+│ │ │ -            let results = regularExpression.exec(uri)
+│ │ │ -            let downloadData = results[4];
+│ │ │ -
+│ │ │ -            if (results[3] != null) { // results[3] == ;base64
+│ │ │ -                return base64ToArrayBuffer(decodeURIComponent(downloadData));
+│ │ │ -            } else {
+│ │ │ -                return (new TextEncoder().encode(decodeURIComponent(downloadData))).buffer; // Blindly assume that the downloadData is urlEncoded?
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const extractZipFileNames = function(fileBytes) {
+│ │ │ -        const ZIP_HEADER = [0x50, 0x4b];
+│ │ │ -        const START_OF_CENTRAL_DIRECTORY = [0x50, 0x4b, 0x01, 0x02];
+│ │ │ -
+│ │ │ -        try {
+│ │ │ -            return byteSearch(fileBytes, ZIP_HEADER, START_OF_CENTRAL_DIRECTORY, zipFileNames) || [];
+│ │ │ -        } catch {
+│ │ │ -            return [];
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const areAnyZipFilesEncrypted = function(fileBytes) {
+│ │ │ -        const ZIP_HEADER = [0x50, 0x4b];
+│ │ │ -        const START_OF_CENTRAL_DIRECTORY = [0x50, 0x4b, 0x01, 0x02];
+│ │ │ -
+│ │ │ -        try {
+│ │ │ -            return byteSearch(fileBytes, ZIP_HEADER, START_OF_CENTRAL_DIRECTORY, isFileEncrypted) || false;
+│ │ │ -        } catch {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const digestToHex = function(digest) {
+│ │ │ -        const hashArray = Array.from(new Uint8Array(digest)); // convert buffer to byte array
+│ │ │ -        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+│ │ │ -        return hashHex;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    // https://www.30secondsofcode.org/articles/s/javascript-array-comparison
+│ │ │ -    const equals = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
+│ │ │ -
+│ │ │ -    // == File inspection functions ==
+│ │ │ -
+│ │ │ -    const byteSearch = function(fileBytes, fileHeader, searchBytes, callback) {
+│ │ │ -
+│ │ │ -        let results = [];
+│ │ │ -
+│ │ │ -        fileBytes = new Uint8Array(fileBytes);
+│ │ │ -
+│ │ │ -        if (fileBytes.length < fileHeader.length + searchBytes.length) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (!(equals(fileBytes.slice(0, fileHeader.length), fileHeader))) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        // fileBytes.some((e, i) => {return equals(fileBytes.slice(i, i + searchBytes.length), searchBytes)});
+│ │ │ -
+│ │ │ -        for (var i = Math.max(0, fileHeader.length - 1); i < fileBytes.length - (searchBytes.length - 1); i++) {
+│ │ │ -            var slice = fileBytes.slice(i, i + searchBytes.length);
+│ │ │ -            if (equals(slice, searchBytes)) {
+│ │ │ -
+│ │ │ -                if (!callback) {
+│ │ │ -                    return true;
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                let result = callback(i, fileBytes);
+│ │ │ -                if (result) {
+│ │ │ -                    results.push(result);
+│ │ │ -                }
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (callback) {
+│ │ │ -            return results;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return false;
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    const zipFileNames = function(fileOffset, fileBytes) {
+│ │ │ -        let startOfRecordIndex = fileOffset;
+│ │ │ -        const FILE_NAME_LENGTH_OFFSET = 28;
+│ │ │ -        const FILE_NAME_OFFSET = 46;
+│ │ │ -
+│ │ │ -        if (fileBytes.length <= startOfRecordIndex + FILE_NAME_LENGTH_OFFSET + 1) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        let fileNameLengthStartByte = startOfRecordIndex + FILE_NAME_LENGTH_OFFSET;
+│ │ │ -
+│ │ │ -        let fileNameLength = fileBytes[fileNameLengthStartByte] + (256 * fileBytes[fileNameLengthStartByte + 1])
+│ │ │ -
+│ │ │ -        let fileNameStartByte = startOfRecordIndex + FILE_NAME_OFFSET
+│ │ │ -        let fileNameBytes = (fileBytes.slice(fileNameStartByte, fileNameStartByte + fileNameLength));
+│ │ │ -
+│ │ │ -        let fileName = String.fromCharCode.apply(null, fileNameBytes);
+│ │ │ -
+│ │ │ -        return fileName;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const isFileEncrypted = function(fileOffset, fileBytes) {
+│ │ │ -        let startOfRecordIndex = fileOffset;
+│ │ │ -        const GENERAL_PURPOSE_FLAGS_OFFSET = 8;
+│ │ │ -        const GENERAL_PURPOSE_FLAGS_LENGTH = 2;
+│ │ │ -
+│ │ │ -        if (fileBytes.length <= startOfRecordIndex + GENERAL_PURPOSE_FLAGS_OFFSET + GENERAL_PURPOSE_FLAGS_LENGTH) {
+│ │ │ -            return false;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        let generalPurpleFlagsStartByte = startOfRecordIndex + GENERAL_PURPOSE_FLAGS_OFFSET;
+│ │ │ -        let generalPurpleFlags = (fileBytes.slice(generalPurpleFlagsStartByte, generalPurpleFlagsStartByte + 1));
+│ │ │ -        let isEncrypted = generalPurpleFlags & 0x1;
+│ │ │ -        return isEncrypted;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const doesFileHaveExcel4Macros = function(fileBytes) {
+│ │ │ -        /*
+│ │ │ -            // https://blog.reversinglabs.com/blog/excel-4.0-macros
+│ │ │ -            rule Excel_Macros40_String
+│ │ │ -            {
+│ │ │ -                strings:
+│ │ │ -                    $a = { 20 45 78 63 65 6C 20 34 2E 30 00 } 
+│ │ │ -                    $b = { 00 45 78 63 65 6C 20 34 2E 30 20 }
+│ │ │ -                    $c = { 00 45 78 63 65 6C 20 34 2E 30 2D }
+│ │ │ -                    $fp = { 31 39 39 32 20 45 78 63 65 6C 20 34 2E 30 00 }
+│ │ │ -                condition:
+│ │ │ -                    uint32(0) == 0xE011CFD0 and uint32(4) == 0xE11AB1A1 and any of ($a,$b,$c) and not $fp
+│ │ │ -            }
+│ │ │ -        */
+│ │ │ -        var compoundFileHeader = [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1]
+│ │ │ -
+│ │ │ -        var pattern1 = [0x20, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x00]; // " Excel 4.0[NUL]"
+│ │ │ -        var pattern2 = [0x00, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x00]; // "[NUL]Excel 4.0[NUL]"
+│ │ │ -        var pattern3 = [0x00, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x2D]; // "[NUL]Excel 4.0-"
+│ │ │ -        var falsePositive = [0x31, 0x39, 0x39, 0x32, 0x20, 0x45, 0x78, 0x63, 0x65, 0x6C, 0x20, 0x34, 0x2E, 0x30, 0x00]; // "1992 Excel 4.0"
+│ │ │ -
+│ │ │ -        return (
+│ │ │ -            byteSearch(fileBytes, compoundFileHeader, pattern1) ||
+│ │ │ -            byteSearch(fileBytes, compoundFileHeader, pattern2) ||
+│ │ │ -            byteSearch(fileBytes, compoundFileHeader, pattern3)
+│ │ │ -        ) && !byteSearch(fileBytes, compoundFileHeader, falsePositive)
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const doesFileHaveOfficeMacros = function(fileBytes) {
+│ │ │ -        // https://blog.rootshell.be/2015/01/08/searching-for-microsoft-office-files-containing-macro/
+│ │ │ -        // https://isc.sans.edu/forums/diary/Malicious+Excel+Sheet+with+a+NULL+VT+Score+More+Info/26516/
+│ │ │ -        // https://www.dshield.org/forums/diary/YARA+and+CyberChef/27180/
+│ │ │ -        /*
+│ │ │ -            rule office_macro
+│ │ │ -            {
+│ │ │ -                strings:
+│ │ │ -                    $a = {d0 cf 11 e0}
+│ │ │ -                    $b = {00 41 74 74 72 69 62 75 74 00}
+│ │ │ -                condition:
+│ │ │ -                    $a at 0 and $b
+│ │ │ -            }
+│ │ │ -        */
+│ │ │ -
+│ │ │ -        var officeHeaderBytes = [0xd0, 0xcf, 0x11, 0xe0];
+│ │ │ -        var macroBytes = [0x00, 0x41, 0x74, 0x74, 0x72, 0x69, 0x62, 0x75, 0x74, 0x00]; // [NUL]Attribut[NUL]
+│ │ │ -
+│ │ │ -        return byteSearch(fileBytes, officeHeaderBytes, macroBytes);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    const doesFileHaveMacros = function(fileBytes) {
+│ │ │ -        return doesFileHaveOfficeMacros(fileBytes) || doesFileHaveExcel4Macros(fileBytes);
+│ │ │ -    }
+│ │ │ -    // == End file inspection functions ==
+│ │ │ -
+│ │ │ -    // Hook event dispatch to prevent unauthorized calls
+│ │ │ -    document.dispatchEvent = function(event) {
+│ │ │ -        if (event && event.type && event.type === eventId) {
+│ │ │ -            return;
+│ │ │ -        }
+│ │ │ -        return _dispatchEvent(event);
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    window.addEventListener("message", async function(x) {
+│ │ │ -
+│ │ │ -        if (x.data.initiatingPage?.toLowerCase().startsWith("data:")) {
+│ │ │ -            x.data.initiatingPage = window.location.href;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        x.data.sha256 = await generateSha256(x.data.sha256);
+│ │ │ -
+│ │ │ -        processHash(x.data.guid, x.data.id, x.data.initiatingPage, x.data.sha256, x.data.fileInspectionData);
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    // embed src
+│ │ │ -    let embedObserver = new MutationObserver(function(m) {
+│ │ │ -        if (document.body) {
+│ │ │ -
+│ │ │ -            let embeds = Array.from(m).filter(x => x.target instanceof HTMLEmbedElement || x.target instanceof HTMLIFrameElement);
+│ │ │ -            //embeds = [...new Set([...embeds, ...(Array.from(m).map(x=> Array.from(x.addedNodes)).flat().filter(x=> x instanceof HTMLIFrameElement || x instanceof HTMLEmbedElement))])];
+│ │ │ -
+│ │ │ -            if (embeds.length) {
+│ │ │ -                let sources = Array.from(new Set(embeds)).map(x => x?.target?.attributes?.src?.value); // ?? x.attributes?.src?.value);
+│ │ │ -
+│ │ │ -                sources.forEach(x => processUri(x, window.location.href));
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    embedObserver.observe(document.documentElement, {
+│ │ │ -        childList: true,
+│ │ │ -        subtree: true,
+│ │ │ -        attributes: true
+│ │ │ -    });
+│ │ │ -
+│ │ │ -
+│ │ │ -    // Hook createObjectURL
+│ │ │ -    window.URL.createObjectURL = function(obj) {
+│ │ │ -        let url = _createObjectURL(obj);
+│ │ │ -
+│ │ │ -        // createObjectURL supports File, Blob and MediaSource objects. We're not interested in the latter. 
+│ │ │ -        if (obj instanceof MediaSource) {
+│ │ │ -            return url;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        let fileReader = new FileReader();
+│ │ │ -        fileReader.readAsArrayBuffer(obj);
+│ │ │ -
+│ │ │ -        let guid = generateGuid();
+│ │ │ -
+│ │ │ -        processHash(guid, url, window.location.href, "Pending");
+│ │ │ -
+│ │ │ -        fileReader.onloadend = async function() {
+│ │ │ -            let fileInspection = inspectFile(fileReader.result);
+│ │ │ -            processHash(guid, url, window.location.href, await generateSha256(fileReader.result), fileInspection);
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return url;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    async function generateSha256(input) {
+│ │ │ -        if (crypto.subtle && input instanceof ArrayBuffer) {
+│ │ │ -            let digest = await crypto.subtle.digest("SHA-256", input);
+│ │ │ -            return digestToHex(digest);
+│ │ │ -        }
+│ │ │ -        return input;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -
+│ │ │ -    // anchor tag click hook
+│ │ │ -    // https://stackoverflow.com/a/26324641
+│ │ │ -    let observer = new MutationObserver(function() {
+│ │ │ -        if (document.body) {
+│ │ │ -            document.body.addEventListener("click", function(e) {
+│ │ │ -                let element = e.target;
+│ │ │ -                if (element.tagName.toLowerCase() == "a" && element.hasAttribute("download")) {
+│ │ │ -                    processUri(element.href, window.location.href);
+│ │ │ -                }
+│ │ │ -            });
+│ │ │ -            observer.disconnect();
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    observer.observe(document.documentElement, {
+│ │ │ -        childList: true
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    while (scriptElement = document.getElementById(scriptId)) {
+│ │ │ -        scriptElement.parentNode.removeChild(scriptElement);
+│ │ │ -    }
+│ │ │  })();
+│ │   --- /workspace/pipeline_output/chromex_data/src/mv3_polyfill.js
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src/mv3_polyfill.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,57 +1,57 @@
+│ │ │ +// https://bugs.chromium.org/p/chromium/issues/detail?id=1159438#c21
+│ │ │ +
+│ │ │ +let native = chrome.i18n.getMessage;
+│ │ │ +
+│ │ │ +async function getMessageAsync(messageName, substitutions) {
+│ │ │ +    return native(messageName, substitutions);
+│ │ │ +}
+│ │ │ +
+│ │ │ +const getMessagePolyfill = async (messageName, substitutions) => {
+│ │ │ +    return new Promise((resolve) => {
+│ │ │ +        chrome.i18n.getAcceptLanguages(async (languages) => {
+│ │ │ +            const language = languages[0].split('-')[0];
+│ │ │ +            const messagesURL = chrome.runtime.getURL(
+│ │ │ +                `_locales/${language}/messages.json`,
+│ │ │ +            );
+│ │ │ +            messages = await fetch(messagesURL)
+│ │ │ +                .then((response) => response.json())
+│ │ │ +                .catch(async (_) => {
+│ │ │ +                    const messagesDefaultURL = chrome.runtime.getURL(
+│ │ │ +                        '_locales/en/messages.json',
+│ │ │ +                    );
+│ │ │ +                    return await fetch(messagesDefaultURL).then((response) =>
+│ │ │ +                        response.json(),
+│ │ │ +                    );
+│ │ │ +                });
+│ │ │ +
+│ │ │ +            if (messages[messageName]) {
+│ │ │ +
+│ │ │ +                let message = messages[messageName].message;
+│ │ │ +
+│ │ │ +                let placeholders = message.match(/\$[A-Za-z0-9]+?\$/g);
+│ │ │ +
+│ │ │ +                if (!placeholders) {
+│ │ │ +                    return resolve(message);
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                if (typeof substitutions == "string") {
+│ │ │ +                    substitutions = [substitutions];
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                if (placeholders.length != substitutions.length) {
+│ │ │ +                    resolve(message);
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                for (let i = 0; i < placeholders.length; i++) {
+│ │ │ +                    const placeholder = placeholders[i];
+│ │ │ +                    message = message.replace(placeholder, substitutions[i]);
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                return resolve(message);
+│ │ │ +            }
+│ │ │ +            resolve("");
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +};
+│ │ │ +
+│ │ │ -// https://bugs.chromium.org/p/chromium/issues/detail?id=1159438#c21
+│ │ │ -
+│ │ │ -let native = chrome.i18n.getMessage;
+│ │ │ -
+│ │ │ -async function getMessageAsync(messageName, substitutions) {
+│ │ │ -    return native(messageName, substitutions);
+│ │ │ -}
+│ │ │ -
+│ │ │ -const getMessagePolyfill = async (messageName, substitutions) => {
+│ │ │ -    return new Promise((resolve) => {
+│ │ │ -        chrome.i18n.getAcceptLanguages(async (languages) => {
+│ │ │ -            const language = languages[0].split('-')[0];
+│ │ │ -            const messagesURL = chrome.runtime.getURL(
+│ │ │ -                `_locales/${language}/messages.json`,
+│ │ │ -            );
+│ │ │ -            messages = await fetch(messagesURL)
+│ │ │ -                .then((response) => response.json())
+│ │ │ -                .catch(async (_) => {
+│ │ │ -                    const messagesDefaultURL = chrome.runtime.getURL(
+│ │ │ -                        '_locales/en/messages.json',
+│ │ │ -                    );
+│ │ │ -                    return await fetch(messagesDefaultURL).then((response) =>
+│ │ │ -                        response.json(),
+│ │ │ -                    );
+│ │ │ -                });
+│ │ │ -
+│ │ │ -            if (messages[messageName]) {
+│ │ │ -
+│ │ │ -                let message = messages[messageName].message;
+│ │ │ -
+│ │ │ -                let placeholders = message.match(/\$[A-Za-z0-9]+?\$/g);
+│ │ │ -
+│ │ │ -                if (!placeholders) {
+│ │ │ -                    return resolve(message);
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                if (typeof substitutions == "string") {
+│ │ │ -                    substitutions = [substitutions];
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                if (placeholders.length != substitutions.length) {
+│ │ │ -                    resolve(message);
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                for (let i = 0; i < placeholders.length; i++) {
+│ │ │ -                    const placeholder = placeholders[i];
+│ │ │ -                    message = message.replace(placeholder, substitutions[i]);
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                return resolve(message);
+│ │ │ -            }
+│ │ │ -            resolve("");
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -};
+│ │ │ -
+│ │ │  chrome.i18n.getMessage = chrome.i18n.getMessage ? getMessageAsync : getMessagePolyfill;
+│ │   --- /workspace/pipeline_output/chromex_data/src/utils.js
+│ ├── +++ /workspace/pipeline_output/DownloadBlocker/extension/src/utils.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,111 +1,111 @@
+│ │ │ +var Utils = {
+│ │ │ +
+│ │ │ +    Hostname: "",
+│ │ │ +    Username: "",
+│ │ │ +
+│ │ │ +    generateUuid() {
+│ │ │ +        return crypto.randomUUID(); // Minimum manifest version of 102 so this should be available.
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    notifyUser(messageId, title, message) {
+│ │ │ +
+│ │ │ +        var notificationOptions = {
+│ │ │ +            type: "basic",
+│ │ │ +            iconUrl: "/icons/icon128.png",
+│ │ │ +            /* Restrict the length of the title and message, chrome silently fails to show the message if the combined length is greater than (in my testing) 4340 characters, which can happen with long data: URLs.  */
+│ │ │ +            title: title.length > 200 ? title.substr(0, 200) + "..." : title,
+│ │ │ +            message: message.length > 200 ? message.substr(0, 200) + "..." : message,
+│ │ │ +        };
+│ │ │ +
+│ │ │ +        chrome.notifications.create(messageId, notificationOptions);
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    generateGuid() {
+│ │ │ +        // https://stackoverflow.com/a/2117523
+│ │ │ +        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/\d/g, c =>
+│ │ │ +            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+│ │ │ +        );
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    getFileExtension(filename) {
+│ │ │ +        if (!filename.includes(".")) {
+│ │ │ +            return "";
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        var split = filename.split(".");
+│ │ │ +        return split[split.length - 1].toLowerCase();
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    isJsDownload(downloadItem) {
+│ │ │ +        var url = downloadItem.finalUrl.toLowerCase();
+│ │ │ +        return url.startsWith("data:") || url.startsWith("blob:");
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    // https://stackoverflow.com/a/48969580
+│ │ │ +    async XhrRequest(url, method = 'GET', headers = {}, postData = null) {
+│ │ │ +
+│ │ │ +        return await fetch(url, {
+│ │ │ +            "method": method,
+│ │ │ +            "headers": headers,
+│ │ │ +            "body": postData
+│ │ │ +        });
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    parseString(template, downloadItem) {
+│ │ │ +        if (!template) {
+│ │ │ +            return "";
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return template.replaceAll("{ruleName}", downloadItem.ruleName)
+│ │ │ +            .replaceAll("{fileInspection}", JSON.stringify(downloadItem.fileInspectionData) ?? "")
+│ │ │ +            .replaceAll("{state}", downloadItem.state)
+│ │ │ +            .replaceAll("{action}", downloadItem.action)
+│ │ │ +            .replaceAll("{url}", downloadItem.referringPage)
+│ │ │ +            .replaceAll("{fileUrl}", downloadItem.finalUrl)
+│ │ │ +            .replaceAll("{filename}", downloadItem.filename)
+│ │ │ +            .replaceAll("{timestamp}", Date.parse(downloadItem.startTime))
+│ │ │ +            .replaceAll("{formattedTimestamp}", new Date(Date.parse(downloadItem.startTime)).toUTCString())
+│ │ │ +            .replaceAll("{eventTimestamp}", Date.now())
+│ │ │ +            .replaceAll("{formattedEventTimestamp}", new Date().toUTCString())
+│ │ │ +            .replaceAll("{sha256}", downloadItem.sha256 ?? "")
+│ │ │ +            .replaceAll("{actionResult}", downloadItem.actionResult ?? "")
+│ │ │ +            .replaceAll("{hostname}", this.Hostname)
+│ │ │ +            .replaceAll("{username}", this.Username);
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    parseTemplate(postData, downloadItem) {
+│ │ │ +
+│ │ │ +        var data = {};
+│ │ │ +
+│ │ │ +        for (let key in postData) {
+│ │ │ +            data[key] = this.parseString(String(postData[key]), downloadItem);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        return data;
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    parseUrl(url, downloadItem) {
+│ │ │ +        return url.replaceAll("{ruleName}", encodeURIComponent(downloadItem.ruleName))
+│ │ │ +            .replaceAll("{fileInspection}", encodeURIComponent(JSON.stringify(downloadItem.fileInspectionData) ?? ""))
+│ │ │ +            .replaceAll("{state}", downloadItem.state).replaceAll("{action}", downloadItem.action)
+│ │ │ +            .replaceAll("{url}", encodeURIComponent(downloadItem.referringPage))
+│ │ │ +            .replaceAll("{fileUrl}", encodeURIComponent(downloadItem.finalUrl))
+│ │ │ +            .replaceAll("{filename}", encodeURIComponent(downloadItem.filename))
+│ │ │ +            .replaceAll("{timestamp}", Date.parse(downloadItem.startTime))
+│ │ │ +            .replaceAll("{formattedTimestamp}", new Date(Date.parse(downloadItem.startTime)).toUTCString())
+│ │ │ +            .replaceAll("{eventTimestamp}", Date.now())
+│ │ │ +            .replaceAll("{formattedEventTimestamp}", new Date().toUTCString())
+│ │ │ +            .replaceAll("{sha256}", downloadItem.sha256 ?? "")
+│ │ │ +            .replaceAll("{actionResult}", downloadItem.actionResult ?? "")
+│ │ │ +            .replaceAll("{hostname}", this.Hostname)
+│ │ │ +            .replaceAll("{username}", this.Username);
+│ │ │ +    },
+│ │ │ +
+│ │ │ +    createUrl(url) {
+│ │ │ +        try {
+│ │ │ +            return new URL(url);
+│ │ │ +        } catch {
+│ │ │ +            return null;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ -var Utils = {
+│ │ │ -
+│ │ │ -    Hostname: "",
+│ │ │ -    Username: "",
+│ │ │ -
+│ │ │ -    generateUuid() {
+│ │ │ -        return crypto.randomUUID(); // Minimum manifest version of 102 so this should be available.
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    notifyUser(messageId, title, message) {
+│ │ │ -
+│ │ │ -        var notificationOptions = {
+│ │ │ -            type: "basic",
+│ │ │ -            iconUrl: "/icons/icon128.png",
+│ │ │ -            /* Restrict the length of the title and message, chrome silently fails to show the message if the combined length is greater than (in my testing) 4340 characters, which can happen with long data: URLs.  */
+│ │ │ -            title: title.length > 200 ? title.substr(0, 200) + "..." : title,
+│ │ │ -            message: message.length > 200 ? message.substr(0, 200) + "..." : message,
+│ │ │ -        };
+│ │ │ -
+│ │ │ -        chrome.notifications.create(messageId, notificationOptions);
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    generateGuid() {
+│ │ │ -        // https://stackoverflow.com/a/2117523
+│ │ │ -        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/\d/g, c =>
+│ │ │ -            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+│ │ │ -        );
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    getFileExtension(filename) {
+│ │ │ -        if (!filename.includes(".")) {
+│ │ │ -            return "";
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        var split = filename.split(".");
+│ │ │ -        return split[split.length - 1].toLowerCase();
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    isJsDownload(downloadItem) {
+│ │ │ -        var url = downloadItem.finalUrl.toLowerCase();
+│ │ │ -        return url.startsWith("data:") || url.startsWith("blob:");
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    // https://stackoverflow.com/a/48969580
+│ │ │ -    async XhrRequest(url, method = 'GET', headers = {}, postData = null) {
+│ │ │ -
+│ │ │ -        return await fetch(url, {
+│ │ │ -            "method": method,
+│ │ │ -            "headers": headers,
+│ │ │ -            "body": postData
+│ │ │ -        });
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    parseString(template, downloadItem) {
+│ │ │ -        if (!template) {
+│ │ │ -            return "";
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return template.replaceAll("{ruleName}", downloadItem.ruleName)
+│ │ │ -            .replaceAll("{fileInspection}", JSON.stringify(downloadItem.fileInspectionData) ?? "")
+│ │ │ -            .replaceAll("{state}", downloadItem.state)
+│ │ │ -            .replaceAll("{action}", downloadItem.action)
+│ │ │ -            .replaceAll("{url}", downloadItem.referringPage)
+│ │ │ -            .replaceAll("{fileUrl}", downloadItem.finalUrl)
+│ │ │ -            .replaceAll("{filename}", downloadItem.filename)
+│ │ │ -            .replaceAll("{timestamp}", Date.parse(downloadItem.startTime))
+│ │ │ -            .replaceAll("{formattedTimestamp}", new Date(Date.parse(downloadItem.startTime)).toUTCString())
+│ │ │ -            .replaceAll("{eventTimestamp}", Date.now())
+│ │ │ -            .replaceAll("{formattedEventTimestamp}", new Date().toUTCString())
+│ │ │ -            .replaceAll("{sha256}", downloadItem.sha256 ?? "")
+│ │ │ -            .replaceAll("{actionResult}", downloadItem.actionResult ?? "")
+│ │ │ -            .replaceAll("{hostname}", this.Hostname)
+│ │ │ -            .replaceAll("{username}", this.Username);
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    parseTemplate(postData, downloadItem) {
+│ │ │ -
+│ │ │ -        var data = {};
+│ │ │ -
+│ │ │ -        for (let key in postData) {
+│ │ │ -            data[key] = this.parseString(String(postData[key]), downloadItem);
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        return data;
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    parseUrl(url, downloadItem) {
+│ │ │ -        return url.replaceAll("{ruleName}", encodeURIComponent(downloadItem.ruleName))
+│ │ │ -            .replaceAll("{fileInspection}", encodeURIComponent(JSON.stringify(downloadItem.fileInspectionData) ?? ""))
+│ │ │ -            .replaceAll("{state}", downloadItem.state).replaceAll("{action}", downloadItem.action)
+│ │ │ -            .replaceAll("{url}", encodeURIComponent(downloadItem.referringPage))
+│ │ │ -            .replaceAll("{fileUrl}", encodeURIComponent(downloadItem.finalUrl))
+│ │ │ -            .replaceAll("{filename}", encodeURIComponent(downloadItem.filename))
+│ │ │ -            .replaceAll("{timestamp}", Date.parse(downloadItem.startTime))
+│ │ │ -            .replaceAll("{formattedTimestamp}", new Date(Date.parse(downloadItem.startTime)).toUTCString())
+│ │ │ -            .replaceAll("{eventTimestamp}", Date.now())
+│ │ │ -            .replaceAll("{formattedEventTimestamp}", new Date().toUTCString())
+│ │ │ -            .replaceAll("{sha256}", downloadItem.sha256 ?? "")
+│ │ │ -            .replaceAll("{actionResult}", downloadItem.actionResult ?? "")
+│ │ │ -            .replaceAll("{hostname}", this.Hostname)
+│ │ │ -            .replaceAll("{username}", this.Username);
+│ │ │ -    },
+│ │ │ -
+│ │ │ -    createUrl(url) {
+│ │ │ -        try {
+│ │ │ -            return new URL(url);
+│ │ │ -        } catch {
+│ │ │ -            return null;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │  }
+│   --- /workspace/pipeline_output/chromex_data/worker_wrapper.js
+├── +++ /workspace/pipeline_output/DownloadBlocker/extension/worker_wrapper.js
+│ ├── js-beautify {}
+│ │ @@ -1,5 +1,5 @@
+│ │ -try {
+│ │ -    importScripts("src/mv3_polyfill.js", "src/configuration.js", "src/utils.js", "src/background.js");
+│ │ -} catch (e) {
+│ │ -    console.error(e);
+│ │ +try {
+│ │ +    importScripts("src/mv3_polyfill.js", "src/configuration.js", "src/utils.js", "src/background.js");
+│ │ +} catch (e) {
+│ │ +    console.error(e);
+│ │  }

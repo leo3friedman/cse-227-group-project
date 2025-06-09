@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Chromegle2
+├── file list
+│ @@ -1,7 +1,9 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  manifest.json
+│  media
+│ +package-lock.json
+│  public
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Chromegle2/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -73,15 +73,14 @@
+│ │      },
+│ │      "incognito": "split",
+│ │      "manifest_version": 3,
+│ │      "name": "Chromegle - Omegle IP & Client",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.6.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.omegleweb.com/*"
+│ │              ],
+│ │              "resources": [

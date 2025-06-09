@@ -1,0 +1,85 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SendPage
+├── file list
+│ @@ -1,8 +1,12 @@
+│ +.git
+│ +.gitignore
+│ +.project
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +TermsOfUse.md
+│  images
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  sendpage.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/SendPage/README.md
+│ @@ -4,15 +4,15 @@
+│  SendPage is a simple chromium extension to send a page to a E-Mail recipient
+│  with your default local or web mail client.
+│  
+│  It will actually just open a mailto URI so you need to have a (local or web) E-Mail client registered to handle mailto URIs.
+│  
+│  Binaries
+│  --------
+│ -Download Binaries from Chrome Web Store:
+│ +Download Binaries from Chrome Web Store (also for Brave, and other Chromium based Browsers):
+│  https://chrome.google.com/webstore/detail/higemadklcnjhjpgcbnnbpgeeippjjcp
+│  
+│  Or the Microsoft Edge-Add-Ons Store:
+│  https://microsoftedge.microsoft.com/addons/detail/send-page/akohgmamjjpdagmohoecbmgiejkplkfb
+│  
+│  Sources
+│  -------
+│ @@ -27,14 +27,19 @@
+│  Support
+│  --------
+│  Do you like this Extension?
+│  Please give this Project a Star on GitHub if you like it.
+│  
+│  Changelog
+│  ---------
+│ +
+│ + * 3.0
+│ +   * Upgrade to manifest version 3
+│ +   * Add terms of use
+│ +   * Make it clear that also Brave and other Chromium based browsers are supported.
+│   * 2.3
+│     * Fixed #15: URI is is undefined when using button beside url
+│     * Provide better log output for debugging
+│   * 2.2
+│     * Fixed #14: email end text appended to URI
+│     * Fixed type error
+│   * 2.1
+│ @@ -61,10 +66,14 @@
+│   * 0.1 - Initial release
+│   
+│  Troubleshoot
+│  ------------
+│  ### Nothing happens when I click "Send Page..."
+│  For the extension to work a default mail application ("mailto:" protocol handler) must be registered on your system. If this is the case you should be able to click on [this Link](mailto:test@example.com?subject=The%20Subject&body=The%20Body) to open your Mail client.
+│  
+│ +### It does not behave correctly with Local or Web E-Mail Clients. Why?
+│ +Checkout the Options of the extension. There you can configure if your Mail client is a Web or Local E-Mail Client which may help.
+│ +Also you can define Texts that are to be shown in the E-Mail content by default.
+│ +
+│  ### It still does not do what I expect. What can I do?
+│  On the chrome extensions page (chrome://extensions/) you can enable the developer mode and open the background page.
+│  It will provide you with logging and debugging capabilities. If you discovered an error please report it here.
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SendPage/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -15,10 +15,9 @@
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0"
+│ │  }

@@ -1,0 +1,16 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Google-gifs-autoplay/firefox
+  - files: _metadata, background, images, inject
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Google-gifs-autoplay/firefox/manifest.json; File type: json
+  + Modified: 7–11
+  - Original: 408–408 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup <-> +++/workspace/pipeline_output/Google-gifs-autoplay/firefox/popup
+  - files: index.html, index.js
+  + files: index.html
+
+---/workspace/pipeline_output/chromex_data/popup/index.html <-> +++/workspace/pipeline_output/Google-gifs-autoplay/firefox/popup/index.html; File type: html
+  - Original: 1–51
+  + Modified: 1–52
+

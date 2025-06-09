@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/marinara/package
+├── file list
+│ @@ -1,9 +1,7 @@
+│  ATTRIBUTION
+│  LICENSE
+│  _locales
+│ -_metadata
+│  audio
+│  fonts
+│  images
+│ -manifest.json
+│ -modules
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/marinara/package/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "contextMenus",
+│ │          "storage",
+│ │          "notifications"
+│ │      ],
+│ │      "short_name": "__MSG_app_name_short__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "34"
+│ │  }

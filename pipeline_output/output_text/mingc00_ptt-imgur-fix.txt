@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ptt-imgur-fix
+├── file list
+│ @@ -1,7 +1,21 @@
+│ -_metadata
+│ +.git
+│ +.git-blame-ignore-revs
+│ +.gitignore
+│ +CHANGELOG.md
+│ +LICENSE
+│ +README.md
+│ +background.js
+│ +dprint.json
+│ +eslint.config.mjs
+│  icon
+│  imgur.js
+│  manifest.json
+│ +manifest.v2.json
+│ +node_modules
+│ +pack.py
+│ +package-lock.json
+│ +package.json
+│  rules.json
+│ +surge
+│  term.js
+│  web.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ptt-imgur-fix/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -40,10 +40,9 @@
+│ │          "48": "icon/48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Ptt Media Preview",
+│ │      "permissions": [
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "5.4.1"
+│ │  }

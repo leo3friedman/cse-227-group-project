@@ -1,0 +1,50 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/globalSpeed/staticCh
+├── file list
+│ @@ -1,26 +1,2 @@
+│ -_locales
+│ -_metadata
+│ -background.js
+│ -circles
+│ -faqs.html
+│ -faqs.js
+│ -faqs.js.LICENSE.txt
+│ -icons
+│ -isolated.js
+│ -locales
+│ -main.js
+│  manifest.json
+│ -offscreen.html
+│ -offscreen.js
+│ -options.html
+│ -options.js
+│ -options.js.LICENSE.txt
+│ -pageDraw.js
+│ -pane.js
+│ -placer.html
+│ -placer.js
+│ -popup.html
+│ -popup.js
+│ -popup.js.LICENSE.txt
+│ -reverse-sound-processor.js
+│ -sound-touch-processor.js
+│ +offscreen.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/globalSpeed/staticCh/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -124,15 +124,14 @@
+│ │          "webNavigation",
+│ │          "scripting",
+│ │          "offscreen",
+│ │          "userScripts",
+│ │          "contextMenus"
+│ │      ],
+│ │      "short_name": "Global Speed",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.2.23",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://*/*",
+│ │                  "https://*/*"
+│ │              ],

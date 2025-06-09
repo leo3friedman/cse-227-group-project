@@ -1,0 +1,46 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/popup-tab-switcher/src
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ -background.js
+│ -content.js
+│ +background
+│ +background.ts
+│ +content-script
+│  images
+│  manifest.json
+│ -settings
+│ +service-factory.ts
+│ +settings
+│ +styles
+│ +utils
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/popup-tab-switcher/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -43,15 +43,14 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "favicon",
+│ │          "scripting",
+│ │          "storage",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2024.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/settings
+├── +++ /workspace/pipeline_output/popup-tab-switcher/src/settings
+│ ├── file list
+│ │ @@ -1,4 +1,4 @@
+│ │  global-styles
+│ │  index.html
+│ │ +index.ts
+│ │ +solid-js
+│ │ -index.js
+│ │ -index.js.LICENSE.txt

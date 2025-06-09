@@ -1,0 +1,47 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/rescroller
+├── file list
+│ @@ -1,13 +1,22 @@
+│ +.eslintignore
+│ +.eslintrc.json
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.prettierignore
+│ +.prettierrc
+│ +.tool-versions
+│ +.vscode
+│  CONTRIBUTING.md
+│  README.md
+│  Righteous-Regular.ttf
+│ -_metadata
+│  appicons
+│ +build
+│  images
+│  js
+│ -jsconfig.json
+│  manifest.json
+│ +node_modules
+│  options.html
+│  package-lock.json
+│  package.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/rescroller/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,15 +23,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Rescroller",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2024.7.7",
+│ │      "version_name": "2024.7.7",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://*/*",
+│ │                  "https://*/*",

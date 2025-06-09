@@ -1,0 +1,14 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/selection-search
+  - files: _metadata, templates
+  + files: .git, .gitignore, README.md, package-lock.json, templates, tests, userscripts
+
+---/workspace/pipeline_output/chromex_data/background/iconloader.js <-> +++/workspace/pipeline_output/selection-search/background/iconloader.js; File type: js
+  - Original: 148–148
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/selection-search/manifest.json; File type: json
+  - Original: 74–74 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/templates <-> +++/workspace/pipeline_output/selection-search/templates
+  - files: options.js
+  + files: .gitignore, compile_templates.sh, dot-packer, options, options.js, package-lock.json, package.json
+

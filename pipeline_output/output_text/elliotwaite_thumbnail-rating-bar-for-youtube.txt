@@ -1,0 +1,221 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/thumbnail-rating-bar-for-youtube/manifest-v2
+├── file list
+│ @@ -1,10 +1,4 @@
+│ -_metadata
+│  background.js
+│  content-script.js
+│ -css
+│ -icons
+│ -img
+│ -lib
+│  manifest.json
+│ -options.html
+│  options.js
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/thumbnail-rating-bar-for-youtube/manifest-v2/background.js
+│ ├── js-beautify {}
+│ │ @@ -20,22 +20,20 @@
+│ │      }
+│ │  
+│ │      if (numRemoved > 0) {
+│ │          cacheTimes = cacheTimes.slice(numRemoved)
+│ │      }
+│ │  }
+│ │  
+│ │ -chrome.runtime.onInstalled.addListener(() => {
+│ │ -    chrome.storage.sync.get({
+│ │ -        cacheDuration: 600000
+│ │ -    }, function(settings) {
+│ │ -        if (settings && settings.cacheDuration !== undefined) {
+│ │ -            cacheDuration = settings.cacheDuration
+│ │ -        }
+│ │ -    })
+│ │ +chrome.storage.local.get({
+│ │ +    cacheDuration: 600000
+│ │ +}, function(settings) {
+│ │ +    if (settings && settings.cacheDuration !== undefined) {
+│ │ +        cacheDuration = settings.cacheDuration
+│ │ +    }
+│ │  })
+│ │  
+│ │  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+│ │      switch (message.query) {
+│ │          case "videoApiRequest":
+│ │              removeExpiredCacheData()
+│ │  
+│ │ @@ -84,20 +82,19 @@
+│ │              }
+│ │  
+│ │              // Returning `true` signals to the browser that we will send our
+│ │              // response asynchronously using `sendResponse()`.
+│ │              return true
+│ │  
+│ │          case "insertCss":
+│ │ -            chrome.scripting.insertCSS({
+│ │ -                target: {
+│ │ -                    tabId: sender.tab.id,
+│ │ -                },
+│ │ -                files: message.files,
+│ │ -            })
+│ │ +            for (const file of message.files) {
+│ │ +                chrome.tabs.insertCSS(sender.tab.id, {
+│ │ +                    file
+│ │ +                })
+│ │ +            }
+│ │              break
+│ │  
+│ │          case "updateSettings":
+│ │              cacheDuration = message.cacheDuration
+│ │              break
+│ │      }
+│ │  })
+│   --- /workspace/pipeline_output/chromex_data/content-script.js
+├── +++ /workspace/pipeline_output/thumbnail-rating-bar-for-youtube/manifest-v2/content-script.js
+│ ├── js-beautify {}
+│ │ @@ -633,15 +633,15 @@
+│ │          }, HANDLE_DOM_MUTATIONS_THROTTLE_MS)
+│ │      }
+│ │  }
+│ │  
+│ │  // An observer for watching changes to the body element.
+│ │  const mutationObserver = new MutationObserver(handleDomMutations)
+│ │  
+│ │ -chrome.storage.sync.get(DEFAULT_USER_SETTINGS, function(storedSettings) {
+│ │ +chrome.storage.local.get(DEFAULT_USER_SETTINGS, function(storedSettings) {
+│ │      // In Firefox, `storedSettings` will be undeclared if not previously set.
+│ │      if (storedSettings) {
+│ │          userSettings = storedSettings
+│ │      }
+│ │  
+│ │      const cssFiles = []
+│ │      if (userSettings.barHeight !== 0) {
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/thumbnail-rating-bar-for-youtube/manifest-v2/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,64 +1,57 @@
+│ │  {
+│ │ -    "action": {
+│ │ +    "author": "Elliot Waite",
+│ │ +    "background": {
+│ │ +        "persistent": false,
+│ │ +        "scripts": [
+│ │ +            "background.js"
+│ │ +        ]
+│ │ +    },
+│ │ +    "browser_action": {
+│ │          "default_icon": "icons/icon96.png",
+│ │          "default_popup": "options.html",
+│ │          "default_title": "Settings"
+│ │      },
+│ │ -    "author": "Elliot Waite",
+│ │ -    "background": {
+│ │ -        "service_worker": "background.js"
+│ │ -    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "lib/jquery-3.6.1.min.js",
+│ │                  "content-script.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://*.youtube.com/*"
+│ │              ],
+│ │              "run_at": "document_end"
+│ │          }
+│ │      ],
+│ │      "description": "Displays a rating bar (likes/dislikes) on the bottom of every YouTube\u2122 video thumbnail.",
+│ │ -    "host_permissions": [
+│ │ -        "*://*.youtube.com/*",
+│ │ -        "*://*.returnyoutubedislikeapi.com/*"
+│ │ -    ],
+│ │      "icons": {
+│ │          "128": "icons/icon128.png",
+│ │          "96": "icons/icon96.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ +    "manifest_version": 2,
+│ │      "name": "Thumbnail Rating Bar for YouTube\u2122",
+│ │      "options_ui": {
+│ │ -        "browser_style": false,
+│ │ +        "chrome_style": false,
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │ -        "scripting",
+│ │ +        "*://*.youtube.com/*",
+│ │ +        "*://*.returnyoutubedislikeapi.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8.17",
+│ │      "web_accessible_resources": [
+│ │ -        {
+│ │ -            "extension_ids": [],
+│ │ -            "matches": [],
+│ │ -            "resources": [
+│ │ -                "css/bar-blue-gray.css",
+│ │ -                "css/bar-blue-gray-video-page.css",
+│ │ -                "css/bar-bottom-separator.css",
+│ │ -                "css/bar-bottom-tooltip.css",
+│ │ -                "css/bar-bottom.css",
+│ │ -                "css/bar-green-red.css",
+│ │ -                "css/bar-green-red-video-page.css",
+│ │ -                "css/bar-tooltip.css",
+│ │ -                "css/bar-top-separator.css",
+│ │ -                "css/bar-top-tooltip.css",
+│ │ -                "css/bar-top.css",
+│ │ -                "css/bar.css"
+│ │ -            ]
+│ │ -        }
+│ │ +        "css/bar-blue-gray.css",
+│ │ +        "css/bar-blue-gray-video-page.css",
+│ │ +        "css/bar-bottom-separator.css",
+│ │ +        "css/bar-bottom-tooltip.css",
+│ │ +        "css/bar-bottom.css",
+│ │ +        "css/bar-green-red.css",
+│ │ +        "css/bar-green-red-video-page.css",
+│ │ +        "css/bar-tooltip.css",
+│ │ +        "css/bar-top-separator.css",
+│ │ +        "css/bar-top-tooltip.css",
+│ │ +        "css/bar-top.css",
+│ │ +        "css/bar.css"
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/thumbnail-rating-bar-for-youtube/manifest-v2/options.js
+│ ├── js-beautify {}
+│ │ @@ -144,15 +144,15 @@
+│ │          $('#thumbnail-preview ytrb-bar').css('transition', 'opacity 0.2s ease-out 0.2s')
+│ │      })
+│ │  })
+│ │  
+│ │  // Save settings.
+│ │  $('#save-btn').click(function() {
+│ │      let cacheDuration = parseInt($('[name="cache-duration"]').val())
+│ │ -    chrome.storage.sync.set({
+│ │ +    chrome.storage.local.set({
+│ │          barPosition: $('#bar-position-top').prop('checked') ? 'top' : 'bottom',
+│ │          barColor: $('[name="bar-color"]').val(),
+│ │          barLikesColor: sanitizeHexColor($('#bar-likes-color').val()),
+│ │          barDislikesColor: sanitizeHexColor($('#bar-dislikes-color').val()),
+│ │          barColorsSeparator: $('#bar-colors-separator').prop('checked'),
+│ │          barHeight: Number($('#bar-height').val()),
+│ │          barOpacity: Number($('#bar-opacity').val()),
+│ │ @@ -236,15 +236,15 @@
+│ │      // Note: We don't restore the custom colors and colors separator settings so
+│ │      // that users can easily restore to their custom colors if they want to.
+│ │      applySettings(DEFAULT_USER_SETTINGS, false)
+│ │  })
+│ │  
+│ │  // Load saved settings.
+│ │  function restoreOptions() {
+│ │ -    chrome.storage.sync.get(DEFAULT_USER_SETTINGS, function(settings) {
+│ │ +    chrome.storage.local.get(DEFAULT_USER_SETTINGS, function(settings) {
+│ │          // In Firefox, `settings` will be undeclared if not previously set.
+│ │          if (!settings) {
+│ │              settings = DEFAULT_USER_SETTINGS
+│ │          }
+│ │  
+│ │          // Set any missing settings to their default values. Some settings may be
+│ │          // missing if loading in settings that were saved using an older version of

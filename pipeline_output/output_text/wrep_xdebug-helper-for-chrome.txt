@@ -1,0 +1,448 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/xdebug-helper-for-chrome/source
+├── file list
+│ @@ -1,9 +1,8 @@
+│  License
+│ -_metadata
+│  background.js
+│  content.js
+│  images
+│  jquery.js
+│  keymaster.js
+│  manifest.json
+│  options.css
+│   --- /workspace/pipeline_output/chromex_data/License
+├── +++ /workspace/pipeline_output/xdebug-helper-for-chrome/source/License
+│ @@ -11,10 +11,7 @@
+│  
+│  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+│  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+│  PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+│  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+│  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+│  DEALINGS IN THE SOFTWARE.
+│ -
+│ -The icons used are the famous [Famfamfam icons from Mark James](http://www.famfamfam.com/lab/icons/silk/)
+│ -licensed under the [Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/).
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/xdebug-helper-for-chrome/source/background.js
+│ ├── js-beautify {}
+│ │ @@ -34,17 +34,19 @@
+│ │              idekey: ideKey,
+│ │              traceTrigger: traceTrigger,
+│ │              profileTrigger: profileTrigger
+│ │          },
+│ │          function(response) {
+│ │              if (chrome.runtime.lastError) {
+│ │                  console.log("Error: ", chrome.runtime.lastError);
+│ │ -            } else {
+│ │ -                updateIcon(response.status, tabId);
+│ │ +                return;
+│ │              }
+│ │ +
+│ │ +            // Update the icon
+│ │ +            updateIcon(response.status, tabId);
+│ │          }
+│ │      );
+│ │  });
+│ │  
+│ │  chrome.commands.onCommand.addListener(function(command) {
+│ │      if ('toggle_debug_action' == command) {
+│ │          var ideKey = "XDEBUG_ECLIPSE";
+│ │ @@ -81,21 +83,21 @@
+│ │                  tabs[0].id, {
+│ │                      cmd: "getStatus",
+│ │                      idekey: ideKey,
+│ │                      traceTrigger: traceTrigger,
+│ │                      profileTrigger: profileTrigger
+│ │                  },
+│ │                  function(response) {
+│ │ -                    // If state is debugging (1) toggle to disabled (0), else toggle to debugging
+│ │ -                    var newState = (1 == response.status) ? 0 : 1;
+│ │ +                    // Get new status by current status
+│ │ +                    const newStatus = getNewStatus(response.status);
+│ │  
+│ │                      chrome.tabs.sendMessage(
+│ │                          tabs[0].id, {
+│ │                              cmd: "setStatus",
+│ │ -                            status: newState,
+│ │ +                            status: newStatus,
+│ │                              idekey: ideKey,
+│ │                              traceTrigger: traceTrigger,
+│ │                              profileTrigger: profileTrigger
+│ │                          },
+│ │                          function(response) {
+│ │                              // Update the icon
+│ │                              updateIcon(response.status, tabs[0].id);
+│ │ @@ -103,18 +105,95 @@
+│ │                      );
+│ │                  }
+│ │              );
+│ │          });
+│ │      }
+│ │  });
+│ │  
+│ │ +// Will not be called, if popup is disabled, so not needed to wrap this in a if statement
+│ │ +chrome.browserAction.onClicked.addListener((tab) => {
+│ │ +    var ideKey = "XDEBUG_ECLIPSE";
+│ │ +    var traceTrigger = ideKey;
+│ │ +    var profileTrigger = ideKey;
+│ │ +
+│ │ +    // Check if localStorage is available and get the settings out of it
+│ │ +    if (localStorage) {
+│ │ +        if (localStorage["xdebugIdeKey"]) {
+│ │ +            ideKey = localStorage["xdebugIdeKey"];
+│ │ +        }
+│ │ +
+│ │ +        if (localStorage["xdebugTraceTrigger"]) {
+│ │ +            traceTrigger = localStorage["xdebugTraceTrigger"];
+│ │ +        }
+│ │ +
+│ │ +        if (localStorage["xdebugProfileTrigger"]) {
+│ │ +            profileTrigger = localStorage["xdebugProfileTrigger"];
+│ │ +        }
+│ │ +    }
+│ │ +
+│ │ +    // Get the current state
+│ │ +    chrome.tabs.sendMessage(
+│ │ +        tab.id, {
+│ │ +            cmd: "getStatus",
+│ │ +            idekey: ideKey,
+│ │ +            traceTrigger: traceTrigger,
+│ │ +            profileTrigger: profileTrigger
+│ │ +        },
+│ │ +        function(response) {
+│ │ +            // Get new status by current status
+│ │ +            const newStatus = getNewStatus(response.status);
+│ │ +
+│ │ +            chrome.tabs.sendMessage(
+│ │ +                tab.id, {
+│ │ +                    cmd: "setStatus",
+│ │ +                    status: newStatus,
+│ │ +                    idekey: ideKey,
+│ │ +                    traceTrigger: traceTrigger,
+│ │ +                    profileTrigger: profileTrigger
+│ │ +                },
+│ │ +                function(response) {
+│ │ +                    // Update the icon
+│ │ +                    updateIcon(response.status, tab.id);
+│ │ +                }
+│ │ +            );
+│ │ +        }
+│ │ +    );
+│ │ +});
+│ │ +
+│ │ +/**
+│ │ + * Get new status by current status.
+│ │ + *
+│ │ + * @param {number} status - Current status from sendMessage() cmd: 'getStatus'.
+│ │ + *
+│ │ + * @returns {number}
+│ │ + */
+│ │ +function getNewStatus(status) {
+│ │ +    // Reset status, when trace or profile is selected and popup is disabled
+│ │ +    if ((localStorage.xdebugDisablePopup === '1') &&
+│ │ +        ((status === 2) || (status === 3))
+│ │ +    ) {
+│ │ +        return 0;
+│ │ +    }
+│ │ +
+│ │ +    // If state is debugging (1) toggle to disabled (0), else toggle to debugging
+│ │ +    return (status === 1) ? 0 : 1;
+│ │ +}
+│ │ +
+│ │  function updateIcon(status, tabId) {
+│ │ -    // Figure the correct title/image with the given state
+│ │ -    var title = "Debugging, profiling & tracing disabled",
+│ │ -        image = "images/bug-gray.png";
+│ │ +    // Reset status, when trace or profile is selected and popup is disabled
+│ │ +    if ((localStorage.xdebugDisablePopup === '1') &&
+│ │ +        ((status === 2) || (status === 3))
+│ │ +    ) {
+│ │ +        status = 0;
+│ │ +    }
+│ │ +
+│ │ +    // Figure the correct title / image by the given state
+│ │ +    let image = "images/bug-gray.png";
+│ │ +    let title = (localStorage.xdebugDisablePopup === '1') ?
+│ │ +        'Debugging disabled' : 'Debugging, profiling & tracing disabled';
+│ │  
+│ │      if (status == 1) {
+│ │          title = "Debugging enabled";
+│ │          image = "images/bug.png";
+│ │      } else if (status == 2) {
+│ │          title = "Profiling enabled";
+│ │          image = "images/clock.png";
+│ │ @@ -132,17 +211,32 @@
+│ │      // Update image
+│ │      chrome.browserAction.setIcon({
+│ │          tabId: tabId,
+│ │          path: image
+│ │      });
+│ │  }
+│ │  
+│ │ +/**
+│ │ + * @deprecated
+│ │ + * @todo to remove silver
+│ │ + */
+│ │  function isValueInArray(arr, val) {
+│ │      for (i = 0; i < arr.length; i++) {
+│ │          var re = new RegExp(arr[i], "gi");
+│ │          if (re.test(val)) {
+│ │              return true;
+│ │          }
+│ │      }
+│ │  
+│ │      return false;
+│ │ +}
+│ │ +
+│ │ +// Disable / Enable Popup by localStorage
+│ │ +if (localStorage.xdebugDisablePopup === '1') {
+│ │ +    chrome.browserAction.setPopup({
+│ │ +        popup: '',
+│ │ +    });
+│ │ +} else {
+│ │ +    chrome.browserAction.setPopup({
+│ │ +        popup: 'popup.html',
+│ │ +    });
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/xdebug-helper-for-chrome/source/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -51,10 +51,9 @@
+│ │      "minimum_chrome_version": "20",
+│ │      "name": "Xdebug helper",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "*://*/*"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.css
+├── +++ /workspace/pipeline_output/xdebug-helper-for-chrome/source/options.css
+│ @@ -1,7 +1,8 @@
+│ +/* Base styles */
+│  html,
+│  body {
+│    font-family: 'Roboto', sans-serif;
+│    font-size: 14px;
+│    line-height: 1.4em;
+│    background-color: #e2e1e0;
+│  }
+│ @@ -13,14 +14,25 @@
+│  }
+│  
+│  a {
+│    text-decoration: none;
+│    color: #4285f4;
+│  }
+│  
+│ +/* Fade transition */
+│ +.fade {
+│ +  opacity: 0;
+│ +  transition: opacity .15s linear;
+│ +}
+│ +
+│ +.fade.show {
+│ +  opacity: 1;
+│ +}
+│ +
+│ +/* Page styles */
+│  .contentTxt {
+│    margin-bottom: 5px;
+│  }
+│  
+│  #heading {
+│    background-color: #4285f4;
+│    margin: -20px -20px 20px;
+│ @@ -100,8 +112,15 @@
+│  
+│  .material-icons {
+│    font-size: 18px;
+│    line-height: 0;
+│    position: relative;
+│    top: 4px;
+│    margin-right: 5px;
+│ -}
+│ +}
+│ +
+│ +/* Disable Popup */
+│ +.disable-popup-saved {
+│ +  color: #5cb85c;
+│ +  font-weight: bold;
+│ +  margin-left: 5px;
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/xdebug-helper-for-chrome/source/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -56,14 +56,28 @@
+│  			<h3>Profile Trigger Value</h3>
+│  			<p class="note">If your xdebug is configured with a unique profile trigger key,
+│  				set that value here.  This value is blank by default.</p>
+│  			<p>
+│  				<input type="text" id="profiletrigger" value="">
+│  				<button class="save-button">Save</button>
+│  			</p>
+│ +
+│ +			<h3>Disable Popup</h3>
+│ +			<p class="note">
+│ +				If checked, xdebug session will be enabled / disabled by left click on the
+│ +				xdebug helper icon, xdebug helper's popup will be disabled.
+│ +			</p>
+│ +			<p>
+│ +                <label>
+│ +                    <input type="checkbox" id="disable-popup" value="1">
+│ +                    <span>Disable Popup</span>
+│ +                </label>
+│ +                <span class="disable-popup-saved fade">Saved</span>
+│ +			</p>
+│ +
+│  			<footer id="footer">
+│  				<a href="https://github.com/mac-cain13/xdebug-helper-for-chrome" class="contribute" target="_blank">
+│  					Feel free to submit ideas, bugs and pull request to our <span>Github project</span>
+│  				</a>
+│  			</footer>
+│  		</div>
+│  	</body>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/xdebug-helper-for-chrome/source/options.js
+│ ├── js-beautify {}
+│ │ @@ -1,58 +1,92 @@
+│ │ -function save_options() {
+│ │ -    localStorage["xdebugIdeKey"] = document.getElementById("idekey").value;
+│ │ -    localStorage["xdebugTraceTrigger"] = document.getElementById("tracetrigger").value;
+│ │ -    localStorage["xdebugProfileTrigger"] = document.getElementById("profiletrigger").value;
+│ │ -}
+│ │ -
+│ │ -function restore_options() {
+│ │ -    // Restore IDE Key
+│ │ -    idekey = localStorage["xdebugIdeKey"];
+│ │ +(function() {
+│ │  
+│ │ -    if (!idekey) {
+│ │ -        idekey = "XDEBUG_ECLIPSE";
+│ │ -    }
+│ │ +    // setTimeout() return value
+│ │ +    let disablePopupTimeout;
+│ │  
+│ │ -    if (idekey == "XDEBUG_ECLIPSE" || idekey == "netbeans-xdebug" || idekey == "macgdbp" || idekey == "PHPSTORM") {
+│ │ -        $("#ide").val(idekey);
+│ │ -        $("#idekey").prop('disabled', true);
+│ │ -    } else {
+│ │ -        $("#ide").val("null");
+│ │ -        $("#idekey").prop('disabled', false);
+│ │ +    function save_options() {
+│ │ +        localStorage["xdebugIdeKey"] = document.getElementById("idekey").value;
+│ │ +        localStorage["xdebugTraceTrigger"] = document.getElementById("tracetrigger").value;
+│ │ +        localStorage["xdebugProfileTrigger"] = document.getElementById("profiletrigger").value;
+│ │ +        localStorage.xdebugDisablePopup = document.getElementById('disable-popup').checked ? '1' : '0';
+│ │      }
+│ │ -    $('#idekey').val(idekey);
+│ │  
+│ │ -    // Restore Trace Triggers
+│ │ -    var traceTrigger = localStorage["xdebugTraceTrigger"];
+│ │ -    if (traceTrigger !== null) {
+│ │ -        $("#tracetrigger").val(traceTrigger);
+│ │ -    } else {
+│ │ -        $("#tracetrigger").val(null);
+│ │ -    }
+│ │ +    function restore_options() {
+│ │ +        // Restore IDE Key
+│ │ +        idekey = localStorage["xdebugIdeKey"];
+│ │  
+│ │ -    // Restore Profile Triggers
+│ │ -    var profileTrigger = localStorage["xdebugProfileTrigger"];
+│ │ -    if (profileTrigger !== null) {
+│ │ -        $("#profiletrigger").val(profileTrigger);
+│ │ -    } else {
+│ │ -        $("#profiletrigger").val(null);
+│ │ -    }
+│ │ -}
+│ │ +        if (!idekey) {
+│ │ +            idekey = "XDEBUG_ECLIPSE";
+│ │ +        }
+│ │  
+│ │ -$(function() {
+│ │ -    $("#ide").change(function() {
+│ │ -        if ($("#ide").val() != "null") {
+│ │ +        if (idekey == "XDEBUG_ECLIPSE" || idekey == "netbeans-xdebug" || idekey == "macgdbp" || idekey == "PHPSTORM") {
+│ │ +            $("#ide").val(idekey);
+│ │              $("#idekey").prop('disabled', true);
+│ │ -            $("#idekey").val($("#ide").val());
+│ │ -
+│ │ -            save_options();
+│ │          } else {
+│ │ +            $("#ide").val("null");
+│ │              $("#idekey").prop('disabled', false);
+│ │          }
+│ │ +        $('#idekey').val(idekey);
+│ │ +
+│ │ +        // Restore Trace Triggers
+│ │ +        var traceTrigger = localStorage["xdebugTraceTrigger"];
+│ │ +        if (traceTrigger !== null) {
+│ │ +            $("#tracetrigger").val(traceTrigger);
+│ │ +        } else {
+│ │ +            $("#tracetrigger").val(null);
+│ │ +        }
+│ │ +
+│ │ +        // Restore Profile Triggers
+│ │ +        var profileTrigger = localStorage["xdebugProfileTrigger"];
+│ │ +        if (profileTrigger !== null) {
+│ │ +            $("#profiletrigger").val(profileTrigger);
+│ │ +        } else {
+│ │ +            $("#profiletrigger").val(null);
+│ │ +        }
+│ │ +
+│ │ +        // Restore Disable Popup
+│ │ +        document.getElementById('disable-popup').checked = (localStorage.xdebugDisablePopup === '1') ? true : false;
+│ │ +    }
+│ │ +
+│ │ +    $(function() {
+│ │ +        $("#ide").change(function() {
+│ │ +            if ($("#ide").val() != "null") {
+│ │ +                $("#idekey").prop('disabled', true);
+│ │ +                $("#idekey").val($("#ide").val());
+│ │ +
+│ │ +                save_options();
+│ │ +            } else {
+│ │ +                $("#idekey").prop('disabled', false);
+│ │ +            }
+│ │ +        });
+│ │ +
+│ │ +        $("#idekey").change(save_options);
+│ │ +
+│ │ +        // Persist Disable Popup on onChange event
+│ │ +        $('#disable-popup').change(disablePopupChanged);
+│ │ +
+│ │ +        $('.save-button').click(save_options);
+│ │ +
+│ │ +        restore_options();
+│ │      });
+│ │  
+│ │ -    $("#idekey").change(save_options);
+│ │ +    /**
+│ │ +     * Disable Popup checkbox changed, persist it.
+│ │ +     */
+│ │ +    function disablePopupChanged() {
+│ │ +        const $disablePopupSaved = $('.disable-popup-saved');
+│ │ +
+│ │ +        $disablePopupSaved.addClass('show');
+│ │ +
+│ │ +        // First clear interval
+│ │ +        clearInterval(disablePopupTimeout);
+│ │ +        // Hide after 2 seconds
+│ │ +        disablePopupTimeout = setTimeout(() => $disablePopupSaved.removeClass('show'), 2000);
+│ │  
+│ │ -    $('.save-button').click(save_options);
+│ │ +        // Persist
+│ │ +        save_options();
+│ │ +
+│ │ +        // We need to reload the extension, because to hide the popup
+│ │ +        chrome.extension.getBackgroundPage().window.location.reload(true);
+│ │ +    }
+│ │  
+│ │ -    restore_options();
+│ │ -});
+│ │ +})();

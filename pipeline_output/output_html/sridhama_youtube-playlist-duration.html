@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/sridhama_youtube-playlist-duration.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/youtube-playlist-duration</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">53.2 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/youtube-playlist-duration</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">186 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 7 lines modified</td><td colspan="2">Offset 1, 11 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent"><del>_met</del><del>ada</del>t<del>a</del></td><td class="diffline">1 </td><td class="diffpresent"><ins>.gi</ins>t</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">LICENSE</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">README.md</td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent">app.js</td><td class="diffline">4 </td><td class="diffpresent">app.js</td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">icon.png</td><td class="diffline">5 </td><td class="diffpresent">icon.png</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">icon128.png</td><td class="diffline">6 </td><td class="diffpresent">icon128.png</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">icon16.png</td><td class="diffline">7 </td><td class="diffpresent">icon16.png</td></tr>
+<tr class="diffunmodified"><td class="diffline">6 </td><td class="diffpresent">icon48.png</td><td class="diffline">8 </td><td class="diffpresent">icon48.png</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">logo.png</td></tr>
+<tr class="diffunmodified"><td class="diffline">7 </td><td class="diffpresent">manifest.json</td><td class="diffline">10 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">package-lock.json</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">3.27 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/app.js</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-app.js"><span class="source">/workspace/pipeline_output/youtube-playlist-duration/app.js</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-app.js">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">3.16 KB</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-app.js---js-beautify---"><span class="source">js-beautify {}</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-app.js---js-beautify---">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 57, 20 lines modified</td><td colspan="2">Offset 57, 23 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//<span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>loadButton;</td><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//<span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>loadButton;</td></tr>
+<tr class="diffunmodified"><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//<span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>callback<span class="dp">·</span>=<span class="dp">·</span>setInterval(loadMore,<span class="dp">·</span>250);</td><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//<span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>callback<span class="dp">·</span>=<span class="dp">·</span>setInterval(loadMore,<span class="dp">·</span>250);</td></tr>
+<tr class="diffunmodified"><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>setTimeout(()<span class="dp">·</span>=&gt;<span class="dp">·</span>{</td><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>setTimeout(()<span class="dp">·</span>=&gt;<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>proceed();</td><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>proceed();</td></tr>
+<tr class="diffunmodified"><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},<span class="dp">·</span>2000);</td><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},<span class="dp">·</span>2000);</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>function<span class="dp">·</span>proceed()<span class="dp">·</span>{</td><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>function<span class="dp">·</span>proceed()<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>function<span class="dp">·</span>getDuration()<span class="dp">·</span>{</td><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>function<span class="dp">·</span>getDuration<ins>AndVideoCount</ins>()<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>timeStamp<span class="dp">·</span>=<span class="dp">·</span>document.querySelectorAll(&#x27;.style-scope<span class="dp">·</span>ytd-thumbnail-overlay-time-status-renderer&#x27;),</td><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>timeStamp<span class="dp">·</span>=<span class="dp">·</span>document.querySelectorAll(&#x27;.style-scope<span class="dp">·</span>ytd-thumbnail-overlay-time-status-renderer&#x27;),</td></tr>
+<tr class="diffunmodified"><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>totalDurationInSeconds<span class="dp">·</span>=<span class="dp">·</span>0,</td><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>totalDurationInSeconds<span class="dp">·</span>=<span class="dp">·</span>0,</td></tr>
+<tr class="diffunmodified"><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>hours,<span class="dp">·</span>minutes,<span class="dp">·</span>seconds;</td><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>hours,<span class="dp">·</span>minutes,<span class="dp">·</span>seconds;</td></tr>
+<tr class="diffunmodified"><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//Runs<span class="dp">·</span>the<span class="dp">·</span>loop<span class="dp">·</span>and<span class="dp">·</span>fetches<span class="dp">·</span>the<span class="dp">·</span>total<span class="dp">·</span>duration<span class="dp">·</span>in<span class="dp">·</span>seconds</td><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//Runs<span class="dp">·</span>the<span class="dp">·</span>loop<span class="dp">·</span>and<span class="dp">·</span>fetches<span class="dp">·</span>the<span class="dp">·</span>total<span class="dp">·</span>duration<span class="dp">·</span>in<span class="dp">·</span>seconds</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">68 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>numOfVideoes<span class="dp">·</span>=<span class="dp">·</span>timeStamp.length;</td></tr>
+<tr class="diffchanged"><td class="diffline">68 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>for<span class="dp">·</span>(var<span class="dp">·</span>i<span class="dp">·</span>=<span class="dp">·</span>0;<span class="dp">·</span>i<span class="dp">·</span>&lt;<span class="dp">·</span><del>ti</del>m<del>eSt</del><del>amp.l</del>e<del>n</del><del>gth</del>;<span class="dp">·</span>i++)<span class="dp">·</span>{</td><td class="diffline">69 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>for<span class="dp">·</span>(var<span class="dp">·</span>i<span class="dp">·</span>=<span class="dp">·</span>0;<span class="dp">·</span>i<span class="dp">·</span>&lt;<span class="dp">·</span><ins>nu</ins>m<ins>OfVid</ins>e<ins>oes</ins>;<span class="dp">·</span>i++)<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">69 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>timeString<span class="dp">·</span>=<span class="dp">·</span>timeStamp[i].innerText;</td><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>timeString<span class="dp">·</span>=<span class="dp">·</span>timeStamp[i].innerText;</td></tr>
+<tr class="diffunmodified"><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>HMS<span class="dp">·</span>=<span class="dp">·</span>timeString.split(&#x27;:&#x27;);</td><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>HMS<span class="dp">·</span>=<span class="dp">·</span>timeString.split(&#x27;:&#x27;);</td></tr>
+<tr class="diffunmodified"><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>if<span class="dp">·</span>(HMS.length<span class="dp">·</span>===<span class="dp">·</span>3)<span class="dp">·</span>{</td><td class="diffline">72 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>if<span class="dp">·</span>(HMS.length<span class="dp">·</span>===<span class="dp">·</span>3)<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">72 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>hours<span class="dp">·</span>=<span class="dp">·</span>parseInt(HMS[0]);</td><td class="diffline">73 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>hours<span class="dp">·</span>=<span class="dp">·</span>parseInt(HMS[0]);</td></tr>
+<tr class="diffunmodified"><td class="diffline">73 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>minutes<span class="dp">·</span>=<span class="dp">·</span>parseInt(HMS[1]);</td><td class="diffline">74 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>minutes<span class="dp">·</span>=<span class="dp">·</span>parseInt(HMS[1]);</td></tr>
+<tr class="diffunmodified"><td class="diffline">74 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>seconds<span class="dp">·</span>=<span class="dp">·</span>parseInt(HMS[2]);</td><td class="diffline">75 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>seconds<span class="dp">·</span>=<span class="dp">·</span>parseInt(HMS[2]);</td></tr>
+<tr class="diffunmodified"><td class="diffline">75 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<span class="dp">·</span>else<span class="dp">·</span>{</td><td class="diffline">76 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<span class="dp">·</span>else<span class="dp">·</span>{</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 86, 37 lines modified</td><td colspan="2">Offset 89, 42 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">86 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>h<span class="dp">·</span>=<span class="dp">·</span>Math.floor(d<span class="dp">·</span>/<span class="dp">·</span>3600);</td><td class="diffline">89 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>h<span class="dp">·</span>=<span class="dp">·</span>Math.floor(d<span class="dp">·</span>/<span class="dp">·</span>3600);</td></tr>
+<tr class="diffunmodified"><td class="diffline">87 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>m<span class="dp">·</span>=<span class="dp">·</span>Math.floor(d<span class="dp">·</span>%<span class="dp">·</span>3600<span class="dp">·</span>/<span class="dp">·</span>60);</td><td class="diffline">90 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>m<span class="dp">·</span>=<span class="dp">·</span>Math.floor(d<span class="dp">·</span>%<span class="dp">·</span>3600<span class="dp">·</span>/<span class="dp">·</span>60);</td></tr>
+<tr class="diffunmodified"><td class="diffline">88 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>s<span class="dp">·</span>=<span class="dp">·</span>Math.floor(d<span class="dp">·</span>%<span class="dp">·</span>3600<span class="dp">·</span>%<span class="dp">·</span>60);</td><td class="diffline">91 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>s<span class="dp">·</span>=<span class="dp">·</span>Math.floor(d<span class="dp">·</span>%<span class="dp">·</span>3600<span class="dp">·</span>%<span class="dp">·</span>60);</td></tr>
+<tr class="diffunmodified"><td class="diffline">89 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>return<span class="dp">·</span>((h<span class="dp">·</span>&gt;<span class="dp">·</span>0<span class="dp">·</span>?<span class="dp">·</span>h<span class="dp">·</span>+<span class="dp">·</span>&#x27;:&#x27;<span class="dp">·</span>+<span class="dp">·</span>(m<span class="dp">·</span>&lt;<span class="dp">·</span>10<span class="dp">·</span>?<span class="dp">·</span>&#x27;0&#x27;<span class="dp">·</span>:<span class="dp">·</span>&#x27;&#x27;)<span class="dp">·</span>:<span class="dp">·</span>&#x27;&#x27;)<span class="dp">·</span>+<span class="dp">·</span>m<span class="dp">·</span>+<span class="dp">·</span>&#x27;:&#x27;<span class="dp">·</span>+<span class="dp">·</span>(s<span class="dp">·</span>&lt;<span class="dp">·</span>10<span class="dp">·</span>?<span class="dp">·</span>&#x27;0&#x27;<span class="dp">·</span>:<span class="dp">·</span>&#x27;&#x27;)<span class="dp">·</span>+<span class="dp">·</span>s);</td><td class="diffline">92 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>return<span class="dp">·</span>((h<span class="dp">·</span>&gt;<span class="dp">·</span>0<span class="dp">·</span>?<span class="dp">·</span>h<span class="dp">·</span>+<span class="dp">·</span>&#x27;:&#x27;<span class="dp">·</span>+<span class="dp">·</span>(m<span class="dp">·</span>&lt;<span class="dp">·</span>10<span class="dp">·</span>?<span class="dp">·</span>&#x27;0&#x27;<span class="dp">·</span>:<span class="dp">·</span>&#x27;&#x27;)<span class="dp">·</span>:<span class="dp">·</span>&#x27;&#x27;)<span class="dp">·</span>+<span class="dp">·</span>m<span class="dp">·</span>+<span class="dp">·</span>&#x27;:&#x27;<span class="dp">·</span>+<span class="dp">·</span>(s<span class="dp">·</span>&lt;<span class="dp">·</span>10<span class="dp">·</span>?<span class="dp">·</span>&#x27;0&#x27;<span class="dp">·</span>:<span class="dp">·</span>&#x27;&#x27;)<span class="dp">·</span>+<span class="dp">·</span>s);</td></tr>
+<tr class="diffunmodified"><td class="diffline">90 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td><td class="diffline">93 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">91 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>totalDuration<span class="dp">·</span>=<span class="dp">·</span>secondsToHMS(totalDurationInSeconds);</td><td class="diffline">94 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>totalDuration<span class="dp">·</span>=<span class="dp">·</span>secondsToHMS(totalDurationInSeconds);</td></tr>
+<tr class="diffchanged"><td class="diffline">92 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>return<span class="dp">·</span>totalDuration;</td><td class="diffline">95 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>return<span class="dp">·</span>totalDuration<ins><span class="dp">·</span>+<span class="dp">·</span>&#x27;(&#x27;<span class="dp">·</span>+<span class="dp">·</span>numOfVideoes<span class="dp">·</span>+<span class="dp">·</span>&#x27;)&#x27;</ins>;</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">93 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td><td class="diffline">96 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">94 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>parentElement<span class="dp">·</span>=<span class="dp">·</span>document.getElementById(&#x27;page-manager&#x27;)</td><td class="diffline">97 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>parentElement<span class="dp">·</span>=<span class="dp">·</span>document.getElementById(&#x27;page-manager&#x27;)</td></tr>
+<tr class="diffunmodified"><td class="diffline">95 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>firstChildElement<span class="dp">·</span>=<span class="dp">·</span>parentElement.firstChild;</td><td class="diffline">98 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>firstChildElement<span class="dp">·</span>=<span class="dp">·</span>parentElement.firstChild;</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">96 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//Create<span class="dp">·</span>div<span class="dp">·</span>and<span class="dp">·</span>style<span class="dp">·</span>it</td><td class="diffline">99 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>//Create<span class="dp">·</span>div<span class="dp">·</span>and<span class="dp">·</span>style<span class="dp">·</span>it</td></tr>
+<tr class="diffunmodified"><td class="diffline">97 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>function<span class="dp">·</span>createDiv()<span class="dp">·</span>{</td><td class="diffline">100 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>function<span class="dp">·</span>createDiv()<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">98 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>timeStampDiv<span class="dp">·</span>=<span class="dp">·</span>document.createElement(&#x27;div&#x27;);</td><td class="diffline">101 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>timeStampDiv<span class="dp">·</span>=<span class="dp">·</span>document.createElement(&#x27;div&#x27;);</td></tr>
+<tr class="diffchanged"><td class="diffline">99 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>HMSDuration<span class="dp">·</span>=<span class="dp">·</span>getDuration();</td><td class="diffline">102 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>HMSDuration<span class="dp">·</span>=<span class="dp">·</span>getDuration<ins>AndVideoCount</ins>();</td></tr>
+<tr class="diffunmodified"><td class="diffline">100 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>textNodeText<span class="dp">·</span>=<span class="dp">·</span>document.createTextNode(HMSDuration);</td><td class="diffline">103 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>textNodeText<span class="dp">·</span>=<span class="dp">·</span>document.createTextNode(HMSDuration);</td></tr>
+<tr class="diffunmodified"><td class="diffline">101 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>headerPara<span class="dp">·</span>=<span class="dp">·</span>document.createElement(&#x27;p&#x27;);</td><td class="diffline">104 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>headerPara<span class="dp">·</span>=<span class="dp">·</span>document.createElement(&#x27;p&#x27;);</td></tr>
+<tr class="diffunmodified"><td class="diffline">102 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>headerText<span class="dp">·</span>=<span class="dp">·</span>document.createTextNode(&#x27;Playlist<span class="dp">·</span>Duration&#x27;);</td><td class="diffline">105 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>headerText<span class="dp">·</span>=<span class="dp">·</span>document.createTextNode(&#x27;Playlist<span class="dp">·</span>Duration&#x27;);</td></tr>
+<tr class="diffunmodified"><td class="diffline">103 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>durationSpan<span class="dp">·</span>=<span class="dp">·</span>document.createElement(&#x27;span&#x27;);</td><td class="diffline">106 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>var<span class="dp">·</span>durationSpan<span class="dp">·</span>=<span class="dp">·</span>document.createElement(&#x27;span&#x27;);</td></tr>
+<tr class="diffunmodified"><td class="diffline">104 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.style.cssText<span class="dp">·</span>=<span class="dp">·</span>&#x27;right:<span class="dp">·</span>0px;<span class="dp">·</span>font-size:<span class="dp">·</span>small;color:<span class="dp">·</span>#000000;<span class="dp">·</span>position:<span class="dp">·</span>fixed;<span class="dp">·</span>float:<span class="dp">·</span>right;<span class="dp">·</span>display:<span class="dp">·</span>inline-block;<span class="dp">·</span>z-index:<span class="dp">·</span>1;<span class="dp">·</span>padding:<span class="dp">·</span>3px;<span class="dp">·</span>text-align:<span class="dp">·</span>center;<span class="dp">·</span>border-style:<span class="dp">·</span>dotted;<span class="dp">·</span>background-color:<span class="dp">·</span>rgba(249,<span class="dp">·</span>249,<span class="dp">·</span>249,<span class="dp">·</span>0.74902);&#x27;;</td><td class="diffline">107 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.style.cssText<span class="dp">·</span>=<span class="dp">·</span>&#x27;right:<span class="dp">·</span>0px;<span class="dp">·</span>font-size:<span class="dp">·</span>small;color:<span class="dp">·</span>#000000;<span class="dp">·</span>position:<span class="dp">·</span>fixed;<span class="dp">·</span>float:<span class="dp">·</span>right;<span class="dp">·</span>display:<span class="dp">·</span>inline-block;<span class="dp">·</span>z-index:<span class="dp">·</span>1;<span class="dp">·</span>padding:<span class="dp">·</span>3px;<span class="dp">·</span>text-align:<span class="dp">·</span>center;<span class="dp">·</span>border-style:<span class="dp">·</span>dotted;<span class="dp">·</span>background-color:<span class="dp">·</span>rgba(249,<span class="dp">·</span>249,<span class="dp">·</span>249,<span class="dp">·</span>0.74902);&#x27;;</td></tr>
+<tr class="diffunmodified"><td class="diffline">105 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.onclick<span class="dp">·</span>=<span class="dp">·</span>function()<span class="dp">·</span>{</td><td class="diffline">108 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.onclick<span class="dp">·</span>=<span class="dp">·</span>function()<span class="dp">·</span>{</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">109 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>url<span class="dp">·</span>=<span class="dp">·</span>window.location[&#x27;href&#x27;]</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">110 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>if<span class="dp">·</span>(url.indexOf(&quot;/playlist?list=&quot;)<span class="dp">·</span>!=<span class="dp">·</span>-1)<span class="dp">·</span>{</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">111 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>textNodeText.nodeValue<span class="dp">·</span>=<span class="dp">·</span>getDurationAndVideoCount()</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">112 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<span class="dp">·</span>else<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">106 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.style.display<span class="dp">·</span>=<span class="dp">·</span>&#x27;none&#x27;;</td><td class="diffline">113 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><ins><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span></ins>timeStampDiv.style.display<span class="dp">·</span>=<span class="dp">·</span>&#x27;none&#x27;;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">114 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffunmodified"><td class="diffline">107 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>};</td><td class="diffline">115 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>};</td></tr>
+<tr class="diffunmodified"><td class="diffline">108 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>headerPara.appendChild(headerText);</td><td class="diffline">116 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>headerPara.appendChild(headerText);</td></tr>
+<tr class="diffunmodified"><td class="diffline">109 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>headerPara.style.cssText<span class="dp">·</span>=<span class="dp">·</span>&#x27;font-weight:<span class="dp">·</span>500;<span class="dp">·</span>color:<span class="dp">·</span>#404040;&#x27;;</td><td class="diffline">117 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>headerPara.style.cssText<span class="dp">·</span>=<span class="dp">·</span>&#x27;font-weight:<span class="dp">·</span>500;<span class="dp">·</span>color:<span class="dp">·</span>#404040;&#x27;;</td></tr>
+<tr class="diffunmodified"><td class="diffline">110 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>durationSpan.appendChild(textNodeText);</td><td class="diffline">118 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>durationSpan.appendChild(textNodeText);</td></tr>
+<tr class="diffunmodified"><td class="diffline">111 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.appendChild(headerPara);</td><td class="diffline">119 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.appendChild(headerPara);</td></tr>
+<tr class="diffunmodified"><td class="diffline">112 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.appendChild(durationSpan);</td><td class="diffline">120 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>timeStampDiv.appendChild(durationSpan);</td></tr>
+<tr class="diffunmodified"><td class="diffline">113 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>parentElement.insertBefore(timeStampDiv,<span class="dp">·</span>firstChildElement);</td><td class="diffline">121 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>parentElement.insertBefore(timeStampDiv,<span class="dp">·</span>firstChildElement);</td></tr>
+<tr class="diffunmodified"><td class="diffline">114 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td><td class="diffline">122 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">115 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>createDiv();</td><td class="diffline">123 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>createDiv();</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">116 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>};</td><td class="diffline">124 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>};</td></tr>
+<tr class="diffunmodified"><td class="diffline">117 </td><td class="diffpresent">}<span class="dp">·</span>else<span class="dp">·</span>{}</td><td class="diffline">125 </td><td class="diffpresent">}<span class="dp">·</span>else<span class="dp">·</span>{}</td></tr>
+</table>    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">25.8 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/icon128.png</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-icon---.png"><span class="source">/workspace/pipeline_output/youtube-playlist-duration/icon128.png</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-icon---.png">¶</a>
+    </div>
+    </div>
+    <div class="comment multiline">xxd not available in path. Falling back to Python hexlify.
+
+&#x27;sng&#x27; not available in path. Falling back to binary comparison. Installing the &#x27;sng&#x27; package may produce better output.
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 247 lines modified</td><td colspan="2">Offset 1, 151 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d4948445200000080000000800806000000c33e61</td><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d4948445200000080000000800806000000c33e61</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">cb0000000467414d410000b18f0bfc6105000000097048597300000ec300000e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">c301c76fa8640000001874455874536f667477617265007061696e742e6e6574</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">20342e302e396c337e4e0000125849444154785eed5d097854d5151ea0585afb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">7d8223085536d90c3b140424482911a1144429588b885a944a5994206b634010</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">5124462c28551c118a05912d094448d921649d49984966b2efc9846c84b0a3a7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">f7dcdce10de126ccf666de7b79fff7fddfccbb673279effce7dde5dcfbee6854</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">a850a1a261e874ba16879ff39f72d6bf932e76701b53dc206d4dfcefb4a0523a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">444d501bd408b542cd987cae233838f8bee3e3fa07c60f6c653576d3804af910</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">3543ed504326a77338f4dac41eb143da1a785fae523e440d514b26ab63383c35</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">606862bfdf94f3be50a5fc885a1e249a32791b06468b2abef2889adeb326c0f6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">12 </td><td class="diffpresent">42adf6954bd4b6c13e01761a787fa85239448d99dc7702870d6a6f5ff9448db9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">43441c3bf2fe40a5f2885a33d905600281f76195ca236acd6417805924de8755</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">2a8fa835935d00a612791f56a93ca2d64c7601984fe67d58a5f2885a33d905a8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">01d078a806402367e30b80ee4d2065486b30ffa91f58a68d82f4379f838cb7a7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">41c6a257085f858c052f41faecc990367d3498270e809427db81b14753fe7729</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">80ca0e00bfe654c4cc253321774b28949c8a82ca823cb854510197ababe1eae5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">18 </td><td class="diffpresent">cb70fdea55b871ed1adcbc7e9d12df63d93562bb423e73a9b212aa8a0ac17aee</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">19 </td><td class="diffpresent">24e47dbb113283668365f21030f66ec1ff9f32a3e2022065585bc858f832147c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">20 </td><td class="diffpresent">ff0d54e6e752a15158f8f967f0046edeb801572e5d82aae222280cdb0999cb67</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">21 </td><td class="diffpresent">41caef3b71cf450e544600f4bd1f32e6bd004507f740755919bd8bbd050c2eac</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">22 </td><td class="diffpresent">258a8f4742c6e2d7c0f4bb56fc739428651d00294f75809c4f5742454e365cbf</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">23 </td><td class="diffpresent">728549e23b60e0617391fb5508a43ee3c73d67a9519601903aaa33e4e93640f5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">24 </td><td class="diffpresent">850b70ebe64de67ee9e0a75bb768ad50b07b2b98c7f7e15e835428ab00300dd6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">25 </td><td class="diffpresent">42cec63544f852ea64a9e3e79f7ea28190b7ed734819f128f79a7c4d790440f7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">26 </td><td class="diffpresent">a69011381d2ab232e016e984c90d18ac55450590f5de7c30f66ccebf461f51f2</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">27 </td><td class="diffpresent">01803deca2c8bd74582677e0f0b2e4cc31d22cf4e55eab2f28e900489f33152a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">28 </td><td class="diffpresent">7373e02752952a053f93e1e8456b09cd2760cdc6bb6e6f529a01d0eb9790bb79</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">29 </td><td class="diffpresent">1d1d6f2b15d7c8a8a5e0fbad601af800df075ea2e402c0f4446b288a8a801b98</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">30 </td><td class="diffpresent">bc51387004638d3b4b47353c5f7883920a80d4d15da0541f2b8b1ebea7802385</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">31 </td><td class="diffpresent">f2743398270de2fa446c4a260052c7f68432b3893aa4d181f40b306d6df98b3f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">32 </td><td class="diffpresent">d7376252120180e29767586807a93103b38896bf8ce0fa482cfa3c00b0daa777</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">33 </td><td class="diffpresent">7e2317df86cafc3c303f3f98eb2b31e8d300c00e1fb6f98db2daaf0fe44628cf</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">34 </td><td class="diffpresent">4823374657aecf3c4ddf050019ea616fbf3175f81c05de10a50931601a24fecc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">35 </td><td class="diffpresent">a2cf0200c7f98d61a8e72a708858b06f07187b34e3facf53f4490060864fc949</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">36 </td><td class="diffpresent">1e4f01a7b8b3562fe0fad053f47a00a4febe134defaa700cd56517c0fc9c7839</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">37 </td><td class="diffpresent">02ef0640f7a674624749b97db181a3236b7c34187bff8aef5337e9d500c0295d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">38 </td><td class="diffpresent">25ccea791bd857ca5eb78ceb5377e9b500c0c51c389fafc23554975a2135a01b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">39 </td><td class="diffpresent">d7b7eed06b01802b79e4b898432ac066b360cf76ae6fdda157020067bb701997</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">40 </td><td class="diffpresent">0af770f9e245b04c7992eb6357e99500c0059c6ac2c77d6087b028721fd7c7ae</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">41 </td><td class="diffpresent">52f400c0a5dbb87a578567800fbad0279338be7685a20700aedb97e2d26d6fe1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">42 </td><td class="diffpresent">4a511ea4bf3e16aa2de759897bc03471fe2e1dd7d7ae50d40030f5bd9f3eb4d1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">43 </td><td class="diffpresent">1881d575e5b963903ca22de8fd882fa68f84eb1e4a7d57979741ca88f65c9f3b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">44 </td><td class="diffpresent">4b5103001fd792c2133bde06f6d88b742160e8d39c8a7f72cce370f650385cf1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">45 </td><td class="diffpresent">902ff0f9c4acf703b93e7796a20640d1a13dec941b0f6e5caa86ccc017a9f0c8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">46 </td><td class="diffpresent">1f5f1e0bc7a2a2e002e9077932037a21299e3eeacef3bb33142d00f0295d7c50</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">47 </td><td class="diffpresent">b3b100abfc9a2c33a43cdb870a1fdff79710b67c2ec4c7c74335e9b8797ac10b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">48 </td><td class="diffpresent">7606cdcf0ee4fade198a1600f888b6379fd2f52550dcb2a8fd9034a425153ffa</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">49 </td><td class="diffpresent">c987e1c0e7a160b158e09a483ec061b527d2c3a20500ae796f0cc0114efea741</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">50 </td><td class="diffpresent">a0efd5948a7f6c427f88dcbb1b0a0a0ae0a6c8a31febd9e35cdf3b437102c0af</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">51 </td><td class="diffpresent">395de5aa745cabb800696f8ca3c227f66c028766fd194e9d3c09e5e5e55e99f1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">52 </td><td class="diffpresent">c49d4eb0a9e56ae020450900dc9605db28a502abfc6a630218c774a1e2c70db8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">53 </td><td class="diffpresent">1f0eac5e0a0683016a6a6a3cdeded7077cba28fdf5095c0d1ca5280190b97466</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">54 </td><td class="diffpresent">edb62c0a04ded9d67d5bc130f0d754fcd3233b40b86e336466667a6c9cef28f0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">55 </td><td class="diffpresent">5cb2435770357094a20440ee9650bc4dd8692a0737af5d859c5573a8f0c8a829</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">56 </td><td class="diffpresent">c3e1484438949494c02d1fcd75e0021b9e068e529400c0ddb894862bc5f9609e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">57 </td><td class="diffpresent">369c0a9fd0bb1944bc3503a2a3a3a1aaaaca2bed7d7dc03516eee4033c1f00e4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">58 </td><td class="diffpresent">64702b36a500dbf3cad81370fea97654fc98c12de1c0fad560341a6966cf5bed</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">59 </td><td class="diffpresent">7d7dc08e203e5fc1d5c2017a3c007013463c292500efeca26f43c1d0f73e2afe</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">60 </td><td class="diffpresent">c9a7bb43c48e6d909b9b0b3724b2b805f732c44e374f0b47e8f100c01d389530</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">61 </td><td class="diffpresent">02b851730932df9976bbbdff71fa18387ae408949696faacbde70147026933c7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">62 </td><td class="diffpresent">73b570841e0f80b469a3e80e9c72464d761aa44cea47858f27777fd8b2391017</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">63 </td><td class="diffpresent">17274a4ad75d60b63563c174ae168eb0de00386ff7217c6f3bb6bdafcf8e7bef</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">64 </td><td class="diffpresent">e25e3872048a5b7e340c92873e48c58f1ed6060e6c0c01b3d90c57257a4d9889</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">65 </td><td class="diffpresent">cc5c31f7b6ff6d5ad88eebea53d7de6000b8c28cb75f92e51cc0c5f454c8fbcf</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">66 </td><td class="diffpresent">e7424a973465913f7cef9594ae3bc03981ac0f9770b570849e0f8045afc82e09</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">67 </td><td class="diffpresent">546131417156261467668261ac1f1c7ae3793879e284d752baee802683d6ff93</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">68 </td><td class="diffpresent">ab85231421005e955d00e427c4dc0e80fd9fac05bd5eefd594ae3bc02562d9eb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">69 </td><td class="diffpresent">83b85a38426e00c4b913000be4d504a0c8e9613be1c8e8c761d7d4009adc116b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">70 </td><td class="diffpresent">0a570cb8db04a0d64c7601ee0400fed8829c3a8138a4337fb418cef520edfeeb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">71 </td><td class="diffpresent">cf4285cc7218b413b8723e570b47586f002413a32bb44c1f2dabe7fff06e4f7e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">72 </td><td class="diffpresent">258076fc1236ac92d5dd8fc0e7063316cee06ae108b90110eb4600a44e1c40b3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">73 </td><td class="diffpresent">537201e6f2f5c3b434008c51872495e47104b8e8d6f2c604ae168eb0de004822</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">74 </td><td class="diffpresent">4657681cd68eee902d171427c7d7defd831e80acac2c5974fcec811b6da43e37</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">75 </td><td class="diffpresent">98ab852344ad99ec02dc0980a4ee4de9766772000ea132b76fa201103b65285d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">76 </td><td class="diffpresent">b92b37e0cd767e585bbe160e901b0031a4d0d05523907cf08ee3baac63c71f58</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">77 </td><td class="diffpresent">920370422765c9ab3400e296bd41877e7243655e0ebde9ecfd7f171bd00fb566</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">78 </td><td class="diffpresent">b20b88195827009c64eed68decf4a48dcba4b39af46c6dcedfb0ed0bc9ccf039</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">79 </td><td class="diffpresent">83a2a870ae068e12b566b20b38470af5c4e82ad38366d3a757a48eb29262d0e3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">80 </td><td class="diffpresent">546fcf26909a1827f9ac5f5d601228eb5f6bb81a384ad49ac92e000b13bb6820</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">81 </td><td class="diffpresent">917ce0369d38363d3f44f2bb8061672fffd8c1daea7f54479af3975b0710f32d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">82 </td><td class="diffpresent">e6d993eff2bf33c7dc0088b605808bd4f76c417f574fcac0e15eda8615b51dc0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">83 </td><td class="diffpresent">99e3a1524623171bb0039834a223570347895a33d9059c258509c4888c67afce</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">84 </td><td class="diffpresent">1ee71fd8c94e539ac015bce767fd890640fcbae5929dee6d08d6c41897f5b111</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">85 </td><td class="diffpresent">b566b20b38430ae388d11d9a97ce92f4a4102eee308c7c84064072c41e494ff9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">86 </td><td class="diffpresent">f280fd958c4f57717def0c516b26bb80d3a4309618dd61e2539d249d102ab198</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">87 </td><td class="diffpresent">a8f889fd7f0d196969b24c00254ff1e7fade199e1ec0098093a4f01c31c67068</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">88 </td><td class="diffpresent">2b77c45e782c929daeb4806267efd6d5b6ff930680d56a6516f9e082d90431dd</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">89 </td><td class="diffpresent">9a35e8ffba36fb72db2b6acd64177082144613a3bb342d7a4d9253c358dda706</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">90 </td><td class="diffpresent">cfae0d808533e092ccf62dc619c0b49060aecf9d256acd6417708c149e798cb4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">91 </td><td class="diffpresent">0f6e32ba7f2b49a685713d7fd2d4213400f45b42bdfe4897bba8214d6bdce8ee</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">92 </td><td class="diffpresent">5c9f3b4bd49ac92ee028293c458c9e60fa972192db22aea2ac0cf4036a9fed4b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">93 </td><td class="diffpresent">893e2dab0410365fb9e1bbb9be7685a835935d40547f2d9c24464f3026c04f52</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">94 </td><td class="diffpresent">9d417460c1d9a354fc78ff7690979727ab0e2076fe12a605707ded0a516b26bb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">95 </td><td class="diffpresent">80c3fdb470bc33a91e08f1b53e3a6acfdab555323f0b83777bfae6b5b5edffcb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">96 </td><td class="diffpresent">01b25b015470ea281c7facc91dfead8f8ed8516b26bb804852f8bf4e1a8ff1cc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">97 </td><td class="diffpresent">337d24530b607b6f9cfbe7da1ae0fd408feddce50de0dd1ff7f258ae8f5d256a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">98 </td><td class="diffpresent">cd64177090141e26464f32eddbcf25d117c01ebfe1e9da8d1d92f6ec904d0288</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">99 </td><td class="diffpresent">b6fd47c2e170e7265cffba4ad49ac92e209c144612636447427cb5a77d9913f6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">100 </td><td class="diffpresent">a3431f85cac2027639be43694e269dfd4bec731fa4a5c8e7e7eab0063df5c781</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">101 </td><td class="diffpresent">2efb9f5b46de87f7e504c0015218418c07096daf36d62d77c6ae0f9eefd315c3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">102 </td><td class="diffpresent">28764ed87f6bdbff3ff684e2e262669136709b7dd3171fdfd3bfaed8516b26bb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">103 </td><td class="diffpresent">80bda4308c183dcdf02ecd21eff4319fdd757409f89a05b50130ef05b878f122</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">104 </td><td class="diffpresent">b3481bd614231cecdd92eb5377895a33d905fcd0470bfb3a6844e191317da1ca</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">105 </td><td class="diffpresent">5ac22ecdbbc019bfe49746d20048dcb456164bc06b48909ef8eb18ae2f3d41d4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">106 </td><td class="diffpresent">9ac92e60576f2dec6eaf118de796cea6cfb57b1b55a41dd53f51bb99a3f14494</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">107 </td><td class="diffpresent">e49780e39a7fc3860fb83ef414516b26bb80ef48e1ae478991702787369bcbf6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">108 </td><td class="diffpresent">0e4d2175e756af6f235f94104dc58f1ff2206467674bba0388f98aeca391b0bb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">109 </td><td class="diffpresent">4b8bbbfd67c7ba3667eda835935dc07f7a69e13b34da710763dd721b9db57fef</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">110 </td><td class="diffpresent">f700e4c79ef55a82081d9af9cda7b5edff8bfe5026e57d8c49605a2da9b07770</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">111 </td><td class="diffpresent">fb7afd5797aeda516b26bb80ada470db231ad8463e709bb6637cb5d14dfb0fc3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">112 </td><td class="diffpresent">3a8335cd4c2f586ce08a5fd3c2976800c4bdfb0fba2258aaa82c2a84b07183ee</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">113 </td><td class="diffpresent">e93f4fd8516b26bb80af49a18e7c80c76f3865f674d6be6fec2028cf137f5b59</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">114 </td><td class="diffpresent">5cf36f18df930680e1bb2d925d028ebf147a68dab83b7c644f4ffbffeb9e9c00</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">115 </td><td class="diffpresent">f88a147ef55b8dd7b87f923f54883c6d5c565800fadebf007daf66604ed24b72</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">116 </td><td class="diffpresent">061077578b9c3999eb23d1c80b80cd7e5ad8dc4e03ffb6a3d8c77b278d80f2fc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">117 </td><td class="diffpresent">3c519a03ecece51dde575bfd077481c242e9ad51c03bffe0df26d7eb1fb18e51</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">118 </td><td class="diffpresent">6b26bb804d8f6b61535b8d40f2c13b8eebd243f69d630783353dcde31d431cee</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">119 </td><td class="diffpresent">594296d77600ff3e893e112c1990e0c4da6fff5fc7dded171bc5f43fd19ac92e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">120 </td><td class="diffpresent">e03352f81931d6c70d9c327bba63ff666857c88d8ff1e81011133ee7fff60c0d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">121 </td><td class="diffpresent">80844f56486609383643c5e654d83166d01d3e10d3bfc83becbc0008eda1854f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">122 </td><td class="diffpresent">1ed6f88c1b7bb482a4dd3b3cf6835398f2d50f6f4303e0fc8f619248006192c7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">123 </td><td class="diffpresent">f2bf48f8f780f65c1f788ba835935dc07a52f8313122d7317afb787dbb667038</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">124 </td><td class="diffpresent">68015c246da3bb091b6b7e2e9c9ed81f62863f4cb775f7750208d3bba7423f80</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">125 </td><td class="diffpresent">4f3ab4a8f7fabd758c5a33d9057cd45d0b1fb6d14882baa70741766c34bd635c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">126 </td><td class="diffpresent">05d600b1b1b170e6cc199f3e0286b37a852946d831650cf75a7d41d49ac92e60</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">127 </td><td class="diffpresent">2d295c438c52e1471d7e0547562f83aa52ab4bc337bce371dc8f7d015f0cfff0</td></tr>
+<tr class="error"><td colspan="4">
+Max diff block lines reached; -1/26162 bytes (-0.00%) of diff not shown.
+</td></tr></table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">8.5 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/icon16.png</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-icon--.png"><span class="source">/workspace/pipeline_output/youtube-playlist-duration/icon16.png</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-icon--.png">¶</a>
+    </div>
+    </div>
+    <div class="comment multiline">xxd not available in path. Falling back to Python hexlify.
+
+&#x27;sng&#x27; not available in path. Falling back to binary comparison. Installing the &#x27;sng&#x27; package may produce better output.
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 22 lines modified</td><td colspan="2">Offset 1, 107 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d49484452000000100000001008060000001ff3ff</td><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d49484452000000100000001008060000001ff3ff</td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">610000027b49444154388d7d93cd4b547118859fdfbd77eef8915f8da4394a05</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">3 </td><td class="diffpresent">d998925011042ec28d101144bba808c24541e2aa7fc1652445290da146d4225a</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">4 </td><td class="diffpresent">14416e22e83b14b3717414a392fc0a4673c63be3dcb9f7be2d661444ebecde87</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">5 </td><td class="diffpresent">f79ccde1a8c1aeae86eafeeeb09e5dac11d3b4114003f010d70140e9460e7a80</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">6 </td><td class="diffpresent">0265dba6ebab9a5bb8d4d9ae460f05c68a16e24d9900280100fb27786ba015e7</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">7 </td><td class="diffpresent">6ecf02ad00cc3db95b00ff12a4aa0351c348c62b3201501ab809b07f41495b0b</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">8 </td><td class="diffpresent">e567cf51d8d80c28d21311fe3c7d4472f00d6610f432c85482918c5710693063</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">9 </td><td class="diffpresent">d11012a945867464fec61df997e6bb7b65d840be06916808893498b15cc00164</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">10 </td><td class="diffpresent">0864a1e7dfe6752d86c3320412ad5f0f3868c6460a90c993c7ff6b5cfef84e6c</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">11 </td><td class="diffpresent">2b29222253a75a64c48f440e9a310d3cdc35085cb8c2b6b22cbedfbe497c3286</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent">d20c000217afe266724d19b80e7a3114ec6fdae2cd5aabfc78d0877fcf5ef69d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">13 </td><td class="diffpresent">3eb3c1fdfb1b317680380e8648be976db4fcf93d45a103045bdb36710588001e</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">14 </td><td class="diffpresent">6859cd209d82f4b7f12d019258a1b23eb485a7bf4d90b6206b186896a7611930</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">15 </td><td class="diffpresent">33d0b3e9c94bad220a7c55355b026606ee62e960791ada6f1b12d5f0e5e507a6</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">16 </td><td class="diffpresent">c2f7369e52d35388e3a0f97c9bccd3fd7d8cbc784ba21a7edba0b714ebd712ae</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">17 </td><td class="diffpresent">5b6929187df21cdfae2075c78e6256945312ac83c2a20df3a7defb3c6bbf4cb6</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">18 </td><td class="diffpresent">042c0392a2c7d5f562667d85d4a0436605126bd0d87a8223e72fb2bbb9191c87</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">19 </td><td class="diffpresent">85b128c38f1f32feea35a57ef097032e64d3cca98edac0586a36de5458916fc3</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">20 </td><td class="diffpresent">85a5043840411e650003d8590ae8b91ad2cb50140c44556f5757c3c8adeeb097</td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">21 </td><td class="diffpresent"><del>58acd1fda62d</del>80<del>52</del>001<del>e9e9d9</del>b<del>b</del>3<del>66</del><del>e6e7</del>9<del>c</del>a<del>fdb5db34d</del>a<del>d</del><del>ac</del>6<del>ae</del><del>e70</del>4<del>767fb5f</del></td><td class="diffline">2 </td><td class="diffpresent"><ins>6</ins><ins>100000009704</ins>8<ins>5973</ins>0<ins>00</ins>00<ins>b</ins>1<ins>300000</ins>b<ins>1</ins>3<ins>0100</ins>9a<ins>9c1800000</ins>a<ins>4f</ins>6<ins>943</ins>4<ins>3505068</ins></td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">6f746f73686f70204943432070726f66696c65000078da9d53675453e9163df7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">def4424b8880944b6f5215082052428b801491262a2109104a8821a1d91551c1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">114545041bc8a088038e8e808c15512c0c8a0ad807e421a28e83a3888acafbe1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">7ba36bd6bcf7e6cdfeb5d73ee7acf39db3cf07c0080c9648335135800ca9421e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">11e083c7c4c6e1e42e40810a2470001008b3642173fd230100f87e3c3c2b22c0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">07be000178d30b0800c04d9bc0301c87ff0fea42995c01808401c07491384b08</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">801400407a8e42a600404601809d98265300a0040060cb6362e300502d006027</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">7fe6d300809df8997b01005b94211501a09100201365884400683b00accf568a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">450058300014664bc43900d82d00304957664800b0b700c0ce100bb200080c00</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">12 </td><td class="diffpresent">305188852900047b0060c8232378008499001446f2573cf12bae10e72a000078</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">99b23cb9243945815b082d710757572e1e28ce49172b14366102619a402ec279</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">99193281340fe0f3cc0000a0911511e083f3fd78ce0eaecece368eb60e5f2dea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">bf06ff226262e3fee5cfab70400000e1747ed1fe2c2fb31a803b06806dfea225</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">ee04685e0ba075f78b66b20f40b500a0e9da57f370f87e3c3c45a190b9d9d9e5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">e4e4d84ac4425b61ca577dfe67c25fc057fd6cf97e3cfcf7f5e0bee22481325d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">18 </td><td class="diffpresent">814704f8e0c2ccf44ca51ccf92098462dce68f47fcb70bfffc1dd322c44962b9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">19 </td><td class="diffpresent">582a14e35112718e449a8cf332a52289429229c525d2ff64e2df2cfb033edf35</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">20 </td><td class="diffpresent">00b06a3e017b912da85d6303f64b27105874c0e2f70000f2bb6fc1d428080380</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">21 </td><td class="diffpresent">6883e1cf77ffef3ffd47a02500806649927100005e44242e54cab33fc7080000</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">22 </td><td class="diffpresent">44a0812ab0411bf4c1182cc0061cc105dcc10bfc6036844224c4c24210420a64</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">23 </td><td class="diffpresent">801c726029ac82422886cdb01d2a602fd4401d34c051688693700e2ec255b80e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">24 </td><td class="diffpresent">3d700ffa61089ec128bc81090441c808136121da8801628a58238e08179985f8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">25 </td><td class="diffpresent">21c14804128b2420c9881451224b91354831528a542055481df23d720239875c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">26 </td><td class="diffpresent">46ba913bc8003282fc86bc47319481b2513dd40cb543b9a8371a8446a20bd064</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">27 </td><td class="diffpresent">74319a8f16a09bd072b41a3d8c36a1e7d0ab680fda8f3e43c730c0e8180733c4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">28 </td><td class="diffpresent">6c302ec6c342b1382c099363cbb122ac0cabc61ab056ac03bb89f563cfb17704</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">29 </td><td class="diffpresent">128145c0093604774220611e4148584c584ed848a8201c243411da0937090384</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">30 </td><td class="diffpresent">51c2272293a84bb426ba11f9c4186232318758482c23d6128f132f107b8843c4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">31 </td><td class="diffpresent">37241289433227b9900249b1a454d212d246d26e5223e92ca99b34481a2393c9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">32 </td><td class="diffpresent">da646bb20739942c202bc885e49de4c3e433e41be421f25b0a9d624071a4f853</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">33 </td><td class="diffpresent">e22852ca6a4a19e510e534e5066598324155a39a52dda8a15411358f5a42ada1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">34 </td><td class="diffpresent">b652af5187a81334759a39cd8316494ba5ada295d31a681768f769afe874ba11</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">35 </td><td class="diffpresent">dd951e4e97d057d2cbe947e897e803f4770c0d861583c7886728199b18071867</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">36 </td><td class="diffpresent">197718af984ca619d38b19c754303731eb98e7990f996f55582ab62a7c1591ca</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">37 </td><td class="diffpresent">0a954a9526951b2a2f54a9aaa6aadeaa0b55f355cb548fa95e537dae46553353</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">38 </td><td class="diffpresent">e3a909d496ab55aa9d50eb531b5367a93ba887aa67a86f543fa47e59fd890659</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">39 </td><td class="diffpresent">c34cc34f43a451a0b15fe3bcc6200b6319b3782c216b0dab86758135c426b1cd</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">40 </td><td class="diffpresent">d97c762abb98fd1dbb8b3daaa9a13943334a3357b352f394663f07e39871f89c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">41 </td><td class="diffpresent">744e09e728a797f37e8ade14ef29e2291ba6344cb931655c6baa96979658ab48</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">42 </td><td class="diffpresent">ab51ab47ebbd36aeeda79da6bd45bb59fb810e41c74a275c2747678fce059de7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">43 </td><td class="diffpresent">53d953dda70aa7164d3d3af5ae2eaa6ba51ba1bb4477bf6ea7ee989ebe5e809e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">44 </td><td class="diffpresent">4c6fa7de79bde7fa1c7d2ffd54fd6dfaa7f5470c5806b30c2406db0cce183cc5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">45 </td><td class="diffpresent">35716f3c1d2fc7dbf151435dc34043a561956197e18491b9d13ca3d5468d460f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">46 </td><td class="diffpresent">8c69c65ce324e36dc66dc6a326062621264b4dea4dee9a524db9a629a63b4c3b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">47 </td><td class="diffpresent">4cc7cdcccda2cdd699359b3d31d732e79be79bd79bdfb7605a785a2cb6a8b6b8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">48 </td><td class="diffpresent">6549b2e45aa659eeb6bc6e855a3959a558555a5db346ad9dad25d6bbadbba711</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">49 </td><td class="diffpresent">a7b94e934eab9ed667c3b0f1b6c9b6a9b719b0e5d806dbaeb66db67d61676217</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">50 </td><td class="diffpresent">67b7c5aec3ee93bd937dba7d8dfd3d070d87d90eab1d5a1d7e73b472143a563a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">51 </td><td class="diffpresent">de9ace9cee3f7dc5f496e92f6758cf10cfd833e3b613cb29c4699d539bd34767</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">52 </td><td class="diffpresent">1767b97383f3888b894b82cb2e973e2e9b1bc6ddc8bde44a74f5715de17ad2f5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">53 </td><td class="diffpresent">9d9bb39bc2eda8dbafee36ee69ee87dc9fcc349f299e593373d0c3c843e051e5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">54 </td><td class="diffpresent">d13f0b9f95306bdfac7e4f434f8167b5e7232f632f9157add7b0b7a577aaf761</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">55 </td><td class="diffpresent">ef173ef63e729fe33ee33c37de32de595fcc37c0b7c8b7cb4fc36f9e5f85df43</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">56 </td><td class="diffpresent">7f23ff64ff7affd100a78025016703898141815b02fbf87a7c21bf8e3f3adb65</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">57 </td><td class="diffpresent">f6b2d9ed418ca0b94115418f82ad82e5c1ad2168c8ec90ad21f7e798ce91ce69</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">58 </td><td class="diffpresent">0e85507ee8d6d00761e6618bc37e0c2785878557863f8e7088581ad131973577</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">59 </td><td class="diffpresent">d1dc4373df44fa449644de9b67314f39af2d4a352a3eaa2e6a3cda37ba34ba3f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">60 </td><td class="diffpresent">c62e6659ccd5589d58496c4b1c392e2aae366e6cbedffcedf387e29de20be37b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">61 </td><td class="diffpresent">17982fc85d7079a1cec2f485a716a92e122c3a96404c884e3894f041102aa816</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">62 </td><td class="diffpresent">8c25f21377258e0a79c21dc267222fd136d188d8435c2a1e4ef2482a4d7a92ec</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">63 </td><td class="diffpresent">91bc357924c533a52ce5b98427a990bc4c0d4cdd9b3a9e169a76206d323d3abd</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">64 </td><td class="diffpresent">31839291907142aa214d93b667ea67e66676cbac6585b2fec56e8bb72f1e9507</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">65 </td><td class="diffpresent">c96bb390ac05592d0ab642a6e8545a28d72a07b267655766bfcd89ca3996ab9e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">66 </td><td class="diffpresent">2bcdedccb3cadb90379cef9fffed12c212e192b6a5864b572d1d58e6bdac6a39</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">67 </td><td class="diffpresent">b23c7179db0ae315052b865606ac3cb88ab62a6dd54fabed5797ae7ebd267a4d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">68 </td><td class="diffpresent">6b815ec1ca82c1b5016beb0b550ae5857debdcd7ed5d4f582f59dfb561fa869d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">69 </td><td class="diffpresent">1b3e15898aae14db1797157fd828dc78e51b876fcabf99dc94b4a9abc4b964cf</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">70 </td><td class="diffpresent">66d266e9e6de2d9e5b0e96aa97e6970e6e0dd9dab40ddf56b4edf5f645db2f97</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">71 </td><td class="diffpresent">cd28dbbb83b643b9a3bf3cb8bc65a7c9cecd3b3f54a454f454fa5436eed2ddb5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">72 </td><td class="diffpresent">61d7f86ed1ee1b7bbcf634ecd5db5bbcf7fd3ec9bedb5501554dd566d565fb49</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">73 </td><td class="diffpresent">fbb3f73fae89aae9f896fb6d5dad4e6d71edc703d203fd07230eb6d7b9d4d51d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">74 </td><td class="diffpresent">d23d54528fd62beb470ec71fbefe9def772d0d360d558d9cc6e223704479e4e9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">75 </td><td class="diffpresent">f709dff71e0d3ada768c7bace107d31f761d671d2f6a429af29a469b539afb5b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">76 </td><td class="diffpresent">625bba4fcc3ed1d6eade7afc47db1f0f9c343c59794af354c969dae982d39367</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">77 </td><td class="diffpresent">f2cf8c9d959d7d7e2ef9dc60dba2b67be763cedf6a0f6fefba1074e1d245ff8b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">78 </td><td class="diffpresent">e73bbc3bce5cf2b874f2b2dbe51357b8579aaf3a5f6dea74ea3cfe93d34fc7bb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">79 </td><td class="diffpresent">9cbb9aaeb95c6bb9ee7abdb57b66f7e91b9e37ceddf4bd79f116ffd6d59e393d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">80 </td><td class="diffpresent">ddbdf37a6ff7c5f7f5df16dd7e7227fdcecbbbd97727eeadbc4fbc5ff440ed41</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">81 </td><td class="diffpresent">d943dd87d53f5bfedcd8efdc7f6ac077a0f3d1dc47f7068583cffe91f58f0f43</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">82 </td><td class="diffpresent">058f998fcb860d86eb9e383e3939e23f72fde9fca743cf64cf269e17fea2fecb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">83 </td><td class="diffpresent">ae17162f7ef8d5ebd7ced198d1a197f29793bf6d7ca5fdeac0eb19afdbc6c2c6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">84 </td><td class="diffpresent">1ebec97833315ef456fbedc177dc771defa3df0f4fe47c207f28ff68f9b1f553</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">85 </td><td class="diffpresent">d0a7fb93199393ff040398f3fc63332ddb000000206348524d00007a25000080</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">86 </td><td class="diffpresent">830000f9ff000080e9000075300000ea6000003a980000176f925fc546000002</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">87 </td><td class="diffpresent">7b4944415478da7c93cb4b540114c67ff73177d4c9d446d266140b7c1b424510</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">88 </td><td class="diffpresent">b80837424410eda26c112e0a24dcf42708aec2404a690833a216d1a2086c1341</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">89 </td><td class="diffpresent">ef50ccc6d151944af209a339ce759c3bf7ded3624641d4beddf938bf6ff39da3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">90 </td><td class="diffpresent">0c7676d50606ba435a7a31e01a8685002a808b3836008aa6674c1750404d5b86</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">91 </td><td class="diffpresent">a397cecf5feb6853468ffbc7f296620d293f280200d66f703741f56566d70435</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">92 </td><td class="diffpresent">078c8acc2c807705364afc115d4fc48a527e505470e260fd81fc96260a2f5d26</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">93 </td><td class="diffpresent">b7be1150484e84f9fbe229eb6fde6304412b805431e8895811e15a231aa941c2</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">94 </td><td class="diffpresent">65c890862cdcb927fb69e16e9f0cebc88f2012a941c2b5463413508d0c812cf6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">95 </td><td class="diffpresent">ee0f6f69291492219048d556409d111dc94126cf9df92fb8fae5a358e6ba8888</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">96 </td><td class="diffpresent">4c9d6f92112f12ae33a22ab8389be0bf7a833d659afcece926361945517500fc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">97 </td><td class="diffpresent">ad37715299a6741c1bcd0739950dbbd8b499e0d7e37ebc15473976e1e2b6efad</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">98 </td><td class="diffpresent">ac473f0062dbe822d95ef6d0eab74fe4d554136c6ed9e12bc016a7daaa4e7203</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">99 </td><td class="diffpresent">9233e3bb0224be467155cd2e3f393341d2045bd35113ae8aa9c3ec40ef8e2577</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">100 </td><td class="diffpresent">238128e02909ec0a981db88fa941c25551972d8897c2f7c1cf4c851e6c2f6d4c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">101 </td><td class="diffpresent">4f21b68deaf1ec80a71ff533f2fa03f15258b6406bf269ed71c7293615187dfe</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">102 </td><td class="diffpresent">0acfe120e5a74f611415921f2c87dcbc6df86bdf435eb65d279d0fa60eeba2c5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">103 </td><td class="diffpresent">94db3ee63cb904d020b506f14da86f3ecbc92bad1c696c04db66712cc2f0b327</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">104 </td><td class="diffpresent">8cbf7dc7412f780b0107d249e6955b65fe31732ed6905b946dc3819538d8404e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">105 </td><td class="diffpresent">d64a013a70e820a0656a48ae822fe88f287d9d5db5233ddd2137be18d0bc8625</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">106 </td><td class="diffpresent">80a2648ec4b532efac1ad977ced6ed6c5a865a503a7fa2bda3eddf00a7ed6432</td></tr>
+<tr class="diffchanged"><td class="diffline">22 </td><td class="diffpresent"><del>a37</del><del>4</del>6<del>4</del><del>2</del>f<del>d7b</del><del>b</del>0<del>3</del><del>4d</del>0000000049454e44ae426082</td><td class="diffline">107 </td><td class="diffpresent"><ins>1</ins>6<ins>3</ins>f<ins>3</ins>0<ins>76</ins>0000000049454e44ae426082</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">14.9 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/icon48.png</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-icon--.png-1"><span class="source">/workspace/pipeline_output/youtube-playlist-duration/icon48.png</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-icon--.png-1">¶</a>
+    </div>
+    </div>
+    <div class="comment multiline">xxd not available in path. Falling back to Python hexlify.
+
+&#x27;sng&#x27; not available in path. Falling back to binary comparison. Installing the &#x27;sng&#x27; package may produce better output.
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 72 lines modified</td><td colspan="2">Offset 1, 156 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d49484452000000300000003008060000005702f9</td><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d49484452000000300000003008060000005702f9</td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">87000008bc494441546881cd9a7f6c94f51dc75fcff3dc3d77d7eb5d5be04ab9</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">3 </td><td class="diffpresent">521090b6ac5618c8fc8d22fecc8cba2918e6e246d22d73b86cd14c5db64c9365</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">4 </td><td class="diffpresent">99242ec6e98626041cfe20a04649dcd0587f4c4a41018159ec95d6c2285068a5</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">5 </td><td class="diffpresent">40afbdbbe7e7777f3c7770b477e57ed4e83bf924df3cdffb3e9fd7e7f93edf1f</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">6 </td><td class="diffpresent">9fef731269daf28ba6ebcb237bef2e3df679d852dd2692ccb742c246d10dd750</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">7 </td><td class="diffpresent">b8f1d8e9fa796fdcf6fc9a8f525552aaf0da138f5e55bb71d3932ea3ff5a440c</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">8 </td><td class="diffpresent">214b996ff60d49120228c17487b61eb877d9634b9f58d50ac9003edcb0e1b2ca</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">9 </td><td class="diffpresent">0757ecf4ea09b44ab015407c93b81924816c81e704243c1e4e3df7e2c26b962f</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">10 </td><td class="diffpresent">df256d5eb56a71f5c6bfff6342dbe1faa1d9201bdf34e9d8b2dd50da05030dd3</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">11 </td><td class="diffpresent">2247ef5df94b69fbc269eb82fd3d3f95dc027bbcde1a89b4973329c1f8f4aa00</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent">191086c460a8e6455760f078050ac5c14b20c92074b007c11a045b3bff27b207</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">13 </td><td class="diffpresent">9400c841c003d8141690e434955c10183c5ee1b254afaed816086bf453bb9014</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">14 </td><td class="diffpresent">90049847c18882e407f5a24a4aaea9c5159a8acb5f0680191bc4ec3b82ded585</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">15 </td><td class="diffpresent">7ea8173b0aae5270578390012b4fbf02842463a95edd250a790e32481218dd60</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">16 </td><td class="diffpresent">6ae0bdbc818adbef21b0f826fc0d8db8cb83199b198343c4dadb887ef83e836f</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">17 </td><td class="diffpresent">bf4ebc752f8a1bd4592004cea3cd378ebd8dc18daec4f032c8ad072415ec9390</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">18 </td><td class="diffpresent">e805df159711fad56f99f8a36528f9f9c602065e7b8bfebfad22d6b203cf6450</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">19 </td><td class="diffpresent">42ce6b980b3928985effa6bc562ac9037a2768033065d553ccd9be93ca02e01d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">20 </td><td class="diffpresent">f7105a7a1773b66e27fcf4b318432ef488f380f251ce01482a686d204da961f6</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">21 </td><td class="diffpresent">d65d543ff270ee8dc7ba2f10fecd83ccdeb61b79562d893690dcb9b7cf894152</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">22 </td><td class="diffpresent">41db0f4a7d2d75bb76135cb8a040dcec0accbd94badd9fe15ef05db4fdb9f7c4</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">23 </td><td class="diffpresent">050390dca077813c753275db77e09d182a9635ab3c7e3f752dad2875d3d13b72</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">24 </td><td class="diffpresent">0b62ec0064b006c0b260e69677f194558c136a76a95e2fb3fefd1e965bc6eabb</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">25 </td><td class="diffpresent">20e1d8d5920c5a2f4c79e629020d73c711736cf967ce66ea0bcf93e873a6ebb1</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">26 </td><td class="diffpresent">943d0019f46ef05d514bf88187c719f1c29afce39f51ba641e7a278c35cd650d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">27 </td><td class="diffpresent">4002cc04543dfed7f1a74bd7d019b0cc8c55557f7c1ad3c45934b22cb7590330</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">28 </td><td class="diffpresent">8f42c995339870ebede3409959bd7f7884961fde829125808a45d7e35f720966</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">29 </td><td class="diffpresent">0f5949335f56408f42d99df7e7bd3dca559d77dcc227af6e20f4a7a771a9deac</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">30 </td><td class="diffpresent">bf2bbfeb2718f1aca4592e6b20fb21b0e4b671401da1435d7c3aab860edde2aa</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">31 </td><td class="diffpresent">ee1eea2ebf72cc8714b8e15694722091b93e6300f620a8332652d238af78e034</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">32 </td><td class="diffpresent">c537bd4af3dc3944efbb8f9bdf69a6328736be390da81757639dce5cef1a7545</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">33 </td><td class="diffpresent">022b0a25d7d6e3f2788a234e53ef430ff0e9bab54c7df54d167c3ff771a54812</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">34 </td><td class="diffpresent">9eba46a27b8ea254326a30670cc0d6c05d35bd48e4a4fafb68bfff5e0e1c3ccc</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">35 </td><td class="diffpresent">a5edddcca8aacefb16ee500dc272d8b20730a242f605f287cda03d8f3cc8515b</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">36 </td><td class="diffpresent">b028f22585aee372491a8b709228911c38722a574da5ac2295e188e2e79f8eb5</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">37 </td><td class="diffpresent">abe9ab6fe0e6773f2a183ea5743691bc2004c8d912212b112dd2259c7af9051a</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">38 </td><td class="diffpresent">665c4c9e5bfcd12cb1a1f35e109b73cc2e9b7353512a32dca09f385c9453f3e4</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">39 </td><td class="diffpresent">57283e3fe54b6e2aea3e00fac91e90c14e46911a0a36200bdbe90a3bd925c206</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">40 </td><td class="diffpresent">29005a673ba65ef821d1994f3e06af0fffc45c26cbecb28144a40da9d4611bc9</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">41 </td><td class="diffpresent">2aa7ba23dd0842acfb2b626dfb0a761cddb31b7572b8e8953c1689103bd08354</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">42 </td><td class="diffpresent">3e9ad3c639adc312e79bad82360ca73f78a760c743dd07f0cfb9a4487c38fdc1</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">43 </td><td class="diffpresent">161267c0f68ee6b400d9048c916683e483136fae2fd8b176b29fb22baf2b3a80</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">44 </td><td class="diffpresent">136ffe13dc0ed3484e13900d01a3cc06390cfdad9df435bf9bb7d358643f9680</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">45 </td><td class="diffpresent">e0bcf945c10fb46ea3af791ff25430ac737c668a13907540b7479b065832449e</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">46 </td><td class="diffpresent">c83f9919dcf11f5cc1723cae3c8e1732e88bc71fc20074197491c696e21420eb</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">47 </td><td class="diffpresent">36680212493b5b3641b9080e6fdb4fd7dad579398efe770fdee9338b82ffdf6b</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">48 </td><td class="diffpresent">2f71a8f9535c17392ce96c5ad2741b644d40221995669f5f8e5be02a83960756</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">49 </td><td class="diffpresent">72a6b32367e743c77a28bdb4f09decf091237cbca20925007146b32552650172</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">50 </td><td class="diffpresent">cc86b8c86226880990d0059b6fb9192b11bfa0733b318439182558e0001696c9</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">51 </td><td class="diffpresent">e6db6e243aac232641dcc8ce174bef8194c5d3cb02863450a7c1f1838779e9ea</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">52 </td><td class="diffpresent">ab3162b13101a2ad2da0ba09d6e4bf9b1596c5cb8baea3a7ad03ef3418d61c86</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">53 </td><td class="diffpresent">4c6c677b206e3991a42c3ea21cb76148077f351cfa6c0fabe7cfe7c4e76d5921</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">54 </td><td class="diffpresent">7a9bb7609796e77decf855a483d5f317d0d5da8a3fecf88c67e0398fd5026571</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">55 </td><td class="diffpresent">b967a961180d260213b29a6e83af1cfa0e9e64e7da35b82b2631fd7b0b4781c4</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">56 </td><td class="diffpresent">cb2752b6f84682955539c36f5fb38e577e700703478e501106cdcace61e24ca3</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">57 </td><td class="diffpresent">2632965bddaf2c0a78969a86d1600941a65539dd0c0bbc65a00fdbec7cfb5f7c</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">58 </td><td class="diffpresent">d9dc8c2f3499aabadab33065e1ea9ce1dbb6bcc7c69f37d1fcec33a8b649a00a</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">59 </td><td class="diffpresent">74736c8673266329ea7e976e839dda9be6b271d1412e87493644b66de38b3b6e</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">60 </td><td class="diffpresent">e7e26bae60ee5df7507fc38d4c69f80e6e35f3fc6f1a16c723ed747cf03efbde</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">61 </td><td class="diffpresent">7a83031f6d052034018402b15cbe0dc0d9e44bb6c16508a491f9407ae696b19c</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">62 </td><td class="diffpresent">6c501602614067cb0ef6b5ec2028c1a4fa198467d7e10f57e30d044192d0a283</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">63 </td><td class="diffpresent">0c1f3b466f5707fd912f3963810fa828035975a646ec1cfc8e28cb02c9a5e909</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">64 </td><td class="diffpresent">15cb768eeff2fdd894cc534b274040022301bded07e96e3f78de619a849373f8</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">65 </td><td class="diffpresent">005f094cf63a758620ffef63a9202c1bb484eaa2a2ea94d6dbe36436a353fcdc</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">66 </td><td class="diffpresent">94caf354f0a9e09332bf8d2219912146b4cd57a633903d9555a7e4c6a695ebd5</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">67 </td><td class="diffpresent">2935918128a064de73e76d5906de78dc1b0506a2a04ea9893436ad5c2f016cde</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">68 </td><td class="diffpresent">b0e1b2d757acd84922414989f35e8a429eccd72849025b87580cf07ab867dd8b</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">69 </td><td class="diffpresent">0bef5cbe7cd7d99e7ee6f78f5ed5f1caa627eda1fe6bd16320495fdbb968be72</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">70 </td><td class="diffpresent">260e019e12e4d2d0d6bafb963df6eb3fa7fdd923a5bf34355d7fb26defddc307</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">71 </td><td class="diffpresent">3e0fcbaadb94e56fc7df6d6cdbc6d60d97bfb6f1d8c44be6bdf1bb35e7fe6ef3</td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">72 </td><td class="diffpresent">7<del>f2</del>004<del>66</del>b1<del>d95c1</del>0<del>d4</del>000000004<del>945</del>4<del>e</del>4<del>4ae42</del>6<del>0</del>8<del>2</del></td><td class="diffline">2 </td><td class="diffpresent"><ins>8</ins>7<ins>0000</ins><ins>00</ins>0<ins>97</ins>04<ins>85973000</ins><ins>00</ins>b1<ins>30000</ins>0<ins>b</ins><ins>13</ins>0<ins>1</ins>00<ins>9a9c18</ins>00000<ins>a</ins>4<ins>f69</ins>4<ins>3</ins>4<ins>35050</ins>68</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">6f746f73686f70204943432070726f66696c65000078da9d53675453e9163df7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">def4424b8880944b6f5215082052428b801491262a2109104a8821a1d91551c1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">114545041bc8a088038e8e808c15512c0c8a0ad807e421a28e83a3888acafbe1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">7ba36bd6bcf7e6cdfeb5d73ee7acf39db3cf07c0080c9648335135800ca9421e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">11e083c7c4c6e1e42e40810a2470001008b3642173fd230100f87e3c3c2b22c0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">07be000178d30b0800c04d9bc0301c87ff0fea42995c01808401c07491384b08</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">801400407a8e42a600404601809d98265300a0040060cb6362e300502d006027</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">7fe6d300809df8997b01005b94211501a09100201365884400683b00accf568a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">450058300014664bc43900d82d00304957664800b0b700c0ce100bb200080c00</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">12 </td><td class="diffpresent">305188852900047b0060c8232378008499001446f2573cf12bae10e72a000078</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">99b23cb9243945815b082d710757572e1e28ce49172b14366102619a402ec279</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">99193281340fe0f3cc0000a0911511e083f3fd78ce0eaecece368eb60e5f2dea</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">bf06ff226262e3fee5cfab70400000e1747ed1fe2c2fb31a803b06806dfea225</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">ee04685e0ba075f78b66b20f40b500a0e9da57f370f87e3c3c45a190b9d9d9e5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">e4e4d84ac4425b61ca577dfe67c25fc057fd6cf97e3cfcf7f5e0bee22481325d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">18 </td><td class="diffpresent">814704f8e0c2ccf44ca51ccf92098462dce68f47fcb70bfffc1dd322c44962b9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">19 </td><td class="diffpresent">582a14e35112718e449a8cf332a52289429229c525d2ff64e2df2cfb033edf35</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">20 </td><td class="diffpresent">00b06a3e017b912da85d6303f64b27105874c0e2f70000f2bb6fc1d428080380</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">21 </td><td class="diffpresent">6883e1cf77ffef3ffd47a02500806649927100005e44242e54cab33fc7080000</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">22 </td><td class="diffpresent">44a0812ab0411bf4c1182cc0061cc105dcc10bfc6036844224c4c24210420a64</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">23 </td><td class="diffpresent">801c726029ac82422886cdb01d2a602fd4401d34c051688693700e2ec255b80e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">24 </td><td class="diffpresent">3d700ffa61089ec128bc81090441c808136121da8801628a58238e08179985f8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">25 </td><td class="diffpresent">21c14804128b2420c9881451224b91354831528a542055481df23d720239875c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">26 </td><td class="diffpresent">46ba913bc8003282fc86bc47319481b2513dd40cb543b9a8371a8446a20bd064</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">27 </td><td class="diffpresent">74319a8f16a09bd072b41a3d8c36a1e7d0ab680fda8f3e43c730c0e8180733c4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">28 </td><td class="diffpresent">6c302ec6c342b1382c099363cbb122ac0cabc61ab056ac03bb89f563cfb17704</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">29 </td><td class="diffpresent">128145c0093604774220611e4148584c584ed848a8201c243411da0937090384</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">30 </td><td class="diffpresent">51c2272293a84bb426ba11f9c4186232318758482c23d6128f132f107b8843c4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">31 </td><td class="diffpresent">37241289433227b9900249b1a454d212d246d26e5223e92ca99b34481a2393c9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">32 </td><td class="diffpresent">da646bb20739942c202bc885e49de4c3e433e41be421f25b0a9d624071a4f853</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">33 </td><td class="diffpresent">e22852ca6a4a19e510e534e5066598324155a39a52dda8a15411358f5a42ada1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">34 </td><td class="diffpresent">b652af5187a81334759a39cd8316494ba5ada295d31a681768f769afe874ba11</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">35 </td><td class="diffpresent">dd951e4e97d057d2cbe947e897e803f4770c0d861583c7886728199b18071867</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">36 </td><td class="diffpresent">197718af984ca619d38b19c754303731eb98e7990f996f55582ab62a7c1591ca</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">37 </td><td class="diffpresent">0a954a9526951b2a2f54a9aaa6aadeaa0b55f355cb548fa95e537dae46553353</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">38 </td><td class="diffpresent">e3a909d496ab55aa9d50eb531b5367a93ba887aa67a86f543fa47e59fd890659</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">39 </td><td class="diffpresent">c34cc34f43a451a0b15fe3bcc6200b6319b3782c216b0dab86758135c426b1cd</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">40 </td><td class="diffpresent">d97c762abb98fd1dbb8b3daaa9a13943334a3357b352f394663f07e39871f89c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">41 </td><td class="diffpresent">744e09e728a797f37e8ade14ef29e2291ba6344cb931655c6baa96979658ab48</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">42 </td><td class="diffpresent">ab51ab47ebbd36aeeda79da6bd45bb59fb810e41c74a275c2747678fce059de7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">43 </td><td class="diffpresent">53d953dda70aa7164d3d3af5ae2eaa6ba51ba1bb4477bf6ea7ee989ebe5e809e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">44 </td><td class="diffpresent">4c6fa7de79bde7fa1c7d2ffd54fd6dfaa7f5470c5806b30c2406db0cce183cc5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">45 </td><td class="diffpresent">35716f3c1d2fc7dbf151435dc34043a561956197e18491b9d13ca3d5468d460f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">46 </td><td class="diffpresent">8c69c65ce324e36dc66dc6a326062621264b4dea4dee9a524db9a629a63b4c3b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">47 </td><td class="diffpresent">4cc7cdcccda2cdd699359b3d31d732e79be79bd79bdfb7605a785a2cb6a8b6b8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">48 </td><td class="diffpresent">6549b2e45aa659eeb6bc6e855a3959a558555a5db346ad9dad25d6bbadbba711</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">49 </td><td class="diffpresent">a7b94e934eab9ed667c3b0f1b6c9b6a9b719b0e5d806dbaeb66db67d61676217</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">50 </td><td class="diffpresent">67b7c5aec3ee93bd937dba7d8dfd3d070d87d90eab1d5a1d7e73b472143a563a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">51 </td><td class="diffpresent">de9ace9cee3f7dc5f496e92f6758cf10cfd833e3b613cb29c4699d539bd34767</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">52 </td><td class="diffpresent">1767b97383f3888b894b82cb2e973e2e9b1bc6ddc8bde44a74f5715de17ad2f5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">53 </td><td class="diffpresent">9d9bb39bc2eda8dbafee36ee69ee87dc9fcc349f299e593373d0c3c843e051e5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">54 </td><td class="diffpresent">d13f0b9f95306bdfac7e4f434f8167b5e7232f632f9157add7b0b7a577aaf761</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">55 </td><td class="diffpresent">ef173ef63e729fe33ee33c37de32de595fcc37c0b7c8b7cb4fc36f9e5f85df43</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">56 </td><td class="diffpresent">7f23ff64ff7affd100a78025016703898141815b02fbf87a7c21bf8e3f3adb65</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">57 </td><td class="diffpresent">f6b2d9ed418ca0b94115418f82ad82e5c1ad2168c8ec90ad21f7e798ce91ce69</td></tr>
+<tr class="error"><td colspan="4">
+Max diff block lines reached; -1/14961 bytes (-0.01%) of diff not shown.
+</td></tr></table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">445 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/youtube-playlist-duration/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">326 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 15, 10 lines modified</td><td colspan="2">Offset 15, 9 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;icons&quot;:<span class="dp">·</span>{</td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;icons&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;128&quot;:<span class="dp">·</span>&quot;icon128.png&quot;,</td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;128&quot;:<span class="dp">·</span>&quot;icon128.png&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;16&quot;:<span class="dp">·</span>&quot;icon16.png&quot;,</td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;16&quot;:<span class="dp">·</span>&quot;icon16.png&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon48.png&quot;</td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon48.png&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>2,</td><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>2,</td></tr>
+<tr class="diffunmodified"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;YouTube<span class="dp">·</span>Playlist<span class="dp">·</span>Duration&quot;,</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;YouTube<span class="dp">·</span>Playlist<span class="dp">·</span>Duration&quot;,</td></tr>
+<tr class="diffdeleted"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;3.1.6&quot;</td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;3.1.6&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">24 </td><td class="diffpresent">}</td><td class="diffline">23 </td><td class="diffpresent">}</td></tr>
+</table>    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

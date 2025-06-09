@@ -1,0 +1,12 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/bionify
+  - files: _metadata
+  + files: .git, .gitattributes, .gitignore, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/bionify/README.md; File type: md
+  - Original: 3–3
+  + Modified: 3–3
+
+---/workspace/pipeline_output/chromex_data/src/popup <-> +++/workspace/pipeline_output/bionify/src/popup
+  - files: dist
+  + files: 
+

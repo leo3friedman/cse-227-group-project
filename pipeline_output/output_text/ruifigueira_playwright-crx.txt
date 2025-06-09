@@ -1,0 +1,88 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/playwright-crx/tests/test-extension/public
+├── file list
+│ @@ -1,26 +1 @@
+│ -_metadata
+│ -background.js
+│ -background.js.map
+│ -codeMirrorModule.css
+│ -codeMirrorModule.js
+│ -codeMirrorModule.js.map
+│ -codicon.ttf
+│ -form.css
+│ -form.js
+│ -form.js.map
+│ -icon-16x16.png
+│ -icon-192x192.png
+│ -icon-32x32.png
+│ -icon-48x48.png
+│ -index.css
+│ -index.html
+│ -index.js
+│ -index.js.map
+│ -manifest.json
+│ -playwright-logo.svg
+│ -preferences.css
+│ -preferences.html
+│ -preferences.js
+│ -preferences.js.map
+│ -settings.js
+│ -settings.js.map
+│ +manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/playwright-crx/tests/test-extension/public/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,51 +1,13 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "16": "icon-16x16.png",
+│ │ -            "32": "icon-32x32.png"
+│ │ -        },
+│ │ -        "default_title": "Record"
+│ │ -    },
+│ │      "background": {
+│ │          "service_worker": "background.js",
+│ │          "type": "module"
+│ │      },
+│ │ -    "commands": {
+│ │ -        "inspect": {
+│ │ -            "description": "Start inspecting",
+│ │ -            "suggested_key": {
+│ │ -                "default": "Alt+Shift+C"
+│ │ -            }
+│ │ -        },
+│ │ -        "record": {
+│ │ -            "description": "Start recording",
+│ │ -            "suggested_key": {
+│ │ -                "default": "Alt+Shift+R"
+│ │ -            }
+│ │ -        }
+│ │ -    },
+│ │ -    "icons": {
+│ │ -        "128": "icon-192x192.png",
+│ │ -        "16": "icon-16x16.png",
+│ │ -        "32": "icon-32x32.png",
+│ │ -        "48": "icon-48x48.png"
+│ │ -    },
+│ │      "manifest_version": 3,
+│ │ -    "name": "Playwright CRX",
+│ │ -    "options_ui": {
+│ │ -        "open_in_tab": false,
+│ │ -        "page": "preferences.html"
+│ │ -    },
+│ │ +    "name": "Playwright CRX Tests",
+│ │      "permissions": [
+│ │          "debugger",
+│ │ -        "tabs",
+│ │ -        "contextMenus",
+│ │ -        "storage",
+│ │ -        "sidePanel"
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "side_panel": {
+│ │ -        "default_path": "index.html"
+│ │ -    },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.14.0"
+│ │  }

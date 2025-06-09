@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/NaverCafeFreePass/NaverCafeFreePass
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│  popup.html
+│  popup.js
+│  update_history.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/NaverCafeFreePass/NaverCafeFreePass/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │          "webRequestBlocking",
+│ │          "storage",
+│ │          "notifications",
+│ │          "*://*.naver.com/*",
+│ │          "*://*.daum.net/*"
+│ │      ],
+│ │      "short_name": "Naver Pass",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.0"
+│ │  }

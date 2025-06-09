@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/unlimited-medium/app
+├── file list
+│ @@ -1,4 +1,3 @@
+│ -_metadata
+│  assets
+│ -js
+│ -manifest.json
+│ +manifest.json
+│ +src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/unlimited-medium/app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,11 +35,10 @@
+│ │      "name": "Unlimited Medium",
+│ │      "permissions": [
+│ │          "<all_urls>",
+│ │          "tabs",
+│ │          "cookies",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0",
+│ │      "web_accessible_resources": []
+│ │  }

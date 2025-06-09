@@ -1,0 +1,1222 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/crxviewer/src
+├── file list
+│ @@ -1,21 +1,27 @@
+│ -_metadata
+│  asn1lite.js
+│  background.js
+│  bg-contextmenu.js
+│  chrome-platform-info.js
+│ -crxviewer.css
+│  crxviewer.html
+│  crxviewer.js
+│ +crxviewer.less
+│  cws_pattern.js
+│ +domain-fronter.js
+│  icons
+│  lib
+│  manifest.json
+│ +manifest_firefox.json
+│ +manifest_opera.json
+│  mozcose.js
+│  options.html
+│  options.js
+│  popup.html
+│  popup.js
+│  search-tools.js
+│ +search-tools.less
+│  search-worker.js
+│  service_worker.js
+│ -storage-sync-polyfill.js
+│ +storage-sync-polyfill.js
+│ +test-asn1.html
+│ +test-search-tools.htm
+│ +testdata
+│   --- /workspace/pipeline_output/chromex_data/asn1lite.js
+├── +++ /workspace/pipeline_output/crxviewer/src/asn1lite.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -293,8 +293,8 @@
+│  61676520213d3d203229207b0a20202020202020207468726f77206e65772045
+│  72726f722860436f756c64206e6f74207061727365205375626a656374206669
+│  656c647320617420737461676520247b73746167657d60293b0a202020207d0a
+│  2020202072657475726e207375626a6563743b0a7d0a0a69662028747970656f
+│  66206d6f64756c6520213d3d2027756e646566696e65642729207b0a20202020
+│  6d6f64756c652e6578706f727473203d207b0a20202020202020207061727365
+│  43657274696669636174652c0a20202020202020207061727365444552544c56
+│ -732c0a2020202020202020746c76496e666f2c0a202020207d3b0a7d0a0a
+│ +732c0a2020202020202020746c76496e666f2c0a202020207d3b0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/crxviewer/src/background.js
+│ ├── js-beautify {}
+│ │ @@ -8,31 +8,281 @@
+│ │  /* globals navigator */
+│ │  /* globals chrome, cws_match_patterns, mea_match_pattern, ows_match_pattern, amo_match_patterns, atn_match_patterns,
+│ │     cws_pattern, mea_pattern, ows_pattern, amo_pattern, atn_pattern,
+│ │      */
+│ │  
+│ │  'use strict';
+│ │  
+│ │ -// Work-around for crbug.com/1132684: static event_rules disappear after a
+│ │ -// restart, so we register rules dynamically instead, on install.
+│ │ +//#if FIREFOX
+│ │ +/**
+│ │ + * Logic to toggle visibility of  pageAction if needed.
+│ │ + *
+│ │ + * By default, the extension wants to show a pageAction button on the (few)
+│ │ + * websites that it recognizes as an extension store. The user can opt out of
+│ │ + * this behavior, which is stored in storage.sync at the "showPageAction" key.
+│ │ + *
+│ │ + * Bugs relevant to page_action support:
+│ │ + * Firefox < 59: did not support page_action.show_matches (bugzil.la/1419842).
+│ │ + * Firefox < 61: did not reset pageAction in inactive tabs (bugzil.la/1439246).
+│ │ + * Firefox < 89: Firefox 58+ had a menu option to toggle the visibility of the
+│ │ + *               pageAction, but it was removed in 89. See bugzil.la/1712556
+│ │ + *               and https://github.com/Rob--W/crxviewer/issues/41
+│ │ + * Firefox < 106: did not support event pages: background page lived forever.
+│ │ + * Firefox < 115: did not support storage.session.
+│ │ + *
+│ │ + * Implementation details:
+│ │ + * - Register tabs.onUpdated at the top level, to detect relevant URLs.
+│ │ + *   - In tabs.onUpdated, calls pageAction.show/pageAction.hide as needed.
+│ │ + * - Retrieve user preference from storage.sync.get. If the preference is to
+│ │ + *   show the pageAction, unregister the listener (and let it be handled fully
+│ │ + *   by tabs.onUpdated).
+│ │ + * - Register storage.onChanged to detect changes to the pref, to (un)register
+│ │ + *   the tabs.onUpdated as needed, and show/hide existing pageAction buttons.
+│ │ + *
+│ │ + * To strike a balance between maintainability, performance and customizability,
+│ │ + * ...
+│ │ + */
+│ │ +function tabsOnUpdatedCheckPageAction(tabId, changeInfo, tab) {
+│ │ +    showPageActionIfNeeded(tab);
+│ │ +}
+│ │ +//// In Firefox >= 59, we rely on page_action.show_matches.
+│ │ +var hasStaticPageActionPatterns = !/Firefox\/5[0-8]\./.test(navigator.userAgent);
+│ │ +var pageActionIsEnabled = hasStaticPageActionPatterns;
+│ │ +//// We immediately respond to tabs.onUpdated events to minimize the chance of
+│ │ +//// tab.url getting out of sync. This event may trigger before we read the
+│ │ +//// user's preference through storage.sync. Once we got the user's preference,
+│ │ +//// we fix up any touched tabs and void this set.
+│ │ +var tabIdsBeforePageActionPrefRead = new Set();
+│ │ +var hasLostPersistentListener = false;
+│ │ +
+│ │ +//// Same patterns as in manifest_firefox.json:
+│ │ +var page_action_show_matches_patterns = [
+│ │ +    ...cws_match_patterns,
+│ │ +    mea_match_pattern,
+│ │ +    ows_match_pattern,
+│ │ +    ...amo_match_patterns,
+│ │ +    ...atn_match_patterns,
+│ │ +];
+│ │ +
+│ │ +function registerTabsOnUpdatedForPageAction() {
+│ │ +    // Note: must be called from the top-level to make sure that the listener
+│ │ +    // persists after event page suspension and browser restarts.
+│ │ +    // When called after startup, the listener will not trigger after the event
+│ │ +    // has suspended (bugzil.la/1869125).
+│ │ +
+│ │ +    if (chrome.tabs.onUpdated.hasListener(tabsOnUpdatedCheckPageAction)) {
+│ │ +        // Already a no-op in Firefox, but check just in case it ever changes
+│ │ +        // in the future.
+│ │ +        return;
+│ │ +    }
+│ │ +    try {
+│ │ +        chrome.tabs.onUpdated.addListener(tabsOnUpdatedCheckPageAction, {
+│ │ +            properties: ['url'],
+│ │ +            urls: page_action_show_matches_patterns,
+│ │ +        });
+│ │ +    } catch (e) {
+│ │ +        // filter not supported on Firefox for Android (bugzil.la/1713819).
+│ │ +        // filter is only supported in Firefox 61+ (bugzil.la/1329507).
+│ │ +        // "url" in properties requires Firefox 88+ (bugzil.la/1680279).
+│ │ +        chrome.tabs.onUpdated.addListener(tabsOnUpdatedCheckPageAction);
+│ │ +    }
+│ │ +    if (hasLostPersistentListener) {
+│ │ +        chrome.runtime.onSuspend.addListener(wakeupSoonAfterSuspend);
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +function unregisterTabsOnUpdatedForPageAction() {
+│ │ +    // Note: once removed, the listener cannot participate in waking up the
+│ │ +    // event page after it has suspended (bugzil.la/1869125).
+│ │ +    chrome.tabs.onUpdated.removeListener(tabsOnUpdatedCheckPageAction);
+│ │ +
+│ │ +    // Technically the logic below is not needed in Firefox < 106 because the
+│ │ +    // logic is only needed for event pages. But we don't bother with checking
+│ │ +    // versions and returning early, because in the worst case the only result
+│ │ +    // is scheduling one no-op alarm.
+│ │ +    hasLostPersistentListener = true;
+│ │ +    chrome.runtime.onSuspend.removeListener(wakeupSoonAfterSuspend);
+│ │ +}
+│ │ +
+│ │ +function wakeupSoonAfterSuspend() {
+│ │ +    // Schedule wakeup of event page (via alarms.onAlarm) to make sure that the
+│ │ +    // tabs.onUpdated listener persists, because we can only persist listeners
+│ │ +    // at the start of the event page (bugzil.la/1869125).
+│ │ +    chrome.alarms.create("wakeupSoonAfterSuspend", {
+│ │ +        delayInMinutes: 0.05, // 3 seconds.
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function togglePageAction(isEnabled) {
+│ │ +    var didChange = pageActionIsEnabled !== isEnabled;
+│ │ +    pageActionIsEnabled = isEnabled;
+│ │ +    // Now that pageActionIsEnabled has been set to a value from a pref, we can
+│ │ +    // stop keeping track of new tabIds observed in tabs.onUpdated.
+│ │ +    // Later below, we will either fix up this small set of tabIds, or query
+│ │ +    // all tabs and fix up as needed.
+│ │ +    const tabIdsToFixup = tabIdsBeforePageActionPrefRead;
+│ │ +    tabIdsBeforePageActionPrefRead = null;
+│ │ +
+│ │ +    if (!hasStaticPageActionPatterns) {
+│ │ +        // page_action.show_matches not supported, we always need the listener
+│ │ +        // if enabled. The button is hidden by default.
+│ │ +        if (isEnabled) {
+│ │ +            registerTabsOnUpdatedForPageAction();
+│ │ +        } else {
+│ │ +            unregisterTabsOnUpdatedForPageAction();
+│ │ +        }
+│ │ +    } else {
+│ │ +        // page_action.show_matches is supported. We only need the listener to
+│ │ +        // hide the button. The button is shown by default.
+│ │ +        if (isEnabled) {
+│ │ +            unregisterTabsOnUpdatedForPageAction();
+│ │ +        } else {
+│ │ +            // Expected common case.
+│ │ +            registerTabsOnUpdatedForPageAction();
+│ │ +        }
+│ │ +    }
+│ │ +
+│ │ +    // Now determine whether there is a chance for existing tabs to have an
+│ │ +    // out-of-sync pageAction state, and update their visibility if needed.
+│ │ +    if (chrome.storage.session) {
+│ │ +        // Note: hasStaticPageActionPatterns is also true here.
+│ │ +        chrome.storage.session.get({
+│ │ +            showPageAction: true
+│ │ +        }, function(items) {
+│ │ +            if (items.showPageAction === pageActionIsEnabled) {
+│ │ +                // Effectively not changed - common case. Bail out.
+│ │ +                // Fix the few tabs that may have used the hard-coded default
+│ │ +                // before the first call to showPageActionIfNeeded.
+│ │ +                if (tabIdsToFixup) {
+│ │ +                    Array.from(tabIdsToFixup).forEach(fixupPageActionForTabId);
+│ │ +                }
+│ │ +                return;
+│ │ +            }
+│ │ +            chrome.storage.session.set({
+│ │ +                showPageAction: pageActionIsEnabled
+│ │ +            });
+│ │ +            togglePageActionAcrossAllMatchingTabs();
+│ │ +        });
+│ │ +    } else if (didChange) {
+│ │ +        // Uncommon case: when the user has set showPageAction to false.
+│ │ +        // Before event page support (Firefox <= 105), the background page lives
+│ │ +        // forever, so this logic executes only once, as desired.
+│ │ +        // But with event page support and no storage.session support, this
+│ │ +        // logic may run more often than ideal: whenever the event page awakes
+│ │ +        // (Firefox versions: 106 <= Firefox version <= 114).
+│ │ +        // (in Firefox 115+, storage.session is suppported, we never get here).
+│ │ +        //
+│ │ +        // This is because didChange relies on a global (pageActionIsEnabled),
+│ │ +        // which defaults to a static boolean (hasStaticPageActionPatterns),
+│ │ +        // independent of user preferences. The user preference is retrieved
+│ │ +        // asynchronously.
+│ │ +        togglePageActionAcrossAllMatchingTabs();
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +function fixupPageActionForTabId(tabId) {
+│ │ +    chrome.tabs.get(tabId, function(tab) {
+│ │ +        // Silence any errors, e.g. when the tab was closed in the meantime.
+│ │ +        void chrome.runtime.lastError;
+│ │ +        if (tab) {
+│ │ +            showPageActionIfNeeded(tab);
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function togglePageActionAcrossAllMatchingTabs() {
+│ │ +    chrome.tabs.query({
+│ │ +        url: page_action_show_matches_patterns,
+│ │ +    }, function(tabs) {
+│ │ +        tabs.forEach(showPageActionIfNeeded);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +//// In event pages, listeners need to be registered at the top level.
+│ │ +registerTabsOnUpdatedForPageAction();
+│ │ +chrome.storage.onChanged.addListener(function(changes, areaName) {
+│ │ +    if (areaName === 'session') {
+│ │ +        // Ignore changes to storage.session.
+│ │ +        return;
+│ │ +    }
+│ │ +    if (changes.showPageAction) {
+│ │ +        togglePageAction(changes.showPageAction.newValue);
+│ │ +    }
+│ │ +});
+│ │ +chrome.runtime.onStartup.addListener(function() {
+│ │ +    // We do need the runtime.onStartup event to make sure that the event page
+│ │ +    // starts when the browser starts for the first time. This ensures that if
+│ │ +    // showPageAction is set to a non-default (false), that the pageActions are
+│ │ +    // hidden for existing tabs, and that tabs.onUpdated is registered.
+│ │ +    //
+│ │ +    // This is especially needed if the setting was toggled before the event
+│ │ +    // page restarted for another reason, because the tabs.onUpdated listener
+│ │ +    // can only persist when registered at the top-level without the listener
+│ │ +    // getting removed (which happens when showPageAction=true).
+│ │ +    // See comments at registerTabsOnUpdatedForPageAction and
+│ │ +    // unregisterTabsOnUpdatedForPageAction.
+│ │ +});
+│ │ +chrome.alarms.onAlarm.addListener(function(alarm) {
+│ │ +    // See wakeupSoonAfterSuspend(). The main purpose of the scheduled alarm is
+│ │ +    // to wake up the event page to give tabs.onUpdated a chance to register
+│ │ +    // and be persisted. The alarm itself is not of any other interest.
+│ │ +
+│ │ +    // Note: If the browser shuts down before alarms.onAlarm has had a chance
+│ │ +    // of triggering, then we will rely on runtime.onStartup to trigger the
+│ │ +    // wakeup of the event page on startup.
+│ │ +});
+│ │ +chrome.storage.sync.get({
+│ │ +    showPageAction: true,
+│ │ +}, function(items) {
+│ │ +    togglePageAction(items.showPageAction);
+│ │ +
+│ │ +    if (pageActionIsEnabled === hasStaticPageActionPatterns) {
+│ │ +        // Preference matches the default, nothing to fix up.
+│ │ +        return;
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +function showPageActionIfNeeded(tab) {
+│ │ +    var tabId = tab.id;
+│ │ +    var url = tab.url;
+│ │ +    if (tabIdsBeforePageActionPrefRead) {
+│ │ +        tabIdsBeforePageActionPrefRead.add(tabId);
+│ │ +    }
+│ │ +    // Note: .hide()/.show() calls are cached until a top navigation in the tab.
+│ │ +    // In theory, a race condition can happen where tab.url has changed...
+│ │ +    // that's why we want to rely on page_action.show_matches when possible.
+│ │ +    if (isPageActionNeededForUrl(url) && pageActionIsEnabled) {
+│ │ +        chrome.pageAction.show(tabId);
+│ │ +    } else {
+│ │ +        chrome.pageAction.hide(tabId);
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +function isPageActionNeededForUrl(url) {
+│ │ +    return cws_pattern.test(url) || mea_pattern.test(url) || ows_pattern.test(url) ||
+│ │ +        amo_pattern.test(url) || atn_pattern.test(url);
+│ │ +}
+│ │ +//#else
+│ │ +//// Work-around for crbug.com/1132684: static event_rules disappear after a
+│ │ +//// restart, so we register rules dynamically instead, on install.
+│ │  function registerEventRules() {
+│ │      if (registerEventRules.hasRunOnce) {
+│ │          return;
+│ │      }
+│ │      registerEventRules.hasRunOnce = true;
+│ │  
+│ │      var pageUrlFilters = [{
+│ │          hostEquals: "chrome.google.com",
+│ │          pathPrefix: "/webstore/detail/"
+│ │      }, {
+│ │          hostEquals: "chromewebstore.google.com",
+│ │          pathPrefix: "/detail/"
+│ │      }, {
+│ │          hostEquals: "microsoftedge.microsoft.com",
+│ │ -        pathPrefix: "/webstore/detail/"
+│ │ +        pathPrefix: "/addons/detail/"
+│ │      }, {
+│ │          hostEquals: "addons.opera.com",
+│ │          pathContains: "extensions/details/"
+│ │      }, {
+│ │          hostEquals: "addons.mozilla.org",
+│ │          pathContains: "addon/"
+│ │      }, {
+│ │ @@ -77,24 +327,26 @@
+│ │      chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+│ │          chrome.declarativeContent.onPageChanged.addRules([rule], function() {
+│ │              // Visibility of action fully controlled by declarativeContent.
+│ │              chrome.action.disable();
+│ │          });
+│ │      });
+│ │  }
+│ │ -// The documentation recommends to use runtime.onInstalled to register
+│ │ -// declarativeContent rules. Due to bugs, additional work-arounds are needed
+│ │ -// to ensure that the declarativeContent rules are registered correctly.
+│ │ +//// The documentation recommends to use runtime.onInstalled to register
+│ │ +//// declarativeContent rules. Due to bugs, additional work-arounds are needed
+│ │ +//// to ensure that the declarativeContent rules are registered correctly.
+│ │  chrome.runtime.onInstalled.addListener(registerEventRules);
+│ │ -// Work-around for crbug.com/388231: onInstalled is not fired when the
+│ │ -// extension was disabled during an update.
+│ │ +//// Work-around for crbug.com/388231: onInstalled is not fired when the
+│ │ +//// extension was disabled during an update.
+│ │  chrome.runtime.onStartup.addListener(registerEventRules);
+│ │ -// Work-around for crbug.com/264963: onInstalled is not fired when the
+│ │ -// extension is run in incognito mode. Although not documented, incognito
+│ │ -// contexts have their own declarativeContent rule store.
+│ │ +//// Work-around for crbug.com/264963: onInstalled is not fired when the
+│ │ +//// extension is run in incognito mode. Although not documented, incognito
+│ │ +//// contexts have their own declarativeContent rule store.
+│ │  if (chrome.extension.inIncognitoContext) {
+│ │      chrome.declarativeContent.onPageChanged.getRules(function(rules) {
+│ │          if (!rules.length) {
+│ │              registerEventRules();
+│ │          }
+│ │      });
+│ │ -}
+│ │ +}
+│ │ +
+│ │ +//#endif
+│   --- /workspace/pipeline_output/chromex_data/bg-contextmenu.js
+├── +++ /workspace/pipeline_output/crxviewer/src/bg-contextmenu.js
+│ ├── js-beautify {}
+│ │ @@ -11,14 +11,17 @@
+│ │  
+│ │  'use strict';
+│ │  (function() {
+│ │      var MENU_ID_LINK = 'nl.robwu.contextmenu.crxlink';
+│ │      var MENU_ID_PAGE = 'nl.robwu.contextmenu.crxpage';
+│ │      var MENU_ID_AMO_APPROVED_LINK = 'nl.robwu.contextmenu.amoapprovedlink';
+│ │      var MENU_ID_AMO_APPROVED_PAGE = 'nl.robwu.contextmenu.amoapprovedpage';
+│ │ +    //#if FIREFOX
+│ │ +    var MENU_ID_PAGE_ACTION = 'nl.robwu.contextmenu.pageaction';
+│ │ +    //#endif
+│ │      var MENU_ID_ACTION_MENU = 'nl.robwu.contextmenu.actionmenu.';
+│ │      var MENU_ID_ACTION_MENU_POPUP = MENU_ID_ACTION_MENU + 'popup';
+│ │      var MENU_ID_ACTION_MENU_VIEW_SOURCE = MENU_ID_ACTION_MENU + 'view-source';
+│ │      var MENU_ID_ACTION_MENU_DOWNLOAD = MENU_ID_ACTION_MENU + 'download';
+│ │  
+│ │      var DEFAULT_LINK_TARGET_URL_PATTERNS = [
+│ │          '*://*/*.crx*',
+│ │ @@ -74,19 +77,33 @@
+│ │      var MENU_ID_DUMMY_NEVER_SHOWN = 'MENU_ID_DUMMY_NEVER_SHOWN';
+│ │  
+│ │      function isMenuRegistrationCompleted(callback) {
+│ │          // A relatively inexpensive check to see if the menu items have been
+│ │          // registered. Should certainly be less expensive than repeatedly
+│ │          // calling contextMenus.create unconditionally.
+│ │          // In Chrome: contextMenus.update fails if the menu item already exists.
+│ │ +        //#if FIREFOX
+│ │ +        // In Firefox: contextMenus.update returns early without further
+│ │ +        // validation if the menu item does not exist. If the menu item exists,
+│ │ +        // validation is performed, including verifying that parentId is valid.
+│ │ +        // parentId is invalid when it points to itself.
+│ │ +        chrome.contextMenus.update(MENU_ID_DUMMY_NEVER_SHOWN, {
+│ │ +            parentId: MENU_ID_DUMMY_NEVER_SHOWN,
+│ │ +        }, function() {
+│ │ +            // No error = menu does not exist, so it was not persisted before.
+│ │ +            var hasPersistedMenu = !!chrome.runtime.lastError;
+│ │ +            callback(hasPersistedMenu);
+│ │ +        });
+│ │ +        //#else
+│ │          chrome.contextMenus.update(MENU_ID_DUMMY_NEVER_SHOWN, {}, function() {
+│ │              // Error = menu does not exist, so it was not persisted before.
+│ │              var hasPersistedMenu = !chrome.runtime.lastError;
+│ │              callback(hasPersistedMenu);
+│ │          });
+│ │ +        //#endif
+│ │      }
+│ │  
+│ │      function markMenuRegistrationCompleted() {
+│ │          // Create an invisible menu item. This persists across browser
+│ │          // restarts, but is cleared on extension updates.
+│ │          // Chrome: also cleared when the incognito session ends.
+│ │          // Firefox: cleared if extension is disabled and re-enabled.
+│ │ @@ -126,14 +143,21 @@
+│ │              if (items.showContextMenu) {
+│ │                  show();
+│ │                  updateLinkMenu(items.contextmenuPatterns, false);
+│ │              }
+│ │              setActionClickAction(items.actionClickAction);
+│ │              markMenuRegistrationCompleted();
+│ │          });
+│ │ +        //#if FIREFOX
+│ │ +        chrome.contextMenus.create({
+│ │ +            id: MENU_ID_PAGE_ACTION,
+│ │ +            title: 'Hide this button',
+│ │ +            contexts: ['page_action'],
+│ │ +        });
+│ │ +        //#endif
+│ │          chrome.contextMenus.create({
+│ │              id: MENU_ID_ACTION_MENU,
+│ │              title: 'Primary action on click',
+│ │              contexts: ['page_action'],
+│ │          });
+│ │          chrome.contextMenus.create({
+│ │              id: MENU_ID_ACTION_MENU_POPUP,
+│ │ @@ -164,14 +188,24 @@
+│ │          if (!actionClickAction) return;
+│ │          chrome.contextMenus.update(MENU_ID_ACTION_MENU + actionClickAction, {
+│ │              checked: true,
+│ │          });
+│ │      }
+│ │  
+│ │      function contextMenusOnClicked(info, tab) {
+│ │ +        //#if FIREFOX
+│ │ +        if (info.menuItemId === MENU_ID_PAGE_ACTION) {
+│ │ +            // background.js will now pick up the storage change
+│ │ +            // and disable page actions.
+│ │ +            chrome.storage.sync.set({
+│ │ +                showPageAction: false
+│ │ +            });
+│ │ +            return;
+│ │ +        }
+│ │ +        //#endif
+│ │          if (info.menuItemId.startsWith(MENU_ID_ACTION_MENU)) {
+│ │              var choice = info.menuItemId.slice(MENU_ID_ACTION_MENU.length);
+│ │              chrome.storage.sync.set({
+│ │                  actionClickAction: choice
+│ │              });
+│ │              return;
+│ │          }
+│ │ @@ -188,14 +222,17 @@
+│ │              crx: url
+│ │          });
+│ │  
+│ │          chrome.tabs.create({
+│ │              url: chrome.runtime.getURL('crxviewer.html') + '?' + params,
+│ │              active: true,
+│ │              index: tab ? tab.index + 1 : undefined,
+│ │ +            //#if FIREFOX
+│ │ +            cookieStoreId: tab ? tab.cookieStoreId : undefined,
+│ │ +            //#endif
+│ │          });
+│ │      }
+│ │      chrome.contextMenus.onClicked.addListener(contextMenusOnClicked);
+│ │  
+│ │      function updateLinkMenu(contextmenuPatterns, forceUpdate) {
+│ │          if (!contextmenuPatterns ||
+│ │              !contextmenuPatterns.length && !forceUpdate) {
+│   --- /workspace/pipeline_output/chromex_data/chrome-platform-info.js
+├── +++ /workspace/pipeline_output/crxviewer/src/chrome-platform-info.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -128,8 +128,8 @@
+│  2f2f20627920646f7473206f7220646967697473202874686973207265737472
+│  696374696f6e2069732073657420746f2061766f6964206d61746368696e6720
+│  76657273696f6e206e756d62657273290a202020202020202061726368203d20
+│  277838362d3634273b0a202020207d20656c7365207b0a202020202020202061
+│  726368203d20277838362d3332273b0a202020207d0a2020202072657475726e
+│  207b0a20202020202020206f733a206f732c0a2020202020202020617263683a
+│  20617263682c0a20202020202020206e61636c5f617263683a20617263680a20
+│ -2020207d3b0a7d0a0a
+│ +2020207d3b0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/crxviewer.html
+├── +++ /workspace/pipeline_output/crxviewer/src/crxviewer.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,15 +1,15 @@
+│  <!DOCTYPE html>
+│  <!--
+│   (c) 2013 Rob Wu <rob@robwu.nl>
+│   This Source Code Form is subject to the terms of the Mozilla Public
+│   License, v. 2.0. If a copy of the MPL was not distributed with this
+│   file, You can obtain one at http://mozilla.org/MPL/2.0/.
+│  
+│ -Revision d64c421cb20ed341f7178c0fb04172da353be9ac
+│ +//#expand Revision __VERSION__
+│   -->
+│  <html>
+│  <head>
+│  <meta charset="utf-8">
+│  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https: http: data: blob:">
+│  <title>CRX Viewer</title>
+│  <link rel="stylesheet" type="text/css" href="crxviewer.css">
+│ @@ -142,15 +142,20 @@
+│      <option value="\.css$" label="CSS">
+│      <option value="\.html?$" label="HTML">
+│      <option value="\.(js|css|html)$" label="JS / CSS / HTML">
+│      <option value="!chrome." label="Files containing chrome.">
+│      <option value="!regexp:(chrome|browser)\." label="Regexp file search">
+│      <option value="\.html$!http:" label="All HTML files containing http:.">
+│  </datalist>
+│ +<!--#if CHROME || OPERA || FIREFOX-->
+│  <script src="storage-sync-polyfill.js"></script>
+│ +<!--#endif-->
+│ +<!--#if FIREFOX-->
+│ +<script src="domain-fronter.js"></script>
+│ +<!--#endif-->
+│  <script src="lib/zip.js/zip.js"></script>
+│  <script src="lib/zip.js/mime-types.js"></script>
+│  <script src="lib/efficienttextwriter.js"></script>
+│  <script src="lib/uint8arraywriter.js"></script>
+│  <script src="lib/crx-to-zip.js"></script>
+│  <script src="chrome-platform-info.js"></script>
+│  <script src="cws_pattern.js"></script>
+│ @@ -163,8 +168,7 @@
+│  <script src="lib/modern-crypto.js"></script>
+│  <script src="search-tools.js"></script>
+│  <script src="asn1lite.js"></script>
+│  <script src="mozcose.js"></script>
+│  <script src="crxviewer.js"></script>
+│  </body>
+│  </html>
+│ -
+│   --- /workspace/pipeline_output/chromex_data/crxviewer.js
+├── +++ /workspace/pipeline_output/crxviewer/src/crxviewer.js
+│ ├── js-beautify {}
+│ │ @@ -859,15 +859,19 @@
+│ │              params.qh = searchEngine.isHighlighting ? '1' : '0';
+│ │              if (status.resultIndex !== -1) {
+│ │                  // Our search result indices in qi are one-based.
+│ │                  params.qi = status.resultIndex + 1;
+│ │              }
+│ │          }
+│ │  
+│ │ +        //#if WEB
+│ │ +        //      var permalink = location.origin + location.pathname;
+│ │ +        //#else
+│ │          var permalink = 'https://robwu.nl/crxviewer/';
+│ │ +        //#endif
+│ │  
+│ │          permalink += '?' + encodeQueryString(params);
+│ │          return permalink;
+│ │      }
+│ │  
+│ │      function showGoToLine(sourceCodeElem, preCurrent) {
+│ │          var ol = preCurrent.querySelector('ol');
+│ │ @@ -1497,34 +1501,63 @@
+│ │          } else {
+│ │              debounceGrep = null;
+│ │              grepSearch(grepTerm);
+│ │          }
+│ │      }
+│ │      (function() {
+│ │          // Bind to checkbox filter
+│ │ +        //#if CHROME || OPERA || FIREFOX
+│ │          var storageArea = chrome.storage.sync;
+│ │ +        //#endif
+│ │  
+│ │          var FILTER_STORAGE_PREFIX = 'filter-';
+│ │          var fileList = document.getElementById('file-list');
+│ │          var checkboxes = document.querySelectorAll('input[data-filter-type]');
+│ │  
+│ │ +        //#if !CHROME && !OPERA
+│ │ +        if (!checkboxes.length) return;
+│ │ +        // In Firefox, checkbox elements don't respect width/height style for checkbox.
+│ │ +        // Resize it if needed.
+│ │ +        var checkbox = checkboxes[0];
+│ │ +        var elementOnSameLine = checkbox.parentNode.querySelector('.gcount');
+│ │ +        var actualHeight = checkbox.getBoundingClientRect().height;
+│ │ +        var expectedHeight = elementOnSameLine.getBoundingClientRect().height;
+│ │ +        var scaleFactor = 1;
+│ │ +        if (actualHeight && expectedHeight && actualHeight !== expectedHeight) {
+│ │ +            scaleFactor = expectedHeight / actualHeight;
+│ │ +        }
+│ │ +        //#endif
+│ │          [].forEach.call(checkboxes, function(checkbox) {
+│ │ +            //#if !CHROME && !OPERA
+│ │ +            if (scaleFactor !== 1) {
+│ │ +                checkbox.style.transformOrigin = '0 0';
+│ │ +                checkbox.style.transform = 'scale(' + scaleFactor + ')';
+│ │ +            }
+│ │ +            //#endif
+│ │              var storageKey = FILTER_STORAGE_PREFIX + checkbox.dataset.filterType;
+│ │              checkbox.checked = localStorage.getItem(storageKey) !== '0';
+│ │              checkbox.onchange = function() {
+│ │ +                //#if CHROME || OPERA || FIREFOX
+│ │                  var items = {};
+│ │                  items[storageKey] = checkbox.checked;
+│ │                  storageArea.set(items);
+│ │ +                //#else
+│ │ +                localStorage.setItem(storageKey, checkbox.checked ? '1' : '0');
+│ │ +                //#endif
+│ │                  updateFileListView();
+│ │              };
+│ │ +            //#if CHROME || OPERA || FIREFOX
+│ │              storageArea.get(storageKey, function(items) {
+│ │                  checkbox.checked = items[storageKey] !== false;
+│ │                  updateFileListView();
+│ │              });
+│ │ -
+│ │ +            //#else
+│ │ +            localStorage.setItem(storageKey, checkbox.checked ? '1' : '0');
+│ │ +            updateFileListView();
+│ │ +            //#endif
+│ │              function updateFileListView() {
+│ │                  fileList.classList.toggle('gfilter-' + checkbox.dataset.filterType, !checkbox.checked);
+│ │                  // Save filter state for renderTotalFileSize.
+│ │                  var gtypefiltered = !checkbox.checked;
+│ │                  [].forEach.call(fileList.querySelectorAll('li.gtype-' + checkbox.dataset.filterType), function(li) {
+│ │                      li.gtypefiltered = gtypefiltered;
+│ │                  });
+│ │ @@ -1548,17 +1581,19 @@
+│ │  initialize();
+│ │  
+│ │  function initialize() {
+│ │      // initialize2 calls getPlatformInfo via get_crx_url or showAdvancedOpener.
+│ │      // When getPlatformInfoAsync is called first, more accurate information may
+│ │      // be returned by getPlatformInfo(), so do that now.
+│ │      getPlatformInfoAsync(initialize2);
+│ │ +    //#if CHROME
+│ │      // TODO: Remove sometime in the future. This removes obsolete data that
+│ │      // was stored by an older version of the chrome-platform-info.js file.
+│ │      localStorage.removeItem('platformInfo');
+│ │ +    //#endif
+│ │  }
+│ │  
+│ │  function initialize2() {
+│ │      if (getParam('noview')) {
+│ │          showAdvancedOpener();
+│ │          return;
+│ │      }
+│ │ @@ -1682,15 +1717,19 @@
+│ │                  if (amoslug) {
+│ │                      amoOptions.querySelector('input[name="amoslugorid"]').value = amoslug;
+│ │                  }
+│ │                  amoOptions.classList.remove('disabled-site');
+│ │              } else {
+│ │                  amoOptions.classList.add('disabled-site');
+│ │              }
+│ │ -            reorderForms(maybeXpi);
+│ │ +            //#if FIREFOX
+│ │ +            reorderForms(maybeXpi || !maybeCrx);
+│ │ +            //#else
+│ │ +            //          reorderForms(maybeXpi);
+│ │ +            //#endif
+│ │              return;
+│ │          }
+│ │  
+│ │          function setOptionFromUrl(key) {
+│ │              var prev = getCwsOption(key);
+│ │              var next = getParam(key, urlInput.value);
+│ │              if (next && prev !== next) {
+│ │ @@ -1984,17 +2023,21 @@
+│ │  }
+│ │  
+│ │  function appendFileChooser() {
+│ │      var progressDiv = document.getElementById('initial-status');
+│ │      progressDiv.hidden = false;
+│ │      progressDiv.insertAdjacentHTML('beforeend',
+│ │          '<br><br>' +
+│ │ +        //#if !WEB
+│ │          'Visit the Chrome Web Store, Opera\'s or Firefox\'s add-on gallery<br>' +
+│ │          'and click on the CRX button to view its source.' +
+│ │          '<br><br>Or select a .crx/.nex/.xpi/.zip file:' +
+│ │ +        //#else
+│ │ +        'Select a .crx/.nex/.xpi/.zip file:' +
+│ │ +        //#endif
+│ │          '<br><br>');
+│ │      var fileChooser = document.createElement('input');
+│ │      fileChooser.type = 'file';
+│ │      fileChooser.onchange = function() {
+│ │          var file = fileChooser.files[0];
+│ │          if (file) openCRXinViewer('', file.name, file);
+│ │      };
+│ │ @@ -2063,14 +2106,20 @@
+│ │      progressDiv.hidden = false;
+│ │      progressDiv.textContent = 'Loading ' + human_readable_name;
+│ │  
+│ │      var requestUrl = get_equivalent_download_url(url);
+│ │      try {
+│ │          var x = new XMLHttpRequest();
+│ │          x.open('GET', requestUrl);
+│ │ +        //#if OPERA
+│ │ +        // Required for access to addons.opera.com, see get_equivalent_download_url
+│ │ +        if (requestUrl.startsWith('https://cors-anywhere.herokuapp.com/')) {
+│ │ +            x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+│ │ +        }
+│ │ +        //#endif
+│ │          x.responseType = 'blob';
+│ │          x.onerror = function() {
+│ │              onHasNoBlob('Network error for ' + url);
+│ │          };
+│ │          x.onload = function() {
+│ │              if (x.status >= 400) {
+│ │                  onHasNoBlob('Failed to load ' + url + '. Server responded with ' + x.status + ' ' + x.statusText);
+│ │ @@ -2104,25 +2153,30 @@
+│ │  
+│ │      if (is_not_crx_url(crx_url)) {
+│ │          // If it is certainly not expected to be a CRX, don't try to load as a CRX.
+│ │          // Otherwise the user may be confused if they see CRX-specific errors.
+│ │          loadNonCrxUrlInViewer(crx_url, crx_url, onHasBlob, function(err) {
+│ │              progressDiv.textContent = err;
+│ │              appendFileChooser();
+│ │ +            //#if CHROME
+│ │              maybeShowPermissionRequest();
+│ │ +            //#endif
+│ │          });
+│ │          return;
+│ │      }
+│ │  
+│ │      openCRXasZip(crx_url, onHasBlob, function(error_message) {
+│ │          progressDiv.textContent = error_message;
+│ │          appendFileChooser();
+│ │ +        //#if CHROME
+│ │          maybeShowPermissionRequest();
+│ │ +        //#endif
+│ │      }, progressEventHandler);
+│ │  
+│ │ +    //#if CHROME
+│ │      function maybeShowPermissionRequest() {
+│ │          var permission = {
+│ │              origins: ['*://*/*']
+│ │          };
+│ │          chrome.permissions.contains(permission, function(hasAccess) {
+│ │              if (hasAccess) return;
+│ │              var grantAccess = document.createElement('button');
+│ │ @@ -2139,15 +2193,15 @@
+│ │                  'This permission can be revoked at any time at the ' +
+│ │                  '<a href="/options.html" target="_blank">options page</a>.<br><br>'
+│ │              );
+│ │              grantAccess.textContent = 'Add permission';
+│ │              progressDiv.appendChild(grantAccess);
+│ │          });
+│ │      }
+│ │ -
+│ │ +    //#endif
+│ │      function progressEventHandler(xhrProgressEvent) {
+│ │          if (xhrProgressEvent.lengthComputable) {
+│ │              var loaded = xhrProgressEvent.loaded;
+│ │              var total = xhrProgressEvent.total;
+│ │              progressDiv.textContent = 'Loading ' + crx_url;
+│ │              progressDiv.insertAdjacentHTML('beforeend', '<br><br>' +
+│ │                  (formatByteSize(loaded) + ' / ' + formatByteSize(total)) + '<br>' +
+│ │ @@ -2242,8 +2296,22 @@
+│ │      var sha256sum = CryptoJS.SHA256(CryptoJS.enc.Latin1.parse(key)).toString();
+│ │      var extensionId = '';
+│ │      var ord_a = 'a'.charCodeAt(0);
+│ │      for (var i = 0; i < 32; ++i) {
+│ │          extensionId += String.fromCharCode(parseInt(sha256sum[i], 16) + ord_a);
+│ │      }
+│ │      return extensionId;
+│ │ -}
+│ │ +}
+│ │ +//#if FIREFOX
+│ │ +document.addEventListener('click', function(event) {
+│ │ +    if (event.button !== 0) return;
+│ │ +    var a = event.target.closest('a');
+│ │ +    if (!a || a.protocol !== 'blob:') return;
+│ │ +    // Work-around for https://bugzil.la/1420419
+│ │ +    if (!/Firefox\/5\d\./.test(navigator.userAgent)) return; // Fixed in Firefox 59
+│ │ +    event.preventDefault();
+│ │ +    chrome.downloads.download({
+│ │ +        url: a.href,
+│ │ +        filename: a.download,
+│ │ +    });
+│ │ +});
+│ │ +//#endif
+│   --- /workspace/pipeline_output/chromex_data/cws_pattern.js
+├── +++ /workspace/pipeline_output/crxviewer/src/cws_pattern.js
+│ ├── js-beautify {}
+│ │ @@ -142,23 +142,27 @@
+│ │      var platformInfo = getPlatformInfo();
+│ │  
+│ │      // Omitting this value is allowed, but add it just in case.
+│ │      // Source: https://cs.chromium.org/file:update_query_params.cc%20GetProdIdString
+│ │      var product_id = isChromeNotChromium() ? 'chromecrx' : 'chromiumcrx';
+│ │      // Channel is "unknown" on Chromium on ArchLinux, so using "unknown" will probably be fine for everyone.
+│ │      var product_channel = 'unknown';
+│ │ -    // As of July, the Chrome Web Store sends 204 responses to user agents when their
+│ │ +    // As of July 2014, the Chrome Web Store sends 204 responses to user agents when their
+│ │      // Chrome/Chromium version is older than version 31.0.1609.0
+│ │ +    // As of December 2024, the CWS sends 204 responses to Chrome <88.
+│ │      var product_version = '9999.0.9999.0';
+│ │      // Try to detect the Chrome version, and if it is lower than 31.0.1609.0, use a very high version.
+│ │      // $1 = m.0.r.p  // major.minor.revision.patch where minor is always 0 for some reason.
+│ │      // $2 = m
+│ │      // $3 =     r
+│ │ +    // NOTE: r is always 0 since Chrome 101 due to the User-Agent String Reduction efforts,
+│ │ +    // per https://www.chromium.org/updates/ua-reduction/
+│ │ +    // and https://blog.chromium.org/2021/05/update-on-user-agent-string-reduction.html
+│ │      var cr_version = /Chrome\/((\d+)\.0\.(\d+)\.\d+)/.exec(navigator.userAgent);
+│ │ -    if (cr_version && +cr_version[2] >= 31 && +cr_version[3] >= 1609) {
+│ │ +    if (cr_version && +cr_version[2] >= 88) {
+│ │          product_version = cr_version[1];
+│ │      }
+│ │  
+│ │      url = 'https://clients2.google.com/service/update2/crx?response=redirect';
+│ │      url += '&os=' + platformInfo.os;
+│ │      url += '&arch=' + platformInfo.arch;
+│ │      url += '&os_arch=' + platformInfo.arch; // crbug.com/709147 - should be archName of chrome.system.cpu.getInfo
+│ │ @@ -258,14 +262,33 @@
+│ │  }
+│ │  
+│ │  // Some environments enforce restrictions on the URLs that can be accessed.
+│ │  // This function rewrites the input URL to one that should serve exactly the
+│ │  // same result as the requested URL, sans restrictions.
+│ │  function get_equivalent_download_url(url) {
+│ │      var requestUrl = url;
+│ │ +    //#if WEB
+│ │ +    if (/^https?:/.test(url) && !is_cors_enabled_download_url(url)) {
+│ │ +        // Proxy request through CORS Anywhere.
+│ │ +        requestUrl = 'https://cors-anywhere.herokuapp.com/' + url;
+│ │ +    }
+│ │ +    //#endif
+│ │ +    //#if OPERA
+│ │ +    // Opera blocks access to addons.opera.com. Let's bypass this restriction.
+│ │ +    // Unfortunately, there is no way to retrieve the .crx file in an ordinary way.
+│ │ +    // If given the extension ID, it is possible to fetch
+│ │ +    // "https://extension-updates.opera.com/api/omaha/update/?[see get_crx_url for params]"
+│ │ +    // but using the following x param instead:
+│ │ +    // "&x=id%3D[extensionID]%26v%3D[old version, e.g. 0]%26installedby%3Dinternal"
+│ │ +    // and then download the crx from https://addons-extensions.operacdn.com/media/direct/*/*/*.crx
+│ │ +    // ... but we are given the slug of the store listing, not the extension ID, so we cannot use this.
+│ │ +    if (ows_download_pattern.test(url)) {
+│ │ +        requestUrl = 'https://cors-anywhere.herokuapp.com/' + url;
+│ │ +    }
+│ │ +    //#endif
+│ │      return requestUrl;
+│ │  }
+│ │  
+│ │  // Whether the URL is supported by crxviewer (used in the popup).
+│ │  function can_viewsource_crx_url(url) {
+│ │      return is_crx_download_url(url) || is_webstore_url(url);
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/icons
+├── +++ /workspace/pipeline_output/crxviewer/src/icons
+│ ├── file list
+│ │ @@ -1,5 +1,6 @@
+│ │  128.png
+│ │  16.png
+│ │  19.png
+│ │  38.png
+│ │ +48.png
+│ │ +icon.svg
+│ │ -48.png
+│   --- /workspace/pipeline_output/chromex_data/lib
+├── +++ /workspace/pipeline_output/crxviewer/src/lib
+│ │   --- /workspace/pipeline_output/chromex_data/lib/crx-to-zip.js
+│ ├── +++ /workspace/pipeline_output/crxviewer/src/lib/crx-to-zip.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -263,14 +263,20 @@
+│ │ │      fr.readAsArrayBuffer(blob);
+│ │ │  }
+│ │ │  
+│ │ │  function openCRXasZip_url(url, callback, errCallback, xhrProgressListener) {
+│ │ │      var requestUrl = get_equivalent_download_url(url);
+│ │ │      var x = new XMLHttpRequest();
+│ │ │      x.open('GET', requestUrl);
+│ │ │ +    //#if OPERA
+│ │ │ +    // Required for access to addons.opera.com, see get_equivalent_download_url
+│ │ │ +    if (requestUrl.startsWith('https://cors-anywhere.herokuapp.com/')) {
+│ │ │ +        x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+│ │ │ +    }
+│ │ │ +    //#endif
+│ │ │      x.responseType = 'arraybuffer';
+│ │ │      x.onprogress = xhrProgressListener;
+│ │ │      x.onload = function() {
+│ │ │          if (!x.response) {
+│ │ │              errCallback('Unexpected error: no response for ' + url);
+│ │ │              return;
+│ │ │          }
+│ │   --- /workspace/pipeline_output/chromex_data/lib/prettify
+│ ├── +++ /workspace/pipeline_output/crxviewer/src/lib/prettify
+│ │ ├── file list
+│ │ │ @@ -1,3 +1,6 @@
+│ │ │  prettify.css
+│ │ │  prism-source-extensions.js
+│ │ │ -prism.js
+│ │ │ +prism.js
+│ │ │ +test-prism-language-detect.js
+│ │ │ +test-prism-li-lines.js
+│ │ │ +test-prism-source-extensions.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/crxviewer/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -35,10 +35,9 @@
+│ │          "tabs",
+│ │          "storage",
+│ │          "contextMenus",
+│ │          "downloads",
+│ │          "declarativeContent"
+│ │      ],
+│ │      "short_name": "CRX Viewer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.7.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/mozcose.js
+├── +++ /workspace/pipeline_output/crxviewer/src/mozcose.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -166,8 +166,8 @@
+│  202f2f206b6964203d3e2044455220656e636f6465642062797465730a202020
+│  2020202020202020202020202072657475726e2076616c75653b0a2020202020
+│  202020202020207d0a20202020202020207d0a202020207d0a20202020746872
+│  6f77206e6577204572726f7228274365727469666963617465206e6f7420666f
+│  756e6427293b0a7d0a0a69662028747970656f66206d6f64756c6520213d3d20
+│  27756e646566696e65642729207b0a202020206d6f64756c652e6578706f7274
+│  73203d207b0a202020202020202070617273654d6f7a434f53452c0a20202020
+│ -7d3b0a7d0a0a
+│ +7d3b0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/crxviewer/src/options.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -44,22 +44,27 @@
+│  </label>
+│  <label>
+│      <input type="checkbox" disabled style="visibility:hidden"><!-- Just to align the text... -->
+│      Also add the menu item to URLs that match the following patterns:
+│      <textarea id="contextmenuPatterns"></textarea>
+│      <span id="contextmenuPatternsOutput"></span>
+│  </label>
+│ +<!--#if FIREFOX-->
+│ +<label id="pageaction-wrapper">
+│ +    <input type="checkbox" id="pageaction">
+│ +    Show a page action button in the location bar of extension installation pages.
+│ +</label>
+│ +<!--#endif-->
+│  <label>
+│      <a href="crxviewer.html">Open Viewer</a> - select a CRX / NEX / XPI / ZIP file to view its contents.
+│  </label>
+│  <footer>
+│      &copy; 2013 - 2023 Rob Wu &lt;rob@robwu.nl&gt;
+│      &bull; <a href="https://github.com/Rob--W/crxviewer">Source code on Github</a>
+│      &bull; <a href="https://chromewebstore.google.com/detail/chrome-extension-source-v/jifpbeccnghkjeaalbbjmodiffmgedin">Chrome Web Store listing</a>
+│      &bull; <a href="https://addons.opera.com/en/extensions/details/extension-source-viewer/">Opera addon listing</a>
+│      &bull; <a href="https://addons.mozilla.org/firefox/addon/crxviewer/">Firefox addon listing</a>
+│  </footer>
+│  <script src="storage-sync-polyfill.js"></script>
+│  <script src="options.js"></script>
+│  </body>
+│  </html>
+│ -
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/crxviewer/src/options.js
+│ ├── js-beautify {}
+│ │ @@ -53,18 +53,38 @@
+│ │          }
+│ │      });
+│ │  };
+│ │  
+│ │  storageArea.get({
+│ │      showContextMenu: true,
+│ │      contextmenuPatterns: [],
+│ │ +    //#if FIREFOX
+│ │ +    showPageAction: true,
+│ │ +    //#endif
+│ │  }, function(items) {
+│ │      document.getElementById('contextmenu').checked = items.showContextMenu;
+│ │      contextmenuPatternsInput.disabled = !items.showContextMenu;
+│ │      contextmenuPatternsInput.value = items.contextmenuPatterns.join('\n');
+│ │ +    //#if FIREFOX
+│ │ +    document.getElementById('pageaction').checked = items.showPageAction;
+│ │ +    //#endif
+│ │  });
+│ │  
+│ │ +//#if FIREFOX
+│ │ +document.getElementById('pageaction').onchange = function() {
+│ │ +    storageArea.set({
+│ │ +        showPageAction: this.checked
+│ │ +    });
+│ │ +};
+│ │ +
+│ │ +//// May change via bg-contextmenu.js when the user toggles the option via the context menu.
+│ │ +chrome.storage.onChanged.addListener(function(items) {
+│ │ +    if (items.showPageAction) {
+│ │ +        document.getElementById('pageaction').checked = items.showPageAction.newValue;
+│ │ +    }
+│ │ +});
+│ │ +//#endif
+│ │  
+│ │  if (location.hash !== '#optionsV2') {
+│ │      // A normal options page, open links in the same tab.
+│ │      document.querySelector('base').remove();
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/crxviewer/src/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -33,15 +33,20 @@
+│  </head>
+│  <body>
+│  <button id="download" title="Download extension in zip format">
+│      <span class="idle">Download as zip</span>
+│      <span class="busy">Downloading...</span>
+│  </button>
+│  <button id="view-source" title="View source of extension in a new tab">View source</button>
+│ +<!--#if OPERA-->
+│ +<button id="install-as-nex" title="install the extension">Install</button>
+│ +<!--#endif-->
+│ +<!--#if FIREFOX-->
+│ +<script src="domain-fronter.js"></script>
+│ +<!--#endif-->
+│  <script src="lib/sha256.js"></script>
+│  <script src="lib/crx-to-zip.js"></script>
+│  <script src="chrome-platform-info.js"></script>
+│  <script src="cws_pattern.js"></script>
+│  <script src="popup.js"></script>
+│  </body>
+│  </html>
+│ -
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/crxviewer/src/popup.js
+│ ├── js-beautify {}
+│ │ @@ -33,15 +33,19 @@
+│ │          currentWindow: true
+│ │      }, function(tabs) {
+│ │          cws_url = tabs[0].url;
+│ │          // Note: Assuming getPlatformInfoAsync() to have resolved first.
+│ │          crx_url = get_crx_url(cws_url);
+│ │          filename = get_zip_name(crx_url);
+│ │          if (!can_viewsource_crx_url(crx_url)) {
+│ │ +            //#if FIREFOX
+│ │ +            chrome.pageAction.hide(tabs[0].id);
+│ │ +            //#else
+│ │              chrome.action.disable(tabs[0].id);
+│ │ +            //#endif
+│ │              window.close();
+│ │              return;
+│ │          }
+│ │          ready();
+│ │          if (storageIsReady) {
+│ │              ready2();
+│ │          }
+│ │ @@ -56,14 +60,17 @@
+│ │          }
+│ │      });
+│ │  }
+│ │  
+│ │  function ready() {
+│ │      document.getElementById('download').onclick = doDownload;
+│ │      document.getElementById('view-source').onclick = doViewSource;
+│ │ +    //#if OPERA
+│ │ +    document.getElementById('install-as-nex').onclick = doInstall;
+│ │ +    //#endif
+│ │      // When the settings have been read, ready2 will run to finish.
+│ │  }
+│ │  
+│ │  function ready2() {
+│ │      if (gActionClickAction == 'popup') {
+│ │          // Default action is keeping this popup open.
+│ │          // Nothing else left to do.
+│ │ @@ -101,14 +108,17 @@
+│ │              url: chrome.runtime.getURL('crxviewer.html') +
+│ │                  '?' + encodeQueryString({
+│ │                      crx: crx_url,
+│ │                      zipname: filename
+│ │                  }),
+│ │              active: true,
+│ │              index: tabs && tabs.length ? tabs[0].index + 1 : undefined,
+│ │ +            //#if FIREFOX
+│ │ +            cookieStoreId: tabs && tabs[0] && tabs[0].cookieStoreId,
+│ │ +            //#endif
+│ │          }, function() {
+│ │              window.close();
+│ │          });
+│ │      });
+│ │  }
+│ │  
+│ │  function onXHRprogress(progressContainer, xhrProgressEvent) {
+│ │ @@ -120,17 +130,66 @@
+│ │      if (xhrProgressEvent.lengthComputable) {
+│ │          progressBar.max = xhrProgressEvent.total;
+│ │          progressBar.value = xhrProgressEvent.loaded;
+│ │      } else {
+│ │          progressBar.removeAttribute('value');
+│ │      }
+│ │  }
+│ │ +//#if OPERA
+│ │ +var hasDownloadedCRX = false;
+│ │ +
+│ │ +function doInstall() {
+│ │ +    var filename_nex = filename.replace(/\.zip$/, '.nex');
+│ │ +
+│ │ +    if (hasDownloadedCRX) {
+│ │ +        console.log('Download is pending.');
+│ │ +        return;
+│ │ +    }
+│ │ +    var x = new XMLHttpRequest();
+│ │ +    x.open('GET', crx_url);
+│ │ +    x.responseType = 'blob';
+│ │ +    x.onprogress = onXHRprogress.bind(null, document.getElementById('install-as-nex'));
+│ │ +    x.onload = function() {
+│ │ +        var blob = x.response;
+│ │ +        if (!blob) {
+│ │ +            hasDownloadedCRX = false;
+│ │ +            alert('Unexpected error: no response for ' + crx_url);
+│ │ +            return;
+│ │ +        }
+│ │ +        if (blob.type !== 'application/x-navigator-extension' ||
+│ │ +            blob.type !== 'application/x-chrome-extension') {
+│ │ +            blob = new Blob([blob], {
+│ │ +                type: 'application/x-navigator-extension'
+│ │ +            });
+│ │ +        }
+│ │ +        tryTriggerDownload(blob, filename_nex);
+│ │ +    };
+│ │ +    x.onerror = function() {
+│ │ +        hasDownloadedCRX = false;
+│ │ +        alert('Network error for ' + crx_url);
+│ │ +    };
+│ │ +    x.onabort = function() {
+│ │ +        hasDownloadedCRX = false;
+│ │ +    };
+│ │ +    x.send();
+│ │ +    hasDownloadedCRX = true;
+│ │ +}
+│ │ +//#endif
+│ │  
+│ │  function tryTriggerDownload(blob, filename) {
+│ │      chrome.downloads.download({
+│ │          url: URL.createObjectURL(blob),
+│ │          filename: filename
+│ │      }, function() {
+│ │ +        //#if FIREFOX
+│ │ +        // In Firefox, closing too soon may prevent the download from completing
+│ │ +        // due to blob:-URL invalidation. So wait a little bit before actually
+│ │ +        // closing the popup.
+│ │ +        setTimeout(function() {
+│ │ +            window.close();
+│ │ +        }, 200);
+│ │ +        //#else
+│ │          // The popup should have closed already, but if not, do it now.
+│ │          window.close();
+│ │ +        //#endif
+│ │      });
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/search-tools.js
+├── +++ /workspace/pipeline_output/crxviewer/src/search-tools.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -1079,8 +1079,8 @@
+│  202020202f2f2055707065722d6c656674206f662041412e0a20202020202020
+│  2020202020275a272c0a20202020202020205d2e6a6f696e28272027293b0a0a
+│  2020202020202020636f6e7374204e535f535647203d2027687474703a2f2f77
+│  77772e77332e6f72672f323030302f737667273b0a20202020202020206c6574
+│  2070617468203d20646f63756d656e742e637265617465456c656d656e744e53
+│  284e535f5356472c20277061746827293b0a2020202020202020706174682e73
+│  6574417474726962757465282764272c2064293b0a2020202020202020726574
+│ -75726e20706174683b0a202020207d0a7d0a0a
+│ +75726e20706174683b0a202020207d0a7d0a
+│   --- /workspace/pipeline_output/chromex_data/search-worker.js
+├── +++ /workspace/pipeline_output/crxviewer/src/search-worker.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -263,8 +263,8 @@
+│  616765287b0a2020202020202020666f756e643a20746869732e666f756e642c
+│  0a20202020202020206e6f74666f756e643a20746869732e6e6f74666f756e64
+│  2c0a20202020202020207365617263685465726d3a20746869732e7365617263
+│  685465726d2c0a202020202020202072656d61696e696e673a20746869732e66
+│  696c656e616d65732e6c656e6774682c0a202020202020202071756572797469
+│  6d653a20746869732e717565727974696d652c0a202020207d293b0a20202020
+│  746869732e666f756e642e6c656e677468203d20303b0a20202020746869732e
+│ -6e6f74666f756e642e6c656e677468203d20303b0a7d3b0a0a
+│ +6e6f74666f756e642e6c656e677468203d20303b0a7d3b0a
+│   --- /workspace/pipeline_output/chromex_data/service_worker.js
+├── +++ /workspace/pipeline_output/crxviewer/src/service_worker.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -1,6 +1,6 @@
+│  2275736520737472696374223b0a2f2a20676c6f62616c7320696d706f727453
+│  637269707473202a2f0a0a696d706f727453637269707473280a202020202273
+│  746f726167652d73796e632d706f6c7966696c6c2e6a73222c0a202020202263
+│  68726f6d652d706c6174666f726d2d696e666f2e6a73222c0a20202020226377
+│  735f7061747465726e2e6a73222c0a20202020226261636b67726f756e642e6a
+│ -73222c0a202020202262672d636f6e746578746d656e752e6a73220a293b0a0a
+│ +73222c0a202020202262672d636f6e746578746d656e752e6a73220a293b0a
+│   --- /workspace/pipeline_output/chromex_data/storage-sync-polyfill.js
+├── +++ /workspace/pipeline_output/crxviewer/src/storage-sync-polyfill.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JavaScript source, ASCII text
+│ @@ -74,8 +74,8 @@
+│  2e72756e74696d652e6c6173744572726f7229207b0a20202020202020202020
+│  2020202020202020202073746f72616765417265614c6f63616c5b6d6574686f
+│  644e616d655d286974656d732c2063616c6c6261636b293b0a20202020202020
+│  2020202020202020207d20656c7365206966202863616c6c6261636b29207b0a
+│  202020202020202020202020202020202020202063616c6c6261636b2e617070
+│  6c79286e756c6c2c20617267756d656e7473293b0a2020202020202020202020
+│  20202020207d0a2020202020202020202020207d293b0a20202020202020207d
+│ -3b0a202020207d293b0a7d2928293b0a0a
+│ +3b0a202020207d293b0a7d2928293b0a

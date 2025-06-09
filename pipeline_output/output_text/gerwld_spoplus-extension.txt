@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/spoplus-extension/chromium
+├── file list
+│ @@ -1,10 +1,9 @@
+│  CONTRIBUTING.md
+│  LICENSE.md
+│  README.md
+│  SECURITY.md
+│  _locales
+│ -_metadata
+│  assets
+│  contents
+│  manifest.json
+│  package.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/spoplus-extension/chromium/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,15 +29,14 @@
+│ │          "128": "assets/icons/icon128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extensionName__",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.7.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

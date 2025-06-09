@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TabCarousel/src
+├── file list
+│ @@ -1,7 +1,5 @@
+│ -_metadata
+│ -background.min.js
+│  images
+│ +javascripts
+│  manifest.json
+│  onboarding.html
+│ -options.html
+│ -options.min.js
+│ +options.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TabCarousel/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "TabCarousel",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/yt-anti-translate/app
+├── file list
+│ @@ -1,5 +1,4 @@
+│ -_metadata
+│  icon48.png
+│  manifest.json
+│  pages
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/yt-anti-translate/app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,17 +42,17 @@
+│ │      "icons": {
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "YouTube Anti Translate",
+│ │      "options_page": "pages/popup.html",
+│ │      "permissions": [
+│ │ -        "storage"
+│ │ +        "storage",
+│ │ +        "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.18.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.youtube.com/*"
+│ │              ],
+│ │              "resources": [

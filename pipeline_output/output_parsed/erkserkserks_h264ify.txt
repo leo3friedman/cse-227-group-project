@@ -1,0 +1,31 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/h264ify
+  - files: _metadata
+  + files: .git, LICENSE, README.md, noncode, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/_locales/cs/messages.json <-> +++/workspace/pipeline_output/h264ify/_locales/cs/messages.json; File type: json
+  - Original: 1–15
+  + Modified: 1–14
+
+---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/h264ify/_locales/en/messages.json; File type: json
+  - Original: 1–15
+  + Modified: 1–14
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/h264ify/manifest.json; File type: json
+  - Original: 51–51 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/h264ify/options.js; File type: js
+  - Original: 1–38
+  + Modified: 1–38
+
+---/workspace/pipeline_output/chromex_data/src/inject/content_script.js <-> +++/workspace/pipeline_output/h264ify/src/inject/content_script.js; File type: js
+  - Original: 1–54
+  + Modified: 1–54
+
+---/workspace/pipeline_output/chromex_data/src/inject/inject.js <-> +++/workspace/pipeline_output/h264ify/src/inject/inject.js; File type: js
+  - Original: 1–76
+  + Modified: 1–76
+
+---/workspace/pipeline_output/chromex_data/src/service_worker.js <-> +++/workspace/pipeline_output/h264ify/src/service_worker.js; File type: js
+  - Original: 1–23
+  + Modified: 1–23
+

@@ -1,0 +1,350 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer
+├── file list
+│ @@ -1,10 +1,14 @@
+│ +.git
+│ +README.md
+│  _locales
+│ -_metadata
+│  content.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│ -style.css
+│ +style.css
+│ +style.css.map
+│ +style.scss
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,10 +1,14 @@
+│ │ │ -7b226465736372697074696f6e223a7b226d657373616765223a224175746f2d
+│ │ │ -636c61696d696e6720626f6e7573206368616e6e656c20706f696e7473206f6e
+│ │ │ -207477697463682e74762077697468207265636f72642074726163696e672066
+│ │ │ -756e6374696f6e2e227d2c226368616e6e656c223a7b226d657373616765223a
+│ │ │ -224368616e6e656c227d2c22636c61696d6564636f756e74223a7b226d657373
+│ │ │ -616765223a22436c61696d656420436f756e742028506f696e747329227d2c22
+│ │ │ -636c6561727265636f7264223a7b226d657373616765223a22436c6561722052
+│ │ │ -65636f726473227d2c22636c656172223a7b226d657373616765223a22436c65
+│ │ │ -6172227d2c22636c656172616c6c223a7b226d657373616765223a22436c6561
+│ │ │ -7220416c6c227d7d
+│ │ │ +7b0d0a20202020226465736372697074696f6e223a7b0d0a2020202020202020
+│ │ │ +226d657373616765223a20224175746f2d636c61696d696e6720626f6e757320
+│ │ │ +6368616e6e656c20706f696e7473206f6e207477697463682e74762077697468
+│ │ │ +207265636f72642074726163696e672066756e6374696f6e2e220d0a20202020
+│ │ │ +7d2c0d0a20202020226368616e6e656c223a7b0d0a2020202020202020226d65
+│ │ │ +7373616765223a20224368616e6e656c220d0a202020207d2c0d0a2020202022
+│ │ │ +636c61696d6564636f756e74223a7b0d0a2020202020202020226d6573736167
+│ │ │ +65223a2022436c61696d656420436f756e742028506f696e747329220d0a2020
+│ │ │ +20207d2c0d0a2020202022636c6561727265636f7264223a7b0d0a2020202020
+│ │ │ +202020226d657373616765223a2022436c656172205265636f726473220d0a20
+│ │ │ +2020207d2c0d0a2020202022636c656172223a7b0d0a2020202020202020226d
+│ │ │ +657373616765223a2022436c656172220d0a202020207d2c0d0a202020202263
+│ │ │ +6c656172616c6c223a7b0d0a2020202020202020226d657373616765223a2022
+│ │ │ +436c65617220416c6c220d0a202020207d0d0a7d
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_TW
+│ ├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/_locales/zh_TW
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/zh_TW/messages.json
+│ │ ├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/_locales/zh_TW/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,11 +1,15 @@
+│ │ │ -7b226465736372697074696f6e223a7b226d657373616765223a22e887aae58b
+│ │ │ -95e9a098e58f967477697463682e7476e79a84e3808ce789b9e6ae8ae9a18de5
+│ │ │ -a496e78d8ee58bb5e3808d3530e9bb9ee5bfa0e8aaa0e9bb9ee695b8efbc8ce9
+│ │ │ -8284e58fafe4bba5e5b9abe4bda0e8a898e98c84e9a098e58f96e4ba86e5a49a
+│ │ │ -e5b091e9bb9ee593a6efbc81227d2c226368616e6e656c223a7b226d65737361
+│ │ │ -6765223a22e9a0bbe98193227d2c22636c61696d6564636f756e74223a7b226d
+│ │ │ -657373616765223a22e9a098e58f96e6aca1e695b82028e9bb9ee695b829227d
+│ │ │ -2c22636c6561727265636f7264223a7b226d657373616765223a22e6b885e999
+│ │ │ -a4e8a898e98c84227d2c22636c656172223a7b226d657373616765223a22e6b8
+│ │ │ -85e999a4227d2c22636c656172616c6c223a7b226d657373616765223a22e585
+│ │ │ -a8e983a8e6b885e999a4227d7d
+│ │ │ +7b0d0a20202020226465736372697074696f6e223a7b0d0a2020202020202020
+│ │ │ +226d657373616765223a2022e887aae58b95e9a098e58f967477697463682e74
+│ │ │ +76e79a84e3808ce789b9e6ae8ae9a18de5a496e78d8ee58bb5e3808d3530e9bb
+│ │ │ +9ee5bfa0e8aaa0e9bb9ee695b8efbc8ce98284e58fafe4bba5e5b9abe4bda0e8
+│ │ │ +a898e98c84e9a098e58f96e4ba86e5a49ae5b091e9bb9ee593a6efbc81220d0a
+│ │ │ +202020207d2c0d0a20202020226368616e6e656c223a7b0d0a20202020202020
+│ │ │ +20226d657373616765223a2022e9a0bbe98193220d0a202020207d2c0d0a2020
+│ │ │ +202022636c61696d6564636f756e74223a7b0d0a2020202020202020226d6573
+│ │ │ +73616765223a2022e9a098e58f96e6aca1e695b82028e9bb9ee695b829220d0a
+│ │ │ +202020207d2c0d0a2020202022636c6561727265636f7264223a7b0d0a202020
+│ │ │ +2020202020226d657373616765223a2022e6b885e999a4e8a898e98c84220d0a
+│ │ │ +202020207d2c0d0a2020202022636c656172223a7b0d0a202020202020202022
+│ │ │ +6d657373616765223a2022e6b885e999a4220d0a202020207d2c0d0a20202020
+│ │ │ +22636c656172616c6c223a7b0d0a2020202020202020226d657373616765223a
+│ │ │ +2022e585a8e983a8e6b885e999a4220d0a202020207d0d0a7d
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/content.js
+│ ├── js-beautify {}
+│ │ @@ -1,19 +1,64 @@
+│ │ -const excludeUrl = [, /.*:\/\/dashboard\.twitch\.tv.*/, /.*:\/\/.*\.twitch\.tv\/settings\/.*/];
+│ │ -setInterval(() => {
+│ │ -    if (excludeUrl.some(a => window.location.href.match(a))) return;
+│ │ -    let a = document.querySelector(".ScCoreButtonSuccess-sc-1qn4ixc-5") || document.querySelector(".VGQNd") || document.querySelector(".claimable-bonus__icon")?.parentElement?.parentElement?.parentElement || getButtonByArielLabel();
+│ │ -    if (!a) return;
+│ │ -    "BUTTON" != a.nodeName && (a = getButtonByArielLabel()), a.click();
+│ │ -    let b = window.location.pathname.match(/(?<=\/).+?(?=\/|$)/)[0];
+│ │ -    chrome.storage.local.get("tcpacObj", a => {
+│ │ -        let c = a.tcpacObj ?? {};
+│ │ -        c[b] = (c[b] ?? 0) + 1, chrome.storage.local.set({
+│ │ -            tcpacObj: c
+│ │ -        }, () => {})
+│ │ -    })
+│ │ -}, 2e3);
+│ │ -
+│ │ -function getButtonByArielLabel() {
+│ │ -    let a = null;
+│ │ -    return ["Claim Bonus", "F\xE5 bonus", "Bonus einfordern", "Reclamar bonificaci\xF3n", "Reclamar bono", "R\xE9cup\xE9rer un bonus", "Riscatta bonus", "B\xF3nusz ig\xE9nyl\xE9se", "Bonus claimen", "Motta bonus", "Odbierz bonus", "Receber b\xF3nus", "Resgatar B\xF4nus", "Ob\u021Bine bonusul", "Vyzdvihn\xFA\u0165 bonus", "Lunasta bonus", "H\xE4mta bonus", "Nh\u1EADn th\u01B0\u1EDFng", "Bonusu al", "Vyzvednout bonus", "\u0394\u03B9\u03B5\u03BA\u03B4\u03AF\u03BA\u03B7\u03C3\u03B7 \u03BC\u03C0\u03CC\u03BD\u03BF\u03C5\u03C2", "\u041F\u043E\u043B\u0443\u0447\u0430\u0432\u0430\u043D\u0435 \u043D\u0430 \u0431\u043E\u043D\u0443\u0441", "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0431\u043E\u043D\u0443\u0441", "\u0E40\u0E04\u0E25\u0E21\u0E42\u0E1A\u0E19\u0E31\u0E2A", "\u9886\u53D6\u5956\u52B1", "\u9818\u53D6\u984D\u5916\u734E\u52F5", "\u30DC\u30FC\u30CA\u30B9\u3092\u53D7\u3051\u53D6\u308B", "\uBCF4\uB108\uC2A4 \uBC1B\uAE30"].some(b => !!document.querySelector(`[aria-label="${b}"]`) && (a = document.querySelector(`[aria-label="${b}"]`), !0)), a
+│ │ +const excludeUrl = [,
+│ │ +    /.*:\/\/dashboard\.twitch\.tv.*/,
+│ │ +    /.*:\/\/.*\.twitch\.tv\/settings\/.*/,
+│ │ +]
+│ │ +
+│ │ +setInterval(() => {
+│ │ +    if (excludeUrl.some(url => window.location.href.match(url)))
+│ │ +        return
+│ │ +    let button = document.querySelector('.ScCoreButtonSuccess-sc-1qn4ixc-5') || document.querySelector('.VGQNd') || document.querySelector('.claimable-bonus__icon')?.parentElement?.parentElement?.parentElement || getButtonByArielLabel()
+│ │ +    if (!button)
+│ │ +        return
+│ │ +    if (button.nodeName != 'BUTTON')
+│ │ +        button = getButtonByArielLabel()
+│ │ +    button.click()
+│ │ +    let address = (window.location.pathname.match(/(?<=\/).+?(?=\/|$)/))[0]
+│ │ +    chrome.storage.local.get('tcpacObj', result => {
+│ │ +        let tcpacObj = result.tcpacObj ?? {}
+│ │ +        tcpacObj[address] = (tcpacObj[address] ?? 0) + 1
+│ │ +        chrome.storage.local.set({
+│ │ +            tcpacObj: tcpacObj
+│ │ +        }, () => {})
+│ │ +    })
+│ │ +}, 2000)
+│ │ +
+│ │ +function getButtonByArielLabel() {
+│ │ +    const arr = [
+│ │ +        "Claim Bonus",
+│ │ +        "Få bonus",
+│ │ +        "Bonus einfordern",
+│ │ +        "Reclamar bonificación",
+│ │ +        "Reclamar bono",
+│ │ +        "Récupérer un bonus",
+│ │ +        "Riscatta bonus",
+│ │ +        "Bónusz igénylése",
+│ │ +        "Bonus claimen",
+│ │ +        "Motta bonus",
+│ │ +        "Odbierz bonus",
+│ │ +        "Receber bónus",
+│ │ +        "Resgatar Bônus",
+│ │ +        "Obține bonusul",
+│ │ +        "Vyzdvihnúť bonus",
+│ │ +        "Lunasta bonus",
+│ │ +        "Hämta bonus",
+│ │ +        "Nhận thưởng",
+│ │ +        "Bonusu al",
+│ │ +        "Vyzvednout bonus",
+│ │ +        "Διεκδίκηση μπόνους",
+│ │ +        "Получаване на бонус",
+│ │ +        "Получить бонус",
+│ │ +        "เคลมโบนัส",
+│ │ +        "领取奖励",
+│ │ +        "領取額外獎勵",
+│ │ +        "ボーナスを受け取る",
+│ │ +        "보너스 받기"
+│ │ +    ]
+│ │ +    let buttonElement = null
+│ │ +    arr.some(labelText => {
+│ │ +        if (!document.querySelector(`[aria-label="${labelText}"]`))
+│ │ +            return false
+│ │ +        buttonElement = document.querySelector(`[aria-label="${labelText}"]`)
+│ │ +        return true
+│ │ +    })
+│ │ +    return buttonElement
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -21,10 +21,9 @@
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Twitch Channel Point Auto Claimer",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/popup.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1 +1,20 @@
+│ -<!DOCTYPE html><html lang="en"><head> <meta charset="UTF-8"> <link rel="stylesheet" href="style.css"></head><body> <div class="headerH1Box"> <h1>Twitch Channel Point Auto Claimer</h1> </div><div id="tcpacDisplayDiv"></div><div id="creditDiv"> <p>Made by <a href="https://github.com/barryyik" target="_blank">Barry Yik</a></p></div><script src="popup.js"></script></body></html>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +<head>
+│ +    <meta charset="UTF-8">
+│ +    <link rel="stylesheet" href="style.css">
+│ +</head>
+│ +<body>
+│ +    <div class="headerH1Box">
+│ +        <h1>Twitch Channel Point Auto Claimer</h1>
+│ +    </div>
+│ +    
+│ +    <div id="tcpacDisplayDiv"></div>
+│ +
+│ +    <div id="creditDiv">
+│ +        <p>Made by <a href="https://github.com/barryyik" target="_blank">Barry Yik</a></p>
+│ +    </div>
+│ +    
+│ +    <script src="popup.js"></script>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/popup.js
+│ ├── js-beautify {}
+│ │ @@ -1,17 +1,32 @@
+│ │ -const initializeTable = () => {
+│ │ -    tcpacDisplayDiv.innerHTML = "", tcpacDisplayDiv.insertAdjacentHTML("afterbegin", `<table><tr id="tcpacTableRow0"><th>${chrome.i18n.getMessage("channel")}</th><th>${chrome.i18n.getMessage("claimedcount")}</th><th>${chrome.i18n.getMessage("clearrecord")}</th></tr><tr id='tcpacTableRowLast'><td></td><td></td><td><button  class='tcpacDelBtn' id='tcpacResetBtn'>${chrome.i18n.getMessage("clearall")}</button></td></tr></table>`), chrome.storage.local.get("tcpacObj", a => {
+│ │ -        let b = a.tcpacObj ?? {},
+│ │ -            c = document.getElementById("tcpacTableRowLast");
+│ │ -        if (0 == Object.keys(b).length) return c.insertAdjacentHTML("beforebegin", `<tr id='tcpacTableRow1'><td>N/A</td><td>N/A</td><td>N/A</td></tr>`);
+│ │ -        for (var d in b) c.insertAdjacentHTML("beforebegin", `<tr id='tcpacTableRow${d}'><td><a id='tcpacTableKey${d}' href='https://www.twitch.tv/${d}' target='_blank'>${d}</a></td><td>${b[d]} (${50*b[d]})</td><td><button class='tcpacDelBtn' id='tcpacDelBtn${d}'>${chrome.i18n.getMessage("clear")}</button></td></tr>`)
+│ │ -    })
+│ │ -};
+│ │ -document.addEventListener("DOMContentLoaded", () => {
+│ │ -    const a = document.querySelector("#tcpacDisplayDiv");
+│ │ -    initializeTable(), document.querySelector("#creditDiv").insertAdjacentHTML("beforeend", `<p>(Version: ${chrome.runtime.getManifest().version})</p>`), a.addEventListener("click", a => "BUTTON" === a.target.nodeName ? "tcpacResetBtn" === a.target.id ? chrome.storage.local.remove("tcpacObj", () => initializeTable()) : void chrome.storage.local.get("tcpacObj", b => {
+│ │ -        let c = b.tcpacObj;
+│ │ -        delete c[a.target.id.substring(11)], chrome.storage.local.set({
+│ │ -            tcpacObj: c
+│ │ -        }, () => initializeTable())
+│ │ -    }) : void 0)
+│ │ -});
+│ │ +const initializeTable = () => {
+│ │ +    tcpacDisplayDiv.innerHTML = ""
+│ │ +    tcpacDisplayDiv.insertAdjacentHTML("afterbegin", `<table><tr id="tcpacTableRow0"><th>${chrome.i18n.getMessage("channel")}</th><th>${chrome.i18n.getMessage("claimedcount")}</th><th>${chrome.i18n.getMessage("clearrecord")}</th></tr><tr id='tcpacTableRowLast'><td></td><td></td><td><button  class='tcpacDelBtn' id='tcpacResetBtn'>${chrome.i18n.getMessage('clearall')}</button></td></tr></table>`)
+│ │ +    chrome.storage.local.get('tcpacObj', result => {
+│ │ +        let tcpacObj = result.tcpacObj ?? {},
+│ │ +            tableLastRow = document.getElementById('tcpacTableRowLast')
+│ │ +        if (Object.keys(tcpacObj).length == 0)
+│ │ +            return tableLastRow.insertAdjacentHTML("beforebegin", `<tr id='tcpacTableRow1'><td>N/A</td><td>N/A</td><td>N/A</td></tr>`)
+│ │ +        for (var key in tcpacObj) {
+│ │ +            tableLastRow.insertAdjacentHTML("beforebegin", `<tr id='tcpacTableRow${key}'><td><a id='tcpacTableKey${key}' href='https://www.twitch.tv/${key}' target='_blank'>${key}</a></td><td>${tcpacObj[key]} (${(tcpacObj[key]*50)})</td><td><button class='tcpacDelBtn' id='tcpacDelBtn${key}'>${chrome.i18n.getMessage('clear')}</button></td></tr>`)
+│ │ +        }
+│ │ +    })
+│ │ +}
+│ │ +
+│ │ +document.addEventListener('DOMContentLoaded', () => {
+│ │ +    const tcpacDisplayDiv = document.querySelector('#tcpacDisplayDiv')
+│ │ +    initializeTable()
+│ │ +    document.querySelector('#creditDiv').insertAdjacentHTML("beforeend", `<p>(Version: ${chrome.runtime.getManifest().version})</p>`)
+│ │ +    tcpacDisplayDiv.addEventListener("click", e => {
+│ │ +        if (e.target.nodeName !== 'BUTTON')
+│ │ +            return
+│ │ +        if (e.target.id === 'tcpacResetBtn')
+│ │ +            return chrome.storage.local.remove('tcpacObj', () => initializeTable())
+│ │ +        chrome.storage.local.get('tcpacObj', resultNew => {
+│ │ +            let tcpacObjNew = resultNew.tcpacObj
+│ │ +            delete tcpacObjNew[e.target.id.substring(11)]
+│ │ +            chrome.storage.local.set({
+│ │ +                tcpacObj: tcpacObjNew
+│ │ +            }, () => initializeTable())
+│ │ +        })
+│ │ +    })
+│ │ +})
+│   --- /workspace/pipeline_output/chromex_data/style.css
+├── +++ /workspace/pipeline_output/Twitch-Channel-Point-Auto-Claimer/style.css
+│ @@ -1 +1,82 @@
+│ -*{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:12px}body{width:400px;height:auto;margin:18px 10px;background-color:#fff}.headerH1Box{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;padding:10px 20px;margin:auto;background-color:#0a9;border-radius:10px}h1{font-size:16px;color:#fff;text-align:center}table{margin:20px auto 0;width:375px;border-collapse:collapse}tr{border-top:1px solid #aaa}td,th{line-height:20px;text-align:start;padding:5px 15px}th{padding:10px 15px;color:#fff;background-color:#777}button{padding:5px 12px;color:#fff;background-color:#07e;border:none;border-radius:5px;-webkit-transition:background-color .3s ease-out 0s;transition:background-color .3s ease-out 0s}button:hover{background-color:#5af}#creditDiv{margin:auto;text-align:center}a,a:visited{font-weight:700;text-decoration:none;color:#07e}a:hover{color:#5af}
+│ +* {
+│ +  margin: 0;
+│ +  padding: 0;
+│ +  -webkit-box-sizing: border-box;
+│ +          box-sizing: border-box;
+│ +  font-size: 12px;
+│ +}
+│ +
+│ +body {
+│ +  width: 400px;
+│ +  height: auto;
+│ +  margin: 18px 10px;
+│ +  background-color: #FFF;
+│ +}
+│ +
+│ +.headerH1Box {
+│ +  width: -webkit-fit-content;
+│ +  width: -moz-fit-content;
+│ +  width: fit-content;
+│ +  padding: 10px 20px;
+│ +  margin: auto;
+│ +  background-color: #0a9;
+│ +  border-radius: 10px;
+│ +}
+│ +
+│ +h1 {
+│ +  font-size: 16px;
+│ +  color: #FFF;
+│ +  text-align: center;
+│ +}
+│ +
+│ +table {
+│ +  margin: 20px auto 0px;
+│ +  width: 375px;
+│ +  border-collapse: collapse;
+│ +}
+│ +
+│ +tr {
+│ +  border-top: 1px solid #aaa;
+│ +}
+│ +
+│ +td, th {
+│ +  line-height: 20px;
+│ +  text-align: start;
+│ +  padding: 5px 15px;
+│ +}
+│ +
+│ +th {
+│ +  padding: 10px 15px;
+│ +  color: #fff;
+│ +  background-color: #777;
+│ +}
+│ +
+│ +button {
+│ +  padding: 5px 12px;
+│ +  color: #FFF;
+│ +  background-color: #07e;
+│ +  border: none;
+│ +  border-radius: 5px;
+│ +  -webkit-transition: background-color 0.3s ease-out 0s;
+│ +  transition: background-color 0.3s ease-out 0s;
+│ +}
+│ +
+│ +button:hover {
+│ +  background-color: #5af;
+│ +}
+│ +
+│ +#creditDiv {
+│ +  margin: auto;
+│ +  text-align: center;
+│ +}
+│ +
+│ +a, a:visited {
+│ +  font-weight: 700;
+│ +  text-decoration: none;
+│ +  color: #07e;
+│ +}
+│ +
+│ +a:hover {
+│ +  color: #5af;
+│ +}
+│ +/*# sourceMappingURL=style.css.map */

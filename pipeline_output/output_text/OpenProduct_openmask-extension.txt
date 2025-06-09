@@ -1,0 +1,41 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/openmask-extension/build
+├── file list
+│ @@ -1,18 +1,10 @@
+│ -_metadata
+│ -asset-manifest.json
+│ -background.js
+│ -background.js.LICENSE.txt
+│ -content.js
+│  fingerprint.svg
+│ -index.html
+│  ledger.png
+│  manifest.json
+│  openmask-logo-288.png
+│ -provider.js
+│  robots.txt
+│ -static
+│  tonmask-logo.svg
+│  tonmask-logo128.png
+│  tonmask-logo16.png
+│  tonmask-logo192.png
+│  tonmask-logo48.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/openmask-extension/build/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -32,15 +32,14 @@
+│ │          "proxy",
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "clipboardWrite",
+│ │          "activeTab"
+│ │      ],
+│ │      "short_name": "OpenMask",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.22.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "file://*/*",
+│ │                  "http://*/*",
+│ │                  "https://*/*"

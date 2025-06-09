@@ -1,0 +1,328 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/darkreader/src
+├── file list
+│ @@ -1,8 +1,17 @@
+│  _locales
+│ -_metadata
+│ +api
+│  background
+│  config
+│ +defaults.ts
+│ +definitions.d.ts
+│ +generators
+│  icons
+│  inject
+│ +manifest-chrome-mv3.json
+│ +manifest-firefox.json
+│ +manifest-thunderbird.json
+│  manifest.json
+│ -ui
+│ +stubs
+│ +tsconfig.json
+│ +ui
+│ +utils
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/darkreader/src/_locales
+│ ├── file list
+│ │ @@ -1,42 +1,42 @@
+│ │ +ar.config
+│ │ +be.config
+│ │ +bg.config
+│ │ +bn.config
+│ │ +cs.config
+│ │ +da-DK.config
+│ │ +de.config
+│ │ +el.config
+│ │ +en-GB.config
+│ │ +en-US.config
+│ │ +en.config
+│ │ +es-419.config
+│ │ +es.config
+│ │ +fa-IR.config
+│ │ +fa.config
+│ │ +fil.config
+│ │ +fr.config
+│ │ +he.config
+│ │ +hi.config
+│ │ +id.config
+│ │ +it.config
+│ │ +ja.config
+│ │ +ko.config
+│ │ +ms.config
+│ │ +nl.config
+│ │ +no.config
+│ │ +pl.config
+│ │ +pt-BR.config
+│ │ +pt-PT.config
+│ │ +ro.config
+│ │ +ru.config
+│ │ +si.config
+│ │ +sk.config
+│ │ +sr.config
+│ │ +sv.config
+│ │ +te.config
+│ │ +th.config
+│ │ +tr.config
+│ │ +uk.config
+│ │ +vi.config
+│ │ +zh-CN.config
+│ │ +zh-TW.config
+│ │ -ar
+│ │ -be
+│ │ -bg
+│ │ -bn
+│ │ -cs
+│ │ -da_DK
+│ │ -de
+│ │ -el
+│ │ -en
+│ │ -en_GB
+│ │ -en_US
+│ │ -es
+│ │ -es_419
+│ │ -fa
+│ │ -fa_IR
+│ │ -fil
+│ │ -fr
+│ │ -he
+│ │ -hi
+│ │ -id
+│ │ -it
+│ │ -ja
+│ │ -ko
+│ │ -ms
+│ │ -nl
+│ │ -no
+│ │ -pl
+│ │ -pt_BR
+│ │ -pt_PT
+│ │ -ro
+│ │ -ru
+│ │ -si
+│ │ -sk
+│ │ -sr
+│ │ -sv
+│ │ -te
+│ │ -th
+│ │ -tr
+│ │ -uk
+│ │ -vi
+│ │ -zh_CN
+│ │ -zh_TW
+│   --- /workspace/pipeline_output/chromex_data/background
+├── +++ /workspace/pipeline_output/darkreader/src/background
+│ ├── file list
+│ │ @@ -1 +1,15 @@
+│ │ +config-manager.ts
+│ │ +content-script-manager.ts
+│ │ +devtools.ts
+│ │ +extension.ts
+│ │ +icon-manager.ts
+│ │ +index.ts
+│ │ +make-chromium-happy.ts
+│ │ +make-firefox-happy.ts
+│ │ +messenger.ts
+│ │ +newsmaker.ts
+│ │ +tab-manager.ts
+│ │ +ui-highlights.ts
+│ │ +user-storage.ts
+│ │ +utils
+│ │ +window-theme.ts
+│ │ -index.js
+│   --- /workspace/pipeline_output/chromex_data/inject
+├── +++ /workspace/pipeline_output/darkreader/src/inject
+│ ├── file list
+│ │ @@ -1,4 +1,9 @@
+│ │ +cache.ts
+│ │ +color-scheme-watcher.ts
+│ │ +detector.ts
+│ │ +dynamic-theme
+│ │ +fallback.ts
+│ │ +index.ts
+│ │ +style.ts
+│ │ +svg-filter.ts
+│ │ +utils
+│ │ -color-scheme-watcher.js
+│ │ -fallback.js
+│ │ -index.js
+│ │ -proxy.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/darkreader/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,20 +1,21 @@
+│ │  {
+│ │ -    "action": {
+│ │ +    "author": "Alexander Shutau",
+│ │ +    "background": {
+│ │ +        "page": "background/index.html",
+│ │ +        "persistent": true
+│ │ +    },
+│ │ +    "browser_action": {
+│ │          "default_icon": {
+│ │              "19": "icons/dr_active_19.png",
+│ │              "38": "icons/dr_active_38.png"
+│ │          },
+│ │          "default_popup": "ui/popup/index.html",
+│ │          "default_title": "Dark Reader"
+│ │      },
+│ │ -    "author": "Alexander Shutau",
+│ │ -    "background": {
+│ │ -        "service_worker": "background/index.js"
+│ │ -    },
+│ │      "commands": {
+│ │          "addSite": {
+│ │              "description": "__MSG_toggle_current_site__",
+│ │              "suggested_key": {
+│ │                  "default": "Alt+Shift+A"
+│ │              }
+│ │          },
+│ │ @@ -28,73 +29,38 @@
+│ │              }
+│ │          }
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": true,
+│ │              "js": [
+│ │ -                "inject/proxy.js"
+│ │ -            ],
+│ │ -            "match_about_blank": true,
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "run_at": "document_start",
+│ │ -            "world": "MAIN"
+│ │ -        },
+│ │ -        {
+│ │ -            "all_frames": true,
+│ │ -            "js": [
+│ │                  "inject/fallback.js",
+│ │                  "inject/index.js"
+│ │              ],
+│ │              "match_about_blank": true,
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │ -            "run_at": "document_start",
+│ │ -            "world": "ISOLATED"
+│ │ -        },
+│ │ -        {
+│ │ -            "all_frames": false,
+│ │ -            "js": [
+│ │ -                "inject/color-scheme-watcher.js"
+│ │ -            ],
+│ │ -            "match_about_blank": false,
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "run_at": "document_idle",
+│ │ -            "world": "ISOLATED"
+│ │ +            "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │ -    "content_security_policy": {
+│ │ -        "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; img-src * data:; connect-src *; navigate-to 'self' https://darkreader.org/* https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md https://github.com/darkreader/darkreader https://twitter.com/darkreaderapp; media-src 'none'; child-src 'none'; worker-src 'none'; object-src 'none'"
+│ │ -    },
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_extension_description__",
+│ │ -    "host_permissions": [
+│ │ -        "*://*/*"
+│ │ -    ],
+│ │      "icons": {
+│ │          "128": "icons/dr_128.png",
+│ │          "16": "icons/dr_16.png",
+│ │          "48": "icons/dr_48.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │ -    "minimum_chrome_version": "106.0.0.0",
+│ │ +    "manifest_version": 2,
+│ │      "name": "Dark Reader",
+│ │      "optional_permissions": [
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "options_ui": {
+│ │ -        "page": "ui/popup/index.html"
+│ │ -    },
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "fontSettings",
+│ │ -        "scripting",
+│ │ -        "storage"
+│ │ +        "storage",
+│ │ +        "tabs",
+│ │ +        "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.9.106"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/ui
+├── +++ /workspace/pipeline_output/darkreader/src/ui
+│ ├── file list
+│ │ @@ -1,5 +1,11 @@
+│ │  assets
+│ │ +connect
+│ │ +controls
+│ │  devtools
+│ │ +icons
+│ │  options
+│ │  popup
+│ │ +shared.less
+│ │ +stylesheet-editor
+│ │ +theme.less
+│ │ +utils.ts
+│ │ -stylesheet-editor
+│ │   --- /workspace/pipeline_output/chromex_data/ui/devtools
+│ ├── +++ /workspace/pipeline_output/darkreader/src/ui/devtools
+│ │ ├── file list
+│ │ │ @@ -1,3 +1,4 @@
+│ │ │ -index.html
+│ │ │ -index.js
+│ │ │ -style.css
+│ │ │ +components
+│ │ │ +index.tsx
+│ │ │ +style.less
+│ │ │ +types.d.ts
+│ │   --- /workspace/pipeline_output/chromex_data/ui/options
+│ ├── +++ /workspace/pipeline_output/darkreader/src/ui/options
+│ │ ├── file list
+│ │ │ @@ -1,3 +1,10 @@
+│ │ │ -index.html
+│ │ │ -index.js
+│ │ │ -style.css
+│ │ │ +about
+│ │ │ +advanced
+│ │ │ +automation
+│ │ │ +body
+│ │ │ +general
+│ │ │ +hotkeys
+│ │ │ +index.tsx
+│ │ │ +site-list
+│ │ │ +style.less
+│ │ │ +tab-panel
+│ │   --- /workspace/pipeline_output/chromex_data/ui/popup
+│ ├── +++ /workspace/pipeline_output/darkreader/src/ui/popup
+│ │ ├── file list
+│ │ │ @@ -1,3 +1,10 @@
+│ │ │ -index.html
+│ │ │ -index.js
+│ │ │ -style.css
+│ │ │ +body
+│ │ │ +compatibility.js
+│ │ │ +components
+│ │ │ +index.tsx
+│ │ │ +main-page
+│ │ │ +news-section
+│ │ │ +page-viewer
+│ │ │ +style.less
+│ │ │ +theme
+│ │ │ +utils
+│ │   --- /workspace/pipeline_output/chromex_data/ui/stylesheet-editor
+│ ├── +++ /workspace/pipeline_output/darkreader/src/ui/stylesheet-editor
+│ │ ├── file list
+│ │ │ @@ -1,3 +1,3 @@
+│ │ │ -index.html
+│ │ │ -index.js
+│ │ │ -style.css
+│ │ │ +components
+│ │ │ +index.tsx
+│ │ │ +style.less

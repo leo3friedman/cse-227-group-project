@@ -1,0 +1,47 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Iridium/src/firefox
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/_locales/en_US/messages.json <-> +++/workspace/pipeline_output/Iridium/src/firefox/_locales/en_US/messages.json; File type: json
+  - Original: 1–4
+  + Modified: 1–4
+
+---/workspace/pipeline_output/chromex_data/img/iridium.svg <-> +++/workspace/pipeline_output/Iridium/src/firefox/img/iridium.svg; File type: svg
+  - Original: 2–87
+  + Modified: 2–86
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js
+  - files: chrome-wrapper.js, service-worker.js
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/js/background-inject.js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js/background-inject.js; File type: js
+  - Original: 1–3273
+  + Modified: 1–3273
+
+---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js/background.js; File type: js
+  - Original: 1–32
+  + Modified: 1–32
+
+---/workspace/pipeline_output/chromex_data/js/content-script.js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js/content-script.js; File type: js
+  - Original: 1–364
+  + Modified: 1–170
+
+---/workspace/pipeline_output/chromex_data/js/options.js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js/options.js; File type: js
+  - Original: 1–1354
+  + Modified: 1–1354
+
+---/workspace/pipeline_output/chromex_data/js/setting-data.js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js/setting-data.js; File type: js
+  - Original: 1–197
+  + Modified: 1–197
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Iridium/src/firefox/manifest.json; File type: json
+  - Original: 2–2
+  - Original: 11–12
+  - Original: 21–30
+  - Original: 36–37
+  - Original: 42–44
+  - Original: 52–52
+  - Original: 59–59
+  - Original: 61–61 -> Update URL
+  + Modified: 2–58
+

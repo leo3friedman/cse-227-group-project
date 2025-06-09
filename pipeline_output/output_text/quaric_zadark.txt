@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/zadark/src/web/vendor/edge
+├── file list
+│ @@ -1,10 +1,4 @@
+│ -_locales
+│ -_metadata
+│ -css
+│ -fonts
+│ -images
+│ -js
+│ -libs
+│ +browser.js
+│  manifest.json
+│ -popup.html
+│ -rules
+│ +service-worker.js
+│ +zadark-fonts.scss
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/zadark/src/web/vendor/edge/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -79,15 +79,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "ZaDark \u2013 Zalo Dark Mode",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "25.10",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://chat.zalo.me/*"
+│ │              ],
+│ │              "resources": [

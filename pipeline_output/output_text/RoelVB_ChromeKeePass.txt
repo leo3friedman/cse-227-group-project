@@ -1,0 +1,29 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ChromeKeePass/dist
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  css
+│  html
+│  images
+│  js
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ChromeKeePass/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -46,15 +46,14 @@
+│ │      "options_page": "html/options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "contextMenus",
+│ │          "webRequest",
+│ │          "webRequestAuthProvider"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

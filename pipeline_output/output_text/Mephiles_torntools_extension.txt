@@ -1,0 +1,93 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/torntools_extension/extension
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  changelog.json
+│  manifest.json
+│  pages
+│  resources
+│  scripts
+│  vendor
+│   --- /workspace/pipeline_output/chromex_data/changelog.json
+├── +++ /workspace/pipeline_output/torntools_extension/extension/changelog.json
+│ ├── Pretty-printed
+│ │ @@ -1,10 +1,10 @@
+│ │  [
+│ │      {
+│ │ -        "date": "2025/05/22",
+│ │ +        "date": false,
+│ │          "logs": {
+│ │              "changes": [
+│ │                  {
+│ │                      "contributor": "DeKleineKobini",
+│ │                      "message": "Include item market personal stats in the profile box."
+│ │                  },
+│ │                  {
+│ │ @@ -15,15 +15,18 @@
+│ │                      "contributor": "DeKleineKobini",
+│ │                      "message": "Remove permission 'tabs' that was accidentally left over from testing."
+│ │                  },
+│ │                  {
+│ │                      "contributor": "DeKleineKobini",
+│ │                      "message": "Include crimes 2 skills in the profile box."
+│ │                  }
+│ │ -            ]
+│ │ +            ],
+│ │ +            "features": [],
+│ │ +            "fixes": [],
+│ │ +            "removed": []
+│ │          },
+│ │          "title": "Beta",
+│ │          "version": {
+│ │              "build": 1,
+│ │              "major": 7,
+│ │              "minor": 7
+│ │          }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/torntools_extension/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,14 +2,27 @@
+│ │      "action": {
+│ │          "default_icon": "resources/images/icon_128.png",
+│ │          "default_popup": "pages/popup/popup.html",
+│ │          "default_title": "TornTools"
+│ │      },
+│ │      "author": "Gregor Kaljulaid - Mephiles[2087524]",
+│ │      "background": {
+│ │ +        "scripts": [
+│ │ +            "scripts/global/globalClasses.js",
+│ │ +            "scripts/global/globalData.js",
+│ │ +            "scripts/global/functions/browser.js",
+│ │ +            "scripts/global/functions/database.js",
+│ │ +            "scripts/global/functions/extension.js",
+│ │ +            "scripts/global/functions/formatting.js",
+│ │ +            "scripts/global/functions/utilities.js",
+│ │ +            "scripts/global/functions/api.js",
+│ │ +            "scripts/global/functions/api-external.js",
+│ │ +            "scripts/global/functions/torn.js",
+│ │ +            "scripts/background.js"
+│ │ +        ],
+│ │          "service_worker": "scripts/background.js"
+│ │      },
+│ │      "browser_specific_settings": {
+│ │          "gecko": {
+│ │              "id": "{3754707b-1aa4-4c6f-96e7-5b1cdc1de5f9}"
+│ │          },
+│ │          "gecko_android": {}
+│ │ @@ -1170,15 +1183,14 @@
+│ │      "permissions": [
+│ │          "storage",
+│ │          "notifications",
+│ │          "background",
+│ │          "offscreen",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "7.7.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.torn.com/*"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,58 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/sabconnectplusplus
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.git
+│ +.gitmodules
+│  CONTRIBUTING.md
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  changelog.txt
+│  css
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│  project
+│  scripts
+│  settings.html
+│  third_party
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/sabconnectplusplus/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -173,15 +173,14 @@
+│ │      "permissions": [
+│ │          "*://*/*",
+│ │          "tabs",
+│ │          "notifications",
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.6.38",
+│ │      "web_accessible_resources": [
+│ │          "images/content_icon.png",
+│ │          "images/content_icon_error.png",
+│ │          "images/content_icon_fetching.png",
+│ │          "images/content_icon_success.png",
+│ │          "css/common.css"
+│   --- /workspace/pipeline_output/chromex_data/third_party
+├── +++ /workspace/pipeline_output/sabconnectplusplus/third_party
+│ │   --- /workspace/pipeline_output/chromex_data/third_party/fancy-settings
+│ ├── +++ /workspace/pipeline_output/sabconnectplusplus/third_party/fancy-settings
+│ │ ├── file list
+│ │ │ @@ -1,13 +0,0 @@
+│ │ │ -CHANGELOG.md
+│ │ │ -LICENSE.txt
+│ │ │ -README.md
+│ │ │ -css
+│ │ │ -custom.css
+│ │ │ -default.manifest.js
+│ │ │ -default.settings.js
+│ │ │ -i18n.js
+│ │ │ -icon.png
+│ │ │ -index.html
+│ │ │ -js
+│ │ │ -lib
+│ │ │ -resources

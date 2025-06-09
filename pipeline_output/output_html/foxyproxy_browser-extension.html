@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/foxyproxy_browser-extension.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/browser-extension/src</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">3.95 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/browser-extension/src</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">107 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 5 lines modified</td><td colspan="2">Offset 1, 5 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">_locales</td><td class="diffline">1 </td><td class="diffpresent">_locales</td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">_metadata</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">content</td><td class="diffline">2 </td><td class="diffpresent">content</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">image</td><td class="diffline">3 </td><td class="diffpresent">image</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">manifest-basic.json</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">manifest.json</td><td class="diffline">5 </td><td class="diffpresent">manifest.json</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">2.42 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/image</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-image"><span class="source">/workspace/pipeline_output/browser-extension/src/image</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-image">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">930 B</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/image/beaker.svg</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-image----workspace-pipeline_output-chromex_data-image-beaker.svg"><span class="source">/workspace/pipeline_output/browser-extension/src/image/beaker.svg</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-image----workspace-pipeline_output-chromex_data-image-beaker.svg">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 9 lines modified</td><td colspan="2">Offset 1, 10 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">&lt;!--<span class="dp">·</span>This<span class="dp">·</span>Source<span class="dp">·</span>Code<span class="dp">·</span>Form<span class="dp">·</span>is<span class="dp">·</span>subject<span class="dp">·</span>to<span class="dp">·</span>the<span class="dp">·</span>terms<span class="dp">·</span>of<span class="dp">·</span>the<span class="dp">·</span>Mozilla<span class="dp">·</span>Public</td><td class="diffline">1 </td><td class="diffpresent">&lt;!--<span class="dp">·</span>This<span class="dp">·</span>Source<span class="dp">·</span>Code<span class="dp">·</span>Form<span class="dp">·</span>is<span class="dp">·</span>subject<span class="dp">·</span>to<span class="dp">·</span>the<span class="dp">·</span>terms<span class="dp">·</span>of<span class="dp">·</span>the<span class="dp">·</span>Mozilla<span class="dp">·</span>Public</td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>-<span class="dp">·</span>License,<span class="dp">·</span>v.<span class="dp">·</span>2.0.<span class="dp">·</span>If<span class="dp">·</span>a<span class="dp">·</span>copy<span class="dp">·</span>of<span class="dp">·</span>the<span class="dp">·</span>MPL<span class="dp">·</span>was<span class="dp">·</span>not<span class="dp">·</span>distributed<span class="dp">·</span>with<span class="dp">·</span>this</td><td class="diffline">2 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>-<span class="dp">·</span>License,<span class="dp">·</span>v.<span class="dp">·</span>2.0.<span class="dp">·</span>If<span class="dp">·</span>a<span class="dp">·</span>copy<span class="dp">·</span>of<span class="dp">·</span>the<span class="dp">·</span>MPL<span class="dp">·</span>was<span class="dp">·</span>not<span class="dp">·</span>distributed<span class="dp">·</span>with<span class="dp">·</span>this</td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>-<span class="dp">·</span>file,<span class="dp">·</span>You<span class="dp">·</span>can<span class="dp">·</span>obtain<span class="dp">·</span>one<span class="dp">·</span>at<span class="dp">·</span>http://mozilla.org/MPL/2.0/.<span class="dp">·</span>--&gt;</td><td class="diffline">3 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>-<span class="dp">·</span>file,<span class="dp">·</span>You<span class="dp">·</span>can<span class="dp">·</span>obtain<span class="dp">·</span>one<span class="dp">·</span>at<span class="dp">·</span>http://mozilla.org/MPL/2.0/.<span class="dp">·</span>--&gt;</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">&lt;svg<span class="dp">·</span>fill=&quot;#09d&quot;<span class="dp">·</span>xmlns=&quot;http://www.w3.org/2000/svg&quot;<span class="dp">·</span>width=&quot;26&quot;<span class="dp">·</span>height=&quot;28&quot;<span class="dp">·</span>aria-hidden=&quot;true&quot;&gt;</td><td class="diffline">4 </td><td class="diffpresent">&lt;svg<span class="dp">·</span>fill=&quot;#09d&quot;<span class="dp">·</span>xmlns=&quot;http://www.w3.org/2000/svg&quot;<span class="dp">·</span>width=&quot;26&quot;<span class="dp">·</span>height=&quot;28&quot;<span class="dp">·</span>aria-hidden=&quot;true&quot;&gt;</td></tr>
+<tr class="diffchanged"><td class="diffline">5 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M23.859<span class="dp">·</span>22.625C25.031<span class="dp">·</span>24.484<span class="dp">·</span>24.203<span class="dp">·</span>26<span class="dp">·</span>22<span class="dp">·</span>26H4c-2.203</td><td class="diffline">5 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span>&lt;path<span class="dp">·</span>d=&quot;M23.859<span class="dp">·</span>22.625C25.031<span class="dp">·</span>24.484<span class="dp">·</span>24.203<span class="dp">·</span>26<span class="dp">·</span>22<span class="dp">·</span>26H4c-2.203<ins><span class="dp">·</span></ins></td></tr>
+<tr class="diffchanged"><td class="diffline">6 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>0-3.031-1.516-1.859-3.375L10<span class="dp">·</span>10.234V4H9c-.547<span class="dp">·</span>0-1-.453-1-1s.453-1</td><td class="diffline">6 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>0-3.031-1.516-1.859-3.375L10<span class="dp">·</span>10.234V4H9c-.547<span class="dp">·</span>0-1-.453-1-1s.453-1<ins><span class="dp">·</span></ins></td></tr>
+<tr class="diffchanged"><td class="diffline">7 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>1-1h8c.547<span class="dp">·</span>0<span class="dp">·</span>1<span class="dp">·</span>.453<span class="dp">·</span>1<span class="dp">·</span>1s-.453<span class="dp">·</span>1-1<span class="dp">·</span>1h-1v6.234zM11.688<span class="dp">·</span>11.297L7.438</td><td class="diffline">7 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>1-1h8c.547<span class="dp">·</span>0<span class="dp">·</span>1<span class="dp">·</span>.453<span class="dp">·</span>1<span class="dp">·</span>1s-.453<span class="dp">·</span>1-1<span class="dp">·</span>1h-1v6.234zM11.688<span class="dp">·</span>11.297L7.438<ins><span class="dp">·</span></ins></td></tr>
+<tr class="diffunmodified"><td class="diffline">8 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>18h11.125l-4.25-6.703-.313-.484V4h-2v6.813z&quot;/&gt;</td><td class="diffline">8 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>18h11.125l-4.25-6.703-.313-.484V4h-2v6.813z&quot;/&gt;</td></tr>
+<tr class="diffunmodified"><td class="diffline">9 </td><td class="diffpresent">&lt;/svg&gt;</td><td class="diffline">9 </td><td class="diffpresent">&lt;/svg&gt;</td></tr>
+</table>    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">1.42 KB</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/image/bin.svg</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-image----workspace-pipeline_output-chromex_data-image-bin.svg"><span class="source">/workspace/pipeline_output/browser-extension/src/image/bin.svg</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-image----workspace-pipeline_output-chromex_data-image-bin.svg">¶</a>
+      </div>
+      </div>
+      <div class="comment">Ordering differences only
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 4 lines modified</td><td colspan="2">Offset 1, 4 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent">&lt;!--<span class="dp">·</span>Svg<span class="dp">·</span>Vector<span class="dp">·</span>Icons<span class="dp">·</span>:<span class="dp">·</span>http://www.onlinewebfonts.com/icon<span class="dp">·</span>--&gt;</td><td class="diffline">1 </td><td class="diffpresent">&lt;!--<span class="dp">·</span>Svg<span class="dp">·</span>Vector<span class="dp">·</span>Icons<span class="dp">·</span>:<span class="dp">·</span>http://www.onlinewebfonts.com/icon<span class="dp">·</span>--&gt;<ins>.</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">2 </td><td class="diffpresent">&lt;svg<span class="dp">·</span>xmlns=&quot;http://www.w3.org/2000/svg&quot;<span class="dp">·</span>x=&quot;0px&quot;<span class="dp">·</span>y=&quot;0px&quot;<span class="dp">·</span>viewBox=&quot;0<span class="dp">·</span>0<span class="dp">·</span>1000<span class="dp">·</span>1000&quot;<span class="dp">·</span>fill=&quot;#f90&quot;&gt;</td><td class="diffline">2 </td><td class="diffpresent">&lt;svg<span class="dp">·</span>xmlns=&quot;http://www.w3.org/2000/svg&quot;<span class="dp">·</span>x=&quot;0px&quot;<span class="dp">·</span>y=&quot;0px&quot;<span class="dp">·</span>viewBox=&quot;0<span class="dp">·</span>0<span class="dp">·</span>1000<span class="dp">·</span>1000&quot;<span class="dp">·</span>fill=&quot;#f90&quot;&gt;<ins>.</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent">&lt;g&gt;&lt;path<span class="dp">·</span>d=&quot;M163.1,316.3v612.5c0,33.7,27.6,61.3,61.3,61.3h551.3c33.7,0,61.3-27.6,61.3-61.3V316.3H163.1z<span class="dp">·</span>M346.9,867.5h-61.3V438.8h61.3V867.5z<span class="dp">·</span>M469.4,867.5h-61.3V438.8h61.3V867.5z<span class="dp">·</span>M591.9,867.5h-61.3V438.8h61.3V867.5z<span class="dp">·</span>M714.4,867.5h-61.3V438.8h61.3V867.5z&quot;/&gt;&lt;path<span class="dp">·</span>d=&quot;M852.2,132.5H653.1V55.9c0-25.3-20.7-45.9-45.9-45.9H392.8c-25.3,0-45.9,20.7-45.9,45.9v76.6H147.8c-25.3,0-45.9,20.7-45.9,45.9V255h796.3v-76.6C898.1,153.2,877.5,132.5,852.2,132.5z<span class="dp">·</span>M591.9,132.5H408.1V72h183.8V132.5z&quot;/&gt;&lt;/g&gt;</td><td class="diffline">3 </td><td class="diffpresent">&lt;g&gt;&lt;path<span class="dp">·</span>d=&quot;M163.1,316.3v612.5c0,33.7,27.6,61.3,61.3,61.3h551.3c33.7,0,61.3-27.6,61.3-61.3V316.3H163.1z<span class="dp">·</span>M346.9,867.5h-61.3V438.8h61.3V867.5z<span class="dp">·</span>M469.4,867.5h-61.3V438.8h61.3V867.5z<span class="dp">·</span>M591.9,867.5h-61.3V438.8h61.3V867.5z<span class="dp">·</span>M714.4,867.5h-61.3V438.8h61.3V867.5z&quot;/&gt;&lt;path<span class="dp">·</span>d=&quot;M852.2,132.5H653.1V55.9c0-25.3-20.7-45.9-45.9-45.9H392.8c-25.3,0-45.9,20.7-45.9,45.9v76.6H147.8c-25.3,0-45.9,20.7-45.9,45.9V255h796.3v-76.6C898.1,153.2,877.5,132.5,852.2,132.5z<span class="dp">·</span>M591.9,132.5H408.1V72h183.8V132.5z&quot;/&gt;&lt;/g&gt;<ins>.</ins></td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">&lt;/svg&gt;</td><td class="diffline">4 </td><td class="diffpresent">&lt;/svg&gt;</td></tr>
+</table>    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">1.34 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/browser-extension/src/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">1.23 KB</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 13, 15 lines modified</td><td colspan="2">Offset 13, 15 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">13 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;content/background.js&quot;</td><td class="diffline">13 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;content/background.js&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffunmodified"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;service_worker&quot;:<span class="dp">·</span>&quot;content/background.js&quot;,</td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;service_worker&quot;:<span class="dp">·</span>&quot;content/background.js&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;type&quot;:<span class="dp">·</span>&quot;module&quot;</td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;type&quot;:<span class="dp">·</span>&quot;module&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;browser_specific_settings&quot;:<span class="dp">·</span>{</td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;browser_specific_settings&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;gecko&quot;:<span class="dp">·</span>{</td><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;gecko&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;id&quot;:<span class="dp">·</span>&quot;foxyproxy<del>-basic</del>@eric.h.jung&quot;,</td><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;id&quot;:<span class="dp">·</span>&quot;foxyproxy@eric.h.jung&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;strict_min_version&quot;:<span class="dp">·</span>&quot;128.0&quot;</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;strict_min_version&quot;:<span class="dp">·</span>&quot;128.0&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;gecko_android&quot;:<span class="dp">·</span>{</td><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;gecko_android&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;strict_min_version&quot;:<span class="dp">·</span>&quot;128.0&quot;</td><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;strict_min_version&quot;:<span class="dp">·</span>&quot;128.0&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffunmodified"><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;commands&quot;:<span class="dp">·</span>{</td><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;commands&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 57, 15 lines modified</td><td colspan="2">Offset 57, 15 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;128&quot;:<span class="dp">·</span>&quot;image/icon128.png&quot;,</td><td class="diffline">57 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;128&quot;:<span class="dp">·</span>&quot;image/icon128.png&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;16&quot;:<span class="dp">·</span>&quot;image/icon.png&quot;,</td><td class="diffline">58 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;16&quot;:<span class="dp">·</span>&quot;image/icon.png&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;32&quot;:<span class="dp">·</span>&quot;image/icon32.png&quot;,</td><td class="diffline">59 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;32&quot;:<span class="dp">·</span>&quot;image/icon32.png&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;image/icon48.png&quot;</td><td class="diffline">60 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;image/icon48.png&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td></tr>
+<tr class="diffunmodified"><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;minimum_chrome_version&quot;:<span class="dp">·</span>&quot;108&quot;,</td><td class="diffline">63 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;minimum_chrome_version&quot;:<span class="dp">·</span>&quot;108&quot;,</td></tr>
+<tr class="diffchanged"><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;__MSG_extensionName<del>Basic</del>__&quot;,</td><td class="diffline">64 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;__MSG_extensionName__&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;optional_permissions&quot;:<span class="dp">·</span>[</td><td class="diffline">65 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;optional_permissions&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;browsingData&quot;,</td><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;browsingData&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;privacy&quot;</td><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;privacy&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">68 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">68 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffunmodified"><td class="diffline">69 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;options_ui&quot;:<span class="dp">·</span>{</td><td class="diffline">69 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;options_ui&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;open_in_tab&quot;:<span class="dp">·</span>true,</td><td class="diffline">70 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;open_in_tab&quot;:<span class="dp">·</span>true,</td></tr>
+<tr class="diffunmodified"><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;page&quot;:<span class="dp">·</span>&quot;content/options.html&quot;</td><td class="diffline">71 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;page&quot;:<span class="dp">·</span>&quot;content/options.html&quot;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 79, 10 lines modified</td><td colspan="2">Offset 79, 9 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">79 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;tabs&quot;,</td><td class="diffline">79 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;tabs&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">80 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;webRequest&quot;,</td><td class="diffline">80 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;webRequest&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">81 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;webRequestAuthProvider&quot;</td><td class="diffline">81 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;webRequestAuthProvider&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">82 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">82 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffunmodified"><td class="diffline">83 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;:<span class="dp">·</span>{</td><td class="diffline">83 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">84 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;managed_schema&quot;:<span class="dp">·</span>&quot;content/schema.json&quot;</td><td class="diffline">84 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;managed_schema&quot;:<span class="dp">·</span>&quot;content/schema.json&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">85 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">85 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffdeleted"><td class="diffline">86 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">87 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;9.2&quot;</td><td class="diffline">86 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;9.2&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">88 </td><td class="diffpresent">}</td><td class="diffline">87 </td><td class="diffpresent">}</td></tr>
+</table>    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

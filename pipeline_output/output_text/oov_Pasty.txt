@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Pasty
+├── file list
+│ @@ -1,6 +1,9 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│  pasty128.png
+│  pasty48.png
+│  popup.html
+│  popup.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Pasty/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,20 +6,19 @@
+│ │      },
+│ │      "browser_specific_settings": {
+│ │          "gecko": {
+│ │              "id": "{99489097-f01c-473b-ac99-ae706b5b7b96}",
+│ │              "strict_min_version": "109.0"
+│ │          }
+│ │      },
+│ │ -    "description": "Create tabs from clipboard URL list",
+│ │ +    "description": "Create tabs from a clipboard URL list",
+│ │      "icons": {
+│ │          "128": "pasty128.png",
+│ │          "48": "pasty48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Pasty",
+│ │      "permissions": [
+│ │          "clipboardRead"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.8"
+│ │  }

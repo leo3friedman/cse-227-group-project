@@ -1,0 +1,496 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ollama-ui
+├── file list
+│ @@ -1,15 +1,26 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +LICENSE
+│ +Makefile
+│ +README.md
+│  api.js
+│  background.js
+│ +build.sh
+│  chat.css
+│  chat.js
+│ +favicon.ico
+│ +generate_integrity_hash.sh
+│ +https-test
+│  icon128.png
+│  icon16.png
+│  icon32.png
+│  icon48.png
+│  index.html
+│  manifest.json
+│ +package-lock.json
+│  resources
+│ +resources.hash
+│ +run-locally.sh
+│  screenshot.png
+│ -snake.html
+│ -test.js
+│ +screenshot1.jpg
+│ +screenshot2.jpg
+│   --- /workspace/pipeline_output/chromex_data/api.js
+├── +++ /workspace/pipeline_output/ollama-ui/api.js
+│ ├── js-beautify {}
+│ │ @@ -1,11 +1,9 @@
+│ │  var rebuildRules = undefined;
+│ │  if (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.id) {
+│ │ -    // Running in extension
+│ │ -    document.getElementById('host-address-select').style.display = 'block';
+│ │      rebuildRules = async function(domain) {
+│ │          const domains = [domain];
+│ │          /** @type {chrome.declarativeNetRequest.Rule[]} */
+│ │          const rules = [{
+│ │              id: 1,
+│ │              condition: {
+│ │                  requestDomains: domains
+│ │ @@ -25,43 +23,54 @@
+│ │          });
+│ │      }
+│ │  }
+│ │  
+│ │  
+│ │  var ollama_host = localStorage.getItem("host-address");
+│ │  if (!ollama_host) {
+│ │ -    ollama_host = 'localhost'
+│ │ +    ollama_host = 'http://localhost:11434'
+│ │  } else {
+│ │      document.getElementById("host-address").value = ollama_host;
+│ │  }
+│ │  
+│ │ +const ollama_system_prompt = localStorage.getItem("system-prompt");
+│ │ +if (ollama_system_prompt) {
+│ │ +    document.getElementById("system-prompt").value = ollama_system_prompt;
+│ │ +}
+│ │ +
+│ │  if (rebuildRules) {
+│ │      rebuildRules(ollama_host);
+│ │  }
+│ │  
+│ │  function setHostAddress() {
+│ │      ollama_host = document.getElementById("host-address").value;
+│ │      localStorage.setItem("host-address", ollama_host);
+│ │      populateModels();
+│ │      if (rebuildRules) {
+│ │          rebuildRules(ollama_host);
+│ │      }
+│ │  }
+│ │  
+│ │ -const URL = `http://${ollama_host}:11434/api/generate`;
+│ │ +function setSystemPrompt() {
+│ │ +    const systemPrompt = document.getElementById("system-prompt").value;
+│ │ +    localStorage.setItem("system-prompt", systemPrompt);
+│ │ +}
+│ │ +
+│ │ +
+│ │  
+│ │  async function getModels() {
+│ │ -    const response = await fetch(`http://${ollama_host}:11434/api/tags`);
+│ │ +    const response = await fetch(`${ollama_host}/api/tags`);
+│ │      const data = await response.json();
+│ │      return data;
+│ │  }
+│ │  
+│ │  
+│ │  // Function to send a POST request to the API
+│ │  function postRequest(data, signal) {
+│ │ +    const URL = `${ollama_host}/api/generate`;
+│ │      return fetch(URL, {
+│ │          method: 'POST',
+│ │          headers: {
+│ │              'Content-Type': 'application/json'
+│ │          },
+│ │          body: JSON.stringify(data),
+│ │          signal: signal
+│   --- /workspace/pipeline_output/chromex_data/chat.css
+├── +++ /workspace/pipeline_output/ollama-ui/chat.css
+│ @@ -56,17 +56,30 @@
+│    position: absolute;
+│    bottom: 5px;
+│    right: 5px;
+│    margin: 0 5px 5px 0;
+│  }
+│  
+│  #scroll-wrapper {
+│ +  padding-top: 180px;
+│    padding-bottom: 5.5rem;
+│  }
+│  
+│  #input-area {
+│    position: fixed;
+│    bottom: 0;
+│    left: 50%;
+│    transform: translateX(-50%);
+│  }
+│  
+│ +#user-input {
+│ +  overflow-y: auto;
+│ +  resize: none;         /* Prevent user from manually resizing */
+│ +  height: 40px;
+│ +  max-height: 200px;    /* Set your desired max height here */
+│ +}
+│ +
+│ +@media (max-width: 600px) { /* Adjust 600px to the breakpoint you desire */
+│ +  .d-flex h1 {
+│ +    display: none; /* This will hide the h1 when the window width is 600px or less */
+│ +  }
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/chat.js
+├── +++ /workspace/pipeline_output/ollama-ui/chat.js
+│ ├── js-beautify {}
+│ │ @@ -14,14 +14,15 @@
+│ │  
+│ │  
+│ │  
+│ │  const clipboardIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+│ │  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+│ │  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+│ │  </svg>`
+│ │ +const textBoxBaseHeight = 40; // This should match the default height set in CSS
+│ │  
+│ │  // change settings of marked from default to remove deprecation warnings
+│ │  // see conversation here: https://github.com/markedjs/marked/issues/2793
+│ │  marked.use({
+│ │      mangle: false,
+│ │      headerIds: false
+│ │  });
+│ │ @@ -145,26 +146,42 @@
+│ │              ticking = false;
+│ │          });
+│ │          ticking = true;
+│ │      }
+│ │      lastKnownScrollPosition = window.scrollY;
+│ │  });
+│ │  
+│ │ +function removeBetween(arr, startVal, endVal) {
+│ │ +    if (typeof arr === "undefined" || !Array.isArray(arr)) {
+│ │ +        return arr;
+│ │ +    }
+│ │ +    const startIndex = arr.indexOf(startVal);
+│ │ +    const endIndex = arr.indexOf(endVal);
+│ │ +
+│ │ +    if (startIndex === -1 || endIndex === -1 || startIndex >= endIndex) {
+│ │ +        return arr;
+│ │ +    }
+│ │ +
+│ │ +    arr.splice(startIndex, endIndex - startIndex + 1);
+│ │ +    return arr;
+│ │ +}
+│ │  
+│ │  // Function to handle the user input and call the API functions
+│ │  async function submitRequest() {
+│ │      document.getElementById('chat-container').style.display = 'block';
+│ │  
+│ │      const input = document.getElementById('user-input').value;
+│ │      const selectedModel = getSelectedModel();
+│ │      const context = document.getElementById('chat-history').context;
+│ │ +    const systemPrompt = document.getElementById('system-prompt').value;
+│ │      const data = {
+│ │          model: selectedModel,
+│ │          prompt: input,
+│ │ -        context: context
+│ │ +        context: removeBetween(context, 151648, 151649),
+│ │ +        system: systemPrompt
+│ │      };
+│ │  
+│ │      // Create user message element and append to chat history
+│ │      let chatHistory = document.getElementById('chat-history');
+│ │      let userMessageDiv = document.createElement('div');
+│ │      userMessageDiv.className = 'mb-2 user-message';
+│ │      userMessageDiv.innerText = input;
+│ │ @@ -212,18 +229,19 @@
+│ │                          }).catch(err => {
+│ │                              console.error('Failed to copy text:', err);
+│ │                          });
+│ │                      };
+│ │                      responseDiv.appendChild(copyButton);
+│ │                  }
+│ │                  // add word to response
+│ │ -                if (word != undefined) {
+│ │ +                if (word != undefined && word != "") {
+│ │                      if (responseDiv.hidden_text == undefined) {
+│ │                          responseDiv.hidden_text = "";
+│ │                      }
+│ │ +                    word = word.replace(/<think>/g, '<details open><summary>think content</summary><br><span style="color:gray;">').replace(/<\/think>/g, '</span><hr></details>');
+│ │                      responseDiv.hidden_text += word;
+│ │                      responseDiv.innerHTML = DOMPurify.sanitize(marked.parse(responseDiv.hidden_text)); // Append word to response container
+│ │                  }
+│ │              });
+│ │          })
+│ │          .then(() => {
+│ │              stopButton.remove(); // Remove stop button from DOM now that all text has been generated
+│ │ @@ -234,15 +252,17 @@
+│ │                  console.error(error);
+│ │              }
+│ │              stopButton.remove();
+│ │              spinner.remove();
+│ │          });
+│ │  
+│ │      // Clear user input
+│ │ -    document.getElementById('user-input').value = '';
+│ │ +    const element = document.getElementById('user-input');
+│ │ +    element.value = '';
+│ │ +    $(element).css("height", textBoxBaseHeight + "px");
+│ │  }
+│ │  
+│ │  // Event listener for Ctrl + Enter or CMD + Enter
+│ │  document.getElementById('user-input').addEventListener('keydown', function(e) {
+│ │      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+│ │          submitRequest();
+│ │      }
+│ │ @@ -252,17 +272,19 @@
+│ │  window.onload = () => {
+│ │      updateChatList();
+│ │      populateModels();
+│ │      adjustPadding();
+│ │      autoFocusInput();
+│ │  
+│ │      document.getElementById("delete-chat").addEventListener("click", deleteChat);
+│ │ +    document.getElementById("new-chat").addEventListener("click", startNewChat);
+│ │      document.getElementById("saveName").addEventListener("click", saveChat);
+│ │      document.getElementById("chat-select").addEventListener("change", loadSelectedChat);
+│ │      document.getElementById("host-address").addEventListener("change", setHostAddress);
+│ │ +    document.getElementById("system-prompt").addEventListener("change", setSystemPrompt);
+│ │  }
+│ │  
+│ │  function deleteChat() {
+│ │      const selectedChat = document.getElementById("chat-select").value;
+│ │      localStorage.removeItem(selectedChat);
+│ │      updateChatList();
+│ │  }
+│ │ @@ -274,39 +296,69 @@
+│ │      // Close the modal
+│ │      const bootstrapModal = bootstrap.Modal.getInstance(document.getElementById('nameModal'));
+│ │      bootstrapModal.hide();
+│ │  
+│ │      if (chatName === null || chatName.trim() === "") return;
+│ │      const history = document.getElementById("chat-history").innerHTML;
+│ │      const context = document.getElementById('chat-history').context;
+│ │ +    const systemPrompt = document.getElementById('system-prompt').value;
+│ │      const model = getSelectedModel();
+│ │      localStorage.setItem(chatName, JSON.stringify({
+│ │          "history": history,
+│ │          "context": context,
+│ │ +        system: systemPrompt,
+│ │          "model": model
+│ │      }));
+│ │      updateChatList();
+│ │  }
+│ │  
+│ │  // Function to load selected chat from dropdown
+│ │  function loadSelectedChat() {
+│ │      const selectedChat = document.getElementById("chat-select").value;
+│ │      const obj = JSON.parse(localStorage.getItem(selectedChat));
+│ │      document.getElementById("chat-history").innerHTML = obj.history;
+│ │      document.getElementById("chat-history").context = obj.context;
+│ │ +    document.getElementById("system-prompt").value = obj.system;
+│ │      updateModelInQueryString(obj.model)
+│ │      document.getElementById('chat-container').style.display = 'block';
+│ │  }
+│ │  
+│ │ +function startNewChat() {
+│ │ +    document.getElementById("chat-history").innerHTML = null;
+│ │ +    document.getElementById("chat-history").context = null;
+│ │ +    document.getElementById('chat-container').style.display = 'none';
+│ │ +    updateChatList();
+│ │ +}
+│ │ +
+│ │  // Function to update chat list dropdown
+│ │  function updateChatList() {
+│ │      const chatList = document.getElementById("chat-select");
+│ │      chatList.innerHTML = '<option value="" disabled selected>Select a chat</option>';
+│ │      for (let i = 0; i < localStorage.length; i++) {
+│ │          const key = localStorage.key(i);
+│ │ -        if (key === "host-address") continue;
+│ │ +        if (key === "host-address" || key == "system-prompt") continue;
+│ │          const option = document.createElement("option");
+│ │          option.value = key;
+│ │          option.text = key;
+│ │          chatList.add(option);
+│ │      }
+│ │ +}
+│ │ +
+│ │ +function autoGrow(element) {
+│ │ +    const maxHeight = 200; // This should match the max-height set in CSS
+│ │ +
+│ │ +    // Count the number of lines in the textarea based on newline characters
+│ │ +    const numberOfLines = $(element).val().split('\n').length;
+│ │ +
+│ │ +    // Temporarily reset the height to auto to get the actual scrollHeight
+│ │ +    $(element).css("height", "auto");
+│ │ +    let newHeight = element.scrollHeight;
+│ │ +
+│ │ +    // If content is one line, set the height to baseHeight
+│ │ +    if (numberOfLines === 1) {
+│ │ +        newHeight = textBoxBaseHeight;
+│ │ +    } else if (newHeight > maxHeight) {
+│ │ +        newHeight = maxHeight;
+│ │ +    }
+│ │ +
+│ │ +    $(element).css("height", newHeight + "px");
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/index.html
+├── +++ /workspace/pipeline_output/ollama-ui/index.html
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,79 +1,87 @@
+│  <!DOCTYPE html>
+│  <html>
+│  
+│  <head>
+│      <title>Chat with Llama2</title>
+│ +    <meta name="viewport" content="width=device-width, initial-scale=1">
+│      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+│      <link href="resources/bootstrap.min.css" rel="stylesheet"
+│          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+│      <script src="resources/bootstrap.bundle.min.js"
+│          integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+│          crossorigin="anonymous"></script>
+│      <script src="resources/marked.min.js"
+│          integrity="sha384-dZulhREgb+hCgQMhZ2VG0l37VQj5pJBq2w0h7Jn3tdMn36aXNepF1+FMLBB4O649"
+│          crossorigin="anonymous"></script>
+│      <script src="resources/purify.min.js" integrity="sha256-QigBQMy2be3IqJD2ezKJUJ5gycSmyYlRHj2VGBuITpU="
+│          crossorigin="anonymous"></script>
+│ +    <script src="resources/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs"
+│ +        crossorigin="anonymous"></script>
+│      <link rel="stylesheet" href="chat.css">
+│  </head>
+│  
+│  <body data-bs-theme="dark">
+│      <div class="container">
+│ -        <div class="row pt-3">
+│ -            <div class="col-md-8 col-12">
+│ -                <h1>Chat with Ollama</h1>
+│ +            <div id="scroll-wrapper">
+│ +                <div id="chat-container" class="card">
+│ +                    <div class="card-body">
+│ +                        <div id="chat-history"></div>
+│ +                    </div>
+│              </div>
+│ -            <div id="model-controls" class="col-md-4 col-12 text-md-end text-start mb-3">
+│ -                <div class="d-flex flex-column align-items-md-end align-items-start">
+│ -
+│ -                    <div id="host-address-select" style="display: none;">
+│ -                        <div class="d-flex align-items-center mb-2">
+│ -                            <label for="host-address" class="form-label me-2" style="font-size: smaller;">Hostname (port 11434):</label>
+│ -                            <input id="host-address" class="form-control" type="text" placeholder="localhost" style="width: auto;"></select>
+│                          </div>
+│                      </div>
+│  
+│ +        <div class="position-fixed w-100" style="z-index: 9999; top: 0px; height: 200px; background: linear-gradient(180deg, black, transparent);">
+│  
+│ -
+│ -                    <div class="d-flex align-items-center mb-2">
+│ -                        <label for="model-select" class="form-label me-2" style="font-size: smaller;">Model:</label>
+│ -                        <select class="form-select" id="model-select" style="width: auto;"></select>
+│ -                    </div>
+│ -                    <div class="d-flex align-items-center">
+│ -                        <label for="chat-select" class="form-label me-2" style="font-size: smaller;">History:</label>
+│ -                        <select id="chat-select" class="form-select" style="width: auto;">
+│ +          <div class="position-fixed w-100" style="z-index: 9999; top: 0px; height: 200px;  background: linear-gradient(180deg, black, transparent);">
+│ +            <div class="d-flex justify-content-between align-items-center m-0" style="padding: 16px;">
+│ +                <h1>Chat with Ollama</h1>
+│ +                <!-- Model dropdown -->
+│ +                <div class="d-flex align-items-center m-1">
+│ +                  <div class="p-2 flex-grow-1 bd-highlight">
+│ +                    <label for="system-prompt" class="me-2" style="font-size: normal;">System Prompt</label>
+│ +                    <input id="system-prompt" class="form-control" type="text" placeholder="You are a helpful assistant" style="width: auto;"></select>
+│ +                    <label for="host-address" class="me-2" style="font-size: normal;">Hostname</label>
+│ +                    <input id="host-address" class="form-control" type="text" placeholder="http://localhost:11434" style="width: auto;"></select>
+│ +
+│ +                  </div>
+│ +                <div class="d-flex align-items-center m-2">
+│ +                    <div class="p-2 flex-grow-1 bd-highlight">
+│ +                        <label for="model-select" class="me-2" style="font-size: normal;">Model:</label>
+│ +                        <select class="form-select me-5" id="model-select" style="width: auto;"></select>
+│ +                        <label for="chat-select" class="me-2" style="font-size: normal;">History:</label>
+│ +                        <select id="chat-select" class="form-select me-2" style="width: auto;">
+│                              <option value="" disabled selected>Select a chat</option>
+│                          </select>
+│                      </div>
+│ +                    <div class="p-auto flex-grow-1 bd-highlight">
+│ +                        <div class="d-flex flex-column">
+│ +                        <button id="new-chat" class="btn btn-dark mb-2" type="button">Reset</button>
+│ +                        <button id="save-chat" class="btn btn-secondary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#nameModal">Save</button>
+│ +                        <button id="delete-chat" class="btn btn-danger" type="button">Delete</button>
+│ +                      </div>
+│ +                    </div>
+│                  </div>
+│              </div>
+│          </div>
+│ -        <div id="scroll-wrapper">
+│ -            <div id="chat-container" class="card">
+│ -                <div class="text-end">
+│ -                    <button id="delete-chat" class="btn btn-danger" type="button">Delete Chat</button>
+│ -                    <button id="save-chat" class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#nameModal">Save Chat</button>
+│ -                </div>
+│ -                <div class="card-body">
+│ -                    <div id="chat-history"></div>
+│ -                </div>
+│ -            </div>
+│ -        </div>
+│ -    </div>
+│ +
+│ +
+│ +
+│ +
+│      <div class="container p-2 card" id="input-area">
+│          <div class="input-group">
+│ -            <textarea class="form-control" id="user-input" placeholder="Type your question here..."></textarea>
+│ +                <textarea class="form-control" id="user-input" placeholder="Type your question here..." oninput="autoGrow(this)"></textarea>
+│              <button id="send-button" class="btn btn-primary">Send</button>
+│          </div>
+│      </div>
+│  
+│  <!-- Modal -->
+│ -<div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" aria-hidden="true">
+│ -    <div class="modal-dialog">
+│ +<div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" aria-hidden="true" >
+│ +    <div class="modal-dialog" >
+│        <div class="modal-content">
+│          <div class="modal-header">
+│            <h5 class="modal-title" id="nameModalLabel">Enter Your Name</h5>
+│            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+│          </div>
+│          <div class="modal-body">
+│            <input type="text" class="form-control" id="userName" placeholder="Your Name">
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ollama-ui/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -2,23 +2,24 @@
+│ │      "action": {},
+│ │      "background": {
+│ │          "service_worker": "background.js"
+│ │      },
+│ │      "description": "This extension hosts an ollama-ui web server on localhost",
+│ │      "host_permissions": [
+│ │          "http://*:11434/api/tags",
+│ │ -        "http://*:11434/api/generate"
+│ │ +        "http://*:11434/api/generate",
+│ │ +        "https://*:11434/api/tags",
+│ │ +        "https://*:11434/api/generate"
+│ │      ],
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "32": "icon32.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "ollama-ui",
+│ │      "permissions": [
+│ │          "declarativeNetRequest"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/resources
+├── +++ /workspace/pipeline_output/ollama-ui/resources
+│ ├── file list
+│ │ @@ -1,4 +1,5 @@
+│ │  bootstrap.bundle.min.js
+│ │  bootstrap.min.css
+│ │ +jquery-3.7.1.min.js
+│ │  marked.min.js
+│ │  purify.min.js

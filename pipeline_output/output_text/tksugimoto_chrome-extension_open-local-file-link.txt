@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-extension_open-local-file-link/chrome-extension
+├── file list
+│ @@ -1,7 +1,6 @@
+│  _locales
+│ -_metadata
+│  background.js
+│  content_script.js
+│  icon
+│  manifest.json
+│  options
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-extension_open-local-file-link/chrome-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -27,10 +27,9 @@
+│ │      "minimum_chrome_version": "88",
+│ │      "name": "__MSG_extension_name__",
+│ │      "options_page": "options/index.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.5"
+│ │  }

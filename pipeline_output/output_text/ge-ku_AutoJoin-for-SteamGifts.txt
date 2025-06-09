@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/AutoJoin-for-SteamGifts
+├── file list
+│ @@ -1,6 +1,13 @@
+│ -_metadata
+│ +.eslintrc.json
+│ +.git
+│ +.gitignore
+│ +.prettierrc.json
+│ +LICENSE
+│ +README.md
+│ +compile.sh
+│  css
+│  html
+│  js
+│  manifest.json
+│ -media
+│ +media
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/AutoJoin-for-SteamGifts/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -94,15 +94,14 @@
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "notifications",
+│ │          "storage",
+│ │          "offscreen"
+│ │      ],
+│ │      "short_name": "AutoJoin",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.10.8",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "extension_ids": [],
+│ │              "matches": [
+│ │                  "*://steamgifts.com/*",
+│ │                  "*://www.steamgifts.com/*"

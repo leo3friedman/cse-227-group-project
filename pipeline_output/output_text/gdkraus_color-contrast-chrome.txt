@@ -1,0 +1,72 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/color-contrast-chrome
+├── file list
+│ @@ -1,27 +1,28 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│  background-image-analysis.js
+│  background.html
+│  background.js
+│  contrast-analyzer.css
+│  contrast-analyzer.html
+│  contrast-analyzer.js
+│  editor.js
+│  hotkey_storage.js
+│  i18n_styles
+│  image_analysis.js
+│  images
+│  isLoad.js
+│  license.txt
+│  manifest.json
+│ -nbproject
+│  options.html
+│  options.js
+│ +package-lock.json
+│  page.js
+│  page_context.js
+│  popup.html
+│  popup.js
+│  shortcut.js
+│  style.css
+│  ui.js
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/color-contrast-chrome/README.md
+│ @@ -11,14 +11,17 @@
+│  
+│  https://chrome.google.com/webstore/detail/screen-capture-by-google/cpngackimfmofbokmjmljamhdncknpmg
+│  
+│  I used the code from this project for creating the draggable selection box. This code has lots of other functionality, most of which I have removed. There could still be some remnants of this code that is basically dormant in the Color Contrast Analyzer at this point.
+│  
+│  Versions
+│  
+│ +1.1.2
+│ +* adjusted z-index for the draggable area to the maximum allowed value of 2147483647 to help ensure it will not be positioned underneath other elements
+│ +
+│  1.1.1
+│  * adjusted CSS for Windows buttons
+│  
+│  1.1.0
+│  * added ability to download the image analysis to a local file
+│  
+│  1.03
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/color-contrast-chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -58,14 +58,13 @@
+│ │          "tabs",
+│ │          "http://*/*",
+│ │          "https://*/*",
+│ │          "<all_urls>",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "CC Analyzer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.2",
+│ │      "web_accessible_resources": [
+│ │          "page_context.js",
+│ │          "style.css"
+│ │      ]
+│ │  }

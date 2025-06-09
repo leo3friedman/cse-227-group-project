@@ -1,0 +1,632 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/better-lyrics
+├── file list
+│ @@ -1,4 +1,20 @@
+│ -_metadata
+│ +.all-contributorsrc
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.gitmodules
+│ +.prettierignore
+│ +.vscode
+│ +FUNDING.json
+│ +LICENSE
+│ +README.md
+│ +STYLING.md
+│ +api
+│ +biome.json
+│  images
+│  manifest.json
+│ -src
+│ +package-lock.json
+│ +scripts
+│ +src
+│ +templates
+│ +www
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/better-lyrics/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,50 +1,62 @@
+│ │  {
+│ │      "action": {
+│ │          "default_popup": "src/options/options.html"
+│ │      },
+│ │      "background": {
+│ │ -        "service_worker": "src/background.min.js"
+│ │ +        "service_worker": "src/background.js"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "css": [
+│ │ -                "src/index.min.css"
+│ │ +                "src/index.css"
+│ │              ],
+│ │              "js": [
+│ │ -                "src/core/constants.min.js",
+│ │ -                "src/core/utils.min.js",
+│ │ -                "src/core/storage.min.js",
+│ │ -                "src/modules/lyrics/translation.min.js",
+│ │ -                "src/modules/lyrics/lyrics.min.js",
+│ │ -                "src/modules/lyrics/providers.min.js",
+│ │ -                "src/modules/ui/dom.min.js",
+│ │ -                "src/modules/ui/observer.min.js",
+│ │ -                "src/modules/settings/settings.min.js",
+│ │ -                "src/index.min.js"
+│ │ +                "src/core/constants.js",
+│ │ +                "src/core/utils.js",
+│ │ +                "src/core/storage.js",
+│ │ +                "src/modules/lyrics/translation.js",
+│ │ +                "src/modules/lyrics/lyrics.js",
+│ │ +                "src/modules/lyrics/providers.js",
+│ │ +                "src/modules/lyrics/requestSniffer.js",
+│ │ +                "src/modules/ui/dom.js",
+│ │ +                "src/modules/ui/observer.js",
+│ │ +                "src/modules/settings/settings.js",
+│ │ +                "src/index.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://music.youtube.com/*"
+│ │              ],
+│ │ -            "run_at": "document_end"
+│ │ +            "run_at": "document_start"
+│ │ +        },
+│ │ +        {
+│ │ +            "js": [
+│ │ +                "src/earlyInject.js"
+│ │ +            ],
+│ │ +            "matches": [
+│ │ +                "*://music.youtube.com/*"
+│ │ +            ],
+│ │ +            "run_at": "document_start",
+│ │ +            "world": "MAIN"
+│ │          },
+│ │          {
+│ │              "css": [
+│ │                  "src/libs/codemirror/codemirror.min.css",
+│ │                  "src/libs/codemirror/seti.min.css",
+│ │                  "src/libs/codemirror/show-hint.min.css"
+│ │              ],
+│ │              "js": [
+│ │                  "src/libs/codemirror/codemirror.min.js",
+│ │                  "src/libs/codemirror/css.min.js",
+│ │                  "src/libs/codemirror/css-hint.min.js",
+│ │                  "src/libs/codemirror/show-hint.min.js",
+│ │                  "src/libs/codemirror/closebrackets.min.js",
+│ │                  "src/libs/codemirror/lint.min.js",
+│ │ -                "src/libs/codemirror/autorefresh.min.js"
+│ │ +                "src/libs/codemirror/autorefresh.min.js",
+│ │ +                "src/libs/codemirror/Sortable.min.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ]
+│ │          }
+│ │      ],
+│ │      "description": "Enhance YouTube Music with beautiful time-synced lyrics, multilingual support, real-time translations and more",
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/better-lyrics/src
+│ ├── file list
+│ │ @@ -1,8 +1,9 @@
+│ │ +background.js
+│ │ -background.min.js
+│ │  core
+│ │ +earlyInject.js
+│ │ +index.css
+│ │ +index.js
+│ │ -index.min.css
+│ │ -index.min.js
+│ │  libs
+│ │  modules
+│ │  options
+│ │  script.js
+│ │   --- /workspace/pipeline_output/chromex_data/src/core
+│ ├── +++ /workspace/pipeline_output/better-lyrics/src/core
+│ │ ├── file list
+│ │ │ @@ -1,3 +1,3 @@
+│ │ │ -constants.min.js
+│ │ │ -storage.min.js
+│ │ │ -utils.min.js
+│ │ │ +constants.js
+│ │ │ +storage.js
+│ │ │ +utils.js
+│ │   --- /workspace/pipeline_output/chromex_data/src/libs
+│ ├── +++ /workspace/pipeline_output/better-lyrics/src/libs
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/libs/codemirror
+│ │ ├── +++ /workspace/pipeline_output/better-lyrics/src/libs/codemirror
+│ │ │ ├── file list
+│ │ │ │ @@ -1,7 +1,8 @@
+│ │ │ │ +Sortable.min.js
+│ │ │ │  autorefresh.min.js
+│ │ │ │  closebrackets.min.js
+│ │ │ │  codemirror.min.css
+│ │ │ │  codemirror.min.js
+│ │ │ │  css-hint.min.js
+│ │ │ │  css.min.js
+│ │ │ │  lint.min.js
+│ │   --- /workspace/pipeline_output/chromex_data/src/modules
+│ ├── +++ /workspace/pipeline_output/better-lyrics/src/modules
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/modules/lyrics
+│ │ ├── +++ /workspace/pipeline_output/better-lyrics/src/modules/lyrics
+│ │ │ ├── file list
+│ │ │ │ @@ -1,3 +1,4 @@
+│ │ │ │ +lyrics.js
+│ │ │ │ +providers.js
+│ │ │ │ +requestSniffer.js
+│ │ │ │ +translation.js
+│ │ │ │ -lyrics.min.js
+│ │ │ │ -providers.min.js
+│ │ │ │ -translation.min.js
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/modules/settings
+│ │ ├── +++ /workspace/pipeline_output/better-lyrics/src/modules/settings
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1 @@
+│ │ │ │ +settings.js
+│ │ │ │ -settings.min.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/src/modules/settings/settings.min.js
+│ │ │ ├── +++ /workspace/pipeline_output/better-lyrics/src/modules/settings/settings.js
+│ │ │ │ ├── js-beautify {}
+│ │ │ │ │ @@ -1,93 +1,193 @@
+│ │ │ │ │  BetterLyrics.Settings = {
+│ │ │ │ │      handleSettings: function() {
+│ │ │ │ │ +        BetterLyrics.Settings.onFullScreenDisabled(
+│ │ │ │ │ +            () => {
+│ │ │ │ │ +                const layout = document.getElementById("layout");
+│ │ │ │ │ +                const playerPage = document.getElementById("player-page");
+│ │ │ │ │ +
+│ │ │ │ │ +                if (layout && playerPage) {
+│ │ │ │ │ +                    layout.setAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR, "");
+│ │ │ │ │ +                    playerPage.setAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR, "");
+│ │ │ │ │ +                }
+│ │ │ │ │ +            },
+│ │ │ │ │ +            () => {
+│ │ │ │ │ +                const layout = document.getElementById("layout");
+│ │ │ │ │ +                const playerPage = document.getElementById("player-page");
+│ │ │ │ │ +
+│ │ │ │ │ +                if (layout && playerPage) {
+│ │ │ │ │ +                    layout.removeAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR);
+│ │ │ │ │ +                    playerPage.removeAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR);
+│ │ │ │ │ +                }
+│ │ │ │ │ +            }
+│ │ │ │ │ +        );
+│ │ │ │ │ +
+│ │ │ │ │ +        BetterLyrics.Settings.onStylizedAnimationsEnabled(
+│ │ │ │ │ +            () => {
+│ │ │ │ │ +                const layout = document.getElementById("layout");
+│ │ │ │ │ +                const playerPage = document.getElementById("player-page");
+│ │ │ │ │ +                const appBase = document.getElementsByTagName("ytmusic-app")[0];
+│ │ │ │ │ +
+│ │ │ │ │ +                if (layout && playerPage) {
+│ │ │ │ │ +                    layout.setAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR, "");
+│ │ │ │ │ +                    playerPage.setAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR, "");
+│ │ │ │ │ +                    appBase.setAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR, "");
+│ │ │ │ │ +                }
+│ │ │ │ │ +            },
+│ │ │ │ │ +            () => {
+│ │ │ │ │ +                const layout = document.getElementById("layout");
+│ │ │ │ │ +                const playerPage = document.getElementById("player-page");
+│ │ │ │ │ +                const appBase = document.getElementsByTagName("ytmusic-app")[0];
+│ │ │ │ │ +
+│ │ │ │ │ +                if (layout && playerPage) {
+│ │ │ │ │ +                    layout.removeAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR);
+│ │ │ │ │ +                    playerPage.removeAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR);
+│ │ │ │ │ +                    appBase.removeAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR);
+│ │ │ │ │ +                }
+│ │ │ │ │ +            }
+│ │ │ │ │ +        );
+│ │ │ │ │ -        BetterLyrics.Settings.onFullScreenDisabled((() => {
+│ │ │ │ │ -            const e = document.getElementById("layout"),
+│ │ │ │ │ -                t = document.getElementById("player-page");
+│ │ │ │ │ -            e && t && (e.setAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR, ""), t.setAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR, ""))
+│ │ │ │ │ -        }), (() => {
+│ │ │ │ │ -            const e = document.getElementById("layout"),
+│ │ │ │ │ -                t = document.getElementById("player-page");
+│ │ │ │ │ -            e && t && (e.removeAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR), t.removeAttribute(BetterLyrics.Constants.LYRICS_DISABLED_ATTR))
+│ │ │ │ │ -        })), BetterLyrics.Settings.onStylizedAnimationsEnabled((() => {
+│ │ │ │ │ -            const e = document.getElementById("layout"),
+│ │ │ │ │ -                t = document.getElementById("player-page"),
+│ │ │ │ │ -                r = document.getElementsByTagName("ytmusic-app")[0];
+│ │ │ │ │ -            e && t && (e.setAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR, ""), t.setAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR, ""), r.setAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR, ""))
+│ │ │ │ │ -        }), (() => {
+│ │ │ │ │ -            const e = document.getElementById("layout"),
+│ │ │ │ │ -                t = document.getElementById("player-page"),
+│ │ │ │ │ -                r = document.getElementsByTagName("ytmusic-app")[0];
+│ │ │ │ │ -            e && t && (e.removeAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR), t.removeAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR), r.removeAttribute(BetterLyrics.Constants.LYRICS_STYLIZED_ATTR))
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │ +    onAutoSwitchEnabled: function(enableAutoSwitch) {
+│ │ │ │ │ -    onAutoSwitchEnabled: function(e) {
+│ │ │ │ │          BetterLyrics.Storage.getStorage({
+│ │ │ │ │ +            isAutoSwitchEnabled: false
+│ │ │ │ │ +        }, items => {
+│ │ │ │ │ +            if (items.isAutoSwitchEnabled) {
+│ │ │ │ │ +                enableAutoSwitch();
+│ │ │ │ │ +            }
+│ │ │ │ │ +        });
+│ │ │ │ │ -            isAutoSwitchEnabled: !1
+│ │ │ │ │ -        }, (t => {
+│ │ │ │ │ -            t.isAutoSwitchEnabled && e()
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │ +    onFullScreenDisabled: function(disableFullScreen, enableFullScreen) {
+│ │ │ │ │ -    onFullScreenDisabled: function(e, t) {
+│ │ │ │ │          BetterLyrics.Storage.getStorage({
+│ │ │ │ │ +            isFullScreenDisabled: false
+│ │ │ │ │ +        }, items => {
+│ │ │ │ │ +            if (items.isFullScreenDisabled) {
+│ │ │ │ │ +                disableFullScreen();
+│ │ │ │ │ +            } else {
+│ │ │ │ │ +                enableFullScreen();
+│ │ │ │ │ +            }
+│ │ │ │ │ +        });
+│ │ │ │ │ -            isFullScreenDisabled: !1
+│ │ │ │ │ -        }, (r => {
+│ │ │ │ │ -            r.isFullScreenDisabled ? e() : t()
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │ +    onAlbumArtEnabled: function(enableAlbumArt, disableAlbumArt) {
+│ │ │ │ │ -    onAlbumArtEnabled: function(e, t) {
+│ │ │ │ │          BetterLyrics.Storage.getStorage({
+│ │ │ │ │ +            isAlbumArtEnabled: true
+│ │ │ │ │ +        }, items => {
+│ │ │ │ │ +            if (items.isAlbumArtEnabled) {
+│ │ │ │ │ +                enableAlbumArt();
+│ │ │ │ │ +            } else {
+│ │ │ │ │ +                disableAlbumArt();
+│ │ │ │ │ +            }
+│ │ │ │ │ +        });
+│ │ │ │ │ -            isAlbumArtEnabled: !0
+│ │ │ │ │ -        }, (r => {
+│ │ │ │ │ -            r.isAlbumArtEnabled ? e() : t()
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │ +    onStylizedAnimationsEnabled: function(enableAnimations, disableAnimations) {
+│ │ │ │ │ -    onStylizedAnimationsEnabled: function(e, t) {
+│ │ │ │ │          BetterLyrics.Storage.getStorage({
+│ │ │ │ │ +            isStylizedAnimationsEnabled: true
+│ │ │ │ │ +        }, items => {
+│ │ │ │ │ +            if (items.isStylizedAnimationsEnabled) {
+│ │ │ │ │ +                enableAnimations();
+│ │ │ │ │ +            } else {
+│ │ │ │ │ +                disableAnimations();
+│ │ │ │ │ +            }
+│ │ │ │ │ +        });
+│ │ │ │ │ -            isStylizedAnimationsEnabled: !0
+│ │ │ │ │ -        }, (r => {
+│ │ │ │ │ -            r.isStylizedAnimationsEnabled ? e() : t()
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │ +    onAutoHideCursor: function(enableCursorAutoHide, disableCursorAutoHide) {
+│ │ │ │ │ -    onAutoHideCursor: function(e, t) {
+│ │ │ │ │          BetterLyrics.Storage.getStorage({
+│ │ │ │ │ +            isCursorAutoHideEnabled: true
+│ │ │ │ │ +        }, items => {
+│ │ │ │ │ +            if (items.isCursorAutoHideEnabled) {
+│ │ │ │ │ +                enableCursorAutoHide();
+│ │ │ │ │ +            } else {
+│ │ │ │ │ +                disableCursorAutoHide();
+│ │ │ │ │ +            }
+│ │ │ │ │ +        });
+│ │ │ │ │ +    },
+│ │ │ │ │ +
+│ │ │ │ │ +    shouldUseKaraokeLyrics: async function() {
+│ │ │ │ │ +        return new Promise(resolve => {
+│ │ │ │ │ +            BetterLyrics.Storage.getStorage({
+│ │ │ │ │ +                shouldUseKaraokeLyrics: false
+│ │ │ │ │ +            }, items => {
+│ │ │ │ │ +                resolve(items.shouldUseKaraokeLyrics);
+│ │ │ │ │ +            });
+│ │ │ │ │ +        });
+│ │ │ │ │ -            isCursorAutoHideEnabled: !0
+│ │ │ │ │ -        }, (r => {
+│ │ │ │ │ -            r.isCursorAutoHideEnabled ? e() : t()
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │      mouseTimer: null,
+│ │ │ │ │      cursorEventListener: null,
+│ │ │ │ │      hideCursorOnIdle: function() {
+│ │ │ │ │ +        BetterLyrics.Settings.onAutoHideCursor(
+│ │ │ │ │ +            () => {
+│ │ │ │ │ +                let cursorVisible = true;
+│ │ │ │ │ +
+│ │ │ │ │ +                function disappearCursor() {
+│ │ │ │ │ +                    this.mouseTimer = null;
+│ │ │ │ │ +                    document.getElementById("layout").setAttribute("cursor-hidden", "");
+│ │ │ │ │ +                    cursorVisible = false;
+│ │ │ │ │ +                }
+│ │ │ │ │ +
+│ │ │ │ │ +                function handleMouseMove() {
+│ │ │ │ │ +                    if (BetterLyrics.Settings.mouseTimer) {
+│ │ │ │ │ +                        window.clearTimeout(BetterLyrics.Settings.mouseTimer);
+│ │ │ │ │ +                    }
+│ │ │ │ │ +                    if (!cursorVisible) {
+│ │ │ │ │ +                        document.getElementById("layout").removeAttribute("cursor-hidden");
+│ │ │ │ │ +                        cursorVisible = true;
+│ │ │ │ │ +                    }
+│ │ │ │ │ +                    BetterLyrics.Settings.mouseTimer = window.setTimeout(disappearCursor, 3000);
+│ │ │ │ │ +                }
+│ │ │ │ │ -        BetterLyrics.Settings.onAutoHideCursor((() => {
+│ │ │ │ │ -            let e = !0;
+│ │ │ │ │  
+│ │ │ │ │ +                if (BetterLyrics.Settings.cursorEventListener) {
+│ │ │ │ │ +                    document.removeEventListener("mousemove", BetterLyrics.Settings.cursorEventListener);
+│ │ │ │ │ +                }
+│ │ │ │ │ -            function t() {
+│ │ │ │ │ -                this.mouseTimer = null, document.getElementById("layout").setAttribute("cursor-hidden", ""), e = !1
+│ │ │ │ │ -            }
+│ │ │ │ │  
+│ │ │ │ │ +                BetterLyrics.Settings.cursorEventListener = handleMouseMove;
+│ │ │ │ │ +                document.addEventListener("mousemove", handleMouseMove);
+│ │ │ │ │ +            },
+│ │ │ │ │ +            () => {
+│ │ │ │ │ +                if (BetterLyrics.Settings.mouseTimer) {
+│ │ │ │ │ +                    window.clearTimeout(BetterLyrics.Settings.mouseTimer);
+│ │ │ │ │ +                }
+│ │ │ │ │ +                document.getElementById("layout").removeAttribute("cursor-hidden");
+│ │ │ │ │ +                if (BetterLyrics.Settings.cursorEventListener) {
+│ │ │ │ │ +                    document.removeEventListener("mousemove", BetterLyrics.Settings.cursorEventListener);
+│ │ │ │ │ +                    BetterLyrics.Settings.cursorEventListener = null;
+│ │ │ │ │ +                }
+│ │ │ │ │ -            function r() {
+│ │ │ │ │ -                BetterLyrics.Settings.mouseTimer && window.clearTimeout(BetterLyrics.Settings.mouseTimer), e || (document.getElementById("layout").removeAttribute("cursor-hidden"), e = !0), BetterLyrics.Settings.mouseTimer = window.setTimeout(t, 3e3)
+│ │ │ │ │              }
+│ │ │ │ │ +        );
+│ │ │ │ │ -            BetterLyrics.Settings.cursorEventListener && document.removeEventListener("mousemove", BetterLyrics.Settings.cursorEventListener), BetterLyrics.Settings.cursorEventListener = r, document.addEventListener("mousemove", r)
+│ │ │ │ │ -        }), (() => {
+│ │ │ │ │ -            BetterLyrics.Settings.mouseTimer && window.clearTimeout(BetterLyrics.Settings.mouseTimer), document.getElementById("layout").removeAttribute("cursor-hidden"), BetterLyrics.Settings.cursorEventListener && (document.removeEventListener("mousemove", BetterLyrics.Settings.cursorEventListener), BetterLyrics.Settings.cursorEventListener = null)
+│ │ │ │ │ -        }))
+│ │ │ │ │      },
+│ │ │ │ │ +
+│ │ │ │ │      listenForPopupMessages: function() {
+│ │ │ │ │ +        chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
+│ │ │ │ │ +            if (request.action === "updateCSS") {
+│ │ │ │ │ +                BetterLyrics.Utils.applyCustomCSS(request.css);
+│ │ │ │ │ +            } else if (request.action === "updateSettings") {
+│ │ │ │ │ +                BetterLyrics.Utils.setUpLog();
+│ │ │ │ │ +                BetterLyrics.Settings.hideCursorOnIdle();
+│ │ │ │ │ +                BetterLyrics.Settings.handleSettings();
+│ │ │ │ │ +                BetterLyrics.App.shouldInjectAlbumArt = "Unknown";
+│ │ │ │ │ +                BetterLyrics.Settings.onAlbumArtEnabled(
+│ │ │ │ │ +                    () => (BetterLyrics.App.shouldInjectAlbumArt = true),
+│ │ │ │ │ +                    () => {
+│ │ │ │ │ +                        BetterLyrics.App.shouldInjectAlbumArt = false;
+│ │ │ │ │ +                        BetterLyrics.DOM.removeAlbumArtFromLayout();
+│ │ │ │ │ +                    }
+│ │ │ │ │ +                );
+│ │ │ │ │ +                BetterLyrics.App.reloadLyrics();
+│ │ │ │ │ +            } else if (request.action === "clearCache") {
+│ │ │ │ │ +                try {
+│ │ │ │ │ +                    BetterLyrics.Storage.clearCache();
+│ │ │ │ │ +                    sendResponse({
+│ │ │ │ │ +                        success: true
+│ │ │ │ │ +                    });
+│ │ │ │ │ +                } catch {
+│ │ │ │ │ +                    sendResponse({
+│ │ │ │ │ +                        success: false
+│ │ │ │ │ +                    });
+│ │ │ │ │ +                }
+│ │ │ │ │ -        chrome.runtime.onMessage.addListener(((e, t, r) => {
+│ │ │ │ │ -            if ("updateCSS" === e.action) BetterLyrics.Utils.applyCustomCSS(e.css);
+│ │ │ │ │ -            else if ("updateSettings" === e.action) BetterLyrics.Utils.setUpLog(), BetterLyrics.Settings.hideCursorOnIdle(), BetterLyrics.Settings.handleSettings(), BetterLyrics.App.shouldInjectAlbumArt = "Unknown", BetterLyrics.Settings.onAlbumArtEnabled((() => BetterLyrics.App.shouldInjectAlbumArt = !0), (() => {
+│ │ │ │ │ -                BetterLyrics.App.shouldInjectAlbumArt = !1, BetterLyrics.DOM.removeAlbumArtFromLayout()
+│ │ │ │ │ -            })), BetterLyrics.App.reloadLyrics();
+│ │ │ │ │ -            else if ("clearCache" === e.action) try {
+│ │ │ │ │ -                BetterLyrics.Storage.clearCache(), r({
+│ │ │ │ │ -                    success: !0
+│ │ │ │ │ -                })
+│ │ │ │ │ -            } catch {
+│ │ │ │ │ -                r({
+│ │ │ │ │ -                    success: !1
+│ │ │ │ │ -                })
+│ │ │ │ │              }
+│ │ │ │ │ +        });
+│ │ │ │ │ +    },
+│ │ │ │ │ -        }))
+│ │ │ │ │ -    }
+│ │ │ │ │  };
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/modules/ui
+│ │ ├── +++ /workspace/pipeline_output/better-lyrics/src/modules/ui
+│ │ │ ├── file list
+│ │ │ │ @@ -1,2 +1,2 @@
+│ │ │ │ +dom.js
+│ │ │ │ +observer.js
+│ │ │ │ -dom.min.js
+│ │ │ │ -observer.min.js
+│ │   --- /workspace/pipeline_output/chromex_data/src/options
+│ ├── +++ /workspace/pipeline_output/better-lyrics/src/options
+│ │ ├── file list
+│ │ │ @@ -1,4 +1,4 @@
+│ │ │ -editor.min.js
+│ │ │ +editor.js
+│ │ │ +options.css
+│ │ │  options.html
+│ │ │ -options.min.css
+│ │ │ -options.min.js
+│ │ │ +options.js
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/options/options.html
+│ │ ├── +++ /workspace/pipeline_output/better-lyrics/src/options/options.html
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,25 +1,26 @@
+│ │ │  <!DOCTYPE html>
+│ │ │  <html>
+│ │ │    <head>
+│ │ │      <meta name="color-scheme" content="dark">
+│ │ │      <title>Better Lyrics Settings</title>
+│ │ │      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+│ │ │      <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet">
+│ │ │ -    <link rel="stylesheet" href="options.min.css" />
+│ │ │ +    <link rel="stylesheet" href="options.css" />
+│ │ │      <link rel="stylesheet" href="../libs/codemirror/codemirror.min.css">
+│ │ │      <link rel="stylesheet" href="../libs/codemirror/seti.min.css">
+│ │ │      <link rel="stylesheet" href="../libs/codemirror/show-hint.min.css">
+│ │ │      <script src="../libs/codemirror/codemirror.min.js"></script>
+│ │ │      <script src="../libs/codemirror/css.min.js"></script>
+│ │ │      <script src="../libs/codemirror/css-hint.min.js"></script>
+│ │ │      <script src="../libs/codemirror/show-hint.min.js"></script>
+│ │ │      <script src="../libs/codemirror/closebrackets.min.js"></script>
+│ │ │      <script src="../libs/codemirror/lint.min.js"></script>
+│ │ │      <script src="../libs/codemirror/autorefresh.min.js"></script>
+│ │ │ +	  <script src="../libs/codemirror/Sortable.min.js"></script>
+│ │ │    </head>
+│ │ │    <body>
+│ │ │      <nav>
+│ │ │        <h1>
+│ │ │          <img
+│ │ │            src="https://better-lyrics.boidu.dev/icon-512.png"
+│ │ │            alt="Better Lyrics"
+│ │ │ @@ -76,15 +77,16 @@
+│ │ │        </div>
+│ │ │      </nav>
+│ │ │      <div id="options">
+│ │ │        <div class="tab-container">
+│ │ │          <button class="tab active" id="general-tab" data-target="#general-content">General</button>
+│ │ │          <button class="tab" id="display-tab" data-target="#display-content">Display</button>
+│ │ │          <button class="tab" id="language-tab" data-target="#language-content">Language</button>
+│ │ │ -        <button class="tab" id="themes-tab" data-target="#themes-content">Themes</button>
+│ │ │ +		  <button class="tab" id="sources-tab" data-target="#sources-content">Sources</button>
+│ │ │ +		  <button class="tab" id="themes-tab" data-target="#themes-content">Themes</button>
+│ │ │        </div>
+│ │ │        <div class="tab-content active" id="general-content">
+│ │ │  				<div class="settings-group">
+│ │ │  					<h2>
+│ │ │  						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+│ │ │  							<path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd" />
+│ │ │  						</svg>
+│ │ │ @@ -104,23 +106,14 @@
+│ │ │  					<div class="container" >
+│ │ │  						<span>Auto switch to lyrics tab</span>
+│ │ │  						<label>
+│ │ │  						<input type="checkbox" id="autoSwitch" />
+│ │ │  						<span class="checkmark"></span>
+│ │ │  						</label>
+│ │ │  					</div>
+│ │ │ -					<div class="container" style="margin-bottom:1rem;">
+│ │ │ -						<span>Default Lyrics Provider</span>
+│ │ │ -						<div class="select">
+│ │ │ -							<select id="defaultLyricsProvider">
+│ │ │ -								<option value="0">Better Lyrics API (Default)</option>
+│ │ │ -								<option value="1">LRCLib</option>
+│ │ │ -							</select>
+│ │ │ -						</div>
+│ │ │ -					</div>
+│ │ │  					<div class="container container--small">
+│ │ │  						<p>
+│ │ │  							Cache
+│ │ │  						</p>
+│ │ │  						<button class="small-btn btn-danger" id="clear-cache">
+│ │ │  							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+│ │ │  								<path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
+│ │ │ @@ -350,14 +343,57 @@
+│ │ │  								<option value="yo">Yoruba</option>
+│ │ │  								<option value="zu">Zulu</option>
+│ │ │  							</select>
+│ │ │  						</div>
+│ │ │  					</div>
+│ │ │  				</div>
+│ │ │        </div>
+│ │ │ +		<div class="tab-content" id="sources-content">
+│ │ │ +			<div class="settings-group">
+│ │ │ +				<h2>
+│ │ │ +					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" height="20" width="20">
+│ │ │ +						<path strokelinecap="round" strokelinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"></path>
+│ │ │ +					</svg>
+│ │ │ +
+│ │ │ +					Lyric Source Preference
+│ │ │ +				</h2>
+│ │ │ +				<p>
+│ │ │ +					Choose the lyrics that Better Lyrics will use.
+│ │ │ +				</p>
+│ │ │ +				<div class="container" style="margin-bottom: 0.2rem">
+│ │ │ +					<span style="align-self: start; padding-top: 0.2rem">Lyric Provider Priority:</span>
+│ │ │ +					<ul id="providers-list" class="sortable-list">
+│ │ │ +						<li class="sortable-item" id="p-dacubeking">
+│ │ │ +							<span class="sortable-handle"></span>
+│ │ │ +							DaCubeKing
+│ │ │ +						</li>
+│ │ │ +						<li class="sortable-item" id="p-better-lyrics">
+│ │ │ +							<span class="sortable-handle"></span>
+│ │ │ +							Better Lyrics API
+│ │ │ +						</li>
+│ │ │ +						<li class="sortable-item" id="p-lrclib">
+│ │ │ +							<span class="sortable-handle"></span>
+│ │ │ +							LRCLib
+│ │ │ +						</li>
+│ │ │ +						<li class="sortable-item" id="p-yt-captions">
+│ │ │ +							<span class="sortable-handle"></span>
+│ │ │ +							Youtube Captions
+│ │ │ +						</li>
+│ │ │ +					</ul>
+│ │ │ +				</div>
+│ │ │ +				<div class="container">
+│ │ │ +					<span>Use Karaoke Lyrics (Experimental!)</span>
+│ │ │ +					<label>
+│ │ │ +						<input type="checkbox" id="shouldUseKaraokeLyrics" />
+│ │ │ +						<span class="checkmark"></span>
+│ │ │ +					</label>
+│ │ │ +				</div>
+│ │ │ +			</div>
+│ │ │ +		</div>
+│ │ │ +	</div>
+│ │ │        <div class="tab-content" id="themes-content">
+│ │ │  				<div class="settings-group">
+│ │ │  					<h2>
+│ │ │  						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+│ │ │  							<path fill-rule="evenodd" d="M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747 18.747 0 0 0-3.471 2.987 10.04 10.04 0 0 1 4.815 4.815 18.748 18.748 0 0 0 2.987-3.472l3.386-5.079A1.902 1.902 0 0 0 20.599 1.5Zm-8.3 14.025a18.76 18.76 0 0 0 1.896-1.207 8.026 8.026 0 0 0-4.513-4.513A18.75 18.75 0 0 0 8.475 11.7l-.278.5a5.26 5.26 0 0 1 3.601 3.602l.502-.278ZM6.75 13.5A3.75 3.75 0 0 0 3 17.25a1.5 1.5 0 0 1-1.601 1.497.75.75 0 0 0-.7 1.123 5.25 5.25 0 0 0 9.8-2.62 3.75 3.75 0 0 0-3.75-3.75Z" clip-rule="evenodd" />
+│ │ │  						</svg>
+│ │ │  
+│ │ │ @@ -412,11 +448,11 @@
+│ │ │          </button>
+│ │ │        </div>
+│ │ │        <p class="note">Note: You can use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">CSS</a> to style the lyrics. All changes are saved and applied instantly. For more info about the available classes & selectors, visit the <a href="https://github.com/boidushya/better-lyrics/blob/master/STYLING.md" target="_blank">documentation</a>.
+│ │ │        </p>
+│ │ │        <div id="status-css"></div>
+│ │ │        <button id="back-btn">Back</button>
+│ │ │      </div>
+│ │ │ -    <script type="module" defer src="editor.min.js"></script>
+│ │ │ -    <script type="module" defer src="options.min.js"></script>
+│ │ │ +    <script type="module" defer src="editor.js"></script>
+│ │ │ +    <script type="module" defer src="options.js"></script>
+│ │ │    </body>
+│ │ │  </html>
+│ │   --- /workspace/pipeline_output/chromex_data/src/script.js
+│ ├── +++ /workspace/pipeline_output/better-lyrics/src/script.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -22,27 +22,30 @@
+│ │ │                      video_id,
+│ │ │                      title,
+│ │ │                      author
+│ │ │                  } = player.getVideoData();
+│ │ │                  const audioTrackData = player.getAudioTrack();
+│ │ │                  const duration = player.getDuration();
+│ │ │                  const {
+│ │ │ +                    isPlaying,
+│ │ │ +                    isBuffering
+│ │ │ -                    isPlaying
+│ │ │                  } = player.getPlayerStateObject();
+│ │ │ +                const contentRect = player.getVideoContentRect();
+│ │ │                  document.dispatchEvent(
+│ │ │                      new CustomEvent("blyrics-send-player-time", {
+│ │ │                          detail: {
+│ │ │                              currentTime: currentTime,
+│ │ │                              videoId: video_id,
+│ │ │                              song: title,
+│ │ │                              artist: author,
+│ │ │                              duration: duration,
+│ │ │                              audioTrackData: audioTrackData,
+│ │ │                              browserTime: Date.now(),
+│ │ │ +                            playing: isPlaying && !isBuffering,
+│ │ │ +                            contentRect,
+│ │ │ -                            playing: isPlaying,
+│ │ │                          },
+│ │ │                      })
+│ │ │                  );
+│ │ │              } catch (e) {
+│ │ │                  console.log(e);
+│ │ │                  stopLyricsTick();
+│ │ │              }

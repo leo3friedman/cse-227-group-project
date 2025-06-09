@@ -1,0 +1,49 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/toolkit-for-ynab/src
+├── file list
+│ @@ -1,8 +1,12 @@
+│ -_metadata
+│  assets
+│ -background
+│ -content-scripts
+│ +components
+│ +core
+│ +extension
+│ +hooks
+│ +manifest.beta.json
+│ +manifest.development.json
+│ +manifest.firefox.json
+│ +manifest.ios.json
+│  manifest.json
+│ -options
+│ -popup
+│ -web-accessibles
+│ +test
+│ +types
+│   --- /workspace/pipeline_output/chromex_data/assets
+├── +++ /workspace/pipeline_output/toolkit-for-ynab/src/assets
+│ ├── file list
+│ │ @@ -1,2 +1,2 @@
+│ │ +common
+│ │ +environment
+│ │ -fonts
+│ │ -images
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/toolkit-for-ynab/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -54,15 +54,14 @@
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options/index.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.17.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.youneedabudget.com/*",
+│ │                  "*://*.ynab.com/*"
+│ │              ],

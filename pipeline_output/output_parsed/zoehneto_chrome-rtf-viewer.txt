@@ -1,0 +1,96 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-rtf-viewer
+  - files: _metadata
+  + files: .git, .gitignore, build.sh, manifest-firefox.json, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/chrome-rtf-viewer/README.md; File type: md
+  - Original: 12–14
+
+---/workspace/pipeline_output/chromex_data/external <-> +++/workspace/pipeline_output/chrome-rtf-viewer/external
+  - files: dompurify.2.0.7.purify.min.js
+  + files: dompurify.2.0.15.purify.min.js
+
+---/workspace/pipeline_output/chromex_data/external/EMFJS.bundle.min.js <-> +++/workspace/pipeline_output/chrome-rtf-viewer/external/EMFJS.bundle.min.js; File type: js
+  - Original: 291–291
+  + Modified: 291–291
+  - Original: 705–705
+  - Original: 707–707
+  - Original: 711–711
+  - Original: 713–713
+  + Modified: 705–713
+  - Original: 915–915
+  - Original: 917–917
+  + Modified: 915–917
+  - Original: 996–996
+  - Original: 999–999
+  - Original: 1003–1003
+  + Modified: 996–1003
+  - Original: 1065–1065
+  + Modified: 1065–1065
+  - Original: 1106–1106
+  + Modified: 1106–1106
+  - Original: 1125–1125
+  + Modified: 1125–1125
+  - Original: 1308–1308
+  + Modified: 1308–1308
+  - Original: 1398–1403
+  + Modified: 1398–1398
+  - Original: 1432–1432
+  + Modified: 1427–1427
+  - Original: 1544–1544
+  + Modified: 1539–1539
+  - Original: 1895–1897
+  + Modified: 1890–1892
+
+---/workspace/pipeline_output/chromex_data/external/RTFJS.bundle.min.js <-> +++/workspace/pipeline_output/chrome-rtf-viewer/external/RTFJS.bundle.min.js; File type: js
+  - Original: 122–122
+  + Modified: 122–122
+  - Original: 322–322
+  + Modified: 322–322
+  + Modified: 397–398
+  - Original: 707–707
+  + Modified: 709–709
+  - Original: 734–735
+  + Modified: 736–737
+  - Original: 4866–4866
+  + Modified: 4868–4868
+  - Original: 5003–5003
+  + Modified: 5005–5005
+  - Original: 5182–5182
+  + Modified: 5184–5184
+  - Original: 5263–5263
+  + Modified: 5265–5265
+  - Original: 5319–5319
+  + Modified: 5321–5321
+  - Original: 5343–5344
+  + Modified: 5345–5347
+  + Modified: 5402–5402
+  - Original: 5446–5446
+  + Modified: 5450–5450
+  - Original: 5655–5655
+  + Modified: 5659–5659
+  - Original: 5757–5757
+  + Modified: 5761–5761
+  - Original: 5855–5855
+  + Modified: 5859–5859
+  - Original: 6031–6031
+  + Modified: 6035–6035
+
+---/workspace/pipeline_output/chromex_data/external/WMFJS.bundle.min.js <-> +++/workspace/pipeline_output/chrome-rtf-viewer/external/WMFJS.bundle.min.js; File type: js
+  - Original: 306–306
+  + Modified: 306–306
+  - Original: 923–923
+  + Modified: 923–923
+  - Original: 954–954
+  + Modified: 954–954
+  - Original: 1170–1170
+  + Modified: 1170–1170
+  - Original: 1323–1323
+  + Modified: 1323–1323
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/chrome-rtf-viewer/manifest.json; File type: json
+  - Original: 27–27 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/viewer/viewer.html <-> +++/workspace/pipeline_output/chrome-rtf-viewer/viewer/viewer.html; File type: html
+  - Original: 9–9
+  + Modified: 9–9
+

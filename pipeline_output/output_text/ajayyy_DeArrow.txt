@@ -1,0 +1,159 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/DeArrow/manifest
+├── file list
+│ @@ -1,15 +1,7 @@
+│ -_locales
+│ -_metadata
+│ -casual.css
+│ -content.css
+│ -help.css
+│ -help.html
+│ -icons
+│ -js
+│ +beta-manifest-extra.json
+│ +chrome-manifest-extra.json
+│ +firefox-beta-manifest-extra.json
+│ +firefox-manifest-extra.json
+│ +manifest-v2-extra.json
+│  manifest.json
+│ -options
+│ -oss-attribution
+│ -payment.html
+│ -popup.css
+│ -popup.html
+│ -shared.css
+│ +safari-manifest-extra.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/DeArrow/manifest/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,128 +1,26 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "icons/logo-128.png",
+│ │ -            "16": "icons/logo-16.png",
+│ │ -            "32": "icons/logo-32.png",
+│ │ -            "64": "icons/logo-64.png"
+│ │ -        },
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "DeArrow",
+│ │ -        "theme_icons": [
+│ │ -            {
+│ │ -                "dark": "icons/logo-16.png",
+│ │ -                "light": "icons/logo-16.png",
+│ │ -                "size": 16
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/logo-32.png",
+│ │ -                "light": "icons/logo-32.png",
+│ │ -                "size": 32
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/logo-64.png",
+│ │ -                "light": "icons/logo-64.png",
+│ │ -                "size": 64
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/logo-128.png",
+│ │ -                "light": "icons/logo-128.png",
+│ │ -                "size": 128
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/logo-256.png",
+│ │ -                "light": "icons/logo-256.png",
+│ │ -                "size": 256
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/logo-512.png",
+│ │ -                "light": "icons/logo-512.png",
+│ │ -                "size": 512
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/logo-1024.png",
+│ │ -                "light": "icons/logo-1024.png",
+│ │ -                "size": 1024
+│ │ -            }
+│ │ -        ]
+│ │ -    },
+│ │ -    "background": {
+│ │ -        "service_worker": "./js/background.js"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "all_frames": true,
+│ │ -            "js": [
+│ │ -                "./js/document.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://*.youtube.com/*",
+│ │ -                "https://www.youtube-nocookie.com/embed/*"
+│ │ -            ],
+│ │ -            "run_at": "document_start",
+│ │ -            "world": "MAIN"
+│ │ -        }
+│ │ -    ],
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_deArrowDescription__",
+│ │      "homepage_url": "https://dearrow.ajay.app",
+│ │ -    "host_permissions": [
+│ │ -        "https://sponsor.ajay.app/*",
+│ │ -        "https://dearrow-thumb.ajay.app/*",
+│ │ -        "https://dearrow.ajay.app/*",
+│ │ -        "https://*.youtube.com/*",
+│ │ -        "https://www.youtube-nocookie.com/embed/*"
+│ │ -    ],
+│ │      "icons": {
+│ │          "1024": "icons/logo-1024.png",
+│ │          "128": "icons/logo-128.png",
+│ │          "16": "icons/logo-16.png",
+│ │          "256": "icons/logo-256.png",
+│ │          "32": "icons/logo-32.png",
+│ │          "512": "icons/logo-512.png",
+│ │          "64": "icons/logo-64.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │      "name": "__MSG_deArrowFullName__",
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │ -        "alarms",
+│ │ -        "scripting"
+│ │ +        "alarms"
+│ │      ],
+│ │      "short_name": "DeArrow",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "2.1",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "icons/refresh.svg",
+│ │ -                "icons/logo.svg",
+│ │ -                "js/document.js",
+│ │ -                "js/options.js",
+│ │ -                "js/popup.js",
+│ │ -                "popup.css",
+│ │ -                "shared.css",
+│ │ -                "help.html",
+│ │ -                "help.css",
+│ │ -                "icons/logo-16.png",
+│ │ -                "icons/logo-32.png",
+│ │ -                "icons/logo-64.png",
+│ │ -                "icons/logo-128.png",
+│ │ -                "icons/logo-256.png",
+│ │ -                "icons/logo-2r.svg",
+│ │ -                "icons/logo-casual.svg",
+│ │ -                "icons/close.png",
+│ │ -                "icons/add.svg",
+│ │ -                "icons/remove.svg"
+│ │ -            ]
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "2.1"
+│ │  }

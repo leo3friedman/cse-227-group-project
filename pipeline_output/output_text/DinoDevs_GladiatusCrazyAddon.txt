@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/GladiatusCrazyAddon/source
+├── file list
+│ @@ -1,5 +1,5 @@
+│ -_metadata
+│  core
+│  icons
+│  init.js
+│ -manifest.json
+│ +manifest.json
+│ +manifest_v2.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/GladiatusCrazyAddon/source/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -33,15 +33,14 @@
+│ │          "16": "icons/icon_16.png",
+│ │          "48": "icons/icon_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "88.0",
+│ │      "name": "Gladiatus Crazy Add On",
+│ │      "short_name": "GCA",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "4.3.11",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.gladiatus.gameforge.com/*"
+│ │              ],
+│ │              "resources": [

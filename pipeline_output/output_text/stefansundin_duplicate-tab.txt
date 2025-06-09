@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/duplicate-tab/chrome
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  img
+│  manifest.json
+│  popup.css
+│  popup.html
+│  popup.js
+│  sw.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/duplicate-tab/chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -40,10 +40,9 @@
+│ │      "name": "Duplicate Tab Shortcut",
+│ │      "options_ui": {
+│ │          "page": "popup.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/sw.js
+├── +++ /workspace/pipeline_output/duplicate-tab/chrome/sw.js
+│ ├── js-beautify {}
+│ │ @@ -159,18 +159,15 @@
+│ │          // Highlight tabs
+│ │          for (const tab of tabs) {
+│ │              await chrome.tabs.update(tab.id, {
+│ │                  highlighted: true
+│ │              });
+│ │          }
+│ │          await chrome.tabs.update(activeTab.id, {
+│ │ -            highlighted: false
+│ │ -        });
+│ │ -        await chrome.tabs.update(activeTab.id, {
+│ │ -            highlighted: true
+│ │ +            active: true
+│ │          });
+│ │      } else if (command == 'new-tab-to-the-right') {
+│ │          const [tab] = await chrome.tabs.query({
+│ │              currentWindow: true,
+│ │              active: true,
+│ │          });
+│ │          const newTab = await chrome.tabs.create({

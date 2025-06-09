@@ -1,0 +1,70 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/webdev/dwds/debug_extension/web
+├── file list
+│ @@ -1,13 +1,22 @@
+│ -_metadata
+│ -background.dart.js
+│ -banner.dart.js
+│ -copier.dart.js
+│ -debug_info.dart.js
+│ -detector.dart.js
+│ -devtools.dart.js
+│ -lifeline_connection.dart.js
+│ +background.dart
+│ +chrome_api.dart
+│ +cider_connection.dart
+│ +copier.dart
+│ +cross_extension_communication.dart
+│ +data_serializers.dart
+│ +data_serializers.g.dart
+│ +data_types.dart
+│ +data_types.g.dart
+│ +debug_info.dart
+│ +debug_session.dart
+│ +detector.dart
+│ +devtools.dart
+│ +logger.dart
+│  manifest.json
+│ -panel.dart.js
+│ -popup.dart.js
+│ -settings.dart.js
+│ -static_assets
+│ +messaging.dart
+│ +panel.dart
+│ +popup.dart
+│ +static_assets
+│ +storage.dart
+│ +utils.dart
+│ +web_api.dart
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/webdev/dwds/debug_extension/web/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,15 +47,14 @@
+│ │      "name": "Dart Debug Extension",
+│ │      "permissions": [
+│ │          "debugger",
+│ │          "notifications",
+│ │          "storage",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.4",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/static_assets
+├── +++ /workspace/pipeline_output/webdev/dwds/debug_extension/web/static_assets
+│ ├── file list
+│ │ @@ -4,9 +4,8 @@
+│ │  dart_warning.png
+│ │  debugger_panel.html
+│ │  debugger_settings.png
+│ │  devtools.html
+│ │  inspect_widget.png
+│ │  inspector_panel.html
+│ │  popup.html
+│ │ -settings.html
+│ │  styles.css

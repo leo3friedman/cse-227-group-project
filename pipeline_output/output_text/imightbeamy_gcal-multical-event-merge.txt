@@ -1,0 +1,35 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/gcal-multical-event-merge
+├── file list
+│ @@ -1,13 +1,15 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  build
+│  chroma.min.js
+│  events.user.js
+│  icon-disabled.png
+│  icon-large.png
+│  icon.png
+│  images
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/gcal-multical-event-merge/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,10 +30,9 @@
+│ │      "manifest_version": 2,
+│ │      "name": "__MSG_appName__",
+│ │      "permissions": [
+│ │          "https://www.google.com/calendar/*",
+│ │          "https://calendar.google.com/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2.1"
+│ │  }

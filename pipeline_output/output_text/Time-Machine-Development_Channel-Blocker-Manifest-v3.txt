@@ -1,0 +1,885 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3
+├── file list
+│ @@ -1,6 +1,16 @@
+│ -_metadata
+│ +.git
+│ +.gitattributes
+│ +.github
+│ +.gitignore
+│ +LICENSE.txt
+│ +README.md
+│ +assets
+│ +build.sh
+│  content-scripts
+│  images
+│  manifest.json
+│ +manifest.json.firefox
+│ +package-lock.json
+│  service-worker
+│ +setup.sh
+│  ui
+│   --- /workspace/pipeline_output/chromex_data/content-scripts
+├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/content-scripts
+│ ├── file list
+│ │ @@ -1,7 +1,4 @@
+│ │ +package-lock.json
+│ │ +package.json
+│ │ +ts
+│ │ +tsconfig.json
+│ │ -context
+│ │ -enums
+│ │ -helper
+│ │ -index.js
+│ │ -interfaces
+│ │ -observer
+│ │ -storage
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/images
+│ │   --- /workspace/pipeline_output/chromex_data/images/CB_icon.svg
+│ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/images/CB_icon.svg
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ @@ -1,29 +1,29 @@
+│ │  3c7376672077696474683d2232303022206865696768743d2232303022207669
+│ │  6577426f783d223020302032303020323030222066696c6c3d226e6f6e652220
+│ │  786d6c6e733d22687474703a2f2f7777772e77332e6f72672f323030302f7376
+│ │ +67223e0a3c706174682066696c6c2d72756c653d226576656e6f64642220636c
+│ │ +69702d72756c653d226576656e6f64642220643d224d37302e36393731203135
+│ │ +332e3030324c3136322e35203130304c3133372e3930312038352e3739384c37
+│ │ +302e36393731203135332e3030325a4d3133302e3732392038312e363536394c
+│ │ +3131362e3436352037332e343231384c36382e3735203132312e313337563134
+│ │ +332e3633364c3133302e3732392038312e363536395a4d36382e373520313039
+│ │ +2e3832334c3130392e3239332036392e323830374c36382e37352034352e3837
+│ │ +3334563130392e3832335a222066696c6c3d2223464633333333222f3e0a3c70
+│ │ +6174682066696c6c2d72756c653d226576656e6f64642220636c69702d72756c
+│ │ +653d226576656e6f64642220643d224d3230302031303043323030203135352e
+│ │ +323238203135352e3232382032303020313030203230304334342e3737313520
+│ │ +3230302030203135352e32323820302031303043302034342e37373135203434
+│ │ +2e373731352030203130302030433135352e3232382030203230302034342e37
+│ │ +37313520323030203130305a4d3138342e303931203130312e31333643313834
+│ │ +2e303931203134362e393531203134362e393531203138342e30393120313031
+│ │ +2e313336203138342e3039314338302e38303337203138342e3039312036322e
+│ │ +31373935203137362e3737362034372e37353232203136342e3633344c313634
+│ │ +2e3633342034372e37353232433137362e3737362036322e3137393520313834
+│ │ +2e3039312038302e38303337203138342e303931203130312e3133365a4d3135
+│ │ +332e3237352033362e36313136433133392e3032392032352e30383535203132
+│ │ +302e3838392031382e31383138203130312e3133362031382e31383138433535
+│ │ +2e333231382031382e313831382031382e313831382035352e33323138203138
+│ │ +2e31383138203130312e3133364331382e31383138203132302e383839203235
+│ │ +2e30383535203133392e3032392033362e36313136203135332e3237354c3135
+│ │ +332e3237352033362e363131365a222066696c6c3d2223464633333333222f3e
+│ │ +0a3c2f7376673e0a
+│ │ -67223e0d0a3c706174682066696c6c2d72756c653d226576656e6f6464222063
+│ │ -6c69702d72756c653d226576656e6f64642220643d224d37302e363937312031
+│ │ -35332e3030324c3136322e35203130304c3133372e3930312038352e3739384c
+│ │ -37302e36393731203135332e3030325a4d3133302e3732392038312e36353639
+│ │ -4c3131362e3436352037332e343231384c36382e3735203132312e3133375631
+│ │ -34332e3633364c3133302e3732392038312e363536395a4d36382e3735203130
+│ │ -392e3832334c3130392e3239332036392e323830374c36382e37352034352e38
+│ │ -373334563130392e3832335a222066696c6c3d2223464633333333222f3e0d0a
+│ │ -3c706174682066696c6c2d72756c653d226576656e6f64642220636c69702d72
+│ │ -756c653d226576656e6f64642220643d224d3230302031303043323030203135
+│ │ -352e323238203135352e3232382032303020313030203230304334342e373731
+│ │ -35203230302030203135352e32323820302031303043302034342e3737313520
+│ │ -34342e373731352030203130302030433135352e323238203020323030203434
+│ │ -2e3737313520323030203130305a4d3138342e303931203130312e3133364331
+│ │ -38342e303931203134362e393531203134362e393531203138342e3039312031
+│ │ -30312e313336203138342e3039314338302e38303337203138342e3039312036
+│ │ -322e31373935203137362e3737362034372e37353232203136342e3633344c31
+│ │ -36342e3633342034372e37353232433137362e3737362036322e313739352031
+│ │ -38342e3039312038302e38303337203138342e303931203130312e3133365a4d
+│ │ -3135332e3237352033362e36313136433133392e3032392032352e3038353520
+│ │ -3132302e3838392031382e31383138203130312e3133362031382e3138313843
+│ │ -35352e333231382031382e313831382031382e313831382035352e3332313820
+│ │ -31382e31383138203130312e3133364331382e31383138203132302e38383920
+│ │ -32352e30383535203133392e3032392033362e36313136203135332e3237354c
+│ │ -3135332e3237352033362e363131365a222066696c6c3d222346463333333322
+│ │ -2f3e0d0a3c2f7376673e0d0a
+│ │   --- /workspace/pipeline_output/chromex_data/images/misc
+│ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/images/misc
+│ │ │   --- /workspace/pipeline_output/chromex_data/images/misc/Burger.svg
+│ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/images/misc/Burger.svg
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │ @@ -1,10 +1,10 @@
+│ │ │  3c7376672077696474683d2235303022206865696768743d2234303022207669
+│ │ │  6577426f783d223020302035303020343030222066696c6c3d226e6f6e652220
+│ │ │  786d6c6e733d22687474703a2f2f7777772e77332e6f72672f323030302f7376
+│ │ │ -67223e0d0a202020203c7265637420793d22313630222077696474683d223530
+│ │ │ -3022206865696768743d223830222072783d223330222066696c6c3d22776869
+│ │ │ -746522202f3e0d0a202020203c726563742077696474683d2235303022206865
+│ │ │ +67223e0a202020203c7265637420793d22313630222077696474683d22353030
+│ │ │ +22206865696768743d223830222072783d223330222066696c6c3d2277686974
+│ │ │ +6522202f3e0a202020203c726563742077696474683d22353030222068656967
+│ │ │ +68743d223830222072783d223330222066696c6c3d22776869746522202f3e0a
+│ │ │ +202020203c7265637420793d22333230222077696474683d2235303022206865
+│ │ │  696768743d223830222072783d223330222066696c6c3d22776869746522202f
+│ │ │ -3e0d0a202020203c7265637420793d22333230222077696474683d2235303022
+│ │ │ -206865696768743d223830222072783d223330222066696c6c3d227768697465
+│ │ │ -22202f3e0d0a3c2f7376673e
+│ │ │ +3e0a3c2f7376673e
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,10 +44,9 @@
+│ │      "name": "Channel Blocker",
+│ │      "options_page": "./ui/settings/index.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "tabs"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.5"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/service-worker
+├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/service-worker
+│ ├── file list
+│ │ @@ -1,5 +1,4 @@
+│ │ +package-lock.json
+│ │ +package.json
+│ │ +ts
+│ │ +tsconfig.json
+│ │ -enums.js
+│ │ -helper.js
+│ │ -index.js
+│ │ -interfaces
+│ │ -storage.js
+│   --- /workspace/pipeline_output/chromex_data/ui
+├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui
+│ ├── file list
+│ │ @@ -1,2 +1,5 @@
+│ │ +package-lock.json
+│ │ +package.json
+│ │  popup
+│ │ +settings
+│ │ +tsconfig.json
+│ │ -settings
+│ │   --- /workspace/pipeline_output/chromex_data/ui/popup
+│ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/popup
+│ │ │   --- /workspace/pipeline_output/chromex_data/ui/popup/index.html
+│ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/popup/index.html
+│ │ │┄ Ordering differences only
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,14 +1,14 @@
+│ │ │ -<!DOCTYPE html>
+│ │ │ -<html lang="en">
+│ │ │ -
+│ │ │ -<head>
+│ │ │ -    <meta charset="UTF-8">
+│ │ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ │ -    <title>Document</title>
+│ │ │ -</head>
+│ │ │ -
+│ │ │ -<body>
+│ │ │ -    <h1>Test</h1>
+│ │ │ -</body>
+│ │ │ -
+│ │ │ +<!DOCTYPE html>
+│ │ │ +<html lang="en">
+│ │ │ +
+│ │ │ +<head>
+│ │ │ +    <meta charset="UTF-8">
+│ │ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ │ +    <title>Document</title>
+│ │ │ +</head>
+│ │ │ +
+│ │ │ +<body>
+│ │ │ +    <h1>Test</h1>
+│ │ │ +</body>
+│ │ │ +
+│ │ │  </html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/ui/popup/scripts
+│ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/popup/scripts
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1 @@
+│ │ │ │ +index.ts
+│ │ │ │ -index.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/ui/popup/scripts/index.js
+│ │ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/popup/scripts/index.ts
+│ │ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │ │ @@ -1,2 +1 @@
+│ │ │ │ +636f6e736f6c652e6c6f672822537461727422293b0a
+│ │ │ │ -2275736520737472696374223b0a636f6e736f6c652e6c6f6728225374617274
+│ │ │ │ -22293b0a
+│ │   --- /workspace/pipeline_output/chromex_data/ui/settings
+│ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings
+│ │ │   --- /workspace/pipeline_output/chromex_data/ui/settings/index.html
+│ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/index.html
+│ │ │┄ Ordering differences only
+│ │ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ │ @@ -1,320 +1,320 @@
+│ │ │ -<!DOCTYPE html>
+│ │ │ -<html lang="en">
+│ │ │ -
+│ │ │ -<head>
+│ │ │ -    <meta charset="UTF-8">
+│ │ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ │ -    <title>Settings</title>
+│ │ │ -
+│ │ │ -    <script src="./scripts/index.js" defer type="module"></script>
+│ │ │ -    <link rel="stylesheet" href="./style/main.css">
+│ │ │ -</head>
+│ │ │ -
+│ │ │ -<body class="detect-scheme">
+│ │ │ -    <header>
+│ │ │ -        <div>
+│ │ │ -            <img id="icon" class="icon" src="/images/CB_icon.svg" alt="CB_icon">
+│ │ │ -            <button id="burger-menu">
+│ │ │ -                <img id="burger-menu-icon" class="icon" src="/images/misc/Burger.svg" alt="burger-menu">
+│ │ │ -            </button>
+│ │ │ -            <h1>Settings</h1>
+│ │ │ -        </div>
+│ │ │ -        <div>
+│ │ │ -            <button id="donate-btn">🤍 Donate</button>
+│ │ │ -        </div>
+│ │ │ -    </header>
+│ │ │ -    <dialog id="donation-dialog">
+│ │ │ -        <div class="head">
+│ │ │ -            <h1>Choose your donation method</h1>
+│ │ │ -            <button id="close-donation-btn">✕</button>
+│ │ │ -        </div>
+│ │ │ -        <div class="main-section">
+│ │ │ -            <button id="donate-btn-paypal">Donate via PayPal</button>
+│ │ │ -            <button id="donate-btn-patreon">Become a Patreon</button>
+│ │ │ -        </div>
+│ │ │ -    </dialog>
+│ │ │ -    <div id="main-container">
+│ │ │ -        <nav id="main-nav">
+│ │ │ -            <ul>
+│ │ │ -                <li id="blocked-channels-nav">Blocked Channels</li>
+│ │ │ -                <li id="blocked-titles-nav">Blocked Titles</li>
+│ │ │ -                <li id="blocked-names-nav">Blocked Names</li>
+│ │ │ -                <li id="blocked-comments-nav">Blocked Comments</li>
+│ │ │ -                <li id="excluded-channels-nav">Excluded Channels</li>
+│ │ │ -                <hr>
+│ │ │ -                <li id="appearance-nav">Appearance</li>
+│ │ │ -                <li id="import-export-nav">Import/Export</li>
+│ │ │ -                <hr>
+│ │ │ -                <li id="about-nav">About Channel Blocker</li>
+│ │ │ -                <li id="faq-nav">FAQ</li>
+│ │ │ -            </ul>
+│ │ │ -        </nav>
+│ │ │ -        <div id="rules-section" class="section">
+│ │ │ -            <h2 id="heading">Blocked users/channels</h2>
+│ │ │ -            <div id="rules-card" class="card">
+│ │ │ -                <div class="textfield">
+│ │ │ -                    <input type="text" placeholder="user/channel name" id="blocked-channels-input">
+│ │ │ -                    <button id="blocked-channels-add-btn">add</button>
+│ │ │ -                </div>
+│ │ │ -                <div id="case-insensitive-row" class="settings-row space-top">
+│ │ │ -                    <label for="case-insensitive-checkbox">case-insensitive</label>
+│ │ │ -                    <label class="switch">
+│ │ │ -                        <input value="true" type="checkbox" id="case-insensitive-checkbox">
+│ │ │ -                        <span class="slider round"></span>
+│ │ │ -                    </label>
+│ │ │ -                </div>
+│ │ │ -                <select name="blocked-channels" id="blocked-channels" multiple="multiple">
+│ │ │ -                    <option value="test">test</option>
+│ │ │ -                    <option value="test1">test1</option>
+│ │ │ -                </select>
+│ │ │ -                <div class="align-right">
+│ │ │ -                    <button id="blocked-channels-remove-btn" class="outlined">remove</button>
+│ │ │ -                </div>
+│ │ │ -            </div>
+│ │ │ -        </div>
+│ │ │ -        <div id="appearance-section" class="section">
+│ │ │ -            <h2>Design</h2>
+│ │ │ -            <div id="design-card" class="card">
+│ │ │ -                <div class="settings-row">
+│ │ │ -                    <label for="mode-dropdown">Configuration page design</label>
+│ │ │ -                    <select name="mode-dropdown" id="mode-dropdown">
+│ │ │ -                        <option value="0">Device</option>
+│ │ │ -                        <option value="1">Dark</option>
+│ │ │ -                        <option value="2">Light</option>
+│ │ │ -                    </select>
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div class="settings-row">
+│ │ │ -                    <label for="block-btn-color-picker">Color of block-buttons</label>
+│ │ │ -                    <input type="color" name="block-btn-color-picker" id="block-btn-color-picker">
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div class="settings-row">
+│ │ │ -                    <label for="btn-size-slider">Size of block-buttons</label>
+│ │ │ -                    <input type="range" name="btn-size-slider" id="btn-size-slider" min="100" max="200">
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div class="settings-row disabled" title="Not yet implemented">
+│ │ │ -                    <label for="popup-checkbox">Open quick popup when pressing toolbar-button</label>
+│ │ │ -                    <label class="switch">
+│ │ │ -                        <input value="true" type="checkbox" id="popup-checkbox" disabled>
+│ │ │ -                        <span class="slider round"></span>
+│ │ │ -                    </label>
+│ │ │ -                </div>
+│ │ │ -            </div>
+│ │ │ -            <h2>Visibility</h2>
+│ │ │ -            <div id="visibility-card" class="card">
+│ │ │ -                <div class="settings-row">
+│ │ │ -                    <label for="show-btn-checkbox">Show block-buttons</label>
+│ │ │ -                    <label class="switch">
+│ │ │ -                        <input value="true" type="checkbox" id="show-btn-checkbox">
+│ │ │ -                        <span class="slider round"></span>
+│ │ │ -                    </label>
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div class="settings-row disabled" title="Not yet implemented">
+│ │ │ -                    <label for="animation-speed-slider">Speed of block-animation</label>
+│ │ │ -                    <input type="range" name="animation-speed-slider" id="animation-speed-slider" min="0" max="2000"
+│ │ │ -                        disabled>
+│ │ │ -                </div>
+│ │ │ -            </div>
+│ │ │ -            <div class="align-right card-like">
+│ │ │ -                <button id="reset-appearance-btn" class="outlined">reset</button>
+│ │ │ -            </div>
+│ │ │ -        </div>
+│ │ │ -        <div id="import-export-section" class="section">
+│ │ │ -            <h2>Import/Export Your Configuration</h2>
+│ │ │ -            <div id="import-export-card" class="card">
+│ │ │ -                <div class="settings-row">
+│ │ │ -                    <button id="import-btn">Import</button>
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div class="settings-row">
+│ │ │ -                    <button id="export-btn">Export</button>
+│ │ │ -                </div>
+│ │ │ -                <input type="file" id="file-loader-input" name="file-loader-input" style="display: none;">
+│ │ │ -            </div>
+│ │ │ -        </div>
+│ │ │ -        <div id="about-section" class="section">
+│ │ │ -            <h2>About Channel Blocker</h2>
+│ │ │ -            <div id="about-card" class="card">
+│ │ │ -                <div>
+│ │ │ -                    <p>
+│ │ │ -                        Channel Blocker empowers you to block channels effortlessly with just one
+│ │ │ -                        click.
+│ │ │ -                        It also supports regular expressions for unparalleled customization, allowing you to tailor your
+│ │ │ -                        YouTube™ experience to your preferences.
+│ │ │ -                        And another thing: Our commitment to privacy means no user information is collected.
+│ │ │ -                    </p>
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div>
+│ │ │ -                    <h4>Support Us and Our Work:</h4>
+│ │ │ -                    <p>
+│ │ │ -                        Do you like what we do? Do you want to support us and our work? A subscription on Patreon would
+│ │ │ -                        help
+│ │ │ -                        a lot at developing this tool as well as realizing our future projects.
+│ │ │ -                    </p>
+│ │ │ -                </div>
+│ │ │ -                <hr>
+│ │ │ -                <div>
+│ │ │ -                    <p>Email: Contact us at <a href="mailto:yt-cleaner@protonmail.com">yt-cleaner@protonmail.com</a></p>
+│ │ │ -                    <p>
+│ │ │ -                        GitHub: Find the source code on
+│ │ │ -                        <a href="https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3/">
+│ │ │ -                            https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3
+│ │ │ -                        </a>
+│ │ │ -                    </p>
+│ │ │ -                </div>
+│ │ │ -            </div>
+│ │ │ -        </div>
+│ │ │ -        <div id="faq-section" class="section">
+│ │ │ -            <h2>FAQ</h2>
+│ │ │ -            <div id="faq-card" class="card">
+│ │ │ -
+│ │ │ -                <div id="faq-permission-section" class="faq-section">
+│ │ │ -                    <div id="faq-permission-heading" class="settings-row faq-heading">
+│ │ │ -                        <h3>Why does this add-on require permissions?</h3>
+│ │ │ -                        <div class="arrow">
+│ │ │ -                            <span class="close-arrow">⯅</span>
+│ │ │ -                            <span class="open-arrow">⯆</span>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                    <div class="faq-content">
+│ │ │ -                        <div class="faq-content-inner">
+│ │ │ -                            <div class="inner">
+│ │ │ -                                <h4>Access to Your Data on www.youtube.com:</h4>
+│ │ │ -                                <p>
+│ │ │ -                                    - This permission is necessary for functionalities such as removing users/channels
+│ │ │ -                                    you
+│ │ │ -                                    have
+│ │ │ -                                    blocked
+│ │ │ -                                    on YouTube™ and adding the 'x'-button.
+│ │ │ -                                    It allows the add-on to interact with and modify your YouTube™ data as needed.
+│ │ │ -                                </p>
+│ │ │ -                                <h4>Access to Browser Tabs:</h4>
+│ │ │ -                                <p>
+│ │ │ -                                    - This permission is essential for keeping track of your active YouTube™ tabs and
+│ │ │ -                                    managing
+│ │ │ -                                    the
+│ │ │ -                                    Add-on setting page tab.
+│ │ │ -                                </p>
+│ │ │ -                                <h4>Storage of Unlimited Client-Side Data:</h4>
+│ │ │ -                                <p>
+│ │ │ -                                    - This permission is required to store an unlimited amount of client-side data,
+│ │ │ -                                    enabling
+│ │ │ -                                    the
+│ │ │ -                                    add-on
+│ │ │ -                                    to effectively block any number of users or channels.
+│ │ │ -                                </p>
+│ │ │ -                            </div>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                </div>
+│ │ │ -
+│ │ │ -                <div id="faq-contact-section" class="faq-section">
+│ │ │ -                    <div id="faq-contact-heading" class="settings-row faq-heading">
+│ │ │ -                        <h3>Encountered a Bug, Have a Feature Idea, or Need Assistance?</h3>
+│ │ │ -                        <div class="arrow">
+│ │ │ -                            <span class="close-arrow">⯅</span>
+│ │ │ -                            <span class="open-arrow">⯆</span>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                    <div class="faq-content">
+│ │ │ -                        <div class="faq-content-inner">
+│ │ │ -                            <div class="inner">
+│ │ │ -                                <p>
+│ │ │ -                                    If you've encountered a bug, have a feature idea, or need assistance with our
+│ │ │ -                                    product, we're here to help! Please don't hesitate to reach out to us through our
+│ │ │ -                                    <a
+│ │ │ -                                        href="https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3/issues">
+│ │ │ -                                        GitHub Issues page
+│ │ │ -                                    </a>.
+│ │ │ -                                    <br>
+│ │ │ -                                    Before submitting a new issue, we recommend checking if a
+│ │ │ -                                    similar issue has already been reported to avoid duplicates.
+│ │ │ -                                </p>
+│ │ │ -                                <h4>How to Get in Touch:</h4>
+│ │ │ -                                <p>For direct assistance, you can also contact us via email at
+│ │ │ -                                    <a href=" mailto:yt-cleaner@protonmail.com">yt-cleaner@protonmail.com</a>
+│ │ │ -                                </p>
+│ │ │ -                            </div>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                </div>
+│ │ │ -
+│ │ │ -                <div id="faq-privacy-section" class="faq-section">
+│ │ │ -                    <div id="faq-privacy-heading" class="settings-row faq-heading">
+│ │ │ -                        <h3>Do you collect any data?</h3>
+│ │ │ -                        <div class="arrow">
+│ │ │ -                            <span class="close-arrow">⯅</span>
+│ │ │ -                            <span class="open-arrow">⯆</span>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                    <div class="faq-content">
+│ │ │ -                        <div class="faq-content-inner">
+│ │ │ -                            <div class="inner">
+│ │ │ -                                <p>
+│ │ │ -                                    We want to assure you that we <span class="strong">do not</span> collect any data
+│ │ │ -                                    from
+│ │ │ -                                    you
+│ │ │ -                                    in
+│ │ │ -                                    any form.
+│ │ │ -                                    Your privacy is important to us, and our commitment is to ensure that your usage
+│ │ │ -                                    remains
+│ │ │ -                                    secure
+│ │ │ -                                    and confidential.
+│ │ │ -                                </p>
+│ │ │ -                            </div>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                </div>
+│ │ │ -
+│ │ │ -                <div id="faq-troubleshooting-section" class="faq-section">
+│ │ │ -                    <div id="faq-troubleshooting-heading" class="settings-row faq-heading">
+│ │ │ -                        <h3>Troubleshooting Guide: Add-on Not Functioning</h3>
+│ │ │ -                        <div class="arrow">
+│ │ │ -                            <span class="close-arrow">⯅</span>
+│ │ │ -                            <span class="open-arrow">⯆</span>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                    <div class="faq-content">
+│ │ │ -                        <div class="faq-content-inner">
+│ │ │ -                            <div class="inner">
+│ │ │ -                                <h4>Check for Updates</h4>
+│ │ │ -                                <p>
+│ │ │ -                                    Ensure that you have the latest version of Channel Blocker installed. If not, update
+│ │ │ -                                    to
+│ │ │ -                                    the
+│ │ │ -                                    newest version for optimal performance.
+│ │ │ -                                </p>
+│ │ │ -
+│ │ │ -                                <h4>Mobile Compatibility</h4>
+│ │ │ -                                <p>
+│ │ │ -                                    If you are using a phone, we are sorry but this add-on doesn't work on mobile
+│ │ │ -                                    browsers.
+│ │ │ -                                </p>
+│ │ │ -
+│ │ │ -                                <h4>Reporting a Bug</h4>
+│ │ │ -                                <p>
+│ │ │ -                                    If you encounter any issues, even after updating to the latest version, please help
+│ │ │ -                                    us improve by reporting them. You can submit bug reports through our
+│ │ │ -                                    <a
+│ │ │ -                                        href="https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3/issues">
+│ │ │ -                                        GitHub Issues page
+│ │ │ -                                    </a>.
+│ │ │ -                                    <br>
+│ │ │ -                                    Before opening a new issue, we kindly ask you to check if a similar issue has
+│ │ │ -                                    already been reported. Duplicate issues can clutter the tracker and delay
+│ │ │ -                                    resolution.
+│ │ │ -                                </p>
+│ │ │ -
+│ │ │ -                            </div>
+│ │ │ -                        </div>
+│ │ │ -                    </div>
+│ │ │ -                </div>
+│ │ │ -            </div>
+│ │ │ -        </div>
+│ │ │ -</body>
+│ │ │ -
+│ │ │ +<!DOCTYPE html>
+│ │ │ +<html lang="en">
+│ │ │ +
+│ │ │ +<head>
+│ │ │ +    <meta charset="UTF-8">
+│ │ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ │ +    <title>Settings</title>
+│ │ │ +
+│ │ │ +    <script src="./scripts/index.js" defer type="module"></script>
+│ │ │ +    <link rel="stylesheet" href="./style/main.css">
+│ │ │ +</head>
+│ │ │ +
+│ │ │ +<body class="detect-scheme">
+│ │ │ +    <header>
+│ │ │ +        <div>
+│ │ │ +            <img id="icon" class="icon" src="/images/CB_icon.svg" alt="CB_icon">
+│ │ │ +            <button id="burger-menu">
+│ │ │ +                <img id="burger-menu-icon" class="icon" src="/images/misc/Burger.svg" alt="burger-menu">
+│ │ │ +            </button>
+│ │ │ +            <h1>Settings</h1>
+│ │ │ +        </div>
+│ │ │ +        <div>
+│ │ │ +            <button id="donate-btn">🤍 Donate</button>
+│ │ │ +        </div>
+│ │ │ +    </header>
+│ │ │ +    <dialog id="donation-dialog">
+│ │ │ +        <div class="head">
+│ │ │ +            <h1>Choose your donation method</h1>
+│ │ │ +            <button id="close-donation-btn">✕</button>
+│ │ │ +        </div>
+│ │ │ +        <div class="main-section">
+│ │ │ +            <button id="donate-btn-paypal">Donate via PayPal</button>
+│ │ │ +            <button id="donate-btn-patreon">Become a Patreon</button>
+│ │ │ +        </div>
+│ │ │ +    </dialog>
+│ │ │ +    <div id="main-container">
+│ │ │ +        <nav id="main-nav">
+│ │ │ +            <ul>
+│ │ │ +                <li id="blocked-channels-nav">Blocked Channels</li>
+│ │ │ +                <li id="blocked-titles-nav">Blocked Titles</li>
+│ │ │ +                <li id="blocked-names-nav">Blocked Names</li>
+│ │ │ +                <li id="blocked-comments-nav">Blocked Comments</li>
+│ │ │ +                <li id="excluded-channels-nav">Excluded Channels</li>
+│ │ │ +                <hr>
+│ │ │ +                <li id="appearance-nav">Appearance</li>
+│ │ │ +                <li id="import-export-nav">Import/Export</li>
+│ │ │ +                <hr>
+│ │ │ +                <li id="about-nav">About Channel Blocker</li>
+│ │ │ +                <li id="faq-nav">FAQ</li>
+│ │ │ +            </ul>
+│ │ │ +        </nav>
+│ │ │ +        <div id="rules-section" class="section">
+│ │ │ +            <h2 id="heading">Blocked users/channels</h2>
+│ │ │ +            <div id="rules-card" class="card">
+│ │ │ +                <div class="textfield">
+│ │ │ +                    <input type="text" placeholder="user/channel name" id="blocked-channels-input">
+│ │ │ +                    <button id="blocked-channels-add-btn">add</button>
+│ │ │ +                </div>
+│ │ │ +                <div id="case-insensitive-row" class="settings-row space-top">
+│ │ │ +                    <label for="case-insensitive-checkbox">case-insensitive</label>
+│ │ │ +                    <label class="switch">
+│ │ │ +                        <input value="true" type="checkbox" id="case-insensitive-checkbox">
+│ │ │ +                        <span class="slider round"></span>
+│ │ │ +                    </label>
+│ │ │ +                </div>
+│ │ │ +                <select name="blocked-channels" id="blocked-channels" multiple="multiple">
+│ │ │ +                    <option value="test">test</option>
+│ │ │ +                    <option value="test1">test1</option>
+│ │ │ +                </select>
+│ │ │ +                <div class="align-right">
+│ │ │ +                    <button id="blocked-channels-remove-btn" class="outlined">remove</button>
+│ │ │ +                </div>
+│ │ │ +            </div>
+│ │ │ +        </div>
+│ │ │ +        <div id="appearance-section" class="section">
+│ │ │ +            <h2>Design</h2>
+│ │ │ +            <div id="design-card" class="card">
+│ │ │ +                <div class="settings-row">
+│ │ │ +                    <label for="mode-dropdown">Configuration page design</label>
+│ │ │ +                    <select name="mode-dropdown" id="mode-dropdown">
+│ │ │ +                        <option value="0">Device</option>
+│ │ │ +                        <option value="1">Dark</option>
+│ │ │ +                        <option value="2">Light</option>
+│ │ │ +                    </select>
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div class="settings-row">
+│ │ │ +                    <label for="block-btn-color-picker">Color of block-buttons</label>
+│ │ │ +                    <input type="color" name="block-btn-color-picker" id="block-btn-color-picker">
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div class="settings-row">
+│ │ │ +                    <label for="btn-size-slider">Size of block-buttons</label>
+│ │ │ +                    <input type="range" name="btn-size-slider" id="btn-size-slider" min="100" max="200">
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div class="settings-row disabled" title="Not yet implemented">
+│ │ │ +                    <label for="popup-checkbox">Open quick popup when pressing toolbar-button</label>
+│ │ │ +                    <label class="switch">
+│ │ │ +                        <input value="true" type="checkbox" id="popup-checkbox" disabled>
+│ │ │ +                        <span class="slider round"></span>
+│ │ │ +                    </label>
+│ │ │ +                </div>
+│ │ │ +            </div>
+│ │ │ +            <h2>Visibility</h2>
+│ │ │ +            <div id="visibility-card" class="card">
+│ │ │ +                <div class="settings-row">
+│ │ │ +                    <label for="show-btn-checkbox">Show block-buttons</label>
+│ │ │ +                    <label class="switch">
+│ │ │ +                        <input value="true" type="checkbox" id="show-btn-checkbox">
+│ │ │ +                        <span class="slider round"></span>
+│ │ │ +                    </label>
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div class="settings-row disabled" title="Not yet implemented">
+│ │ │ +                    <label for="animation-speed-slider">Speed of block-animation</label>
+│ │ │ +                    <input type="range" name="animation-speed-slider" id="animation-speed-slider" min="0" max="2000"
+│ │ │ +                        disabled>
+│ │ │ +                </div>
+│ │ │ +            </div>
+│ │ │ +            <div class="align-right card-like">
+│ │ │ +                <button id="reset-appearance-btn" class="outlined">reset</button>
+│ │ │ +            </div>
+│ │ │ +        </div>
+│ │ │ +        <div id="import-export-section" class="section">
+│ │ │ +            <h2>Import/Export Your Configuration</h2>
+│ │ │ +            <div id="import-export-card" class="card">
+│ │ │ +                <div class="settings-row">
+│ │ │ +                    <button id="import-btn">Import</button>
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div class="settings-row">
+│ │ │ +                    <button id="export-btn">Export</button>
+│ │ │ +                </div>
+│ │ │ +                <input type="file" id="file-loader-input" name="file-loader-input" style="display: none;">
+│ │ │ +            </div>
+│ │ │ +        </div>
+│ │ │ +        <div id="about-section" class="section">
+│ │ │ +            <h2>About Channel Blocker</h2>
+│ │ │ +            <div id="about-card" class="card">
+│ │ │ +                <div>
+│ │ │ +                    <p>
+│ │ │ +                        Channel Blocker empowers you to block channels effortlessly with just one
+│ │ │ +                        click.
+│ │ │ +                        It also supports regular expressions for unparalleled customization, allowing you to tailor your
+│ │ │ +                        YouTube™ experience to your preferences.
+│ │ │ +                        And another thing: Our commitment to privacy means no user information is collected.
+│ │ │ +                    </p>
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div>
+│ │ │ +                    <h4>Support Us and Our Work:</h4>
+│ │ │ +                    <p>
+│ │ │ +                        Do you like what we do? Do you want to support us and our work? A subscription on Patreon would
+│ │ │ +                        help
+│ │ │ +                        a lot at developing this tool as well as realizing our future projects.
+│ │ │ +                    </p>
+│ │ │ +                </div>
+│ │ │ +                <hr>
+│ │ │ +                <div>
+│ │ │ +                    <p>Email: Contact us at <a href="mailto:yt-cleaner@protonmail.com">yt-cleaner@protonmail.com</a></p>
+│ │ │ +                    <p>
+│ │ │ +                        GitHub: Find the source code on
+│ │ │ +                        <a href="https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3/">
+│ │ │ +                            https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3
+│ │ │ +                        </a>
+│ │ │ +                    </p>
+│ │ │ +                </div>
+│ │ │ +            </div>
+│ │ │ +        </div>
+│ │ │ +        <div id="faq-section" class="section">
+│ │ │ +            <h2>FAQ</h2>
+│ │ │ +            <div id="faq-card" class="card">
+│ │ │ +
+│ │ │ +                <div id="faq-permission-section" class="faq-section">
+│ │ │ +                    <div id="faq-permission-heading" class="settings-row faq-heading">
+│ │ │ +                        <h3>Why does this add-on require permissions?</h3>
+│ │ │ +                        <div class="arrow">
+│ │ │ +                            <span class="close-arrow">⯅</span>
+│ │ │ +                            <span class="open-arrow">⯆</span>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                    <div class="faq-content">
+│ │ │ +                        <div class="faq-content-inner">
+│ │ │ +                            <div class="inner">
+│ │ │ +                                <h4>Access to Your Data on www.youtube.com:</h4>
+│ │ │ +                                <p>
+│ │ │ +                                    - This permission is necessary for functionalities such as removing users/channels
+│ │ │ +                                    you
+│ │ │ +                                    have
+│ │ │ +                                    blocked
+│ │ │ +                                    on YouTube™ and adding the 'x'-button.
+│ │ │ +                                    It allows the add-on to interact with and modify your YouTube™ data as needed.
+│ │ │ +                                </p>
+│ │ │ +                                <h4>Access to Browser Tabs:</h4>
+│ │ │ +                                <p>
+│ │ │ +                                    - This permission is essential for keeping track of your active YouTube™ tabs and
+│ │ │ +                                    managing
+│ │ │ +                                    the
+│ │ │ +                                    Add-on setting page tab.
+│ │ │ +                                </p>
+│ │ │ +                                <h4>Storage of Unlimited Client-Side Data:</h4>
+│ │ │ +                                <p>
+│ │ │ +                                    - This permission is required to store an unlimited amount of client-side data,
+│ │ │ +                                    enabling
+│ │ │ +                                    the
+│ │ │ +                                    add-on
+│ │ │ +                                    to effectively block any number of users or channels.
+│ │ │ +                                </p>
+│ │ │ +                            </div>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                </div>
+│ │ │ +
+│ │ │ +                <div id="faq-contact-section" class="faq-section">
+│ │ │ +                    <div id="faq-contact-heading" class="settings-row faq-heading">
+│ │ │ +                        <h3>Encountered a Bug, Have a Feature Idea, or Need Assistance?</h3>
+│ │ │ +                        <div class="arrow">
+│ │ │ +                            <span class="close-arrow">⯅</span>
+│ │ │ +                            <span class="open-arrow">⯆</span>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                    <div class="faq-content">
+│ │ │ +                        <div class="faq-content-inner">
+│ │ │ +                            <div class="inner">
+│ │ │ +                                <p>
+│ │ │ +                                    If you've encountered a bug, have a feature idea, or need assistance with our
+│ │ │ +                                    product, we're here to help! Please don't hesitate to reach out to us through our
+│ │ │ +                                    <a
+│ │ │ +                                        href="https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3/issues">
+│ │ │ +                                        GitHub Issues page
+│ │ │ +                                    </a>.
+│ │ │ +                                    <br>
+│ │ │ +                                    Before submitting a new issue, we recommend checking if a
+│ │ │ +                                    similar issue has already been reported to avoid duplicates.
+│ │ │ +                                </p>
+│ │ │ +                                <h4>How to Get in Touch:</h4>
+│ │ │ +                                <p>For direct assistance, you can also contact us via email at
+│ │ │ +                                    <a href=" mailto:yt-cleaner@protonmail.com">yt-cleaner@protonmail.com</a>
+│ │ │ +                                </p>
+│ │ │ +                            </div>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                </div>
+│ │ │ +
+│ │ │ +                <div id="faq-privacy-section" class="faq-section">
+│ │ │ +                    <div id="faq-privacy-heading" class="settings-row faq-heading">
+│ │ │ +                        <h3>Do you collect any data?</h3>
+│ │ │ +                        <div class="arrow">
+│ │ │ +                            <span class="close-arrow">⯅</span>
+│ │ │ +                            <span class="open-arrow">⯆</span>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                    <div class="faq-content">
+│ │ │ +                        <div class="faq-content-inner">
+│ │ │ +                            <div class="inner">
+│ │ │ +                                <p>
+│ │ │ +                                    We want to assure you that we <span class="strong">do not</span> collect any data
+│ │ │ +                                    from
+│ │ │ +                                    you
+│ │ │ +                                    in
+│ │ │ +                                    any form.
+│ │ │ +                                    Your privacy is important to us, and our commitment is to ensure that your usage
+│ │ │ +                                    remains
+│ │ │ +                                    secure
+│ │ │ +                                    and confidential.
+│ │ │ +                                </p>
+│ │ │ +                            </div>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                </div>
+│ │ │ +
+│ │ │ +                <div id="faq-troubleshooting-section" class="faq-section">
+│ │ │ +                    <div id="faq-troubleshooting-heading" class="settings-row faq-heading">
+│ │ │ +                        <h3>Troubleshooting Guide: Add-on Not Functioning</h3>
+│ │ │ +                        <div class="arrow">
+│ │ │ +                            <span class="close-arrow">⯅</span>
+│ │ │ +                            <span class="open-arrow">⯆</span>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                    <div class="faq-content">
+│ │ │ +                        <div class="faq-content-inner">
+│ │ │ +                            <div class="inner">
+│ │ │ +                                <h4>Check for Updates</h4>
+│ │ │ +                                <p>
+│ │ │ +                                    Ensure that you have the latest version of Channel Blocker installed. If not, update
+│ │ │ +                                    to
+│ │ │ +                                    the
+│ │ │ +                                    newest version for optimal performance.
+│ │ │ +                                </p>
+│ │ │ +
+│ │ │ +                                <h4>Mobile Compatibility</h4>
+│ │ │ +                                <p>
+│ │ │ +                                    If you are using a phone, we are sorry but this add-on doesn't work on mobile
+│ │ │ +                                    browsers.
+│ │ │ +                                </p>
+│ │ │ +
+│ │ │ +                                <h4>Reporting a Bug</h4>
+│ │ │ +                                <p>
+│ │ │ +                                    If you encounter any issues, even after updating to the latest version, please help
+│ │ │ +                                    us improve by reporting them. You can submit bug reports through our
+│ │ │ +                                    <a
+│ │ │ +                                        href="https://github.com/Time-Machine-Development/Channel-Blocker-Manifest-v3/issues">
+│ │ │ +                                        GitHub Issues page
+│ │ │ +                                    </a>.
+│ │ │ +                                    <br>
+│ │ │ +                                    Before opening a new issue, we kindly ask you to check if a similar issue has
+│ │ │ +                                    already been reported. Duplicate issues can clutter the tracker and delay
+│ │ │ +                                    resolution.
+│ │ │ +                                </p>
+│ │ │ +
+│ │ │ +                            </div>
+│ │ │ +                        </div>
+│ │ │ +                    </div>
+│ │ │ +                </div>
+│ │ │ +            </div>
+│ │ │ +        </div>
+│ │ │ +</body>
+│ │ │ +
+│ │ │  </html>
+│ │ │   --- /workspace/pipeline_output/chromex_data/ui/settings/scripts
+│ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/scripts
+│ │ │ ├── file list
+│ │ │ │ @@ -1,9 +1,9 @@
+│ │ │ │ +donate.ts
+│ │ │ │ +enums.ts
+│ │ │ │ +faq.ts
+│ │ │ │ +helper.ts
+│ │ │ │ +importExport.ts
+│ │ │ │ +index.ts
+│ │ │ │ -donate.js
+│ │ │ │ -enums.js
+│ │ │ │ -faq.js
+│ │ │ │ -helper.js
+│ │ │ │ -importExport.js
+│ │ │ │ -index.js
+│ │ │ │  interfaces
+│ │ │ │ +navigation.ts
+│ │ │ │ +settings.ts
+│ │ │ │ -navigation.js
+│ │ │ │ -settings.js
+│ │ │ │   --- /workspace/pipeline_output/chromex_data/ui/settings/scripts/interfaces
+│ │ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/scripts/interfaces
+│ │ │ │ ├── file list
+│ │ │ │ │ @@ -1,2 +1,2 @@
+│ │ │ │ │ -interfaces.js
+│ │ │ │ │ -storage.js
+│ │ │ │ │ +interfaces.ts
+│ │ │ │ │ +storage.ts
+│ │ │   --- /workspace/pipeline_output/chromex_data/ui/settings/style
+│ │ ├── +++ /workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/style
+│ │ │ ├── file list
+│ │ │ │ @@ -1 +1,2 @@
+│ │ │ │ +main.scss
+│ │ │ │ +modules
+│ │ │ │ -main.css

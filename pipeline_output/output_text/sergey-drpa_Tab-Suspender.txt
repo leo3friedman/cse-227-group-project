@@ -1,0 +1,130 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Tab-Suspender/build_dir
+├── file list
+│ @@ -1,9 +1,8 @@
+│  _locales
+│ -_metadata
+│  background.html
+│  background.js
+│  background.js.map
+│  background.pre.js
+│  background.pre.js.map
+│  buy.js
+│  buy.js.map
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Tab-Suspender/build_dir/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -98,15 +98,15 @@
+│ │          "16": "img/icon16.png",
+│ │          "32": "img/icon32.png",
+│ │          "64": "img/icon64.png"
+│ │      },
+│ │      "incognito": "split",
+│ │      "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNEkrBy9aFGgcUssLSWYc+jDDfgAB+/mZcDBu8dl/Fxg8/A/vMkBAg7qrouRfPcJ4uqw3QSxMDaTIL49owqgm8uvCCFYdDVUWY7aU13YrxOn/diY33ejzfyDaCHDKMlEIPsch2P5mHxF/CUZ1vWAsKguPQHyHYwVPg22558wx9cdn3JvRI9mMLq8dB0p99PQfIFL9dpwKa11OXfEWgQbYfFYbK5+tD1xZL+oo6St8J23+pPGdz2QfXIceOT6znGj+gbmid78lT/61RX4qYT+zBhnRsY99uAFW3w+wdw7YYh76uoJI43L4RL3dDxpll5ktdZrBo1ENVVr9IXK2XDgrQIDAQAB",
+│ │      "manifest_version": 3,
+│ │ -    "minimum_chrome_version": "100",
+│ │ +    "minimum_chrome_version": "116",
+│ │      "name": "__MSG_extName__",
+│ │      "offline_enabled": true,
+│ │      "optional_permissions": [],
+│ │      "options_page": "fancy-settings/source/index.html",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "notifications",
+│ │ @@ -114,15 +114,14 @@
+│ │          "contextMenus",
+│ │          "storage",
+│ │          "scripting",
+│ │          "favicon",
+│ │          "offscreen"
+│ │      ],
+│ │      "short_name": "Tab Suspender",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.6",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "extension_ids": [
+│ │                  "*"
+│ │              ],
+│ │              "matches": [
+│   --- /workspace/pipeline_output/chromex_data/tsconfig.tsbuildinfo
+├── +++ /workspace/pipeline_output/Tab-Suspender/build_dir/tsconfig.tsbuildinfo
+│ ├── Pretty-printed
+│ │ @@ -3,47 +3,47 @@
+│ │          "../background.pre.js",
+│ │          "../background.ts",
+│ │          "../buy.js",
+│ │          "../dialog.js",
+│ │          "../history.js",
+│ │          "../inject.ts",
+│ │          "../jest.config.cjs",
+│ │ -        "../offscreendocument.ts",
+│ │ +        "../offscreenDocument.ts",
+│ │          "../park.ts",
+│ │          "../popup.ts",
+│ │ -        "../previewtile.js",
+│ │ +        "../previewTile.js",
+│ │          "../sessions.js",
+│ │          "../utils.ts",
+│ │          "../wizard.ts",
+│ │          "../worker.ts",
+│ │ -        "../modules/bgmessagelistener.ts",
+│ │ -        "../modules/browseractioncontrol.ts",
+│ │ -        "../modules/contextmenucontroller.ts",
+│ │ -        "../modules/dbprovider.js",
+│ │ -        "../modules/dbutils.ts",
+│ │ -        "../modules/historyopenercontroller.ts",
+│ │ -        "../modules/ignorelist.ts",
+│ │ -        "../modules/indexeddbprovider.js",
+│ │ -        "../modules/localstore.ts",
+│ │ -        "../modules/offscreendocumentprovider.ts",
+│ │ -        "../modules/pagestaterestorecontroller.ts",
+│ │ -        "../modules/popupcontroller.ts",
+│ │ -        "../modules/screenshotcontroller.ts",
+│ │ -        "../modules/settings.ts",
+│ │ -        "../modules/settingspagecontroller.ts",
+│ │ -        "../modules/tskeeper.ts",
+│ │ -        "../modules/tabcapture.ts",
+│ │ -        "../modules/tabmanager.ts",
+│ │ -        "../modules/tabobserver.ts",
+│ │ -        "../modules/tabparkcontroller.ts",
+│ │ -        "../modules/whitelist.ts",
+│ │ -        "../modules/windowmanager.ts",
+│ │ -        "../modules/errorsprocessing.ts",
+│ │ -        "../modules/pageopener.ts",
+│ │ -        "../modules/model/tabinfo.ts",
+│ │ +        "../modules/BGMessageListener.ts",
+│ │ +        "../modules/BrowserActionControl.ts",
+│ │ +        "../modules/ContextMenuController.ts",
+│ │ +        "../modules/DBProvider.js",
+│ │ +        "../modules/DbUtils.ts",
+│ │ +        "../modules/HistoryOpenerController.ts",
+│ │ +        "../modules/IgnoreList.ts",
+│ │ +        "../modules/IndexedDBProvider.js",
+│ │ +        "../modules/LocalStore.ts",
+│ │ +        "../modules/OffscreenDocumentProvider.ts",
+│ │ +        "../modules/PageStateRestoreController.ts",
+│ │ +        "../modules/PopupController.ts",
+│ │ +        "../modules/ScreenshotController.ts",
+│ │ +        "../modules/Settings.ts",
+│ │ +        "../modules/SettingsPageController.ts",
+│ │ +        "../modules/TSKeeper.ts",
+│ │ +        "../modules/TabCapture.ts",
+│ │ +        "../modules/TabManager.ts",
+│ │ +        "../modules/TabObserver.ts",
+│ │ +        "../modules/TabParkController.ts",
+│ │ +        "../modules/WhiteList.ts",
+│ │ +        "../modules/WindowManager.ts",
+│ │ +        "../modules/errorsProcessing.ts",
+│ │ +        "../modules/pageOpener.ts",
+│ │ +        "../modules/model/TabInfo.ts",
+│ │          "../fancy-settings/source/lib/store.ts",
+│ │ -        "../test/modules/dbcleanup.test.ts",
+│ │ -        "../test/modules/screenshotcontroller.test.ts",
+│ │ -        "../test/modules/tabobserver.test.ts"
+│ │ +        "../test/modules/DBCleanup.test.ts",
+│ │ +        "../test/modules/ScreenshotController.test.ts",
+│ │ +        "../test/modules/TabObserver.test.ts"
+│ │      ],
+│ │      "version": "5.6.2"
+│ │  }

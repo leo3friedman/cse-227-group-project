@@ -1,0 +1,30 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/BrowserExtension
+  - files: _metadata, styles
+  + files: .editorconfig, .git, .gitattributes, .github, .gitignore, .stylelintrc.json, .vscode, README.md, assets, build.js, crowdin-readme.yml, crowdin.yml, eslint.config.mjs, node_modules, package-lock.json, package.json, steamdb_ext_4_15.zip, steamdb_ext_4_15_firefox.zip, styles, tsconfig.json, version.js
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/BrowserExtension/manifest.json; File type: json
+  + Modified: 2–21
+  - Original: 425–425 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options/popup.html <-> +++/workspace/pipeline_output/BrowserExtension/options/popup.html; File type: html
+  + Modified: 7–7
+
+---/workspace/pipeline_output/chromex_data/options/popup.js <-> +++/workspace/pipeline_output/BrowserExtension/options/popup.js; File type: js
+  - Original: 12–12
+  + Modified: 12–12
+
+---/workspace/pipeline_output/chromex_data/scripts/appicon.js <-> +++/workspace/pipeline_output/BrowserExtension/scripts/appicon.js; File type: js
+  - Original: 37–38
+  - Original: 40–40
+  - Original: 44–44
+  - Original: 46–46
+  + Modified: 37–45
+
+---/workspace/pipeline_output/chromex_data/scripts/community/market.js <-> +++/workspace/pipeline_output/BrowserExtension/scripts/community/market.js; File type: js
+  - Original: 3–7
+  + Modified: 3–7
+
+---/workspace/pipeline_output/chromex_data/scripts/community/multibuy.js <-> +++/workspace/pipeline_output/BrowserExtension/scripts/community/multibuy.js; File type: js
+  - Original: 3–7
+  + Modified: 3–7
+

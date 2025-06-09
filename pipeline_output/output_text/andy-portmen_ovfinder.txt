@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ovfinder
+├── file list
+│ @@ -1,5 +1,6 @@
+│ +.git
+│  _locales
+│ -_metadata
+│  data
+│  manifest.json
+│ +package-lock.json
+│  worker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ovfinder/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -25,10 +25,9 @@
+│ │      "name": "Free OpenVPN Server Finder",
+│ │      "optional_host_permissions": [
+│ │          "*://*/*"
+│ │      ],
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.3"
+│ │  }

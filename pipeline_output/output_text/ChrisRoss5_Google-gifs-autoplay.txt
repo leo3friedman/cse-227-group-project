@@ -1,0 +1,162 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Google-gifs-autoplay/firefox
+├── file list
+│ @@ -1,6 +1,2 @@
+│ -_metadata
+│ -background
+│ -images
+│ -inject
+│  manifest.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Google-gifs-autoplay/firefox/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,13 +1,18 @@
+│ │  {
+│ │      "action": {
+│ │          "default_icon": "images/icon-64.png",
+│ │          "default_popup": "popup/index.html"
+│ │      },
+│ │      "author": "Kristijan Rosandi\u0107",
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "gifs-autoplay-for-google@k1k1.dev"
+│ │ +        }
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "inject/main.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "*://www.google.com/*",
+│ │ @@ -401,15 +406,14 @@
+│ │          "128": "images/icon-128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Gifs autoplay for Google\u2122",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/Google-gifs-autoplay/firefox/popup
+│ ├── file list
+│ │ @@ -1,2 +1 @@
+│ │ +index.html
+│ │ -index.html
+│ │ -index.js
+│ │   --- /workspace/pipeline_output/chromex_data/popup/index.html
+│ ├── +++ /workspace/pipeline_output/Google-gifs-autoplay/firefox/popup/index.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,51 +1,52 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html lang="en">
+│ │ +  <head>
+│ │ +    <meta charset="UTF-8" />
+│ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ +    <title>Gifs autoplay for Google™</title>
+│ │ +    <style>
+│ │ +      body {
+│ │ +        display: flex;
+│ │ +        align-items: center;
+│ │ +        font-size: 1.5rem;
+│ │ +        padding: 1rem;
+│ │ +        background-size: cover;
+│ │ +        text-wrap: nowrap;
+│ │ +        user-select: none;
+│ │ +        font-family: sans-serif;
+│ │ +      }
+│ │ +      img {
+│ │ +        width: 3rem;
+│ │ +        height: 3rem;
+│ │ +        padding-right: 0.5rem;
+│ │ +      }
+│ │ +      a {
+│ │ +        margin-right: 1rem;
+│ │ +        padding-right: 1rem;
+│ │ +        border-right: 2px solid #bbb;
+│ │ +        text-decoration: none;
+│ │ +        color: #C55A11;
+│ │ +      }
+│ │ +      a:hover {
+│ │ +        text-shadow: 1px 1px 3px #bbb;
+│ │ +      }
+│ │ +      label {
+│ │ +        padding-right: 0.5rem;
+│ │ +      }
+│ │ +      input {
+│ │ +        width: 1.5rem;
+│ │ +        height: 1.5rem;
+│ │ +      }
+│ │ +    </style>
+│ │ +  </head>
+│ │ +  <body>
+│ │ +    <a
+│ │ +      href="https://chrome.google.com/webstore/detail/mfaepkdaodjclepbclabjbigjeohfdje"
+│ │ +      target="_blank"
+│ │ +      >Gifs autoplay for Google™</a
+│ │ +    >
+│ │ +    <label for="cbx">Enabled: </label>
+│ │ +    <input type="checkbox" id="cbx" />
+│ │ +    <script src="index.js"></script>
+│ │ +  </body>
+│ │ +</html>
+│ │ -<!DOCTYPE html>
+│ │ -<html lang="en">
+│ │ -  <head>
+│ │ -    <meta charset="UTF-8" />
+│ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ -    <title>Gifs autoplay for Google™</title>
+│ │ -    <style>
+│ │ -      body {
+│ │ -        display: flex;
+│ │ -        align-items: center;
+│ │ -        font-size: 1.5rem;
+│ │ -        padding: 1rem;
+│ │ -        background-size: cover;
+│ │ -        text-wrap: nowrap;
+│ │ -        user-select: none;
+│ │ -      }
+│ │ -      img {
+│ │ -        width: 3rem;
+│ │ -        height: 3rem;
+│ │ -        padding-right: 0.5rem;
+│ │ -      }
+│ │ -      a {
+│ │ -        margin-right: 1rem;
+│ │ -        padding-right: 1rem;
+│ │ -        border-right: 2px solid #bbb;
+│ │ -        text-decoration: none;
+│ │ -        color: #C55A11;
+│ │ -      }
+│ │ -      a:hover {
+│ │ -        text-shadow: 1px 1px 3px #bbb;
+│ │ -      }
+│ │ -      label {
+│ │ -        padding-right: 0.5rem;
+│ │ -      }
+│ │ -      input {
+│ │ -        width: 1.5rem;
+│ │ -        height: 1.5rem;
+│ │ -      }
+│ │ -    </style>
+│ │ -  </head>
+│ │ -  <body>
+│ │ -    <a
+│ │ -      href="https://chrome.google.com/webstore/detail/mfaepkdaodjclepbclabjbigjeohfdje"
+│ │ -      target="_blank"
+│ │ -      >Gifs autoplay for Google™</a
+│ │ -    >
+│ │ -    <label for="cbx">Enabled: </label>
+│ │ -    <input type="checkbox" id="cbx" />
+│ │ -    <script src="index.js"></script>
+│ │ -  </body>
+│ │ -</html>

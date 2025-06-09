@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chatgpt-equations/extension
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  content.css
+│  content.js
+│  content.js.LICENSE.txt
+│  images
+│  manifest.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chatgpt-equations/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -41,10 +41,9 @@
+│ │          "128": "images/icon.png",
+│ │          "16": "images/icon.png",
+│ │          "32": "images/icon.png",
+│ │          "48": "images/icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "ChatGPT Equation Renderer",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.2"
+│ │  }

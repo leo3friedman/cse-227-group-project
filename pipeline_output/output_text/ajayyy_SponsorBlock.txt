@@ -1,0 +1,214 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/SponsorBlock/manifest
+├── file list
+│ @@ -1,15 +1,7 @@
+│ -_locales
+│ -_metadata
+│ -content.css
+│ -help
+│ -icons
+│ -js
+│ -libs
+│ +beta-manifest-extra.json
+│ +chrome-manifest-extra.json
+│ +firefox-beta-manifest-extra.json
+│ +firefox-manifest-extra.json
+│ +manifest-v2-extra.json
+│  manifest.json
+│ -options
+│ -oss-attribution
+│ -permissions
+│ -popup.css
+│ -popup.html
+│ -res
+│ -shared.css
+│ +safari-manifest-extra.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/SponsorBlock/manifest/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,184 +1,25 @@
+│ │  {
+│ │ -    "action": {
+│ │ -        "default_icon": {
+│ │ -            "128": "icons/IconSponsorBlocker128px.png",
+│ │ -            "16": "icons/IconSponsorBlocker16px.png",
+│ │ -            "32": "icons/IconSponsorBlocker32px.png",
+│ │ -            "64": "icons/IconSponsorBlocker64px.png"
+│ │ -        },
+│ │ -        "default_popup": "popup.html",
+│ │ -        "default_title": "SponsorBlock",
+│ │ -        "theme_icons": [
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker16px.png",
+│ │ -                "light": "icons/IconSponsorBlocker16px.png",
+│ │ -                "size": 16
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker32px.png",
+│ │ -                "light": "icons/IconSponsorBlocker32px.png",
+│ │ -                "size": 32
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker64px.png",
+│ │ -                "light": "icons/IconSponsorBlocker64px.png",
+│ │ -                "size": 64
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker128px.png",
+│ │ -                "light": "icons/IconSponsorBlocker128px.png",
+│ │ -                "size": 128
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker256px.png",
+│ │ -                "light": "icons/IconSponsorBlocker256px.png",
+│ │ -                "size": 256
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker512px.png",
+│ │ -                "light": "icons/IconSponsorBlocker512px.png",
+│ │ -                "size": 512
+│ │ -            },
+│ │ -            {
+│ │ -                "dark": "icons/IconSponsorBlocker1024px.png",
+│ │ -                "light": "icons/IconSponsorBlocker1024px.png",
+│ │ -                "size": 1024
+│ │ -            }
+│ │ -        ]
+│ │ -    },
+│ │ -    "background": {
+│ │ -        "service_worker": "./js/background.js"
+│ │ -    },
+│ │ -    "content_scripts": [
+│ │ -        {
+│ │ -            "all_frames": true,
+│ │ -            "exclude_matches": [
+│ │ -                "https://accounts.youtube.com/RotateCookiesPage*"
+│ │ -            ],
+│ │ -            "js": [
+│ │ -                "./js/document.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://*.youtube.com/*",
+│ │ -                "https://www.youtube-nocookie.com/embed/*"
+│ │ -            ],
+│ │ -            "run_at": "document_start",
+│ │ -            "world": "MAIN"
+│ │ -        },
+│ │ -        {
+│ │ -            "all_frames": true,
+│ │ -            "css": [
+│ │ -                "content.css",
+│ │ -                "shared.css"
+│ │ -            ],
+│ │ -            "exclude_matches": [
+│ │ -                "https://accounts.youtube.com/RotateCookiesPage*"
+│ │ -            ],
+│ │ -            "js": [
+│ │ -                "./js/content.js"
+│ │ -            ],
+│ │ -            "matches": [
+│ │ -                "https://*.youtube.com/*",
+│ │ -                "https://www.youtube-nocookie.com/embed/*"
+│ │ -            ],
+│ │ -            "run_at": "document_start",
+│ │ -            "world": "ISOLATED"
+│ │ -        }
+│ │ -    ],
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_Description__",
+│ │      "homepage_url": "https://sponsor.ajay.app",
+│ │ -    "host_permissions": [
+│ │ -        "https://*.youtube.com/*",
+│ │ -        "https://sponsor.ajay.app/*"
+│ │ -    ],
+│ │      "icons": {
+│ │          "1024": "icons/IconSponsorBlocker1024px.png",
+│ │          "128": "icons/IconSponsorBlocker128px.png",
+│ │          "16": "icons/IconSponsorBlocker16px.png",
+│ │          "256": "icons/IconSponsorBlocker256px.png",
+│ │          "32": "icons/IconSponsorBlocker32px.png",
+│ │          "512": "icons/IconSponsorBlocker512px.png",
+│ │          "64": "icons/IconSponsorBlocker64px.png"
+│ │      },
+│ │ -    "manifest_version": 3,
+│ │      "name": "__MSG_fullName__",
+│ │ -    "optional_host_permissions": [
+│ │ -        "*://*/*"
+│ │ -    ],
+│ │      "options_ui": {
+│ │          "open_in_tab": true,
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage",
+│ │          "scripting"
+│ │      ],
+│ │      "short_name": "SponsorBlock",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │ -    "version": "5.12.4",
+│ │ -    "web_accessible_resources": [
+│ │ -        {
+│ │ -            "matches": [
+│ │ -                "<all_urls>"
+│ │ -            ],
+│ │ -            "resources": [
+│ │ -                "icons/LogoSponsorBlocker256px.png",
+│ │ -                "icons/IconSponsorBlocker256px.png",
+│ │ -                "icons/PlayerStartIconSponsorBlocker.svg",
+│ │ -                "icons/PlayerStopIconSponsorBlocker.svg",
+│ │ -                "icons/PlayerUploadIconSponsorBlocker.svg",
+│ │ -                "icons/PlayerUploadFailedIconSponsorBlocker.svg",
+│ │ -                "icons/PlayerCancelSegmentIconSponsorBlocker.svg",
+│ │ -                "icons/clipboard.svg",
+│ │ -                "icons/settings.svg",
+│ │ -                "icons/pencil.svg",
+│ │ -                "icons/check.svg",
+│ │ -                "icons/check-smaller.svg",
+│ │ -                "icons/upvote.png",
+│ │ -                "icons/downvote.png",
+│ │ -                "icons/thumbs_down.svg",
+│ │ -                "icons/thumbs_down_locked.svg",
+│ │ -                "icons/thumbs_up.svg",
+│ │ -                "icons/help.svg",
+│ │ -                "icons/report.png",
+│ │ -                "icons/close.png",
+│ │ -                "icons/skipIcon.svg",
+│ │ -                "icons/refresh.svg",
+│ │ -                "icons/beep.oga",
+│ │ -                "icons/pause.svg",
+│ │ -                "icons/stop.svg",
+│ │ -                "icons/skip.svg",
+│ │ -                "icons/heart.svg",
+│ │ -                "icons/visible.svg",
+│ │ -                "icons/not_visible.svg",
+│ │ -                "icons/sort.svg",
+│ │ -                "icons/money.svg",
+│ │ -                "icons/segway.png",
+│ │ -                "icons/close-smaller.svg",
+│ │ -                "icons/right-arrow.svg",
+│ │ -                "icons/campaign.svg",
+│ │ -                "icons/star.svg",
+│ │ -                "icons/lightbulb.svg",
+│ │ -                "icons/bolt.svg",
+│ │ -                "icons/stopwatch.svg",
+│ │ -                "icons/music-note.svg",
+│ │ -                "icons/import.svg",
+│ │ -                "icons/export.svg",
+│ │ -                "icons/PlayerInfoIconSponsorBlocker.svg",
+│ │ -                "icons/PlayerDeleteIconSponsorBlocker.svg",
+│ │ -                "icons/dearrow.svg",
+│ │ -                "popup.html",
+│ │ -                "popup.css",
+│ │ -                "content.css",
+│ │ -                "shared.css",
+│ │ -                "js/document.js",
+│ │ -                "libs/Source+Sans+Pro.css",
+│ │ -                "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2",
+│ │ -                "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmRduz8A.woff2",
+│ │ -                "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmBduz8A.woff2",
+│ │ -                "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlBduz8A.woff2"
+│ │ -            ]
+│ │ -        }
+│ │ -    ]
+│ │ +    "version": "5.12.4"
+│ │  }

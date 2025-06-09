@@ -1,0 +1,25 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/extension-search-image-with-yandex/src
+├── file list
+│ @@ -1,7 +1,6 @@
+│  _locales
+│ -_metadata
+│  background.js
+│  images
+│  manifest.json
+│  no-file-access.html
+│  no-file-access.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/extension-search-image-with-yandex/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -13,10 +13,9 @@
+│ │      "name": "__MSG_name__",
+│ │      "permissions": [
+│ │          "contextMenus",
+│ │          "scripting",
+│ │          "activeTab"
+│ │      ],
+│ │      "short_name": "__MSG_short__",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.1"
+│ │  }

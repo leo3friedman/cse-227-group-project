@@ -1,0 +1,23 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/newtab-blocker/extension
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/_locales/de/messages.json <-> +++/workspace/pipeline_output/newtab-blocker/extension/_locales/de/messages.json; File type: json
+  - Original: 1–30
+  + Modified: 1–30
+
+---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/newtab-blocker/extension/_locales/en/messages.json; File type: json
+  - Original: 1–29
+  + Modified: 1–28
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/newtab-blocker/extension/manifest.json; File type: json
+  - Original: 21–21 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup/script.js <-> +++/workspace/pipeline_output/newtab-blocker/extension/popup/script.js; File type: js
+  - Original: 1–178
+  + Modified: 1–178
+
+---/workspace/pipeline_output/chromex_data/service-worker.js <-> +++/workspace/pipeline_output/newtab-blocker/extension/service-worker.js; File type: js
+  - Original: 1–263
+  + Modified: 1–263
+

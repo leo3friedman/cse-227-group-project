@@ -1,0 +1,1621 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/outliner-extension
+├── file list
+│ @@ -1,8 +1,12 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  assets
+│  background.js
+│ +jsconfig.json
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  services.js
+│  translations.js
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/outliner-extension/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,12 +1,12 @@
+│ │ -// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ -// Use of this source code is governed by a BSD-style license that can be
+│ │ -// found in the LICENSE file.
+│ │ -
+│ │ -'use strict';
+│ │ -
+│ │ -import {
+│ │ -    getOptions,
+│ │ -    buildContextMenus
+│ │ -} from './services.js';
+│ │ -
+│ │ +// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ +// Use of this source code is governed by a BSD-style license that can be
+│ │ +// found in the LICENSE file.
+│ │ +
+│ │ +'use strict';
+│ │ +
+│ │ +import {
+│ │ +    getOptions,
+│ │ +    buildContextMenus
+│ │ +} from './services.js';
+│ │ +
+│ │  getOptions().then(() => buildContextMenus());
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/outliner-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Outliner | Improving your reading experience",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/outliner-extension/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,324 +1,324 @@
+│ -<!DOCTYPE html>
+│ -<html lang="en">
+│ -  <head>
+│ -    <title>Outliner | Options</title>
+│ -
+│ -    <style>
+│ -      @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+│ -
+│ -      body {
+│ -        font-family: 'Ubuntu', sans-serif;
+│ -        width: 350px;
+│ -      }
+│ -
+│ -      .options-container {
+│ -        display: flex;
+│ -        flex-direction: column;
+│ -        align-items: center;
+│ -        justify-content: center;
+│ -        width: 100%;
+│ -        height: 100%;
+│ -      }
+│ -
+│ -      .title {
+│ -        background-color: #ebebeb;
+│ -        border-top-right-radius: 6px;
+│ -        display: flex;
+│ -        justify-content: flex-start;
+│ -        align-content: flex-start;
+│ -        align-items: center;
+│ -        width: 100%;
+│ -        height: 2rem;
+│ -      }
+│ -
+│ -      .title .text {
+│ -        font-size: large;
+│ -        font-weight: 500;
+│ -        line-height: 30px;
+│ -        margin-left: 0.5rem;
+│ -      }
+│ -
+│ -      .title .version {
+│ -        font-size: .7rem;
+│ -        font-weight: 500;
+│ -        margin-left: 0.5rem;
+│ -        height: 0.2rem;
+│ -      }
+│ -
+│ -      .divider {
+│ -        background-color: #ccc;
+│ -        display: flex;
+│ -        flex-direction: column;
+│ -        padding: 0.25rem 0;
+│ -        width: 100%;
+│ -      }
+│ -
+│ -      .divider .text {
+│ -        font-size: small;
+│ -        font-weight: 500;
+│ -        line-height: 21px;
+│ -        margin-left: .5rem;
+│ -      }
+│ -
+│ -      .services {
+│ -        display: flex;
+│ -        flex-direction: column;
+│ -        width: 100%;
+│ -        min-height: 3rem;
+│ -        height: 100%;
+│ -      }
+│ -
+│ -      .service-item-container {
+│ -        display: flex;
+│ -        flex-flow: row;
+│ -        align-items: center;
+│ -        padding: 0.5rem 0.2rem;
+│ -      }
+│ -
+│ -      .service-item-container:hover {
+│ -        background: #f5faff;
+│ -      }
+│ -
+│ -      .service-item-container.service-default {
+│ -        background-color: #bcf5ef;
+│ -      }
+│ -
+│ -      .service-item-container:last-of-type {
+│ -        padding-bottom: .8rem !important;
+│ -      }
+│ -
+│ -      .service-item-container .service-item-icon {
+│ -        display: flex;
+│ -        flex-direction: column;
+│ -        align-items: center;
+│ -        width: 10%;
+│ -      }
+│ -
+│ -      .service-item-container .service-item-icon img {
+│ -        width: 16px;
+│ -        height: 16px;
+│ -      }
+│ -
+│ -      .service-item-container .service-item-title {
+│ -        font-weight: bold;
+│ -        width: 35%;
+│ -      }
+│ -
+│ -      .service-item-container .service-item-options {
+│ -        color: #bfbfbf;
+│ -        display: flex;
+│ -        width: 30%;
+│ -      }
+│ -
+│ -      .service-item-container .service-item-options.hyperlink {
+│ -        color: #6363ff;
+│ -        cursor: pointer;
+│ -        text-decoration: underline;
+│ -      }
+│ -
+│ -      .service-item-container img.service-item-icon-external {
+│ -        margin-left: 6px;
+│ -        width: 16px;
+│ -        height: 16px;
+│ -      }
+│ -
+│ -      .open-page-container {
+│ -        padding: 1rem;
+│ -      }
+│ -
+│ -      .open-page-container button {
+│ -        align-items: center;
+│ -        background-color: #e9e9e9;
+│ -        border-radius: 4px;
+│ -        border-width: 0;
+│ -        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+│ -        color: #36395A;
+│ -        cursor: pointer;
+│ -        display: inline-flex;
+│ -        font-family: "Ubuntu", monospace;
+│ -        height: 48px;
+│ -        justify-content: center;
+│ -        overflow: hidden;
+│ -        padding: 0 1rem;
+│ -        transition: box-shadow .15s,transform .15s;
+│ -        touch-action: manipulation;
+│ -        white-space: nowrap;
+│ -        will-change: box-shadow,transform;
+│ -        font-size: .9rem;
+│ -      }
+│ -
+│ -      .open-page-container button:focus {
+│ -        box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+│ -      }
+│ -
+│ -      .open-page-container button:hover {
+│ -        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+│ -        transform: translateY(-2px);
+│ -      }
+│ -
+│ -      .open-page-container button:active {
+│ -        box-shadow: #D6D6E7 0 3px 7px inset;
+│ -        transform: translateY(2px);
+│ -      }
+│ -
+│ -      .additional-configuration-container {
+│ -        display: flex;
+│ -        flex-flow: column;
+│ -        padding: 0.5rem 0.2rem;
+│ -        width: 100%;
+│ -      }
+│ -
+│ -      .additional-configuration-container .open-new-tab {
+│ -        display: flex;
+│ -        align-content: center;
+│ -        justify-content: left;
+│ -      }
+│ -
+│ -      .additional-configuration-container #open-new-tab-label {
+│ -        line-height: 18px;
+│ -        margin-left: 0.2rem;
+│ -      }
+│ -
+│ -      .footer {
+│ -        background: #ebebeb;
+│ -        border-bottom-left-radius: 6px;
+│ -        border-bottom-right-radius: 6px;
+│ -        display: flex;
+│ -        width: 100%;
+│ -        height: 3rem;
+│ -      }
+│ -
+│ -      .footer-divider {
+│ -        background-color: #ccc;
+│ -        width: 100%;
+│ -        height: 0.5rem;
+│ -      }
+│ -
+│ -      .footer .square {
+│ -        box-shadow: 0;
+│ -        transition: box-shadow 500ms;
+│ -        width: 33%;
+│ -        height: 100%;
+│ -      }
+│ -
+│ -      .footer .square:hover {
+│ -        cursor: pointer;
+│ -        box-shadow: 2px 4px 6px #515151;
+│ -      }
+│ -
+│ -      .footer .square:first-child {
+│ -        border-bottom-left-radius: 6px;
+│ -      }
+│ -
+│ -      .footer .square:last-child {
+│ -        border-bottom-right-radius: 6px;
+│ -        width: 34%;
+│ -      }
+│ -
+│ -      .footer .square a,
+│ -      .footer .square a:visited,
+│ -      .footer .square a:active,
+│ -      .footer .square a:focus {
+│ -        text-decoration: none;
+│ -      }
+│ -
+│ -      .footer .square img {
+│ -        display: block;
+│ -        margin: 4px auto;
+│ -        width: 24px;
+│ -        height: 24px;
+│ -      }
+│ -
+│ -      .footer .square .label {
+│ -        line-height: 12px;
+│ -        text-align: center;
+│ -      }
+│ -
+│ -      .footer .square.star {
+│ -        background-color: #ffeb80;
+│ -      }
+│ -
+│ -      .footer .square.star img {
+│ -        filter: invert(33%) sepia(94%) saturate(1959%) hue-rotate(13deg) brightness(101%) contrast(86%);
+│ -      }
+│ -
+│ -      .footer .square.star .label {
+│ -        color: #000;
+│ -      }
+│ -
+│ -      .footer .square.github {
+│ -        color: #fff;
+│ -        background-color: #171515;
+│ -      }
+│ -
+│ -      .footer .square.github img {
+│ -        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(299deg) brightness(106%) contrast(102%);
+│ -      }
+│ -
+│ -      .footer .square.github .label {
+│ -        color: #fff;
+│ -      }
+│ -
+│ -      .footer .square.email {
+│ -        background-color: #fdb1b1;
+│ -      }
+│ -
+│ -      .footer .square.email img {
+│ -        filter: invert(24%) sepia(76%) saturate(6992%) hue-rotate(355deg) brightness(79%) contrast(97%);
+│ -      }
+│ -
+│ -      .footer .square.email .label {
+│ -        color: #fff;
+│ -      }
+│ -    </style>
+│ -  </head>
+│ -  <body>
+│ -    <div class="options-container">
+│ -      <div class="title">
+│ -        <div><img src="assets/outline-logo-32.png" alt="Outliner" /></div>
+│ -        <div class="text">Outliner</div>
+│ -        <div id="version" class="version"></div>
+│ -      </div>
+│ -      <div class="divider">
+│ -        <div id="services-title" class="text"></div>
+│ -      </div>
+│ -      <div id="services-list" class="services"></div>
+│ -      <div class="open-page-container">
+│ -        <div id="open-page" class="text"></div>
+│ -      </div>
+│ -      <div class="divider">
+│ -        <div id="additional-configuration-title" class="text">Additional Configurations</div>
+│ -      </div>
+│ -      <div class="additional-configuration-container">
+│ -        <div class="open-new-tab">
+│ -          <input type="checkbox" id="open-new-tab" />
+│ -          <label id="open-new-tab-label" for="open-new-tab"></label>
+│ -        </div>
+│ -      </div>
+│ -      <div class="footer-divider">
+│ -      </div>
+│ -      <div class="footer">
+│ -        <div class="square star">
+│ -          <a href="https://chrome.google.com/webstore/detail/outliner-improving-your-r/eegpjjnajnplmkigmoglgbgpibgkkepo" target="_blank">
+│ -            <img src="/assets/star-solid.svg" alt="Rate" />
+│ -            <div id="footer-rate" class="label">Rate</div>
+│ -          </a>
+│ -        </div>
+│ -        <div class="square github">
+│ -          <a href="https://github.com/taxpayer/outliner-extension" target="_blank">
+│ -            <img src="/assets/github-brands.svg" alt="Github" />
+│ -            <div class="label">Github</div>
+│ -          </a>
+│ -        </div>
+│ -        <div class="square email">
+│ -          <a href="mailto:software@taxpayer.com.br">
+│ -            <img src="/assets/envelope-solid.svg" alt="Email" />
+│ -            <div id="footer-email" class="label">Email Me</div>
+│ -          </a>
+│ -        </div>
+│ -      </div>
+│ -    </div>
+│ -
+│ -    <script defer src="options.js" type="module"></script>
+│ -  </body>
+│ +<!DOCTYPE html>
+│ +<html lang="en">
+│ +  <head>
+│ +    <title>Outliner | Options</title>
+│ +
+│ +    <style>
+│ +      @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+│ +
+│ +      body {
+│ +        font-family: 'Ubuntu', sans-serif;
+│ +        width: 350px;
+│ +      }
+│ +
+│ +      .options-container {
+│ +        display: flex;
+│ +        flex-direction: column;
+│ +        align-items: center;
+│ +        justify-content: center;
+│ +        width: 100%;
+│ +        height: 100%;
+│ +      }
+│ +
+│ +      .title {
+│ +        background-color: #ebebeb;
+│ +        border-top-right-radius: 6px;
+│ +        display: flex;
+│ +        justify-content: flex-start;
+│ +        align-content: flex-start;
+│ +        align-items: center;
+│ +        width: 100%;
+│ +        height: 2rem;
+│ +      }
+│ +
+│ +      .title .text {
+│ +        font-size: large;
+│ +        font-weight: 500;
+│ +        line-height: 30px;
+│ +        margin-left: 0.5rem;
+│ +      }
+│ +
+│ +      .title .version {
+│ +        font-size: .7rem;
+│ +        font-weight: 500;
+│ +        margin-left: 0.5rem;
+│ +        height: 0.2rem;
+│ +      }
+│ +
+│ +      .divider {
+│ +        background-color: #ccc;
+│ +        display: flex;
+│ +        flex-direction: column;
+│ +        padding: 0.25rem 0;
+│ +        width: 100%;
+│ +      }
+│ +
+│ +      .divider .text {
+│ +        font-size: small;
+│ +        font-weight: 500;
+│ +        line-height: 21px;
+│ +        margin-left: .5rem;
+│ +      }
+│ +
+│ +      .services {
+│ +        display: flex;
+│ +        flex-direction: column;
+│ +        width: 100%;
+│ +        min-height: 3rem;
+│ +        height: 100%;
+│ +      }
+│ +
+│ +      .service-item-container {
+│ +        display: flex;
+│ +        flex-flow: row;
+│ +        align-items: center;
+│ +        padding: 0.5rem 0.2rem;
+│ +      }
+│ +
+│ +      .service-item-container:hover {
+│ +        background: #f5faff;
+│ +      }
+│ +
+│ +      .service-item-container.service-default {
+│ +        background-color: #bcf5ef;
+│ +      }
+│ +
+│ +      .service-item-container:last-of-type {
+│ +        padding-bottom: .8rem !important;
+│ +      }
+│ +
+│ +      .service-item-container .service-item-icon {
+│ +        display: flex;
+│ +        flex-direction: column;
+│ +        align-items: center;
+│ +        width: 10%;
+│ +      }
+│ +
+│ +      .service-item-container .service-item-icon img {
+│ +        width: 16px;
+│ +        height: 16px;
+│ +      }
+│ +
+│ +      .service-item-container .service-item-title {
+│ +        font-weight: bold;
+│ +        width: 35%;
+│ +      }
+│ +
+│ +      .service-item-container .service-item-options {
+│ +        color: #bfbfbf;
+│ +        display: flex;
+│ +        width: 30%;
+│ +      }
+│ +
+│ +      .service-item-container .service-item-options.hyperlink {
+│ +        color: #6363ff;
+│ +        cursor: pointer;
+│ +        text-decoration: underline;
+│ +      }
+│ +
+│ +      .service-item-container img.service-item-icon-external {
+│ +        margin-left: 6px;
+│ +        width: 16px;
+│ +        height: 16px;
+│ +      }
+│ +
+│ +      .open-page-container {
+│ +        padding: 1rem;
+│ +      }
+│ +
+│ +      .open-page-container button {
+│ +        align-items: center;
+│ +        background-color: #e9e9e9;
+│ +        border-radius: 4px;
+│ +        border-width: 0;
+│ +        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+│ +        color: #36395A;
+│ +        cursor: pointer;
+│ +        display: inline-flex;
+│ +        font-family: "Ubuntu", monospace;
+│ +        height: 48px;
+│ +        justify-content: center;
+│ +        overflow: hidden;
+│ +        padding: 0 1rem;
+│ +        transition: box-shadow .15s,transform .15s;
+│ +        touch-action: manipulation;
+│ +        white-space: nowrap;
+│ +        will-change: box-shadow,transform;
+│ +        font-size: .9rem;
+│ +      }
+│ +
+│ +      .open-page-container button:focus {
+│ +        box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+│ +      }
+│ +
+│ +      .open-page-container button:hover {
+│ +        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+│ +        transform: translateY(-2px);
+│ +      }
+│ +
+│ +      .open-page-container button:active {
+│ +        box-shadow: #D6D6E7 0 3px 7px inset;
+│ +        transform: translateY(2px);
+│ +      }
+│ +
+│ +      .additional-configuration-container {
+│ +        display: flex;
+│ +        flex-flow: column;
+│ +        padding: 0.5rem 0.2rem;
+│ +        width: 100%;
+│ +      }
+│ +
+│ +      .additional-configuration-container .open-new-tab {
+│ +        display: flex;
+│ +        align-content: center;
+│ +        justify-content: left;
+│ +      }
+│ +
+│ +      .additional-configuration-container #open-new-tab-label {
+│ +        line-height: 18px;
+│ +        margin-left: 0.2rem;
+│ +      }
+│ +
+│ +      .footer {
+│ +        background: #ebebeb;
+│ +        border-bottom-left-radius: 6px;
+│ +        border-bottom-right-radius: 6px;
+│ +        display: flex;
+│ +        width: 100%;
+│ +        height: 3rem;
+│ +      }
+│ +
+│ +      .footer-divider {
+│ +        background-color: #ccc;
+│ +        width: 100%;
+│ +        height: 0.5rem;
+│ +      }
+│ +
+│ +      .footer .square {
+│ +        box-shadow: 0;
+│ +        transition: box-shadow 500ms;
+│ +        width: 33%;
+│ +        height: 100%;
+│ +      }
+│ +
+│ +      .footer .square:hover {
+│ +        cursor: pointer;
+│ +        box-shadow: 2px 4px 6px #515151;
+│ +      }
+│ +
+│ +      .footer .square:first-child {
+│ +        border-bottom-left-radius: 6px;
+│ +      }
+│ +
+│ +      .footer .square:last-child {
+│ +        border-bottom-right-radius: 6px;
+│ +        width: 34%;
+│ +      }
+│ +
+│ +      .footer .square a,
+│ +      .footer .square a:visited,
+│ +      .footer .square a:active,
+│ +      .footer .square a:focus {
+│ +        text-decoration: none;
+│ +      }
+│ +
+│ +      .footer .square img {
+│ +        display: block;
+│ +        margin: 4px auto;
+│ +        width: 24px;
+│ +        height: 24px;
+│ +      }
+│ +
+│ +      .footer .square .label {
+│ +        line-height: 12px;
+│ +        text-align: center;
+│ +      }
+│ +
+│ +      .footer .square.star {
+│ +        background-color: #ffeb80;
+│ +      }
+│ +
+│ +      .footer .square.star img {
+│ +        filter: invert(33%) sepia(94%) saturate(1959%) hue-rotate(13deg) brightness(101%) contrast(86%);
+│ +      }
+│ +
+│ +      .footer .square.star .label {
+│ +        color: #000;
+│ +      }
+│ +
+│ +      .footer .square.github {
+│ +        color: #fff;
+│ +        background-color: #171515;
+│ +      }
+│ +
+│ +      .footer .square.github img {
+│ +        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(299deg) brightness(106%) contrast(102%);
+│ +      }
+│ +
+│ +      .footer .square.github .label {
+│ +        color: #fff;
+│ +      }
+│ +
+│ +      .footer .square.email {
+│ +        background-color: #fdb1b1;
+│ +      }
+│ +
+│ +      .footer .square.email img {
+│ +        filter: invert(24%) sepia(76%) saturate(6992%) hue-rotate(355deg) brightness(79%) contrast(97%);
+│ +      }
+│ +
+│ +      .footer .square.email .label {
+│ +        color: #fff;
+│ +      }
+│ +    </style>
+│ +  </head>
+│ +  <body>
+│ +    <div class="options-container">
+│ +      <div class="title">
+│ +        <div><img src="assets/outline-logo-32.png" alt="Outliner" /></div>
+│ +        <div class="text">Outliner</div>
+│ +        <div id="version" class="version"></div>
+│ +      </div>
+│ +      <div class="divider">
+│ +        <div id="services-title" class="text"></div>
+│ +      </div>
+│ +      <div id="services-list" class="services"></div>
+│ +      <div class="open-page-container">
+│ +        <div id="open-page" class="text"></div>
+│ +      </div>
+│ +      <div class="divider">
+│ +        <div id="additional-configuration-title" class="text">Additional Configurations</div>
+│ +      </div>
+│ +      <div class="additional-configuration-container">
+│ +        <div class="open-new-tab">
+│ +          <input type="checkbox" id="open-new-tab" />
+│ +          <label id="open-new-tab-label" for="open-new-tab"></label>
+│ +        </div>
+│ +      </div>
+│ +      <div class="footer-divider">
+│ +      </div>
+│ +      <div class="footer">
+│ +        <div class="square star">
+│ +          <a href="https://chrome.google.com/webstore/detail/outliner-improving-your-r/eegpjjnajnplmkigmoglgbgpibgkkepo" target="_blank">
+│ +            <img src="/assets/star-solid.svg" alt="Rate" />
+│ +            <div id="footer-rate" class="label">Rate</div>
+│ +          </a>
+│ +        </div>
+│ +        <div class="square github">
+│ +          <a href="https://github.com/taxpayer/outliner-extension" target="_blank">
+│ +            <img src="/assets/github-brands.svg" alt="Github" />
+│ +            <div class="label">Github</div>
+│ +          </a>
+│ +        </div>
+│ +        <div class="square email">
+│ +          <a href="mailto:software@taxpayer.com.br">
+│ +            <img src="/assets/envelope-solid.svg" alt="Email" />
+│ +            <div id="footer-email" class="label">Email Me</div>
+│ +          </a>
+│ +        </div>
+│ +      </div>
+│ +    </div>
+│ +
+│ +    <script defer src="options.js" type="module"></script>
+│ +  </body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/outliner-extension/options.js
+│ ├── js-beautify {}
+│ │ @@ -1,162 +1,162 @@
+│ │ -// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ -// Use of this source code is governed by a BSD-style license that can be
+│ │ -// found in the LICENSE file.
+│ │ -
+│ │ -'use strict';
+│ │ -
+│ │ -import {
+│ │ -    getCurrentService,
+│ │ -    getOptions,
+│ │ -    getServicesList,
+│ │ -    setCurrentService,
+│ │ -    setOpenInNewTab,
+│ │ -    outlineThis
+│ │ -} from './services.js';
+│ │ -import {
+│ │ -    getCurrentTranslation
+│ │ -} from './translations.js';
+│ │ -
+│ │ -function buildTitle() {
+│ │ -    fetch('./manifest.json')
+│ │ -        .then(response => response.json())
+│ │ -        .then(manifest => {
+│ │ -            document.getElementById('version').innerText = `v${manifest.version}`;
+│ │ -        })
+│ │ -        .catch(error => {
+│ │ -            console.error('Error:', error);
+│ │ -        });
+│ │ -}
+│ │ -
+│ │ -function buildServiceDiv(translation, service) {
+│ │ -    const divIcon = document.createElement('div');
+│ │ -    divIcon.className = 'service-item-icon';
+│ │ -
+│ │ -    const imgIcon = document.createElement('img');
+│ │ -    divIcon.appendChild(imgIcon);
+│ │ -
+│ │ -    imgIcon.src = service.icon;
+│ │ -    imgIcon.alt = service.name;
+│ │ -    imgIcon.title = service.name;
+│ │ -
+│ │ -    const divTitle = document.createElement('div');
+│ │ -    divTitle.className = 'service-item-title';
+│ │ -    divTitle.textContent = service.name;
+│ │ -
+│ │ -    // set as default option
+│ │ -    const divOptionsSetDefault = document.createElement('div');
+│ │ -    divOptionsSetDefault.className = 'service-item-options';
+│ │ -
+│ │ -    if (!service.default) {
+│ │ -        const anchorOptionsSetDefault = document.createElement('a');
+│ │ -        divOptionsSetDefault.appendChild(anchorOptionsSetDefault);
+│ │ -
+│ │ -        divOptionsSetDefault.classList.add('hyperlink');
+│ │ -
+│ │ -        anchorOptionsSetDefault.textContent = translation.setDefault;
+│ │ -        anchorOptionsSetDefault.onclick = () => setAsDefault(service);
+│ │ -    } else {
+│ │ -        divOptionsSetDefault.textContent = translation.setDefault;
+│ │ -    }
+│ │ -
+│ │ -    // visit website option
+│ │ -    const divOptionsVisitWebsite = document.createElement('div');
+│ │ -    divOptionsVisitWebsite.className = 'service-item-options hyperlink';
+│ │ -    divOptionsVisitWebsite.textContent = translation.visitWebsite;
+│ │ -    divOptionsVisitWebsite.onclick = () => visitWebsite(service);
+│ │ -
+│ │ -    const imgIconExternal = document.createElement('img');
+│ │ -    divOptionsVisitWebsite.appendChild(imgIconExternal);
+│ │ -
+│ │ -    imgIconExternal.src = '/assets/arrow-up-right-from-square-solid.svg';
+│ │ -    imgIconExternal.className = 'service-item-icon-external';
+│ │ -    imgIconExternal.alt = service.name;
+│ │ -    imgIconExternal.title = service.name;
+│ │ -
+│ │ -    // options container
+│ │ -    const divContainer = document.createElement('div');
+│ │ -    divContainer.className = 'service-item-container';
+│ │ -
+│ │ -    if (service.default) divContainer.classList.add('service-default');
+│ │ -
+│ │ -    divContainer.appendChild(divIcon);
+│ │ -    divContainer.appendChild(divTitle);
+│ │ -    divContainer.appendChild(divOptionsSetDefault);
+│ │ -    divContainer.appendChild(divOptionsVisitWebsite);
+│ │ -
+│ │ -    return divContainer;
+│ │ -}
+│ │ -
+│ │ -function buildServicesList() {
+│ │ -    const translation = getCurrentTranslation();
+│ │ -    const services = getServicesList();
+│ │ -
+│ │ -    document.getElementById('services-list').innerHTML = '';
+│ │ -
+│ │ -    services.forEach(s => {
+│ │ -        const divContainer = buildServiceDiv(translation, s);
+│ │ -        document.getElementById('services-list').appendChild(divContainer);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function buildOpenCurrentPage() {
+│ │ -    const translation = getCurrentTranslation();
+│ │ -    const service = getCurrentService();
+│ │ -
+│ │ -    chrome.tabs.query({
+│ │ -        active: true,
+│ │ -        currentWindow: true
+│ │ -    }, (tabs) => {
+│ │ -        var currentUrl = tabs[0].url;
+│ │ -
+│ │ -        const openPageButton = document.createElement('button');
+│ │ -        openPageButton.innerHTML = translation.page(`<strong style="margin-left:.25rem">${service.name}</strong>`, true);
+│ │ -        openPageButton.onclick = () => outlineThis(service, currentUrl);
+│ │ -
+│ │ -        document.getElementById('open-page').innerHTML = '';
+│ │ -        document.getElementById('open-page').appendChild(openPageButton);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function buildAdditionalConfigurations() {
+│ │ -    const translation = getCurrentTranslation();
+│ │ -
+│ │ -    getOptions(false).then(options => {
+│ │ -        console.log(options);
+│ │ -
+│ │ -        document.getElementById('open-new-tab-label').innerHTML = translation.openInNewTab;
+│ │ -        document.getElementById('open-new-tab').checked = options.openInNewTab;
+│ │ -        document.getElementById('open-new-tab').onchange = () => setOpenInNewTab(document.getElementById('open-new-tab').checked);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function setLabels() {
+│ │ -    const translation = getCurrentTranslation();
+│ │ -
+│ │ -    document.getElementById('services-title').innerText = translation.services;
+│ │ -    document.getElementById('additional-configuration-title').innerText = translation.additionalConfiguration;
+│ │ -    document.getElementById('footer-rate').innerText = translation.rate;
+│ │ -    document.getElementById('footer-email').innerText = translation.email;
+│ │ -}
+│ │ -
+│ │ -function setAsDefault(service) {
+│ │ -    setCurrentService(service, () => {
+│ │ -        buildServicesList();
+│ │ -        buildOpenCurrentPage();
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function visitWebsite(service) {
+│ │ -    chrome.tabs.create({
+│ │ -        url: service.website
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -document.addEventListener('DOMContentLoaded', () => {
+│ │ -    getOptions().then(() => {
+│ │ -        buildTitle();
+│ │ -        buildServicesList();
+│ │ -        buildOpenCurrentPage();
+│ │ -        buildAdditionalConfigurations();
+│ │ -        setLabels();
+│ │ -    });
+│ │ +// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ +// Use of this source code is governed by a BSD-style license that can be
+│ │ +// found in the LICENSE file.
+│ │ +
+│ │ +'use strict';
+│ │ +
+│ │ +import {
+│ │ +    getCurrentService,
+│ │ +    getOptions,
+│ │ +    getServicesList,
+│ │ +    setCurrentService,
+│ │ +    setOpenInNewTab,
+│ │ +    outlineThis
+│ │ +} from './services.js';
+│ │ +import {
+│ │ +    getCurrentTranslation
+│ │ +} from './translations.js';
+│ │ +
+│ │ +function buildTitle() {
+│ │ +    fetch('./manifest.json')
+│ │ +        .then(response => response.json())
+│ │ +        .then(manifest => {
+│ │ +            document.getElementById('version').innerText = `v${manifest.version}`;
+│ │ +        })
+│ │ +        .catch(error => {
+│ │ +            console.error('Error:', error);
+│ │ +        });
+│ │ +}
+│ │ +
+│ │ +function buildServiceDiv(translation, service) {
+│ │ +    const divIcon = document.createElement('div');
+│ │ +    divIcon.className = 'service-item-icon';
+│ │ +
+│ │ +    const imgIcon = document.createElement('img');
+│ │ +    divIcon.appendChild(imgIcon);
+│ │ +
+│ │ +    imgIcon.src = service.icon;
+│ │ +    imgIcon.alt = service.name;
+│ │ +    imgIcon.title = service.name;
+│ │ +
+│ │ +    const divTitle = document.createElement('div');
+│ │ +    divTitle.className = 'service-item-title';
+│ │ +    divTitle.textContent = service.name;
+│ │ +
+│ │ +    // set as default option
+│ │ +    const divOptionsSetDefault = document.createElement('div');
+│ │ +    divOptionsSetDefault.className = 'service-item-options';
+│ │ +
+│ │ +    if (!service.default) {
+│ │ +        const anchorOptionsSetDefault = document.createElement('a');
+│ │ +        divOptionsSetDefault.appendChild(anchorOptionsSetDefault);
+│ │ +
+│ │ +        divOptionsSetDefault.classList.add('hyperlink');
+│ │ +
+│ │ +        anchorOptionsSetDefault.textContent = translation.setDefault;
+│ │ +        anchorOptionsSetDefault.onclick = () => setAsDefault(service);
+│ │ +    } else {
+│ │ +        divOptionsSetDefault.textContent = translation.setDefault;
+│ │ +    }
+│ │ +
+│ │ +    // visit website option
+│ │ +    const divOptionsVisitWebsite = document.createElement('div');
+│ │ +    divOptionsVisitWebsite.className = 'service-item-options hyperlink';
+│ │ +    divOptionsVisitWebsite.textContent = translation.visitWebsite;
+│ │ +    divOptionsVisitWebsite.onclick = () => visitWebsite(service);
+│ │ +
+│ │ +    const imgIconExternal = document.createElement('img');
+│ │ +    divOptionsVisitWebsite.appendChild(imgIconExternal);
+│ │ +
+│ │ +    imgIconExternal.src = '/assets/arrow-up-right-from-square-solid.svg';
+│ │ +    imgIconExternal.className = 'service-item-icon-external';
+│ │ +    imgIconExternal.alt = service.name;
+│ │ +    imgIconExternal.title = service.name;
+│ │ +
+│ │ +    // options container
+│ │ +    const divContainer = document.createElement('div');
+│ │ +    divContainer.className = 'service-item-container';
+│ │ +
+│ │ +    if (service.default) divContainer.classList.add('service-default');
+│ │ +
+│ │ +    divContainer.appendChild(divIcon);
+│ │ +    divContainer.appendChild(divTitle);
+│ │ +    divContainer.appendChild(divOptionsSetDefault);
+│ │ +    divContainer.appendChild(divOptionsVisitWebsite);
+│ │ +
+│ │ +    return divContainer;
+│ │ +}
+│ │ +
+│ │ +function buildServicesList() {
+│ │ +    const translation = getCurrentTranslation();
+│ │ +    const services = getServicesList();
+│ │ +
+│ │ +    document.getElementById('services-list').innerHTML = '';
+│ │ +
+│ │ +    services.forEach(s => {
+│ │ +        const divContainer = buildServiceDiv(translation, s);
+│ │ +        document.getElementById('services-list').appendChild(divContainer);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function buildOpenCurrentPage() {
+│ │ +    const translation = getCurrentTranslation();
+│ │ +    const service = getCurrentService();
+│ │ +
+│ │ +    chrome.tabs.query({
+│ │ +        active: true,
+│ │ +        currentWindow: true
+│ │ +    }, (tabs) => {
+│ │ +        var currentUrl = tabs[0].url;
+│ │ +
+│ │ +        const openPageButton = document.createElement('button');
+│ │ +        openPageButton.innerHTML = translation.page(`<strong style="margin-left:.25rem">${service.name}</strong>`, true);
+│ │ +        openPageButton.onclick = () => outlineThis(service, currentUrl);
+│ │ +
+│ │ +        document.getElementById('open-page').innerHTML = '';
+│ │ +        document.getElementById('open-page').appendChild(openPageButton);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function buildAdditionalConfigurations() {
+│ │ +    const translation = getCurrentTranslation();
+│ │ +
+│ │ +    getOptions(false).then(options => {
+│ │ +        console.log(options);
+│ │ +
+│ │ +        document.getElementById('open-new-tab-label').innerHTML = translation.openInNewTab;
+│ │ +        document.getElementById('open-new-tab').checked = options.openInNewTab;
+│ │ +        document.getElementById('open-new-tab').onchange = () => setOpenInNewTab(document.getElementById('open-new-tab').checked);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function setLabels() {
+│ │ +    const translation = getCurrentTranslation();
+│ │ +
+│ │ +    document.getElementById('services-title').innerText = translation.services;
+│ │ +    document.getElementById('additional-configuration-title').innerText = translation.additionalConfiguration;
+│ │ +    document.getElementById('footer-rate').innerText = translation.rate;
+│ │ +    document.getElementById('footer-email').innerText = translation.email;
+│ │ +}
+│ │ +
+│ │ +function setAsDefault(service) {
+│ │ +    setCurrentService(service, () => {
+│ │ +        buildServicesList();
+│ │ +        buildOpenCurrentPage();
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function visitWebsite(service) {
+│ │ +    chrome.tabs.create({
+│ │ +        url: service.website
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +document.addEventListener('DOMContentLoaded', () => {
+│ │ +    getOptions().then(() => {
+│ │ +        buildTitle();
+│ │ +        buildServicesList();
+│ │ +        buildOpenCurrentPage();
+│ │ +        buildAdditionalConfigurations();
+│ │ +        setLabels();
+│ │ +    });
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/services.js
+├── +++ /workspace/pipeline_output/outliner-extension/services.js
+│ ├── js-beautify {}
+│ │ @@ -1,204 +1,204 @@
+│ │ -// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ -// Use of this source code is governed by a BSD-style license that can be
+│ │ -// found in the LICENSE file.
+│ │ -
+│ │ -'use strict';
+│ │ -
+│ │ -import {
+│ │ -    getCurrentTranslation
+│ │ -} from './translations.js';
+│ │ -
+│ │ -const extensionName = 'Outliner';
+│ │ -
+│ │ -const services = [{
+│ │ -    id: '12ft',
+│ │ -    name: '12ft.io',
+│ │ -    icon: '/assets/12ft.png',
+│ │ -    website: 'https://12ft.io',
+│ │ -    url: 'https://12ft.io',
+│ │ -    outline: async (service, url) => {
+│ │ -        return `${service.url}/${url}`;
+│ │ -    }
+│ │ -}, {
+│ │ -    id: 'outlinetts',
+│ │ -    name: 'Outline TTS',
+│ │ -    icon: '/assets/outlinetts.ico',
+│ │ -    website: 'https://outlinetts.com',
+│ │ -    url: 'https://outlinetts.com/article',
+│ │ -    outline: async (service, url) => {
+│ │ -        const uri = new URL(url);
+│ │ -        const protocol = uri.protocol.slice(0, -1);
+│ │ -
+│ │ -        url = url.replace(/(http(s?)):\/\//i, '');
+│ │ -        url = `${service.url}/${protocol}/${url}`;
+│ │ -
+│ │ -        return url;
+│ │ -    },
+│ │ -}, {
+│ │ -    id: 'printfriendly',
+│ │ -    name: 'Print Friendly',
+│ │ -    icon: '/assets/printfriendly.ico',
+│ │ -    website: 'https://www.printfriendly.com',
+│ │ -    url: 'https://www.printfriendly.com/print',
+│ │ -    outline: async (service, url) => {
+│ │ -        url = `${service.url}/?source=homepage&url=${encodeURIComponent(url)}`;
+│ │ -        return url;
+│ │ -    }
+│ │ -}, {
+│ │ -    id: 'darkread',
+│ │ -    name: 'Darkread',
+│ │ -    icon: '/assets/darkread.png',
+│ │ -    website: 'https://www.darkread.io/',
+│ │ -    url: 'https://www.darkread.io/api/getUrlId',
+│ │ -    outline: async (service, url) => {
+│ │ -        const proxy = 'https://outliner-proxy-darkread.rodrigo-828.workers.dev/cors-proxy';
+│ │ -        const proxyUrl = `${proxy}/${url}`;
+│ │ -
+│ │ -        const response = await fetch(proxyUrl).then(res => res.json());
+│ │ -        return `${service.website}/${response.uid}`;
+│ │ -    }
+│ │ -}];
+│ │ -
+│ │ -// user's options
+│ │ -const options = {};
+│ │ -
+│ │ -chrome.storage.onChanged.addListener((changes, area) => {
+│ │ -    if (area === 'sync' && changes.outlinerOptions?.newValue)
+│ │ -        Object.assign(options, changes.outlinerOptions.newValue);
+│ │ -});
+│ │ -
+│ │ -export function getOptions(reset = true) {
+│ │ -    const key = 'outlinerOptions';
+│ │ -
+│ │ -    return new Promise((resolve, reject) =>
+│ │ -        chrome.storage.sync.get(key, data => {
+│ │ -            if (chrome.runtime.lastError)
+│ │ -                reject(Error(chrome.runtime.lastError.message));
+│ │ -            else {
+│ │ -                if (reset) Object.assign(options, data.outlinerOptions);
+│ │ -                resolve(data.outlinerOptions);
+│ │ -            }
+│ │ -        })
+│ │ -    );
+│ │ -}
+│ │ -
+│ │ -export function getCurrentService() {
+│ │ -    const fallbackService = services[0];
+│ │ -    const service = services.find(x => x.id === options.currentService);
+│ │ -
+│ │ -    return service || fallbackService;
+│ │ -}
+│ │ -
+│ │ -function setOptions(callbackFn) {
+│ │ -    const outlinerOptions = {};
+│ │ -    outlinerOptions.outlinerOptions = options;
+│ │ -
+│ │ -    chrome.storage.sync.set(outlinerOptions, callbackFn);
+│ │ -}
+│ │ -
+│ │ -export function setCurrentService(service, callbackFn) {
+│ │ -    options.currentService = service.id;
+│ │ -    setOptions(callbackFn);
+│ │ -
+│ │ -    buildContextMenus();
+│ │ -}
+│ │ -
+│ │ -export function setOpenInNewTab(openInNewTab) {
+│ │ -    options.openInNewTab = openInNewTab;
+│ │ -    setOptions();
+│ │ -}
+│ │ -
+│ │ -export function getServicesList() {
+│ │ -    const currentService = getCurrentService();
+│ │ -    services.forEach(s => s.default = (s.id === currentService.id));
+│ │ -
+│ │ -    return services;
+│ │ -}
+│ │ -
+│ │ -export function linkTitle(service) {
+│ │ -    const translation = getCurrentTranslation();
+│ │ -    return translation.link(service.name);
+│ │ -}
+│ │ -
+│ │ -export function pageTitle(service) {
+│ │ -    const translation = getCurrentTranslation();
+│ │ -    return translation.page(service.name);
+│ │ -}
+│ │ -
+│ │ -export function buildContextMenus() {
+│ │ -    chrome.contextMenus.removeAll(() => {
+│ │ -        const service = getCurrentService();
+│ │ -
+│ │ -        chrome.contextMenus.create({
+│ │ -            id: 'outliner-default-link',
+│ │ -            title: `${extensionName} | ${linkTitle(service)}`,
+│ │ -            contexts: ['link'],
+│ │ -        });
+│ │ -
+│ │ -        chrome.contextMenus.create({
+│ │ -            id: 'outliner-default-page',
+│ │ -            title: `${extensionName} | ${pageTitle(service)}`,
+│ │ -            contexts: ['page'],
+│ │ -        });
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -chrome.contextMenus.onClicked.addListener((info) => {
+│ │ -    getOptions().then(() => {
+│ │ -        const service = getCurrentService();
+│ │ -
+│ │ -        switch (info.menuItemId) {
+│ │ -            case 'outliner-default-link':
+│ │ -                outlineThis(service, info.linkUrl);
+│ │ -                break;
+│ │ -
+│ │ -            case 'outliner-default-page':
+│ │ -                outlineThis(service, info.pageUrl);
+│ │ -                break;
+│ │ -        }
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -function setOutlineInit(url) {
+│ │ -    chrome.action.setBadgeBackgroundColor({
+│ │ -        color: 'gray'
+│ │ -    });
+│ │ -    chrome.action.setBadgeText({
+│ │ -        text: '...'
+│ │ -    });
+│ │ -    chrome.action.setTitle({
+│ │ -        title: `Outlining [${url}]`
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function setOutlineComplete() {
+│ │ -    chrome.action.setBadgeText({
+│ │ -        text: ''
+│ │ -    });
+│ │ -    chrome.action.setTitle({
+│ │ -        title: ''
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -export async function outlineThis(service, url) {
+│ │ -    if (!url || (url.length == 0) || !/^http(s)?:\/\//i.test(url) || (url.substring(0, service.url.length) == service.url))
+│ │ -        return;
+│ │ -
+│ │ -    setOutlineInit(url);
+│ │ -
+│ │ -    const outlineUrl = await service.outline(service, url);
+│ │ -
+│ │ -    if (!outlineUrl) {
+│ │ -        setOutlineComplete();
+│ │ -        return;
+│ │ -    }
+│ │ -
+│ │ -    if (options.openInNewTab)
+│ │ -        chrome.tabs.create({
+│ │ -            url: outlineUrl
+│ │ -        }, () => setOutlineComplete());
+│ │ -    else
+│ │ -        chrome.tabs.update(null, {
+│ │ -            url: outlineUrl
+│ │ -        }, () => setOutlineComplete());
+│ │ +// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ +// Use of this source code is governed by a BSD-style license that can be
+│ │ +// found in the LICENSE file.
+│ │ +
+│ │ +'use strict';
+│ │ +
+│ │ +import {
+│ │ +    getCurrentTranslation
+│ │ +} from './translations.js';
+│ │ +
+│ │ +const extensionName = 'Outliner';
+│ │ +
+│ │ +const services = [{
+│ │ +    id: '12ft',
+│ │ +    name: '12ft.io',
+│ │ +    icon: '/assets/12ft.png',
+│ │ +    website: 'https://12ft.io',
+│ │ +    url: 'https://12ft.io',
+│ │ +    outline: async (service, url) => {
+│ │ +        return `${service.url}/${url}`;
+│ │ +    }
+│ │ +}, {
+│ │ +    id: 'outlinetts',
+│ │ +    name: 'Outline TTS',
+│ │ +    icon: '/assets/outlinetts.ico',
+│ │ +    website: 'https://outlinetts.com',
+│ │ +    url: 'https://outlinetts.com/article',
+│ │ +    outline: async (service, url) => {
+│ │ +        const uri = new URL(url);
+│ │ +        const protocol = uri.protocol.slice(0, -1);
+│ │ +
+│ │ +        url = url.replace(/(http(s?)):\/\//i, '');
+│ │ +        url = `${service.url}/${protocol}/${url}`;
+│ │ +
+│ │ +        return url;
+│ │ +    },
+│ │ +}, {
+│ │ +    id: 'printfriendly',
+│ │ +    name: 'Print Friendly',
+│ │ +    icon: '/assets/printfriendly.ico',
+│ │ +    website: 'https://www.printfriendly.com',
+│ │ +    url: 'https://www.printfriendly.com/print',
+│ │ +    outline: async (service, url) => {
+│ │ +        url = `${service.url}/?source=homepage&url=${encodeURIComponent(url)}`;
+│ │ +        return url;
+│ │ +    }
+│ │ +}, {
+│ │ +    id: 'darkread',
+│ │ +    name: 'Darkread',
+│ │ +    icon: '/assets/darkread.png',
+│ │ +    website: 'https://www.darkread.io/',
+│ │ +    url: 'https://www.darkread.io/api/getUrlId',
+│ │ +    outline: async (service, url) => {
+│ │ +        const proxy = 'https://outliner-proxy-darkread.rodrigo-828.workers.dev/cors-proxy';
+│ │ +        const proxyUrl = `${proxy}/${url}`;
+│ │ +
+│ │ +        const response = await fetch(proxyUrl).then(res => res.json());
+│ │ +        return `${service.website}/${response.uid}`;
+│ │ +    }
+│ │ +}];
+│ │ +
+│ │ +// user's options
+│ │ +const options = {};
+│ │ +
+│ │ +chrome.storage.onChanged.addListener((changes, area) => {
+│ │ +    if (area === 'sync' && changes.outlinerOptions?.newValue)
+│ │ +        Object.assign(options, changes.outlinerOptions.newValue);
+│ │ +});
+│ │ +
+│ │ +export function getOptions(reset = true) {
+│ │ +    const key = 'outlinerOptions';
+│ │ +
+│ │ +    return new Promise((resolve, reject) =>
+│ │ +        chrome.storage.sync.get(key, data => {
+│ │ +            if (chrome.runtime.lastError)
+│ │ +                reject(Error(chrome.runtime.lastError.message));
+│ │ +            else {
+│ │ +                if (reset) Object.assign(options, data.outlinerOptions);
+│ │ +                resolve(data.outlinerOptions);
+│ │ +            }
+│ │ +        })
+│ │ +    );
+│ │ +}
+│ │ +
+│ │ +export function getCurrentService() {
+│ │ +    const fallbackService = services[0];
+│ │ +    const service = services.find(x => x.id === options.currentService);
+│ │ +
+│ │ +    return service || fallbackService;
+│ │ +}
+│ │ +
+│ │ +function setOptions(callbackFn) {
+│ │ +    const outlinerOptions = {};
+│ │ +    outlinerOptions.outlinerOptions = options;
+│ │ +
+│ │ +    chrome.storage.sync.set(outlinerOptions, callbackFn);
+│ │ +}
+│ │ +
+│ │ +export function setCurrentService(service, callbackFn) {
+│ │ +    options.currentService = service.id;
+│ │ +    setOptions(callbackFn);
+│ │ +
+│ │ +    buildContextMenus();
+│ │ +}
+│ │ +
+│ │ +export function setOpenInNewTab(openInNewTab) {
+│ │ +    options.openInNewTab = openInNewTab;
+│ │ +    setOptions();
+│ │ +}
+│ │ +
+│ │ +export function getServicesList() {
+│ │ +    const currentService = getCurrentService();
+│ │ +    services.forEach(s => s.default = (s.id === currentService.id));
+│ │ +
+│ │ +    return services;
+│ │ +}
+│ │ +
+│ │ +export function linkTitle(service) {
+│ │ +    const translation = getCurrentTranslation();
+│ │ +    return translation.link(service.name);
+│ │ +}
+│ │ +
+│ │ +export function pageTitle(service) {
+│ │ +    const translation = getCurrentTranslation();
+│ │ +    return translation.page(service.name);
+│ │ +}
+│ │ +
+│ │ +export function buildContextMenus() {
+│ │ +    chrome.contextMenus.removeAll(() => {
+│ │ +        const service = getCurrentService();
+│ │ +
+│ │ +        chrome.contextMenus.create({
+│ │ +            id: 'outliner-default-link',
+│ │ +            title: `${extensionName} | ${linkTitle(service)}`,
+│ │ +            contexts: ['link'],
+│ │ +        });
+│ │ +
+│ │ +        chrome.contextMenus.create({
+│ │ +            id: 'outliner-default-page',
+│ │ +            title: `${extensionName} | ${pageTitle(service)}`,
+│ │ +            contexts: ['page'],
+│ │ +        });
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +chrome.contextMenus.onClicked.addListener((info) => {
+│ │ +    getOptions().then(() => {
+│ │ +        const service = getCurrentService();
+│ │ +
+│ │ +        switch (info.menuItemId) {
+│ │ +            case 'outliner-default-link':
+│ │ +                outlineThis(service, info.linkUrl);
+│ │ +                break;
+│ │ +
+│ │ +            case 'outliner-default-page':
+│ │ +                outlineThis(service, info.pageUrl);
+│ │ +                break;
+│ │ +        }
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +function setOutlineInit(url) {
+│ │ +    chrome.action.setBadgeBackgroundColor({
+│ │ +        color: 'gray'
+│ │ +    });
+│ │ +    chrome.action.setBadgeText({
+│ │ +        text: '...'
+│ │ +    });
+│ │ +    chrome.action.setTitle({
+│ │ +        title: `Outlining [${url}]`
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function setOutlineComplete() {
+│ │ +    chrome.action.setBadgeText({
+│ │ +        text: ''
+│ │ +    });
+│ │ +    chrome.action.setTitle({
+│ │ +        title: ''
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +export async function outlineThis(service, url) {
+│ │ +    if (!url || (url.length == 0) || !/^http(s)?:\/\//i.test(url) || (url.substring(0, service.url.length) == service.url))
+│ │ +        return;
+│ │ +
+│ │ +    setOutlineInit(url);
+│ │ +
+│ │ +    const outlineUrl = await service.outline(service, url);
+│ │ +
+│ │ +    if (!outlineUrl) {
+│ │ +        setOutlineComplete();
+│ │ +        return;
+│ │ +    }
+│ │ +
+│ │ +    if (options.openInNewTab)
+│ │ +        chrome.tabs.create({
+│ │ +            url: outlineUrl
+│ │ +        }, () => setOutlineComplete());
+│ │ +    else
+│ │ +        chrome.tabs.update(null, {
+│ │ +            url: outlineUrl
+│ │ +        }, () => setOutlineComplete());
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/translations.js
+├── +++ /workspace/pipeline_output/outliner-extension/translations.js
+│ ├── js-beautify {}
+│ │ @@ -1,85 +1,85 @@
+│ │ -// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ -// Use of this source code is governed by a BSD-style license that can be
+│ │ -// found in the LICENSE file.
+│ │ -
+│ │ -'use strict';
+│ │ -
+│ │ -var languages;
+│ │ -
+│ │ -const translations = {
+│ │ -    'en': {
+│ │ -        link: (serviceName) => `Open this link on ${serviceName}`,
+│ │ -        page: (serviceName, html = false) => `Open this page on ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ -        services: 'Available Services',
+│ │ -        additionalConfiguration: 'Additional Configurations',
+│ │ -        setDefault: 'set as default',
+│ │ -        visitWebsite: 'visit website',
+│ │ -        openInNewTab: 'Open in a new tab',
+│ │ -        rate: 'Rate',
+│ │ -        email: 'Email Me',
+│ │ -        openPage: 'Open this page on',
+│ │ -        openLink: 'Open this link on',
+│ │ -    },
+│ │ -    'pt': {
+│ │ -        link: (serviceName) => `Abrir este link em ${serviceName}`,
+│ │ -        page: (serviceName, html = false) => `Abrir esta página em ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ -        services: 'Serviços Disponíveis',
+│ │ -        additionalConfiguration: 'Configurações Adicionais',
+│ │ -        setDefault: 'tornar padrão',
+│ │ -        visitWebsite: 'visitar website',
+│ │ -        openInNewTab: 'Abrir em uma nova aba',
+│ │ -        rate: 'Avaliar',
+│ │ -        email: 'Escreva-me!',
+│ │ -        openPage: 'Abrir esta página em',
+│ │ -        openLink: 'Abrir este link em',
+│ │ -    },
+│ │ -    'es': {
+│ │ -        link: (serviceName) => `Abrir este enlace en ${serviceName}`,
+│ │ -        page: (serviceName, html = false) => `Abrir esta página en ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ -        services: 'Servicios Disponibles',
+│ │ -        additionalConfiguration: 'Configuraciones Adicionales',
+│ │ -        setDefault: 'establecer por defecto',
+│ │ -        visitWebsite: 'visita el sitio',
+│ │ -        openInNewTab: 'Abrir en nueva pestaña',
+│ │ -        rate: 'Valorar',
+│ │ -        email: 'Envíeme un email',
+│ │ -        openPage: 'Abrir esta página en',
+│ │ -        openLink: 'Abrir este enlace en',
+│ │ -    },
+│ │ -    'de': {
+│ │ -        link: (serviceName) => `Öffnen diesen Link auf ${serviceName}`,
+│ │ -        page: (serviceName, html = false) => `Öffnen diese Seite auf ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ -        services: 'Verfügbaren Dienstleistungen',
+│ │ -        additionalConfiguration: 'Weitere Konfigurationen',
+│ │ -        setDefault: 'als Standard einstellen',
+│ │ -        visitWebsite: 'besuche die Website',
+│ │ -        openInNewTab: 'Öffnen in neuem Tab',
+│ │ -        rate: 'Bewerten',
+│ │ -        email: 'Schreib mir',
+│ │ -        openPage: 'Öffnen diese Seite auf',
+│ │ -        openLink: 'Öffnen diesen Link auf',
+│ │ -    },
+│ │ -}
+│ │ -
+│ │ -function stripHtml(html) {
+│ │ -    return html.replace(/<[^>]*>/g, '');
+│ │ -}
+│ │ -
+│ │ -export function getCurrentTranslation() {
+│ │ -    var language = (languages && (languages.length > 0)) ? languages[0] : 'en';
+│ │ -
+│ │ -    switch (language) {
+│ │ -        case 'pt':
+│ │ -        case 'pt-BR':
+│ │ -        case 'pt-PT':
+│ │ -            language = 'pt';
+│ │ -            break;
+│ │ -    }
+│ │ -
+│ │ -    const fallbackLanguage = translations['en'];
+│ │ -    const translation = translations[language];
+│ │ -
+│ │ -    return translation || fallbackLanguage;
+│ │ -}
+│ │ -
+│ │ +// Copyright 2018 The Chromium Authors. All rights reserved.
+│ │ +// Use of this source code is governed by a BSD-style license that can be
+│ │ +// found in the LICENSE file.
+│ │ +
+│ │ +'use strict';
+│ │ +
+│ │ +var languages;
+│ │ +
+│ │ +const translations = {
+│ │ +    'en': {
+│ │ +        link: (serviceName) => `Open this link on ${serviceName}`,
+│ │ +        page: (serviceName, html = false) => `Open this page on ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ +        services: 'Available Services',
+│ │ +        additionalConfiguration: 'Additional Configurations',
+│ │ +        setDefault: 'set as default',
+│ │ +        visitWebsite: 'visit website',
+│ │ +        openInNewTab: 'Open in a new tab',
+│ │ +        rate: 'Rate',
+│ │ +        email: 'Email Me',
+│ │ +        openPage: 'Open this page on',
+│ │ +        openLink: 'Open this link on',
+│ │ +    },
+│ │ +    'pt': {
+│ │ +        link: (serviceName) => `Abrir este link em ${serviceName}`,
+│ │ +        page: (serviceName, html = false) => `Abrir esta página em ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ +        services: 'Serviços Disponíveis',
+│ │ +        additionalConfiguration: 'Configurações Adicionais',
+│ │ +        setDefault: 'tornar padrão',
+│ │ +        visitWebsite: 'visitar website',
+│ │ +        openInNewTab: 'Abrir em uma nova aba',
+│ │ +        rate: 'Avaliar',
+│ │ +        email: 'Escreva-me!',
+│ │ +        openPage: 'Abrir esta página em',
+│ │ +        openLink: 'Abrir este link em',
+│ │ +    },
+│ │ +    'es': {
+│ │ +        link: (serviceName) => `Abrir este enlace en ${serviceName}`,
+│ │ +        page: (serviceName, html = false) => `Abrir esta página en ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ +        services: 'Servicios Disponibles',
+│ │ +        additionalConfiguration: 'Configuraciones Adicionales',
+│ │ +        setDefault: 'establecer por defecto',
+│ │ +        visitWebsite: 'visita el sitio',
+│ │ +        openInNewTab: 'Abrir en nueva pestaña',
+│ │ +        rate: 'Valorar',
+│ │ +        email: 'Envíeme un email',
+│ │ +        openPage: 'Abrir esta página en',
+│ │ +        openLink: 'Abrir este enlace en',
+│ │ +    },
+│ │ +    'de': {
+│ │ +        link: (serviceName) => `Öffnen diesen Link auf ${serviceName}`,
+│ │ +        page: (serviceName, html = false) => `Öffnen diese Seite auf ${(html ? serviceName : stripHtml(serviceName))}`,
+│ │ +        services: 'Verfügbaren Dienstleistungen',
+│ │ +        additionalConfiguration: 'Weitere Konfigurationen',
+│ │ +        setDefault: 'als Standard einstellen',
+│ │ +        visitWebsite: 'besuche die Website',
+│ │ +        openInNewTab: 'Öffnen in neuem Tab',
+│ │ +        rate: 'Bewerten',
+│ │ +        email: 'Schreib mir',
+│ │ +        openPage: 'Öffnen diese Seite auf',
+│ │ +        openLink: 'Öffnen diesen Link auf',
+│ │ +    },
+│ │ +}
+│ │ +
+│ │ +function stripHtml(html) {
+│ │ +    return html.replace(/<[^>]*>/g, '');
+│ │ +}
+│ │ +
+│ │ +export function getCurrentTranslation() {
+│ │ +    var language = (languages && (languages.length > 0)) ? languages[0] : 'en';
+│ │ +
+│ │ +    switch (language) {
+│ │ +        case 'pt':
+│ │ +        case 'pt-BR':
+│ │ +        case 'pt-PT':
+│ │ +            language = 'pt';
+│ │ +            break;
+│ │ +    }
+│ │ +
+│ │ +    const fallbackLanguage = translations['en'];
+│ │ +    const translation = translations[language];
+│ │ +
+│ │ +    return translation || fallbackLanguage;
+│ │ +}
+│ │ +
+│ │  chrome.i18n.getAcceptLanguages(l => languages = l);

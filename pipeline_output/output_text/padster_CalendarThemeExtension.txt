@@ -1,0 +1,3164 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/CalendarThemeExtension
+├── file list
+│ @@ -1,8 +1,13 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  background.js
+│ +bundle.py
+│  content.js
+│ +docs
+│  icon128.png
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  style.css
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/CalendarThemeExtension/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,25 +1,25 @@
+│ │ -// RPC handlers for the content script
+│ │ -
+│ │ -// Cached getUserInfo
+│ │ -USER_INFO = null;
+│ │ -
+│ │ -function getUserInfo(cb) {
+│ │ -    if (USER_INFO != null) {
+│ │ -        cb(USER_INFO);
+│ │ -        return;
+│ │ -    }
+│ │ -    chrome.identity.getProfileUserInfo({
+│ │ -        accountStatus: 'ANY'
+│ │ -    }, userInfo => {
+│ │ -        cb(userInfo);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -chrome.runtime.onMessage.addListener(
+│ │ -    function(request, sender, sendResponse) {
+│ │ -        if (request.type == "getUserInfo") {
+│ │ -            getUserInfo(userInfo => sendResponse(userInfo));
+│ │ -        }
+│ │ -        return true;
+│ │ -    }
+│ │ +// RPC handlers for the content script
+│ │ +
+│ │ +// Cached getUserInfo
+│ │ +USER_INFO = null;
+│ │ +
+│ │ +function getUserInfo(cb) {
+│ │ +    if (USER_INFO != null) {
+│ │ +        cb(USER_INFO);
+│ │ +        return;
+│ │ +    }
+│ │ +    chrome.identity.getProfileUserInfo({
+│ │ +        accountStatus: 'ANY'
+│ │ +    }, userInfo => {
+│ │ +        cb(userInfo);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +chrome.runtime.onMessage.addListener(
+│ │ +    function(request, sender, sendResponse) {
+│ │ +        if (request.type == "getUserInfo") {
+│ │ +            getUserInfo(userInfo => sendResponse(userInfo));
+│ │ +        }
+│ │ +        return true;
+│ │ +    }
+│ │  );
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/CalendarThemeExtension/content.js
+│ ├── js-beautify {}
+│ │ @@ -1,129 +1,129 @@
+│ │ -// var FAB_CLASS = 'zlaSJd';
+│ │ -var BUTTON_HOLDER_CLASS = 'uW9umb';
+│ │ -var TOP_BUTTONS_CLASS = 'd6McF';
+│ │ -
+│ │ -var PURCHASE_SERVER = 'https://calendar.useit.today';
+│ │ -// if (chrome.runtime.id == 'fkbpcfnnknjdoolkoaliocdnefpkobhi') {
+│ │ -//   PURCHASE_SERVER = 'http://localhost:8080'; // Test mode
+│ │ -// }
+│ │ -
+│ │ -var DEFAULT_IMAGE_URLS = [
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/January.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/February.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/March.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/April.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/May.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/June.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/July.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/August.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/September.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/October.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/November.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/December.jpg',
+│ │ -];
+│ │ -
+│ │ -var DEFAULT_OVERLAY_MODE = 'lghtOverlay';
+│ │ -
+│ │ -USER_INFO = null;
+│ │ -
+│ │ -function getUserInfo(cb) {
+│ │ -    if (USER_INFO != null) {
+│ │ -        cb(USER_INFO);
+│ │ -        return;
+│ │ -    }
+│ │ -    chrome.runtime.sendMessage({
+│ │ -        'type': 'getUserInfo'
+│ │ -    }, function(userInfo) {
+│ │ -        USER_INFO = userInfo;
+│ │ -        cb(USER_INFO);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function setImageStyle() {
+│ │ -    var currentMonth = new Date().getMonth();
+│ │ -    // Load settings
+│ │ -    chrome.storage.sync.get({
+│ │ -        imageURL: DEFAULT_IMAGE_URLS,
+│ │ -        overlayMode: DEFAULT_OVERLAY_MODE,
+│ │ -    }, function(items) {
+│ │ -        // Also load user details, may be needed for purchased themes:
+│ │ -        getUserInfo(userInfo => {
+│ │ -            var imageArray = items.imageURL;
+│ │ -            if (!Array.isArray(imageArray)) {
+│ │ -                imageArray = [imageArray];
+│ │ -            }
+│ │ -            var currentMonth = new Date().getMonth();
+│ │ -            var currentUrl = imageArray[currentMonth % imageArray.length];
+│ │ -            if (currentUrl.indexOf(PURCHASE_SERVER) == 0) {
+│ │ -                currentUrl += '&u=' + userInfo.email;
+│ │ -            }
+│ │ -            document.getElementById('xtnImg').style.backgroundImage = "url('" + currentUrl + "')";
+│ │ -
+│ │ -            // Overlay:
+│ │ -            if (items.overlayMode == 'darkOverlay') {
+│ │ -                document.body.classList.add('xtnDarkOverlay');
+│ │ -            } else {
+│ │ -                document.body.classList.remove('xtnDarkOverlay');
+│ │ -            }
+│ │ -        })
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function createImageDOM() {
+│ │ -    var imgHolder = document.createElement('div');
+│ │ -    var img = document.createElement('div');
+│ │ -    var imgFade = document.createElement('div');
+│ │ -    imgHolder.id = 'xtnImgHolder';
+│ │ -    img.id = 'xtnImg';
+│ │ -    imgFade.id = 'xtnImgFade'
+│ │ -    imgHolder.appendChild(img);
+│ │ -    imgHolder.appendChild(imgFade);
+│ │ -    return imgHolder;
+│ │ -}
+│ │ -
+│ │ -function installImage() {
+│ │ -    console.log("Installing Calendar background extension...");
+│ │ -    var banner = document.getElementById('gb');
+│ │ -    var imageDOM = createImageDOM();
+│ │ -    banner.parentElement.insertBefore(imageDOM, banner);
+│ │ -    setImageStyle();
+│ │ -    document.addEventListener("visibilitychange", function() {
+│ │ -        if (document.visibilityState === 'visible') {
+│ │ -            setImageStyle();
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function createSettingsButtonDOM() {
+│ │ -    var button = document.createElement('a');
+│ │ -    button.id = 'xtnBtn';
+│ │ -    button.className = TOP_BUTTONS_CLASS;
+│ │ -    button.title = 'Background';
+│ │ -
+│ │ -    button.innerHTML = `
+│ │ -    <span class="xjKiLb">
+│ │ -      <span class="Ce1Y1c" style="top: -12px; padding-left: 8px;">
+│ │ -        <svg width="24" height="24" viewBox="0 0 18 18" focusable="false" class=" NMm5M hhikbc">
+│ │ -          <path d="M14.5 3.5v11h-11v-11h11zM14.4444 2H3.55556C2.7 2 2 2.7 2 3.55556V14.4444C2 15.3 2.7 16 3.55556 16H14.4444C15.3 16 16 15.3 16 14.4444V3.55556C16 2.7 15.3 2 14.4444 2zM10.5 9l-2 2.9985L7 10l-2 3h8l-2.5-4z"/>
+│ │ -        </svg>
+│ │ -      </span>
+│ │ -    </span>
+│ │ -  `;
+│ │ -
+│ │ -    button.href = 'chrome-extension://' + chrome.runtime.id + '/options.html';
+│ │ -    button.target = '_blank';
+│ │ -    return button;
+│ │ -}
+│ │ -
+│ │ -function installSettingsButton() {
+│ │ -    var addButton = document.querySelector('.' + BUTTON_HOLDER_CLASS);
+│ │ -    var newButton = createSettingsButtonDOM();
+│ │ -    addButton.insertBefore(newButton, addButton.firstElementChild);
+│ │ -}
+│ │ -
+│ │ -function install() {
+│ │ -    installImage();
+│ │ -    installSettingsButton();
+│ │ -}
+│ │ -
+│ │ +// var FAB_CLASS = 'zlaSJd';
+│ │ +var BUTTON_HOLDER_CLASS = 'uW9umb';
+│ │ +var TOP_BUTTONS_CLASS = 'd6McF';
+│ │ +
+│ │ +var PURCHASE_SERVER = 'https://calendar.useit.today';
+│ │ +// if (chrome.runtime.id == 'fkbpcfnnknjdoolkoaliocdnefpkobhi') {
+│ │ +//   PURCHASE_SERVER = 'http://localhost:8080'; // Test mode
+│ │ +// }
+│ │ +
+│ │ +var DEFAULT_IMAGE_URLS = [
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/January.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/February.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/March.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/April.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/May.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/June.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/July.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/August.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/September.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/October.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/November.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/December.jpg',
+│ │ +];
+│ │ +
+│ │ +var DEFAULT_OVERLAY_MODE = 'lghtOverlay';
+│ │ +
+│ │ +USER_INFO = null;
+│ │ +
+│ │ +function getUserInfo(cb) {
+│ │ +    if (USER_INFO != null) {
+│ │ +        cb(USER_INFO);
+│ │ +        return;
+│ │ +    }
+│ │ +    chrome.runtime.sendMessage({
+│ │ +        'type': 'getUserInfo'
+│ │ +    }, function(userInfo) {
+│ │ +        USER_INFO = userInfo;
+│ │ +        cb(USER_INFO);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function setImageStyle() {
+│ │ +    var currentMonth = new Date().getMonth();
+│ │ +    // Load settings
+│ │ +    chrome.storage.sync.get({
+│ │ +        imageURL: DEFAULT_IMAGE_URLS,
+│ │ +        overlayMode: DEFAULT_OVERLAY_MODE,
+│ │ +    }, function(items) {
+│ │ +        // Also load user details, may be needed for purchased themes:
+│ │ +        getUserInfo(userInfo => {
+│ │ +            var imageArray = items.imageURL;
+│ │ +            if (!Array.isArray(imageArray)) {
+│ │ +                imageArray = [imageArray];
+│ │ +            }
+│ │ +            var currentMonth = new Date().getMonth();
+│ │ +            var currentUrl = imageArray[currentMonth % imageArray.length];
+│ │ +            if (currentUrl.indexOf(PURCHASE_SERVER) == 0) {
+│ │ +                currentUrl += '&u=' + userInfo.email;
+│ │ +            }
+│ │ +            document.getElementById('xtnImg').style.backgroundImage = "url('" + currentUrl + "')";
+│ │ +
+│ │ +            // Overlay:
+│ │ +            if (items.overlayMode == 'darkOverlay') {
+│ │ +                document.body.classList.add('xtnDarkOverlay');
+│ │ +            } else {
+│ │ +                document.body.classList.remove('xtnDarkOverlay');
+│ │ +            }
+│ │ +        })
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function createImageDOM() {
+│ │ +    var imgHolder = document.createElement('div');
+│ │ +    var img = document.createElement('div');
+│ │ +    var imgFade = document.createElement('div');
+│ │ +    imgHolder.id = 'xtnImgHolder';
+│ │ +    img.id = 'xtnImg';
+│ │ +    imgFade.id = 'xtnImgFade'
+│ │ +    imgHolder.appendChild(img);
+│ │ +    imgHolder.appendChild(imgFade);
+│ │ +    return imgHolder;
+│ │ +}
+│ │ +
+│ │ +function installImage() {
+│ │ +    console.log("Installing Calendar background extension...");
+│ │ +    var banner = document.getElementById('gb');
+│ │ +    var imageDOM = createImageDOM();
+│ │ +    banner.parentElement.insertBefore(imageDOM, banner);
+│ │ +    setImageStyle();
+│ │ +    document.addEventListener("visibilitychange", function() {
+│ │ +        if (document.visibilityState === 'visible') {
+│ │ +            setImageStyle();
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function createSettingsButtonDOM() {
+│ │ +    var button = document.createElement('a');
+│ │ +    button.id = 'xtnBtn';
+│ │ +    button.className = TOP_BUTTONS_CLASS;
+│ │ +    button.title = 'Background';
+│ │ +
+│ │ +    button.innerHTML = `
+│ │ +    <span class="xjKiLb">
+│ │ +      <span class="Ce1Y1c" style="top: -12px; padding-left: 8px;">
+│ │ +        <svg width="24" height="24" viewBox="0 0 18 18" focusable="false" class=" NMm5M hhikbc">
+│ │ +          <path d="M14.5 3.5v11h-11v-11h11zM14.4444 2H3.55556C2.7 2 2 2.7 2 3.55556V14.4444C2 15.3 2.7 16 3.55556 16H14.4444C15.3 16 16 15.3 16 14.4444V3.55556C16 2.7 15.3 2 14.4444 2zM10.5 9l-2 2.9985L7 10l-2 3h8l-2.5-4z"/>
+│ │ +        </svg>
+│ │ +      </span>
+│ │ +    </span>
+│ │ +  `;
+│ │ +
+│ │ +    button.href = 'chrome-extension://' + chrome.runtime.id + '/options.html';
+│ │ +    button.target = '_blank';
+│ │ +    return button;
+│ │ +}
+│ │ +
+│ │ +function installSettingsButton() {
+│ │ +    var addButton = document.querySelector('.' + BUTTON_HOLDER_CLASS);
+│ │ +    var newButton = createSettingsButtonDOM();
+│ │ +    addButton.insertBefore(newButton, addButton.firstElementChild);
+│ │ +}
+│ │ +
+│ │ +function install() {
+│ │ +    installImage();
+│ │ +    installSettingsButton();
+│ │ +}
+│ │ +
+│ │  install();
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/CalendarThemeExtension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,15 +24,14 @@
+│ │      "name": "Custom Calendar Background",
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "identity",
+│ │          "identity.email"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.13",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/CalendarThemeExtension/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,246 +1,246 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -<head>
+│ -  <meta charset="UTF-8">
+│ -  <title>Custom Calendar Background options</title>
+│ -  <style>
+│ -    /* html, head, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow-x: hidden; } */
+│ -    html {
+│ -      margin: 0;
+│ -      padding: 0;
+│ -      border-top: 8px solid #8e24aa;
+│ -      box-sizing: border-box;
+│ -    }
+│ -    body {
+│ -      margin: 0;
+│ -      padding: 0;
+│ -      width: 100%;
+│ -      height: 100%;
+│ -      overflow-x: hidden;
+│ -    }
+│ -
+│ -    h1 {
+│ -      display: inline-block;
+│ -      padding: 0 20px;
+│ -    }
+│ -    .field {
+│ -      display: flex;
+│ -      align-items: center;
+│ -      height: 3em;
+│ -    }
+│ -    .title {
+│ -      width: 160px;
+│ -      text-align: center;
+│ -      font-size: 16px;
+│ -    }
+│ -    .input {
+│ -      display: flex;
+│ -      flex-grow: 1;
+│ -    }
+│ -    .input input {
+│ -      height: 2.4em;
+│ -      padding: 0 12px;
+│ -      flex-grow: 1;
+│ -    }
+│ -    button {
+│ -      float: right;
+│ -      margin: 8px;
+│ -      line-height: 2em;
+│ -      cursor: pointer;
+│ -    }
+│ -    #demoHolder {
+│ -      display: flex;
+│ -      flex-direction: column;
+│ -      margin: 0 auto;
+│ -      width: 60%;
+│ -      height: 60%;
+│ -    }
+│ -    #demo {
+│ -      display: flex;
+│ -      width: 100%;
+│ -      aspect-ratio: 16/10;
+│ -      margin: 0 auto;
+│ -      background-repeat: no-repeat;
+│ -      background-position: center;
+│ -      background-size: cover;
+│ -      border: 1px dashed black;
+│ -    }
+│ -    #sidebar {
+│ -      display: flex;
+│ -      height: 100%;
+│ -      width: 20%;
+│ -    }
+│ -    #status {
+│ -      position: absolute;
+│ -      left: 12px;
+│ -      bottom: 12px;
+│ -      padding: 8px;
+│ -      font-size: 20px;
+│ -      color: white;
+│ -      background-color: black;
+│ -    }
+│ -    .options {
+│ -      padding-bottom: 1.5em;
+│ -    }
+│ -    .help .optionTitle {
+│ -      text-decoration: underline;
+│ -      padding-right: 8px;
+│ -    }
+│ -    .optionTitle, label {
+│ -      font-size: 16px;
+│ -      height: 24px;
+│ -      padding: 8px 16px;
+│ -      cursor: pointer;
+│ -    }
+│ -    .optionTitle {
+│ -      font-style: italic;
+│ -    }
+│ -    input[type="color"] {
+│ -      flex-grow: 0;
+│ -      width: calc(2.4em + 20px);
+│ -    }
+│ -    .options a {
+│ -      font-size: 16px;
+│ -      padding: 0 8px;
+│ -    }
+│ -    .options a:hover {
+│ -      background-color: whitesmoke;
+│ -    }
+│ -    #t4Fields .details {
+│ -      font-size: 16px;
+│ -      padding: 16px;
+│ -      line-height: 1.5em;
+│ -    }
+│ -    #t4Fields .details div {
+│ -      padding-bottom: 16px;
+│ -    }
+│ -
+│ -    .new_indicator {
+│ -      color: red;
+│ -      font-size: small;
+│ -      vertical-align: super;
+│ -      margin-left: -4px;
+│ -    }
+│ -  </style>
+│ -</head>
+│ -<body>
+│ -
+│ -  <h1>Custom Calendar Background options</h1>
+│ -
+│ -  <div>
+│ -    <div class="options help">
+│ -      <!-- <span class="optionTitle">Having trouble with the extension? See: </span> -->
+│ -      <a href="https://calendar.useit.today/help" target=”_blank”>Help Page</a>
+│ -      <a href="https://github.com/padster/CalendarThemeExtension" target=”_blank”>Updates & bug reports</a>
+│ -        <a id="purchase_redirect">View and purchase themes</a>
+│ -        <span class="new_indicator" style="margin-left: -12px;">NEW</span>
+│ -        <span id="no_email_error" style="display: none;">(Themes disabled, no email is available. Please enable email access in settings)</span>
+│ -    </div>
+│ -    <div class="options">
+│ -      <span class="optionTitle">Overlay:</span>
+│ -      <label><input id="o1" type="radio" name="overlay">Light overlay</label>
+│ -      <label><input id="o2" type="radio" name="overlay">Dark overlay</label>
+│ -    </div>
+│ -    <div class="options">
+│ -      <span class="optionTitle">Background:</span>
+│ -      <label><input id="t1" type="radio" name="type">Single Image</label>
+│ -      <label><input id="t2" type="radio" name="type">Monthly Images</label>
+│ -      <label><input id="t3" type="radio" name="type">Color</label>
+│ -      <label><input id="t4" type="radio" name="type">Themes <span class="new_indicator">NEW</span></label>
+│ -    </div>
+│ -    <div id="t1Fields">
+│ -      <div class="field">
+│ -        <div class="title">Image URL:</div>
+│ -        <div class="input">
+│ -          <input id="url" type="url"/>
+│ -        </div>
+│ -      </div>
+│ -    </div>
+│ -    <div id="t2Fields">
+│ -      <div class="field">
+│ -        <div class="title">January:</div>
+│ -        <div class="input"><input id="urlMonth0" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">Februrary:</div>
+│ -        <div class="input"><input id="urlMonth1" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">March:</div>
+│ -        <div class="input"><input id="urlMonth2" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">April:</div>
+│ -        <div class="input"><input id="urlMonth3" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">May:</div>
+│ -        <div class="input"><input id="urlMonth4" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">June:</div>
+│ -        <div class="input"><input id="urlMonth5" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">July:</div>
+│ -        <div class="input"><input id="urlMonth6" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">August:</div>
+│ -        <div class="input"><input id="urlMonth7" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">September:</div>
+│ -        <div class="input"><input id="urlMonth8" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">October:</div>
+│ -        <div class="input"><input id="urlMonth9" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">November:</div>
+│ -        <div class="input"><input id="urlMonth10" type="url"/></div>
+│ -      </div>
+│ -      <div class="field">
+│ -        <div class="title">December:</div>
+│ -        <div class="input"><input id="urlMonth11" type="url"/></div>
+│ -      </div>
+│ -    </div>
+│ -    <div id="t3Fields">
+│ -      <div class="field">
+│ -        <div class="title">Color:</div>
+│ -        <div class="input">
+│ -          <input id="color" type="color"/>
+│ -        </div>
+│ -      </div>
+│ -    </div>
+│ -    <div id="t4Fields">
+│ -      <div class="field">
+│ -        <div class="title">Theme access code:</div>
+│ -        <div class="input">
+│ -          <input id="purchase_token" />
+│ -        </div>
+│ -      </div>
+│ -      <div class="details">
+│ -        <div></div>
+│ -        <div>
+│ -          Just like traditional calendars, you can pick from a range of curated themes and pick your favourite set of 12 images. <br />
+│ -          <i>Unlike<i> traditional calendars, these will work for every year! See <a href="https://calendar.useit.today/themes">here</a> for more details. <br />
+│ -          Many sets are available across a range of themes, but please do contact me if you have suggestions for additions, or if you're a photographer who'd like to add a set yourself.<br />
+│ -        </div>
+│ -      </div>
+│ -    </div>
+│ -    <button id="save">Save</button>
+│ -    <button id="reset">Reset (without save)</button>
+│ -    <div id="status"></div>
+│ -  </div>
+│ -  <div id="demoHolder">
+│ -    <div id="demoHint">Example of what will be shown on the page:</div>
+│ -    <div id="demo">
+│ -      <div id="sidebar"></div>
+│ -    </div>
+│ -  </div>
+│ -
+│ -  <script src='options.js'></script>
+│ -</body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +<head>
+│ +  <meta charset="UTF-8">
+│ +  <title>Custom Calendar Background options</title>
+│ +  <style>
+│ +    /* html, head, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow-x: hidden; } */
+│ +    html {
+│ +      margin: 0;
+│ +      padding: 0;
+│ +      border-top: 8px solid #8e24aa;
+│ +      box-sizing: border-box;
+│ +    }
+│ +    body {
+│ +      margin: 0;
+│ +      padding: 0;
+│ +      width: 100%;
+│ +      height: 100%;
+│ +      overflow-x: hidden;
+│ +    }
+│ +
+│ +    h1 {
+│ +      display: inline-block;
+│ +      padding: 0 20px;
+│ +    }
+│ +    .field {
+│ +      display: flex;
+│ +      align-items: center;
+│ +      height: 3em;
+│ +    }
+│ +    .title {
+│ +      width: 160px;
+│ +      text-align: center;
+│ +      font-size: 16px;
+│ +    }
+│ +    .input {
+│ +      display: flex;
+│ +      flex-grow: 1;
+│ +    }
+│ +    .input input {
+│ +      height: 2.4em;
+│ +      padding: 0 12px;
+│ +      flex-grow: 1;
+│ +    }
+│ +    button {
+│ +      float: right;
+│ +      margin: 8px;
+│ +      line-height: 2em;
+│ +      cursor: pointer;
+│ +    }
+│ +    #demoHolder {
+│ +      display: flex;
+│ +      flex-direction: column;
+│ +      margin: 0 auto;
+│ +      width: 60%;
+│ +      height: 60%;
+│ +    }
+│ +    #demo {
+│ +      display: flex;
+│ +      width: 100%;
+│ +      aspect-ratio: 16/10;
+│ +      margin: 0 auto;
+│ +      background-repeat: no-repeat;
+│ +      background-position: center;
+│ +      background-size: cover;
+│ +      border: 1px dashed black;
+│ +    }
+│ +    #sidebar {
+│ +      display: flex;
+│ +      height: 100%;
+│ +      width: 20%;
+│ +    }
+│ +    #status {
+│ +      position: absolute;
+│ +      left: 12px;
+│ +      bottom: 12px;
+│ +      padding: 8px;
+│ +      font-size: 20px;
+│ +      color: white;
+│ +      background-color: black;
+│ +    }
+│ +    .options {
+│ +      padding-bottom: 1.5em;
+│ +    }
+│ +    .help .optionTitle {
+│ +      text-decoration: underline;
+│ +      padding-right: 8px;
+│ +    }
+│ +    .optionTitle, label {
+│ +      font-size: 16px;
+│ +      height: 24px;
+│ +      padding: 8px 16px;
+│ +      cursor: pointer;
+│ +    }
+│ +    .optionTitle {
+│ +      font-style: italic;
+│ +    }
+│ +    input[type="color"] {
+│ +      flex-grow: 0;
+│ +      width: calc(2.4em + 20px);
+│ +    }
+│ +    .options a {
+│ +      font-size: 16px;
+│ +      padding: 0 8px;
+│ +    }
+│ +    .options a:hover {
+│ +      background-color: whitesmoke;
+│ +    }
+│ +    #t4Fields .details {
+│ +      font-size: 16px;
+│ +      padding: 16px;
+│ +      line-height: 1.5em;
+│ +    }
+│ +    #t4Fields .details div {
+│ +      padding-bottom: 16px;
+│ +    }
+│ +
+│ +    .new_indicator {
+│ +      color: red;
+│ +      font-size: small;
+│ +      vertical-align: super;
+│ +      margin-left: -4px;
+│ +    }
+│ +  </style>
+│ +</head>
+│ +<body>
+│ +
+│ +  <h1>Custom Calendar Background options</h1>
+│ +
+│ +  <div>
+│ +    <div class="options help">
+│ +      <!-- <span class="optionTitle">Having trouble with the extension? See: </span> -->
+│ +      <a href="https://calendar.useit.today/help" target=”_blank”>Help Page</a>
+│ +      <a href="https://github.com/padster/CalendarThemeExtension" target=”_blank”>Updates & bug reports</a>
+│ +        <a id="purchase_redirect">View and purchase themes</a>
+│ +        <span class="new_indicator" style="margin-left: -12px;">NEW</span>
+│ +        <span id="no_email_error" style="display: none;">(Themes disabled, no email is available. Please enable email access in settings)</span>
+│ +    </div>
+│ +    <div class="options">
+│ +      <span class="optionTitle">Overlay:</span>
+│ +      <label><input id="o1" type="radio" name="overlay">Light overlay</label>
+│ +      <label><input id="o2" type="radio" name="overlay">Dark overlay</label>
+│ +    </div>
+│ +    <div class="options">
+│ +      <span class="optionTitle">Background:</span>
+│ +      <label><input id="t1" type="radio" name="type">Single Image</label>
+│ +      <label><input id="t2" type="radio" name="type">Monthly Images</label>
+│ +      <label><input id="t3" type="radio" name="type">Color</label>
+│ +      <label><input id="t4" type="radio" name="type">Themes <span class="new_indicator">NEW</span></label>
+│ +    </div>
+│ +    <div id="t1Fields">
+│ +      <div class="field">
+│ +        <div class="title">Image URL:</div>
+│ +        <div class="input">
+│ +          <input id="url" type="url"/>
+│ +        </div>
+│ +      </div>
+│ +    </div>
+│ +    <div id="t2Fields">
+│ +      <div class="field">
+│ +        <div class="title">January:</div>
+│ +        <div class="input"><input id="urlMonth0" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">Februrary:</div>
+│ +        <div class="input"><input id="urlMonth1" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">March:</div>
+│ +        <div class="input"><input id="urlMonth2" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">April:</div>
+│ +        <div class="input"><input id="urlMonth3" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">May:</div>
+│ +        <div class="input"><input id="urlMonth4" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">June:</div>
+│ +        <div class="input"><input id="urlMonth5" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">July:</div>
+│ +        <div class="input"><input id="urlMonth6" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">August:</div>
+│ +        <div class="input"><input id="urlMonth7" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">September:</div>
+│ +        <div class="input"><input id="urlMonth8" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">October:</div>
+│ +        <div class="input"><input id="urlMonth9" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">November:</div>
+│ +        <div class="input"><input id="urlMonth10" type="url"/></div>
+│ +      </div>
+│ +      <div class="field">
+│ +        <div class="title">December:</div>
+│ +        <div class="input"><input id="urlMonth11" type="url"/></div>
+│ +      </div>
+│ +    </div>
+│ +    <div id="t3Fields">
+│ +      <div class="field">
+│ +        <div class="title">Color:</div>
+│ +        <div class="input">
+│ +          <input id="color" type="color"/>
+│ +        </div>
+│ +      </div>
+│ +    </div>
+│ +    <div id="t4Fields">
+│ +      <div class="field">
+│ +        <div class="title">Theme access code:</div>
+│ +        <div class="input">
+│ +          <input id="purchase_token" />
+│ +        </div>
+│ +      </div>
+│ +      <div class="details">
+│ +        <div></div>
+│ +        <div>
+│ +          Just like traditional calendars, you can pick from a range of curated themes and pick your favourite set of 12 images. <br />
+│ +          <i>Unlike<i> traditional calendars, these will work for every year! See <a href="https://calendar.useit.today/themes">here</a> for more details. <br />
+│ +          Many sets are available across a range of themes, but please do contact me if you have suggestions for additions, or if you're a photographer who'd like to add a set yourself.<br />
+│ +        </div>
+│ +      </div>
+│ +    </div>
+│ +    <button id="save">Save</button>
+│ +    <button id="reset">Reset (without save)</button>
+│ +    <div id="status"></div>
+│ +  </div>
+│ +  <div id="demoHolder">
+│ +    <div id="demoHint">Example of what will be shown on the page:</div>
+│ +    <div id="demo">
+│ +      <div id="sidebar"></div>
+│ +    </div>
+│ +  </div>
+│ +
+│ +  <script src='options.js'></script>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/CalendarThemeExtension/options.js
+│ ├── js-beautify {}
+│ │ @@ -1,415 +1,415 @@
+│ │ -var BASE64_KEY = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+│ │ -var COLOR_PIXEL_PREFIX = "data:image/gif;base64,R0lGODlhAQABAPAA";
+│ │ -var COLOR_PIXEL_SUFFIX = "/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
+│ │ -var DEFAULT_COLOR_HEX = "#ffffff";
+│ │ -
+│ │ -var PURCHASE_SERVER = 'https://calendar.useit.today';
+│ │ -// if (chrome.runtime.id == 'fkbpcfnnknjdoolkoaliocdnefpkobhi') {
+│ │ -//   PURCHASE_SERVER = 'http://localhost:8080'; // Test mode
+│ │ -// }
+│ │ -
+│ │ -var DEFAULT_TOKEN = '';
+│ │ -var TOKEN_LENGTH = 12;
+│ │ -
+│ │ -var DEFAULT_IMAGE_URLS = [
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/January.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/February.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/March.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/April.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/May.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/June.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/July.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/August.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/September.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/October.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/November.jpg',
+│ │ -    '//storage.googleapis.com/static.useit.today/wallCalendarImg/December.jpg',
+│ │ -];
+│ │ -
+│ │ -// OVERLAY: either lghtOverlay (default) or darkOverlay
+│ │ -DEFAULT_OVERLAY_MODE = 'lghtOverlay';
+│ │ -
+│ │ -USER_INFO = null;
+│ │ -
+│ │ -function getUserInfo(cb) {
+│ │ -    if (USER_INFO != null) {
+│ │ -        cb(USER_INFO);
+│ │ -        return;
+│ │ -    }
+│ │ -    chrome.identity.getProfileUserInfo({
+│ │ -        accountStatus: 'ANY'
+│ │ -    }, userInfo => cb(userInfo));
+│ │ -}
+│ │ -
+│ │ -// Initialize overlay picker
+│ │ -function loadOverlayMode(overlayMode) {
+│ │ -    isDark = (overlayMode == 'darkOverlay')
+│ │ -    document.getElementById('o1').checked = !isDark;
+│ │ -    document.getElementById('o2').checked = isDark;
+│ │ -}
+│ │ -
+│ │ -// Read overlay mode (gets persisted on image save)
+│ │ -function getOverlayMode() {
+│ │ -    if (document.getElementById('o2').checked) {
+│ │ -        return 'darkOverlay';
+│ │ -    } else {
+│ │ -        return 'lghtOverlay';
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -
+│ │ -// Encode three 8-bit numbers to 4 6-bit base64
+│ │ -// Kudos to https://stackoverflow.com/questions/5845238/javascript-generate-transparent-1x1-pixel-in-dataurl-format
+│ │ -function tripletEncode(e1, e2, e3) {
+│ │ -    enc1 = e1 >> 2;
+│ │ -    enc2 = ((e1 & 3) << 4) | (e2 >> 4);
+│ │ -    enc3 = ((e2 & 15) << 2) | (e3 >> 6);
+│ │ -    enc4 = e3 & 63;
+│ │ -    return BASE64_KEY.charAt(enc1) + BASE64_KEY.charAt(enc2) + BASE64_KEY.charAt(enc3) + BASE64_KEY.charAt(enc4);
+│ │ -}
+│ │ -
+│ │ -// Decode 4 6-bit base64 to three 8-bit numbers (reverse the above)
+│ │ -function tripletDecode(aaaa) {
+│ │ -    enc1 = BASE64_KEY.indexOf(aaaa[0])
+│ │ -    enc2 = BASE64_KEY.indexOf(aaaa[1])
+│ │ -    enc3 = BASE64_KEY.indexOf(aaaa[2])
+│ │ -    enc4 = BASE64_KEY.indexOf(aaaa[3])
+│ │ -    e3 = ((enc3 & 3) << 6) | enc4
+│ │ -    e2 = ((enc2 & 15) << 4) | (enc3 >> 2)
+│ │ -    e1 = (enc1 << 2) | (enc2 >> 4)
+│ │ -    return [e1, e2, e3]
+│ │ -}
+│ │ -
+│ │ -// Reverse colorHexToUrl back into a hex color.
+│ │ -// If it's not from colorHexToUrl, return null.
+│ │ -function urlToMaybeColorHex(url) {
+│ │ -    if (!url.startsWith(COLOR_PIXEL_PREFIX) || !url.endsWith(COLOR_PIXEL_SUFFIX)) {
+│ │ -        return null;
+│ │ -    }
+│ │ -
+│ │ -    encoded = url.substring(COLOR_PIXEL_PREFIX.length, url.length - COLOR_PIXEL_SUFFIX.length)
+│ │ -    _rg = tripletDecode(encoded.substring(0, 4))
+│ │ -    b__ = tripletDecode(encoded.substring(4, 8))
+│ │ -    r = _rg[1]
+│ │ -    g = _rg[2]
+│ │ -    b = b__[0]
+│ │ -    // Kudos to https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+│ │ -    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+│ │ -}
+│ │ -
+│ │ -// Convert a hex color (#aabbcc) to a data URL for a 1x1 pixel of that color
+│ │ -function colorHexToUrl(hexColor) {
+│ │ -    var s = hexColor.substring(1, 7);
+│ │ -    r = parseInt(s[0] + s[1], 16)
+│ │ -    g = parseInt(s[2] + s[3], 16)
+│ │ -    b = parseInt(s[4] + s[5], 16)
+│ │ -    encoded = tripletEncode(0, r, g) + tripletEncode(b, 255, 255);
+│ │ -    return COLOR_PIXEL_PREFIX + encoded + COLOR_PIXEL_SUFFIX;
+│ │ -}
+│ │ -
+│ │ -// Convert the purchase token + user email + month into the image address to load.
+│ │ -function monthToPurchaseUrl(fullToken, month, email) {
+│ │ -    const parts = fullToken.split('/');
+│ │ -    if (parts.length != 2 || parts[1].length != TOKEN_LENGTH) {
+│ │ -        return;
+│ │ -    }
+│ │ -    const theme = parts[0];
+│ │ -    const token = parts[1];
+│ │ -    const monthName = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
+│ │ -
+│ │ -    return PURCHASE_SERVER +
+│ │ -        '/img/' + theme + '/' + monthName + '.jpg' +
+│ │ -        '?t=' + window.encodeURIComponent(token);
+│ │ -}
+│ │ -
+│ │ -/** When the image changes, update both the picker and the demo image. */
+│ │ -function updateImageUrl(url) {
+│ │ -    getUserInfo(userInfo => {
+│ │ -        if (url.indexOf("//") == 0) {
+│ │ -            url = "https:" + url;
+│ │ -        }
+│ │ -        if (url.indexOf(PURCHASE_SERVER) == 0) {
+│ │ -            url += '&u=' + userInfo.email;
+│ │ -        }
+│ │ -        document.getElementById('demo').style.backgroundImage = 'url(' + url + ')';
+│ │ -
+│ │ -        isDark = (getOverlayMode() == 'darkOverlay')
+│ │ -        sideColor = "rgba(255,255,255,0.3)"
+│ │ -        if (isDark) {
+│ │ -            sideColor = "rgba(0,0,0,0.3)";
+│ │ -        }
+│ │ -        document.getElementById('sidebar').style.backgroundColor = sideColor;
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Change which tab of options are visible. */
+│ │ -function setTab(tab) {
+│ │ -    document.getElementById('demo').style.backgroundImage = 'none';
+│ │ -
+│ │ -    document.getElementById('t1').checked = (tab == 't1');
+│ │ -    document.getElementById('t2').checked = (tab == 't2');
+│ │ -    document.getElementById('t3').checked = (tab == 't3');
+│ │ -    document.getElementById('t4').checked = (tab == 't4');
+│ │ -
+│ │ -    document.getElementById('t1Fields').style.display = ((tab == 't1') ? "block" : "none");
+│ │ -    document.getElementById('t2Fields').style.display = ((tab == 't2') ? "block" : "none");
+│ │ -    document.getElementById('t3Fields').style.display = ((tab == 't3') ? "block" : "none");
+│ │ -    document.getElementById('t4Fields').style.display = ((tab == 't4') ? "block" : "none");
+│ │ -
+│ │ -    // Load user details when looking at the purchase tab
+│ │ -    getUserInfo(userInfo => {
+│ │ -        if (!userInfo.email) {
+│ │ -            document.getElementById('no_email_error').style.display = 'inline-block';
+│ │ -        } else {
+│ │ -            document.getElementById('no_email_error').style.display = 'none';
+│ │ -            redirect_url = PURCHASE_SERVER + '/store?user=' + window.encodeURIComponent(userInfo.email);
+│ │ -            document.getElementById('purchase_redirect').href = redirect_url;
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Show single tab, and update the one URL to use. */
+│ │ -function loadSingleOption(singleImageURL) {
+│ │ -    setTab('t1');
+│ │ -    document.getElementById('url').value = singleImageURL;
+│ │ -    updateImageUrl(singleImageURL);
+│ │ -}
+│ │ -
+│ │ -/** Show tab for 12 images, and update the URL to use based on this month. */
+│ │ -function loadMonthOptions(imageURL) {
+│ │ -    setTab('t2');
+│ │ -    document.getElementById('t2').checked = true;
+│ │ -    for (var i = 0; i < imageURL.length && i < 12; i++) {
+│ │ -        document.getElementById('urlMonth' + i).value = imageURL[i];
+│ │ -    }
+│ │ -    var currentMonth = new Date().getMonth();
+│ │ -    updateImageUrl(imageURL[currentMonth % imageURL.length]);
+│ │ -}
+│ │ -
+│ │ -/** Show tab for single colour picker and load colour based on base64 pixel. */
+│ │ -function loadColorOption(imageURL, parsedColorHex) {
+│ │ -    setTab('t3');
+│ │ -    document.getElementById('color').value = parsedColorHex;
+│ │ -    updateImageUrl(imageURL);
+│ │ -}
+│ │ -
+│ │ -/** Show tab for user-purchased image sets. */
+│ │ -function loadPurchasedOption(themeToken) {
+│ │ -    setTab('t4');
+│ │ -    document.getElementById('purchase_token').value = themeToken;
+│ │ -    getUserInfo(userInfo => {
+│ │ -        var currentMonth = new Date().getMonth();
+│ │ -        const imageURL = monthToPurchaseUrl(themeToken, currentMonth, userInfo.email);
+│ │ -        updateImageUrl(imageURL);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Initialize URL from chrome sync options. */
+│ │ -function loadOptions() {
+│ │ -    console.log("Loading options for user ... ");
+│ │ -
+│ │ -    chrome.storage.sync.get({
+│ │ -        imageURL: DEFAULT_IMAGE_URLS,
+│ │ -        overlayMode: DEFAULT_OVERLAY_MODE,
+│ │ -        themeToken: DEFAULT_TOKEN,
+│ │ -    }, function(items) {
+│ │ -        loadOverlayMode(items.overlayMode);
+│ │ -
+│ │ -        if (!Array.isArray(items.imageURL)) {
+│ │ -            parsedColorHex = urlToMaybeColorHex(items.imageURL);
+│ │ -            if (parsedColorHex) {
+│ │ -                loadColorOption(items.imageURL, parsedColorHex);
+│ │ -            } else {
+│ │ -                loadSingleOption(items.imageURL);
+│ │ -            }
+│ │ -        } else {
+│ │ -            if (items.themeToken != DEFAULT_TOKEN) {
+│ │ -                loadPurchasedOption(items.themeToken);
+│ │ -            } else {
+│ │ -                loadMonthOptions(items.imageURL);
+│ │ -            }
+│ │ -        }
+│ │ -
+│ │ -        // Force switch to the token page if in the URL:
+│ │ -        const params = new URLSearchParams(window.location.search);
+│ │ -        if (params.get('token')) {
+│ │ -            loadPurchasedOption(params.get('token'));
+│ │ -            savePurchaseOption();
+│ │ -            return;
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Save a single image URL as the one to use. */
+│ │ -function saveSingleOption() {
+│ │ -    var imageURL = document.getElementById('url').value;
+│ │ -    if (imageURL.length == 0) {
+│ │ -        imageURL = DEFAULT_IMAGE_URLS[0];
+│ │ -        document.getElementById('url').value = imageURL;
+│ │ -    }
+│ │ -    chrome.storage.sync.set({
+│ │ -        imageURL: imageURL,
+│ │ -        overlayMode: getOverlayMode(),
+│ │ -        // NOTE: doesn't reset themeToken
+│ │ -    }, function() {
+│ │ -        updateImageUrl(imageURL);
+│ │ -        // Update status to let user know options were saved.
+│ │ -        var status = document.getElementById('status');
+│ │ -        status.textContent = 'Options saved.';
+│ │ -        setTimeout(function() {
+│ │ -            status.textContent = '';
+│ │ -        }, 1000);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Save a collection of up to twelve images, for use once per month. */
+│ │ -function saveMonthOptions() {
+│ │ -    var imageURL = [];
+│ │ -    for (var i = 0; i < 12; i++) {
+│ │ -        var url = document.getElementById('urlMonth' + i).value;
+│ │ -        if (url) {
+│ │ -            imageURL.push(url);
+│ │ -        }
+│ │ -    }
+│ │ -    if (imageURL.length == 0) {
+│ │ -        imageURL = DEFAULT_IMAGE_URLS;
+│ │ -        for (var i = 0; i < imageURL.length && i < 12; i++) {
+│ │ -            document.getElementById('urlMonth' + i).value = imageURL[i];
+│ │ -        }
+│ │ -    }
+│ │ -    chrome.storage.sync.set({
+│ │ -        imageURL: imageURL,
+│ │ -        overlayMode: getOverlayMode(),
+│ │ -        themeToken: DEFAULT_TOKEN, // force back to unset
+│ │ -    }, function() {
+│ │ -        var currentMonth = new Date().getMonth();
+│ │ -        updateImageUrl(imageURL[currentMonth % imageURL.length]);
+│ │ -        // Update status to let user know options were saved.
+│ │ -        var status = document.getElementById('status');
+│ │ -        status.textContent = 'Options saved.';
+│ │ -        setTimeout(function() {
+│ │ -            status.textContent = '';
+│ │ -        }, 1000);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Save colour by generating data URL to single pixel of that color. */
+│ │ -function saveColorOptions() {
+│ │ -    var colorHex = document.getElementById('color').value;
+│ │ -    var imageURL = colorHexToUrl(colorHex)
+│ │ -
+│ │ -    chrome.storage.sync.set({
+│ │ -        imageURL: imageURL,
+│ │ -        overlayMode: getOverlayMode(),
+│ │ -        // NOTE: doesn't reset themeToken
+│ │ -    }, function() {
+│ │ -        updateImageUrl(imageURL);
+│ │ -        // Update status to let user know options were saved.
+│ │ -        var status = document.getElementById('status');
+│ │ -        status.textContent = 'Options saved.';
+│ │ -        setTimeout(function() {
+│ │ -            status.textContent = '';
+│ │ -        }, 1000);
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Save purchase option by storing the token. */
+│ │ -function savePurchaseOption() {
+│ │ -    // TODO - handle saving an empty string?
+│ │ -
+│ │ -    const fullToken = document.getElementById('purchase_token').value;
+│ │ -    const parts = fullToken.split('/');
+│ │ -    if (parts.length != 2 || parts[1].length != TOKEN_LENGTH) {
+│ │ -        // TODO - warn on error
+│ │ -        alert("Invalid token - please visit the store and copy the token exactly, or click 'Use in calendar'");
+│ │ -        return;
+│ │ -    }
+│ │ -
+│ │ -    getUserInfo(userInfo => {
+│ │ -        var imageURLs = [];
+│ │ -        for (var i = 0; i < 12; i++) {
+│ │ -            const url = monthToPurchaseUrl(fullToken, i, userInfo.email);
+│ │ -            imageURLs.push(url);
+│ │ -            document.getElementById('urlMonth' + i).value = url;
+│ │ -        }
+│ │ -        chrome.storage.sync.set({
+│ │ -            imageURL: imageURLs,
+│ │ -            overlayMode: getOverlayMode(),
+│ │ -            themeToken: fullToken,
+│ │ -        }, function() {
+│ │ -            var currentMonth = new Date().getMonth();
+│ │ -            updateImageUrl(imageURLs[currentMonth % imageURLs.length]);
+│ │ -            // Update status to let user know options were saved.
+│ │ -            var status = document.getElementById('status');
+│ │ -            status.textContent = 'Options saved.';
+│ │ -            setTimeout(function() {
+│ │ -                status.textContent = '';
+│ │ -            }, 1000);
+│ │ -        });
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -/** Persist extension options to chrome sync. */
+│ │ -function saveOptions() {
+│ │ -    if (!!document.getElementById('t1').checked) {
+│ │ -        saveSingleOption();
+│ │ -    } else if (!!document.getElementById('t2').checked) {
+│ │ -        saveMonthOptions();
+│ │ -    } else if (!!document.getElementById('t3').checked) {
+│ │ -        saveColorOptions();
+│ │ -    } else if (!!document.getElementById('t4').checked) {
+│ │ -        savePurchaseOption();
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -/** Change the single URL tab back to the default path. */
+│ │ -function resetSingleOption() {
+│ │ -    document.getElementById('url').value = DEFAULT_IMAGE_URLS[0];
+│ │ -}
+│ │ -
+│ │ -/** Change the all month paths to their default URLs. */
+│ │ -function resetMonthOptions() {
+│ │ -    for (var i = 0; i < 12; i++) {
+│ │ -        document.getElementById('urlMonth' + i).value = DEFAULT_IMAGE_URLS[i];
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -/** Change single color back to the default color. */
+│ │ -function resetColorOption() {
+│ │ -    document.getElementById('color').value = DEFAULT_COLOR_HEX;
+│ │ -}
+│ │ -
+│ │ -/** Change paid calendar back to unused. */
+│ │ -function resetPurchasedOption() {
+│ │ -    document.getElementById('purchase_token').value = DEFAULT_TOKEN;
+│ │ -}
+│ │ -
+│ │ -/** Reset current URLs to their defaults. */
+│ │ -function resetOptions() {
+│ │ -    if (!!document.getElementById('t1').checked) {
+│ │ -        resetSingleOption();
+│ │ -    } else if (!!document.getElementById('t2').checked) {
+│ │ -        resetMonthOptions();
+│ │ -    } else if (!!document.getElementById('t3').checked) {
+│ │ -        resetColorOption();
+│ │ -    } else if (!!document.getElementById('t4').checked) {
+│ │ -        resetPurchasedOption(); // Keep?
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -/** Set tab after a radio button was selected. */
+│ │ -function changeTab(e) {
+│ │ -    setTab(e.target.id);
+│ │ -}
+│ │ -
+│ │ -
+│ │ -function main() {
+│ │ -    document.addEventListener('DOMContentLoaded', loadOptions);
+│ │ -    document.getElementById('save').addEventListener('click', saveOptions);
+│ │ -    document.getElementById('reset').addEventListener('click', resetOptions);
+│ │ -    document.getElementById('t1').addEventListener('change', changeTab);
+│ │ -    document.getElementById('t2').addEventListener('change', changeTab);
+│ │ -    document.getElementById('t3').addEventListener('change', changeTab);
+│ │ -    document.getElementById('t4').addEventListener('change', changeTab);
+│ │ -}
+│ │ +var BASE64_KEY = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+│ │ +var COLOR_PIXEL_PREFIX = "data:image/gif;base64,R0lGODlhAQABAPAA";
+│ │ +var COLOR_PIXEL_SUFFIX = "/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
+│ │ +var DEFAULT_COLOR_HEX = "#ffffff";
+│ │ +
+│ │ +var PURCHASE_SERVER = 'https://calendar.useit.today';
+│ │ +// if (chrome.runtime.id == 'fkbpcfnnknjdoolkoaliocdnefpkobhi') {
+│ │ +//   PURCHASE_SERVER = 'http://localhost:8080'; // Test mode
+│ │ +// }
+│ │ +
+│ │ +var DEFAULT_TOKEN = '';
+│ │ +var TOKEN_LENGTH = 12;
+│ │ +
+│ │ +var DEFAULT_IMAGE_URLS = [
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/January.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/February.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/March.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/April.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/May.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/June.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/July.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/August.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/September.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/October.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/November.jpg',
+│ │ +    '//storage.googleapis.com/static.useit.today/wallCalendarImg/December.jpg',
+│ │ +];
+│ │ +
+│ │ +// OVERLAY: either lghtOverlay (default) or darkOverlay
+│ │ +DEFAULT_OVERLAY_MODE = 'lghtOverlay';
+│ │ +
+│ │ +USER_INFO = null;
+│ │ +
+│ │ +function getUserInfo(cb) {
+│ │ +    if (USER_INFO != null) {
+│ │ +        cb(USER_INFO);
+│ │ +        return;
+│ │ +    }
+│ │ +    chrome.identity.getProfileUserInfo({
+│ │ +        accountStatus: 'ANY'
+│ │ +    }, userInfo => cb(userInfo));
+│ │ +}
+│ │ +
+│ │ +// Initialize overlay picker
+│ │ +function loadOverlayMode(overlayMode) {
+│ │ +    isDark = (overlayMode == 'darkOverlay')
+│ │ +    document.getElementById('o1').checked = !isDark;
+│ │ +    document.getElementById('o2').checked = isDark;
+│ │ +}
+│ │ +
+│ │ +// Read overlay mode (gets persisted on image save)
+│ │ +function getOverlayMode() {
+│ │ +    if (document.getElementById('o2').checked) {
+│ │ +        return 'darkOverlay';
+│ │ +    } else {
+│ │ +        return 'lghtOverlay';
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +
+│ │ +// Encode three 8-bit numbers to 4 6-bit base64
+│ │ +// Kudos to https://stackoverflow.com/questions/5845238/javascript-generate-transparent-1x1-pixel-in-dataurl-format
+│ │ +function tripletEncode(e1, e2, e3) {
+│ │ +    enc1 = e1 >> 2;
+│ │ +    enc2 = ((e1 & 3) << 4) | (e2 >> 4);
+│ │ +    enc3 = ((e2 & 15) << 2) | (e3 >> 6);
+│ │ +    enc4 = e3 & 63;
+│ │ +    return BASE64_KEY.charAt(enc1) + BASE64_KEY.charAt(enc2) + BASE64_KEY.charAt(enc3) + BASE64_KEY.charAt(enc4);
+│ │ +}
+│ │ +
+│ │ +// Decode 4 6-bit base64 to three 8-bit numbers (reverse the above)
+│ │ +function tripletDecode(aaaa) {
+│ │ +    enc1 = BASE64_KEY.indexOf(aaaa[0])
+│ │ +    enc2 = BASE64_KEY.indexOf(aaaa[1])
+│ │ +    enc3 = BASE64_KEY.indexOf(aaaa[2])
+│ │ +    enc4 = BASE64_KEY.indexOf(aaaa[3])
+│ │ +    e3 = ((enc3 & 3) << 6) | enc4
+│ │ +    e2 = ((enc2 & 15) << 4) | (enc3 >> 2)
+│ │ +    e1 = (enc1 << 2) | (enc2 >> 4)
+│ │ +    return [e1, e2, e3]
+│ │ +}
+│ │ +
+│ │ +// Reverse colorHexToUrl back into a hex color.
+│ │ +// If it's not from colorHexToUrl, return null.
+│ │ +function urlToMaybeColorHex(url) {
+│ │ +    if (!url.startsWith(COLOR_PIXEL_PREFIX) || !url.endsWith(COLOR_PIXEL_SUFFIX)) {
+│ │ +        return null;
+│ │ +    }
+│ │ +
+│ │ +    encoded = url.substring(COLOR_PIXEL_PREFIX.length, url.length - COLOR_PIXEL_SUFFIX.length)
+│ │ +    _rg = tripletDecode(encoded.substring(0, 4))
+│ │ +    b__ = tripletDecode(encoded.substring(4, 8))
+│ │ +    r = _rg[1]
+│ │ +    g = _rg[2]
+│ │ +    b = b__[0]
+│ │ +    // Kudos to https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+│ │ +    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+│ │ +}
+│ │ +
+│ │ +// Convert a hex color (#aabbcc) to a data URL for a 1x1 pixel of that color
+│ │ +function colorHexToUrl(hexColor) {
+│ │ +    var s = hexColor.substring(1, 7);
+│ │ +    r = parseInt(s[0] + s[1], 16)
+│ │ +    g = parseInt(s[2] + s[3], 16)
+│ │ +    b = parseInt(s[4] + s[5], 16)
+│ │ +    encoded = tripletEncode(0, r, g) + tripletEncode(b, 255, 255);
+│ │ +    return COLOR_PIXEL_PREFIX + encoded + COLOR_PIXEL_SUFFIX;
+│ │ +}
+│ │ +
+│ │ +// Convert the purchase token + user email + month into the image address to load.
+│ │ +function monthToPurchaseUrl(fullToken, month, email) {
+│ │ +    const parts = fullToken.split('/');
+│ │ +    if (parts.length != 2 || parts[1].length != TOKEN_LENGTH) {
+│ │ +        return;
+│ │ +    }
+│ │ +    const theme = parts[0];
+│ │ +    const token = parts[1];
+│ │ +    const monthName = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
+│ │ +
+│ │ +    return PURCHASE_SERVER +
+│ │ +        '/img/' + theme + '/' + monthName + '.jpg' +
+│ │ +        '?t=' + window.encodeURIComponent(token);
+│ │ +}
+│ │ +
+│ │ +/** When the image changes, update both the picker and the demo image. */
+│ │ +function updateImageUrl(url) {
+│ │ +    getUserInfo(userInfo => {
+│ │ +        if (url.indexOf("//") == 0) {
+│ │ +            url = "https:" + url;
+│ │ +        }
+│ │ +        if (url.indexOf(PURCHASE_SERVER) == 0) {
+│ │ +            url += '&u=' + userInfo.email;
+│ │ +        }
+│ │ +        document.getElementById('demo').style.backgroundImage = 'url(' + url + ')';
+│ │ +
+│ │ +        isDark = (getOverlayMode() == 'darkOverlay')
+│ │ +        sideColor = "rgba(255,255,255,0.3)"
+│ │ +        if (isDark) {
+│ │ +            sideColor = "rgba(0,0,0,0.3)";
+│ │ +        }
+│ │ +        document.getElementById('sidebar').style.backgroundColor = sideColor;
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Change which tab of options are visible. */
+│ │ +function setTab(tab) {
+│ │ +    document.getElementById('demo').style.backgroundImage = 'none';
+│ │ +
+│ │ +    document.getElementById('t1').checked = (tab == 't1');
+│ │ +    document.getElementById('t2').checked = (tab == 't2');
+│ │ +    document.getElementById('t3').checked = (tab == 't3');
+│ │ +    document.getElementById('t4').checked = (tab == 't4');
+│ │ +
+│ │ +    document.getElementById('t1Fields').style.display = ((tab == 't1') ? "block" : "none");
+│ │ +    document.getElementById('t2Fields').style.display = ((tab == 't2') ? "block" : "none");
+│ │ +    document.getElementById('t3Fields').style.display = ((tab == 't3') ? "block" : "none");
+│ │ +    document.getElementById('t4Fields').style.display = ((tab == 't4') ? "block" : "none");
+│ │ +
+│ │ +    // Load user details when looking at the purchase tab
+│ │ +    getUserInfo(userInfo => {
+│ │ +        if (!userInfo.email) {
+│ │ +            document.getElementById('no_email_error').style.display = 'inline-block';
+│ │ +        } else {
+│ │ +            document.getElementById('no_email_error').style.display = 'none';
+│ │ +            redirect_url = PURCHASE_SERVER + '/store?user=' + window.encodeURIComponent(userInfo.email);
+│ │ +            document.getElementById('purchase_redirect').href = redirect_url;
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Show single tab, and update the one URL to use. */
+│ │ +function loadSingleOption(singleImageURL) {
+│ │ +    setTab('t1');
+│ │ +    document.getElementById('url').value = singleImageURL;
+│ │ +    updateImageUrl(singleImageURL);
+│ │ +}
+│ │ +
+│ │ +/** Show tab for 12 images, and update the URL to use based on this month. */
+│ │ +function loadMonthOptions(imageURL) {
+│ │ +    setTab('t2');
+│ │ +    document.getElementById('t2').checked = true;
+│ │ +    for (var i = 0; i < imageURL.length && i < 12; i++) {
+│ │ +        document.getElementById('urlMonth' + i).value = imageURL[i];
+│ │ +    }
+│ │ +    var currentMonth = new Date().getMonth();
+│ │ +    updateImageUrl(imageURL[currentMonth % imageURL.length]);
+│ │ +}
+│ │ +
+│ │ +/** Show tab for single colour picker and load colour based on base64 pixel. */
+│ │ +function loadColorOption(imageURL, parsedColorHex) {
+│ │ +    setTab('t3');
+│ │ +    document.getElementById('color').value = parsedColorHex;
+│ │ +    updateImageUrl(imageURL);
+│ │ +}
+│ │ +
+│ │ +/** Show tab for user-purchased image sets. */
+│ │ +function loadPurchasedOption(themeToken) {
+│ │ +    setTab('t4');
+│ │ +    document.getElementById('purchase_token').value = themeToken;
+│ │ +    getUserInfo(userInfo => {
+│ │ +        var currentMonth = new Date().getMonth();
+│ │ +        const imageURL = monthToPurchaseUrl(themeToken, currentMonth, userInfo.email);
+│ │ +        updateImageUrl(imageURL);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Initialize URL from chrome sync options. */
+│ │ +function loadOptions() {
+│ │ +    console.log("Loading options for user ... ");
+│ │ +
+│ │ +    chrome.storage.sync.get({
+│ │ +        imageURL: DEFAULT_IMAGE_URLS,
+│ │ +        overlayMode: DEFAULT_OVERLAY_MODE,
+│ │ +        themeToken: DEFAULT_TOKEN,
+│ │ +    }, function(items) {
+│ │ +        loadOverlayMode(items.overlayMode);
+│ │ +
+│ │ +        if (!Array.isArray(items.imageURL)) {
+│ │ +            parsedColorHex = urlToMaybeColorHex(items.imageURL);
+│ │ +            if (parsedColorHex) {
+│ │ +                loadColorOption(items.imageURL, parsedColorHex);
+│ │ +            } else {
+│ │ +                loadSingleOption(items.imageURL);
+│ │ +            }
+│ │ +        } else {
+│ │ +            if (items.themeToken != DEFAULT_TOKEN) {
+│ │ +                loadPurchasedOption(items.themeToken);
+│ │ +            } else {
+│ │ +                loadMonthOptions(items.imageURL);
+│ │ +            }
+│ │ +        }
+│ │ +
+│ │ +        // Force switch to the token page if in the URL:
+│ │ +        const params = new URLSearchParams(window.location.search);
+│ │ +        if (params.get('token')) {
+│ │ +            loadPurchasedOption(params.get('token'));
+│ │ +            savePurchaseOption();
+│ │ +            return;
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Save a single image URL as the one to use. */
+│ │ +function saveSingleOption() {
+│ │ +    var imageURL = document.getElementById('url').value;
+│ │ +    if (imageURL.length == 0) {
+│ │ +        imageURL = DEFAULT_IMAGE_URLS[0];
+│ │ +        document.getElementById('url').value = imageURL;
+│ │ +    }
+│ │ +    chrome.storage.sync.set({
+│ │ +        imageURL: imageURL,
+│ │ +        overlayMode: getOverlayMode(),
+│ │ +        // NOTE: doesn't reset themeToken
+│ │ +    }, function() {
+│ │ +        updateImageUrl(imageURL);
+│ │ +        // Update status to let user know options were saved.
+│ │ +        var status = document.getElementById('status');
+│ │ +        status.textContent = 'Options saved.';
+│ │ +        setTimeout(function() {
+│ │ +            status.textContent = '';
+│ │ +        }, 1000);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Save a collection of up to twelve images, for use once per month. */
+│ │ +function saveMonthOptions() {
+│ │ +    var imageURL = [];
+│ │ +    for (var i = 0; i < 12; i++) {
+│ │ +        var url = document.getElementById('urlMonth' + i).value;
+│ │ +        if (url) {
+│ │ +            imageURL.push(url);
+│ │ +        }
+│ │ +    }
+│ │ +    if (imageURL.length == 0) {
+│ │ +        imageURL = DEFAULT_IMAGE_URLS;
+│ │ +        for (var i = 0; i < imageURL.length && i < 12; i++) {
+│ │ +            document.getElementById('urlMonth' + i).value = imageURL[i];
+│ │ +        }
+│ │ +    }
+│ │ +    chrome.storage.sync.set({
+│ │ +        imageURL: imageURL,
+│ │ +        overlayMode: getOverlayMode(),
+│ │ +        themeToken: DEFAULT_TOKEN, // force back to unset
+│ │ +    }, function() {
+│ │ +        var currentMonth = new Date().getMonth();
+│ │ +        updateImageUrl(imageURL[currentMonth % imageURL.length]);
+│ │ +        // Update status to let user know options were saved.
+│ │ +        var status = document.getElementById('status');
+│ │ +        status.textContent = 'Options saved.';
+│ │ +        setTimeout(function() {
+│ │ +            status.textContent = '';
+│ │ +        }, 1000);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Save colour by generating data URL to single pixel of that color. */
+│ │ +function saveColorOptions() {
+│ │ +    var colorHex = document.getElementById('color').value;
+│ │ +    var imageURL = colorHexToUrl(colorHex)
+│ │ +
+│ │ +    chrome.storage.sync.set({
+│ │ +        imageURL: imageURL,
+│ │ +        overlayMode: getOverlayMode(),
+│ │ +        // NOTE: doesn't reset themeToken
+│ │ +    }, function() {
+│ │ +        updateImageUrl(imageURL);
+│ │ +        // Update status to let user know options were saved.
+│ │ +        var status = document.getElementById('status');
+│ │ +        status.textContent = 'Options saved.';
+│ │ +        setTimeout(function() {
+│ │ +            status.textContent = '';
+│ │ +        }, 1000);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Save purchase option by storing the token. */
+│ │ +function savePurchaseOption() {
+│ │ +    // TODO - handle saving an empty string?
+│ │ +
+│ │ +    const fullToken = document.getElementById('purchase_token').value;
+│ │ +    const parts = fullToken.split('/');
+│ │ +    if (parts.length != 2 || parts[1].length != TOKEN_LENGTH) {
+│ │ +        // TODO - warn on error
+│ │ +        alert("Invalid token - please visit the store and copy the token exactly, or click 'Use in calendar'");
+│ │ +        return;
+│ │ +    }
+│ │ +
+│ │ +    getUserInfo(userInfo => {
+│ │ +        var imageURLs = [];
+│ │ +        for (var i = 0; i < 12; i++) {
+│ │ +            const url = monthToPurchaseUrl(fullToken, i, userInfo.email);
+│ │ +            imageURLs.push(url);
+│ │ +            document.getElementById('urlMonth' + i).value = url;
+│ │ +        }
+│ │ +        chrome.storage.sync.set({
+│ │ +            imageURL: imageURLs,
+│ │ +            overlayMode: getOverlayMode(),
+│ │ +            themeToken: fullToken,
+│ │ +        }, function() {
+│ │ +            var currentMonth = new Date().getMonth();
+│ │ +            updateImageUrl(imageURLs[currentMonth % imageURLs.length]);
+│ │ +            // Update status to let user know options were saved.
+│ │ +            var status = document.getElementById('status');
+│ │ +            status.textContent = 'Options saved.';
+│ │ +            setTimeout(function() {
+│ │ +                status.textContent = '';
+│ │ +            }, 1000);
+│ │ +        });
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +/** Persist extension options to chrome sync. */
+│ │ +function saveOptions() {
+│ │ +    if (!!document.getElementById('t1').checked) {
+│ │ +        saveSingleOption();
+│ │ +    } else if (!!document.getElementById('t2').checked) {
+│ │ +        saveMonthOptions();
+│ │ +    } else if (!!document.getElementById('t3').checked) {
+│ │ +        saveColorOptions();
+│ │ +    } else if (!!document.getElementById('t4').checked) {
+│ │ +        savePurchaseOption();
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +/** Change the single URL tab back to the default path. */
+│ │ +function resetSingleOption() {
+│ │ +    document.getElementById('url').value = DEFAULT_IMAGE_URLS[0];
+│ │ +}
+│ │ +
+│ │ +/** Change the all month paths to their default URLs. */
+│ │ +function resetMonthOptions() {
+│ │ +    for (var i = 0; i < 12; i++) {
+│ │ +        document.getElementById('urlMonth' + i).value = DEFAULT_IMAGE_URLS[i];
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +/** Change single color back to the default color. */
+│ │ +function resetColorOption() {
+│ │ +    document.getElementById('color').value = DEFAULT_COLOR_HEX;
+│ │ +}
+│ │ +
+│ │ +/** Change paid calendar back to unused. */
+│ │ +function resetPurchasedOption() {
+│ │ +    document.getElementById('purchase_token').value = DEFAULT_TOKEN;
+│ │ +}
+│ │ +
+│ │ +/** Reset current URLs to their defaults. */
+│ │ +function resetOptions() {
+│ │ +    if (!!document.getElementById('t1').checked) {
+│ │ +        resetSingleOption();
+│ │ +    } else if (!!document.getElementById('t2').checked) {
+│ │ +        resetMonthOptions();
+│ │ +    } else if (!!document.getElementById('t3').checked) {
+│ │ +        resetColorOption();
+│ │ +    } else if (!!document.getElementById('t4').checked) {
+│ │ +        resetPurchasedOption(); // Keep?
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +/** Set tab after a radio button was selected. */
+│ │ +function changeTab(e) {
+│ │ +    setTab(e.target.id);
+│ │ +}
+│ │ +
+│ │ +
+│ │ +function main() {
+│ │ +    document.addEventListener('DOMContentLoaded', loadOptions);
+│ │ +    document.getElementById('save').addEventListener('click', saveOptions);
+│ │ +    document.getElementById('reset').addEventListener('click', resetOptions);
+│ │ +    document.getElementById('t1').addEventListener('change', changeTab);
+│ │ +    document.getElementById('t2').addEventListener('change', changeTab);
+│ │ +    document.getElementById('t3').addEventListener('change', changeTab);
+│ │ +    document.getElementById('t4').addEventListener('change', changeTab);
+│ │ +}
+│ │  main();
+│   --- /workspace/pipeline_output/chromex_data/style.css
+├── +++ /workspace/pipeline_output/CalendarThemeExtension/style.css
+│┄ Ordering differences only
+│ @@ -1,740 +1,740 @@
+│ -/* Image elements */
+│ -body {
+│ -  --same-0p0: rgba(255,255,255, 0.0);
+│ -  --same-0p1: rgba(255,255,255, 0.1);
+│ -  --same-0p3: rgba(255,255,255, 0.3);
+│ -  --same-0p5: rgba(255,255,255, 0.5);
+│ -  --same-0p8: rgba(255,255,255, 0.8);
+│ -  --oppo-0p0: rgba(  0,  0,  0, 0.0);
+│ -  --oppo-0p1: rgba(  0,  0,  0, 0.1);
+│ -  --oppo-0p3: rgba(  0,  0,  0, 0.3);
+│ -  --oppo-0p5: rgba(  0,  0,  0, 0.5);
+│ -  --oppo-0p8: rgba(  0,  0,  0, 0.8);
+│ -  --oppo: black;
+│ -  --same: white;
+│ -
+│ -  --heading-text: var(--oppo-0p8);
+│ -  --regular-text: var(--oppo-0p5);
+│ -  --popup-text: #3c4043;
+│ -  --month-chip-text: var(--oppo-0p8);
+│ -  --month-chip-hover-text: rgba(  0,  0,  0, 0.8);
+│ -
+│ -  --title-text: var(--oppo-0p8);
+│ -  --button-fg: var(--oppo-0p8);
+│ -  --button-bg: var(--oppo-0p1);
+│ -
+│ -  --minical-background: var(--same-0p1);
+│ -  --minical-hover: var(--oppo-0p1);
+│ -  --minical-text: var(--oppo-0p8);
+│ -
+│ -  --settings-header-text: var(--oppo-0p8);
+│ -  --settings-regular-text: var(--oppo-0p5);
+│ -}
+│ -body.xtnDarkOverlay {
+│ -  --same-0p0: rgba(  0,  0,  0, 0.0);
+│ -  --same-0p1: rgba(  0,  0,  0, 0.1);
+│ -  --same-0p3: rgba(  0,  0,  0, 0.3);
+│ -  --same-0p5: rgba(  0,  0,  0, 0.5);
+│ -  --same-0p8: rgba(  0,  0,  0, 0.8);
+│ -  --oppo-0p0: rgba(255,255,255, 0.0);
+│ -  --oppo-0p1: rgba(255,255,255, 0.1);
+│ -  --oppo-0p3: rgba(255,255,255, 0.3);
+│ -  --oppo-0p5: rgba(255,255,255, 0.5);
+│ -  --oppo-0p8: rgba(255,255,255, 0.8);
+│ -  --oppo: white;
+│ -  --same: black;
+│ -}
+│ -
+│ -#xtnImgHolder, #xtnImg, #xtnImgFade {
+│ -  height: 100%;
+│ -  width: 100%;
+│ -  position: absolute;
+│ -  right: 0;
+│ -  top: 0;
+│ -}
+│ -
+│ -#xtnImg {
+│ -  background-repeat: no-repeat;
+│ -  background-position: center;
+│ -  background-attachment: fixed;
+│ -  background-position: center;
+│ -  background-size: cover;
+│ -}
+│ -
+│ -#xtnImgFade {
+│ -  background-color: var(--same-0p3);
+│ -}
+│ -
+│ -#xtnBtn {
+│ -  width: 40px;
+│ -  height: 40px;
+│ -  margin-right: 4px;
+│ -  border-radius: 20px;
+│ -  background-color: var(--button-bg) !important;
+│ -}
+│ -
+│ -/* Existing color modifications */
+│ -
+│ -/* Titles! */
+│ -.gb_Vc .gb_Xd,
+│ -.gb_Tc.gb_Uc,
+│ -.gb_0c .gb_2d,
+│ -.gb_Oa svg,
+│ -.NkK3Fc span[role=heading] {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -.gb_na svg,
+│ -.gb_zc svg,
+│ -.gb_Vc .gb_Xd,
+│ -.gb_Lc .gb_Xd,
+│ -#gb#gb a.gb_A {
+│ -  color: inherit !important;
+│ -}
+│ -
+│ -
+│ -/* Date picker calendar */
+│ -.k50Dh, .f1QMue, .IOneve,
+│ -.sOjuj
+│ -{
+│ -  color: var(--minical-text) !important;
+│ -}
+│ -
+│ -
+│ -/* Sidebar... */
+│ -.mkaajd, .o8t45d /* Calendar lists */ 
+│ -{
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -
+│ -
+│ -.toUqff /* Calendar list. */ 
+│ -{
+│ -  color: var(--regular-text) !important;
+│ -}
+│ -
+│ -/* day/week side times */
+│ -.R6TFwe {
+│ -  background-color: transparent !important
+│ -}
+│ -.R6TFwe .iHNmdb {
+│ -  color: var(--heading-text) !important;
+│ -}
+│ -.EDDeke {
+│ -  border-right-color: var(--oppo-0p1) !important;
+│ -}
+│ -
+│ -/* grid borders: */
+│ -.YvjgZe,
+│ -/* month borders: */
+│ -.t8qpF, 
+│ -.PhLhOd,
+│ -.w6FdBf,
+│ -.MGaLHf {
+│ -  border-right-color: var(--oppo-0p1) !important;
+│ -}
+│ -.QIadxc, /* month */
+│ -.FLFkR, /* month */
+│ -.mmsF1c::after {
+│ -  border-bottom-color: var(--oppo-0p1) !important;
+│ -}
+│ -/* Weird that these got disabled... */
+│ -.SU7tYb,
+│ -.yEkOpe:last-child {
+│ -  border-right: var(--oppo-0p1) 1px solid !important;
+│ -}
+│ -/* ugh... ew. */
+│ -.MVMVEe {
+│ -  border-left-color: var(--oppo-0p1) !important;
+│ -  border-right-width: 0px !important;
+│ -}
+│ -
+│ -.yEkOpe, .CIFHgc {
+│ -  border-right-color: var(--oppo-0p1) !important;
+│ -}
+│ -.XnnJrc.Wyo4Qe .TKMrfe {
+│ -  top: 0 !important;
+│ -  border-top-left-radius: 0px !important;
+│ -  border-top-right-radius: 0px !important;
+│ -}
+│ -
+│ -/* month view */
+│ -.PhLhOd,
+│ -.akJTWe {
+│ -  background-color: var(--oppo-0p1) !important;
+│ -}
+│ -.PhLhOd .wy3aMe,
+│ -.akJTWe {
+│ -  color: var(--oppo) !important;
+│ -}
+│ -.RAaXne { background-color: transparent !important; } /* Main grid. */
+│ -
+│ -.dkNwF .yzYBvd {
+│ -  color: var(--oppo) !important;
+│ -}
+│ -
+│ -/* month sidebar */
+│ -.RAaXne .ok6kbe,
+│ -.wuX2hf.Wyo4Qe .l4SGD {
+│ -  /* ew */
+│ -  top: 0px !important;
+│ -  color: var(--heading-text) !important;
+│ -  background-color: var(--oppo-0p1) !important;
+│ -}
+│ -
+│ -/* day names in month: */
+│ -.EeuFAf {
+│ -  color: var(--oppo) !important;
+│ -}
+│ -/* day numbers in month: */
+│ -.o5s4T .w48V4c {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -/* dimmed chips: */
+│ -.KF4T6b.UflSff {
+│ -  color: var(--dimmed) !important;
+│ -}
+│ -.KF4T6b.qqMC3e, .KF4T6b.smECzc { /* old task chips: */
+│ -  color: var(--oppo-0p5) !important;
+│ -}
+│ -.KF4T6b.smECzc, .KF4T6b.KCIIIb {
+│ -  color: var(--month-chip-hover-text) !important;
+│ -  background-color: rgba(255, 255, 255, 0.3) !important;
+│ -  border-radius: 4px;
+│ -}
+│ -.KF4T6b.smECzc:hover, .KF4T6b.KCIIIb:hover {  /* Hovered chips. */
+│ -  background-color: var(--chip-hover) !important;
+│ -}
+│ -
+│ -/* Other: */
+│ -
+│ -#gb,
+│ -#gb > div,
+│ -.v83gc,
+│ -.OCQPo,
+│ -.tNDBE,
+│ -.yHbHub,
+│ -.JE11kf,
+│ -.GENA3c,
+│ -.YvjgZe.F262Ye:after,
+│ -.xWId8e,
+│ -.a0xMze  {
+│ -  background-color: var(--same-0p1) !important;
+│ -}
+│ -
+│ -#gb .yR9sJd.yR9sJd:not(:disabled),
+│ -#gb .JJyfjc {
+│ -  color: var(--button-fg) !important;
+│ -}
+│ -
+│ -#gb .UyW9db {
+│ -  color: var(--button-fg) !important;
+│ -}
+│ -
+│ -
+│ -.SU7tYb.F262Ye,
+│ -.yEkOpe.F262Ye,
+│ -.ecKr0,
+│ -.ef2wWc,
+│ -.AOL3Kb,
+│ -.ZFr60d,
+│ -/* .Cd9hpd, */
+│ -/* .akJTWe, */
+│ -.Zlotdb,
+│ -.XnnJrc.Wyo4Qe .TKMrfe,
+│ -.Rj2Mlf:not(:disabled) {
+│ -  background-color: var(--same-0p1)  !important;
+│ -}
+│ -
+│ -.Xro3Db-nUpftc > div {
+│ -  background-color: transparent !important;
+│ -}
+│ -
+│ -/* Week/agenda background: */
+│ -.pbeTDb {
+│ -  background-color: transparent !important;
+│ -}
+│ -
+│ -.Xro3Db-nUpftc > div[role="menu"] {
+│ -  background-color: white !important;
+│ -}
+│ -
+│ -.NkK3Fc,
+│ -.rpCPrc > div,
+│ -.MSZkRb,
+│ -.zRt28b,
+│ -.uQ1ixe .snByac,
+│ -.Kyuwuc .snByac,
+│ -.nxPHec,
+│ -.MSZkRb,
+│ -.rSoRzd,
+│ -.wWdzec,
+│ -.XXcuqd,
+│ -.MANBAf,
+│ -.GENA3c,
+│ -.Vrr33d,
+│ -.hGcgEd
+│ -{
+│ -  color: var(--oppo) !important; /* Override var(--on-surface) instead? */
+│ -}
+│ -
+│ -.U26fgb.I12f0b .snByac {
+│ -  color: var(--heading-text) !important;
+│ -}
+│ -
+│ -.wBon4c, /* calendar list */
+│ -.Zlotdb /* find a time sidebar */
+│ -{
+│ -  --on-surface: var(--oppo) !important;
+│ -}
+│ -
+│ -
+│ -
+│ -/* Popups */
+│ -.BoZa0b,
+│ -.RDlrG,
+│ -.I7OXgf,
+│ -.gHQcAb,
+│ -.XvhY1d,
+│ -.jefcFd,
+│ -.zC2ZSb {
+│ -  color: var(--popup-text) !important;
+│ -  --heading-text: var(--popup-text);
+│ -  --button-fg: rgba(  0,  0,  0, 0.8);
+│ -  --button-bg: transparent;
+│ -  --regular-text: rgba(  0,  0,  0, 0.8);
+│ -  --minical-hover: rgba(  0,  0,  0, 0.1);
+│ -  --minical-text: rgba(  0,  0,  0, 0.8);
+│ -
+│ -  --month-chip-text: rgba(  0,  0,  0, 0.8);
+│ -  --month-chip-hover-text: rgba(  0,  0,  0, 0.8);
+│ -  --title-text: rgba(  0,  0,  0, 0.8);
+│ -}
+│ -
+│ -.BoZa0b .kMp0We,
+│ -.RDlrG .kMp0We,
+│ -.I7OXgf .kMp0We,
+│ -.gHQcAb .kMp0We,
+│ -.XvhY1d .kMp0We,
+│ -.jefcFd .kMp0We,
+│ -.XvhY1d .kMp0We {
+│ -  color: var(--popup-text) !important;
+│ -}
+│ -.PnGFPb .kMp0We {
+│ -  color: #222 !important;
+│ -}
+│ -
+│ -
+│ -/* Event edit page: */
+│ -
+│ -/* Background */
+│ -.p9lUpf {
+│ -  background: transparent !important;
+│ -}
+│ -
+│ -/* Title text. */
+│ -.Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd,
+│ -.WmnPA:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-fmcmS-wGMbrd {
+│ -  color: var(--title-text) !important;
+│ -}
+│ -
+│ -/* Overrides for text witin the form body. */
+│ -.nBzcnc .Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd,
+│ -.ubAIBb .Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd {
+│ -  color: rgba(  0,  0,  0, 0.8) !important; /* Always on light background */
+│ -}
+│ -
+│ -.j3nyw .DyOaYd {
+│ -  /* Unfortunately, .DyOaYd is below .j3nyw */
+│ -  color: rgba(  0,  0,  0, 0.8) !important;
+│ -}
+│ -
+│ -.mUIrbf-vQzf8d {
+│ -  color: var(--regular-text) !important;
+│ -}
+│ -
+│ -/* Many primary buttons */
+│ -.pYTkkf-Bz112c-LgbsSe {
+│ -  color: var(--button-fg) !important;
+│ -  background-color: var(--button-bg) !important;
+│ -}
+│ -
+│ -
+│ -/* ... */
+│ -
+│ -
+│ -.DN1TJ {
+│ -  color: var(--regular-text) !important;
+│ -}
+│ -
+│ -.NI2kfb {
+│ -  color: inherit !important;
+│ -}
+│ -.BoZa0b .kMp0We,
+│ -.jefcFd .kMp0We,
+│ -.FzsTU .kMp0We,
+│ -.BoZa0b .DN1TJ,
+│ -.pdqVLc .DN1TJ,
+│ -.FzsTU .DN1TJ {
+│ -  color: inherit !important;
+│ -}
+│ -
+│ -.pCoqfc,
+│ -/* .akJTWe, */
+│ -/* .wy3aMe, */
+│ -.SoBqBf,
+│ -.OmwDud {
+│ -/* .pqE3fc .wy3aMe { */
+│ -  color: var(--same) !important;
+│ -}
+│ -
+│ -/* Schedule view */
+│ -.bN97Pc .OmwDud {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -.bN97Pc .SOVd1b {
+│ -  --on-surface: var(--oppo-0p8);
+│ -}
+│ -.bN97Pc .SOVd1b:hover {
+│ -  --on-surface: rgba(  0,  0,  0, 0.8);
+│ -}
+│ -
+│ -.Xro3Db-nUpftc.ymbhmd,
+│ -.wWdzec,
+│ -.Gk2izd {
+│ -  background-color: var(--same-0p8) !important;
+│ -}
+│ -
+│ -
+│ -.Gk2izd .pCoqfc {
+│ -  color: var(--oppo) !important;
+│ -}
+│ -
+│ -
+│ -/* Day picker */
+│ -.RDlrG {
+│ -  --minical-background: rgba(0,0,0,0.1) !important;
+│ -}
+│ -
+│ -.HkPXyb {
+│ -  background-color: var(--minical-background) !important;
+│ -}
+│ -
+│ -.W0m3G .r4nke {
+│ -  width: auto !important;
+│ -  background-color: transparent !important;
+│ -  border-radius: 0 !important;
+│ -}
+│ -.W0m3G .r4nke:hover,
+│ -.lR3h6d .CIy9F {
+│ -  background-color: var(--minical-hover) !important;
+│ -}
+│ -
+│ -.iMprOe,
+│ -.HkPXyb .SoBqBf {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -.iMprOe,
+│ -.HkPXyb .SoBqBf {
+│ -  color: var(--regular-text) !important;
+│ -}
+│ -
+│ -.TUH0Sd .r4nke {
+│ -  background-color: #1a73e8 !important;
+│ -  color: #fff !important;
+│ -  border-radius: 50% !important;
+│ -}
+│ -
+│ -.r4nke {
+│ -  color: var(--heading-text) !important;
+│ -  background-color: var(--oppo-0p1) !important;
+│ -}
+│ -
+│ -/* Today marker, set back to normal: */
+│ -.p6vobf .r4nke, .p6vobf.pWJCO .r4nke, .p6vobf.pWJCO.q2d9Ze .r4nke {
+│ -  background-color: var(--primary) !important;
+│ -  color: var(--on-primary)  !important;
+│ -}
+│ -
+│ -/* Includes the new sidebar. */
+│ -.gboEAb {
+│ -  background-color: var(--same-0p3) !important;
+│ -}
+│ -
+│ -/* Buttons */
+│ -.HLI7qf {
+│ -  background-color: transparent !important;
+│ -}
+│ -.U26fgb {
+│ -  background-color: var(--button-bg) !important;
+│ -  box-sizing: border-box;
+│ -}
+│ -
+│ -.U26fgb .snByac {
+│ -  color: var(--button-fg) !important;
+│ -}
+│ -
+│ -.j9Fkxf:not(:disabled), 
+│ -.AeBiU-vQzf8d { /* Top bar text buttons */
+│ -  color: var(--button-fg) !important;
+│ -}
+│ -
+│ -.U26fgb.qmMNRc,
+│ -.U26fgb:hover.qmMNRc {
+│ -  color: rgba(  0,  0,  0, 0.5) !important;
+│ -}
+│ -
+│ -/* Month chips: */
+│ -.g3dbUc.smECzc {
+│ -  color: var(--month-chip-text) !important;
+│ -}
+│ -.g3dbUc.smECzc:hover {
+│ -  color: var(--month-chip-hover-text) !important;
+│ -}
+│ -
+│ -/* Agenda view: */
+│ -.dtaVuc {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -/* Left Sidebar (also fixes clockwise): */
+│ -.QQYuzf {
+│ -  background-color: var(--same-0p1) !important;
+│ -}
+│ -.YO50ue {
+│ -  background-color: var(--same-0p1) !important;
+│ -}
+│ -/* World clop section */
+│ -.Az5uJd.RLj2u {
+│ -  background-color: var(--same-0p3) !important;
+│ -}
+│ -
+│ -/* Settings: */
+│ -.MDfQ7 {
+│ -  background-color: var(--same-0p3) !important;
+│ -  color: var(--settings-regular-text) !important;
+│ -  padding-bottom: 8px !important; /* ew */
+│ -}
+│ -.MDfQ7 h2 {
+│ -  color: var(--settings-header-text) !important;
+│ -}
+│ -.MDfQ7 .oj6B2e {
+│ -  color: var(--oppo) !important;
+│ -}
+│ -.MDfQ7 .U26fgb {
+│ -  --button-bg: #f1f3f4 !important;
+│ -  --button-fg: #222 !important;
+│ -  background-color: transparent !important;
+│ -  box-sizing: content-box !important;
+│ -}
+│ -.MDfQ7 .HLI7qf {
+│ -  background-color: #f1f3f4 !important;
+│ -}
+│ -.MDfQ7 .OspAke,
+│ -.MDfQ7 .Ccr7Rb,
+│ -.MDfQ7 .WpDZC,
+│ -.MDfQ7 .aXw0de,
+│ -.MDfQ7 .bsCOTd,
+│ -.MDfQ7 .LV4Pme {
+│ -  /* Why are these all set manually? :( */
+│ -  color: inherit !important;
+│ -}
+│ -.MDfQ7 .Kb2sf,
+│ -.MDfQ7 .Qfwgwb {
+│ -  color: #222 !important;
+│ -}
+│ -.MDfQ7 .Kb2sf.n48mwe {
+│ -  color: var(--settings-header-text) !important; /* uneditable. */
+│ -}
+│ -
+│ -
+│ -/* Settings side tabs */
+│ -.cAYGed.KKjvXb .Ioup7e, .cAYGed.KKjvXb .BMQm1d {
+│ -  background-color: var(--oppo-0p3) !important;
+│ -  color: var(--same-0p8) !important;
+│ -}
+│ -.kMp0We.Wm6kRe.huVZvb:hover, .GrxScd .SWigMc.Wm6kRe.huVZvb:focus, .kMp0We.gk6SMd.huVZvb {
+│ -  background-color: var(--oppo-0p1) !important;
+│ -}
+│ -
+│ -
+│ -.jBmls {
+│ -  color: var(--popup-text) !important;
+│ -  --heading-text: var(--popup-text);
+│ -}
+│ -
+│ -/* Event popup */
+│ -
+│ -/* title */
+│ -.ecHOgf .WmnPA:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-fmcmS-wGMbrd {
+│ -  color: var(--heading-text) !important;
+│ -}
+│ -
+│ -/* Side buttons */
+│ -.tzcF6 {
+│ -  --button-fg: var(--oppo-0p5);
+│ -  --button-bg: var(--same-0p5);
+│ -}
+│ -
+│ -
+│ -
+│ -/* Buttons */
+│ -.DyOaYd .U26fgb,
+│ -.U26fgb:hover,
+│ -#xtnBtn:hover {
+│ -  --button-fg: rgba(  0,  0,  0, 0.8);
+│ -  --button-bg: #f1f3f4;
+│ -}
+│ -
+│ -.mr0WL,
+│ -.NMm5M,
+│ -.U26fgb .NlWrkb.snByac,
+│ -.d6McF .NMm5M,
+│ -div.rF3YF .NMm5M,
+│ -div.rF3YF .Ce1Y1c,
+│ -.uSx8Od,
+│ -.fKz7Od,
+│ -.KU3dEf svg,
+│ -#gb .ec9Aq,
+│ -#xtnBtn
+│ -{
+│ -  color: var(--button-fg) !important;
+│ -  fill: var(--button-fg) !important;
+│ -}
+│ -
+│ -/* Button text above pictures on events. */
+│ -.fEQAz {
+│ -  --button-fg: white !important;
+│ -  --button-bg: rgba(255,255,255, 0.1) !important;
+│ -}
+│ -
+│ -/* Button text on toolbars */
+│ -div[role="toolbar"] .U26fgb {
+│ -  --button-fg: rgba(0,0,0,0.3) !important;
+│ -  --button-bg: transparent !important;
+│ -}
+│ -div[role="toolbar"] .U26fgb:hover {
+│ -  --button-bg: rgba(0,0,0,0.1) !important;
+│ -}
+│ -div[role="toolbar"] .PqAscf {
+│ -  border-left-color: rgba(0,0,0,0.1) !important;
+│ -}
+│ -
+│ -/* full-page edit, make the color pick button look hovered always: */
+│ -.Cv8pif .U26fgb,
+│ -.Cv8pif .U26fgb:hover {
+│ -  --button-fg: rgba(0,0,0,0.8) !important;
+│ -  --button-bg: rgba(255,255,255,0.8) !important;
+│ -}
+│ -
+│ -.TgcD5e.CCDcoc .zHQkBf {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -/* TODO: BURN THIS OVERRIDE */
+│ -.kMp0We {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -.IAQE3d {
+│ -  color: var(--regular-text) !important;
+│ -}
+│ -.j3nyw {
+│ -  color: var(--regular-text) !important;
+│ -}
+│ -
+│ -.ThdJC,
+│ -.nWBDde,
+│ -.r5F2ye .VZhFab,
+│ -.rhtYVe .snByac
+│ -{
+│ -  color: var(--heading-text) !important;
+│ -}
+│ -
+│ -/* "X more" when events overflow */
+│ -.g3dbUc.KCIIIb {
+│ -  color: var(--oppo-0p8) !important;
+│ -}
+│ -.g3dbUc.KCIIIb:hover {
+│ -  color: var(--same-0p8) !important;
+│ -  background-color:  var(--oppo-0p8) !important;
+│ -}
+│ -
+│ -/* Lines on day/month view: */
+│ -.sJ9Raf::after {
+│ -  border-bottom-color: var(--oppo-0p1) !important;
+│ -}
+│ -.BiKU4b {
+│ -  border-right-color: var(--oppo-0p1) !important;
+│ -}
+│ -
+│ -/* Weird gradient lines at top of sections */
+│ -.J2aUD.T8M5bd .sx5BGe::before, .SGFqbe.T8M5bd .sx5BGe::before {
+│ -  background-image: linear-gradient(to right,var(--same-0p1),rgba(255,255,255,0)) !important;
+│ -}
+│ -.J2aUD.T8M5bd .qmFsL::after, .SGFqbe.T8M5bd .qmFsL::after {
+│ -  background-image: linear-gradient(to left,var(--same-0p1),rgba(255,255,255,0)) !important;
+│ -}
+│ -.hEtGGf::after {
+│ -  background-image: none !important;
+│ -}
+│ -
+│ -/* Bin */
+│ -.pljXM {
+│ -  background-color: transparent !important;
+│ -}
+│ -.pljXM h1,
+│ -.pljXM h2 {
+│ -  color: var(--heading-text) !important;
+│ -}
+│ -.pljXM .LOewLb.KKjvXb {
+│ -  color: rgba(  0,  0,  0, 0.8) !important;
+│ -}
+│ -.NekIXe {
+│ -  background-color: var(--same-0p1) !important;
+│ -}
+│ -.NekIXe .fKz7Od {
+│ -  --button-fg: rgba(0,0,0,0.8) !important;
+│ -}
+│ -
+│ -/* Find a time toolbar */
+│ -div[role="toolbar"].Xo3rO {
+│ -  color: var(--heading-text) !important;
+│ -}
+│ -div[role="toolbar"].Xo3rO .U26fgb {
+│ -  --button-fg: var(--oppo-0p8) !important;
+│ -  --button-bg: var(--oppo-0p1) !important;
+│ -}
+│ -
+│ -
+│ -/** 
+│ -NOTE: Calendar started setting their own theme colors with variables.
+│ -These are all overriding back to what we need, but in the future instead
+│ -this should set the variables directly.
+│ -**/
+│ -
+│ -
+│ -/** Overrides for background-color: var(--surface) */
+│ -.gZ8fdb.F262Ye {
+│ -  background-color: transparent !important; /* Background to the all-day events today. */
+│ -}
+│ -
+│ -/** Overrides for color: var(--on-surface) */
+│ -.sVASAd.N4XV7d {
+│ -  color: var(--oppo-0p8) !important; /* Font color for the future numbers in weekly view. */
+│ -}
+│ -.sVASAd.N4XV7d.RKLVef:hover {
+│ -  color: rgba(  0,  0,  0, 0.8) !important;
+│ -}
+│ -
+│ -/** Overrides for color: var(--on-surface-variant-agm) */
+│ -.nSCxEf.pCcXPe,
+│ -.tWjOu.pCcXPe {
+│ -  color: var(--oppo-0p8) !important; /* Font color for past day numbers in weekly view. */
+│ -}
+│ -.nSCxEf.pCcXPe:hover {
+│ -  color: rgba(  0,  0,  0, 0.8) !important;
+│ +/* Image elements */
+│ +body {
+│ +  --same-0p0: rgba(255,255,255, 0.0);
+│ +  --same-0p1: rgba(255,255,255, 0.1);
+│ +  --same-0p3: rgba(255,255,255, 0.3);
+│ +  --same-0p5: rgba(255,255,255, 0.5);
+│ +  --same-0p8: rgba(255,255,255, 0.8);
+│ +  --oppo-0p0: rgba(  0,  0,  0, 0.0);
+│ +  --oppo-0p1: rgba(  0,  0,  0, 0.1);
+│ +  --oppo-0p3: rgba(  0,  0,  0, 0.3);
+│ +  --oppo-0p5: rgba(  0,  0,  0, 0.5);
+│ +  --oppo-0p8: rgba(  0,  0,  0, 0.8);
+│ +  --oppo: black;
+│ +  --same: white;
+│ +
+│ +  --heading-text: var(--oppo-0p8);
+│ +  --regular-text: var(--oppo-0p5);
+│ +  --popup-text: #3c4043;
+│ +  --month-chip-text: var(--oppo-0p8);
+│ +  --month-chip-hover-text: rgba(  0,  0,  0, 0.8);
+│ +
+│ +  --title-text: var(--oppo-0p8);
+│ +  --button-fg: var(--oppo-0p8);
+│ +  --button-bg: var(--oppo-0p1);
+│ +
+│ +  --minical-background: var(--same-0p1);
+│ +  --minical-hover: var(--oppo-0p1);
+│ +  --minical-text: var(--oppo-0p8);
+│ +
+│ +  --settings-header-text: var(--oppo-0p8);
+│ +  --settings-regular-text: var(--oppo-0p5);
+│ +}
+│ +body.xtnDarkOverlay {
+│ +  --same-0p0: rgba(  0,  0,  0, 0.0);
+│ +  --same-0p1: rgba(  0,  0,  0, 0.1);
+│ +  --same-0p3: rgba(  0,  0,  0, 0.3);
+│ +  --same-0p5: rgba(  0,  0,  0, 0.5);
+│ +  --same-0p8: rgba(  0,  0,  0, 0.8);
+│ +  --oppo-0p0: rgba(255,255,255, 0.0);
+│ +  --oppo-0p1: rgba(255,255,255, 0.1);
+│ +  --oppo-0p3: rgba(255,255,255, 0.3);
+│ +  --oppo-0p5: rgba(255,255,255, 0.5);
+│ +  --oppo-0p8: rgba(255,255,255, 0.8);
+│ +  --oppo: white;
+│ +  --same: black;
+│ +}
+│ +
+│ +#xtnImgHolder, #xtnImg, #xtnImgFade {
+│ +  height: 100%;
+│ +  width: 100%;
+│ +  position: absolute;
+│ +  right: 0;
+│ +  top: 0;
+│ +}
+│ +
+│ +#xtnImg {
+│ +  background-repeat: no-repeat;
+│ +  background-position: center;
+│ +  background-attachment: fixed;
+│ +  background-position: center;
+│ +  background-size: cover;
+│ +}
+│ +
+│ +#xtnImgFade {
+│ +  background-color: var(--same-0p3);
+│ +}
+│ +
+│ +#xtnBtn {
+│ +  width: 40px;
+│ +  height: 40px;
+│ +  margin-right: 4px;
+│ +  border-radius: 20px;
+│ +  background-color: var(--button-bg) !important;
+│ +}
+│ +
+│ +/* Existing color modifications */
+│ +
+│ +/* Titles! */
+│ +.gb_Vc .gb_Xd,
+│ +.gb_Tc.gb_Uc,
+│ +.gb_0c .gb_2d,
+│ +.gb_Oa svg,
+│ +.NkK3Fc span[role=heading] {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +.gb_na svg,
+│ +.gb_zc svg,
+│ +.gb_Vc .gb_Xd,
+│ +.gb_Lc .gb_Xd,
+│ +#gb#gb a.gb_A {
+│ +  color: inherit !important;
+│ +}
+│ +
+│ +
+│ +/* Date picker calendar */
+│ +.k50Dh, .f1QMue, .IOneve,
+│ +.sOjuj
+│ +{
+│ +  color: var(--minical-text) !important;
+│ +}
+│ +
+│ +
+│ +/* Sidebar... */
+│ +.mkaajd, .o8t45d /* Calendar lists */ 
+│ +{
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +
+│ +
+│ +.toUqff /* Calendar list. */ 
+│ +{
+│ +  color: var(--regular-text) !important;
+│ +}
+│ +
+│ +/* day/week side times */
+│ +.R6TFwe {
+│ +  background-color: transparent !important
+│ +}
+│ +.R6TFwe .iHNmdb {
+│ +  color: var(--heading-text) !important;
+│ +}
+│ +.EDDeke {
+│ +  border-right-color: var(--oppo-0p1) !important;
+│ +}
+│ +
+│ +/* grid borders: */
+│ +.YvjgZe,
+│ +/* month borders: */
+│ +.t8qpF, 
+│ +.PhLhOd,
+│ +.w6FdBf,
+│ +.MGaLHf {
+│ +  border-right-color: var(--oppo-0p1) !important;
+│ +}
+│ +.QIadxc, /* month */
+│ +.FLFkR, /* month */
+│ +.mmsF1c::after {
+│ +  border-bottom-color: var(--oppo-0p1) !important;
+│ +}
+│ +/* Weird that these got disabled... */
+│ +.SU7tYb,
+│ +.yEkOpe:last-child {
+│ +  border-right: var(--oppo-0p1) 1px solid !important;
+│ +}
+│ +/* ugh... ew. */
+│ +.MVMVEe {
+│ +  border-left-color: var(--oppo-0p1) !important;
+│ +  border-right-width: 0px !important;
+│ +}
+│ +
+│ +.yEkOpe, .CIFHgc {
+│ +  border-right-color: var(--oppo-0p1) !important;
+│ +}
+│ +.XnnJrc.Wyo4Qe .TKMrfe {
+│ +  top: 0 !important;
+│ +  border-top-left-radius: 0px !important;
+│ +  border-top-right-radius: 0px !important;
+│ +}
+│ +
+│ +/* month view */
+│ +.PhLhOd,
+│ +.akJTWe {
+│ +  background-color: var(--oppo-0p1) !important;
+│ +}
+│ +.PhLhOd .wy3aMe,
+│ +.akJTWe {
+│ +  color: var(--oppo) !important;
+│ +}
+│ +.RAaXne { background-color: transparent !important; } /* Main grid. */
+│ +
+│ +.dkNwF .yzYBvd {
+│ +  color: var(--oppo) !important;
+│ +}
+│ +
+│ +/* month sidebar */
+│ +.RAaXne .ok6kbe,
+│ +.wuX2hf.Wyo4Qe .l4SGD {
+│ +  /* ew */
+│ +  top: 0px !important;
+│ +  color: var(--heading-text) !important;
+│ +  background-color: var(--oppo-0p1) !important;
+│ +}
+│ +
+│ +/* day names in month: */
+│ +.EeuFAf {
+│ +  color: var(--oppo) !important;
+│ +}
+│ +/* day numbers in month: */
+│ +.o5s4T .w48V4c {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +/* dimmed chips: */
+│ +.KF4T6b.UflSff {
+│ +  color: var(--dimmed) !important;
+│ +}
+│ +.KF4T6b.qqMC3e, .KF4T6b.smECzc { /* old task chips: */
+│ +  color: var(--oppo-0p5) !important;
+│ +}
+│ +.KF4T6b.smECzc, .KF4T6b.KCIIIb {
+│ +  color: var(--month-chip-hover-text) !important;
+│ +  background-color: rgba(255, 255, 255, 0.3) !important;
+│ +  border-radius: 4px;
+│ +}
+│ +.KF4T6b.smECzc:hover, .KF4T6b.KCIIIb:hover {  /* Hovered chips. */
+│ +  background-color: var(--chip-hover) !important;
+│ +}
+│ +
+│ +/* Other: */
+│ +
+│ +#gb,
+│ +#gb > div,
+│ +.v83gc,
+│ +.OCQPo,
+│ +.tNDBE,
+│ +.yHbHub,
+│ +.JE11kf,
+│ +.GENA3c,
+│ +.YvjgZe.F262Ye:after,
+│ +.xWId8e,
+│ +.a0xMze  {
+│ +  background-color: var(--same-0p1) !important;
+│ +}
+│ +
+│ +#gb .yR9sJd.yR9sJd:not(:disabled),
+│ +#gb .JJyfjc {
+│ +  color: var(--button-fg) !important;
+│ +}
+│ +
+│ +#gb .UyW9db {
+│ +  color: var(--button-fg) !important;
+│ +}
+│ +
+│ +
+│ +.SU7tYb.F262Ye,
+│ +.yEkOpe.F262Ye,
+│ +.ecKr0,
+│ +.ef2wWc,
+│ +.AOL3Kb,
+│ +.ZFr60d,
+│ +/* .Cd9hpd, */
+│ +/* .akJTWe, */
+│ +.Zlotdb,
+│ +.XnnJrc.Wyo4Qe .TKMrfe,
+│ +.Rj2Mlf:not(:disabled) {
+│ +  background-color: var(--same-0p1)  !important;
+│ +}
+│ +
+│ +.Xro3Db-nUpftc > div {
+│ +  background-color: transparent !important;
+│ +}
+│ +
+│ +/* Week/agenda background: */
+│ +.pbeTDb {
+│ +  background-color: transparent !important;
+│ +}
+│ +
+│ +.Xro3Db-nUpftc > div[role="menu"] {
+│ +  background-color: white !important;
+│ +}
+│ +
+│ +.NkK3Fc,
+│ +.rpCPrc > div,
+│ +.MSZkRb,
+│ +.zRt28b,
+│ +.uQ1ixe .snByac,
+│ +.Kyuwuc .snByac,
+│ +.nxPHec,
+│ +.MSZkRb,
+│ +.rSoRzd,
+│ +.wWdzec,
+│ +.XXcuqd,
+│ +.MANBAf,
+│ +.GENA3c,
+│ +.Vrr33d,
+│ +.hGcgEd
+│ +{
+│ +  color: var(--oppo) !important; /* Override var(--on-surface) instead? */
+│ +}
+│ +
+│ +.U26fgb.I12f0b .snByac {
+│ +  color: var(--heading-text) !important;
+│ +}
+│ +
+│ +.wBon4c, /* calendar list */
+│ +.Zlotdb /* find a time sidebar */
+│ +{
+│ +  --on-surface: var(--oppo) !important;
+│ +}
+│ +
+│ +
+│ +
+│ +/* Popups */
+│ +.BoZa0b,
+│ +.RDlrG,
+│ +.I7OXgf,
+│ +.gHQcAb,
+│ +.XvhY1d,
+│ +.jefcFd,
+│ +.zC2ZSb {
+│ +  color: var(--popup-text) !important;
+│ +  --heading-text: var(--popup-text);
+│ +  --button-fg: rgba(  0,  0,  0, 0.8);
+│ +  --button-bg: transparent;
+│ +  --regular-text: rgba(  0,  0,  0, 0.8);
+│ +  --minical-hover: rgba(  0,  0,  0, 0.1);
+│ +  --minical-text: rgba(  0,  0,  0, 0.8);
+│ +
+│ +  --month-chip-text: rgba(  0,  0,  0, 0.8);
+│ +  --month-chip-hover-text: rgba(  0,  0,  0, 0.8);
+│ +  --title-text: rgba(  0,  0,  0, 0.8);
+│ +}
+│ +
+│ +.BoZa0b .kMp0We,
+│ +.RDlrG .kMp0We,
+│ +.I7OXgf .kMp0We,
+│ +.gHQcAb .kMp0We,
+│ +.XvhY1d .kMp0We,
+│ +.jefcFd .kMp0We,
+│ +.XvhY1d .kMp0We {
+│ +  color: var(--popup-text) !important;
+│ +}
+│ +.PnGFPb .kMp0We {
+│ +  color: #222 !important;
+│ +}
+│ +
+│ +
+│ +/* Event edit page: */
+│ +
+│ +/* Background */
+│ +.p9lUpf {
+│ +  background: transparent !important;
+│ +}
+│ +
+│ +/* Title text. */
+│ +.Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd,
+│ +.WmnPA:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-fmcmS-wGMbrd {
+│ +  color: var(--title-text) !important;
+│ +}
+│ +
+│ +/* Overrides for text witin the form body. */
+│ +.nBzcnc .Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd,
+│ +.ubAIBb .Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd {
+│ +  color: rgba(  0,  0,  0, 0.8) !important; /* Always on light background */
+│ +}
+│ +
+│ +.j3nyw .DyOaYd {
+│ +  /* Unfortunately, .DyOaYd is below .j3nyw */
+│ +  color: rgba(  0,  0,  0, 0.8) !important;
+│ +}
+│ +
+│ +.mUIrbf-vQzf8d {
+│ +  color: var(--regular-text) !important;
+│ +}
+│ +
+│ +/* Many primary buttons */
+│ +.pYTkkf-Bz112c-LgbsSe {
+│ +  color: var(--button-fg) !important;
+│ +  background-color: var(--button-bg) !important;
+│ +}
+│ +
+│ +
+│ +/* ... */
+│ +
+│ +
+│ +.DN1TJ {
+│ +  color: var(--regular-text) !important;
+│ +}
+│ +
+│ +.NI2kfb {
+│ +  color: inherit !important;
+│ +}
+│ +.BoZa0b .kMp0We,
+│ +.jefcFd .kMp0We,
+│ +.FzsTU .kMp0We,
+│ +.BoZa0b .DN1TJ,
+│ +.pdqVLc .DN1TJ,
+│ +.FzsTU .DN1TJ {
+│ +  color: inherit !important;
+│ +}
+│ +
+│ +.pCoqfc,
+│ +/* .akJTWe, */
+│ +/* .wy3aMe, */
+│ +.SoBqBf,
+│ +.OmwDud {
+│ +/* .pqE3fc .wy3aMe { */
+│ +  color: var(--same) !important;
+│ +}
+│ +
+│ +/* Schedule view */
+│ +.bN97Pc .OmwDud {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +.bN97Pc .SOVd1b {
+│ +  --on-surface: var(--oppo-0p8);
+│ +}
+│ +.bN97Pc .SOVd1b:hover {
+│ +  --on-surface: rgba(  0,  0,  0, 0.8);
+│ +}
+│ +
+│ +.Xro3Db-nUpftc.ymbhmd,
+│ +.wWdzec,
+│ +.Gk2izd {
+│ +  background-color: var(--same-0p8) !important;
+│ +}
+│ +
+│ +
+│ +.Gk2izd .pCoqfc {
+│ +  color: var(--oppo) !important;
+│ +}
+│ +
+│ +
+│ +/* Day picker */
+│ +.RDlrG {
+│ +  --minical-background: rgba(0,0,0,0.1) !important;
+│ +}
+│ +
+│ +.HkPXyb {
+│ +  background-color: var(--minical-background) !important;
+│ +}
+│ +
+│ +.W0m3G .r4nke {
+│ +  width: auto !important;
+│ +  background-color: transparent !important;
+│ +  border-radius: 0 !important;
+│ +}
+│ +.W0m3G .r4nke:hover,
+│ +.lR3h6d .CIy9F {
+│ +  background-color: var(--minical-hover) !important;
+│ +}
+│ +
+│ +.iMprOe,
+│ +.HkPXyb .SoBqBf {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +.iMprOe,
+│ +.HkPXyb .SoBqBf {
+│ +  color: var(--regular-text) !important;
+│ +}
+│ +
+│ +.TUH0Sd .r4nke {
+│ +  background-color: #1a73e8 !important;
+│ +  color: #fff !important;
+│ +  border-radius: 50% !important;
+│ +}
+│ +
+│ +.r4nke {
+│ +  color: var(--heading-text) !important;
+│ +  background-color: var(--oppo-0p1) !important;
+│ +}
+│ +
+│ +/* Today marker, set back to normal: */
+│ +.p6vobf .r4nke, .p6vobf.pWJCO .r4nke, .p6vobf.pWJCO.q2d9Ze .r4nke {
+│ +  background-color: var(--primary) !important;
+│ +  color: var(--on-primary)  !important;
+│ +}
+│ +
+│ +/* Includes the new sidebar. */
+│ +.gboEAb {
+│ +  background-color: var(--same-0p3) !important;
+│ +}
+│ +
+│ +/* Buttons */
+│ +.HLI7qf {
+│ +  background-color: transparent !important;
+│ +}
+│ +.U26fgb {
+│ +  background-color: var(--button-bg) !important;
+│ +  box-sizing: border-box;
+│ +}
+│ +
+│ +.U26fgb .snByac {
+│ +  color: var(--button-fg) !important;
+│ +}
+│ +
+│ +.j9Fkxf:not(:disabled), 
+│ +.AeBiU-vQzf8d { /* Top bar text buttons */
+│ +  color: var(--button-fg) !important;
+│ +}
+│ +
+│ +.U26fgb.qmMNRc,
+│ +.U26fgb:hover.qmMNRc {
+│ +  color: rgba(  0,  0,  0, 0.5) !important;
+│ +}
+│ +
+│ +/* Month chips: */
+│ +.g3dbUc.smECzc {
+│ +  color: var(--month-chip-text) !important;
+│ +}
+│ +.g3dbUc.smECzc:hover {
+│ +  color: var(--month-chip-hover-text) !important;
+│ +}
+│ +
+│ +/* Agenda view: */
+│ +.dtaVuc {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +/* Left Sidebar (also fixes clockwise): */
+│ +.QQYuzf {
+│ +  background-color: var(--same-0p1) !important;
+│ +}
+│ +.YO50ue {
+│ +  background-color: var(--same-0p1) !important;
+│ +}
+│ +/* World clop section */
+│ +.Az5uJd.RLj2u {
+│ +  background-color: var(--same-0p3) !important;
+│ +}
+│ +
+│ +/* Settings: */
+│ +.MDfQ7 {
+│ +  background-color: var(--same-0p3) !important;
+│ +  color: var(--settings-regular-text) !important;
+│ +  padding-bottom: 8px !important; /* ew */
+│ +}
+│ +.MDfQ7 h2 {
+│ +  color: var(--settings-header-text) !important;
+│ +}
+│ +.MDfQ7 .oj6B2e {
+│ +  color: var(--oppo) !important;
+│ +}
+│ +.MDfQ7 .U26fgb {
+│ +  --button-bg: #f1f3f4 !important;
+│ +  --button-fg: #222 !important;
+│ +  background-color: transparent !important;
+│ +  box-sizing: content-box !important;
+│ +}
+│ +.MDfQ7 .HLI7qf {
+│ +  background-color: #f1f3f4 !important;
+│ +}
+│ +.MDfQ7 .OspAke,
+│ +.MDfQ7 .Ccr7Rb,
+│ +.MDfQ7 .WpDZC,
+│ +.MDfQ7 .aXw0de,
+│ +.MDfQ7 .bsCOTd,
+│ +.MDfQ7 .LV4Pme {
+│ +  /* Why are these all set manually? :( */
+│ +  color: inherit !important;
+│ +}
+│ +.MDfQ7 .Kb2sf,
+│ +.MDfQ7 .Qfwgwb {
+│ +  color: #222 !important;
+│ +}
+│ +.MDfQ7 .Kb2sf.n48mwe {
+│ +  color: var(--settings-header-text) !important; /* uneditable. */
+│ +}
+│ +
+│ +
+│ +/* Settings side tabs */
+│ +.cAYGed.KKjvXb .Ioup7e, .cAYGed.KKjvXb .BMQm1d {
+│ +  background-color: var(--oppo-0p3) !important;
+│ +  color: var(--same-0p8) !important;
+│ +}
+│ +.kMp0We.Wm6kRe.huVZvb:hover, .GrxScd .SWigMc.Wm6kRe.huVZvb:focus, .kMp0We.gk6SMd.huVZvb {
+│ +  background-color: var(--oppo-0p1) !important;
+│ +}
+│ +
+│ +
+│ +.jBmls {
+│ +  color: var(--popup-text) !important;
+│ +  --heading-text: var(--popup-text);
+│ +}
+│ +
+│ +/* Event popup */
+│ +
+│ +/* title */
+│ +.ecHOgf .WmnPA:not(.VfPpkd-fmcmS-yrriRe-OWXEXe-OWB6Me) .VfPpkd-fmcmS-wGMbrd {
+│ +  color: var(--heading-text) !important;
+│ +}
+│ +
+│ +/* Side buttons */
+│ +.tzcF6 {
+│ +  --button-fg: var(--oppo-0p5);
+│ +  --button-bg: var(--same-0p5);
+│ +}
+│ +
+│ +
+│ +
+│ +/* Buttons */
+│ +.DyOaYd .U26fgb,
+│ +.U26fgb:hover,
+│ +#xtnBtn:hover {
+│ +  --button-fg: rgba(  0,  0,  0, 0.8);
+│ +  --button-bg: #f1f3f4;
+│ +}
+│ +
+│ +.mr0WL,
+│ +.NMm5M,
+│ +.U26fgb .NlWrkb.snByac,
+│ +.d6McF .NMm5M,
+│ +div.rF3YF .NMm5M,
+│ +div.rF3YF .Ce1Y1c,
+│ +.uSx8Od,
+│ +.fKz7Od,
+│ +.KU3dEf svg,
+│ +#gb .ec9Aq,
+│ +#xtnBtn
+│ +{
+│ +  color: var(--button-fg) !important;
+│ +  fill: var(--button-fg) !important;
+│ +}
+│ +
+│ +/* Button text above pictures on events. */
+│ +.fEQAz {
+│ +  --button-fg: white !important;
+│ +  --button-bg: rgba(255,255,255, 0.1) !important;
+│ +}
+│ +
+│ +/* Button text on toolbars */
+│ +div[role="toolbar"] .U26fgb {
+│ +  --button-fg: rgba(0,0,0,0.3) !important;
+│ +  --button-bg: transparent !important;
+│ +}
+│ +div[role="toolbar"] .U26fgb:hover {
+│ +  --button-bg: rgba(0,0,0,0.1) !important;
+│ +}
+│ +div[role="toolbar"] .PqAscf {
+│ +  border-left-color: rgba(0,0,0,0.1) !important;
+│ +}
+│ +
+│ +/* full-page edit, make the color pick button look hovered always: */
+│ +.Cv8pif .U26fgb,
+│ +.Cv8pif .U26fgb:hover {
+│ +  --button-fg: rgba(0,0,0,0.8) !important;
+│ +  --button-bg: rgba(255,255,255,0.8) !important;
+│ +}
+│ +
+│ +.TgcD5e.CCDcoc .zHQkBf {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +/* TODO: BURN THIS OVERRIDE */
+│ +.kMp0We {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +.IAQE3d {
+│ +  color: var(--regular-text) !important;
+│ +}
+│ +.j3nyw {
+│ +  color: var(--regular-text) !important;
+│ +}
+│ +
+│ +.ThdJC,
+│ +.nWBDde,
+│ +.r5F2ye .VZhFab,
+│ +.rhtYVe .snByac
+│ +{
+│ +  color: var(--heading-text) !important;
+│ +}
+│ +
+│ +/* "X more" when events overflow */
+│ +.g3dbUc.KCIIIb {
+│ +  color: var(--oppo-0p8) !important;
+│ +}
+│ +.g3dbUc.KCIIIb:hover {
+│ +  color: var(--same-0p8) !important;
+│ +  background-color:  var(--oppo-0p8) !important;
+│ +}
+│ +
+│ +/* Lines on day/month view: */
+│ +.sJ9Raf::after {
+│ +  border-bottom-color: var(--oppo-0p1) !important;
+│ +}
+│ +.BiKU4b {
+│ +  border-right-color: var(--oppo-0p1) !important;
+│ +}
+│ +
+│ +/* Weird gradient lines at top of sections */
+│ +.J2aUD.T8M5bd .sx5BGe::before, .SGFqbe.T8M5bd .sx5BGe::before {
+│ +  background-image: linear-gradient(to right,var(--same-0p1),rgba(255,255,255,0)) !important;
+│ +}
+│ +.J2aUD.T8M5bd .qmFsL::after, .SGFqbe.T8M5bd .qmFsL::after {
+│ +  background-image: linear-gradient(to left,var(--same-0p1),rgba(255,255,255,0)) !important;
+│ +}
+│ +.hEtGGf::after {
+│ +  background-image: none !important;
+│ +}
+│ +
+│ +/* Bin */
+│ +.pljXM {
+│ +  background-color: transparent !important;
+│ +}
+│ +.pljXM h1,
+│ +.pljXM h2 {
+│ +  color: var(--heading-text) !important;
+│ +}
+│ +.pljXM .LOewLb.KKjvXb {
+│ +  color: rgba(  0,  0,  0, 0.8) !important;
+│ +}
+│ +.NekIXe {
+│ +  background-color: var(--same-0p1) !important;
+│ +}
+│ +.NekIXe .fKz7Od {
+│ +  --button-fg: rgba(0,0,0,0.8) !important;
+│ +}
+│ +
+│ +/* Find a time toolbar */
+│ +div[role="toolbar"].Xo3rO {
+│ +  color: var(--heading-text) !important;
+│ +}
+│ +div[role="toolbar"].Xo3rO .U26fgb {
+│ +  --button-fg: var(--oppo-0p8) !important;
+│ +  --button-bg: var(--oppo-0p1) !important;
+│ +}
+│ +
+│ +
+│ +/** 
+│ +NOTE: Calendar started setting their own theme colors with variables.
+│ +These are all overriding back to what we need, but in the future instead
+│ +this should set the variables directly.
+│ +**/
+│ +
+│ +
+│ +/** Overrides for background-color: var(--surface) */
+│ +.gZ8fdb.F262Ye {
+│ +  background-color: transparent !important; /* Background to the all-day events today. */
+│ +}
+│ +
+│ +/** Overrides for color: var(--on-surface) */
+│ +.sVASAd.N4XV7d {
+│ +  color: var(--oppo-0p8) !important; /* Font color for the future numbers in weekly view. */
+│ +}
+│ +.sVASAd.N4XV7d.RKLVef:hover {
+│ +  color: rgba(  0,  0,  0, 0.8) !important;
+│ +}
+│ +
+│ +/** Overrides for color: var(--on-surface-variant-agm) */
+│ +.nSCxEf.pCcXPe,
+│ +.tWjOu.pCcXPe {
+│ +  color: var(--oppo-0p8) !important; /* Font color for past day numbers in weekly view. */
+│ +}
+│ +.nSCxEf.pCcXPe:hover {
+│ +  color: rgba(  0,  0,  0, 0.8) !important;
+│  }

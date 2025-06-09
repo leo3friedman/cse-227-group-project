@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/Cveinnt_bionify.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/bionify</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">1.46 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/bionify</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">144 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 5 lines modified</td><td colspan="2">Offset 1, 8 lines modified</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">1 </td><td class="diffpresent">.git</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">.gitattributes</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">.gitignore</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">README.md</td><td class="diffline">4 </td><td class="diffpresent">README.md</td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">_metadata</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">background.js</td><td class="diffline">5 </td><td class="diffpresent">background.js</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">manifest.json</td><td class="diffline">6 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">package-lock.json</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">src</td><td class="diffline">8 </td><td class="diffpresent">src</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">1.0 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/README.md</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-README.md"><span class="source">/workspace/pipeline_output/bionify/README.md</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-README.md">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 10 lines modified</td><td colspan="2">Offset 1, 10 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">#<span class="dp">·</span>[Bionify<span class="dp">·</span>-<span class="dp">·</span>Read<span class="dp">·</span>Faster!](https://chrome.google.com/webstore/detail/bionify-read-faster-with/gomhfpbcjfidhpffhecghfdieincgncc)</td><td class="diffline">1 </td><td class="diffpresent">#<span class="dp">·</span>[Bionify<span class="dp">·</span>-<span class="dp">·</span>Read<span class="dp">·</span>Faster!](https://chrome.google.com/webstore/detail/bionify-read-faster-with/gomhfpbcjfidhpffhecghfdieincgncc)</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">2 </td><td class="diffpresent">**LEGAL<span class="dp">·</span>NOTICE:**<span class="dp">·</span>To<span class="dp">·</span>the<span class="dp">·</span>_wonderful_<span class="dp">·</span>folks<span class="dp">·</span>at<span class="dp">·</span>Bionic<span class="dp">·</span>Reading®,<span class="dp">·</span>this<span class="dp">·</span>is<span class="dp">·</span>not<span class="dp">·</span>a<span class="dp">·</span>pirated<span class="dp">·</span>version<span class="dp">·</span>of<span class="dp">·</span>your<span class="dp">·</span>Bionic<span class="dp">·</span>Reading®<span class="dp">·</span>API,<span class="dp">·</span>but<span class="dp">·</span>rather<span class="dp">·</span>a<span class="dp">·</span>simple<span class="dp">·</span>algorithm<span class="dp">·</span>I<span class="dp">·</span>developed<span class="dp">·</span>in<span class="dp">·</span>conjunction<span class="dp">·</span>with<span class="dp">·</span>other<span class="dp">·</span>open<span class="dp">·</span>source<span class="dp">·</span>developers.<span class="dp">·</span>It<span class="dp">·</span>does<span class="dp">·</span><del>not</del><span class="dp">·</span>violate<span class="dp">·</span>your<span class="dp">·</span>Bionic<span class="dp">·</span>Reading®<span class="dp">·</span>copyrights.</td><td class="diffline">2 </td><td class="diffpresent">**LEGAL<span class="dp">·</span>NOTICE:**<span class="dp">·</span>To<span class="dp">·</span>the<span class="dp">·</span>_wonderful_<span class="dp">·</span>folks<span class="dp">·</span>at<span class="dp">·</span>Bionic<span class="dp">·</span>Reading®,<span class="dp">·</span>this<span class="dp">·</span>is<span class="dp">·</span>not<span class="dp">·</span>a<span class="dp">·</span>pirated<span class="dp">·</span>version<span class="dp">·</span>of<span class="dp">·</span>your<span class="dp">·</span>Bionic<span class="dp">·</span>Reading®<span class="dp">·</span>API,<span class="dp">·</span>but<span class="dp">·</span>rather<span class="dp">·</span>a<span class="dp">·</span>simple<span class="dp">·</span>algorithm<span class="dp">·</span>I<span class="dp">·</span>developed<span class="dp">·</span>in<span class="dp">·</span>conjunction<span class="dp">·</span>with<span class="dp">·</span>other<span class="dp">·</span>open<span class="dp">·</span>source<span class="dp">·</span>developers.<span class="dp">·</span>It<span class="dp">·</span>does<span class="dp">·</span><ins>NOT</ins><span class="dp">·</span>violate<span class="dp">·</span>you<ins>r<span class="dp">·</span>p</ins>r<ins>ecious</ins><span class="dp">·</span>Bionic<span class="dp">·</span>Reading®<span class="dp">·</span>copyrights.</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">[![banner](src/icons/marquee.png)](https://chrome.google.com/webstore/detail/bionify-read-faster-with/gomhfpbcjfidhpffhecghfdieincgncc)</td><td class="diffline">3 </td><td class="diffpresent">[![banner](src/icons/marquee.png)](https://chrome.google.com/webstore/detail/bionify-read-faster-with/gomhfpbcjfidhpffhecghfdieincgncc)</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">A<span class="dp">·</span>simple<span class="dp">·</span>chrome<span class="dp">·</span>extension<span class="dp">·</span>designed<span class="dp">·</span>to<span class="dp">·</span>help<span class="dp">·</span>you<span class="dp">·</span>read<span class="dp">·</span>faster<span class="dp">·</span>and<span class="dp">·</span>more<span class="dp">·</span>efficiently.</td><td class="diffline">4 </td><td class="diffpresent">A<span class="dp">·</span>simple<span class="dp">·</span>chrome<span class="dp">·</span>extension<span class="dp">·</span>designed<span class="dp">·</span>to<span class="dp">·</span>help<span class="dp">·</span>you<span class="dp">·</span>read<span class="dp">·</span>faster<span class="dp">·</span>and<span class="dp">·</span>more<span class="dp">·</span>efficiently.</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">##<span class="dp">·</span>Download</td><td class="diffline">5 </td><td class="diffpresent">##<span class="dp">·</span>Download</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">248 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/src</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-src"><span class="source">/workspace/pipeline_output/bionify/src</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-src">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">167 B</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/src/popup</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-src----workspace-pipeline_output-chromex_data-src-popup"><span class="source">/workspace/pipeline_output/bionify/src/popup</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-src----workspace-pipeline_output-chromex_data-src-popup">¶</a>
+      </div>
+      </div>
+      <div class="difference">
+        <div class="diffheader">
+        <div class="diffcontrol">⊟</div>
+        <div><span class="diffsize">74.0 B</span></div>
+        <div id="Dworkspace-pipeline_output-chromex_data-src----workspace-pipeline_output-chromex_data-src-popup---file-list"><span class="source">file list</span>
+          <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-src----workspace-pipeline_output-chromex_data-src-popup---file-list">¶</a>
+        </div>
+        </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 4 lines modified</td><td colspan="2">Offset 1, 3 lines modified</td></tr>
+<tr class="diffdeleted"><td class="diffline">1 </td><td class="diffpresent">dist</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent">popup.html</td><td class="diffline">1 </td><td class="diffpresent">popup.html</td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">popup.js</td><td class="diffline">2 </td><td class="diffpresent">popup.js</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">styles.css</td><td class="diffline">3 </td><td class="diffpresent">styles.css</td></tr>
+</table>      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

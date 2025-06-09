@@ -1,0 +1,39 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/EtherAddressLookup
+├── file list
+│ @@ -1,11 +1,15 @@
+│ +.eslintignore
+│ +.eslintrc.json
+│ +.git
+│ +.gitignore
+│ +.travis.yml
+│  CONTRIBUTING.md
+│  LICENSE
+│  README.md
+│ -_metadata
+│  blacklists
+│  css
+│  gulpfile.js
+│  images
+│  js
+│  manifest.json
+│  options.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/EtherAddressLookup/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -73,15 +73,14 @@
+│ │          "history"
+│ │      ],
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │      "short_name": "EtherAddressLookup",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.23.1",
+│ │      "web_accessible_resources": [
+│ │          "images/powered-by-quiknode.png",
+│ │          "/js/workers/TwitterFakeAccount.js",
+│ │          "images/twitter/whitelisted.png",
+│ │          "images/twitter/blacklisted.png",
+│ │          "images/twitter/neutral.png",

@@ -1,0 +1,16 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/browser-extension/src
+  - files: _metadata
+  + files: manifest-basic.json
+
+---/workspace/pipeline_output/chromex_data/image/beaker.svg <-> +++/workspace/pipeline_output/browser-extension/src/image/beaker.svg; File type: svg
+  - Original: 2–3
+  - Original: 5–7
+  + Modified: 2–6
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/browser-extension/src/manifest.json; File type: json
+  - Original: 20–20
+  + Modified: 20–20
+  - Original: 64–64
+  + Modified: 64–64
+  - Original: 86–86 -> Update URL
+

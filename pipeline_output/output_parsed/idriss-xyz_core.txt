@@ -1,0 +1,7 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/core/apps/extension/src/runtime/chromium
+  - files: _metadata, audio, content-script.js, content-script.js.map, fonts, img, service-worker.js, service-worker.js.map, webpage-script.js, webpage-script.js.map
+  + files: content-script.ts, service-worker.ts, webpage-script.ts
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/core/apps/extension/src/runtime/chromium/manifest.json; File type: json
+  - Original: 44–44 -> Update URL
+

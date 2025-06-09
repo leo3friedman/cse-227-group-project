@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/tab-pinner
+├── file list
+│ @@ -1,6 +1,11 @@
+│ -_metadata
+│ +.git
+│ +LICENSE
+│ +Makefile
+│ +README.md
+│  manifest.json
+│ +package-lock.json
+│  pin_128.png
+│  pin_16.png
+│  pin_48.png
+│ -tab_pinner.js
+│ +tab_pinner.js
+│ +tab_pinner.zip
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/tab-pinner/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │          "128": "pin_128.png",
+│ │          "16": "pin_16.png",
+│ │          "48": "pin_48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Tab Pinner (Keyboard Shortcuts)",
+│ │      "permissions": [],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.1"
+│ │  }

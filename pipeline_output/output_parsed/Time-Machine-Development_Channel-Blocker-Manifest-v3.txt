@@ -1,0 +1,48 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3
+  - files: _metadata
+  + files: .git, .gitattributes, .github, .gitignore, LICENSE.txt, README.md, assets, build.sh, manifest.json.firefox, package-lock.json, setup.sh
+
+---/workspace/pipeline_output/chromex_data/content-scripts <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/content-scripts
+  - files: context, enums, helper, index.js, interfaces, observer, storage
+  + files: package-lock.json, package.json, ts, tsconfig.json
+
+---/workspace/pipeline_output/chromex_data/images/CB_icon.svg <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/images/CB_icon.svg; File type: svg
+  - Original: 4–29
+  + Modified: 4–29
+
+---/workspace/pipeline_output/chromex_data/images/misc/Burger.svg <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/images/misc/Burger.svg; File type: svg
+  - Original: 4–6
+  - Original: 8–10
+  + Modified: 4–10
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/manifest.json; File type: json
+  - Original: 51–51 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/service-worker <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/service-worker
+  - files: enums.js, helper.js, index.js, interfaces, storage.js
+  + files: package-lock.json, package.json, ts, tsconfig.json
+
+---/workspace/pipeline_output/chromex_data/ui <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui
+  - files: settings
+  + files: package-lock.json, package.json, settings, tsconfig.json
+
+---/workspace/pipeline_output/chromex_data/ui/popup/scripts <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/popup/scripts
+  - files: index.js
+  + files: index.ts
+
+---/workspace/pipeline_output/chromex_data/ui/popup/scripts/index.js <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/popup/scripts/index.ts; File type: js
+  - Original: 1–2
+  + Modified: 1–1
+
+---/workspace/pipeline_output/chromex_data/ui/settings/scripts <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/scripts
+  - files: donate.js, enums.js, faq.js, helper.js, importExport.js, index.js, navigation.js, settings.js
+  + files: donate.ts, enums.ts, faq.ts, helper.ts, importExport.ts, index.ts, navigation.ts, settings.ts
+
+---/workspace/pipeline_output/chromex_data/ui/settings/scripts/interfaces <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/scripts/interfaces
+  - files: interfaces.js, storage.js
+  + files: interfaces.ts, storage.ts
+
+---/workspace/pipeline_output/chromex_data/ui/settings/style <-> +++/workspace/pipeline_output/Channel-Blocker-Manifest-v3/ui/settings/style
+  - files: main.css
+  + files: main.scss, modules
+

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/WorldLanguages_DoNotDiscard.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/DoNotDiscard</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">8.88 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/DoNotDiscard</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">146 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 5 lines modified</td><td colspan="2">Offset 1, 7 lines modified</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">1 </td><td class="diffpresent">.git</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">README.md</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">_locales</td><td class="diffline">3 </td><td class="diffpresent">_locales</td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">_metadata</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">background.js</td><td class="diffline">4 </td><td class="diffpresent">background.js</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">icon.png</td><td class="diffline">5 </td><td class="diffpresent">icon.png</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">manifest.json</td><td class="diffline">6 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">package-lock.json</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">5.15 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/_locales</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-_locales"><span class="source">/workspace/pipeline_output/DoNotDiscard/_locales</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-_locales">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">2.46 KB</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/_locales/en</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-en"><span class="source">/workspace/pipeline_output/DoNotDiscard/_locales/en</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-en">¶</a>
+      </div>
+      </div>
+      <div class="difference">
+        <div class="diffheader">
+        <div class="diffcontrol diffcontrol-double">⊟</div>
+        <div><span class="diffsize">2.36 KB</span></div>
+        <div><span class="source">/workspace/pipeline_output/chromex_data/_locales/en/messages.json</span> vs.</div>
+        <div id="Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-en----workspace-pipeline_output-chromex_data-_locales-en-messages.json"><span class="source">/workspace/pipeline_output/DoNotDiscard/_locales/en/messages.json</span>
+          <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-en----workspace-pipeline_output-chromex_data-_locales-en-messages.json">¶</a>
+        </div>
+        </div>
+        <div class="comment multiline">xxd not available in path. Falling back to Python hexlify.
+
+Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+        </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 16 lines modified</td><td colspan="2">Offset 1, 16 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent">7b0<del>d0</del>a2020226d616e69666573745f6e616d65223a207b<del>0d</del>0a20202020226d65</td><td class="diffline">1 </td><td class="diffpresent">7b0a2020226d616e69666573745f6e616d65223a207b0a20202020226d65<ins>7373</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">2 </td><td class="diffpresent"><del>7373</del>616765223a202244697361626c65206175746f6d61746963207461622064</td><td class="diffline">2 </td><td class="diffpresent">616765223a202244697361626c65206175746f6d61746963207461622064<ins>6973</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent">6<del>9736</del>3617264696e6722<del>0d</del>0a20207d2c<del>0d</del>0a2020226d616e69666573745f6465</td><td class="diffline">3 </td><td class="diffpresent">63617264696e67220a20207d2c0a2020226d616e69666573745f6465<ins>73637269</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">4 </td><td class="diffpresent">7<del>36372697</del>074696f6e223a207b<del>0d</del>0a20202020226d657373616765223a202253</td><td class="diffline">4 </td><td class="diffpresent">7074696f6e223a207b0a20202020226d657373616765223a20225<ins>3746f707</ins>3<ins>20</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">5 </td><td class="diffpresent"><del>746f707320</del>4368726f6d652066726f6d2073757370656e64696e672074616273</td><td class="diffline">5 </td><td class="diffpresent">4368726f6d652066726f6d2073757370656e64696e672074616273<ins>2c20616e64</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">6 </td><td class="diffpresent">2<del>c20616e642</del>072656c6f6164696e67207468656d207768656e20796f75207377</td><td class="diffline">6 </td><td class="diffpresent">2072656c6f6164696e67207468656d207768656e20796f752073<ins>7</ins>7<ins>69</ins>7<ins>4636820</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">7 </td><td class="diffpresent"><del>6974636820</del>746f207468656d2e22<del>0d</del>0a20207d2c<del>0d</del>0a2020226d616e69666573</td><td class="diffline">7 </td><td class="diffpresent">746f207468656d2e220a20207d2c0a2020226d616e69666573<ins>745f7469746c65</ins></td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">223a207b0a20202020226d657373616765223a20224175746f6d617469632074</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">61622064697363617264696e672063757272656e746c792064697361626c6564</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">5c6e44697361626c652f756e696e7374616c6c207468697320657874656e7369</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">6f6e20746f20656e61626c65206974220a20207d2c0a202022636d5f72657669</td></tr>
+<tr class="diffchanged"><td class="diffline">8 </td><td class="diffpresent"><del>7</del><del>4</del>5<del>f</del>7<del>469</del>7<del>46c65</del>223a207b<del>0d</del>0a20202020226d657373616765223a2022<del>4</del>17574</td><td class="diffline">12 </td><td class="diffpresent"><ins>6</ins>577223a207b0a20202020226d657373616765223a20<ins>2</ins>2<ins>5</ins>2<ins>6</ins>17<ins>46</ins>5<ins>20</ins>74<ins>686973</ins></td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">20657874656e73696f6e20696e2073746f7265220a20207d2c0a202022636d5f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">737570706f7274223a207b0a20202020226d657373616765223a202253656e64</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">20666565646261636b202873756767657374696f6e732c206973737565732922</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">0a20207d0a7d0a</td></tr>
+<tr class="diffdeleted"><td class="diffline">9 </td><td class="diffpresent">6f6d61746963207461622064697363617264696e672063757272656e746c7920</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">10 </td><td class="diffpresent">64697361626c65645c6e44697361626c652f756e696e7374616c6c2074686973</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">11 </td><td class="diffpresent">20657874656e73696f6e20746f20656e61626c65206974220d0a20207d2c0d0a</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent">202022636d5f726576696577223a207b0d0a20202020226d657373616765223a</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">13 </td><td class="diffpresent">202252617465207468697320657874656e73696f6e20696e2073746f7265220d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">14 </td><td class="diffpresent">0a20207d2c0d0a202022636d5f737570706f7274223a207b0d0a20202020226d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">15 </td><td class="diffpresent">657373616765223a202253656e6420666565646261636b202873756767657374</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">16 </td><td class="diffpresent">696f6e732c2069737375657329220d0a20207d0d0a7d0d0a</td><td colspan="2"> </td></tr>
+</table>      </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">2.6 KB</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/_locales/es</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-es"><span class="source">/workspace/pipeline_output/DoNotDiscard/_locales/es</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-es">¶</a>
+      </div>
+      </div>
+      <div class="difference">
+        <div class="diffheader">
+        <div class="diffcontrol diffcontrol-double">⊟</div>
+        <div><span class="diffsize">2.5 KB</span></div>
+        <div><span class="source">/workspace/pipeline_output/chromex_data/_locales/es/messages.json</span> vs.</div>
+        <div id="Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-es----workspace-pipeline_output-chromex_data-_locales-es-messages.json"><span class="source">/workspace/pipeline_output/DoNotDiscard/_locales/es/messages.json</span>
+          <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-_locales----workspace-pipeline_output-chromex_data-_locales-es----workspace-pipeline_output-chromex_data-_locales-es-messages.json">¶</a>
+        </div>
+        </div>
+        <div class="comment multiline">xxd not available in path. Falling back to Python hexlify.
+
+Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+        </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 17 lines modified</td><td colspan="2">Offset 1, 17 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent">7b0<del>d0</del>a2020226d616e69666573745f6e616d65223a207b<del>0d</del>0a20202020226d65</td><td class="diffline">1 </td><td class="diffpresent">7b0a2020226d616e69666573745f6e616d65223a207b0a20202020226d65<ins>7373</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">2 </td><td class="diffpresent"><del>7373</del>616765223a2022446573686162696c69746172206c612073757370656e73</td><td class="diffline">2 </td><td class="diffpresent">616765223a2022446573686162696c69746172206c612073757370656e7<ins>369c</ins>3</td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent"><del>69c3</del>b36e206465207065737461c3b1617322<del>0d</del>0a20207d2c<del>0d</del>0a2020226d616e</td><td class="diffline">3 </td><td class="diffpresent">b36e206465207065737461c3b16173220a20207d2c0a2020226d616e<ins>69666573</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">4 </td><td class="diffpresent"><del>69666573</del>745f6465736372697074696f6e223a207b<del>0d</del>0a20202020226d657373</td><td class="diffline">4 </td><td class="diffpresent">745f6465736372697074696f6e223a207b0a20202020226d65<ins>73</ins>73<ins>616</ins>7<ins>6522</ins>3<ins>a</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">5 </td><td class="diffpresent"><del>616765223a</del>2022457669746120717565204368726f6d652073757370656e6461</td><td class="diffline">5 </td><td class="diffpresent">2022457669746120717565204368726f6d652073757370656e6461<ins>2070657374</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">6 </td><td class="diffpresent"><del>2070657374</del>61c3b1617320792073652061637475616c6963656e206375616e64</td><td class="diffline">6 </td><td class="diffpresent">61c3b1617320792073652061637475616c6963656e206375616e64<ins>6f20767565</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">7 </td><td class="diffpresent">6<del>f207675656</del>c766573206120656c6c61732e22<del>0d</del>0a20207d2c<del>0d</del>0a2020226d61</td><td class="diffline">7 </td><td class="diffpresent">6c766573206120656c6c61732e220a20207d2c0a2020226d61<ins>6e69666573745f</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">8 </td><td class="diffpresent"><del>6e69666573745f</del>7469746c65223a207b<del>0d</del>0a20202020226d657373616765223a</td><td class="diffline">8 </td><td class="diffpresent">7469746c65223a207b0a20202020226d657373616765223a<ins>20224c6120737573</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">9 </td><td class="diffpresent"><del>20224c6120737573</del>70656e7369c3b36e206465207065737461c3b16173206573</td><td class="diffline">9 </td><td class="diffpresent">70656e7369c3b36e206465207065737461c3b161<ins>73206573</ins>7<ins>4c</ins>3<ins>a1</ins>20<ins>64</ins>6573<ins>68</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">10 </td><td class="diffpresent"><del>74c3a12064657368</del>6162696c69746164615c6e4465736163746976612f646573</td><td class="diffline">10 </td><td class="diffpresent">6162696c69746164615c6e4465736163746976612f6465<ins>73696e</ins>73<ins>74616c6120</ins></td></tr>
+<tr class="diffchanged"><td class="diffline">11 </td><td class="diffpresent">6<del>96e7374616c61206</del>573746120657874656e7369c3b36e207061726120616374</td><td class="diffline">11 </td><td class="diffpresent">6573746120657874656e7369c3b36e207061726120616374<ins>697661726c61220a</ins></td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent">697661726c61220d0a20207d2c0d0a202022636d5f726576696577223a207b0d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">13 </td><td class="diffpresent">0a20202020226d657373616765223a202243616c696669636172206573746120</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">14 </td><td class="diffpresent">657874656e7369c3b36e20656e206c61207469656e6461220d0a20207d2c0d0a</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">15 </td><td class="diffpresent">202022636d5f737570706f7274223a207b0d0a20202020226d65737361676522</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">16 </td><td class="diffpresent">3a2022456e7669617220636f6d656e746172696f7320287375676572656e6369</td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">17 </td><td class="diffpresent"><del>61</del>7<del>3</del>2c20<del>7</del>0<del>7</del>26f<del>6</del>26<del>c65</del>6<del>d</del>6<del>1</del>7<del>3</del>2<del>92</del>20<del>d</del>0a2020<del>7d</del>0d<del>0a</del>7<del>d0d0a</del></td><td class="diffline">12 </td><td class="diffpresent"><ins>20</ins><ins>20</ins>7<ins>d</ins>2c<ins>0a</ins>20<ins>2</ins>0<ins>2</ins>2<ins>63</ins>6<ins>d5</ins>f<ins>7</ins>26<ins>576</ins>6<ins>9</ins>6<ins>5</ins><ins>7</ins>7<ins>2</ins>2<ins>3a</ins>20<ins>7</ins><ins>b</ins>0a2020<ins>2</ins><ins>02</ins>0<ins>226</ins>d<ins>65</ins>7<ins>37361</ins></td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">6765223a202243616c696669636172206573746120657874656e7369c3b36e20</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">656e206c61207469656e6461220a20207d2c0a202022636d5f737570706f7274</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">223a207b0a20202020226d657373616765223a2022456e7669617220636f6d65</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">6e746172696f7320287375676572656e636961732c2070726f626c656d617329</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">220a20207d0a7d0a</td></tr>
+</table>      </div>
+    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">3.12 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/background.js</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-background.js"><span class="source">/workspace/pipeline_output/DoNotDiscard/background.js</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-background.js">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">3.02 KB</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-background.js---js-beautify---"><span class="source">js-beautify {}</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-background.js---js-beautify---">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 50 lines modified</td><td colspan="2">Offset 1, 50 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent">chrome.tabs.onCreated.addListener(function(tab)<span class="dp">·</span>{<del>.</del></td><td class="diffline">1 </td><td class="diffpresent">chrome.tabs.onCreated.addListener(function(tab)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">2 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.update(tab.id,<span class="dp">·</span>{<del>.</del></td><td class="diffline">2 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.update(tab.id,<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>autoDiscardable:<span class="dp">·</span>false<del>.</del></td><td class="diffline">3 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>autoDiscardable:<span class="dp">·</span>false</td></tr>
+<tr class="diffchanged"><td class="diffline">4 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">4 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">5 </td><td class="diffpresent">});<del>.</del></td><td class="diffline">5 </td><td class="diffpresent">});</td></tr>
+<tr class="diffdeleted"><td class="diffline">6 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">7 </td><td class="diffpresent">chrome.tabs.onReplaced.addListener(function(tabId)<span class="dp">·</span>{<del>.</del></td><td class="diffline">6 </td><td class="diffpresent">chrome.tabs.onReplaced.addListener(function(tabId)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">8 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.update(tabId,<span class="dp">·</span>{<del>.</del></td><td class="diffline">7 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.update(tabId,<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">9 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>autoDiscardable:<span class="dp">·</span>false<del>.</del></td><td class="diffline">8 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>autoDiscardable:<span class="dp">·</span>false</td></tr>
+<tr class="diffchanged"><td class="diffline">10 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">9 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">11 </td><td class="diffpresent">});<del>.</del></td><td class="diffline">10 </td><td class="diffpresent">});</td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">13 </td><td class="diffpresent">chrome.runtime.onInstalled.addListener(function(details)<span class="dp">·</span>{<del>.</del></td><td class="diffline">11 </td><td class="diffpresent">chrome.runtime.onInstalled.addListener(function(details)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.query({},<span class="dp">·</span>function(tabs)<span class="dp">·</span>{<del>.</del></td><td class="diffline">12 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.query({},<span class="dp">·</span>function(tabs)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>tabs.forEach(function(tab)<span class="dp">·</span>{<del>.</del></td><td class="diffline">13 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>tabs.forEach(function(tab)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.update(tab.id,<span class="dp">·</span>{<del>.</del></td><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.update(tab.id,<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>autoDiscardable:<span class="dp">·</span>false<del>.</del></td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>autoDiscardable:<span class="dp">·</span>false</td></tr>
+<tr class="diffchanged"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">21 </td><td class="diffpresent">});<del>.</del></td><td class="diffline">19 </td><td class="diffpresent">});</td></tr>
+<tr class="diffdeleted"><td class="diffline">22 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">23 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">24 </td><td class="diffpresent">chrome.runtime.setUninstallURL(&quot;https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support&quot;);<del>.</del></td><td class="diffline">20 </td><td class="diffpresent">chrome.runtime.setUninstallURL(&quot;https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support&quot;);</td></tr>
+<tr class="diffdeleted"><td class="diffline">25 </td><td class="diffpresent"><em>\xd</em></td><td colspan="2"> </td></tr>
+<tr class="diffchanged"><td class="diffline">26 </td><td class="diffpresent">chrome.contextMenus.removeAll();<del>.</del></td><td class="diffline">21 </td><td class="diffpresent">chrome.contextMenus.removeAll();</td></tr>
+<tr class="diffchanged"><td class="diffline">27 </td><td class="diffpresent">chrome.contextMenus.create({<del>.</del></td><td class="diffline">22 </td><td class="diffpresent">chrome.contextMenus.create({</td></tr>
+<tr class="diffchanged"><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>id:<span class="dp">·</span>&quot;review&quot;,<del>.</del></td><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>id:<span class="dp">·</span>&quot;review&quot;,</td></tr>
+<tr class="diffchanged"><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>title:<span class="dp">·</span>&quot;🌟<span class="dp">·</span>&quot;<span class="dp">·</span>+<span class="dp">·</span>chrome.i18n.getMessage(&quot;cm_review&quot;),<del>.</del></td><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>title:<span class="dp">·</span>&quot;🌟<span class="dp">·</span>&quot;<span class="dp">·</span>+<span class="dp">·</span>chrome.i18n.getMessage(&quot;cm_review&quot;),</td></tr>
+<tr class="diffchanged"><td class="diffline">30 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>contexts:<span class="dp">·</span>[&quot;browser_action&quot;]<del>.</del></td><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>contexts:<span class="dp">·</span>[&quot;browser_action&quot;]</td></tr>
+<tr class="diffchanged"><td class="diffline">31 </td><td class="diffpresent">});<del>.</del></td><td class="diffline">26 </td><td class="diffpresent">});</td></tr>
+<tr class="diffchanged"><td class="diffline">32 </td><td class="diffpresent">chrome.contextMenus.create({<del>.</del></td><td class="diffline">27 </td><td class="diffpresent">chrome.contextMenus.create({</td></tr>
+<tr class="diffchanged"><td class="diffline">33 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>id:<span class="dp">·</span>&quot;support&quot;,<del>.</del></td><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>id:<span class="dp">·</span>&quot;support&quot;,</td></tr>
+<tr class="diffchanged"><td class="diffline">34 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>title:<span class="dp">·</span>&quot;💬<span class="dp">·</span>&quot;<span class="dp">·</span>+<span class="dp">·</span>chrome.i18n.getMessage(&quot;cm_support&quot;),<del>.</del></td><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>title:<span class="dp">·</span>&quot;💬<span class="dp">·</span>&quot;<span class="dp">·</span>+<span class="dp">·</span>chrome.i18n.getMessage(&quot;cm_support&quot;),</td></tr>
+<tr class="diffchanged"><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>contexts:<span class="dp">·</span>[&quot;browser_action&quot;]<del>.</del></td><td class="diffline">30 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>contexts:<span class="dp">·</span>[&quot;browser_action&quot;]</td></tr>
+<tr class="diffchanged"><td class="diffline">36 </td><td class="diffpresent">});<del>.</del></td><td class="diffline">31 </td><td class="diffpresent">});</td></tr>
+<tr class="diffchanged"><td class="diffline">37 </td><td class="diffpresent">chrome.contextMenus.onClicked.addListener(function(info,<span class="dp">·</span>tab)<span class="dp">·</span>{<del>.</del></td><td class="diffline">32 </td><td class="diffpresent">chrome.contextMenus.onClicked.addListener(function(info,<span class="dp">·</span>tab)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>switch<span class="dp">·</span>(info.menuItemId)<span class="dp">·</span>{<del>.</del></td><td class="diffline">33 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>switch<span class="dp">·</span>(info.menuItemId)<span class="dp">·</span>{</td></tr>
+<tr class="diffchanged"><td class="diffline">39 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>case<span class="dp">·</span>&quot;review&quot;:<del>.</del></td><td class="diffline">34 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>case<span class="dp">·</span>&quot;review&quot;:</td></tr>
+<tr class="diffchanged"><td class="diffline">40 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.create({<del>.</del></td><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.create({</td></tr>
+<tr class="diffchanged"><td class="diffline">41 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>url:<span class="dp">·</span>&quot;https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/reviews&quot;<del>.</del></td><td class="diffline">36 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>url:<span class="dp">·</span>&quot;https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/reviews&quot;</td></tr>
+<tr class="diffchanged"><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">37 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>break;<del>.</del></td><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>break;</td></tr>
+<tr class="diffchanged"><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>case<span class="dp">·</span>&quot;support&quot;:<del>.</del></td><td class="diffline">39 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>case<span class="dp">·</span>&quot;support&quot;:</td></tr>
+<tr class="diffchanged"><td class="diffline">45 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.create({<del>.</del></td><td class="diffline">40 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>chrome.tabs.create({</td></tr>
+<tr class="diffchanged"><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>url:<span class="dp">·</span>&quot;https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support&quot;<del>.</del></td><td class="diffline">41 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>url:<span class="dp">·</span>&quot;https://chrome.google.com/webstore/detail/dnhngfnfolbmhgealdpolmhimnoliiok/support&quot;</td></tr>
+<tr class="diffchanged"><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});<del>.</del></td><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>});</td></tr>
+<tr class="diffchanged"><td class="diffline">48 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>break;<del>.</del></td><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>break;</td></tr>
+<tr class="diffchanged"><td class="diffline">49 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}<del>.</del></td><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>}</td></tr>
+<tr class="diffunmodified"><td class="diffline">50 </td><td class="diffpresent">});</td><td class="diffline">45 </td><td class="diffpresent">});</td></tr>
+</table>    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">404 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/DoNotDiscard/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">298 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 14, 10 lines modified</td><td colspan="2">Offset 14, 9 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon.png&quot;</td><td class="diffline">14 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;48&quot;:<span class="dp">·</span>&quot;icon.png&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td></tr>
+<tr class="diffunmodified"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;__MSG_manifest_name__&quot;,</td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;__MSG_manifest_name__&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;contextMenus&quot;</td><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;contextMenus&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffdeleted"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;1.0.5&quot;</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;1.0.5&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent">}</td><td class="diffline">22 </td><td class="diffpresent">}</td></tr>
+</table>    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

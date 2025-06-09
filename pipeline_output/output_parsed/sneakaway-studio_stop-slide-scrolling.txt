@@ -1,0 +1,16 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension/assets
+  - files: js, libs
+  + files: js
+
+---/workspace/pipeline_output/chromex_data/assets/js/background.js <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension/assets/js/background.js; File type: js
+  - Original: 12–12
+  - Original: 22–22
+  + Modified: 12–14
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension/manifest.json; File type: json
+  - Original: 43–43 -> Update URL
+

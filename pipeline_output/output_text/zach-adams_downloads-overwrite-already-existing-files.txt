@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/downloads-overwrite-already-existing-files
+├── file list
+│ @@ -1,6 +1,7 @@
+│ -_metadata
+│ +.git
+│  bg.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/downloads-overwrite-already-existing-files/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -6,15 +6,15 @@
+│ │      "homepage_url": "https://github.com/zach-adams/downloads-overwrite-already-existing-files",
+│ │      "icons": {
+│ │          "128": "icon128.png",
+│ │          "16": "icon16.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │ +    "minimum_chrome_version": "26.0.1428",
+│ │      "name": "Downloads Overwrite Already Existing Files",
+│ │      "permissions": [
+│ │          "downloads"
+│ │      ],
+│ │      "short_name": "Downloads Overwrite Existing Files",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.0"
+│ │  }

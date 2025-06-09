@@ -1,0 +1,12 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/playwright-crx/tests/test-extension/public
+  - files: _metadata, background.js, background.js.map, codeMirrorModule.css, codeMirrorModule.js, codeMirrorModule.js.map, codicon.ttf, form.css, form.js, form.js.map, icon-16x16.png, icon-192x192.png, icon-32x32.png, icon-48x48.png, index.css, index.html, index.js, index.js.map, manifest.json, playwright-logo.svg, preferences.css, preferences.html, preferences.js, preferences.js.map, settings.js, settings.js.map
+  + files: manifest.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/playwright-crx/tests/test-extension/public/manifest.json; File type: json
+  - Original: 2–8
+  - Original: 13–32
+  - Original: 34–38
+  - Original: 41–44
+  - Original: 46–49
+  + Modified: 7–10
+

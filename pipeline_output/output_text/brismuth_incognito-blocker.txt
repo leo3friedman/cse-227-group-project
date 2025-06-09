@@ -1,0 +1,23 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/incognito-blocker/src
+├── file list
+│ @@ -1,5 +1,4 @@
+│ -_metadata
+│  background.js
+│  icon.png
+│  icon48.png
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/incognito-blocker/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -9,10 +9,9 @@
+│ │      "description": "Blocks incognito tabs.",
+│ │      "icons": {
+│ │          "128": "icon.png",
+│ │          "48": "icon48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Incognito Blocker",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1"
+│ │  }

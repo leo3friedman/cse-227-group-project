@@ -1,0 +1,33 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/PDF-Translator
+├── file list
+│ @@ -1,13 +1,14 @@
+│ +.git
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  content.js
+│  description.html
+│  img
+│  inject.js
+│  manifest.json
+│  option.html
+│  option.js
+│ +package-lock.json
+│  panel.css
+│  pdf.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/PDF-Translator/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -38,10 +38,9 @@
+│ │          "webNavigation",
+│ │          "webRequest",
+│ │          "<all_urls>",
+│ │          "webRequestBlocking",
+│ │          "file:///*/*",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.5.0"
+│ │  }

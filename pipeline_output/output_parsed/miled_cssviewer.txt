@@ -1,0 +1,32 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/cssviewer
+  - files: _metadata, option.html
+  + files: .editorconfig, .git, option.html, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/cssviewer/README.md; File type: md
+  - Original: 1–2
+  - Original: 9–9
+  + Modified: 1–2
+  - Original: 19–19
+  - Original: 25–25
+  - Original: 27–27
+  - Original: 30–32
+  - Original: 35–35
+  + Modified: 24–38
+
+---/workspace/pipeline_output/chromex_data/css/cssviewer.css <-> +++/workspace/pipeline_output/cssviewer/css/cssviewer.css; File type: css
+  - Original: 56–56
+  - Original: 59–59
+  - Original: 61–62
+  + Modified: 56–61
+
+---/workspace/pipeline_output/chromex_data/js/cssviewer.js <-> +++/workspace/pipeline_output/cssviewer/js/cssviewer.js; File type: js
+  - Original: 850–851
+  + Modified: 849–853
+  - Original: 903–903
+  - Original: 906–906
+  + Modified: 905–908
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/cssviewer/manifest.json; File type: json
+  + Modified: 9–18
+  - Original: 27–27 -> Update URL
+

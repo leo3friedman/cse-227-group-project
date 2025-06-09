@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/sabconnectplusplus
+  - files: _metadata
+  + files: .git, .gitmodules, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/sabconnectplusplus/manifest.json; File type: json
+  - Original: 180–180 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/third_party/fancy-settings <-> +++/workspace/pipeline_output/sabconnectplusplus/third_party/fancy-settings
+  - files: CHANGELOG.md, LICENSE.txt, README.md, css, custom.css, default.manifest.js, default.settings.js, i18n.js, icon.png, index.html, js, lib, resources
+  + files: 
+

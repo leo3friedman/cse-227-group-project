@@ -1,0 +1,627 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay
+├── file list
+│ @@ -1,20 +1,8 @@
+│ -AUTHORS
+│ -COPYING
+│ -_locales
+│ -_metadata
+│ -css
+│ -img
+│  indexedDB.js
+│ -js
+│ -lib
+│  localstorage-polyfill.js
+│  log.js
+│  manifest-firefox.json
+│  manifest.json
+│ -options.html
+│ -partials
+│ -popup
+│  popup-iframe.html
+│  popup-iframe.js
+│ -popup.html
+│  x-background.js
+│   --- /workspace/pipeline_output/chromex_data/indexedDB.js
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/indexedDB.js
+│ ├── js-beautify {}
+│ │ @@ -6,36 +6,62 @@
+│ │  import FDBIndex from "./lib/fake-indexeddb/FDBIndex.js";
+│ │  import FDBKeyRange from "./lib/fake-indexeddb/FDBKeyRange.js";
+│ │  import FDBObjectStore from "./lib/fake-indexeddb/FDBObjectStore.js";
+│ │  import FDBOpenDBRequest from "./lib/fake-indexeddb/FDBOpenDBRequest.js";
+│ │  import FDBRequest from "./lib/fake-indexeddb/FDBRequest.js";
+│ │  import FDBTransaction from "./lib/fake-indexeddb/FDBTransaction.js";
+│ │  import FDBVersionChangeEvent from "./lib/fake-indexeddb/FDBVersionChangeEvent.js";
+│ │ +
+│ │ +
+│ │ +/**
+│ │ + * author: suziwen1@gmail.com
+│ │ + **/
+│ │  const ZeroIndexedDBFactory = () => {
+│ │ -    var globalVar = "undefined" != typeof window ? window : "undefined" != typeof WorkerGlobalScope ? self : "undefined" != typeof global ? global : Function("return this;")();
+│ │ -    Object.defineProperty(globalVar, "indexedDB", {
+│ │ +    var globalVar =
+│ │ +        typeof window !== "undefined" ?
+│ │ +        window :
+│ │ +        typeof WorkerGlobalScope !== "undefined" ?
+│ │ +        self :
+│ │ +        typeof global !== "undefined" ?
+│ │ +        global :
+│ │ +        Function("return this;")();
+│ │ +
+│ │ +    Object.defineProperty(globalVar, 'indexedDB', {
+│ │          value: fakeIndexedDB
+│ │ -    }), Object.defineProperty(globalVar, "IDBCursor", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBCursor', {
+│ │          value: FDBCursor
+│ │ -    }), Object.defineProperty(globalVar, "IDBCursorWithValue", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBCursorWithValue', {
+│ │          value: FDBCursorWithValue
+│ │ -    }), Object.defineProperty(globalVar, "IDBDatabase", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBDatabase', {
+│ │          value: FDBDatabase
+│ │ -    }), Object.defineProperty(globalVar, "IDBFactory", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBFactory', {
+│ │          value: FDBFactory
+│ │ -    }), Object.defineProperty(globalVar, "IDBIndex", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBIndex', {
+│ │          value: FDBIndex
+│ │ -    }), Object.defineProperty(globalVar, "IDBKeyRange", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBKeyRange', {
+│ │          value: FDBKeyRange
+│ │ -    }), Object.defineProperty(globalVar, "IDBObjectStore", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBObjectStore', {
+│ │          value: FDBObjectStore
+│ │ -    }), Object.defineProperty(globalVar, "IDBOpenDBRequest", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBOpenDBRequest', {
+│ │          value: FDBOpenDBRequest
+│ │ -    }), Object.defineProperty(globalVar, "IDBRequest", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBRequest', {
+│ │          value: FDBRequest
+│ │ -    }), Object.defineProperty(globalVar, "IDBTransaction", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBTransaction', {
+│ │          value: FDBTransaction
+│ │ -    }), Object.defineProperty(globalVar, "IDBVersionChangeEvent", {
+│ │ +    });
+│ │ +    Object.defineProperty(globalVar, 'IDBVersionChangeEvent', {
+│ │          value: FDBVersionChangeEvent
+│ │ -    })
+│ │ -};
+│ │ -export default ZeroIndexedDBFactory;
+│ │ +    });
+│ │ +
+│ │ +}
+│ │ +
+│ │ +export default ZeroIndexedDBFactory
+│   --- /workspace/pipeline_output/chromex_data/localstorage-polyfill.js
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/localstorage-polyfill.js
+│ ├── js-beautify {}
+│ │ @@ -1,40 +1,67 @@
+│ │ -"use strict";
+│ │ -let valuesMap = new Map;
+│ │ +'use strict'
+│ │ +/**
+│ │ + * author: suziwen1@gmail.com
+│ │ + **/
+│ │ +let valuesMap = new Map()
+│ │ +
+│ │  class LocalStorage {
+│ │      getItem(key) {
+│ │ -        const stringKey = String(key);
+│ │ -        return valuesMap.has(key) ? String(valuesMap.get(stringKey)) : null
+│ │ +        const stringKey = String(key)
+│ │ +        if (valuesMap.has(key)) {
+│ │ +            return String(valuesMap.get(stringKey))
+│ │ +        }
+│ │ +        return null
+│ │      }
+│ │ +
+│ │      setItem(key, val) {
+│ │          valuesMap.set(String(key), String(val))
+│ │      }
+│ │ +
+│ │      removeItem(key) {
+│ │          valuesMap.delete(key)
+│ │      }
+│ │ +
+│ │      clear() {
+│ │          valuesMap.clear()
+│ │      }
+│ │ +
+│ │      key(i) {
+│ │ -        if (0 === arguments.length) throw new TypeError("Failed to execute 'key' on 'Storage': 1 argument required, but only 0 present.");
+│ │ -        return Array.from(valuesMap.keys())[i]
+│ │ +        if (arguments.length === 0) {
+│ │ +            throw new TypeError("Failed to execute 'key' on 'Storage': 1 argument required, but only 0 present.") // this is a TypeError implemented on Chrome, Firefox throws Not enough arguments to Storage.key.
+│ │ +        }
+│ │ +        var arr = Array.from(valuesMap.keys())
+│ │ +        return arr[i]
+│ │      }
+│ │ +
+│ │      get length() {
+│ │          return valuesMap.size
+│ │      }
+│ │      initValuesMap(_valuesMap) {
+│ │          valuesMap = new Map(Object.entries(_valuesMap || {}))
+│ │      }
+│ │      getValuesMap() {
+│ │ -        return Object.fromEntries(valuesMap)
+│ │ +        return Object.fromEntries(valuesMap);
+│ │      }
+│ │  }
+│ │ -const instance = new LocalStorage,
+│ │ -    zeroLocalStorage = new Proxy(instance, {
+│ │ -        set: function(obj, prop, value) {
+│ │ -            return LocalStorage.prototype.hasOwnProperty(prop) ? instance[prop] = value : instance.setItem(prop, value), !0
+│ │ -        },
+│ │ -        get: function(target, name) {
+│ │ -            return LocalStorage.prototype.hasOwnProperty(name) ? instance[name] : valuesMap.has(name) ? instance.getItem(name) : void 0
+│ │ +const instance = new LocalStorage()
+│ │ +
+│ │ +const zeroLocalStorage = new Proxy(instance, {
+│ │ +    set: function(obj, prop, value) {
+│ │ +        if (LocalStorage.prototype.hasOwnProperty(prop)) {
+│ │ +            instance[prop] = value
+│ │ +        } else {
+│ │ +            instance.setItem(prop, value)
+│ │ +        }
+│ │ +        return true
+│ │ +    },
+│ │ +    get: function(target, name) {
+│ │ +        if (LocalStorage.prototype.hasOwnProperty(name)) {
+│ │ +            return instance[name]
+│ │          }
+│ │ -    });
+│ │ -export default zeroLocalStorage;
+│ │ +        if (valuesMap.has(name)) {
+│ │ +            return instance.getItem(name)
+│ │ +        }
+│ │ +    }
+│ │ +})
+│ │ +
+│ │ +export default zeroLocalStorage
+│   --- /workspace/pipeline_output/chromex_data/log.js
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/log.js
+│ ├── js-beautify {}
+│ │ @@ -1,79 +1,126 @@
+│ │  const ZeroLogFactory = () => {
+│ │ -    const logStore = idbKeyval.createStore("log-store", "log-store"),
+│ │ -        logSequence = [];
+│ │ -    let isRunning = !1,
+│ │ -        splitStr = "\n----Z-e-r-o-O-m-e-g-a--------------\n";
+│ │ -    const originConsoleLog = console.log,
+│ │ -        originConsoleError = console.error,
+│ │ -        _logFn = async function() {
+│ │ -            if (isRunning) return;
+│ │ -            isRunning = !0;
+│ │ -            const _moment = moment(),
+│ │ -                dayOfWeek = _moment.format("E"),
+│ │ -                logKey = (_moment.format("DD"), "zerolog-" + dayOfWeek);
+│ │ -            for (; logSequence.length > 0;) {
+│ │ -                const str = logSequence.join("\n");
+│ │ -                logSequence.length = 0;
+│ │ -                let logInfo = await idbKeyval.get(logKey, logStore),
+│ │ -                    date = _moment.format("YYYY-MM-DD");
+│ │ -                logInfo && logInfo.date || (logInfo = {
+│ │ +    const logStore = idbKeyval.createStore('log-store', 'log-store');
+│ │ +
+│ │ +    const logSequence = []
+│ │ +    let isRunning = false
+│ │ +    let splitStr = '\n----Z-e-r-o-O-m-e-g-a--------------\n'
+│ │ +
+│ │ +    const originConsoleLog = console.log
+│ │ +    const originConsoleError = console.error
+│ │ +
+│ │ +    const _logFn = async function() {
+│ │ +        if (isRunning) return
+│ │ +        isRunning = true
+│ │ +        const _moment = moment()
+│ │ +
+│ │ +        const dayOfWeek = _moment.format('E') // Day of Week (ISO),  keep logs max 7 day
+│ │ +        const monthNum = _moment.format('DD')
+│ │ +        const logKey = 'zerolog-' + dayOfWeek
+│ │ +        while (logSequence.length > 0) {
+│ │ +            const str = logSequence.join('\n');
+│ │ +            logSequence.length = 0;
+│ │ +            let logInfo = await idbKeyval.get(logKey, logStore)
+│ │ +            let date = _moment.format('YYYY-MM-DD')
+│ │ +            if (!logInfo || !logInfo.date) {
+│ │ +                logInfo = {
+│ │                      date: date,
+│ │ -                    val: ""
+│ │ -                });
+│ │ -                let {
+│ │ -                    val: val
+│ │ -                } = logInfo;
+│ │ -                logInfo.date != date && (val = ""), val += splitStr, splitStr = "\n", val += str, await idbKeyval.set(logKey, {
+│ │ -                    date: date,
+│ │ -                    val: val
+│ │ -                }, logStore)
+│ │ +                    val: ''
+│ │ +                }
+│ │              }
+│ │ -            isRunning = !1
+│ │ -        }, logFn = str => {
+│ │ -            logSequence.push(moment().format("YYYY-MM-DD HH:mm:ss   ") + " " + str), _logFn()
+│ │ -        }, replacerFn = (key, value) => {
+│ │ -            switch (key) {
+│ │ -                case "username":
+│ │ -                case "password":
+│ │ -                case "host":
+│ │ -                case "port":
+│ │ -                case "token":
+│ │ -                case "gistToken":
+│ │ -                case "gistId":
+│ │ -                    return "<secret>";
+│ │ -                default:
+│ │ -                    return value
+│ │ +            let {
+│ │ +                val
+│ │ +            } = logInfo
+│ │ +            if (logInfo.date != date) {
+│ │ +                val = ''
+│ │              }
+│ │ -        }, getStr = function() {
+│ │ -            return [...arguments].map((obj => {
+│ │ -                let str = "";
+│ │ -                try {
+│ │ -                    str = "string" == typeof obj ? obj : JSON.stringify(obj, replacerFn, 4)
+│ │ -                } catch (e) {
+│ │ -                    try {
+│ │ -                        str = obj.toString()
+│ │ -                    } catch (e) {}
+│ │ +            val += splitStr
+│ │ +            splitStr = `\n`
+│ │ +            val += str
+│ │ +            await idbKeyval.set(logKey, {
+│ │ +                date,
+│ │ +                val
+│ │ +            }, logStore)
+│ │ +        }
+│ │ +        isRunning = false
+│ │ +    }
+│ │ +
+│ │ +
+│ │ +    const logFn = (str) => {
+│ │ +        logSequence.push(moment().format('YYYY-MM-DD HH:mm:ss   ') + ` ` + str)
+│ │ +        _logFn()
+│ │ +    }
+│ │ +
+│ │ +    const replacerFn = (key, value) => {
+│ │ +        switch (key) {
+│ │ +            case 'username':
+│ │ +            case 'password':
+│ │ +            case 'host':
+│ │ +            case 'port':
+│ │ +            case 'token':
+│ │ +            case 'gistToken':
+│ │ +            case 'gistId':
+│ │ +                return '<secret>'
+│ │ +            default:
+│ │ +                return value
+│ │ +        }
+│ │ +    }
+│ │ +
+│ │ +    const getStr = function() {
+│ │ +        const strArgs = [...arguments].map((obj) => {
+│ │ +            let str = '';
+│ │ +            try {
+│ │ +                if (typeof obj == 'string') {
+│ │ +                    str = obj
+│ │ +                } else {
+│ │ +                    str = JSON.stringify(obj, replacerFn, 4)
+│ │                  }
+│ │ -                return str
+│ │ -            })).join(" ")
+│ │ -        }, ZeroLog = function() {
+│ │ -            logFn(getStr.apply(null, arguments))
+│ │ -        }, _lastErrorLogFn = async () => {
+│ │ -            if (!_lastErrorLogFn.isRunning) {
+│ │ -                for (_lastErrorLogFn.isRunning = !0; _lastErrorLogFn.val;) {
+│ │ -                    const val = _lastErrorLogFn.val;
+│ │ -                    _lastErrorLogFn.val = "", await idbKeyval.set("lastError", val, logStore)
+│ │ -                }
+│ │ -                _lastErrorLogFn.isRunning = !1
+│ │ +            } catch (e) {
+│ │ +                try {
+│ │ +                    str = obj.toString()
+│ │ +                } catch (e) {}
+│ │              }
+│ │ -        }, lastErrorLogFn = async function() {
+│ │ -            const val = getStr.apply(null, arguments);
+│ │ -            _lastErrorLogFn.val = val, _lastErrorLogFn()
+│ │ -        }, ZeroLogInfo = function() {
+│ │ -            originConsoleLog.apply(null, arguments), ZeroLog.apply(null, ["[INFO]", ...arguments])
+│ │ -        }, ZeroLogError = function() {
+│ │ -            originConsoleError.apply(null, arguments), ZeroLog.apply(null, ["[ERROR]", ...arguments]), lastErrorLogFn.apply(null, arguments)
+│ │ -        };
+│ │ -    console.log = ZeroLogInfo, console.error = ZeroLogError
+│ │ -};
+│ │ -export default ZeroLogFactory;
+│ │ +            return str
+│ │ +        })
+│ │ +        return strArgs.join(' ')
+│ │ +    }
+│ │ +
+│ │ +    const ZeroLog = function() {
+│ │ +        logFn(getStr.apply(null, arguments))
+│ │ +    }
+│ │ +
+│ │ +    const _lastErrorLogFn = async () => {
+│ │ +        if (_lastErrorLogFn.isRunning) return
+│ │ +        _lastErrorLogFn.isRunning = true
+│ │ +        while (_lastErrorLogFn.val) {
+│ │ +            const val = _lastErrorLogFn.val
+│ │ +            _lastErrorLogFn.val = ''
+│ │ +            await idbKeyval.set('lastError', val, logStore)
+│ │ +        }
+│ │ +        _lastErrorLogFn.isRunning = false
+│ │ +    }
+│ │ +
+│ │ +    const lastErrorLogFn = async function() {
+│ │ +        const val = getStr.apply(null, arguments)
+│ │ +        _lastErrorLogFn.val = val
+│ │ +        _lastErrorLogFn()
+│ │ +    }
+│ │ +
+│ │ +    const ZeroLogInfo = function() {
+│ │ +        originConsoleLog.apply(null, arguments)
+│ │ +        ZeroLog.apply(null, ['[INFO]', ...arguments])
+│ │ +    }
+│ │ +    const ZeroLogError = function() {
+│ │ +        originConsoleError.apply(null, arguments)
+│ │ +        ZeroLog.apply(null, ['[ERROR]', ...arguments])
+│ │ +        lastErrorLogFn.apply(null, arguments)
+│ │ +    }
+│ │ +
+│ │ +    const ZeroLogClear = async function() {
+│ │ +        await idbKeyval.clear(logStore)
+│ │ +    }
+│ │ +
+│ │ +    console.log = ZeroLogInfo
+│ │ +    console.error = ZeroLogError
+│ │ +}
+│ │ +
+│ │ +export default ZeroLogFactory
+│   --- /workspace/pipeline_output/chromex_data/manifest-firefox.json
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/manifest-firefox.json
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ @@ -1,35 +1,44 @@
+│ -7b226d616e69666573745f76657273696f6e223a332c226e616d65223a225072
+│ -6f787920537769746368794f6d656761203320285a65726f4f6d65676129222c
+│ -2276657273696f6e223a22332e342e30222c226465736372697074696f6e223a
+│ -225f5f4d53475f6d616e69666573745f6170705f6465736372697074696f6e5f
+│ -5f222c2269636f6e73223a7b223136223a22696d672f69636f6e732f6f6d6567
+│ -612d616374696f6e2d31362e706e67222c223234223a22696d672f69636f6e73
+│ -2f6f6d6567612d616374696f6e2d32342e706e67222c223332223a22696d672f
+│ -69636f6e732f6f6d6567612d616374696f6e2d33322e706e67222c223438223a
+│ -22696d672f69636f6e732f6f6d6567612d34382e706e67222c223634223a2269
+│ -6d672f69636f6e732f6f6d6567612d36342e706e67222c22313238223a22696d
+│ -672f69636f6e732f6f6d6567612d3132382e706e67227d2c2264656661756c74
+│ -5f6c6f63616c65223a22656e222c22616374696f6e223a7b2264656661756c74
+│ -5f69636f6e223a7b223136223a22696d672f69636f6e732f6f6d6567612d6163
+│ -74696f6e2d31362e706e67222c223139223a22696d672f69636f6e732f6f6d65
+│ -67612d616374696f6e2d31392e706e67222c223234223a22696d672f69636f6e
+│ -732f6f6d6567612d616374696f6e2d32342e706e67222c223332223a22696d67
+│ -2f69636f6e732f6f6d6567612d616374696f6e2d33322e706e67227d2c226465
+│ -6661756c745f7469746c65223a225f5f4d53475f6d616e69666573745f69636f
+│ -6e5f64656661756c745f7469746c655f5f222c2264656661756c745f706f7075
+│ -70223a22706f7075702f696e6465782e68746d6c227d2c226261636b67726f75
+│ -6e64223a7b2273637269707473223a5b22782d6261636b67726f756e642e6a73
+│ -225d2c2274797065223a226d6f64756c65227d2c226d696e696d756d5f636872
+│ -6f6d655f76657273696f6e223a223838222c226f7074696f6e735f7569223a7b
+│ -2270616765223a226f7074696f6e732e68746d6c222c2262726f777365725f73
+│ -74796c65223a66616c73652c226f70656e5f696e5f746162223a747275657d2c
+│ -22636f6d6d616e6473223a7b225f657865637574655f616374696f6e223a7b22
+│ -7375676765737465645f6b6579223a7b2264656661756c74223a22416c742b53
+│ -686966742b4f227d7d7d2c227065726d697373696f6e73223a5b2270726f7879
+│ -222c2274616273222c22616c61726d73222c2273746f72616765222c22776562
+│ -52657175657374222c2277656252657175657374426c6f636b696e67222c2263
+│ -6f6e746578744d656e7573225d2c22686f73745f7065726d697373696f6e7322
+│ -3a5b223c616c6c5f75726c733e225d2c2262726f777365725f73706563696669
+│ -635f73657474696e6773223a7b226765636b6f223a7b226964223a2273757a69
+│ -77656e3140676d61696c2e636f6d222c227374726963745f6d696e5f76657273
+│ -696f6e223a223131322e30227d7d7d
+│ +7b0a2020226d616e69666573745f76657273696f6e223a20332c0a2020226e61
+│ +6d65223a202250726f787920537769746368794f6d656761203320285a65726f
+│ +4f6d65676129222c0a20202276657273696f6e223a2022332e342e30222c0a20
+│ +20226465736372697074696f6e223a20225f5f4d53475f6d616e69666573745f
+│ +6170705f6465736372697074696f6e5f5f222c0a20202269636f6e73223a207b
+│ +0a20202020223136223a2022696d672f69636f6e732f6f6d6567612d61637469
+│ +6f6e2d31362e706e67222c0a20202020223234223a2022696d672f69636f6e73
+│ +2f6f6d6567612d616374696f6e2d32342e706e67222c0a20202020223332223a
+│ +2022696d672f69636f6e732f6f6d6567612d616374696f6e2d33322e706e6722
+│ +2c0a20202020223438223a2022696d672f69636f6e732f6f6d6567612d34382e
+│ +706e67222c0a20202020223634223a2022696d672f69636f6e732f6f6d656761
+│ +2d36342e706e67222c0a2020202022313238223a2022696d672f69636f6e732f
+│ +6f6d6567612d3132382e706e67220a20207d2c0a20202264656661756c745f6c
+│ +6f63616c65223a2022656e222c0a202022616374696f6e223a207b0a20202020
+│ +2264656661756c745f69636f6e223a207b0a202020202020223136223a202269
+│ +6d672f69636f6e732f6f6d6567612d616374696f6e2d31362e706e67222c0a20
+│ +2020202020223139223a2022696d672f69636f6e732f6f6d6567612d61637469
+│ +6f6e2d31392e706e67222c0a202020202020223234223a2022696d672f69636f
+│ +6e732f6f6d6567612d616374696f6e2d32342e706e67222c0a20202020202022
+│ +3332223a2022696d672f69636f6e732f6f6d6567612d616374696f6e2d33322e
+│ +706e67220a202020207d2c0a202020202264656661756c745f7469746c65223a
+│ +20225f5f4d53475f6d616e69666573745f69636f6e5f64656661756c745f7469
+│ +746c655f5f222c0a202020202264656661756c745f706f707570223a2022706f
+│ +7075702f696e6465782e68746d6c220a20207d2c0a2020226261636b67726f75
+│ +6e64223a207b0a202020202273637269707473223a205b22782d6261636b6772
+│ +6f756e642e6a73225d2c0a202020202274797065223a20226d6f64756c65220a
+│ +20207d2c0a2020226d696e696d756d5f6368726f6d655f76657273696f6e223a
+│ +20223838222c0a2020226f7074696f6e735f7569223a207b0a20202020227061
+│ +6765223a20226f7074696f6e732e68746d6c222c0a202020202262726f777365
+│ +725f7374796c65223a2066616c73652c0a20202020226f70656e5f696e5f7461
+│ +62223a20747275650a20207d2c0a202022636f6d6d616e6473223a207b0a2020
+│ +2020225f657865637574655f616374696f6e223a207b20227375676765737465
+│ +645f6b6579223a207b202264656661756c74223a2022416c742b53686966742b
+│ +4f22207d207d0a20207d2c0a2020227065726d697373696f6e73223a205b0a20
+│ +2020202270726f7879222c0a202020202274616273222c0a2020202022616c61
+│ +726d73222c0a202020202273746f72616765222c0a2020202022776562526571
+│ +75657374222c0a202020202277656252657175657374426c6f636b696e67222c
+│ +0a2020202022636f6e746578744d656e7573220a20205d2c0a202022686f7374
+│ +5f7065726d697373696f6e73223a205b223c616c6c5f75726c733e225d2c0a20
+│ +202262726f777365725f73706563696669635f73657474696e6773223a207b0a
+│ +20202020226765636b6f223a207b0a202020202020226964223a202273757a69
+│ +77656e3140676d61696c2e636f6d222c0a202020202020227374726963745f6d
+│ +696e5f76657273696f6e223a20223131322e30220a202020207d0a20207d0a7d
+│ +0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,10 +47,9 @@
+│ │          "tabs",
+│ │          "alarms",
+│ │          "storage",
+│ │          "webRequest",
+│ │          "webRequestAuthProvider",
+│ │          "contextMenus"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.4.0"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup-iframe.js
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/popup-iframe.js
+│ ├── js-beautify {}
+│ │ @@ -1,9 +1,13 @@
+│ │ -document.location.href = "./popup/index.html", $script("js/omega_target_popup.js", "om-target", (function() {
+│ │ -    $script("popup/js/style.js", "om-style"), iFrameResize({
+│ │ -        sizeWidth: !0,
+│ │ -        autoResize: !0,
+│ │ -        resizeFrom: "child",
+│ │ -        heightCalculationMethod: "bodyScroll",
+│ │ -        widthCalculationMethod: "bodyOffset"
+│ │ -    }, "#myIframe")
+│ │ -}));
+│ │ +document.location.href = './popup/index.html'
+│ │ +// arc browser can't use location.href to change.
+│ │ +// https://github.com/suziwen/ZeroOmega/issues/4
+│ │ +$script('js/omega_target_popup.js', 'om-target', function() {
+│ │ +    $script('popup/js/style.js', 'om-style')
+│ │ +    iFrameResize({
+│ │ +        sizeWidth: true,
+│ │ +        autoResize: true,
+│ │ +        resizeFrom: 'child',
+│ │ +        heightCalculationMethod: 'bodyScroll',
+│ │ +        widthCalculationMethod: 'bodyOffset'
+│ │ +    }, '#myIframe')
+│ │ +})
+│   --- /workspace/pipeline_output/chromex_data/x-background.js
+├── +++ /workspace/pipeline_output/ZeroOmega/omega-target-chromium-extension/overlay/x-background.js
+│ ├── js-beautify {}
+│ │ @@ -1,31 +1,76 @@
+│ │ -import zeroLocalStorage from "./localstorage-polyfill.js";
+│ │ -import ZeroLogFactory from "./log.js";
+│ │ -import ZeroIndexedDBFactory from "./indexedDB.js";
+│ │ -import "./lib/compare-versions.js";
+│ │ -import "./js/background_preload.js";
+│ │ -import "./lib/idb-keyval.js";
+│ │ -import "./lib/moment-with-locales.js";
+│ │ -import "./lib/csso.js";
+│ │ -import "./js/log_error.js";
+│ │ -import "./js/omega_debug.js";
+│ │ -import "./js/omega_pac.min.js";
+│ │ -import "./js/omega_target.min.js";
+│ │ -import "./js/omega_target_chromium_extension.min.js";
+│ │ -import "./img/icons/draw_omega.js";
+│ │ -import "./js/background.js";
+│ │ -const isFirefox = !!globalThis.localStorage,
+│ │ -    zcb = globalThis.zeroDetectModeCB;
+│ │ +import zeroLocalStorage from "./localstorage-polyfill.js"
+│ │ +import ZeroLogFactory from './log.js'
+│ │ +import ZeroIndexedDBFactory from './indexedDB.js'
+│ │ +
+│ │ +import "./lib/compare-versions.js"
+│ │ +import "./js/background_preload.js"
+│ │ +import "./lib/idb-keyval.js"
+│ │ +import "./lib/moment-with-locales.js"
+│ │ +import "./lib/csso.js"
+│ │ +import "./js/log_error.js"
+│ │ +//import "./log.js"
+│ │ +//import "./lib/FileSaver/FileSaver.min.js"
+│ │ +import "./js/omega_debug.js"
+│ │ +import "./js/omega_pac.min.js"
+│ │ +import "./js/omega_target.min.js"
+│ │ +import "./js/omega_target_chromium_extension.min.js"
+│ │ +import "./img/icons/draw_omega.js"
+│ │ +import "./js/background.js" // zeroBackground
+│ │ +
+│ │ +/**
+│ │ + * author: suziwen1@gmail.com
+│ │ + **/
+│ │ +
+│ │ +const isFirefox = !!globalThis.localStorage
+│ │ +const zcb = globalThis.zeroDetectModeCB
+│ │ +
+│ │ +globalThis.POPUPHTMLURL = './popup-iframe.html'
+│ │ +//if android, (eg. edge canary for android), use default popup/index.html
+│ │ +//https://github.com/zero-peak/ZeroOmega/issues/93
+│ │ +if (globalThis.navigator && /Android/i.test(globalThis.navigator.userAgent)) {
+│ │ +    globalThis.POPUPHTMLURL = './popup/index.html'
+│ │ +}
+│ │ +
+│ │ +// keepAlive
+│ │ +setInterval(chrome.runtime.getPlatformInfo, 25 * 1000) //https://developer.chrome.com/docs/extensions/develop/migrate/to-service-workers
+│ │  
+│ │  function detectPrivateMode(cb) {
+│ │      var db, tempMode, on, off;
+│ │ -    zcb ? (on = zcb(cb, !0), off = zcb(cb, !1)) : (on = () => {
+│ │ -        setTimeout(cb.bind(null, !0), 1)
+│ │ -    }, off = () => {
+│ │ -        setTimeout(cb.bind(null, !1), 1)
+│ │ -    }), isFirefox ? (tempMode = localStorage.getItem("zeroOmega.isPrivateMode")) ? "true" == tempMode ? on() : off() : ((db = indexedDB.open("zeroOmega-test")).onerror = on, db.onsuccess = off) : off()
+│ │ +    if (zcb) {
+│ │ +        on = zcb(cb, true);
+│ │ +        off = zcb(cb, false);
+│ │ +    } else {
+│ │ +        on = () => {
+│ │ +            setTimeout(cb.bind(null, true), 1)
+│ │ +        };
+│ │ +        off = () => {
+│ │ +            setTimeout(cb.bind(null, false), 1)
+│ │ +        };
+│ │ +    }
+│ │ +    if (isFirefox) {
+│ │ +        // in private mode, localStorage will be erased when browser restart
+│ │ +        tempMode = localStorage.getItem('zeroOmega.isPrivateMode')
+│ │ +        if (tempMode) {
+│ │ +            tempMode == 'true' ? on() : off()
+│ │ +        } else {
+│ │ +            db = indexedDB.open("zeroOmega-test"), db.onerror = on, db.onsuccess = off
+│ │ +        }
+│ │ +    } else {
+│ │ +        off()
+│ │ +    }
+│ │  }
+│ │ -globalThis.POPUPHTMLURL = "./popup-iframe.html", globalThis.navigator && /Android/i.test(globalThis.navigator.userAgent) && (globalThis.POPUPHTMLURL = "./popup/index.html"), setInterval(chrome.runtime.getPlatformInfo, 25e3), detectPrivateMode((function(isPrivateMode) {
+│ │ -    isFirefox && localStorage.setItem("zeroOmega.isPrivateMode", isPrivateMode ? "true" : "false"), isPrivateMode && isFirefox && ZeroIndexedDBFactory(), ZeroLogFactory();
+│ │ -    const zeroStorage = isFirefox ? localStorage : zeroLocalStorage;
+│ │ -    globalThis.zeroBackground(zeroStorage), console.log("is private mode: " + isPrivateMode)
+│ │ -}));
+│ │ +
+│ │ +detectPrivateMode(function(isPrivateMode) {
+│ │ +    if (isFirefox) {
+│ │ +        localStorage.setItem('zeroOmega.isPrivateMode', isPrivateMode ? 'true' : 'false')
+│ │ +    }
+│ │ +
+│ │ +    if (isPrivateMode && isFirefox) {
+│ │ +        // fake indexedDB
+│ │ +        ZeroIndexedDBFactory()
+│ │ +    }
+│ │ +    ZeroLogFactory()
+│ │ +    const zeroStorage = isFirefox ? localStorage : zeroLocalStorage
+│ │ +    globalThis.zeroBackground(zeroStorage)
+│ │ +    console.log('is private mode: ' + isPrivateMode)
+│ │ +})

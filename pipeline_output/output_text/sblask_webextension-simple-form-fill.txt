@@ -1,0 +1,72 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/webextension-simple-form-fill
+├── file list
+│ @@ -1,16 +1,27 @@
+│ +.agignore
+│ +.editorconfig
+│ +.eslintignore
+│ +.eslintrc.json
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.npmrc
+│ +.travis.yml
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│  browser-polyfill.js
+│  content-scripts
+│  icon-128x128.png
+│  icon-16x16.png
+│  icon-32x32.png
+│  icon-48x48.png
+│  icon-64x64.png
+│  icon.svg
+│  manifest.json
+│ +node_modules
+│  options
+│ +package.json
+│ +screenshots
+│  test-util.js
+│  util.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/webextension-simple-form-fill/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,18 +1,25 @@
+│ │  {
+│ │ +    "applications": {
+│ │ +        "gecko": {
+│ │ +            "id": "simpleformfill@sblask",
+│ │ +            "strict_min_version": "57.0"
+│ │ +        }
+│ │ +    },
+│ │      "author": "Sebastian Blask",
+│ │      "background": {
+│ │          "scripts": [
+│ │              "browser-polyfill.js",
+│ │              "util.js",
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │      "browser_action": {
+│ │          "browser_style": false,
+│ │ +        "default_icon": "icon.svg",
+│ │          "default_popup": "options/options.html",
+│ │          "default_title": "Simple Form Fill"
+│ │      },
+│ │      "description": "Enter text into input fields by choosing items from the context menu or using the optional autocomplete.",
+│ │      "homepage_url": "https://github.com/sblask/webextension-simple-form-fill",
+│ │      "icons": {
+│ │          "128": "icon-128x128.png",
+│ │ @@ -27,10 +34,9 @@
+│ │          "page": "options/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "<all_urls>",
+│ │          "contextMenus",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2.1"
+│ │  }

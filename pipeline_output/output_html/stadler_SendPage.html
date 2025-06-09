@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/stadler_SendPage.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/SendPage</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">2.81 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/SendPage</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">190 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 8 lines modified</td><td colspan="2">Offset 1, 12 lines modified</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">1 </td><td class="diffpresent">.git</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">.gitignore</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">.project</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">LICENSE</td><td class="diffline">4 </td><td class="diffpresent">LICENSE</td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent">README.md</td><td class="diffline">5 </td><td class="diffpresent">README.md</td></tr>
+<tr class="diffchanged"><td class="diffline">3 </td><td class="diffpresent"><del>_</del>m<del>etadata</del></td><td class="diffline">6 </td><td class="diffpresent"><ins>Te</ins><ins>r</ins>m<ins>sO</ins><ins>fUse.md</ins></td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">images</td><td class="diffline">7 </td><td class="diffpresent">images</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">manifest.json</td><td class="diffline">8 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffunmodified"><td class="diffline">6 </td><td class="diffpresent">options.html</td><td class="diffline">9 </td><td class="diffpresent">options.html</td></tr>
+<tr class="diffunmodified"><td class="diffline">7 </td><td class="diffpresent">options.js</td><td class="diffline">10 </td><td class="diffpresent">options.js</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">package-lock.json</td></tr>
+<tr class="diffunmodified"><td class="diffline">8 </td><td class="diffpresent">sendpage.js</td><td class="diffline">12 </td><td class="diffpresent">sendpage.js</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">2.18 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/README.md</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-README.md"><span class="source">/workspace/pipeline_output/SendPage/README.md</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-README.md">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 4, 15 lines modified</td><td colspan="2">Offset 4, 15 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">SendPage<span class="dp">·</span>is<span class="dp">·</span>a<span class="dp">·</span>simple<span class="dp">·</span>chromium<span class="dp">·</span>extension<span class="dp">·</span>to<span class="dp">·</span>send<span class="dp">·</span>a<span class="dp">·</span>page<span class="dp">·</span>to<span class="dp">·</span>a<span class="dp">·</span>E-Mail<span class="dp">·</span>recipient</td><td class="diffline">4 </td><td class="diffpresent">SendPage<span class="dp">·</span>is<span class="dp">·</span>a<span class="dp">·</span>simple<span class="dp">·</span>chromium<span class="dp">·</span>extension<span class="dp">·</span>to<span class="dp">·</span>send<span class="dp">·</span>a<span class="dp">·</span>page<span class="dp">·</span>to<span class="dp">·</span>a<span class="dp">·</span>E-Mail<span class="dp">·</span>recipient</td></tr>
+<tr class="diffunmodified"><td class="diffline">5 </td><td class="diffpresent">with<span class="dp">·</span>your<span class="dp">·</span>default<span class="dp">·</span>local<span class="dp">·</span>or<span class="dp">·</span>web<span class="dp">·</span>mail<span class="dp">·</span>client.</td><td class="diffline">5 </td><td class="diffpresent">with<span class="dp">·</span>your<span class="dp">·</span>default<span class="dp">·</span>local<span class="dp">·</span>or<span class="dp">·</span>web<span class="dp">·</span>mail<span class="dp">·</span>client.</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">6 </td><td class="diffpresent">It<span class="dp">·</span>will<span class="dp">·</span>actually<span class="dp">·</span>just<span class="dp">·</span>open<span class="dp">·</span>a<span class="dp">·</span>mailto<span class="dp">·</span>URI<span class="dp">·</span>so<span class="dp">·</span>you<span class="dp">·</span>need<span class="dp">·</span>to<span class="dp">·</span>have<span class="dp">·</span>a<span class="dp">·</span>(local<span class="dp">·</span>or<span class="dp">·</span>web)<span class="dp">·</span>E-Mail<span class="dp">·</span>client<span class="dp">·</span>registered<span class="dp">·</span>to<span class="dp">·</span>handle<span class="dp">·</span>mailto<span class="dp">·</span>URIs.</td><td class="diffline">6 </td><td class="diffpresent">It<span class="dp">·</span>will<span class="dp">·</span>actually<span class="dp">·</span>just<span class="dp">·</span>open<span class="dp">·</span>a<span class="dp">·</span>mailto<span class="dp">·</span>URI<span class="dp">·</span>so<span class="dp">·</span>you<span class="dp">·</span>need<span class="dp">·</span>to<span class="dp">·</span>have<span class="dp">·</span>a<span class="dp">·</span>(local<span class="dp">·</span>or<span class="dp">·</span>web)<span class="dp">·</span>E-Mail<span class="dp">·</span>client<span class="dp">·</span>registered<span class="dp">·</span>to<span class="dp">·</span>handle<span class="dp">·</span>mailto<span class="dp">·</span>URIs.</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">7 </td><td class="diffpresent">Binaries</td><td class="diffline">7 </td><td class="diffpresent">Binaries</td></tr>
+<tr class="diffunmodified"><td class="diffline">8 </td><td class="diffpresent">--------</td><td class="diffline">8 </td><td class="diffpresent">--------</td></tr>
+<tr class="diffchanged"><td class="diffline">9 </td><td class="diffpresent">Download<span class="dp">·</span>Binaries<span class="dp">·</span>from<span class="dp">·</span>Chrome<span class="dp">·</span>Web<span class="dp">·</span>Store:</td><td class="diffline">9 </td><td class="diffpresent">Download<span class="dp">·</span>Binaries<span class="dp">·</span>from<span class="dp">·</span>Chrome<span class="dp">·</span>Web<span class="dp">·</span>Store<ins><span class="dp">·</span>(also<span class="dp">·</span>for<span class="dp">·</span>Brave,<span class="dp">·</span>and<span class="dp">·</span>other<span class="dp">·</span>Chromium<span class="dp">·</span>based<span class="dp">·</span>Browsers)</ins>:</td></tr>
+<tr class="diffunmodified"><td class="diffline">10 </td><td class="diffpresent">https://chrome.google.com/webstore/detail/higemadklcnjhjpgcbnnbpgeeippjjcp</td><td class="diffline">10 </td><td class="diffpresent">https://chrome.google.com/webstore/detail/higemadklcnjhjpgcbnnbpgeeippjjcp</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">11 </td><td class="diffpresent">Or<span class="dp">·</span>the<span class="dp">·</span>Microsoft<span class="dp">·</span>Edge-Add-Ons<span class="dp">·</span>Store:</td><td class="diffline">11 </td><td class="diffpresent">Or<span class="dp">·</span>the<span class="dp">·</span>Microsoft<span class="dp">·</span>Edge-Add-Ons<span class="dp">·</span>Store:</td></tr>
+<tr class="diffunmodified"><td class="diffline">12 </td><td class="diffpresent">https://microsoftedge.microsoft.com/addons/detail/send-page/akohgmamjjpdagmohoecbmgiejkplkfb</td><td class="diffline">12 </td><td class="diffpresent">https://microsoftedge.microsoft.com/addons/detail/send-page/akohgmamjjpdagmohoecbmgiejkplkfb</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">13 </td><td class="diffpresent">Sources</td><td class="diffline">13 </td><td class="diffpresent">Sources</td></tr>
+<tr class="diffunmodified"><td class="diffline">14 </td><td class="diffpresent">-------</td><td class="diffline">14 </td><td class="diffpresent">-------</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 27, 14 lines modified</td><td colspan="2">Offset 27, 19 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">27 </td><td class="diffpresent">Support</td><td class="diffline">27 </td><td class="diffpresent">Support</td></tr>
+<tr class="diffunmodified"><td class="diffline">28 </td><td class="diffpresent">--------</td><td class="diffline">28 </td><td class="diffpresent">--------</td></tr>
+<tr class="diffunmodified"><td class="diffline">29 </td><td class="diffpresent">Do<span class="dp">·</span>you<span class="dp">·</span>like<span class="dp">·</span>this<span class="dp">·</span>Extension?</td><td class="diffline">29 </td><td class="diffpresent">Do<span class="dp">·</span>you<span class="dp">·</span>like<span class="dp">·</span>this<span class="dp">·</span>Extension?</td></tr>
+<tr class="diffunmodified"><td class="diffline">30 </td><td class="diffpresent">Please<span class="dp">·</span>give<span class="dp">·</span>this<span class="dp">·</span>Project<span class="dp">·</span>a<span class="dp">·</span>Star<span class="dp">·</span>on<span class="dp">·</span>GitHub<span class="dp">·</span>if<span class="dp">·</span>you<span class="dp">·</span>like<span class="dp">·</span>it.</td><td class="diffline">30 </td><td class="diffpresent">Please<span class="dp">·</span>give<span class="dp">·</span>this<span class="dp">·</span>Project<span class="dp">·</span>a<span class="dp">·</span>Star<span class="dp">·</span>on<span class="dp">·</span>GitHub<span class="dp">·</span>if<span class="dp">·</span>you<span class="dp">·</span>like<span class="dp">·</span>it.</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">31 </td><td class="diffpresent">Changelog</td><td class="diffline">31 </td><td class="diffpresent">Changelog</td></tr>
+<tr class="diffunmodified"><td class="diffline">32 </td><td class="diffpresent">---------</td><td class="diffline">32 </td><td class="diffpresent">---------</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">33 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>3.0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">34 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Upgrade<span class="dp">·</span>to<span class="dp">·</span>manifest<span class="dp">·</span>version<span class="dp">·</span>3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Add<span class="dp">·</span>terms<span class="dp">·</span>of<span class="dp">·</span>use</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">36 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Make<span class="dp">·</span>it<span class="dp">·</span>clear<span class="dp">·</span>that<span class="dp">·</span>also<span class="dp">·</span>Brave<span class="dp">·</span>and<span class="dp">·</span>other<span class="dp">·</span>Chromium<span class="dp">·</span>based<span class="dp">·</span>browsers<span class="dp">·</span>are<span class="dp">·</span>supported.</td></tr>
+<tr class="diffunmodified"><td class="diffline">33 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>2.3</td><td class="diffline">37 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>2.3</td></tr>
+<tr class="diffunmodified"><td class="diffline">34 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Fixed<span class="dp">·</span>#15:<span class="dp">·</span>URI<span class="dp">·</span>is<span class="dp">·</span>is<span class="dp">·</span>undefined<span class="dp">·</span>when<span class="dp">·</span>using<span class="dp">·</span>button<span class="dp">·</span>beside<span class="dp">·</span>url</td><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Fixed<span class="dp">·</span>#15:<span class="dp">·</span>URI<span class="dp">·</span>is<span class="dp">·</span>is<span class="dp">·</span>undefined<span class="dp">·</span>when<span class="dp">·</span>using<span class="dp">·</span>button<span class="dp">·</span>beside<span class="dp">·</span>url</td></tr>
+<tr class="diffunmodified"><td class="diffline">35 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Provide<span class="dp">·</span>better<span class="dp">·</span>log<span class="dp">·</span>output<span class="dp">·</span>for<span class="dp">·</span>debugging</td><td class="diffline">39 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Provide<span class="dp">·</span>better<span class="dp">·</span>log<span class="dp">·</span>output<span class="dp">·</span>for<span class="dp">·</span>debugging</td></tr>
+<tr class="diffunmodified"><td class="diffline">36 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>2.2</td><td class="diffline">40 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>2.2</td></tr>
+<tr class="diffunmodified"><td class="diffline">37 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Fixed<span class="dp">·</span>#14:<span class="dp">·</span>email<span class="dp">·</span>end<span class="dp">·</span>text<span class="dp">·</span>appended<span class="dp">·</span>to<span class="dp">·</span>URI</td><td class="diffline">41 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Fixed<span class="dp">·</span>#14:<span class="dp">·</span>email<span class="dp">·</span>end<span class="dp">·</span>text<span class="dp">·</span>appended<span class="dp">·</span>to<span class="dp">·</span>URI</td></tr>
+<tr class="diffunmodified"><td class="diffline">38 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Fixed<span class="dp">·</span>type<span class="dp">·</span>error</td><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>*<span class="dp">·</span>Fixed<span class="dp">·</span>type<span class="dp">·</span>error</td></tr>
+<tr class="diffunmodified"><td class="diffline">39 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>2.1</td><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>2.1</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 61, 10 lines modified</td><td colspan="2">Offset 66, 14 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">61 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>0.1<span class="dp">·</span>-<span class="dp">·</span>Initial<span class="dp">·</span>release</td><td class="diffline">66 </td><td class="diffpresent"><span class="dp">·</span>*<span class="dp">·</span>0.1<span class="dp">·</span>-<span class="dp">·</span>Initial<span class="dp">·</span>release</td></tr>
+<tr class="diffunmodified"><td class="diffline">62 </td><td class="diffpresent"><span class="dp">·</span></td><td class="diffline">67 </td><td class="diffpresent"><span class="dp">·</span></td></tr>
+<tr class="diffunmodified"><td class="diffline">63 </td><td class="diffpresent">Troubleshoot</td><td class="diffline">68 </td><td class="diffpresent">Troubleshoot</td></tr>
+<tr class="diffunmodified"><td class="diffline">64 </td><td class="diffpresent">------------</td><td class="diffline">69 </td><td class="diffpresent">------------</td></tr>
+<tr class="diffunmodified"><td class="diffline">65 </td><td class="diffpresent">###<span class="dp">·</span>Nothing<span class="dp">·</span>happens<span class="dp">·</span>when<span class="dp">·</span>I<span class="dp">·</span>click<span class="dp">·</span>&quot;Send<span class="dp">·</span>Page...&quot;</td><td class="diffline">70 </td><td class="diffpresent">###<span class="dp">·</span>Nothing<span class="dp">·</span>happens<span class="dp">·</span>when<span class="dp">·</span>I<span class="dp">·</span>click<span class="dp">·</span>&quot;Send<span class="dp">·</span>Page...&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">66 </td><td class="diffpresent">For<span class="dp">·</span>the<span class="dp">·</span>extension<span class="dp">·</span>to<span class="dp">·</span>work<span class="dp">·</span>a<span class="dp">·</span>default<span class="dp">·</span>mail<span class="dp">·</span>application<span class="dp">·</span>(&quot;mailto:&quot;<span class="dp">·</span>protocol<span class="dp">·</span>handler)<span class="dp">·</span>must<span class="dp">·</span>be<span class="dp">·</span>registered<span class="dp">·</span>on<span class="dp">·</span>your<span class="dp">·</span>system.<span class="dp">·</span>If<span class="dp">·</span>this<span class="dp">·</span>is<span class="dp">·</span>the<span class="dp">·</span>case<span class="dp">·</span>you<span class="dp">·</span>should<span class="dp">·</span>be<span class="dp">·</span>able<span class="dp">·</span>to<span class="dp">·</span>click<span class="dp">·</span>on<span class="dp">·</span>[this<span class="dp">·</span>Link](mailto:test@example.com?subject=The%20Subject&amp;body=The%20Body)<span class="dp">·</span>to<span class="dp">·</span>open<span class="dp">·</span>your<span class="dp">·</span>Mail<span class="dp">·</span>client.</td><td class="diffline">71 </td><td class="diffpresent">For<span class="dp">·</span>the<span class="dp">·</span>extension<span class="dp">·</span>to<span class="dp">·</span>work<span class="dp">·</span>a<span class="dp">·</span>default<span class="dp">·</span>mail<span class="dp">·</span>application<span class="dp">·</span>(&quot;mailto:&quot;<span class="dp">·</span>protocol<span class="dp">·</span>handler)<span class="dp">·</span>must<span class="dp">·</span>be<span class="dp">·</span>registered<span class="dp">·</span>on<span class="dp">·</span>your<span class="dp">·</span>system.<span class="dp">·</span>If<span class="dp">·</span>this<span class="dp">·</span>is<span class="dp">·</span>the<span class="dp">·</span>case<span class="dp">·</span>you<span class="dp">·</span>should<span class="dp">·</span>be<span class="dp">·</span>able<span class="dp">·</span>to<span class="dp">·</span>click<span class="dp">·</span>on<span class="dp">·</span>[this<span class="dp">·</span>Link](mailto:test@example.com?subject=The%20Subject&amp;body=The%20Body)<span class="dp">·</span>to<span class="dp">·</span>open<span class="dp">·</span>your<span class="dp">·</span>Mail<span class="dp">·</span>client.</td></tr>
+<tr class="diffunmodified"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">72 </td><td class="diffpresent">###<span class="dp">·</span>It<span class="dp">·</span>does<span class="dp">·</span>not<span class="dp">·</span>behave<span class="dp">·</span>correctly<span class="dp">·</span>with<span class="dp">·</span>Local<span class="dp">·</span>or<span class="dp">·</span>Web<span class="dp">·</span>E-Mail<span class="dp">·</span>Clients.<span class="dp">·</span>Why?</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">73 </td><td class="diffpresent">Checkout<span class="dp">·</span>the<span class="dp">·</span>Options<span class="dp">·</span>of<span class="dp">·</span>the<span class="dp">·</span>extension.<span class="dp">·</span>There<span class="dp">·</span>you<span class="dp">·</span>can<span class="dp">·</span>configure<span class="dp">·</span>if<span class="dp">·</span>your<span class="dp">·</span>Mail<span class="dp">·</span>client<span class="dp">·</span>is<span class="dp">·</span>a<span class="dp">·</span>Web<span class="dp">·</span>or<span class="dp">·</span>Local<span class="dp">·</span>E-Mail<span class="dp">·</span>Client<span class="dp">·</span>which<span class="dp">·</span>may<span class="dp">·</span>help.</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">74 </td><td class="diffpresent">Also<span class="dp">·</span>you<span class="dp">·</span>can<span class="dp">·</span>define<span class="dp">·</span>Texts<span class="dp">·</span>that<span class="dp">·</span>are<span class="dp">·</span>to<span class="dp">·</span>be<span class="dp">·</span>shown<span class="dp">·</span>in<span class="dp">·</span>the<span class="dp">·</span>E-Mail<span class="dp">·</span>content<span class="dp">·</span>by<span class="dp">·</span>default.</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">67 </td><td class="diffpresent">###<span class="dp">·</span>It<span class="dp">·</span>still<span class="dp">·</span>does<span class="dp">·</span>not<span class="dp">·</span>do<span class="dp">·</span>what<span class="dp">·</span>I<span class="dp">·</span>expect.<span class="dp">·</span>What<span class="dp">·</span>can<span class="dp">·</span>I<span class="dp">·</span>do?</td><td class="diffline">75 </td><td class="diffpresent">###<span class="dp">·</span>It<span class="dp">·</span>still<span class="dp">·</span>does<span class="dp">·</span>not<span class="dp">·</span>do<span class="dp">·</span>what<span class="dp">·</span>I<span class="dp">·</span>expect.<span class="dp">·</span>What<span class="dp">·</span>can<span class="dp">·</span>I<span class="dp">·</span>do?</td></tr>
+<tr class="diffunmodified"><td class="diffline">68 </td><td class="diffpresent">On<span class="dp">·</span>the<span class="dp">·</span>chrome<span class="dp">·</span>extensions<span class="dp">·</span>page<span class="dp">·</span>(chrome://extensions/)<span class="dp">·</span>you<span class="dp">·</span>can<span class="dp">·</span>enable<span class="dp">·</span>the<span class="dp">·</span>developer<span class="dp">·</span>mode<span class="dp">·</span>and<span class="dp">·</span>open<span class="dp">·</span>the<span class="dp">·</span>background<span class="dp">·</span>page.</td><td class="diffline">76 </td><td class="diffpresent">On<span class="dp">·</span>the<span class="dp">·</span>chrome<span class="dp">·</span>extensions<span class="dp">·</span>page<span class="dp">·</span>(chrome://extensions/)<span class="dp">·</span>you<span class="dp">·</span>can<span class="dp">·</span>enable<span class="dp">·</span>the<span class="dp">·</span>developer<span class="dp">·</span>mode<span class="dp">·</span>and<span class="dp">·</span>open<span class="dp">·</span>the<span class="dp">·</span>background<span class="dp">·</span>page.</td></tr>
+<tr class="diffunmodified"><td class="diffline">69 </td><td class="diffpresent">It<span class="dp">·</span>will<span class="dp">·</span>provide<span class="dp">·</span>you<span class="dp">·</span>with<span class="dp">·</span>logging<span class="dp">·</span>and<span class="dp">·</span>debugging<span class="dp">·</span>capabilities.<span class="dp">·</span>If<span class="dp">·</span>you<span class="dp">·</span>discovered<span class="dp">·</span>an<span class="dp">·</span>error<span class="dp">·</span>please<span class="dp">·</span>report<span class="dp">·</span>it<span class="dp">·</span>here.</td><td class="diffline">77 </td><td class="diffpresent">It<span class="dp">·</span>will<span class="dp">·</span>provide<span class="dp">·</span>you<span class="dp">·</span>with<span class="dp">·</span>logging<span class="dp">·</span>and<span class="dp">·</span>debugging<span class="dp">·</span>capabilities.<span class="dp">·</span>If<span class="dp">·</span>you<span class="dp">·</span>discovered<span class="dp">·</span>an<span class="dp">·</span>error<span class="dp">·</span>please<span class="dp">·</span>report<span class="dp">·</span>it<span class="dp">·</span>here.</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">379 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/SendPage/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">277 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 15, 10 lines modified</td><td colspan="2">Offset 15, 9 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;options_ui&quot;:<span class="dp">·</span>{</td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;options_ui&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;page&quot;:<span class="dp">·</span>&quot;options.html&quot;</td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;page&quot;:<span class="dp">·</span>&quot;options.html&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;contextMenus&quot;,</td><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;contextMenus&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;</td><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;storage&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffdeleted"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;3.0&quot;</td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;3.0&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">24 </td><td class="diffpresent">}</td><td class="diffline">23 </td><td class="diffpresent">}</td></tr>
+</table>    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

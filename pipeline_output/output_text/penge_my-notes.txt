@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/my-notes/dist
+├── file list
+│ @@ -1,9 +1,8 @@
+│  LICENSE
+│ -_metadata
+│  background.mjs
+│  chunks
+│  images
+│  manifest.json
+│  notes.css
+│  notes.html
+│  notes.mjs
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/my-notes/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -40,10 +40,9 @@
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "unlimitedStorage",
+│ │          "contextMenus",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.29"
+│ │  }

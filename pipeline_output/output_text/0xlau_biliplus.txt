@@ -1,0 +1,36 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/biliplus
+├── file list
+│ @@ -1,6 +1,17 @@
+│ -_metadata
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.hintrc
+│ +.prettierrc
+│ +LICENSE
+│ +README.md
+│ +README.zh.md
+│  css
+│ +img
+│  logo.png
+│ +make.bat
+│ +makefile
+│  manifest.json
+│ +package-lock.json
+│  scripts
+│  settings
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/biliplus/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -61,10 +61,9 @@
+│ │          "128": "logo.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "BiliPlus - Bilibili \u52a0\u5927\u676f\uff0c\u7ec6\u8282\u4ece\u5927\u676f\u505a\u8d77",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.3"
+│ │  }

@@ -1,0 +1,26 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/json-formatter/src
+  - files: _metadata, manifest.json
+  + files: manifest.json, sass
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/json-formatter/src/js
+  - files: content.js
+  + files: content.js, lib
+
+---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/json-formatter/src/js/background.js; File type: js
+  - Original: 1–1
+  - Original: 3–8
+  - Original: 10–11
+  - Original: 13–818
+  - Original: 820–873
+  - Original: 875–1674
+  - Original: 1676–2975
+  - Original: 2977–2979
+  + Modified: 1–121
+
+---/workspace/pipeline_output/chromex_data/js/content.js <-> +++/workspace/pipeline_output/json-formatter/src/js/content.js; File type: js
+  - Original: 1–707
+  + Modified: 1–292
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/json-formatter/src/manifest.json; File type: json
+  - Original: 35–35 -> Update URL
+

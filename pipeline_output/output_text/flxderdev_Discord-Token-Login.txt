@@ -1,0 +1,1260 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Discord-Token-Login/extension
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  background.js
+│  content.js
+│  logo.png
+│  manifest.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,22 +1,22 @@
+│ │ -function close_discord() {
+│ │ -    chrome.tabs.query({}, function(tabs) {
+│ │ -        for (var i = 0; i < tabs.length; i++) {
+│ │ -            if (tabs[i].url.replace("discord.com") != tabs[i].url) {
+│ │ -                chrome.tabs.remove(tabs[i].id, function() {});
+│ │ -            }
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+│ │ -    if (msg.type == "token") {
+│ │ -        console.log(msg);
+│ │ -        close_discord();
+│ │ -
+│ │ -        setTimeout(function() {
+│ │ -            chrome.tabs.create({
+│ │ -                url: "https://discord.com?discordtoken=" + msg.token,
+│ │ -            });
+│ │ -            sendResponse(true);
+│ │ -        }, 500);
+│ │ -    }
+│ │ +function close_discord() {
+│ │ +    chrome.tabs.query({}, function(tabs) {
+│ │ +        for (var i = 0; i < tabs.length; i++) {
+│ │ +            if (tabs[i].url.replace("discord.com") != tabs[i].url) {
+│ │ +                chrome.tabs.remove(tabs[i].id, function() {});
+│ │ +            }
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+│ │ +    if (msg.type == "token") {
+│ │ +        console.log(msg);
+│ │ +        close_discord();
+│ │ +
+│ │ +        setTimeout(function() {
+│ │ +            chrome.tabs.create({
+│ │ +                url: "https://discord.com?discordtoken=" + msg.token,
+│ │ +            });
+│ │ +            sendResponse(true);
+│ │ +        }, 500);
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/content.js
+│ ├── js-beautify {}
+│ │ @@ -1,28 +1,28 @@
+│ │ -var actualCode = "(" + function() {
+│ │ -    function deleteAllCookies() {
+│ │ -        var cookies = document.cookie.split(";");
+│ │ -
+│ │ -        for (var i = 0; i < cookies.length; i++) {
+│ │ -            var cookie = cookies[i];
+│ │ -            var eqPos = cookie.indexOf("=");
+│ │ -            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+│ │ -            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+│ │ -        }
+│ │ -    }
+│ │ -    deleteAllCookies();
+│ │ -} + ")()";
+│ │ -var s = document.createElement('script');
+│ │ -s.textContent = actualCode;
+│ │ -document.documentElement.appendChild(s);
+│ │ -s.remove();
+│ │ -
+│ │ -
+│ │ -
+│ │ -const queryString = window.location.search;
+│ │ -const urlParams = new URLSearchParams(queryString);
+│ │ -var discordtoken = urlParams.get("discordtoken")
+│ │ -if (discordtoken) {
+│ │ -    localStorage.clear();
+│ │ -    localStorage.setItem('token', `"${discordtoken.replace('"', '')}"`);
+│ │ -    window.location.replace('https://discord.com/channels/@me');
+│ │ +var actualCode = "(" + function() {
+│ │ +    function deleteAllCookies() {
+│ │ +        var cookies = document.cookie.split(";");
+│ │ +
+│ │ +        for (var i = 0; i < cookies.length; i++) {
+│ │ +            var cookie = cookies[i];
+│ │ +            var eqPos = cookie.indexOf("=");
+│ │ +            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+│ │ +            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+│ │ +        }
+│ │ +    }
+│ │ +    deleteAllCookies();
+│ │ +} + ")()";
+│ │ +var s = document.createElement('script');
+│ │ +s.textContent = actualCode;
+│ │ +document.documentElement.appendChild(s);
+│ │ +s.remove();
+│ │ +
+│ │ +
+│ │ +
+│ │ +const queryString = window.location.search;
+│ │ +const urlParams = new URLSearchParams(queryString);
+│ │ +var discordtoken = urlParams.get("discordtoken")
+│ │ +if (discordtoken) {
+│ │ +    localStorage.clear();
+│ │ +    localStorage.setItem('token', `"${discordtoken.replace('"', '')}"`);
+│ │ +    window.location.replace('https://discord.com/channels/@me');
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/manifest.json
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ @@ -1,20 +1,19 @@
+│ -7b0d0a202022616374696f6e223a207b0d0a202020202264656661756c745f69
+│ -636f6e223a20226c6f676f2e706e67222c0d0a202020202264656661756c745f
+│ -706f707570223a2022706f7075702f696e6465782e68746d6c220d0a20207d2c
+│ -0d0a2020226261636b67726f756e64223a207b0d0a2020202022736572766963
+│ -655f776f726b6572223a20226261636b67726f756e642e6a73220d0a20207d2c
+│ -0d0a202022636f6e74656e745f73637269707473223a205b0d0a202020207b0d
+│ -0a202020202020226a73223a205b22636f6e74656e742e6a73225d2c0d0a2020
+│ -20202020226d617463686573223a205b22687474703a2f2f2a2e646973636f72
+│ -642e636f6d2f2a222c202268747470733a2f2f2a2e646973636f72642e636f6d
+│ -2f2a225d2c0d0a2020202020202272756e5f6174223a2022646f63756d656e74
+│ -5f7374617274220d0a202020207d0d0a20205d2c0d0a20202264657363726970
+│ -74696f6e223a2022467265652c204561737920616e642073696d706c65206469
+│ -73636f7264206c6f67696e2077697468206120546f6b656e21222c0d0a202022
+│ -69636f6e73223a207b0d0a2020202022313238223a20226c6f676f2e706e6722
+│ -0d0a20207d2c0d0a2020226d616e69666573745f76657273696f6e223a20332c
+│ -0d0a2020226e616d65223a2022446973636f726420546f6b656e204c6f67696e
+│ -222c0d0a2020227065726d697373696f6e73223a205b5d2c0d0a202022757064
+│ -6174655f75726c223a202268747470733a2f2f636c69656e7473322e676f6f67
+│ -6c652e636f6d2f736572766963652f757064617465322f637278222c0d0a2020
+│ -2276657273696f6e223a2022332e31220d0a7d0d0a
+│ +7b0a202022616374696f6e223a207b0a202020202264656661756c745f69636f
+│ +6e223a20226c6f676f2e706e67222c0a202020202264656661756c745f706f70
+│ +7570223a2022706f7075702f696e6465782e68746d6c220a20207d2c0a202022
+│ +6261636b67726f756e64223a207b0a2020202022736572766963655f776f726b
+│ +6572223a20226261636b67726f756e642e6a73220a20207d2c0a202022636f6e
+│ +74656e745f73637269707473223a205b0a202020207b0a202020202020226a73
+│ +223a205b22636f6e74656e742e6a73225d2c0a202020202020226d6174636865
+│ +73223a205b22687474703a2f2f2a2e646973636f72642e636f6d2f2a222c2022
+│ +68747470733a2f2f2a2e646973636f72642e636f6d2f2a225d2c0a2020202020
+│ +202272756e5f6174223a2022646f63756d656e745f7374617274220a20202020
+│ +7d0a20205d2c0a2020226465736372697074696f6e223a2022467265652c2045
+│ +61737920616e642073696d706c6520646973636f7264206c6f67696e20776974
+│ +68206120546f6b656e21222c0a20202269636f6e73223a207b0a202020202231
+│ +3238223a20226c6f676f2e706e67220a20207d2c0a2020226d616e6966657374
+│ +5f76657273696f6e223a20332c0a2020226e616d65223a2022446973636f7264
+│ +20546f6b656e204c6f67696e222c0a2020227065726d697373696f6e73223a20
+│ +5b5d2c0a2020227570646174655f75726c223a202268747470733a2f2f636c69
+│ +656e7473322e676f6f676c652e636f6d2f736572766963652f75706461746532
+│ +2f637278222c0a20202276657273696f6e223a2022332e31220a7d0a
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/index.html
+│ ├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/popup/index.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,78 +1,78 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html lang="en">
+│ │ +  <head>
+│ │ +    <!-- Podstawowe meta tagi -->
+│ │ +    <meta charset="UTF-8" />
+│ │ +    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ +    <title>Discord Token Login by flxder#1528</title>
+│ │ +    <!-- Podłączenie czcionek i arkusza stylów -->
+│ │ +    <link rel="preconnect" href="https://fonts.googleapis.com" />
+│ │ +    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+│ │ +    <link rel="stylesheet" href="style.css" />
+│ │ +    <link
+│ │ +      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+│ │ +      rel="stylesheet"
+│ │ +    />
+│ │ +    <!-- Podłączenie biblioteki Font Awesome -->
+│ │ +    <link
+│ │ +      rel="stylesheet"
+│ │ +      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+│ │ +      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+│ │ +      crossorigin="anonymous"
+│ │ +      referrerpolicy="no-referrer"
+│ │ +    />
+│ │ +  </head>
+│ │ +  <body class="discord-token-login-popup">
+│ │ +    <div class="block">
+│ │ +      <div class="block-inner">
+│ │ +        <!-- Animacja cząsteczek -->
+│ │ +        <div id="particles-js"></div>
+│ │ +        <!-- Okno logowania -->
+│ │ +        <div class="ghost-box">
+│ │ +          <form id="data">
+│ │ +            <p class="token non-selectable">
+│ │ +              ★ Created by 𝗳𝗹𝘅𝗱𝗲𝗿 ★<br />Ξ★ Discord Token Login ★Ξ
+│ │ +            </p>
+│ │ +            <!-- Pole do wprowadzenia tokena -->
+│ │ +            <input
+│ │ +              id="token"
+│ │ +              type="password"
+│ │ +              class="tokengoeshere"
+│ │ +              spellcheck="false"
+│ │ +              placeholder="PASTE YOUR TOKEN HERE"
+│ │ +              required
+│ │ +            />
+│ │ +            <!-- Przycisk logowania -->
+│ │ +            <button id="submit" class="non-selectable">
+│ │ +              Login
+│ │ +              <span class="icon"> <i class="fa-solid fa-lock-open"></i></span>
+│ │ +            </button>
+│ │ +            <!-- Link do wsparcia autora -->
+│ │ +          </form>
+│ │ +          <a
+│ │ +            class="support"
+│ │ +            href="https://www.buymeacoffee.com/flxder"
+│ │ +            target="_blank"
+│ │ +            >Support my work with a $1 coffee &#10084;</a
+│ │ +          >
+│ │ +          <a class="contact-text non-selectable">Contact me:</a>
+│ │ +          <!-- Przyciski mediów społecznościowych -->
+│ │ +          <div class="middle">
+│ │ +            <a class="btn" href="https://discord.gg/DHDx4fg4GW" target="_blank">
+│ │ +              <i class="fa-brands fa-discord"></i>
+│ │ +            </a>
+│ │ +            <a class="btn" href="mailto:flxder.dev@gmail.com">
+│ │ +              <i class="fa-solid fa-envelope"></i>
+│ │ +            </a>
+│ │ +            <a class="btn" href="https://github.com/flxderdev" target="_blank">
+│ │ +              <i class="fa-brands fa-github"></i>
+│ │ +            </a>
+│ │ +          </div>
+│ │ +        </div>
+│ │ +      </div>
+│ │ +    </div>
+│ │ +    <!-- Podłączenie skryptu JavaScript -->
+│ │ +    <script src="script.js"></script>
+│ │ +  </body>
+│ │ +</html>
+│ │ -<!DOCTYPE html>
+│ │ -<html lang="en">
+│ │ -  <head>
+│ │ -    <!-- Podstawowe meta tagi -->
+│ │ -    <meta charset="UTF-8" />
+│ │ -    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+│ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+│ │ -    <title>Discord Token Login by flxder#1528</title>
+│ │ -    <!-- Podłączenie czcionek i arkusza stylów -->
+│ │ -    <link rel="preconnect" href="https://fonts.googleapis.com" />
+│ │ -    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+│ │ -    <link rel="stylesheet" href="style.css" />
+│ │ -    <link
+│ │ -      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+│ │ -      rel="stylesheet"
+│ │ -    />
+│ │ -    <!-- Podłączenie biblioteki Font Awesome -->
+│ │ -    <link
+│ │ -      rel="stylesheet"
+│ │ -      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+│ │ -      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+│ │ -      crossorigin="anonymous"
+│ │ -      referrerpolicy="no-referrer"
+│ │ -    />
+│ │ -  </head>
+│ │ -  <body class="discord-token-login-popup">
+│ │ -    <div class="block">
+│ │ -      <div class="block-inner">
+│ │ -        <!-- Animacja cząsteczek -->
+│ │ -        <div id="particles-js"></div>
+│ │ -        <!-- Okno logowania -->
+│ │ -        <div class="ghost-box">
+│ │ -          <form id="data">
+│ │ -            <p class="token non-selectable">
+│ │ -              ★ Created by 𝗳𝗹𝘅𝗱𝗲𝗿 ★<br />Ξ★ Discord Token Login ★Ξ
+│ │ -            </p>
+│ │ -            <!-- Pole do wprowadzenia tokena -->
+│ │ -            <input
+│ │ -              id="token"
+│ │ -              type="password"
+│ │ -              class="tokengoeshere"
+│ │ -              spellcheck="false"
+│ │ -              placeholder="PASTE YOUR TOKEN HERE"
+│ │ -              required
+│ │ -            />
+│ │ -            <!-- Przycisk logowania -->
+│ │ -            <button id="submit" class="non-selectable">
+│ │ -              Login
+│ │ -              <span class="icon"> <i class="fa-solid fa-lock-open"></i></span>
+│ │ -            </button>
+│ │ -            <!-- Link do wsparcia autora -->
+│ │ -          </form>
+│ │ -          <a
+│ │ -            class="support"
+│ │ -            href="https://www.buymeacoffee.com/flxder"
+│ │ -            target="_blank"
+│ │ -            >Support my work with a $1 coffee &#10084;</a
+│ │ -          >
+│ │ -          <a class="contact-text non-selectable">Contact me:</a>
+│ │ -          <!-- Przyciski mediów społecznościowych -->
+│ │ -          <div class="middle">
+│ │ -            <a class="btn" href="https://discord.gg/DHDx4fg4GW" target="_blank">
+│ │ -              <i class="fa-brands fa-discord"></i>
+│ │ -            </a>
+│ │ -            <a class="btn" href="mailto:flxder.dev@gmail.com">
+│ │ -              <i class="fa-solid fa-envelope"></i>
+│ │ -            </a>
+│ │ -            <a class="btn" href="https://github.com/flxderdev" target="_blank">
+│ │ -              <i class="fa-brands fa-github"></i>
+│ │ -            </a>
+│ │ -          </div>
+│ │ -        </div>
+│ │ -      </div>
+│ │ -    </div>
+│ │ -    <!-- Podłączenie skryptu JavaScript -->
+│ │ -    <script src="script.js"></script>
+│ │ -  </body>
+│ │ -</html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/script.js
+│ ├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/popup/script.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,15 +1,15 @@
+│ │ │ +if (document.querySelector(".discord-token-login-popup"))
+│ │ │ +    document.querySelector("#submit").addEventListener("click", () => {
+│ │ │ +        token = document.querySelector("#token").value;
+│ │ │ +
+│ │ │ +        if (token != "") {
+│ │ │ +            document.querySelector("#token").style.border = "0px solid #222426";
+│ │ │ +
+│ │ │ +            window.open("https://discord.com?discordtoken=" + token, "_blank");
+│ │ │ +            //chrome.runtime.sendMessage({"type":"token","token":token},null, function(response) {
+│ │ │ +
+│ │ │ +            //});
+│ │ │ +        } else {
+│ │ │ +            document.querySelector("#token").style.border = "0px solid #ee4444";
+│ │ │ +        }
+│ │ │ -if (document.querySelector(".discord-token-login-popup"))
+│ │ │ -    document.querySelector("#submit").addEventListener("click", () => {
+│ │ │ -        token = document.querySelector("#token").value;
+│ │ │ -
+│ │ │ -        if (token != "") {
+│ │ │ -            document.querySelector("#token").style.border = "0px solid #222426";
+│ │ │ -
+│ │ │ -            window.open("https://discord.com?discordtoken=" + token, "_blank");
+│ │ │ -            //chrome.runtime.sendMessage({"type":"token","token":token},null, function(response) {
+│ │ │ -
+│ │ │ -            //});
+│ │ │ -        } else {
+│ │ │ -            document.querySelector("#token").style.border = "0px solid #ee4444";
+│ │ │ -        }
+│ │ │      });
+│ │   --- /workspace/pipeline_output/chromex_data/popup/style.css
+│ ├── +++ /workspace/pipeline_output/Discord-Token-Login/extension/popup/style.css
+│ │┄ Ordering differences only
+│ │ @@ -1,450 +1,450 @@
+│ │ +html {
+│ │ +  font-family: "Nunito", sans-serif;
+│ │ +}
+│ │ +body {
+│ │ +  background-color: rgb(255, 255, 255);
+│ │ +  margin: 0;
+│ │ +}
+│ │ +@keyframes spinning {
+│ │ +  from {
+│ │ +    transform: rotate(0deg);
+│ │ +  }
+│ │ +  to {
+│ │ +    transform: rotate(360deg);
+│ │ +  }
+│ │ +}
+│ │ +.block {
+│ │ +  background-color: #ffffff;
+│ │ +  height: 285px;
+│ │ +  width: 300px;
+│ │ +  border: 6px solid;
+│ │ +  border-image: linear-gradient(#fa00bb, #7c00c4, #03a9f4) 1;
+│ │ +  animation: rotate 2s ease-in infinite;
+│ │ +  color: rgb(255, 255, 255);
+│ │ +  font-size: 20px;
+│ │ +  display: flex;
+│ │ +  align-items: center;
+│ │ +  justify-content: center;
+│ │ +}
+│ │ +
+│ │ +@keyframes rotate {
+│ │ +  50% {
+│ │ +    border-image: linear-gradient(360deg, #f441a5, #630091, #03a9f4, #2e00fa) 1;
+│ │ +    box-shadow: 0 0 20px #fa00bb;
+│ │ +    -webkit-transition: box-shadow linear 1s infinite;
+│ │ +    transition: box-shadow linear 1s infinite;
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +.ghost-box {
+│ │ +  display: flex;
+│ │ +  flex-direction: column;
+│ │ +  height: 110px;
+│ │ +  margin-left: 15px;
+│ │ +  width: 270px;
+│ │ +}
+│ │ +
+│ │ +.block-inner {
+│ │ +  align-items: center;
+│ │ +  border-radius: 4px;
+│ │ +  display: flex;
+│ │ +  height: 250px;
+│ │ +  width: 300px;
+│ │ +  background-color: rgb(255, 255, 255);
+│ │ +}
+│ │ +.token {
+│ │ +  color: #ffffff;
+│ │ +  font-size: 15px;
+│ │ +  font-weight: bold;
+│ │ +  margin-top: -75px;
+│ │ +  text-align: center;
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  -webkit-background-clip: text;
+│ │ +  -webkit-text-fill-color: transparent;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  animation: myAnim 1s ease 0s 1 normal forwards;
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +  padding-bottom: 5px;
+│ │ +}
+│ │ +
+│ │ +.credits {
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  -webkit-background-clip: text;
+│ │ +  -webkit-text-fill-color: transparent;
+│ │ +  text-decoration: none;
+│ │ +  font-size: 12px;
+│ │ +  flex: auto;
+│ │ +  text-align: center;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  animation: animate 3s cubic-bezier(0.75, 0.75, 0.75, 0.75) infinite;
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +  padding-top: 10px;
+│ │ +}
+│ │ +
+│ │ +.non-selectable {
+│ │ +  -webkit-touch-callout: none;
+│ │ +  -webkit-user-select: none;
+│ │ +  -khtml-user-select: none;
+│ │ +  -moz-user-select: none;
+│ │ +  -ms-user-select: none;
+│ │ +  user-select: none;
+│ │ +}
+│ │ +
+│ │ +#submit {
+│ │ +  height: 35px;
+│ │ +  width: 125px;
+│ │ +  margin: auto;
+│ │ +  align-items: center;
+│ │ +  border-radius: 10px;
+│ │ +  border: none;
+│ │ +  text-align: center;
+│ │ +  color: transparent;
+│ │ +  text-shadow: 0 0 0 rgb(255, 255, 255);
+│ │ +  font-size: 17px;
+│ │ +  font-weight: 500;
+│ │ +  text-transform: uppercase;
+│ │ +  text-decoration: none;
+│ │ +  box-sizing: border-box;
+│ │ +  cursor: pointer;
+│ │ +  transition: transform 50ms ease;
+│ │ +  background: linear-gradient(90deg, #5f03f4, #f441a5, #b81fff, #5f03f4);
+│ │ +  color: #ffffff;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  background-size: 400%;
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +  display: block;
+│ │ +  margin-right: auto;
+│ │ +  margin-left: auto;
+│ │ +  font-family: "Nunito", sans-serif;
+│ │ +}
+│ │ +
+│ │ +#submit:hover {
+│ │ +  -webkit-box-shadow: 0px 0px 15px 0px rgba(155, 0, 194, 0.9);
+│ │ +  -moz-box-shadow: 0px 0px 15px 0px rgba(155, 0, 194, 0.9);
+│ │ +  box-shadow: 0px 0px 15px 0px rgba(155, 0, 194, 0.9);
+│ │ +  animation: animate 8s ease infinite;
+│ │ +  transition: box-shadow, 0.4s;
+│ │ +  border: none;
+│ │ +  font-size: 19px;
+│ │ +  transform: scale(1.05, 1.05);
+│ │ +  background: linear-gradient(90deg, #5f03f4, #f441a5, #b81fff, #5f03f4);
+│ │ +  background-size: 400%;
+│ │ +  animation: animate 7s cubic-bezier(0.75, 0.75, 0.75, 0.75) infinite,
+│ │ +    welcome 0.5s ease 0s 1 normal forwards;
+│ │ +}
+│ │ +
+│ │ +@keyframes animate {
+│ │ +  0% {
+│ │ +    background-position: 0%;
+│ │ +  }
+│ │ +  100% {
+│ │ +    background-position: 400%;
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +@keyframes spin {
+│ │ +  0% {
+│ │ +    --rotate: 0deg;
+│ │ +  }
+│ │ +  100% {
+│ │ +    --rotate: 360deg;
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +#submit:hover:before {
+│ │ +  filter: blur(20px);
+│ │ +  opacity: 1;
+│ │ +  animation: animate 8s linear infinite;
+│ │ +}
+│ │ +
+│ │ +#token {
+│ │ +  color: #7c00c4;
+│ │ +  background-color: #c2c2c2;
+│ │ +  border: none;
+│ │ +  border-radius: 6px;
+│ │ +  height: 25px;
+│ │ +  margin-top: 15px;
+│ │ +  margin-bottom: 15px;
+│ │ +  outline: none;
+│ │ +  padding-left: 10px;
+│ │ +  font-family: "Nunito", sans-serif;
+│ │ +  font-weight: bold;
+│ │ +}
+│ │ +
+│ │ +#submit:hover {
+│ │ +  background-color: #4856c0;
+│ │ +  cursor: pointer;
+│ │ +}
+│ │ +
+│ │ +@keyframes jelly {
+│ │ +  0% {
+│ │ +    transform: scale3d(1, 1, 1);
+│ │ +  }
+│ │ +
+│ │ +  30% {
+│ │ +    transform: scale3d(1.25, 0.75, 1);
+│ │ +  }
+│ │ +
+│ │ +  40% {
+│ │ +    transform: scale3d(0.75, 1.25, 1);
+│ │ +  }
+│ │ +
+│ │ +  50% {
+│ │ +    transform: scale3d(1.15, 0.85, 1);
+│ │ +  }
+│ │ +
+│ │ +  65% {
+│ │ +    transform: scale3d(0.95, 1.05, 1);
+│ │ +  }
+│ │ +
+│ │ +  75% {
+│ │ +    transform: scale3d(1.05, 0.95, 1);
+│ │ +  }
+│ │ +
+│ │ +  100% {
+│ │ +    transform: scale3d(1, 1, 1);
+│ │ +  }
+│ │ +}
+│ │ +::placeholder {
+│ │ +  /* Chrome, Firefox, Opera, Safari 10.1+ */
+│ │ +  color: rgb(255, 255, 255);
+│ │ +  opacity: 1; /* Firefox */
+│ │ +  text-align: center;
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  -webkit-background-clip: text;
+│ │ +  -webkit-text-fill-color: transparent;
+│ │ +}
+│ │ +
+│ │ +:-ms-input-placeholder {
+│ │ +  /* Internet Explorer 10-11 */
+│ │ +  color: rgb(255, 255, 255);
+│ │ +  opacity: 0.5; /* Firefox */
+│ │ +  text-align: center;
+│ │ +}
+│ │ +
+│ │ +::-ms-input-placeholder {
+│ │ +  /* Microsoft Edge */
+│ │ +  color: rgb(255, 255, 255);
+│ │ +  opacity: 0.5; /* Firefox */
+│ │ +  text-align: center;
+│ │ +}
+│ │ +
+│ │ +br {
+│ │ +  display: block;
+│ │ +  content: "";
+│ │ +  margin-top: 10px;
+│ │ +  margin-bottom: -10px;
+│ │ +  text-decoration: underline;
+│ │ +}
+│ │ +
+│ │ +br::hover {
+│ │ +  text-decoration: underline;
+│ │ +}
+│ │ +
+│ │ +@keyframes myAnim {
+│ │ +  0% {
+│ │ +    transform: scale3d(1, 1, 1);
+│ │ +  }
+│ │ +
+│ │ +  30% {
+│ │ +    transform: scale3d(1.25, 0.75, 1);
+│ │ +  }
+│ │ +
+│ │ +  40% {
+│ │ +    transform: scale3d(0.75, 1.25, 1);
+│ │ +  }
+│ │ +
+│ │ +  50% {
+│ │ +    transform: scale3d(1.15, 0.85, 1);
+│ │ +  }
+│ │ +
+│ │ +  65% {
+│ │ +    transform: scale3d(0.95, 1.05, 1);
+│ │ +  }
+│ │ +
+│ │ +  75% {
+│ │ +    transform: scale3d(1.05, 0.95, 1);
+│ │ +  }
+│ │ +
+│ │ +  100% {
+│ │ +    transform: scale3d(1, 1, 1);
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +@keyframes welcome {
+│ │ +  0% {
+│ │ +    opacity: 0;
+│ │ +    transform: translateY(-250px);
+│ │ +  }
+│ │ +
+│ │ +  100% {
+│ │ +    opacity: 1;
+│ │ +    transform: translateY(0);
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +input {
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +  -webkit-text-security: square;
+│ │ +  padding: 6px;
+│ │ +  text-align: center;
+│ │ +  display: block;
+│ │ +  margin: 0 auto;
+│ │ +  width: 250px;
+│ │ +}
+│ │ +
+│ │ +.tokengoeshere {
+│ │ +  -webkit-text-security: square;
+│ │ +  --border-size: 3px;
+│ │ +  --border-angle: 0turn;
+│ │ +  background-image: conic-gradient(
+│ │ +      from var(--border-angle),
+│ │ +      #c2c2c2,
+│ │ +      #c2c2c2,
+│ │ +      #c2c2c2
+│ │ +    ),
+│ │ +    conic-gradient(
+│ │ +      from var(--border-angle),
+│ │ +      rgb(201, 0, 174),
+│ │ +      rgb(0, 225, 255),
+│ │ +      rgb(255, 0, 234),
+│ │ +      rgb(201, 0, 174)
+│ │ +    );
+│ │ +  background-size: calc(100% - (var(--border-size) * 2))
+│ │ +      calc(100% - (var(--border-size) * 2)),
+│ │ +    cover;
+│ │ +  background-position: center center;
+│ │ +  background-repeat: no-repeat;
+│ │ +
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards, bg-spin 3s linear infinite;
+│ │ +}
+│ │ +@keyframes bg-spin {
+│ │ +  to {
+│ │ +    --border-angle: 1turn;
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +@property --border-angle {
+│ │ +  syntax: "<angle>";
+│ │ +  inherits: true;
+│ │ +  initial-value: 1turn;
+│ │ +}
+│ │ +.middle {
+│ │ +  margin-top: 20px;
+│ │ +  top: 50%;
+│ │ +  transform: translateY(-50%);
+│ │ +  width: 100%;
+│ │ +  text-align: center;
+│ │ +}
+│ │ +
+│ │ +.btn {
+│ │ +  display: inline-block;
+│ │ +  width: 30px;
+│ │ +  height: 30px;
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  -webkit-background-clip: text;
+│ │ +  color: #ffffff;
+│ │ +  -webkit-text-fill-color: transparent;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  margin: 10px;
+│ │ +  border: none;
+│ │ +  border-radius: 30%;
+│ │ +  color: #ffffff;
+│ │ +  overflow: hidden;
+│ │ +  position: relative;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +}
+│ │ +
+│ │ +.btn i {
+│ │ +  line-height: 30px;
+│ │ +  font-size: 18px;
+│ │ +  transition: 0.2s linear;
+│ │ +}
+│ │ +
+│ │ +.btn:hover i {
+│ │ +  transform: scale(1.3);
+│ │ +  color: #ffffff;
+│ │ +  background: #bb00ff;
+│ │ +  background: white;
+│ │ +  -webkit-background-clip: text;
+│ │ +  color: #ffffff;
+│ │ +  animation: animate 7s cubic-bezier(0.75, 0.75, 0.75, 0.75) infinite,
+│ │ +    welcome 0.1s ease 0s 1 normal forwards;
+│ │ +}
+│ │ +
+│ │ +.btn::before {
+│ │ +  content: "";
+│ │ +  position: absolute;
+│ │ +  width: 120%;
+│ │ +  height: 120%;
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  transform: rotate(45deg);
+│ │ +  left: -110%;
+│ │ +  top: 90%;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +}
+│ │ +
+│ │ +.btn:hover::before {
+│ │ +  animation: aaa 0.7s 1;
+│ │ +  top: -10%;
+│ │ +  left: -10%;
+│ │ +}
+│ │ +@keyframes aaa {
+│ │ +  0% {
+│ │ +    left: -110%;
+│ │ +    top: 90%;
+│ │ +  }
+│ │ +  50% {
+│ │ +    left: 10%;
+│ │ +    top: -30%;
+│ │ +  }
+│ │ +  100% {
+│ │ +    top: -10%;
+│ │ +    left: -10%;
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +#data {
+│ │ +  margin: 0;
+│ │ +  padding: 0;
+│ │ +}
+│ │ +
+│ │ +.support {
+│ │ +  color: #ffffff;
+│ │ +  font-size: 13px;
+│ │ +  font-weight: bold;
+│ │ +  text-align: center;
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  -webkit-background-clip: text;
+│ │ +  -webkit-text-fill-color: transparent;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  animation: myAnim 1s ease 0s 1 normal forwards;
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +  padding-bottom: 5px;
+│ │ +  margin-top: 20px;
+│ │ +  margin-bottom: 10px;
+│ │ +}
+│ │ +
+│ │ +.contact-text {
+│ │ +  color: #ffffff;
+│ │ +  font-size: 14px;
+│ │ +  font-weight: bold;
+│ │ +  text-align: center;
+│ │ +  background: #bb00ff;
+│ │ +  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ +  -webkit-background-clip: text;
+│ │ +  -webkit-text-fill-color: transparent;
+│ │ +  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ +  animation: myAnim 1s ease 0s 1 normal forwards;
+│ │ +  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ +  padding-bottom: 5px;
+│ │ +  margin-bottom: 0px;
+│ │ +}
+│ │ -html {
+│ │ -  font-family: "Nunito", sans-serif;
+│ │ -}
+│ │ -body {
+│ │ -  background-color: rgb(255, 255, 255);
+│ │ -  margin: 0;
+│ │ -}
+│ │ -@keyframes spinning {
+│ │ -  from {
+│ │ -    transform: rotate(0deg);
+│ │ -  }
+│ │ -  to {
+│ │ -    transform: rotate(360deg);
+│ │ -  }
+│ │ -}
+│ │ -.block {
+│ │ -  background-color: #ffffff;
+│ │ -  height: 285px;
+│ │ -  width: 300px;
+│ │ -  border: 6px solid;
+│ │ -  border-image: linear-gradient(#fa00bb, #7c00c4, #03a9f4) 1;
+│ │ -  animation: rotate 2s ease-in infinite;
+│ │ -  color: rgb(255, 255, 255);
+│ │ -  font-size: 20px;
+│ │ -  display: flex;
+│ │ -  align-items: center;
+│ │ -  justify-content: center;
+│ │ -}
+│ │ -
+│ │ -@keyframes rotate {
+│ │ -  50% {
+│ │ -    border-image: linear-gradient(360deg, #f441a5, #630091, #03a9f4, #2e00fa) 1;
+│ │ -    box-shadow: 0 0 20px #fa00bb;
+│ │ -    -webkit-transition: box-shadow linear 1s infinite;
+│ │ -    transition: box-shadow linear 1s infinite;
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -.ghost-box {
+│ │ -  display: flex;
+│ │ -  flex-direction: column;
+│ │ -  height: 110px;
+│ │ -  margin-left: 15px;
+│ │ -  width: 270px;
+│ │ -}
+│ │ -
+│ │ -.block-inner {
+│ │ -  align-items: center;
+│ │ -  border-radius: 4px;
+│ │ -  display: flex;
+│ │ -  height: 250px;
+│ │ -  width: 300px;
+│ │ -  background-color: rgb(255, 255, 255);
+│ │ -}
+│ │ -.token {
+│ │ -  color: #ffffff;
+│ │ -  font-size: 15px;
+│ │ -  font-weight: bold;
+│ │ -  margin-top: -75px;
+│ │ -  text-align: center;
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  -webkit-background-clip: text;
+│ │ -  -webkit-text-fill-color: transparent;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  animation: myAnim 1s ease 0s 1 normal forwards;
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -  padding-bottom: 5px;
+│ │ -}
+│ │ -
+│ │ -.credits {
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  -webkit-background-clip: text;
+│ │ -  -webkit-text-fill-color: transparent;
+│ │ -  text-decoration: none;
+│ │ -  font-size: 12px;
+│ │ -  flex: auto;
+│ │ -  text-align: center;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  animation: animate 3s cubic-bezier(0.75, 0.75, 0.75, 0.75) infinite;
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -  padding-top: 10px;
+│ │ -}
+│ │ -
+│ │ -.non-selectable {
+│ │ -  -webkit-touch-callout: none;
+│ │ -  -webkit-user-select: none;
+│ │ -  -khtml-user-select: none;
+│ │ -  -moz-user-select: none;
+│ │ -  -ms-user-select: none;
+│ │ -  user-select: none;
+│ │ -}
+│ │ -
+│ │ -#submit {
+│ │ -  height: 35px;
+│ │ -  width: 125px;
+│ │ -  margin: auto;
+│ │ -  align-items: center;
+│ │ -  border-radius: 10px;
+│ │ -  border: none;
+│ │ -  text-align: center;
+│ │ -  color: transparent;
+│ │ -  text-shadow: 0 0 0 rgb(255, 255, 255);
+│ │ -  font-size: 17px;
+│ │ -  font-weight: 500;
+│ │ -  text-transform: uppercase;
+│ │ -  text-decoration: none;
+│ │ -  box-sizing: border-box;
+│ │ -  cursor: pointer;
+│ │ -  transition: transform 50ms ease;
+│ │ -  background: linear-gradient(90deg, #5f03f4, #f441a5, #b81fff, #5f03f4);
+│ │ -  color: #ffffff;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  background-size: 400%;
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -  display: block;
+│ │ -  margin-right: auto;
+│ │ -  margin-left: auto;
+│ │ -  font-family: "Nunito", sans-serif;
+│ │ -}
+│ │ -
+│ │ -#submit:hover {
+│ │ -  -webkit-box-shadow: 0px 0px 15px 0px rgba(155, 0, 194, 0.9);
+│ │ -  -moz-box-shadow: 0px 0px 15px 0px rgba(155, 0, 194, 0.9);
+│ │ -  box-shadow: 0px 0px 15px 0px rgba(155, 0, 194, 0.9);
+│ │ -  animation: animate 8s ease infinite;
+│ │ -  transition: box-shadow, 0.4s;
+│ │ -  border: none;
+│ │ -  font-size: 19px;
+│ │ -  transform: scale(1.05, 1.05);
+│ │ -  background: linear-gradient(90deg, #5f03f4, #f441a5, #b81fff, #5f03f4);
+│ │ -  background-size: 400%;
+│ │ -  animation: animate 7s cubic-bezier(0.75, 0.75, 0.75, 0.75) infinite,
+│ │ -    welcome 0.5s ease 0s 1 normal forwards;
+│ │ -}
+│ │ -
+│ │ -@keyframes animate {
+│ │ -  0% {
+│ │ -    background-position: 0%;
+│ │ -  }
+│ │ -  100% {
+│ │ -    background-position: 400%;
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -@keyframes spin {
+│ │ -  0% {
+│ │ -    --rotate: 0deg;
+│ │ -  }
+│ │ -  100% {
+│ │ -    --rotate: 360deg;
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -#submit:hover:before {
+│ │ -  filter: blur(20px);
+│ │ -  opacity: 1;
+│ │ -  animation: animate 8s linear infinite;
+│ │ -}
+│ │ -
+│ │ -#token {
+│ │ -  color: #7c00c4;
+│ │ -  background-color: #c2c2c2;
+│ │ -  border: none;
+│ │ -  border-radius: 6px;
+│ │ -  height: 25px;
+│ │ -  margin-top: 15px;
+│ │ -  margin-bottom: 15px;
+│ │ -  outline: none;
+│ │ -  padding-left: 10px;
+│ │ -  font-family: "Nunito", sans-serif;
+│ │ -  font-weight: bold;
+│ │ -}
+│ │ -
+│ │ -#submit:hover {
+│ │ -  background-color: #4856c0;
+│ │ -  cursor: pointer;
+│ │ -}
+│ │ -
+│ │ -@keyframes jelly {
+│ │ -  0% {
+│ │ -    transform: scale3d(1, 1, 1);
+│ │ -  }
+│ │ -
+│ │ -  30% {
+│ │ -    transform: scale3d(1.25, 0.75, 1);
+│ │ -  }
+│ │ -
+│ │ -  40% {
+│ │ -    transform: scale3d(0.75, 1.25, 1);
+│ │ -  }
+│ │ -
+│ │ -  50% {
+│ │ -    transform: scale3d(1.15, 0.85, 1);
+│ │ -  }
+│ │ -
+│ │ -  65% {
+│ │ -    transform: scale3d(0.95, 1.05, 1);
+│ │ -  }
+│ │ -
+│ │ -  75% {
+│ │ -    transform: scale3d(1.05, 0.95, 1);
+│ │ -  }
+│ │ -
+│ │ -  100% {
+│ │ -    transform: scale3d(1, 1, 1);
+│ │ -  }
+│ │ -}
+│ │ -::placeholder {
+│ │ -  /* Chrome, Firefox, Opera, Safari 10.1+ */
+│ │ -  color: rgb(255, 255, 255);
+│ │ -  opacity: 1; /* Firefox */
+│ │ -  text-align: center;
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  -webkit-background-clip: text;
+│ │ -  -webkit-text-fill-color: transparent;
+│ │ -}
+│ │ -
+│ │ -:-ms-input-placeholder {
+│ │ -  /* Internet Explorer 10-11 */
+│ │ -  color: rgb(255, 255, 255);
+│ │ -  opacity: 0.5; /* Firefox */
+│ │ -  text-align: center;
+│ │ -}
+│ │ -
+│ │ -::-ms-input-placeholder {
+│ │ -  /* Microsoft Edge */
+│ │ -  color: rgb(255, 255, 255);
+│ │ -  opacity: 0.5; /* Firefox */
+│ │ -  text-align: center;
+│ │ -}
+│ │ -
+│ │ -br {
+│ │ -  display: block;
+│ │ -  content: "";
+│ │ -  margin-top: 10px;
+│ │ -  margin-bottom: -10px;
+│ │ -  text-decoration: underline;
+│ │ -}
+│ │ -
+│ │ -br::hover {
+│ │ -  text-decoration: underline;
+│ │ -}
+│ │ -
+│ │ -@keyframes myAnim {
+│ │ -  0% {
+│ │ -    transform: scale3d(1, 1, 1);
+│ │ -  }
+│ │ -
+│ │ -  30% {
+│ │ -    transform: scale3d(1.25, 0.75, 1);
+│ │ -  }
+│ │ -
+│ │ -  40% {
+│ │ -    transform: scale3d(0.75, 1.25, 1);
+│ │ -  }
+│ │ -
+│ │ -  50% {
+│ │ -    transform: scale3d(1.15, 0.85, 1);
+│ │ -  }
+│ │ -
+│ │ -  65% {
+│ │ -    transform: scale3d(0.95, 1.05, 1);
+│ │ -  }
+│ │ -
+│ │ -  75% {
+│ │ -    transform: scale3d(1.05, 0.95, 1);
+│ │ -  }
+│ │ -
+│ │ -  100% {
+│ │ -    transform: scale3d(1, 1, 1);
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -@keyframes welcome {
+│ │ -  0% {
+│ │ -    opacity: 0;
+│ │ -    transform: translateY(-250px);
+│ │ -  }
+│ │ -
+│ │ -  100% {
+│ │ -    opacity: 1;
+│ │ -    transform: translateY(0);
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -input {
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -  -webkit-text-security: square;
+│ │ -  padding: 6px;
+│ │ -  text-align: center;
+│ │ -  display: block;
+│ │ -  margin: 0 auto;
+│ │ -  width: 250px;
+│ │ -}
+│ │ -
+│ │ -.tokengoeshere {
+│ │ -  -webkit-text-security: square;
+│ │ -  --border-size: 3px;
+│ │ -  --border-angle: 0turn;
+│ │ -  background-image: conic-gradient(
+│ │ -      from var(--border-angle),
+│ │ -      #c2c2c2,
+│ │ -      #c2c2c2,
+│ │ -      #c2c2c2
+│ │ -    ),
+│ │ -    conic-gradient(
+│ │ -      from var(--border-angle),
+│ │ -      rgb(201, 0, 174),
+│ │ -      rgb(0, 225, 255),
+│ │ -      rgb(255, 0, 234),
+│ │ -      rgb(201, 0, 174)
+│ │ -    );
+│ │ -  background-size: calc(100% - (var(--border-size) * 2))
+│ │ -      calc(100% - (var(--border-size) * 2)),
+│ │ -    cover;
+│ │ -  background-position: center center;
+│ │ -  background-repeat: no-repeat;
+│ │ -
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards, bg-spin 3s linear infinite;
+│ │ -}
+│ │ -@keyframes bg-spin {
+│ │ -  to {
+│ │ -    --border-angle: 1turn;
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -@property --border-angle {
+│ │ -  syntax: "<angle>";
+│ │ -  inherits: true;
+│ │ -  initial-value: 1turn;
+│ │ -}
+│ │ -.middle {
+│ │ -  margin-top: 20px;
+│ │ -  top: 50%;
+│ │ -  transform: translateY(-50%);
+│ │ -  width: 100%;
+│ │ -  text-align: center;
+│ │ -}
+│ │ -
+│ │ -.btn {
+│ │ -  display: inline-block;
+│ │ -  width: 30px;
+│ │ -  height: 30px;
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  -webkit-background-clip: text;
+│ │ -  color: #ffffff;
+│ │ -  -webkit-text-fill-color: transparent;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  margin: 10px;
+│ │ -  border: none;
+│ │ -  border-radius: 30%;
+│ │ -  color: #ffffff;
+│ │ -  overflow: hidden;
+│ │ -  position: relative;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -}
+│ │ -
+│ │ -.btn i {
+│ │ -  line-height: 30px;
+│ │ -  font-size: 18px;
+│ │ -  transition: 0.2s linear;
+│ │ -}
+│ │ -
+│ │ -.btn:hover i {
+│ │ -  transform: scale(1.3);
+│ │ -  color: #ffffff;
+│ │ -  background: #bb00ff;
+│ │ -  background: white;
+│ │ -  -webkit-background-clip: text;
+│ │ -  color: #ffffff;
+│ │ -  animation: animate 7s cubic-bezier(0.75, 0.75, 0.75, 0.75) infinite,
+│ │ -    welcome 0.1s ease 0s 1 normal forwards;
+│ │ -}
+│ │ -
+│ │ -.btn::before {
+│ │ -  content: "";
+│ │ -  position: absolute;
+│ │ -  width: 120%;
+│ │ -  height: 120%;
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  transform: rotate(45deg);
+│ │ -  left: -110%;
+│ │ -  top: 90%;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -}
+│ │ -
+│ │ -.btn:hover::before {
+│ │ -  animation: aaa 0.7s 1;
+│ │ -  top: -10%;
+│ │ -  left: -10%;
+│ │ -}
+│ │ -@keyframes aaa {
+│ │ -  0% {
+│ │ -    left: -110%;
+│ │ -    top: 90%;
+│ │ -  }
+│ │ -  50% {
+│ │ -    left: 10%;
+│ │ -    top: -30%;
+│ │ -  }
+│ │ -  100% {
+│ │ -    top: -10%;
+│ │ -    left: -10%;
+│ │ -  }
+│ │ -}
+│ │ -
+│ │ -#data {
+│ │ -  margin: 0;
+│ │ -  padding: 0;
+│ │ -}
+│ │ -
+│ │ -.support {
+│ │ -  color: #ffffff;
+│ │ -  font-size: 13px;
+│ │ -  font-weight: bold;
+│ │ -  text-align: center;
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  -webkit-background-clip: text;
+│ │ -  -webkit-text-fill-color: transparent;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  animation: myAnim 1s ease 0s 1 normal forwards;
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -  padding-bottom: 5px;
+│ │ -  margin-top: 20px;
+│ │ -  margin-bottom: 10px;
+│ │ -}
+│ │ -
+│ │ -.contact-text {
+│ │ -  color: #ffffff;
+│ │ -  font-size: 14px;
+│ │ -  font-weight: bold;
+│ │ -  text-align: center;
+│ │ -  background: #bb00ff;
+│ │ -  background: linear-gradient(to right, #bb00ff 19%, #3b61f7 100%);
+│ │ -  -webkit-background-clip: text;
+│ │ -  -webkit-text-fill-color: transparent;
+│ │ -  text-shadow: rgba(140, 0, 255, 0.9) 0px 0px 20px;
+│ │ -  animation: myAnim 1s ease 0s 1 normal forwards;
+│ │ -  animation: welcome 0.5s ease 0s 1 normal forwards;
+│ │ -  padding-bottom: 5px;
+│ │ -  margin-bottom: 0px;
+│ │ -}

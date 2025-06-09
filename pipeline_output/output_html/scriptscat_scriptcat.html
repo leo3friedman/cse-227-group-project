@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="generator" content="diffoscope" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADdgAAA3YBfdWCzAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM8SURBVFiF7dZdaJZlGAfw3/O+e9XNjy3XllZzWImBxIpifqTgsmUHBSIeBNFBdRh0UHQ0xGdb66CFBIERZEFRQRRUw0HkQkLMYQSBdpCFWdgSP6jpNn2393k68Nn2bj3vXtb6UOh/cl/39b/u67mem/913zf/4z9GUDw5xNI8n5WIzW9m/QF2YluJmI8203mALzEvLWAerRs4Pz6vSIkZSlsYk0/GkaB0zEgyDgWMlijyWsJuS2fkQwu8pqpMTA0ypeiShG71Bp0rU8Q+A47MWEDgvHZbZl/Av4SpIgxVYB3IqwZDmoUuYkzosDaNchpAoFqkSmgjGPWzLieF1k3JHVsjvCJQHBYaSy9g1E3m+QImQiK9SbNGqJDzuiDZ0lggQJCsyelDq8BB47sbCWTsnvhG3kqcLL833eqF4hk1EOoTOjZjnnaRdq2l6KtMAyl4/g23bKJrun+Mt9uOq7nvqOVbebWYy9Adc1fM/R/3CO780dONbIeFPHsPw+ULeM5ZHTbXHfUtXpxOZzgT5z02UGsZThRzF/ilht9G+fr4zfbfccIxXIa7uVTup69i7LJXaEEqF3on1d9ludBLpVLOVoT1lky9QYtwQ6p3WAVqSyUslWwSbRrkPJrMtgn0iBVk7BPJ4sGE24EPQKW3jLgdzWKLBTbg0yTuZeGkDsp2gcUGDesHGQ/gK5G8nLMigWiCe3jCrnTRiJ9EYjm1ImsUEq5l8hScPXbpsVtlKhfan+pv0yD0ZqmU5XegGBmnDIo/pylj8oYLOP3Eab/v5Zmi6EtZ3vv1FU/2r7LioYSL2dNybbdiMdptFU57++20Vqh+iq/Tap1WpaWY611wmyWyUzxZDbIWTvEV1Ildn5agfBumoUMTtoisFvhebAAHZWxX0ChwTuScvHdVeVykToysMyJ7ittwbmj31J+6IrRDp5XTfBt1WJ+WYnZdMB0F3xlUgD5uDVj2Sa+a4SrzH+FeyHHmw17V112waBOZgP4WczkLZsILar1fpIliMU4XZoK/poE0XHl+N8v6QcGAUbVymnDIZVnzrTXqGzmnhKLxZX/niyiDjIJgwg4Se1GR/Y8idGPysh6fr0i1i/AHMWHgrwUJgNAAAAAASUVORK5CYII=" />
+  <title>/usr/bin/diffoscope --exclude-directory-metadata=recursive --html /workspace/pipeline_output/output_html/scriptscat_scriptcat.html /workspace/pipeline_output/chromex_data /workspace/pipeline_output/scriptcat/src</title>
+<style>
+body.diffoscope {
+  background: white;
+  color: black;
+}
+.diffoscope .footer {
+  font-size: small;
+}
+.diffoscope .difference {
+  border: outset #888 1px;
+  background: #E8E8E8;
+  background: rgba(0,0,0,.1);
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+.diffoscope .difference table {
+  table-layout: fixed;
+  width: 100%;
+  border: 0;
+}
+.diffoscope .difference th,
+.diffoscope .difference td {
+  border: 0;
+}
+.diffoscope table.diff {
+  border: 0;
+  border-collapse:collapse;
+  font-size:0.75em;
+  font-family: 'Lucida Console', monospace;
+  word-break: break-word;
+}
+.diffoscope table.diff tr:hover td {
+  background: #FFFF00;
+}
+.diffoscope .line {
+  color:#8080a0
+}
+.diffoscope th {
+  background: black;
+  color: white
+}
+.diffoscope .diffunmodified td {
+  background: #D0D0E0
+}
+.diffoscope .diffhunk td {
+  background: #A0A0A0
+}
+.diffoscope .diffadded td {
+  background: #CCFFCC
+}
+.diffoscope .diffdeleted td {
+  background: #FFCCCC
+}
+.diffoscope .diffchanged td {
+  background: #FFFFA0
+}
+.diffoscope ins, del {
+  background: #E0C880;
+  text-decoration: none
+}
+.diffoscope .dp {
+  color: #B08080
+}
+.diffoscope .comment {
+  font-style: italic;
+}
+.diffoscope .comment.multiline {
+  font-style: normal;
+  font-family: monospace;
+  white-space: pre;
+}
+.diffoscope .source {
+  font-weight: bold;
+}
+.diffoscope .error {
+  border: solid black 1px;
+  background: red;
+  color: white;
+  padding: 0.2em;
+}
+.diffoscope .anchor {
+  margin-left: 0.5em;
+  font-size: 80%;
+  color: #333;
+  text-decoration: none;
+  display: none;
+}
+.diffoscope .diffheader:hover .anchor {
+  display: inline;
+}
+.diffoscope .diffcontrol, .diffoscope .diffcontrol-nochildren {
+  float: left;
+  margin-right: 0.3em;
+  cursor: pointer;
+  display: none; /* currently, only available in html-dir output where jquery is enabled */
+}
+.diffoscope .colines {
+  width: 3em;
+}
+.diffoscope .coldiff {
+  width: 99%;
+}
+.diffoscope .diffsize {
+  float: right;
+}
+.diffoscope table.diff tr.ondemand td, .diffoscope div.ondemand-details {
+  background: #f99;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.diffoscope table.diff tr.ondemand:hover td, .diffoscope div.ondemand-details:hover {
+  background: #faa;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="diffoscope">
+<div class="difference">
+  <div class="diffheader">
+  <div class="diffcontrol diffcontrol-double">⊟</div>
+  <div><span class="diffsize">19.9 KB</span></div>
+  <div><span class="source">/workspace/pipeline_output/chromex_data</span> vs.</div>
+  <div id="top"><span class="source">/workspace/pipeline_output/scriptcat/src</span>
+    <a class="anchor" href="#top">¶</a>
+  </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol">⊟</div>
+    <div><span class="diffsize">240 B</span></div>
+    <div id="file-list"><span class="source">file list</span>
+      <a class="anchor" href="#file-list">¶</a>
+    </div>
+    </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 5 lines modified</td><td colspan="2">Offset 1, 16 lines modified</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">1 </td><td class="diffpresent">app</td></tr>
+<tr class="diffdeleted"><td class="diffline">1 </td><td class="diffpresent">_locales</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">_metadata</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">3 </td><td class="diffpresent">assets</td><td class="diffline">2 </td><td class="diffpresent">assets</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">content.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">index.css</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">inject.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">linter.worker.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">locales</td></tr>
+<tr class="diffunmodified"><td class="diffline">4 </td><td class="diffpresent">manifest.json</td><td class="diffline">8 </td><td class="diffpresent">manifest.json</td></tr>
+<tr class="diffchanged"><td class="diffline">5 </td><td class="diffpresent">sr<del>c</del></td><td class="diffline">9 </td><td class="diffpresent"><ins>off</ins>s<ins>c</ins>r<ins>een.t</ins><ins>s</ins></td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">pages</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">pkg</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">12 </td><td class="diffpresent">react-env.d.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">sandbox.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">service_worker.ts</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">template</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">types</td></tr>
+</table>  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">18.8 KB</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/assets</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-assets"><span class="source">/workspace/pipeline_output/scriptcat/src/assets</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-assets">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">75.0 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-assets---file-list"><span class="source">file list</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-assets---file-list">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 2 lines modified</td><td colspan="2">Offset 1, 4 lines modified</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">1 </td><td class="diffpresent">_locales</td></tr>
+<tr class="diffunmodified"><td class="diffline">1 </td><td class="diffpresent">logo</td><td class="diffline">2 </td><td class="diffpresent">logo</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">logo-beta.png</td></tr>
+<tr class="diffunmodified"><td class="diffline">2 </td><td class="diffpresent">logo.png</td><td class="diffline">4 </td><td class="diffpresent">logo.png</td></tr>
+</table>    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol diffcontrol-double">⊟</div>
+      <div><span class="diffsize">18.7 KB</span></div>
+      <div><span class="source">/workspace/pipeline_output/chromex_data/assets/logo.png</span> vs.</div>
+      <div id="Dworkspace-pipeline_output-chromex_data-assets----workspace-pipeline_output-chromex_data-assets-logo.png"><span class="source">/workspace/pipeline_output/scriptcat/src/assets/logo.png</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-assets----workspace-pipeline_output-chromex_data-assets-logo.png">¶</a>
+      </div>
+      </div>
+      <div class="comment multiline">xxd not available in path. Falling back to Python hexlify.
+
+&#x27;sng&#x27; not available in path. Falling back to binary comparison. Installing the &#x27;sng&#x27; package may produce better output.
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 1, 179 lines modified</td><td colspan="2">Offset 1, 107 lines modified</td></tr>
+<tr class="diffchanged"><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d49484452000000<del>c</del>8000000<del>c</del>80806000000<del>ad58ae</del></td><td class="diffline">1 </td><td class="diffpresent">89504e470d0a1a0a0000000d494844520000008000000<ins>0</ins>8<ins>0</ins>0806000000<ins>c33e61</ins></td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">2 </td><td class="diffpresent">cb00000d2549444154785eed5d6b7054e5197edeb31b2845846c4090410d644f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">3 </td><td class="diffpresent">88a0a8553a3a5607a6daab1db45ada8af78ac99e80532a5a9d568bda8ead97d1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">4 </td><td class="diffpresent">91ecd944acb716db7aa932b5755aede878a9b6d411b96892b381a80c06c99e05</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">5 </td><td class="diffpresent">915249f6bc9d93048b10e09c3def219b9c6f6776e0c7fb3edff33edf936fcfe5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">6 </td><td class="diffpresent">bb10d427d20a50a4ab57c5431920e2265006500688b802112f5f8d00ca001157</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">7 </td><td class="diffpresent">20e2e5ab11401920e20a44bc7c35022803c82a509e693b070e46d130e7657bbe</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">8 </td><td class="diffpresent">be51163d9a688965d624dea59d010ddbf3a9aa672455101b01cacdd67b09743e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">9 </td><td class="diffpresent">80899f1224bcc6a087f3a9649324e9a8609567b2b504be148cd3f6a87913839f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">10 </td><td class="diffpresent">cc1bd5574be820628044ba650948fbd90108ad220dcb7275ba29417aa8635434</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">11 </td><td class="diffpresent">5a063b980fe0c4fdd6cacecd76fdd42541b5086c80f28c358f18bff54484680d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">12 </td><td class="diffpresent">159cfb730baaeff5141fb1a08a86d6ab39a65d09e6e3bd94ce848bf2297db997</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">13 </td><td class="diffpresent">d8fdc5043780693d42c0c5fe48f03b605a66d7eb77fbcb1b9ad189b4b508c4f3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">14 </td><td class="diffpresent">013ad64f850cfc266fe897f8c9d93b36b0011266eb5b00cd2892446baf119277</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">15 </td><td class="diffpresent">16993fa8d312e9ece2de8e47757185f06adba83ea1b8dcde2c0103581c84401f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">16 </td><td class="diffpresent">893607dab2bc51f5aba0588321bfdc6cfbb106673e035541f9da861ea80f0325</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">17 </td><td class="diffpresent">bbe41319eb7d3026052da4cf8fedc4cefdb9faea5fc8e095164a45baf5274cda</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">18 </td><td class="diffpresent">9500578a30236cb453fa5141b0821bc0b45e03706a1012fbe4323682b0cc36f4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">19 </td><td class="diffpresent">5b447107082c615a3781311f24f587f26921afdb86bee72da2ef0a831b20633d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">20 </td><td class="diffpresent">0ec605be5bf694c01f80f93e89db1d4fcd0907f5de1ed355001d290cbdfb07fc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">21 </td><td class="diffpresent">093ba57f270876700398967b25ffc320243ce47e08763283c5087dcf4552008e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">22 </td><td class="diffpresent">f0505b90907b6c435f140420b80132d96bc07ca8aee27360a7a1548dd0d7f10b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">23 </td><td class="diffpresent">005404e914cfb9448bed54f22ecff1fd040637403afb5d10ff3e08892272b781</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">24 </td><td class="diffpresent">9d7b4ac5087d1def8e82a38ba8a5f814a6efd9f5c93f140f20701b589e693e9d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">25 </td><td class="diffpresent">38f64a101201723f063b770d9411fa3afe1a008705a8a1e854a6c297f2a99a57</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">26 </td><td class="diffpresent">8b0690780e30a6e1ed6334adac3d080981dc9d60e7f6436584be8ebf0ec00801</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">27 </td><td class="diffpresent">ee4543384e57e5d605d3de2d1a40c20078ecb158a2f3a4ee2024c47209bbe038</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">28 </td><td class="diffpresent">b78565849e8ed7b41bc01826c63900903df6cd38e6ce2d048008fe24d06d3c61</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">29 </td><td class="diffpresent">b66e0aed56a7b8ea1cb073abe3682f1697fed92c4d736681b41b016812783218</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">30 </td><td class="diffpresent">fc816d54ffffd57b91a0812f02fb0cf02f806616c941a515a500afb48dea2f16</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">31 </td><td class="diffpresent">95ba47928c01d2ad7f04d17941c9a87c1f0a303f65d7577fdb4746bfa12206e8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">32 </td><td class="diffpresent">9b0db430281995ef5d01062f959815246480ecb504bedd3b7d15195401065d97</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">33 </td><td class="diffpresent">37927704c591314063dbf7c9711e0d4a46e57b578035edc27c5dd5efbc67f41f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">34 </td><td class="diffpresent">29630073fd1984c24b41c9a87cef0a306267e68d292f7bcf08d100a397b54f8e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">35 </td><td class="diffpresent">7575ad0f4a46e57b57a050563665dbfcca0dde334234009ab82c51c8ee0a4a46</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">36 </td><td class="diffpresent">e57b57c08e2587a196babc678469809e9941d90e308f0f4a48e57b508068b39d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">37 </td><td class="diffpresent">4a4ef01079d010916b00b7958469fd1bc0c9076d51054828f0866de8a7480089</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">38 </td><td class="diffpresent">19a03c633d4d8c3912a414c6811560c28a7c4a3f574227390398560301f512a4</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">39 </td><td class="diffpresent">14c6410c00a4f386ee4e3c09fc913340c6ba9e18b70566a4000eaa00136ec8a7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">40 </td><td class="diffpresent">f45f1e34d0438098012a4ceb2277a58a873655484005dc95583943f7b61cef20</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">41 </td><td class="diffpresent">6d8919606cc69ae5305e08589b4af7a0804698dd99d2455e758b19605c3a9b2c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">42 </td><td class="diffpresent">105b1ef8ab90800ac498f42df5c96c40989e743103543eb8e1731fedecde2941</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">43 </td><td class="diffpresent">4a611c5881c347c447b45f3ef9bf123a8919c0259330ad2d00c64a105318fb55</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">44 </td><td class="diffpresent">a0d336f47152fa481be0cd036e6a20c53ada38ab6c433f494a0251035498d69f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">45 </td><td class="diffpresent">1838478a9cc2d95701029ec919fab7a4b411364036c3e03a29720aa73f035063</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">46 </td><td class="diffpresent">ce48bacbce443eb206e859fe4c3f1761a640fa5580987f2ab97c5ed60066cba5</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">47 </td><td class="diffpresent">0ced21d577e12940702ecb19531f966a41d6000d2d5f664d7b5e8a9cc2e9e727</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">48 </td><td class="diffpresent">c071ceca2d98fa77296d440d30d66c9eea20d62c454ee1ecab8086424da751d3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">49 </td><td class="diffpresent">22a58da801c6dff1d6c8ae919fff588a9cc2d95781b21dff396cf3b527ec90d2</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">50 </td><td class="diffpresent">46d4002ea98469d900caa5082a9ccf2890b70d3d21a989bc01d2d66a103c6d74</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">51 </td><td class="diffpresent">28594824b0186bec7abdd82df9fabfab90162e615a7f01f075695c85d7a3c0b3</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">52 </td><td class="diffpresent">b6a17f43528b304680fb403dfbdcaa8fb4020c7777d5ab2461e50d90c9de08e6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">53 </td><td class="diffpresent">21b1bd9ba4d022584437d9a9e4ad22587d20f20630db2e079c0724492aacdd0a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">54 </td><td class="diffpresent">6857d846d583927ac81ba071fdd9700a7f9324a9b0fa14d0625fb1eba63c27a9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">55 </td><td class="diffpresent">87b8012ad2edc73275bd2d495261f52a405c362d575ff98ea41ee20618fbebe6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">56 </td><td class="diffpresent">51ce27b18f24492aac5e05b4e185c33b7f50b35d520f7103b8e412a6b5f590ef</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">57 </td><td class="diffpresent">9927a94a69626db30d7d8c34b5b00cb016c07469b211c75b671bfa71d21a1465</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">58 </td><td class="diffpresent">808a8c75b1c3b88980641fa10e00ab88b0ca81f31658ab25609634d928e331f0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">59 </td><td class="diffpresent">22c869d2a09dc0dc739690fbed5920ca405623dc924be9bed765f83640c2b41e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">60 </td><td class="diffpresent">03106887ea287764c8b53f6e1bfa5c3f6df83280ea7c3fd20e58ac2f13783640</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">61 </td><td class="diffpresent">a2d19a0607eb06ac2cd5b07705344cb7eb744fb7e2de0d70f0b301bd135491e1</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">62 </td><td class="diffpresent">2ae0e34c41cf06a848b75ec644a28f21c35521bae8c47c79aebedad3dc4ccf06</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">63 </td><td class="diffpresent">18b3d49aa5c5d4e2cfc1602ba780d95b177a5b3cead900bd0f78b22d001779c6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">64 </td><td class="diffpresent">dd60906e2870a456db484ef55a893f03a8eb00afba0e5c1c61899dd26ff64ac0</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">65 </td><td class="diffpresent">97015cd072b3ad8ee064bc36a0e20e9d020c2d9537aa1afdb4e8db003d3f05cb</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">66 </td><td class="diffpresent">ac49e8c269209ccd0e4e26ea39fa74408e4df153ec108bfd9819ada4e10d309e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">67 </td><td class="diffpresent">43195eb3e7eb1bfdd6589401f669c4dd28b2bb6d2613cd2038eeef8ffb55f302</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">68 </td><td class="diffpresent">fdf6c681e39f05d0c2d05a8879b51daf5a59521b45eec9bdc2b4ea196890ad3f</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">69 </td><td class="diffpresent">da68042cc8197a5a5a059911602f561566cbb90ced2969b251c62338e7e58ca9</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">70 </td><td class="diffpresent">4f4b6b108a01c636b69de238ce4a69b251c6d3346d66675d95bb1babe8271c03</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">71 </td><td class="diffpresent">34b51fe914ba3689328d3898162b9bd8595bf981b40ca118a0e74ec1b4dc3582</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">72 </td><td class="diffpresent">23a50947146f876de8a1dc6585698056007a443b4cba6ccb36f4509ec0866680</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">73 </td><td class="diffpresent">72d37a41cd0a92f1813b1b286fe8b365d03e8b129e01d2d6f5446aef60894e63</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">74 </td><td class="diffpresent">c60df97a99bd81f7e6139a01c6a4379ca851b7bb6d9cfa0454c0e1f8495beb27</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">75 </td><td class="diffpresent">af0a08d36f7a6806e8bd10cc3603ecf9cd5418050e7e4c6ab18d644d5875846a</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">76 </td><td class="diffpresent">800ad3321910dbd22c2c114a1997804cced08db038866a8044a6f57c303d1116</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">77 </td><td class="diffpresent">f948e0125f60a7aa9f0cabd6500d30da5c5d1ec3087772a2c80147618950c2b8</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">78 </td><td class="diffpresent">1d05ec9cb6cd98910f8ba3a801ca9bda466bd06a9c42b7ae812b19740c409500</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">79 </td><td class="diffpresent">9f155601431b979e07b89dc0ef3aa0762d16b71c38cdf9daaa6d5275176d80f2</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">80 </td><td class="diffpresent">a6b6a3d15d389d886ae07e812960ae54bb854b75cd7e713a41d40e603d989b99</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">81 </td><td class="diffpresent">b919f1d8abf9daaaf78a69b92803f45ddc5da816801623792839db0878946265</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">82 </td><td class="diffpresent">b7fa7d5fe0db006a7550281d28044aed4cb4309faa7ac62ba02f0394ab93c1bc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">83 </td><td class="diffpresent">ea3a8071fc8a6d549fe195802f032432d66ab0da03d0abb8031617cad2b0de89</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">84 </td><td class="diffpresent">a0ef0f5851aa613f0accb50dfd712f099e47804483751a34fcc30ba88a196005</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">85 </td><td class="diffpresent">083fb253fadd5e587836800ba6b67ef122e9c0c7f8993fe8cb00ead9fec077ae</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">86 </td><td class="diffpresent">0706be4e16f76580be51a0881d42b805a0d5205e43cc6bba41abe38ce1205ace</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">87 </td><td class="diffpresent">80d809581ec429b91002de04f3bc6ec22771f00c263a1e4cc7033c0320bf6f52</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">88 </td><td class="diffpresent">b7522cfeb55cede47f7a2dd4b7015ce0f2b4751b088b0818be57436b015a4b70</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">89 </td><td class="diffpresent">d6c1e1755a3cbe764b5dd57e4f131d6db64e8981960338d52be12116f77a013c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">90 </td><td class="diffpresent">6f9b51bd7e7f758d6b6cd39deeeee3a0d17486361d6077a3a8fe368b7a96e0dc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">91 </td><td class="diffpresent">e777ea78510670c98e6eb0be408cc3ddff6b65f8d0eb8e147b173a76e97b130b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">92 </td><td class="diffpresent">b14f96476dfa983bcd2b56183eaf73e1d145cd9e76776c71ba7084ab6799461b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">93 </td><td class="diffpresent">8b3d4ab6680348fe258e6a78a7a24c8bbb23c15725714b18ebaf5d4ef7bced0b</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">94 </td><td class="diffpresent">8ecd0d34c79230802bc2f8473a46eedab17d3931e60cb42861b6cf8415c3468e</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">95 </td><td class="diffpresent">9ab7f9920962c7be04e15b3206e82962c90bf1c4b8494d205c11a4a892cd653c</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">96 </td><td class="diffpresent">606fd9588b25b3bb4b85636919a04f95f24cdb3904e75a30ce2c15a102f120bc</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">97 </td><td class="diffpresent">c4d0eef0f39226507b3e924bd200bbf927d2d62210160398e8a3a6520add04c6</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">98 </td><td class="diffpresent">9d76bdb7a7720341bca40dd073b7b1b479723c1e5bcc8cd0264686213c11ccee</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">99 </td><td class="diffpresent">eec29ddb16d66c08035f0ab3e40df0e968d0d87a36397419a3e722b154d71cee</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">100 </td><td class="diffpresent">2060056bfc905d572d7ab0835487ef8d33680cb09bf8f84cf6882e76bec94473</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">101 </td><td class="diffpresent">4ae58ec1bdb227e61565a4fd79732af961589d1506eea033c09e2224d2d9a348</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">102 </td><td class="diffpresent">c31c66e71280668621d0fe31792591f6083b5861d72707ed6bf2416d803d3ba7</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">103 </td><td class="diffpresent">a269430dbabba639a00944180ff75ff004ee9d92befb3bcca349760170b7c0ef</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">104 </td><td class="diffpresent">20a083411d00773063b306ee40bceced5cede4217146f2903180c78e55617b29</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">105 </td><td class="diffpresent">a00c10714b28032803445c818897af46006580882b10f1f2d508a00c10710522</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">106 </td><td class="diffpresent">5ebe1a01940122ae40c4cb5723803240c4158878f96a04500688b802112f5f8d</td></tr>
+<tr class="diffadded"><td colspan="2"> </td><td class="diffline">107 </td><td class="diffpresent">00ca00115720e2e5ff0f4416deaedcf3e7230000000049454e44ae4260820a</td></tr>
+<tr class="diffdeleted"><td class="diffline">2 </td><td class="diffpresent">9e000000017352474200aece1ce9000015ff49444154785eed9d09b024757dc7</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">3 </td><td class="diffpresent">bfbf9ee99eb7bba0c84224ec9b9e65d9b7d3f3960536185348bc0061b90f1363</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">4 </td><td class="diffpresent">4a8d04e5f2a63c12017501c1442dac603c92154129128e2828a002cb6504ca68</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">5 </td><td class="diffpresent">85ecbafb66e6bd45767a16421015618f373d6ffa97eaf7deaeb8ec31d3c7ffdf</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">6 </td><td class="diffpresent">33fd9b2a0aaadeff777d7eff2f3d3dbf3e08f211024260b70448d8080121b07b</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">7 </td><td class="diffpresent">022210d91d42600f044420b23d84800844f680100847408e20e1b88955460888</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">8 </td><td class="diffpresent">4032d26829331c011148386e6295110222908c345aca0c474004128e9b586584</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">9 </td><td class="diffpresent">800824238d9632c311108184e3265619212002c948a3a5cc70044420e1b88955</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">10 </td><td class="diffpresent">4608884032d26829331c011148386e62951102da04b27e1496b175e8e03c4ffd</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">11 </td><td class="diffpresent">f154078580b78fa9b54b37e13719612f65ee82c0c44138702a9f5f1afc89f334</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">12 </td><td class="diffpresent">5930f24f4f0e6d7b66e9183c1dc0b408a46a9b1780e91222d8bb28fa2606dd52</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">13 </td><td class="diffpresent">715b77ea002231f51018b70ba7fae07300bc75e70c98e182f8ea8adbfe17d5d9</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">14 </td><td class="diffpresent">291748cdb66e05f0977b2b9480bb986995d36c7d7f6f6be5effd4b60bc5438a5</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">15 </td><td class="diffpresent">c37c0101a77551c56d8eebbdad8b75b12d512a906ec5f1d2ea08b89b19ab9ca6</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">16 </td><td class="diffpresent">f7bdd8aa1647da09d44b859399f90200a7f7988c5291281348ddb6ae66e0933d</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">17 </td><td class="diffpresent">c2d8b19c801f80b1aadcf4ee08eb43ecf413a8970a27cd0ae38cb0d910f0b9b2</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">18 </td><td class="diffpresent">eb5d12d6be173b2502a90d1756c0e01ff692d8eed612e3871d03ab461bdeed71</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">19 </td><td class="diffpresent">f8131f6a08047b80727c3e33ce8a2322119d526eb47e1087af3df95022906ad1</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">20 </td><td class="diffpresent">fa02113e166b31841f31b0aad2f0be1bab5f71162b816ab170a2013e9f0967c7</td><td colspan="2"> </td></tr>
+<tr class="diffdeleted"><td class="diffline">21 </td><td class="diffpresent">e99840abca6eebfc387deeca971281d46ceb7f011c945031f7304d0be53b09f9</td><td colspan="2"> </td></tr>
+<tr class="error"><td colspan="4">
+Max diff block lines reached; -1/18840 bytes (-0.01%) of diff not shown.
+</td></tr></table>    </div>
+  </div>
+  <div class="difference">
+    <div class="diffheader">
+    <div class="diffcontrol diffcontrol-double">⊟</div>
+    <div><span class="diffsize">776 B</span></div>
+    <div><span class="source">/workspace/pipeline_output/chromex_data/manifest.json</span> vs.</div>
+    <div id="Dworkspace-pipeline_output-chromex_data-manifest.json"><span class="source">/workspace/pipeline_output/scriptcat/src/manifest.json</span>
+      <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json">¶</a>
+    </div>
+    </div>
+    <div class="difference">
+      <div class="diffheader">
+      <div class="diffcontrol">⊟</div>
+      <div><span class="diffsize">669 B</span></div>
+      <div id="Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed"><span class="source">Pretty-printed</span>
+        <a class="anchor" href="#Dworkspace-pipeline_output-chromex_data-manifest.json---Pretty-printed">¶</a>
+      </div>
+      </div>
+<table class="diff">
+<colgroup><col class="colines"/><col class="coldiff"/>
+<col class="colines"/><col class="coldiff"/></colgroup>
+<tr style="display:none;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 15, 15 lines modified</td><td colspan="2">Offset 15, 15 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;&lt;all_urls&gt;&quot;</td><td class="diffline">15 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;&lt;all_urls&gt;&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">16 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffunmodified"><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;icons&quot;:<span class="dp">·</span>{</td><td class="diffline">17 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;icons&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;128&quot;:<span class="dp">·</span>&quot;assets/logo.png&quot;</td><td class="diffline">18 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;128&quot;:<span class="dp">·</span>&quot;assets/logo.png&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">19 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;incognito&quot;:<span class="dp">·</span>&quot;split&quot;,</td><td class="diffline">20 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;incognito&quot;:<span class="dp">·</span>&quot;split&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td><td class="diffline">21 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;manifest_version&quot;:<span class="dp">·</span>3,</td></tr>
+<tr class="diffchanged"><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;__MSG_scriptcat_<del>beta_</del>_&quot;,</td><td class="diffline">22 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;name&quot;:<span class="dp">·</span>&quot;__MSG_scriptcat__&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;options_ui&quot;:<span class="dp">·</span>{</td><td class="diffline">23 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;options_ui&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;open_in_tab&quot;:<span class="dp">·</span>true,</td><td class="diffline">24 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;open_in_tab&quot;:<span class="dp">·</span>true,</td></tr>
+<tr class="diffunmodified"><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;page&quot;:<span class="dp">·</span>&quot;src/options.html&quot;</td><td class="diffline">25 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;page&quot;:<span class="dp">·</span>&quot;src/options.html&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">26 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffunmodified"><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td><td class="diffline">27 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;permissions&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;tabs&quot;,</td><td class="diffline">28 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;tabs&quot;,</td></tr>
+<tr class="diffunmodified"><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;alarms&quot;,</td><td class="diffline">29 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;alarms&quot;,</td></tr>
+<tr class="diffhunk"><td colspan="2">Offset 42, 10 lines modified</td><td colspan="2">Offset 42, 9 lines modified</td></tr>
+<tr class="diffunmodified"><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;declarativeNetRequest&quot;</td><td class="diffline">42 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;declarativeNetRequest&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td><td class="diffline">43 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>],</td></tr>
+<tr class="diffunmodified"><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;sandbox&quot;:<span class="dp">·</span>{</td><td class="diffline">44 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;sandbox&quot;:<span class="dp">·</span>{</td></tr>
+<tr class="diffunmodified"><td class="diffline">45 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;pages&quot;:<span class="dp">·</span>[</td><td class="diffline">45 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;pages&quot;:<span class="dp">·</span>[</td></tr>
+<tr class="diffunmodified"><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;src/sandbox.html&quot;</td><td class="diffline">46 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;src/sandbox.html&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>]</td><td class="diffline">47 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>]</td></tr>
+<tr class="diffunmodified"><td class="diffline">48 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td><td class="diffline">48 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>},</td></tr>
+<tr class="diffdeleted"><td class="diffline">49 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;update_url&quot;:<span class="dp">·</span>&quot;https://clients2.google.com/service/update2/crx&quot;,</td><td colspan="2"> </td></tr>
+<tr class="diffunmodified"><td class="diffline">50 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;0.17.0.1300&quot;</td><td class="diffline">49 </td><td class="diffpresent"><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span><span class="dp">·</span>&quot;version&quot;:<span class="dp">·</span>&quot;0.17.0.1300&quot;</td></tr>
+<tr class="diffunmodified"><td class="diffline">51 </td><td class="diffpresent">}</td><td class="diffline">50 </td><td class="diffpresent">}</td></tr>
+</table>    </div>
+  </div>
+</div>
+<div class="footer">
+Generated by
+<a href="https://diffoscope.org" rel="noopener noreferrer" target="_blank">
+diffoscope</a> 240
+</div>
+</body>
+</html>
+

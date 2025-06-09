@@ -1,0 +1,33 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/jscin/src/chrome
+  - files: _metadata, manifests
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/jscin/src/chrome/_locales/en/messages.json; File type: json
+  - Original: 12–12
+  - Original: 15–15
+  - Original: 18–18
+  - Original: 21–21
+  + Modified: 12–21
+
+---/workspace/pipeline_output/chromex_data/_locales/zh_TW/messages.json <-> +++/workspace/pipeline_output/jscin/src/chrome/_locales/zh_TW/messages.json; File type: json
+  - Original: 12–12
+  - Original: 15–15
+  - Original: 18–18
+  - Original: 21–21
+  + Modified: 12–21
+
+---/workspace/pipeline_output/chromex_data/jquery/jquery-ui.css <-> +++/workspace/pipeline_output/jscin/src/chrome/jquery/jquery-ui.css; File type: css
+  - Original: 1–960
+  + Modified: 1–3
+
+---/workspace/pipeline_output/chromex_data/jquery/jquery-ui.js <-> +++/workspace/pipeline_output/jscin/src/chrome/jquery/jquery-ui.js; File type: js
+  - Original: 1–7879
+  + Modified: 1–3
+
+---/workspace/pipeline_output/chromex_data/jquery/jquery.js <-> +++/workspace/pipeline_output/jscin/src/chrome/jquery/jquery.js; File type: js
+  - Original: 1–2461
+  + Modified: 1–2
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/jscin/src/chrome/manifest.json; File type: json
+  - Original: 62–62 -> Update URL
+

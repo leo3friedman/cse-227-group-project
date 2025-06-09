@@ -1,0 +1,184 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/slack-channels-grouping/app
+├── file list
+│ @@ -1,7 +1,6 @@
+│  _locales
+│ -_metadata
+│  fonts
+│  images
+│  manifest.json
+│  scripts
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/fonts
+├── +++ /workspace/pipeline_output/slack-channels-grouping/app/fonts
+│ │   --- /workspace/pipeline_output/chromex_data/fonts/SlackChannelsGrounping-NotoSansJP-Medium.ttf
+│ ├── +++ /workspace/pipeline_output/slack-channels-grouping/app/fonts/SlackChannelsGrounping-NotoSansJP-Medium.ttf
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ @@ -1,48 +1,5 @@
+│ │ +76657273696f6e2068747470733a2f2f6769742d6c66732e6769746875622e63
+│ │ +6f6d2f737065632f76310a6f6964207368613235363a37303237653633633437
+│ │ +6566383033313336353333613536326363346235616133623866353935623637
+│ │ +653532323463373931383562616363336236323635320a73697a652031353238
+│ │ +0a
+│ │ -00010000001101000004001047504f5344764c75000005380000002047535542
+│ │ -6d34592e00000558000000424f532f3282817805000002380000006053544154
+│ │ -799e6a810000059c0000002a636d61704a7c4a72000002980000004c67617370
+│ │ -000000100000053000000008676c7966463b50e40000011c0000008868656164
+│ │ -22cdca44000001d000000036686865610c0b08650000021400000024686d7478
+│ │ -07a80244000002080000000c6c6f6361003e0062000001c40000000c6d617870
+│ │ -005a0209000001a4000000206e616d652ddb4994000002ec00000224706f7374
+│ │ -ff86003200000510000000207072657068068c85000002e40000000776686561
+│ │ -0c871714000005d400000024766d747803e801e0000005c80000000c000101e0
+│ │ -ff8802080370000300004511331101e0287803e8fc18000101e0016803e80370
+│ │ -0005000041211133112103e8fdf82801e001680208fe2000000101e0ff8803e8
+│ │ -037000070000412111231133112103e8fe20282801e00168fe2003e8fe200001
+│ │ -0000ff8803e8019000070000412111231121352103e8fe2028fe2003e80168fe
+│ │ -2001e02800010000000502080054000000000001000000000000000000000000
+│ │ -0000000000000000000d001e003100440001000000020106c80affe05f0f3cf5
+│ │ -000303e800000000dcb0221f00000000df856344fc11fbe90b6f070f00000006
+│ │ -000200000000000003e8006401e001e001e00000000100000488fee000000bb8
+│ │ -fc11fdcb0b6f000100000000000000000000000000000001000403d501f40005
+│ │ -0000028a02580000004b028a02580000015e003201450000020b020000000000
+│ │ -0000000000000000080000000000000000004144424f00402502252c0370ff88
+│ │ -0000048801200000000100000000021f02dd0000002000060000000200000003
+│ │ -000000140003000100000014000400380000000a00080002000225022514251c
+│ │ -252cffff000025022514251c252cffffdaffdaeedae7dad80001000000000000
+│ │ -00000000b801ff85b0048d000000000900720003000104090000009c00000003
+│ │ -0001040900010026009c0003000104090002000e00c20003000104090003003e
+│ │ -00d000030001040900040026009c0003000104090005006a010e000300010409
+│ │ -0006002201780003000104090101000c019a000300010409010e000c01a60028
+│ │ -0063002900200032003000310034002d0032003000320031002000410064006f
+│ │ -00620065002000280068007400740070003a002f002f007700770077002e0061
+│ │ -0064006f00620065002e0063006f006d002f0029002c00200077006900740068
+│ │ -00200052006500730065007200760065006400200046006f006e00740020004e
+│ │ -0061006d0065002000270053006f00750072006300650027002e004e006f0074
+│ │ -006f002000530061006e00730020004a00500020004d0065006400690075006d
+│ │ -0052006500670075006c006100720032002e003000300034002d00480032003b
+│ │ -004100440042004f003b004e006f0074006f00530061006e0073004a0050002d
+│ │ -004d0065006400690075006d00560065007200730069006f006e00200032002e
+│ │ -003000300034002d00480032003b0068006f00740063006f006e007600200031
+│ │ -002e0030002e003100310038003b006d0061006b0065006f0074006600650078
+│ │ -006500200032002e0035002e00360035003600300033004e006f0074006f0053
+│ │ -0061006e0073004a0050002d004d0065006400690075006d0057006500690067
+│ │ -00680074004d0065006400690075006d0003000000000000ff83003200000000
+│ │ -0000000000000000000000000000000000010001ffff000f00010000000a001c
+│ │ -001e000144464c540008000400000000ffff00000000000000010000000a003e
+│ │ -0040000644464c5400266379726c00306772656b003068616e6900306b616e61
+│ │ -00306c61746e0030000400000000ffff00000000000000000000000000010001
+│ │ -000800010000001400010000001c000277676874010100000002000100000000
+│ │ -010e01f40000000003e8000000000000000001e00001100001f4fe0c00000bb8
+│ │ -ff20fd4f0b6f000000010000000000000000000000000001
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/slack-channels-grouping/app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,13 +1,41 @@
+│ │  {
+│ │ +    "__chrome|opera|edge|safari__host_permissions": [
+│ │ +        "http://app.slack.com/*",
+│ │ +        "https://app.slack.com/*"
+│ │ +    ],
+│ │ +    "__firefox__background": {
+│ │ +        "scripts": [
+│ │ +            "scripts/background.js"
+│ │ +        ]
+│ │ +    },
+│ │ +    "__firefox__browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "{24d54390-97ea-4c57-b4be-7e32232ca609}",
+│ │ +            "strict_min_version": "102.0"
+│ │ +        }
+│ │ +    },
+│ │ +    "__firefox__manifest_version": 2,
+│ │ +    "__firefox__permissions": [
+│ │ +        "scripting",
+│ │ +        "http://app.slack.com/*",
+│ │ +        "https://app.slack.com/*"
+│ │ +    ],
+│ │ +    "__firefox__web_accessible_resources": [
+│ │ +        "fonts/SlackChannelsGrounping-NotoSansJP-Medium.ttf"
+│ │ +    ],
+│ │      "background": {
+│ │          "service_worker": "scripts/background.js"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │ +            "__firefox__css": [
+│ │ +                "styles/font-face-firefox.css",
+│ │ +                "styles/content.css"
+│ │ +            ],
+│ │              "all_frames": true,
+│ │              "css": [
+│ │                  "styles/font-face.css",
+│ │                  "styles/content.css"
+│ │              ],
+│ │              "js": [
+│ │                  "scripts/content.js"
+│ │ @@ -17,18 +45,14 @@
+│ │                  "https://app.slack.com/*"
+│ │              ],
+│ │              "run_at": "document_start"
+│ │          }
+│ │      ],
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_appDescription__",
+│ │ -    "host_permissions": [
+│ │ -        "http://app.slack.com/*",
+│ │ -        "https://app.slack.com/*"
+│ │ -    ],
+│ │      "icons": {
+│ │          "128": "images/icon-128.png",
+│ │          "16": "images/icon-16.png",
+│ │          "19": "images/icon-19.png",
+│ │          "32": "images/icon-32.png",
+│ │          "38": "images/icon-38.png",
+│ │          "48": "images/icon-48.png",
+│ │ @@ -37,15 +61,14 @@
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "88.0",
+│ │      "name": "Slack Channels Grouping",
+│ │      "permissions": [
+│ │          "scripting"
+│ │      ],
+│ │      "short_name": "slack-ch-grp",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.39",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://app.slack.com/*",
+│ │                  "https://app.slack.com/*"
+│ │              ],
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/slack-channels-grouping/app/scripts
+│ ├── file list
+│ │ @@ -1,4 +1,3 @@
+│ │ +background.ts
+│ │ -background.js
+│ │  content
+│ │ +content.ts
+│ │ -content.js
+│ │ -content.js.LICENSE.txt
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/content
+│ ├── +++ /workspace/pipeline_output/slack-channels-grouping/app/scripts/content
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,5 @@
+│ │ │ -channe-grouper.js
+│ │ │ -channe-grouper.js.LICENSE.txt
+│ │ │ -channel-observer.js
+│ │ │ -dom-constants.js
+│ │ │ -logger.js
+│ │ │ +channe-grouper.ts
+│ │ │ +channel-observer.ts
+│ │ │ +dom-constants.ts
+│ │ │ +logger.ts
+│ │ │  utils
+│ │ │   --- /workspace/pipeline_output/chromex_data/scripts/content/utils
+│ │ ├── +++ /workspace/pipeline_output/slack-channels-grouping/app/scripts/content/utils
+│ │ │ ├── file list
+│ │ │ │ @@ -1,3 +1,3 @@
+│ │ │ │ +console-logger.ts
+│ │ │ │ +extension-running-checker.ts
+│ │ │ │ +wait-element-render.ts
+│ │ │ │ -console-logger.js
+│ │ │ │ -extension-running-checker.js
+│ │ │ │ -wait-element-render.js

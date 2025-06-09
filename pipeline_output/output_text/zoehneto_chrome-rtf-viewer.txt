@@ -1,0 +1,707 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-rtf-viewer
+├── file list
+│ @@ -1,9 +1,13 @@
+│ +.git
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│  background.js
+│ +build.sh
+│  external
+│  icons
+│ +manifest-firefox.json
+│  manifest.json
+│ +package-lock.json
+│  rtfRedirectHandler.js
+│  viewer
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/chrome-rtf-viewer/README.md
+│ @@ -5,15 +5,12 @@
+│  
+│  ## Chrome
+│  You can install the extension from the chrome web store at https://chrome.google.com/webstore/detail/rtf-viewer/djalaeippddcgflofefafkgijpefkjef
+│  
+│  ## Firefox
+│  This extension is now also available for firefox at https://addons.mozilla.org/firefox/addon/rtf-viewer/
+│  
+│ -## Edge
+│ -There is experimental support for edge, for further details see EDGE.md
+│ -
+│  # License
+│  This project is licensed under the MIT license. See the LICENSE file for details.
+│  
+│  # Dependencies
+│  This project uses [rtf.js](https://github.com/tbluemel/rtf.js) for rendering the RTF files. rtf.js and its dependecies are included in the 'external' folder for convenience.
+│   --- /workspace/pipeline_output/chromex_data/external
+├── +++ /workspace/pipeline_output/chrome-rtf-viewer/external
+│ ├── file list
+│ │ @@ -1,4 +1,4 @@
+│ │  EMFJS.bundle.min.js
+│ │  RTFJS.bundle.min.js
+│ │  WMFJS.bundle.min.js
+│ │ +dompurify.2.0.15.purify.min.js
+│ │ -dompurify.2.0.7.purify.min.js
+│ │   --- /workspace/pipeline_output/chromex_data/external/EMFJS.bundle.min.js
+│ ├── +++ /workspace/pipeline_output/chrome-rtf-viewer/external/EMFJS.bundle.min.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -284,15 +284,15 @@
+│ │ │          var i, n = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -698,23 +698,23 @@
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_RESTOREDC:
+│ │ │                                      var g = t.readInt32();
+│ │ │                                      h._records.push((function(t) {
+│ │ │                                          t.restoreDC(g)
+│ │ │                                      }));
+│ │ │                                      break;
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETBKMODE:
+│ │ │ +                                    var y = t.readUint32();
+│ │ │ -                                    var S = t.readUint32();
+│ │ │                                      h._records.push((function(t) {
+│ │ │ +                                        t.setBkMode(y)
+│ │ │ -                                        t.setBkMode(S)
+│ │ │                                      }));
+│ │ │                                      break;
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETBKCOLOR:
+│ │ │ +                                    var S = new s.ColorRef(t);
+│ │ │ -                                    var y = new s.ColorRef(t);
+│ │ │                                      h._records.push((function(t) {
+│ │ │ +                                        t.setBkColor(S)
+│ │ │ -                                        t.setBkColor(y)
+│ │ │                                      }));
+│ │ │                                      break;
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_CREATEBRUSHINDIRECT:
+│ │ │                                      var I = t.readUint32(),
+│ │ │                                          M = new s.Brush(t);
+│ │ │                                      h._records.push((function(t) {
+│ │ │                                          t.createBrush(I, M)
+│ │ │ @@ -908,17 +908,17 @@
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_OFFSETCLIPRGN:
+│ │ │                                      var gt = new n.PointL(t);
+│ │ │                                      h._records.push((function(t) {
+│ │ │                                          t.offsetClipRgn(gt)
+│ │ │                                      }));
+│ │ │                                      break;
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETMITERLIMIT:
+│ │ │ +                                    var yt = t.readUint32();
+│ │ │ -                                    var St = t.readUint32();
+│ │ │                                      h._records.push((function(t) {
+│ │ │ +                                        t.setMiterLimit(yt)
+│ │ │ -                                        t.setMiterLimit(St)
+│ │ │                                      }));
+│ │ │                                      break;
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_POLYLINE:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_POLYLINETO:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_POLYPOLYLINE:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETPIXELV:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETMAPPERFLAGS:
+│ │ │ @@ -989,22 +989,22 @@
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_TRANSPARENTBLT:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_GRADIENTFILL:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETLINKEDUFIS:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_SETTEXTJUSTIFICATION:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_COLORMATCHTOTARGETW:
+│ │ │                                  case i.Helper.GDI.RecordType.EMR_CREATECOLORSPACEW:
+│ │ │                                  default:
+│ │ │ +                                    var St = "UNKNOWN";
+│ │ │ -                                    var yt = "UNKNOWN";
+│ │ │                                      for (var It in i.Helper.GDI.RecordType) {
+│ │ │                                          if (i.Helper.GDI.RecordType[It] === e) {
+│ │ │ +                                            St = It;
+│ │ │ -                                            yt = It;
+│ │ │                                              break
+│ │ │                                          }
+│ │ │                                      }
+│ │ │ +                                    i.Helper.log("[EMF] " + St + " record (0x" + e.toString(16) + ") at offset 0x" + a.toString(16) + " with " + l + " bytes")
+│ │ │ -                                    i.Helper.log("[EMF] " + yt + " record (0x" + e.toString(16) + ") at offset 0x" + a.toString(16) + " with " + l + " bytes")
+│ │ │                              }
+│ │ │                              a += l
+│ │ │                          },
+│ │ │                          h = this;
+│ │ │                      t: for (; !r;) {
+│ │ │                          switch (p()) {
+│ │ │                              case "break-main_loop":
+│ │ │ @@ -1058,15 +1058,15 @@
+│ │ │                  return t.prototype.clone = function() {
+│ │ │                      return new t(null, this.left, this.top, this.right, this.bottom)
+│ │ │                  }, t.prototype.toString = function() {
+│ │ │                      return "{left: " + this.left + ", top: " + this.top + ", right: " + this.right + ", bottom: " + this.bottom + "}"
+│ │ │                  }, t.prototype.empty = function() {
+│ │ │                      return this.left >= this.right || this.top >= this.bottom
+│ │ │                  }, t.prototype.intersect = function(e) {
+│ │ │ +                    return this.empty() || e.empty() || this.left >= e.right || this.top >= e.bottom || this.right <= e.left || this.bottom <= e.top ? null : new t(null, Math.max(this.left, e.left), Math.max(this.top, e.top), Math.min(this.right, e.right), Math.min(this.bottom, e.bottom))
+│ │ │ -                    return this.empty() || e.empty() ? null : this.left >= e.right || this.top >= e.bottom || this.right <= e.left || this.bottom <= e.top ? null : new t(null, Math.max(this.left, e.left), Math.max(this.top, e.top), Math.min(this.right, e.right), Math.min(this.bottom, e.bottom))
+│ │ │                  }, t
+│ │ │              }(),
+│ │ │              l = function() {
+│ │ │                  function t(t, e, r) {
+│ │ │                      null != t ? (this.cx = t.readUint32(), this.cy = t.readUint32()) : (this.cx = e, this.cy = r)
+│ │ │                  }
+│ │ │                  return t.prototype.clone = function() {
+│ │ │ @@ -1099,15 +1099,15 @@
+│ │ │              s = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -1118,15 +1118,15 @@
+│ │ │                          if (32 !== e.readUint32()) throw new n.EMFJSError("Invalid region header");
+│ │ │                          e.skip(4);
+│ │ │                          var s = e.readUint32();
+│ │ │                          if (16 * s !== e.readUint32()) throw new n.EMFJSError("Invalid region data");
+│ │ │                          i.bounds = new o.RectL(e), i.scans = [];
+│ │ │                          for (var l = void 0, a = 0; a < s; a++) {
+│ │ │                              var h = new o.RectL(e);
+│ │ │ +                            l || l.top !== h.top || l.bottom !== h.bottom ? (l = new p(h), i.scans.push(l)) : l.append(h)
+│ │ │ -                            null == l || l.top !== h.top || l.bottom !== h.bottom ? (l = new p(h), i.scans.push(l)) : l.append(h)
+│ │ │                          }
+│ │ │                          i._updateComplexity()
+│ │ │                      } else if (null != r) {
+│ │ │                          if (i.bounds = null != r.bounds ? r.bounds.clone() : null, null != r.scans) {
+│ │ │                              i.scans = [];
+│ │ │                              for (a = 0; a < r.scans.length; a++) i.scans.push(r.scans[a].clone())
+│ │ │                          } else i.scans = null;
+│ │ │ @@ -1301,15 +1301,15 @@
+│ │ │              l = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -1391,20 +1391,15 @@
+│ │ │                      }
+│ │ │                      return t + "}"
+│ │ │                  }, e
+│ │ │              }(s.Obj),
+│ │ │              c = function(t) {
+│ │ │                  function e(e, r, i, n, o) {
+│ │ │                      var l = t.call(this, "pen") || this;
+│ │ │ +                    return null != e ? null != r ? (l.style = 255 & e.readUint32(), l.width = e.readUint32(), l.brush = new h(e), l.color = null != l.brush.color ? l.brush.color.clone() : new a(null, 0, 0, 0)) : (l.style = 255 & e.readUint32(), l.width = new s.PointL(e).x, l.color = new a(e)) : (l.style = r, l.width = i, null != n && (l.color = n), null != o && (l.brush = o)), l
+│ │ │ -                    if (null != e)
+│ │ │ -                        if (null != r) {
+│ │ │ -                            l.style = 255 & e.readUint32(), l.width = e.readUint32(), l.brush = new h(e), l.color = null != l.brush.color ? l.brush.color.clone() : new a(null, 0, 0, 0)
+│ │ │ -                        } else l.style = 255 & e.readUint32(), l.width = new s.PointL(e).x, l.color = new a(e);
+│ │ │ -                    else l.style = r, l.width = i, null != n && (l.color = n), null != o && (l.brush = o);
+│ │ │ -                    return l
+│ │ │                  }
+│ │ │                  return l(e, t), e.prototype.clone = function() {
+│ │ │                      return new e(null, this.style, this.width, null != this.color ? this.color.clone() : null, null != this.brush ? this.brush.clone() : null)
+│ │ │                  }, e.prototype.toString = function() {
+│ │ │                      return "{style: " + this.style + ", width: " + this.width + ", color: " + (null != this.color ? this.color.toString() : "none") + "}"
+│ │ │                  }, e
+│ │ │              }(s.Obj)
+│ │ │ @@ -1425,15 +1420,15 @@
+│ │ │              o = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -1537,15 +1532,15 @@
+│ │ │              a = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -1888,17 +1883,17 @@
+│ │ │                      return Math.floor(t / (this.state.vw / this.state.ww)) + this.state.wx
+│ │ │                  }, t.prototype._tologicalH = function(t) {
+│ │ │                      return Math.floor(t / (this.state.vh / this.state.wh)) + this.state.wy
+│ │ │                  }, t.prototype._applyOpts = function(t, e, r, i) {
+│ │ │                      if (null == t && (t = {}), e) {
+│ │ │                          var o = this.state.selected.pen;
+│ │ │                          if (o.style !== n.Helper.GDI.PenStyle.PS_NULL) {
+│ │ │ +                            t.stroke = "#" + o.color.toHex(), t["stroke-width"] = o.width, t["stroke-miterlimit"] = this.state.miterlimit, t["stroke-linecap"] = "round";
+│ │ │ +                            var s = 1;
+│ │ │ +                            t["stroke-linejoin"] = "round";
+│ │ │ -                            t.stroke = "#" + o.color.toHex(), t["stroke-width"] = o.width, t["stroke-miterlimit"] = this.state.miterlimit;
+│ │ │ -                            var s = void 0;
+│ │ │ -                            t["stroke-linecap"] = "round", s = 1, t["stroke-linejoin"] = "round";
+│ │ │                              var l = 4 * t["stroke-width"],
+│ │ │                                  a = 2 * t["stroke-width"];
+│ │ │                              switch (o.style) {
+│ │ │                                  case n.Helper.GDI.PenStyle.PS_DASH:
+│ │ │                                      t["stroke-dasharray"] = [l, a].toString();
+│ │ │                                      break;
+│ │ │                                  case n.Helper.GDI.PenStyle.PS_DOT:
+│ │   --- /workspace/pipeline_output/chromex_data/external/RTFJS.bundle.min.js
+│ ├── +++ /workspace/pipeline_output/chrome-rtf-viewer/external/RTFJS.bundle.min.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -115,15 +115,15 @@
+│ │ │                      var o, h = (o = function(t, e) {
+│ │ │                              return (o = Object.setPrototypeOf || {
+│ │ │                                      __proto__: []
+│ │ │                                  }
+│ │ │                                  instanceof Array && function(t, e) {
+│ │ │                                      t.__proto__ = e
+│ │ │                                  } || function(t, e) {
+│ │ │ +                                    for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                    for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                  })(t, e)
+│ │ │                          }, function(t, e) {
+│ │ │                              function r() {
+│ │ │                                  this.constructor = t
+│ │ │                              }
+│ │ │                              o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                          }),
+│ │ │ @@ -315,15 +315,15 @@
+│ │ │                                              }
+│ │ │                                          }, t.prototype.summarizeText = function(t) {
+│ │ │                                              for (var e = "", r = 0; r < t.length; r++) {
+│ │ │                                                  var o = t[r];
+│ │ │                                                  if (o instanceof a.PlainText) e += o.text;
+│ │ │                                                  else if (o instanceof a.HexText) {
+│ │ │                                                      var n = this.parser.codepage;
+│ │ │ +                                                    if (Object.prototype.hasOwnProperty.call(o.chp, "fontfamily")) {
+│ │ │ -                                                    if (o.chp.hasOwnProperty("fontfamily")) {
+│ │ │                                                          var i = o.chp.fontfamily;
+│ │ │                                                          void 0 !== this.inst._fonts && null != this.inst._fonts[i] && this.inst._fonts[i].charset && 42 !== this.inst._fonts[i].charset && (n = this.inst._fonts[i].charset)
+│ │ │                                                      }
+│ │ │                                                      var c = o.hex;
+│ │ │                                                      if ((this.parser.state.pap.charactertype === l.Helper.CHARACTER_TYPE.DOUBLE || null == this.parser.state.pap.charactertype && c >= 128) && r + 1 < t.length && t[r + 1] instanceof a.HexText && t[r + 1].chp === o.chp) {
+│ │ │                                                          var s = 256 * c + t[r + 1].hex;
+│ │ │                                                          void 0 !== h.a[n].dec[s] && (c = s, r++)
+│ │ │ @@ -390,14 +390,16 @@
+│ │ │                                                  case "bin":
+│ │ │                                                      if (null == e) throw new l.RTFJSError("Binary data is missing length");
+│ │ │                                                      if (e < 0) throw new l.RTFJSError("Binary data with invalid length");
+│ │ │                                                      return void(this.parser.state.bindata = e);
+│ │ │                                                  case "upr":
+│ │ │                                                      return void this.parseLoop(!0, !1);
+│ │ │                                                  case "ud":
+│ │ │ +                                                case "ltrch":
+│ │ │ +                                                case "rtlch":
+│ │ │                                                      return;
+│ │ │                                                  default:
+│ │ │                                                      if (!this.parser.state.skipdestination)
+│ │ │                                                          if (r) {
+│ │ │                                                              if (!this.changeDestination(t, e)) {
+│ │ │                                                                  var h, n = !1;
+│ │ │                                                                  null != (h = this.parser.state.destination) && null != h.handleKeyword && (n = h.handleKeyword(t, e) || !1), !n && this.parser.state.skipunknowndestination && (this.parser.state.skipdestination = !0)
+│ │ │ @@ -700,15 +702,15 @@
+│ │ │                                                  for (g = 0; g < a; g += A) {
+│ │ │                                                      if (A = 2, (p = n[(h[g] << 8) + h[g + 1]]) || (A = 1, p = n[h[g]]), !p) throw new Error("Unrecognized code: " + h[g] + " " + h[g + A - 1] + " " + g + " " + A + " " + n[h[g]]);
+│ │ │                                                      c[C++] = p
+│ │ │                                                  } else {
+│ │ │                                                      if (!(_ = e[o])) throw new Error("Unrecognized CP: " + o);
+│ │ │                                                      switch (_) {
+│ │ │                                                          case "utf8":
+│ │ │ +                                                            for (a >= 3 && 239 == h[0] && 187 == h[1] && 191 == h[2] && (g = 3); g < a; g += A) A = 1, h[g] < 128 ? d = h[g] : h[g] < 224 ? (d = 64 * (31 & h[g]) + (63 & h[g + 1]), A = 2) : h[g] < 240 ? (d = ((15 & h[g]) << 12) + 64 * (63 & h[g + 1]) + (63 & h[g + 2]), A = 3) : (d = 262144 * (7 & h[g]) + ((63 & h[g + 1]) << 12) + 64 * (63 & h[g + 2]) + (63 & h[g + 3]), A = 4), d < 65536 || (u = 55296 + ((d -= 65536) >> 10 & 1023), d = 56320 + (1023 & d), c[C++] = String.fromCharCode(u)), c[C++] = String.fromCharCode(d);
+│ │ │ -                                                            for (a >= 3 && 239 == h[0] && 187 == h[1] && 191 == h[2] && (g = 3); g < a; g += A) A = 1, h[g] < 128 ? d = h[g] : h[g] < 224 ? (d = 64 * (31 & h[g]) + (63 & h[g + 1]), A = 2) : h[g] < 240 ? (d = ((15 & h[g]) << 12) + 64 * (63 & h[g + 1]) + (63 & h[g + 2]), A = 3) : (d = 262144 * (7 & h[g]) + ((63 & h[g + 1]) << 12) + 64 * (63 & h[g + 2]) + (63 & h[g + 3]), A = 4), d < 65536 ? c[C++] = String.fromCharCode(d) : (u = 55296 + ((d -= 65536) >> 10 & 1023), d = 56320 + (1023 & d), c[C++] = String.fromCharCode(u), c[C++] = String.fromCharCode(d));
+│ │ │                                                              break;
+│ │ │                                                          case "ascii":
+│ │ │                                                              if (f && Buffer.isBuffer(h)) return h.toString(_);
+│ │ │                                                              for (g = 0; g < a; g++) c[g] = String.fromCharCode(h[g]);
+│ │ │                                                              C = a;
+│ │ │                                                              break;
+│ │ │                                                          case "utf16le":
+│ │ │ @@ -727,16 +729,16 @@
+│ │ │                                                          case "utf7":
+│ │ │                                                              for (a >= 4 && 43 == h[0] && 47 == h[1] && 118 == h[2] && (a >= 5 && 56 == h[3] && 45 == h[4] ? g = 5 : 56 != h[3] && 57 != h[3] && 43 != h[3] && 47 != h[3] || (g = 4)); g < a; g += A)
+│ │ │                                                                  if (43 === h[g])
+│ │ │                                                                      if (A = 1, 45 !== h[g + 1]) {
+│ │ │                                                                          for (; String.fromCharCode(h[g + A]).match(/[A-Za-z0-9+\/]/);) A++;
+│ │ │                                                                          var y = 0;
+│ │ │                                                                          45 === h[g + A] && (++A, y = 1);
+│ │ │ +                                                                        for (var b = [], m = "", w = 0, T = 0, F = 0, D = 0, S = 0, O = 0, R = 1; R < A - y && (w = E.indexOf(String.fromCharCode(h[g + R++])) << 2 | (D = E.indexOf(String.fromCharCode(h[g + R++]))) >> 4, b.push(w), -1 !== (S = E.indexOf(String.fromCharCode(h[g + R++])))) && (T = (15 & D) << 4 | S >> 2, b.push(T), -1 !== (O = E.indexOf(String.fromCharCode(h[g + R++]))));) F = (3 & S) << 6 | O, O < 64 && b.push(F);
+│ │ │ +                                                                        for (m = r(1201, b), R = 0; R < m.length; ++R) c[C++] = m.charAt(R)
+│ │ │ -                                                                        for (var b = [], m = "", w = 0, T = 0, F = 0, D = 0, S = 0, R = 0, N = 1; N < A - y && (w = E.indexOf(String.fromCharCode(h[g + N++])) << 2 | (D = E.indexOf(String.fromCharCode(h[g + N++]))) >> 4, b.push(w), -1 !== (S = E.indexOf(String.fromCharCode(h[g + N++])))) && (T = (15 & D) << 4 | S >> 2, b.push(T), -1 !== (R = E.indexOf(String.fromCharCode(h[g + N++]))));) F = (3 & S) << 6 | R, R < 64 && b.push(F);
+│ │ │ -                                                                        for (m = r(1201, b), N = 0; N < m.length; ++N) c[C++] = m.charAt(N)
+│ │ │                                                                      } else A = 2, c[C++] = "+";
+│ │ │                                                              else A = 1, c[C++] = String.fromCharCode(h[g]);
+│ │ │                                                              break;
+│ │ │                                                          default:
+│ │ │                                                              throw new Error("Unsupported magic: " + o + " " + e[o])
+│ │ │                                                      }
+│ │ │                                                  }
+│ │ │ @@ -4859,15 +4861,15 @@
+│ │ │                                  }));
+│ │ │                                  var o = r(15),
+│ │ │                                      h = function() {
+│ │ │                                          function t(t) {
+│ │ │                                              this._chp = t
+│ │ │                                          }
+│ │ │                                          return t.prototype.apply = function(t, e) {
+│ │ │ +                                            if (o.Helper.log("[rtf] RenderChp: " + e.textContent), o.Helper.log("[rtf] RenderChp apply: " + JSON.stringify(this._chp)), this._chp.bold && (e.style.fontWeight = "bold"), this._chp.italic && (e.style.fontStyle = "italic"), Object.prototype.hasOwnProperty.call(this._chp, "fontfamily") && t._fonts[this._chp.fontfamily]) {
+│ │ │ -                                            if (o.Helper.log("[rtf] RenderChp: " + e.textContent), o.Helper.log("[rtf] RenderChp apply: " + JSON.stringify(this._chp)), this._chp.bold && (e.style.fontWeight = "bold"), this._chp.italic && (e.style.fontStyle = "italic"), this._chp.hasOwnProperty("fontfamily") && t._fonts[this._chp.fontfamily]) {
+│ │ │                                                  var r = t._fonts[this._chp.fontfamily].fontname.replace(";", "");
+│ │ │                                                  "Symbol" !== r && (e.style.fontFamily = r)
+│ │ │                                              }
+│ │ │                                              var h = [];
+│ │ │                                              if (this._chp.underline !== o.Helper.UNDERLINE.NONE && h.push("underline"), (this._chp.strikethrough || this._chp.dblstrikethrough) && h.push("line-through"), h.length > 0 && (e.style.textDecoration = h.join(" ")), 0 !== this._chp.colorindex) {
+│ │ │                                                  var l = t._lookupColor(this._chp.colorindex);
+│ │ │                                                  null != l && (e.style.color = o.Helper._colorToStr(l))
+│ │ │ @@ -4996,15 +4998,15 @@
+│ │ │                                      l = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -5175,15 +5177,15 @@
+│ │ │                                      n = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -5256,15 +5258,15 @@
+│ │ │                                      i = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -5312,15 +5314,15 @@
+│ │ │                                              return r > 0 && (e.addIns((function(t) {
+│ │ │                                                  var e, r = t._doc,
+│ │ │                                                      h = function() {
+│ │ │                                                          return t.buildHyperlinkElement(o._url)
+│ │ │                                                      };
+│ │ │                                                  if (null != r._settings.onHyperlink) e = r._settings.onHyperlink(h, {
+│ │ │                                                      url: function() {
+│ │ │ +                                                        return this.url()
+│ │ │ -                                                        return o.url()
+│ │ │                                                      }
+│ │ │                                                  });
+│ │ │                                                  else {
+│ │ │                                                      var l = h();
+│ │ │                                                      e = {
+│ │ │                                                          element: l,
+│ │ │                                                          content: l
+│ │ │ @@ -5336,16 +5338,17 @@
+│ │ │                                              return o.parser = e, o.inst = r, o
+│ │ │                                          }
+│ │ │                                          return i(e, t), e.prototype.apply = function() {
+│ │ │                                              var t = Object(l.findParentDestination)(this.parser, "field");
+│ │ │                                              if (null == t) throw new h.RTFJSError("fldinst destination must be child of field destination");
+│ │ │                                              t.setInst(this.parseType())
+│ │ │                                          }, e.prototype.parseType = function() {
+│ │ │ +                                            var t = this;
+│ │ │ +                                            this.text = this.text.trim();
+│ │ │ +                                            var e = this.text.indexOf(" ");
+│ │ │ -                                            var t = this,
+│ │ │ -                                                e = this.text.indexOf(" ");
+│ │ │                                              if (e > 0) {
+│ │ │                                                  var r = this.text.substr(e + 1);
+│ │ │                                                  if (r.length >= 2 && '"' === r[0]) {
+│ │ │                                                      var o = r.indexOf('"', 1);
+│ │ │                                                      o >= 1 && (r = r.substring(1, o))
+│ │ │                                                  }
+│ │ │                                                  var l = this.text.substr(0, e).toUpperCase();
+│ │ │ @@ -5392,14 +5395,15 @@
+│ │ │                                                                      }))
+│ │ │                                                                  } catch (t) {
+│ │ │                                                                      o(t)
+│ │ │                                                                  }
+│ │ │                                                              }));
+│ │ │                                                              return this.parser._asyncTasks.push(a), a
+│ │ │                                                          }
+│ │ │ +                                                        break;
+│ │ │                                                      default:
+│ │ │                                                          h.Helper.log("[fldinst]: unknown field type: " + l)
+│ │ │                                                  }
+│ │ │                                              }
+│ │ │                                          }, e
+│ │ │                                      }(l.DestinationTextBase),
+│ │ │                                      p = function(t) {
+│ │ │ @@ -5439,15 +5443,15 @@
+│ │ │                                      a = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -5648,15 +5652,15 @@
+│ │ │                                      n = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -5750,15 +5754,15 @@
+│ │ │                                      n = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -5848,15 +5852,15 @@
+│ │ │                                      c = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │ │ @@ -6024,15 +6028,15 @@
+│ │ │                                      n = (o = function(t, e) {
+│ │ │                                          return (o = Object.setPrototypeOf || {
+│ │ │                                                  __proto__: []
+│ │ │                                              }
+│ │ │                                              instanceof Array && function(t, e) {
+│ │ │                                                  t.__proto__ = e
+│ │ │                                              } || function(t, e) {
+│ │ │ +                                                for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                                                for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                                              })(t, e)
+│ │ │                                      }, function(t, e) {
+│ │ │                                          function r() {
+│ │ │                                              this.constructor = t
+│ │ │                                          }
+│ │ │                                          o(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │                                      }),
+│ │   --- /workspace/pipeline_output/chromex_data/external/WMFJS.bundle.min.js
+│ ├── +++ /workspace/pipeline_output/chrome-rtf-viewer/external/WMFJS.bundle.min.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -299,15 +299,15 @@
+│ │ │          var i, n = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -916,15 +916,15 @@
+│ │ │                  return t.prototype.clone = function() {
+│ │ │                      return new t(null, this.left, this.top, this.right, this.bottom)
+│ │ │                  }, t.prototype.toString = function() {
+│ │ │                      return "{left: " + this.left + ", top: " + this.top + ", right: " + this.right + ", bottom: " + this.bottom + "}"
+│ │ │                  }, t.prototype.empty = function() {
+│ │ │                      return this.left >= this.right || this.top >= this.bottom
+│ │ │                  }, t.prototype.intersect = function(e) {
+│ │ │ +                    return this.empty() || e.empty() || this.left >= e.right || this.top >= e.bottom || this.right <= e.left || this.bottom <= e.top ? null : new t(null, Math.max(this.left, e.left), Math.max(this.top, e.top), Math.min(this.right, e.right), Math.min(this.bottom, e.bottom))
+│ │ │ -                    return this.empty() || e.empty() ? null : this.left >= e.right || this.top >= e.bottom || this.right <= e.left || this.bottom <= e.top ? null : new t(null, Math.max(this.left, e.left), Math.max(this.top, e.top), Math.min(this.right, e.right), Math.min(this.bottom, e.bottom))
+│ │ │                  }, t
+│ │ │              }(),
+│ │ │              o = function() {
+│ │ │                  function t(t) {
+│ │ │                      this.type = t
+│ │ │                  }
+│ │ │                  return t.prototype.clone = function() {
+│ │ │ @@ -947,15 +947,15 @@
+│ │ │              o = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -1163,15 +1163,15 @@
+│ │ │              l = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│ │ │ @@ -1316,15 +1316,15 @@
+│ │ │              s = (i = function(t, e) {
+│ │ │                  return (i = Object.setPrototypeOf || {
+│ │ │                          __proto__: []
+│ │ │                      }
+│ │ │                      instanceof Array && function(t, e) {
+│ │ │                          t.__proto__ = e
+│ │ │                      } || function(t, e) {
+│ │ │ +                        for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r])
+│ │ │ -                        for (var r in e) e.hasOwnProperty(r) && (t[r] = e[r])
+│ │ │                      })(t, e)
+│ │ │              }, function(t, e) {
+│ │ │                  function r() {
+│ │ │                      this.constructor = t
+│ │ │                  }
+│ │ │                  i(t, e), t.prototype = null === e ? Object.create(e) : (r.prototype = e.prototype, new r)
+│ │ │              }),
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-rtf-viewer/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -20,13 +20,12 @@
+│ │      "manifest_version": 2,
+│ │      "name": "RTF Viewer",
+│ │      "permissions": [
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.0",
+│ │      "web_accessible_resources": [
+│ │          "viewer/viewer.html"
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/viewer
+├── +++ /workspace/pipeline_output/chrome-rtf-viewer/viewer
+│ │   --- /workspace/pipeline_output/chromex_data/viewer/viewer.html
+│ ├── +++ /workspace/pipeline_output/chrome-rtf-viewer/viewer/viewer.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -2,15 +2,15 @@
+│ │  <html>
+│ │  <head>
+│ │      <meta charset="utf-8">
+│ │      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+│ │      <meta name="google" content="notranslate">
+│ │      <title>RTF viewer</title>
+│ │  
+│ │ +    <script src="../external/dompurify.2.0.15.purify.min.js"></script>
+│ │ -    <script src="../external/dompurify.2.0.7.purify.min.js"></script>
+│ │  
+│ │      <script src="../external/WMFJS.bundle.min.js"></script>
+│ │      <script src="../external/EMFJS.bundle.min.js"></script>
+│ │      <script src="../external/RTFJS.bundle.min.js"></script>
+│ │  
+│ │      <link rel="stylesheet" href="viewer.css">
+│ │      <script src="viewer.js"></script>

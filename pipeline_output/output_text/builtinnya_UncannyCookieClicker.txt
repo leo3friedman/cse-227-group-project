@@ -1,0 +1,31 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/UncannyCookieClicker/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  css
+│  fonts
+│  html
+│  images
+│  js
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/UncannyCookieClicker/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -49,15 +49,14 @@
+│ │      "manifest_version": 3,
+│ │      "name": "Uncanny Cookie Clicker",
+│ │      "permissions": [
+│ │          "tabs",
+│ │          "storage",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.6.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "http://orteil.dashnet.org/*",
+│ │                  "https://orteil.dashnet.org/*"
+│ │              ],

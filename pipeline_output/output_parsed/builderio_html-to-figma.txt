@@ -1,0 +1,18 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info/js
+  - files: background.js, inject.js, popup.js
+  + files: background.js
+
+---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info/js/background.js; File type: js
+  - Original: 1–193
+  + Modified: 1–9
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info/manifest.json; File type: json
+  - Original: 2–8
+  - Original: 18–18
+  - Original: 23–23 -> Update URL
+  + Modified: 2–16
+

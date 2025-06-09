@@ -1,0 +1,94 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/YAAW-for-Chrome
+├── file list
+│ @@ -1,9 +1,21 @@
+│ +.DS_Store
+│ +.browserslistrc
+│ +.eslintrc.yml
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.gitmodules
+│ +.stylelintrc.json
+│ +LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  background.js
+│ -css
+│ -images
+│ -js
+│ +gulpfile.esm.js
+│  manifest.json
+│ -options.html
+│ +node_modules
+│ +package
+│ +package-lock.json
+│ +package.json
+│ +pnpm-lock.yaml
+│ +src
+│  yaaw
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/YAAW-for-Chrome/background.js
+│ ├── js-beautify {}
+│ │ @@ -21,16 +21,16 @@
+│ │      return new Promise(function(resolve) {
+│ │          chrome.storage.local.get(key, resolve)
+│ │      })
+│ │  }
+│ │  // 生成右键菜单
+│ │  function addContextMenu(id, title) {
+│ │      chrome.contextMenus.create({
+│ │ -        id: id,
+│ │ -        title: title,
+│ │ +        id,
+│ │ +        title,
+│ │          contexts: ['link']
+│ │      })
+│ │  }
+│ │  
+│ │  function updateContextMenu() {
+│ │      chrome.contextMenus.removeAll(() => {
+│ │          getConfig('isContextMenus').then(({
+│ │ @@ -140,15 +140,15 @@
+│ │  
+│ │          const rpcData = {
+│ │              jsonrpc: '2.0',
+│ │              method: 'aria2.addUri',
+│ │              id: new Date().getTime(),
+│ │              params: [
+│ │                  [fileDownloadInfo.link], {
+│ │ -                    header: header
+│ │ +                    header
+│ │                  }
+│ │              ]
+│ │          }
+│ │          const rpcOption = rpcData.params[1]
+│ │          if (fileDownloadInfo.fileName) {
+│ │              rpcOption.out = fileDownloadInfo.fileName
+│ │          }
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/YAAW-for-Chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │          "notifications",
+│ │          "tabs",
+│ │          "contextMenus",
+│ │          "downloads",
+│ │          "<all_urls>",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.2.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/yaaw
+├── +++ /workspace/pipeline_output/YAAW-for-Chrome/yaaw
+│ ├── file list
+│ │ @@ -1,7 +0,0 @@
+│ │ -README.md
+│ │ -TODO.md
+│ │ -css
+│ │ -img
+│ │ -index.html
+│ │ -js
+│ │ -offline.appcache

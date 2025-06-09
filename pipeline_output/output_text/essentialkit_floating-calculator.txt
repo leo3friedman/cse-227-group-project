@@ -1,0 +1,48 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/floating-calculator/build/chrome-prod
+├── file list
+│ @@ -1,9 +1,9 @@
+│  _locales
+│ -_metadata
+│ +archive.zip
+│  assets
+│  background-script
+│  content-script
+│  manifest.json
+│  options-page
+│  popup
+│  standalone
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/floating-calculator/build/chrome-prod/_locales
+│ ├── file list
+│ │ @@ -40,11 +40,9 @@
+│ │  sw
+│ │  ta
+│ │  te
+│ │  th
+│ │  tr
+│ │  uk
+│ │  vi
+│ │ -zh-CN
+│ │ -zh-TW
+│ │  zh_CN
+│ │  zh_TW
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/floating-calculator/build/chrome-prod/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -49,15 +49,14 @@
+│ │          "activeTab",
+│ │          "sidePanel"
+│ │      ],
+│ │      "short_name": "__MSG_appShortName__",
+│ │      "side_panel": {
+│ │          "default_path": "standalone/calc.html"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "24.2.19",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

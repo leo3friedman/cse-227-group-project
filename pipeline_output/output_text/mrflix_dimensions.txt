@@ -1,0 +1,135 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/dimensions/extension
+├── file list
+│ @@ -1,7 +1,6 @@
+│ -_metadata
+│  chrome.js
+│  dimensions.js
+│  images
+│  manifest.json
+│  tooltip.chrome.js
+│  tooltip.css
+│   --- /workspace/pipeline_output/chromex_data/chrome.js
+├── +++ /workspace/pipeline_output/dimensions/extension/chrome.js
+│ ├── js-beautify {}
+│ │ @@ -145,14 +145,17 @@
+│ │          if (forward.indexOf(event.type) > -1) {
+│ │              this.worker.postMessage(event)
+│ │          } else {
+│ │              switch (event.type) {
+│ │                  case 'take screenshot':
+│ │                      this.takeScreenshot();
+│ │                      break;
+│ │ +                case 'close_overlay':
+│ │ +                    this.deactivate();
+│ │ +                    break;
+│ │              }
+│ │          }
+│ │      },
+│ │  
+│ │      takeScreenshot: function() {
+│ │          chrome.tabs.captureVisibleTab({
+│ │              format: "png"
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/dimensions/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -30,10 +30,9 @@
+│ │          "48": "images/icon48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Dimensions",
+│ │      "permissions": [
+│ │          "activeTab"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.5"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/tooltip.chrome.js
+├── +++ /workspace/pipeline_output/dimensions/extension/tooltip.chrome.js
+│ ├── js-beautify {}
+│ │ @@ -18,14 +18,15 @@
+│ │      window.addEventListener('mousemove', onInputMove);
+│ │      window.addEventListener('touchmove', onInputMove);
+│ │      window.addEventListener('scroll', onVisibleAreaChange);
+│ │      window.addEventListener('resize', onResizeWindow);
+│ │  
+│ │      window.addEventListener('keydown', detectAltKeyPress);
+│ │      window.addEventListener('keyup', detectAltKeyRelease);
+│ │ +    window.addEventListener('keyup', onKeyRelease);
+│ │  
+│ │      disableCursor();
+│ │      requestNewScreenshot();
+│ │  }
+│ │  
+│ │  port.onMessage.addListener(function(event) {
+│ │      if (connectionClosed)
+│ │ @@ -166,14 +167,24 @@
+│ │      if (altKeyWasPressed) {
+│ │          altKeyWasPressed = false;
+│ │          sendToWorker(event);
+│ │          hideDebugScreen();
+│ │      }
+│ │  }
+│ │  
+│ │ +function onKeyRelease(event) {
+│ │ +    switch (event.code) {
+│ │ +        case 'Escape':
+│ │ +            port.postMessage({
+│ │ +                type: 'close_overlay'
+│ │ +            });
+│ │ +            break;
+│ │ +    }
+│ │ +}
+│ │ +
+│ │  //
+│ │  // onInputMove
+│ │  // ===========
+│ │  //  
+│ │  // detects the current pointer position and requests the dimensions at that position
+│ │  //
+│   --- /workspace/pipeline_output/chromex_data/tooltip.css
+├── +++ /workspace/pipeline_output/dimensions/extension/tooltip.css
+│ @@ -1,30 +1,30 @@
+│  .fn-noCursor {
+│    cursor: none;
+│    position: fixed;
+│    left: 0;
+│    top: 0;
+│    width: 100%;
+│    height: 100%;
+│ -  z-index: 999999;
+│ +  z-index: 2147483647;
+│  }
+│  
+│  .fn-dimensions {
+│    position: fixed;
+│    width: 0;
+│    height: 0;
+│ -  z-index: 9999;
+│ +  z-index: 2147483646;
+│    pointer-events: none;
+│  }
+│  
+│  .fn-debugScreen {
+│    position: fixed;
+│    left: 0;
+│    top: 0;
+│ -  z-index: 999;
+│ +  z-index: 2147483645;
+│  }
+│  
+│  .fn-debugScreen.is-hidden {
+│    display: none;
+│  }
+│  
+│  .fn-tooltip {
+│ @@ -102,8 +102,8 @@
+│  
+│    .x.fn-axis {
+│      height: 1px;
+│    }
+│  
+│    .y.fn-axis {
+│      width: 1px;
+│ -  }
+│ +  }

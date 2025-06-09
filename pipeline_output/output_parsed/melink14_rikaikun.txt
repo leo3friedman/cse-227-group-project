@@ -1,0 +1,7 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/rikaikun/extension
+  - files: _metadata, background.js, character_info.js, clipboard.js, configuration.js, data.js, docs-annotate-canvas.js, node_modules, offscreen-setup.js, offscreen.js, options.js, parse-word-dict-entry.js, rikaichan.js, rikaicontent.js, texttospeech.js
+  + files: background.ts, character_info.ts, clipboard.ts, configuration.ts, data.ts, docs-annotate-canvas.ts, offscreen-setup.ts, offscreen.ts, options.ts, parse-word-dict-entry.ts, rikaichan.ts, rikaicontent.ts, test, texttospeech.ts
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/rikaikun/extension/manifest.json; File type: json
+  - Original: 54–54 -> Update URL
+

@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/extensions/chrome
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/extensions/chrome/js/background.js; File type: js
+  - Original: 1–48
+  + Modified: 1–48
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/extensions/chrome/manifest.json; File type: json
+  - Original: 28–28 -> Update URL
+

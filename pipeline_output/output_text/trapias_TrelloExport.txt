@@ -1,0 +1,40 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/TrelloExport
+├── file list
+│ @@ -1,8 +1,15 @@
+│ +.git
+│ +.gitattributes
+│ +.gitignore
+│  LICENSE
+│  README.md
+│ -_metadata
+│ +bower_components
+│  icons
+│  lib
+│  manifest.json
+│ +node_modules
+│ +package-lock.json
+│ +package.json
+│  templates
+│ -trelloexport.js
+│ +trelloexport.js
+│ +xlsx
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/TrelloExport/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,15 +39,14 @@
+│ │          "*://*/*"
+│ │      ],
+│ │      "icons": {
+│ │          "128": "icons/trelloexport_128.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "TrelloExport",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.9.77",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://trello.com/*"
+│ │              ],
+│ │              "resources": [

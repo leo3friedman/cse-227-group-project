@@ -1,0 +1,118 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/envmarker/app
+  - files: _metadata, background.js.map
+  + files: build-safari.sh, config, manifest_firefox.json
+
+---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/envmarker/app/background.js; File type: js
+  - Original: 1–5
+  - Original: 7–12
+  - Original: 15–19
+  - Original: 25–25
+  - Original: 27–30
+  - Original: 36–38
+  - Original: 41–49
+  - Original: 51–54
+  - Original: 58–66
+  - Original: 68–74
+  - Original: 76–80
+  - Original: 82–84
+  + Modified: 1–132
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/envmarker/app/manifest.json; File type: json
+  - Original: 49–49 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/envmarker/app/scripts
+  - files: libs, modal.js.map, options.js.map, popup.js.map, util.js, util.js.map
+  + files: util.js
+
+---/workspace/pipeline_output/chromex_data/scripts/modal.js <-> +++/workspace/pipeline_output/envmarker/app/scripts/modal.js; File type: js
+  - Original: 1–8
+  - Original: 10–12
+  - Original: 14–15
+  - Original: 19–20
+  - Original: 24–41
+  - Original: 46–46
+  - Original: 48–51
+  - Original: 57–63
+  - Original: 66–77
+  - Original: 79–80
+  - Original: 82–83
+  - Original: 85–97
+  - Original: 100–103
+  - Original: 106–111
+  - Original: 113–113
+  - Original: 118–120
+  - Original: 122–125
+  + Modified: 1–246
+
+---/workspace/pipeline_output/chromex_data/scripts/options.js <-> +++/workspace/pipeline_output/envmarker/app/scripts/options.js; File type: js
+  - Original: 2–18
+  - Original: 21–22
+  - Original: 25–39
+  - Original: 43–43
+  - Original: 47–70
+  - Original: 72–73
+  - Original: 77–81
+  - Original: 85–89
+  - Original: 97–102
+  - Original: 104–110
+  - Original: 112–112
+  - Original: 115–115
+  - Original: 117–120
+  - Original: 126–136
+  - Original: 138–138
+  - Original: 140–143
+  - Original: 148–187
+  - Original: 191–205
+  + Modified: 1–436
+
+---/workspace/pipeline_output/chromex_data/scripts/popup.js <-> +++/workspace/pipeline_output/envmarker/app/scripts/popup.js; File type: js
+  - Original: 3–12
+  - Original: 17–29
+  - Original: 33–39
+  - Original: 42–51
+  - Original: 56–64
+  - Original: 68–68
+  - Original: 72–77
+  - Original: 82–86
+  - Original: 90–90
+  - Original: 94–94
+  - Original: 96–97
+  + Modified: 1–189
+
+---/workspace/pipeline_output/chromex_data/scripts/util.js <-> +++/workspace/pipeline_output/envmarker/app/scripts/util.js; File type: js
+  - Original: 2–6
+  - Original: 9–12
+  - Original: 15–18
+  - Original: 20–20
+  - Original: 23–26
+  - Original: 30–33
+  - Original: 35–37
+  - Original: 40–46
+  - Original: 48–48
+  - Original: 52–54
+  - Original: 59–65
+  - Original: 69–70
+  - Original: 73–81
+  - Original: 83–85
+  + Modified: 1–155
+
+---/workspace/pipeline_output/chromex_data/styles <-> +++/workspace/pipeline_output/envmarker/app/styles
+  - files: layout.css.map, options.css.map, popup.css.map, preview.css, preview.css.map
+  + files: preview.css
+
+---/workspace/pipeline_output/chromex_data/styles/layout.css <-> +++/workspace/pipeline_output/envmarker/app/styles/layout.css; File type: css
+  - Original: 1–38
+  + Modified: 1–429
+
+---/workspace/pipeline_output/chromex_data/styles/options.css <-> +++/workspace/pipeline_output/envmarker/app/styles/options.css; File type: css
+  - Original: 1–20
+  + Modified: 1–225
+
+---/workspace/pipeline_output/chromex_data/styles/popup.css <-> +++/workspace/pipeline_output/envmarker/app/styles/popup.css; File type: css
+  - Original: 1–3
+  + Modified: 1–23
+
+---/workspace/pipeline_output/chromex_data/styles/preview.css <-> +++/workspace/pipeline_output/envmarker/app/styles/preview.css; File type: css
+  - Original: 1–10
+  + Modified: 1–65
+

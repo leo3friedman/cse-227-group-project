@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/tabsave
+├── file list
+│ @@ -1,18 +1,19 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  TS demo 1.png
+│  TS demo 2.png
+│  TS demo 3.png
+│  TS demo wide.png
+│ -_metadata
+│  dlsvg.svg
+│  icon.png
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│  popup.js
+│  tabedit.svg
+│  webprompt.txt
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/tabsave/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │      },
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "downloads",
+│ │          "tabs",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.0.2"
+│ │  }

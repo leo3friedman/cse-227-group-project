@@ -1,0 +1,27 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Manga-Downloader-Extension/src
+├── file list
+│ @@ -1,9 +1,8 @@
+│  External
+│  Scripts
+│  Styles
+│ -_metadata
+│  clear.js
+│  functions.js
+│  icons
+│  index.js
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Manga-Downloader-Extension/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -230,10 +230,9 @@
+│ │          "*://*.gamindustri.us/*",
+│ │          "*://*.mangasail.net/*",
+│ │          "*://*.mangasaki.com/*",
+│ │          "*://*.manhuaplus.com/*",
+│ │          "*://*.mangakomicdn.com/*"
+│ │      ],
+│ │      "short_name": "Manga Downloader",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.10.15"
+│ │  }

@@ -1,0 +1,58 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/rikaikun/extension
+├── file list
+│ @@ -1,21 +1,20 @@
+│ -_metadata
+│ -background.js
+│ -character_info.js
+│ -clipboard.js
+│ -configuration.js
+│ +background.ts
+│ +character_info.ts
+│ +clipboard.ts
+│ +configuration.ts
+│  css
+│  data
+│ -data.js
+│ -docs-annotate-canvas.js
+│ +data.ts
+│ +docs-annotate-canvas.ts
+│  images
+│  manifest.json
+│ -node_modules
+│ -offscreen-setup.js
+│ +offscreen-setup.ts
+│  offscreen.html
+│ -offscreen.js
+│ +offscreen.ts
+│  options.html
+│ -options.js
+│ -parse-word-dict-entry.js
+│ -rikaichan.js
+│ -rikaicontent.js
+│ -texttospeech.js
+│ +options.ts
+│ +parse-word-dict-entry.ts
+│ +rikaichan.ts
+│ +rikaicontent.ts
+│ +test
+│ +texttospeech.ts
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/rikaikun/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -47,15 +47,14 @@
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "clipboardWrite",
+│ │          "storage",
+│ │          "offscreen"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.23",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

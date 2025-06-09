@@ -1,0 +1,96 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/PixivBatchDownloader/src
+  - files: LICENSE, README-EN.md, README-JA.md, README-KO.md, README-RU.md, README-ZH-TW.md, README.md, _metadata, icon, js, lib, style
+  + files: static, style, ts
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/manifest.json; File type: json
+  - Original: 83–83 -> Update URL
+  + Modified: 79–79
+
+---/workspace/pipeline_output/chromex_data/style <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/style
+  - files: viewer.min.css
+  + files: DoNotDownloadLastFewImages.less, Loading.less, UseDifferentNameRuleIfWorkHasTagWarp.less, blockAds.less, blockTagsForSpecificUser.less, centerPanel.less, deleteWorks.less, imageViewer.less, input.less, log.less, msgBox.less, outputWrap.less, previewWorkDetailPanel.less, rightButtons.less, search.css, search.less, selectWork.less, setUserName.less, showLargerThumbnails.less, style.less, var.less
+
+---/workspace/pipeline_output/chromex_data/style/showLargerThumbnails.css <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/style/showLargerThumbnails.css; File type: css
+  - Original: 28–28
+  - Original: 33–41
+  + Modified: 27–38
+  - Original: 87–89
+  - Original: 113–115
+  - Original: 131–131
+  + Modified: 127–133
+  + Modified: 149–156
+  - Original: 167–167
+  + Modified: 177–180
+  + Modified: 204–208
+  + Modified: 317–336
+  - Original: 343–343
+  + Modified: 381–385
+  - Original: 394–394
+  + Modified: 436–439
+  - Original: 511–511
+  - Original: 518–518
+  + Modified: 556–563
+  + Modified: 631–903
+
+---/workspace/pipeline_output/chromex_data/style/style.css <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/style/style.css; File type: css
+  - Original: 51–51
+  - Original: 64–64
+  + Modified: 51–74
+  - Original: 157–157
+  - Original: 162–162
+  - Original: 165–165
+  - Original: 174–174
+  - Original: 177–177
+  - Original: 179–179
+  - Original: 192–192
+  - Original: 195–195
+  - Original: 198–198
+  - Original: 202–202
+  + Modified: 167–263
+  - Original: 213–213
+  - Original: 215–215
+  - Original: 220–220
+  + Modified: 281–285
+  - Original: 239–239
+  - Original: 247–247
+  + Modified: 306–325
+  - Original: 301–301
+  + Modified: 379–381
+  - Original: 339–339
+  + Modified: 419–419
+  - Original: 408–408
+  - Original: 411–411
+  + Modified: 490–501
+  - Original: 750–750
+  - Original: 753–753
+  + Modified: 841–852
+  - Original: 784–784
+  - Original: 791–791
+  - Original: 794–794
+  + Modified: 883–905
+  - Original: 827–827
+  + Modified: 938–942
+  - Original: 967–967
+  - Original: 975–975
+  - Original: 982–982
+  - Original: 985–985
+  - Original: 988–988
+  - Original: 991–991
+  - Original: 999–999
+  - Original: 1008–1008
+  - Original: 1012–1012
+  - Original: 1015–1015
+  + Modified: 1082–1179
+  - Original: 1358–1358
+  + Modified: 1522–1533
+  - Original: 1494–1494
+  + Modified: 1669–1680
+  - Original: 2019–2019
+  + Modified: 2205–2209
+  - Original: 2110–2110
+  + Modified: 2300–2304
+  - Original: 2130–2130
+  + Modified: 2324–2326
+  - Original: 2618–2618
+  + Modified: 2814–2817
+

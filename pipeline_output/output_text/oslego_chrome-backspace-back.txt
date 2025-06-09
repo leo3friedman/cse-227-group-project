@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-backspace-back
+├── file list
+│ @@ -1,7 +1,12 @@
+│ -_metadata
+│ +.git
+│ +.gitignore
+│ +README.md
+│  contentscript.js
+│ +icon.svg
+│  icon128.png
+│  icon256.png
+│  icon48.png
+│  icon64.png
+│ -manifest.json
+│ +manifest.json
+│ +package-lock.json
+│ +package.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-backspace-back/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -19,10 +19,9 @@
+│ │          "256": "icon256.png",
+│ │          "48": "icon48.png",
+│ │          "64": "icon64.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "minimum_chrome_version": "88",
+│ │      "name": "Backspace to go Back",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.1.2"
+│ │  }

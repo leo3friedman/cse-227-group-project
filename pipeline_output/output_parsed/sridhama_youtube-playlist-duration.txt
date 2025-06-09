@@ -1,0 +1,29 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/youtube-playlist-duration
+  - files: _metadata, manifest.json
+  + files: .git, LICENSE, README.md, logo.png, manifest.json, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/app.js <-> +++/workspace/pipeline_output/youtube-playlist-duration/app.js; File type: js
+  - Original: 64–64
+  - Original: 69–69
+  + Modified: 64–72
+  - Original: 93–93
+  - Original: 102–102
+  - Original: 109–109
+  - Original: 120–120
+  + Modified: 96–118
+
+---/workspace/pipeline_output/chromex_data/icon128.png <-> +++/workspace/pipeline_output/youtube-playlist-duration/icon128.png; File type: png
+  - Original: 2–247
+  + Modified: 2–151
+
+---/workspace/pipeline_output/chromex_data/icon16.png <-> +++/workspace/pipeline_output/youtube-playlist-duration/icon16.png; File type: png
+  - Original: 2–22
+  + Modified: 2–107
+
+---/workspace/pipeline_output/chromex_data/icon48.png <-> +++/workspace/pipeline_output/youtube-playlist-duration/icon48.png; File type: png
+  - Original: 2–72
+  + Modified: 2–156
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/youtube-playlist-duration/manifest.json; File type: json
+  - Original: 22–22 -> Update URL
+

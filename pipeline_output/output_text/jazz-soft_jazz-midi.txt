@@ -1,0 +1,206 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/jazz-midi/firefox/jazz-midi
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  bad.html
+│  bad19.png
+│  content.js
+│  good.html
+│  good19.png
+│  icon128.png
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/jazz-midi/firefox/jazz-midi/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,25 +1,25 @@
+│ │ -chrome.runtime.onConnect.addListener(function(port) {
+│ │ -    chrome.pageAction.show(port.sender.tab.id);
+│ │ -    var native = chrome.runtime.connectNative('com.jazz_soft.jazz_midi');
+│ │ -    native.onDisconnect.addListener(function() {
+│ │ -        chrome.pageAction.setPopup({
+│ │ -            tabId: port.sender.tab.id,
+│ │ -            popup: 'bad.html'
+│ │ -        });
+│ │ -        chrome.pageAction.setIcon({
+│ │ -            tabId: port.sender.tab.id,
+│ │ -            path: 'bad19.png'
+│ │ -        });
+│ │ -        port.disconnect();
+│ │ -    });
+│ │ -    port.onDisconnect.addListener(function() {
+│ │ -        native.disconnect();
+│ │ -    });
+│ │ -    native.onMessage.addListener(function(msg) {
+│ │ -        port.postMessage(msg);
+│ │ -    });
+│ │ -    port.onMessage.addListener(function(msg) {
+│ │ -        native.postMessage(msg);
+│ │ -    });
+│ │ -    native.postMessage(['version']);
+│ │ +chrome.runtime.onConnect.addListener(function(port) {
+│ │ +    chrome.pageAction.show(port.sender.tab.id);
+│ │ +    var native = chrome.runtime.connectNative('com.jazz_soft.jazz_midi');
+│ │ +    native.onDisconnect.addListener(function() {
+│ │ +        chrome.pageAction.setPopup({
+│ │ +            tabId: port.sender.tab.id,
+│ │ +            popup: 'bad.html'
+│ │ +        });
+│ │ +        chrome.pageAction.setIcon({
+│ │ +            tabId: port.sender.tab.id,
+│ │ +            path: 'bad19.png'
+│ │ +        });
+│ │ +        port.disconnect();
+│ │ +    });
+│ │ +    port.onDisconnect.addListener(function() {
+│ │ +        native.disconnect();
+│ │ +    });
+│ │ +    native.onMessage.addListener(function(msg) {
+│ │ +        port.postMessage(msg);
+│ │ +    });
+│ │ +    port.onMessage.addListener(function(msg) {
+│ │ +        native.postMessage(msg);
+│ │ +    });
+│ │ +    native.postMessage(['version']);
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/bad.html
+├── +++ /workspace/pipeline_output/jazz-midi/firefox/jazz-midi/bad.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,11 +1,11 @@
+│ -<!doctype html>
+│ -<html>
+│ -<head>
+│ -<link rel="stylesheet" type="text/css" href="style.css">
+│ -</head>
+│ -<body>
+│ -<h1><img src=bad19.png> Jazz-MIDI</h1>
+│ -<p>Module not found.</p>
+│ -<p>Please (re)install the <a href=https://jazz-soft.net target=_blank>Jazz-Plugin</a>!</p>
+│ -</body>
+│ +<!doctype html>
+│ +<html>
+│ +<head>
+│ +<link rel="stylesheet" type="text/css" href="style.css">
+│ +</head>
+│ +<body>
+│ +<h1><img src=bad19.png> Jazz-MIDI</h1>
+│ +<p>Module not found.</p>
+│ +<p>Please (re)install the <a href=https://jazz-soft.net target=_blank>Jazz-Plugin</a>!</p>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/content.js
+├── +++ /workspace/pipeline_output/jazz-midi/firefox/jazz-midi/content.js
+│ ├── js-beautify {}
+│ │ @@ -1,36 +1,36 @@
+│ │ -var ports = [];
+│ │ -var exchange;
+│ │ -
+│ │ -function createPort() {
+│ │ -    var port = chrome.runtime.connect();
+│ │ -    var id = ports.length;
+│ │ -    port.onDisconnect.addListener(function() {
+│ │ -        document.dispatchEvent(new Event('jazz-midi-msg'));
+│ │ -    });
+│ │ -    port.onMessage.addListener(function(v) {
+│ │ -        if (v[0] !== 'refresh') v.splice(1, 0, id);
+│ │ -        exchange.innerText += JSON.stringify(v) + '\n';
+│ │ -        document.dispatchEvent(new Event('jazz-midi-msg'));
+│ │ -    });
+│ │ -    ports.push(port);
+│ │ -}
+│ │ -
+│ │ -document.addEventListener('jazz-midi', function(e) {
+│ │ -    if (!e.detail) document.dispatchEvent(new Event('jazz-midi-msg'));
+│ │ -    if (!exchange) {
+│ │ -        exchange = document.createElement('div');
+│ │ -        exchange.id = 'jazz-midi-msg';
+│ │ -        //exchange.style.visibility = 'hidden';
+│ │ -        document.body.appendChild(exchange);
+│ │ -        createPort();
+│ │ -    }
+│ │ -    if (!e.detail) return;
+│ │ -    var n = 0;
+│ │ -    var v = e.detail.slice();
+│ │ -    if (v[0] === 'new') {
+│ │ -        createPort();
+│ │ -        return;
+│ │ -    }
+│ │ -    if (v[0] !== 'refresh' && v[0] !== 'watch' && v[0] !== 'unwatch') n = v.splice(1, 1);
+│ │ -    if (ports[n]) ports[n].postMessage(v);
+│ │ +var ports = [];
+│ │ +var exchange;
+│ │ +
+│ │ +function createPort() {
+│ │ +    var port = chrome.runtime.connect();
+│ │ +    var id = ports.length;
+│ │ +    port.onDisconnect.addListener(function() {
+│ │ +        document.dispatchEvent(new Event('jazz-midi-msg'));
+│ │ +    });
+│ │ +    port.onMessage.addListener(function(v) {
+│ │ +        if (v[0] !== 'refresh') v.splice(1, 0, id);
+│ │ +        exchange.innerText += JSON.stringify(v) + '\n';
+│ │ +        document.dispatchEvent(new Event('jazz-midi-msg'));
+│ │ +    });
+│ │ +    ports.push(port);
+│ │ +}
+│ │ +
+│ │ +document.addEventListener('jazz-midi', function(e) {
+│ │ +    if (!e.detail) document.dispatchEvent(new Event('jazz-midi-msg'));
+│ │ +    if (!exchange) {
+│ │ +        exchange = document.createElement('div');
+│ │ +        exchange.id = 'jazz-midi-msg';
+│ │ +        //exchange.style.visibility = 'hidden';
+│ │ +        document.body.appendChild(exchange);
+│ │ +        createPort();
+│ │ +    }
+│ │ +    if (!e.detail) return;
+│ │ +    var n = 0;
+│ │ +    var v = e.detail.slice();
+│ │ +    if (v[0] === 'new') {
+│ │ +        createPort();
+│ │ +        return;
+│ │ +    }
+│ │ +    if (v[0] !== 'refresh' && v[0] !== 'watch' && v[0] !== 'unwatch') n = v.splice(1, 1);
+│ │ +    if (ports[n]) ports[n].postMessage(v);
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/good.html
+├── +++ /workspace/pipeline_output/jazz-midi/firefox/jazz-midi/good.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,11 +1,11 @@
+│ -<!doctype html>
+│ -<html>
+│ -<head>
+│ -<link rel="stylesheet" type="text/css" href="style.css">
+│ -</head>
+│ -<body>
+│ -<h1><img src=good19.png> Jazz-MIDI</h1>
+│ -<p>MIDI support for browsers</p>
+│ -<p>See more details at <a href=https://jazz-soft.net target=_blank>https://jazz-soft.net</a></p>
+│ -</body>
+│ +<!doctype html>
+│ +<html>
+│ +<head>
+│ +<link rel="stylesheet" type="text/css" href="style.css">
+│ +</head>
+│ +<body>
+│ +<h1><img src=good19.png> Jazz-MIDI</h1>
+│ +<p>MIDI support for browsers</p>
+│ +<p>See more details at <a href=https://jazz-soft.net target=_blank>https://jazz-soft.net</a></p>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/jazz-midi/firefox/jazz-midi/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -36,10 +36,9 @@
+│ │          "default_icon": "good19.png",
+│ │          "default_popup": "good.html",
+│ │          "default_title": "Jazz-MIDI"
+│ │      },
+│ │      "permissions": [
+│ │          "nativeMessaging"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.0.2.0"
+│ │  }

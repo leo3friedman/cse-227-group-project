@@ -1,0 +1,563 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/h264ify
+├── file list
+│ @@ -1,7 +1,11 @@
+│ +.git
+│ +LICENSE
+│ +README.md
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│ +noncode
+│  options.html
+│  options.js
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/h264ify/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/cs
+│ ├── +++ /workspace/pipeline_output/h264ify/_locales/cs
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/cs/messages.json
+│ │ ├── +++ /workspace/pipeline_output/h264ify/_locales/cs/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,15 +1,14 @@
+│ │ │ -7b0d0a202022657874656e73696f6e4465736372697074696f6e223a207b0d0a
+│ │ │ -20202020226d657373616765223a202250c599696dc49b6a6520596f75547562
+│ │ │ -65206b652073747265616d6f76c3a16ec3ad20766964656120482e323634206d
+│ │ │ -c3ad73746f205650382f565039222c0d0a20202020226465736372697074696f
+│ │ │ -6e223a2022457874656e73696f6e206465736372697074696f6e220d0a20207d
+│ │ │ -2c0d0a0d0a2020226f7074696f6e735469746c65223a207b0d0a20202020226d
+│ │ │ -657373616765223a20224d6fc5be6e6f7374692068323634696679220d0a2020
+│ │ │ -7d2c0d0a0d0a2020226f7074696f6e73456e61626c65223a207b0d0a20202020
+│ │ │ -226d657373616765223a2022506f766f6c69742068323634696679220d0a2020
+│ │ │ -7d2c0d0a0d0a2020226f7074696f6e73426c6f636b3630667073223a207b0d0a
+│ │ │ -20202020226d657373616765223a2022426c6f6b6f7661742036306670732076
+│ │ │ -69646561220d0a20207d2c0d0a0d0a2020226f7074696f6e7342617474657279
+│ │ │ -4f6e6c79223a207b0d0a20202020226d657373616765223a202244697361626c
+│ │ │ -65207768656e20706c756767656420696e746f20706f77657220284368726f6d
+│ │ │ -65206f6e6c7929220d0a20207d0d0a0d0a7d0d0a0d0a
+│ │ │ +7b0a202022657874656e73696f6e4465736372697074696f6e223a207b0a2020
+│ │ │ +2020226d657373616765223a202250c599696dc49b6a6520596f755475626520
+│ │ │ +6b652073747265616d6f76c3a16ec3ad20766964656120482e323634206dc3ad
+│ │ │ +73746f205650382f565039222c0a20202020226465736372697074696f6e223a
+│ │ │ +2022457874656e73696f6e206465736372697074696f6e220a20207d2c0a0a20
+│ │ │ +20226f7074696f6e735469746c65223a207b0a20202020226d65737361676522
+│ │ │ +3a20224d6fc5be6e6f7374692068323634696679220a20207d2c0a0a2020226f
+│ │ │ +7074696f6e73456e61626c65223a207b0a20202020226d657373616765223a20
+│ │ │ +22506f766f6c69742068323634696679220a20207d2c0a0a2020226f7074696f
+│ │ │ +6e73426c6f636b3630667073223a207b0a20202020226d657373616765223a20
+│ │ │ +22426c6f6b6f766174203630667073207669646561220a20207d2c0a0a202022
+│ │ │ +6f7074696f6e73426174746572794f6e6c79223a207b0a20202020226d657373
+│ │ │ +616765223a202244697361626c65207768656e20706c756767656420696e746f
+│ │ │ +20706f77657220284368726f6d65206f6e6c7929220a20207d0a0a7d0a0a
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/h264ify/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/h264ify/_locales/en/messages.json
+│ │ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ │┄ Format-specific differences are supported for JSON files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: JSON text data
+│ │ │ @@ -1,15 +1,14 @@
+│ │ │ -7b0d0a202022657874656e73696f6e4465736372697074696f6e223a207b0d0a
+│ │ │ -20202020226d657373616765223a20224d616b657320596f7554756265207374
+│ │ │ -7265616d20482e32363420766964656f7320696e7374656164206f6620565038
+│ │ │ -2f56503920766964656f73222c0d0a20202020226465736372697074696f6e22
+│ │ │ -3a2022457874656e73696f6e206465736372697074696f6e220d0a20207d2c0d
+│ │ │ -0a0d0a2020226f7074696f6e735469746c65223a207b0d0a20202020226d6573
+│ │ │ -73616765223a202268323634696679204f7074696f6e73220d0a20207d2c0d0a
+│ │ │ -0d0a2020226f7074696f6e73456e61626c65223a207b0d0a20202020226d6573
+│ │ │ -73616765223a2022456e61626c652068323634696679220d0a20207d2c0d0a0d
+│ │ │ -0a2020226f7074696f6e73426c6f636b3630667073223a207b0d0a2020202022
+│ │ │ -6d657373616765223a2022426c6f636b20363066707320766964656f220d0a20
+│ │ │ -207d2c0d0a0d0a2020226f7074696f6e73426174746572794f6e6c79223a207b
+│ │ │ -0d0a20202020226d657373616765223a202244697361626c65207768656e2070
+│ │ │ -6c756767656420696e746f20706f77657220284368726f6d65206f6e6c792922
+│ │ │ -0d0a20207d0d0a0d0a7d0d0a0d0a
+│ │ │ +7b0a202022657874656e73696f6e4465736372697074696f6e223a207b0a2020
+│ │ │ +2020226d657373616765223a20224d616b657320596f75547562652073747265
+│ │ │ +616d20482e32363420766964656f7320696e7374656164206f66205650382f56
+│ │ │ +503920766964656f73222c0a20202020226465736372697074696f6e223a2022
+│ │ │ +457874656e73696f6e206465736372697074696f6e220a20207d2c0a0a202022
+│ │ │ +6f7074696f6e735469746c65223a207b0a20202020226d657373616765223a20
+│ │ │ +2268323634696679204f7074696f6e73220a20207d2c0a0a2020226f7074696f
+│ │ │ +6e73456e61626c65223a207b0a20202020226d657373616765223a2022456e61
+│ │ │ +626c652068323634696679220a20207d2c0a0a2020226f7074696f6e73426c6f
+│ │ │ +636b3630667073223a207b0a20202020226d657373616765223a2022426c6f63
+│ │ │ +6b20363066707320766964656f220a20207d2c0a0a2020226f7074696f6e7342
+│ │ │ +6174746572794f6e6c79223a207b0a20202020226d657373616765223a202244
+│ │ │ +697361626c65207768656e20706c756767656420696e746f20706f7765722028
+│ │ │ +4368726f6d65206f6e6c7929220a20207d0a0a7d0a0a
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/h264ify/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -44,10 +44,9 @@
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "scripting",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/h264ify/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,24 +1,24 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -   <head>
+│ -      <title data-l10n-id="optionsTitle"></title>
+│ -      <style>
+│ -        ul {
+│ -          list-style: none;
+│ -          padding-left:0;
+│ -        }
+│ -        body {
+│ -        white-space:nowrap;
+│ -        }
+│ -      </style>
+│ -   </head>
+│ -   <body>
+│ -      <h1 data-l10n-id="optionsTitle"></h1>
+│ -      <ul>
+│ -         <li><input type="checkbox" id="enable" class="checkbox"><label for="enable" data-l10n-id="optionsEnable"></label></li>
+│ -         <li><input type="checkbox" id="block_60fps" class="checkbox"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label></li>
+│ -         <li><input type="checkbox" id="battery_only" class="checkbox"><label for="battery_only" data-l10n-id="optionsBatteryOnly"></label></li>
+│ -      </ul>
+│ -      <script src="options.js"></script>
+│ -   </body>
+│ -</html>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +   <head>
+│ +      <title data-l10n-id="optionsTitle"></title>
+│ +      <style>
+│ +        ul {
+│ +          list-style: none;
+│ +          padding-left:0;
+│ +        }
+│ +        body {
+│ +        white-space:nowrap;
+│ +        }
+│ +      </style>
+│ +   </head>
+│ +   <body>
+│ +      <h1 data-l10n-id="optionsTitle"></h1>
+│ +      <ul>
+│ +         <li><input type="checkbox" id="enable" class="checkbox"><label for="enable" data-l10n-id="optionsEnable"></label></li>
+│ +         <li><input type="checkbox" id="block_60fps" class="checkbox"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label></li>
+│ +         <li><input type="checkbox" id="battery_only" class="checkbox"><label for="battery_only" data-l10n-id="optionsBatteryOnly"></label></li>
+│ +      </ul>
+│ +      <script src="options.js"></script>
+│ +   </body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/h264ify/options.js
+│ ├── js-beautify {}
+│ │ @@ -1,39 +1,39 @@
+│ │ -// Saves options to chrome.storage
+│ │ -function save_options() {
+│ │ -    var enable = document.getElementById('enable').checked;
+│ │ -    var block_60fps = document.getElementById('block_60fps').checked;
+│ │ -    var battery_only = document.getElementById('battery_only').checked;
+│ │ -    chrome.storage.local.set({
+│ │ -        enable: enable,
+│ │ -        block_60fps: block_60fps,
+│ │ -        battery_only: battery_only,
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -// Restores checkbox state using the options stored in chrome.storage.
+│ │ -function restore_options() {
+│ │ -    // Use default value enable = true and block_60fps = false
+│ │ -    chrome.storage.local.get({
+│ │ -        enable: true,
+│ │ -        block_60fps: false,
+│ │ -        battery_only: false,
+│ │ -    }, function(options) {
+│ │ -        document.getElementById('enable').checked = options.enable;
+│ │ -        document.getElementById('block_60fps').checked = options.block_60fps;
+│ │ -        document.getElementById('battery_only').checked = options.battery_only;
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -// Restore saved options when extension is loaded
+│ │ -document.addEventListener('DOMContentLoaded', restore_options);
+│ │ -
+│ │ -// Save options when checkboxes are clicked
+│ │ -var checkboxes = document.getElementsByClassName('checkbox');
+│ │ -for (var i = 0; i < checkboxes.length; i++) {
+│ │ -    checkboxes[i].addEventListener('click', save_options)
+│ │ -}
+│ │ -
+│ │ -// l10n
+│ │ -for (let element of document.querySelectorAll('[data-l10n-id]')) {
+│ │ -    element.textContent = chrome.i18n.getMessage(element.dataset.l10nId);
+│ │ +// Saves options to chrome.storage
+│ │ +function save_options() {
+│ │ +    var enable = document.getElementById('enable').checked;
+│ │ +    var block_60fps = document.getElementById('block_60fps').checked;
+│ │ +    var battery_only = document.getElementById('battery_only').checked;
+│ │ +    chrome.storage.local.set({
+│ │ +        enable: enable,
+│ │ +        block_60fps: block_60fps,
+│ │ +        battery_only: battery_only,
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Restores checkbox state using the options stored in chrome.storage.
+│ │ +function restore_options() {
+│ │ +    // Use default value enable = true and block_60fps = false
+│ │ +    chrome.storage.local.get({
+│ │ +        enable: true,
+│ │ +        block_60fps: false,
+│ │ +        battery_only: false,
+│ │ +    }, function(options) {
+│ │ +        document.getElementById('enable').checked = options.enable;
+│ │ +        document.getElementById('block_60fps').checked = options.block_60fps;
+│ │ +        document.getElementById('battery_only').checked = options.battery_only;
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Restore saved options when extension is loaded
+│ │ +document.addEventListener('DOMContentLoaded', restore_options);
+│ │ +
+│ │ +// Save options when checkboxes are clicked
+│ │ +var checkboxes = document.getElementsByClassName('checkbox');
+│ │ +for (var i = 0; i < checkboxes.length; i++) {
+│ │ +    checkboxes[i].addEventListener('click', save_options)
+│ │ +}
+│ │ +
+│ │ +// l10n
+│ │ +for (let element of document.querySelectorAll('[data-l10n-id]')) {
+│ │ +    element.textContent = chrome.i18n.getMessage(element.dataset.l10nId);
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/src
+├── +++ /workspace/pipeline_output/h264ify/src
+│ │   --- /workspace/pipeline_output/chromex_data/src/inject
+│ ├── +++ /workspace/pipeline_output/h264ify/src/inject
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/inject/content_script.js
+│ │ ├── +++ /workspace/pipeline_output/h264ify/src/inject/content_script.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,55 +1,55 @@
+│ │ │ │ -/**
+│ │ │ │ - * The MIT License (MIT)
+│ │ │ │ - *
+│ │ │ │ - * Copyright (c) 2015 erkserkserks
+│ │ │ │ - *
+│ │ │ │ - * Permission is hereby granted, free of charge, to any person obtaining a copy
+│ │ │ │ - * of this software and associated documentation files (the "Software"), to deal
+│ │ │ │ - * in the Software without restriction, including without limitation the rights
+│ │ │ │ - * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ │ │ │ - * copies of the Software, and to permit persons to whom the Software is
+│ │ │ │ - * furnished to do so, subject to the following conditions:
+│ │ │ │ - *
+│ │ │ │ - * The above copyright notice and this permission notice shall be included in all
+│ │ │ │ - * copies or substantial portions of the Software.
+│ │ │ │ - *
+│ │ │ │ - * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ │ │ │ - * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ │ │ │ - * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ │ │ │ - * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ │ │ │ - * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ │ │ │ - * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ │ │ │ - * SOFTWARE.
+│ │ │ │ - */
+│ │ │ │ -
+│ │ │ │ -// This content script runs in an isolated environment and cannot modify any
+│ │ │ │ -// javascript variables on the youtube page. The purpose of this script is to
+│ │ │ │ -// handle user options and pass them them to inject.js via local storage.
+│ │ │ │ -// inject.js runs in the main world of the DOM:
+│ │ │ │ -// https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld
+│ │ │ │ -
+│ │ │ │ -// Set defaults for options stored in localStorage
+│ │ │ │ -if (localStorage['h264ify-enable'] === undefined) {
+│ │ │ │ -    localStorage['h264ify-enable'] = true;
+│ │ │ │ -}
+│ │ │ │ -if (localStorage['h264ify-block_60fps'] === undefined) {
+│ │ │ │ -    localStorage['h264ify-block_60fps'] = false;
+│ │ │ │ -}
+│ │ │ │ -if (localStorage['h264ify-battery_only'] === undefined) {
+│ │ │ │ -    localStorage['h264ify-battery_only'] = false;
+│ │ │ │ -}
+│ │ │ │ -
+│ │ │ │ -// Save chrome.storage.local options in localStorage.
+│ │ │ │ -// This is needed because chrome.storage.local.get() is async and we want to
+│ │ │ │ -// run inject.js immediately.
+│ │ │ │ -// See https://bugs.chromium.org/p/chromium/issues/detail?id=54257
+│ │ │ │ -chrome.storage.local.get({
+│ │ │ │ -    // Set defaults
+│ │ │ │ -    enable: true,
+│ │ │ │ -    block_60fps: false,
+│ │ │ │ -    battery_only: false,
+│ │ │ │ -}, function(options) {
+│ │ │ │ -    localStorage['h264ify-enable'] = options.enable;
+│ │ │ │ -    localStorage['h264ify-block_60fps'] = options.block_60fps;
+│ │ │ │ -    localStorage['h264ify-battery_only'] = options.battery_only;
+│ │ │ │ +/**
+│ │ │ │ + * The MIT License (MIT)
+│ │ │ │ + *
+│ │ │ │ + * Copyright (c) 2015 erkserkserks
+│ │ │ │ + *
+│ │ │ │ + * Permission is hereby granted, free of charge, to any person obtaining a copy
+│ │ │ │ + * of this software and associated documentation files (the "Software"), to deal
+│ │ │ │ + * in the Software without restriction, including without limitation the rights
+│ │ │ │ + * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ │ │ │ + * copies of the Software, and to permit persons to whom the Software is
+│ │ │ │ + * furnished to do so, subject to the following conditions:
+│ │ │ │ + *
+│ │ │ │ + * The above copyright notice and this permission notice shall be included in all
+│ │ │ │ + * copies or substantial portions of the Software.
+│ │ │ │ + *
+│ │ │ │ + * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ │ │ │ + * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ │ │ │ + * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ │ │ │ + * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ │ │ │ + * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ │ │ │ + * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ │ │ │ + * SOFTWARE.
+│ │ │ │ + */
+│ │ │ │ +
+│ │ │ │ +// This content script runs in an isolated environment and cannot modify any
+│ │ │ │ +// javascript variables on the youtube page. The purpose of this script is to
+│ │ │ │ +// handle user options and pass them them to inject.js via local storage.
+│ │ │ │ +// inject.js runs in the main world of the DOM:
+│ │ │ │ +// https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld
+│ │ │ │ +
+│ │ │ │ +// Set defaults for options stored in localStorage
+│ │ │ │ +if (localStorage['h264ify-enable'] === undefined) {
+│ │ │ │ +    localStorage['h264ify-enable'] = true;
+│ │ │ │ +}
+│ │ │ │ +if (localStorage['h264ify-block_60fps'] === undefined) {
+│ │ │ │ +    localStorage['h264ify-block_60fps'] = false;
+│ │ │ │ +}
+│ │ │ │ +if (localStorage['h264ify-battery_only'] === undefined) {
+│ │ │ │ +    localStorage['h264ify-battery_only'] = false;
+│ │ │ │ +}
+│ │ │ │ +
+│ │ │ │ +// Save chrome.storage.local options in localStorage.
+│ │ │ │ +// This is needed because chrome.storage.local.get() is async and we want to
+│ │ │ │ +// run inject.js immediately.
+│ │ │ │ +// See https://bugs.chromium.org/p/chromium/issues/detail?id=54257
+│ │ │ │ +chrome.storage.local.get({
+│ │ │ │ +    // Set defaults
+│ │ │ │ +    enable: true,
+│ │ │ │ +    block_60fps: false,
+│ │ │ │ +    battery_only: false,
+│ │ │ │ +}, function(options) {
+│ │ │ │ +    localStorage['h264ify-enable'] = options.enable;
+│ │ │ │ +    localStorage['h264ify-block_60fps'] = options.block_60fps;
+│ │ │ │ +    localStorage['h264ify-battery_only'] = options.battery_only;
+│ │ │ │  });
+│ │ │   --- /workspace/pipeline_output/chromex_data/src/inject/inject.js
+│ │ ├── +++ /workspace/pipeline_output/h264ify/src/inject/inject.js
+│ │ │ ├── js-beautify {}
+│ │ │ │ @@ -1,77 +1,77 @@
+│ │ │ │ -/**
+│ │ │ │ - * The MIT License (MIT)
+│ │ │ │ - *
+│ │ │ │ - * Copyright (c) 2015 erkserkserks
+│ │ │ │ - *
+│ │ │ │ - * Permission is hereby granted, free of charge, to any person obtaining a copy
+│ │ │ │ - * of this software and associated documentation files (the "Software"), to deal
+│ │ │ │ - * in the Software without restriction, including without limitation the rights
+│ │ │ │ - * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ │ │ │ - * copies of the Software, and to permit persons to whom the Software is
+│ │ │ │ - * furnished to do so, subject to the following conditions:
+│ │ │ │ - *
+│ │ │ │ - * The above copyright notice and this permission notice shall be included in all
+│ │ │ │ - * copies or substantial portions of the Software.
+│ │ │ │ - *
+│ │ │ │ - * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ │ │ │ - * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ │ │ │ - * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ │ │ │ - * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ │ │ │ - * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ │ │ │ - * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ │ │ │ - * SOFTWARE.
+│ │ │ │ - */
+│ │ │ │ -
+│ │ │ │ -// inject.js runs in the main world of the DOM:
+│ │ │ │ -// https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld
+│ │ │ │ -
+│ │ │ │ -(function() {
+│ │ │ │ -    if (localStorage['h264ify-enable'] === 'false') {
+│ │ │ │ -        return;
+│ │ │ │ -    }
+│ │ │ │ -
+│ │ │ │ -    if (localStorage['h264ify-battery_only'] === 'true' && navigator.getBattery) {
+│ │ │ │ -        navigator.getBattery().then(function(battery) {
+│ │ │ │ -            if (!battery.charging) {
+│ │ │ │ -                override();
+│ │ │ │ -            }
+│ │ │ │ -        })
+│ │ │ │ -    } else {
+│ │ │ │ -        override();
+│ │ │ │ -    }
+│ │ │ │ -
+│ │ │ │ -    function override() {
+│ │ │ │ -        // Override video element canPlayType() function
+│ │ │ │ -        var videoElem = document.createElement('video');
+│ │ │ │ -        var origCanPlayType = videoElem.canPlayType.bind(videoElem);
+│ │ │ │ -        videoElem.__proto__.canPlayType = makeModifiedTypeChecker(origCanPlayType);
+│ │ │ │ -
+│ │ │ │ -        // Override media source extension isTypeSupported() function
+│ │ │ │ -        var mse = window.MediaSource;
+│ │ │ │ -        // Check for MSE support before use
+│ │ │ │ -        if (mse === undefined) return;
+│ │ │ │ -        var origIsTypeSupported = mse.isTypeSupported.bind(mse);
+│ │ │ │ -        mse.isTypeSupported = makeModifiedTypeChecker(origIsTypeSupported);
+│ │ │ │ -    }
+│ │ │ │ -
+│ │ │ │ -    // return a custom MIME type checker that can defer to the original function
+│ │ │ │ -    function makeModifiedTypeChecker(origChecker) {
+│ │ │ │ -        // Check if a video type is allowed
+│ │ │ │ -        return function(type) {
+│ │ │ │ -            if (type === undefined) return '';
+│ │ │ │ -            var disallowed_types = ['webm', 'vp8', 'vp9', 'av01'];
+│ │ │ │ -            // If video type is in disallowed_types, say we don't support them
+│ │ │ │ -            for (var i = 0; i < disallowed_types.length; i++) {
+│ │ │ │ -                if (type.indexOf(disallowed_types[i]) !== -1) return '';
+│ │ │ │ -            }
+│ │ │ │ -
+│ │ │ │ -            if (localStorage['h264ify-block_60fps'] === 'true') {
+│ │ │ │ -                var match = /framerate=(\d+)/.exec(type);
+│ │ │ │ -                if (match && match[1] > 30) return '';
+│ │ │ │ -            }
+│ │ │ │ -
+│ │ │ │ -            // Otherwise, ask the browser
+│ │ │ │ -            return origChecker(type);
+│ │ │ │ -        };
+│ │ │ │ -    }
+│ │ │ │ +/**
+│ │ │ │ + * The MIT License (MIT)
+│ │ │ │ + *
+│ │ │ │ + * Copyright (c) 2015 erkserkserks
+│ │ │ │ + *
+│ │ │ │ + * Permission is hereby granted, free of charge, to any person obtaining a copy
+│ │ │ │ + * of this software and associated documentation files (the "Software"), to deal
+│ │ │ │ + * in the Software without restriction, including without limitation the rights
+│ │ │ │ + * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ │ │ │ + * copies of the Software, and to permit persons to whom the Software is
+│ │ │ │ + * furnished to do so, subject to the following conditions:
+│ │ │ │ + *
+│ │ │ │ + * The above copyright notice and this permission notice shall be included in all
+│ │ │ │ + * copies or substantial portions of the Software.
+│ │ │ │ + *
+│ │ │ │ + * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ │ │ │ + * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ │ │ │ + * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ │ │ │ + * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ │ │ │ + * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ │ │ │ + * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ │ │ │ + * SOFTWARE.
+│ │ │ │ + */
+│ │ │ │ +
+│ │ │ │ +// inject.js runs in the main world of the DOM:
+│ │ │ │ +// https://developer.chrome.com/docs/extensions/reference/api/scripting#type-ExecutionWorld
+│ │ │ │ +
+│ │ │ │ +(function() {
+│ │ │ │ +    if (localStorage['h264ify-enable'] === 'false') {
+│ │ │ │ +        return;
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    if (localStorage['h264ify-battery_only'] === 'true' && navigator.getBattery) {
+│ │ │ │ +        navigator.getBattery().then(function(battery) {
+│ │ │ │ +            if (!battery.charging) {
+│ │ │ │ +                override();
+│ │ │ │ +            }
+│ │ │ │ +        })
+│ │ │ │ +    } else {
+│ │ │ │ +        override();
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    function override() {
+│ │ │ │ +        // Override video element canPlayType() function
+│ │ │ │ +        var videoElem = document.createElement('video');
+│ │ │ │ +        var origCanPlayType = videoElem.canPlayType.bind(videoElem);
+│ │ │ │ +        videoElem.__proto__.canPlayType = makeModifiedTypeChecker(origCanPlayType);
+│ │ │ │ +
+│ │ │ │ +        // Override media source extension isTypeSupported() function
+│ │ │ │ +        var mse = window.MediaSource;
+│ │ │ │ +        // Check for MSE support before use
+│ │ │ │ +        if (mse === undefined) return;
+│ │ │ │ +        var origIsTypeSupported = mse.isTypeSupported.bind(mse);
+│ │ │ │ +        mse.isTypeSupported = makeModifiedTypeChecker(origIsTypeSupported);
+│ │ │ │ +    }
+│ │ │ │ +
+│ │ │ │ +    // return a custom MIME type checker that can defer to the original function
+│ │ │ │ +    function makeModifiedTypeChecker(origChecker) {
+│ │ │ │ +        // Check if a video type is allowed
+│ │ │ │ +        return function(type) {
+│ │ │ │ +            if (type === undefined) return '';
+│ │ │ │ +            var disallowed_types = ['webm', 'vp8', 'vp9', 'av01'];
+│ │ │ │ +            // If video type is in disallowed_types, say we don't support them
+│ │ │ │ +            for (var i = 0; i < disallowed_types.length; i++) {
+│ │ │ │ +                if (type.indexOf(disallowed_types[i]) !== -1) return '';
+│ │ │ │ +            }
+│ │ │ │ +
+│ │ │ │ +            if (localStorage['h264ify-block_60fps'] === 'true') {
+│ │ │ │ +                var match = /framerate=(\d+)/.exec(type);
+│ │ │ │ +                if (match && match[1] > 30) return '';
+│ │ │ │ +            }
+│ │ │ │ +
+│ │ │ │ +            // Otherwise, ask the browser
+│ │ │ │ +            return origChecker(type);
+│ │ │ │ +        };
+│ │ │ │ +    }
+│ │ │ │  })();
+│ │   --- /workspace/pipeline_output/chromex_data/src/service_worker.js
+│ ├── +++ /workspace/pipeline_output/h264ify/src/service_worker.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,24 +1,24 @@
+│ │ │ +// Register inject.js to be run on Youtube pages.
+│ │ │ +// This way of registration is used instead of registering in manifest.json
+│ │ │ +// because this way is supported by Chrome 109, the final version of Chrome
+│ │ │ +// released for Windows 7 and 8.
+│ │ │ +// See https://stackoverflow.com/a/72607832
+│ │ │ +chrome.runtime.onInstalled.addListener(async () => {
+│ │ │ +    const scripts = [{
+│ │ │ +        id: 'inject',
+│ │ │ +        js: ['src/inject/inject.js'],
+│ │ │ +        matches: [
+│ │ │ +            "*://*.youtube.com/*",
+│ │ │ +            "*://*.youtube-nocookie.com/*",
+│ │ │ +            "*://*.youtu.be/*"
+│ │ │ +        ],
+│ │ │ +        allFrames: true,
+│ │ │ +        runAt: 'document_start',
+│ │ │ +        world: 'MAIN',
+│ │ │ +    }];
+│ │ │ +    const ids = scripts.map(s => s.id);
+│ │ │ +    await chrome.scripting.unregisterContentScripts({
+│ │ │ +        ids
+│ │ │ +    }).catch(() => {});
+│ │ │ +    await chrome.scripting.registerContentScripts(scripts).catch(() => {});
+│ │ │ -// Register inject.js to be run on Youtube pages.
+│ │ │ -// This way of registration is used instead of registering in manifest.json
+│ │ │ -// because this way is supported by Chrome 109, the final version of Chrome
+│ │ │ -// released for Windows 7 and 8.
+│ │ │ -// See https://stackoverflow.com/a/72607832
+│ │ │ -chrome.runtime.onInstalled.addListener(async () => {
+│ │ │ -    const scripts = [{
+│ │ │ -        id: 'inject',
+│ │ │ -        js: ['src/inject/inject.js'],
+│ │ │ -        matches: [
+│ │ │ -            "*://*.youtube.com/*",
+│ │ │ -            "*://*.youtube-nocookie.com/*",
+│ │ │ -            "*://*.youtu.be/*"
+│ │ │ -        ],
+│ │ │ -        allFrames: true,
+│ │ │ -        runAt: 'document_start',
+│ │ │ -        world: 'MAIN',
+│ │ │ -    }];
+│ │ │ -    const ids = scripts.map(s => s.id);
+│ │ │ -    await chrome.scripting.unregisterContentScripts({
+│ │ │ -        ids
+│ │ │ -    }).catch(() => {});
+│ │ │ -    await chrome.scripting.registerContentScripts(scripts).catch(() => {});
+│ │ │  });

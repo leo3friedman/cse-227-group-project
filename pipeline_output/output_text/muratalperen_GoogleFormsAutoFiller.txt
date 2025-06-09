@@ -1,0 +1,1310 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/GoogleFormsAutoFiller
+├── file list
+│ @@ -1,9 +1,12 @@
+│ +.git
+│ +.gitignore
+│  Changelog.md
+│  LICENSE
+│  Readme.md
+│ -_metadata
+│  background.js
+│ +build
+│  images
+│  manifest.json
+│ +package-lock.json
+│  popup
+│  scripts
+│   --- /workspace/pipeline_output/chromex_data/Changelog.md
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/Changelog.md
+│ @@ -1,9 +1,10 @@
+│ -# Changelog
+│ -
+│ -### 0.9
+│ -
+│ -- Removed language to adding better language support.
+│ -- Added MutationObserver to handle lazyload and others.
+│ -- Script base made modular
+│ -- Added OnInput, OnChange event call to simulate user.
+│ -- Fuzzy Select by LevenshteinDistance algorithm
+│ +# Changelog
+│ +
+│ +### 0.9.9
+│ +
+│ +- Removed language to adding better language support.
+│ +- Added MutationObserver to handle lazyload and others.
+│ +- Script base made modular
+│ +- Added OnInput, OnChange event call to simulate user.
+│ +- Fuzzy Select by LevenshteinDistance algorithm
+│ +- Added links
+│   --- /workspace/pipeline_output/chromex_data/LICENSE
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/LICENSE
+│┄ Ordering differences only
+│ @@ -1,20 +1,20 @@
+│ -The MIT License (MIT)
+│ -
+│ -Copyright (c) 2021-2021 Murat Serhat Alperen
+│ -
+│ -Permission is hereby granted, free of charge, to any person obtaining a copy of
+│ -this software and associated documentation files (the "Software"), to deal in
+│ -the Software without restriction, including without limitation the rights to
+│ -use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+│ -the Software, and to permit persons to whom the Software is furnished to do so,
+│ -subject to the following conditions:
+│ -
+│ -The above copyright notice and this permission notice shall be included in all
+│ -copies or substantial portions of the Software.
+│ -
+│ -THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ -IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+│ -FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+│ -COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+│ -IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+│ -CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+│ +The MIT License (MIT)
+│ +
+│ +Copyright (c) 2021-2021 Murat Serhat Alperen
+│ +
+│ +Permission is hereby granted, free of charge, to any person obtaining a copy of
+│ +this software and associated documentation files (the "Software"), to deal in
+│ +the Software without restriction, including without limitation the rights to
+│ +use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+│ +the Software, and to permit persons to whom the Software is furnished to do so,
+│ +subject to the following conditions:
+│ +
+│ +The above copyright notice and this permission notice shall be included in all
+│ +copies or substantial portions of the Software.
+│ +
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ +IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+│ +FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+│ +COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+│ +IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+│ +CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/Readme.md
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/Readme.md
+│ @@ -1,23 +1,27 @@
+│ -# Google Forms Auto Filler
+│ -
+│ -![Google Forms Auto Filler Screenshot](build/Screenshots/Add-on%20Screenshot.png)
+│ -
+│ -This extension automatically fills Google Form input fields with predefined values. For example, if you set *Name* to *John*, all input fields with the title *Name* will be populated with *John* when the page loads.
+│ -
+│ -It also supports fuzzy matching, so variations like *E-mail* and *email* are matched correctly.
+│ -
+│ -Get it on add-on stores:
+│ -+ Firefox: <https://addons.mozilla.org/en-US/firefox/addon/google-forms-auto-filler/>
+│ -+ Chrome: <https://chrome.google.com/webstore/detail/google-forms-auto-filler/jdjlkmjjmpdbmejkicfjokkgifdkpjek>
+│ -+ Opera: <https://addons.opera.com/en/extensions/details/google-forms-auto-filler/>
+│ -
+│ -### Build
+│ -
+│ -`zip -r -FS build/Chrome/GoogleFormsAutoFiller.zip * --exclude '*.git*' 'build/*'`
+│ -
+│ -### Todo
+│ -
+│ -+ Date, time, multiplechoice autofill
+│ -+ Make locale by i18n
+│ -+ Find a way to import Handler and LevenshteinSimilarity as a package
+│ -+ Add visual to form: Save this form answer button and highlight the fields filled by extension
+│ +# Google Forms Auto Filler
+│ +
+│ +![Google Forms Auto Filler Screenshot](build/Screenshots/Add-on%20Screenshot.png)
+│ +
+│ +This extension automatically fills Google Form input fields with predefined values. For example, if you set *Name* to *John*, all input fields with the title *Name* will be populated with *John* when the page loads.
+│ +
+│ +It also supports fuzzy matching, so variations like *E-mail* and *email* are matched correctly.
+│ +
+│ +Get it on add-on stores:
+│ ++ Firefox: <https://addons.mozilla.org/en-US/firefox/addon/google-forms-auto-filler/>
+│ ++ Chrome: <https://chrome.google.com/webstore/detail/google-forms-auto-filler/jdjlkmjjmpdbmejkicfjokkgifdkpjek>
+│ ++ Opera: <https://addons.opera.com/en/extensions/details/google-forms-auto-filler/>
+│ +
+│ +### Build
+│ +
+│ +`zip -r -FS build/Chrome/GoogleFormsAutoFiller.zip * --exclude '*.git*' 'build/*'`
+│ +
+│ +### Todo
+│ +
+│ ++ Date, time, multiplechoice autofill
+│ ++ Make locale by i18n (priority by usage: India, Indonesia, Turkey, Vietnam, Spanish)
+│ ++ Find a way to import Handler and LevenshteinSimilarity as a package
+│ ++ Add visual to form: Save this form answer button and highlight the fields filled by extension
+│ +
+│ +### Support
+│ +
+│ +Feel free to [donate](https://buymeacoffee.com/muratserhatalperen) to support me in adding more features!
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,8 +1,8 @@
+│ │ -chrome.runtime.onConnect.addListener(function(port) {
+│ │ -    if (port.name === "googleautoformfillerPopup") {
+│ │ -        port.onDisconnect.addListener(function() {
+│ │ -            // Popup has been closed, save the data
+│ │ -
+│ │ -        });
+│ │ -    }
+│ │ +chrome.runtime.onConnect.addListener(function(port) {
+│ │ +    if (port.name === "googleautoformfillerPopup") {
+│ │ +        port.onDisconnect.addListener(function() {
+│ │ +            // Popup has been closed, save the data
+│ │ +
+│ │ +        });
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Google Forms Auto Filler",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.9.9"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/menu.html
+│ ├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/popup/menu.html
+│ │┄ Ordering differences only
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,38 +1,38 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html lang="en">
+│ │ +<head>
+│ │ +    <meta charset="UTF-8">
+│ │ +    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ +    <title>Google Forms Auto Filler</title>
+│ │ +    <link rel="stylesheet" href="styles.css">
+│ │ +</head>
+│ │ +<body>
+│ │ +    <div class="container">
+│ │ +        <div class="header">
+│ │ +            <img src="../images/icon-96.png" alt="Logo" class="logo">
+│ │ +            <h1>Google Forms Auto Filler</h1>
+│ │ +        </div>
+│ │ +
+│ │ +        <div id="formData">
+│ │ +            <!-- Template for a row -->
+│ │ +            <template id="formRowTemplate">
+│ │ +                <div class="form-row">
+│ │ +                    <input type="text" name="key[]" placeholder="Key" class="key-input" />
+│ │ +                    <input type="text" name="value[]" placeholder="Value" class="value-input" />
+│ │ +                    <button type="button" class="remove-btn">-</button>
+│ │ +                </div>
+│ │ +            </template>
+│ │ +        </div>        
+│ │ +        <button id="addRowBtn">+ Add New</button>
+│ │ +        <br>
+│ │ +
+│ │ +        <div class="footer">
+│ │ +            <button class="footer-btn" id="donate-btn">💰 Donate</button>
+│ │ +            <button class="footer-btn" id="share-btn">🔗 Github</button>
+│ │ +            <button class="footer-btn" id="info-btn">ℹ️ Info</button>
+│ │ +        </div>
+│ │ +    </div>
+│ │ +
+│ │ +    <script src="menu.js"></script>
+│ │ +</body>
+│ │ +</html>
+│ │ -<!DOCTYPE html>
+│ │ -<html lang="en">
+│ │ -<head>
+│ │ -    <meta charset="UTF-8">
+│ │ -    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+│ │ -    <title>Google Forms Auto Filler</title>
+│ │ -    <link rel="stylesheet" href="styles.css">
+│ │ -</head>
+│ │ -<body>
+│ │ -    <div class="container">
+│ │ -        <div class="header">
+│ │ -            <img src="../images/icon-96.png" alt="Logo" class="logo">
+│ │ -            <h1>Google Forms Auto Filler</h1>
+│ │ -        </div>
+│ │ -
+│ │ -        <div id="formData">
+│ │ -            <!-- Template for a row -->
+│ │ -            <template id="formRowTemplate">
+│ │ -                <div class="form-row">
+│ │ -                    <input type="text" name="key[]" placeholder="Key" class="key-input" />
+│ │ -                    <input type="text" name="value[]" placeholder="Value" class="value-input" />
+│ │ -                    <button type="button" class="remove-btn">-</button>
+│ │ -                </div>
+│ │ -            </template>
+│ │ -        </div>        
+│ │ -        <button id="addRowBtn">+ Add New</button>
+│ │ -        <br>
+│ │ -
+│ │ -        <div class="footer">
+│ │ -            <button class="footer-btn" id="donate-btn">💰 Donate</button>
+│ │ -            <button class="footer-btn" id="share-btn">🔗 Github</button>
+│ │ -            <button class="footer-btn" id="info-btn">ℹ️ Info</button>
+│ │ -        </div>
+│ │ -    </div>
+│ │ -
+│ │ -    <script src="menu.js"></script>
+│ │ -</body>
+│ │ -</html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/menu.js
+│ ├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/popup/menu.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,115 +1,115 @@
+│ │ │ +//chrome.runtime.connect({ name: "googleautoformfillerPopup" });
+│ │ │ +window.onload = function() {
+│ │ │ +    document.getElementById("addRowBtn").addEventListener("click", () => AddNewEntry());
+│ │ │ +    document.getElementById("donate-btn").addEventListener("click", () => window.open("https://buymeacoffee.com/muratserhatalperen", "_blank"));
+│ │ │ +    document.getElementById("share-btn").addEventListener("click", () => window.open("https://github.com/muratalperen/GoogleFormsAutoFiller", "_blank"));
+│ │ │ +    document.getElementById("info-btn").addEventListener("click", () => window.open("https://github.com/muratalperen/GoogleFormsAutoFiller/blob/master/Readme.md", "_blank"));
+│ │ │ +
+│ │ │ +    DisplayData();
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Adds a new row to the form using the template
+│ │ │ + * @param {String} key Key data
+│ │ │ + * @param {String} val Value data
+│ │ │ + */
+│ │ │ +function AddNewEntry(key = "", val = "") {
+│ │ │ +    const template = document.getElementById("formRowTemplate");
+│ │ │ +    const formElement = document.getElementById("formData");
+│ │ │ +
+│ │ │ +    // Clone the template content
+│ │ │ +    const newRow = template.content.cloneNode(true);
+│ │ │ +
+│ │ │ +    const inputs = newRow.querySelectorAll("input");
+│ │ │ +    inputs[0].value = key;
+│ │ │ +    inputs[1].value = val;
+│ │ │ +    inputs[0].addEventListener("change", SaveData);
+│ │ │ +    inputs[1].addEventListener("change", SaveData);
+│ │ │ +
+│ │ │ +    // Add remove functionality to the button
+│ │ │ +    const removeButton = newRow.querySelector(".remove-btn");
+│ │ │ +    removeButton.addEventListener("click", () => {
+│ │ │ +        removeButton.parentElement.remove();
+│ │ │ +        SaveData();
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Append the new row to the form
+│ │ │ +    formElement.appendChild(newRow);
+│ │ │ +    SaveData();
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Saves the data on table to chrome storage
+│ │ │ + */
+│ │ │ +function SaveData() {
+│ │ │ +    const rows = document.querySelectorAll('.form-row'); // Select all form rows
+│ │ │ +    const formData = {};
+│ │ │ +
+│ │ │ +    rows.forEach(row => {
+│ │ │ +        const keyInput = row.querySelector('input[name="key[]"]');
+│ │ │ +        const valueInput = row.querySelector('input[name="value[]"]');
+│ │ │ +
+│ │ │ +        // If both key and value inputs have values, save them
+│ │ │ +        if (keyInput.value.trim() && valueInput.value.trim()) {
+│ │ │ +            formData[keyInput.value.trim()] = valueInput.value.trim();
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    // Save data and fill the forms
+│ │ │ +    chrome.storage.sync.set({
+│ │ │ +        "formData": formData
+│ │ │ +    }, FillGoogleForms);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Displays the data on the table
+│ │ │ + */
+│ │ │ +function DisplayData() {
+│ │ │ +    chrome.storage.sync.get("formData", function(result) {
+│ │ │ +        const formData = result["formData"];
+│ │ │ +        console.log("formData");
+│ │ │ +        if (objectIsEmpty(formData)) {
+│ │ │ +            AddNewEntry(); // Add an empty row if there is no data
+│ │ │ +        } else {
+│ │ │ +            for (key in formData) {
+│ │ │ +                AddNewEntry(key, formData[key]);
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Fills the google forms with the data
+│ │ │ + */
+│ │ │ +function FillGoogleForms() {
+│ │ │ +    chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, (tabs) => {
+│ │ │ +        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +            action: 'FillGoogleForms'
+│ │ │ +        }, (response) => {
+│ │ │ +            //console.log(response.status);
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Checks if parameter object is empty, null etc.
+│ │ │ + * @param    {String} object  Object to be checked
+│ │ │ + * @return   {String}         Is empty
+│ │ │ + */
+│ │ │ +function objectIsEmpty(object) {
+│ │ │ +    var isEmpty = false;
+│ │ │ +
+│ │ │ +    if (!object || JSON.stringify(object) == JSON.stringify({})) {
+│ │ │ +        isEmpty = true;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return isEmpty;
+│ │ │ -//chrome.runtime.connect({ name: "googleautoformfillerPopup" });
+│ │ │ -window.onload = function() {
+│ │ │ -    document.getElementById("addRowBtn").addEventListener("click", () => AddNewEntry());
+│ │ │ -    document.getElementById("donate-btn").addEventListener("click", () => window.open("https://buymeacoffee.com/muratserhatalperen", "_blank"));
+│ │ │ -    document.getElementById("share-btn").addEventListener("click", () => window.open("https://github.com/muratalperen/GoogleFormsAutoFiller", "_blank"));
+│ │ │ -    document.getElementById("info-btn").addEventListener("click", () => window.open("https://github.com/muratalperen/GoogleFormsAutoFiller/blob/master/Readme.md", "_blank"));
+│ │ │ -
+│ │ │ -    DisplayData();
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Adds a new row to the form using the template
+│ │ │ - * @param {String} key Key data
+│ │ │ - * @param {String} val Value data
+│ │ │ - */
+│ │ │ -function AddNewEntry(key = "", val = "") {
+│ │ │ -    const template = document.getElementById("formRowTemplate");
+│ │ │ -    const formElement = document.getElementById("formData");
+│ │ │ -
+│ │ │ -    // Clone the template content
+│ │ │ -    const newRow = template.content.cloneNode(true);
+│ │ │ -
+│ │ │ -    const inputs = newRow.querySelectorAll("input");
+│ │ │ -    inputs[0].value = key;
+│ │ │ -    inputs[1].value = val;
+│ │ │ -    inputs[0].addEventListener("change", SaveData);
+│ │ │ -    inputs[1].addEventListener("change", SaveData);
+│ │ │ -
+│ │ │ -    // Add remove functionality to the button
+│ │ │ -    const removeButton = newRow.querySelector(".remove-btn");
+│ │ │ -    removeButton.addEventListener("click", () => {
+│ │ │ -        removeButton.parentElement.remove();
+│ │ │ -        SaveData();
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    // Append the new row to the form
+│ │ │ -    formElement.appendChild(newRow);
+│ │ │ -    SaveData();
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Saves the data on table to chrome storage
+│ │ │ - */
+│ │ │ -function SaveData() {
+│ │ │ -    const rows = document.querySelectorAll('.form-row'); // Select all form rows
+│ │ │ -    const formData = {};
+│ │ │ -
+│ │ │ -    rows.forEach(row => {
+│ │ │ -        const keyInput = row.querySelector('input[name="key[]"]');
+│ │ │ -        const valueInput = row.querySelector('input[name="value[]"]');
+│ │ │ -
+│ │ │ -        // If both key and value inputs have values, save them
+│ │ │ -        if (keyInput.value.trim() && valueInput.value.trim()) {
+│ │ │ -            formData[keyInput.value.trim()] = valueInput.value.trim();
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    // Save data and fill the forms
+│ │ │ -    chrome.storage.sync.set({
+│ │ │ -        "formData": formData
+│ │ │ -    }, FillGoogleForms);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Displays the data on the table
+│ │ │ - */
+│ │ │ -function DisplayData() {
+│ │ │ -    chrome.storage.sync.get("formData", function(result) {
+│ │ │ -        const formData = result["formData"];
+│ │ │ -        console.log("formData");
+│ │ │ -        if (objectIsEmpty(formData)) {
+│ │ │ -            AddNewEntry(); // Add an empty row if there is no data
+│ │ │ -        } else {
+│ │ │ -            for (key in formData) {
+│ │ │ -                AddNewEntry(key, formData[key]);
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Fills the google forms with the data
+│ │ │ - */
+│ │ │ -function FillGoogleForms() {
+│ │ │ -    chrome.tabs.query({
+│ │ │ -        active: true,
+│ │ │ -        currentWindow: true
+│ │ │ -    }, (tabs) => {
+│ │ │ -        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ -            action: 'FillGoogleForms'
+│ │ │ -        }, (response) => {
+│ │ │ -            //console.log(response.status);
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Checks if parameter object is empty, null etc.
+│ │ │ - * @param    {String} object  Object to be checked
+│ │ │ - * @return   {String}         Is empty
+│ │ │ - */
+│ │ │ -function objectIsEmpty(object) {
+│ │ │ -    var isEmpty = false;
+│ │ │ -
+│ │ │ -    if (!object || JSON.stringify(object) == JSON.stringify({})) {
+│ │ │ -        isEmpty = true;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return isEmpty;
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/popup/styles.css
+│ ├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/popup/styles.css
+│ │┄ Ordering differences only
+│ │ @@ -1,134 +1,134 @@
+│ │ +body {
+│ │ +    font-family: Arial, sans-serif;
+│ │ +    background-color: #f4f4f4;
+│ │ +    margin: 0;
+│ │ +    padding: 20px;
+│ │ +}
+│ │ +
+│ │ +.container {
+│ │ +    max-width: 600px;
+│ │ +    margin: 0 auto;
+│ │ +    background: #fff;
+│ │ +    padding: 20px;
+│ │ +    border-radius: 8px;
+│ │ +    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+│ │ +}
+│ │ +
+│ │ +.header {
+│ │ +    display: flex;
+│ │ +    align-items: center;
+│ │ +    gap: 10px; /* Logo ve başlık arasında boşluk */
+│ │ +    margin-bottom: 20px;
+│ │ +}
+│ │ +
+│ │ +.logo {
+│ │ +    width: 40px; /* Logonun genişliği */
+│ │ +    height: 40px; /* Logonun yüksekliği */
+│ │ +    object-fit: contain; /* Logonun düzgün ölçeklenmesi */
+│ │ +}
+│ │ +
+│ │ +h1 {
+│ │ +    color: #333;
+│ │ +    margin: 0;
+│ │ +    font-size: 1.5rem;
+│ │ +    flex: 1; /* Başlığın kalan alanı doldurması */
+│ │ +}
+│ │ +
+│ │ +.form-row {
+│ │ +    display: flex;
+│ │ +    align-items: center;
+│ │ +    margin-bottom: 10px;
+│ │ +}
+│ │ +
+│ │ +input[type="text"] {
+│ │ +    padding: 10px;
+│ │ +    margin-right: 10px;
+│ │ +    border: 1px solid #ccc;
+│ │ +    border-radius: 4px;
+│ │ +    flex: 1;
+│ │ +    font-size: 14px;
+│ │ +}
+│ │ +
+│ │ +.key-input {
+│ │ +    max-width: 40%;
+│ │ +}
+│ │ +
+│ │ +.value-input {
+│ │ +    max-width: 50%;
+│ │ +}
+│ │ +
+│ │ +button {
+│ │ +    background-color: #ff4d4d;
+│ │ +    color: white;
+│ │ +    border: none;
+│ │ +    border-radius: 4px;
+│ │ +    padding: 10px;
+│ │ +    cursor: pointer;
+│ │ +    font-size: 14px;
+│ │ +    transition: background-color 0.2s;
+│ │ +}
+│ │ +
+│ │ +button:hover {
+│ │ +    background-color: #e63939;
+│ │ +}
+│ │ +
+│ │ +#addRowBtn {
+│ │ +    background-color: #4CAF50;
+│ │ +    width: 100%;
+│ │ +    margin-top: 10px;
+│ │ +    font-size: 16px;
+│ │ +}
+│ │ +
+│ │ +#addRowBtn:hover {
+│ │ +    background-color: #45a049;
+│ │ +}
+│ │ +
+│ │ +.remove-btn {
+│ │ +    background-color: #ff4d4d;
+│ │ +    font-size: 14px;
+│ │ +    padding: 8px 12px;
+│ │ +}
+│ │ +
+│ │ +.footer {
+│ │ +    margin-top: 20px;
+│ │ +    display: flex;
+│ │ +    justify-content: space-between;
+│ │ +}
+│ │ +
+│ │ +.footer-btn {
+│ │ +    flex: 1;
+│ │ +    margin: 0 5px;
+│ │ +    padding: 10px;
+│ │ +    border: none;
+│ │ +    border-radius: 4px;
+│ │ +    font-size: 14px;
+│ │ +    cursor: pointer;
+│ │ +    transition: background-color 0.2s;
+│ │ +}
+│ │ +
+│ │ +#donate-btn {
+│ │ +    background-color: #ffd700;
+│ │ +    color: black;
+│ │ +}
+│ │ +
+│ │ +#donate-btn:hover {
+│ │ +    background-color: #e6c200;
+│ │ +}
+│ │ +
+│ │ +#share-btn {
+│ │ +    background-color: #4CAF50;
+│ │ +    color: white;
+│ │ +}
+│ │ +
+│ │ +#share-btn:hover {
+│ │ +    background-color: #45a049;
+│ │ +}
+│ │ +
+│ │ +#info-btn {
+│ │ +    background-color: #007BFF;
+│ │ +    color: white;
+│ │ +}
+│ │ +
+│ │ +#info-btn:hover {
+│ │ +    background-color: #0056b3;
+│ │ +}
+│ │ -body {
+│ │ -    font-family: Arial, sans-serif;
+│ │ -    background-color: #f4f4f4;
+│ │ -    margin: 0;
+│ │ -    padding: 20px;
+│ │ -}
+│ │ -
+│ │ -.container {
+│ │ -    max-width: 600px;
+│ │ -    margin: 0 auto;
+│ │ -    background: #fff;
+│ │ -    padding: 20px;
+│ │ -    border-radius: 8px;
+│ │ -    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+│ │ -}
+│ │ -
+│ │ -.header {
+│ │ -    display: flex;
+│ │ -    align-items: center;
+│ │ -    gap: 10px; /* Logo ve başlık arasında boşluk */
+│ │ -    margin-bottom: 20px;
+│ │ -}
+│ │ -
+│ │ -.logo {
+│ │ -    width: 40px; /* Logonun genişliği */
+│ │ -    height: 40px; /* Logonun yüksekliği */
+│ │ -    object-fit: contain; /* Logonun düzgün ölçeklenmesi */
+│ │ -}
+│ │ -
+│ │ -h1 {
+│ │ -    color: #333;
+│ │ -    margin: 0;
+│ │ -    font-size: 1.5rem;
+│ │ -    flex: 1; /* Başlığın kalan alanı doldurması */
+│ │ -}
+│ │ -
+│ │ -.form-row {
+│ │ -    display: flex;
+│ │ -    align-items: center;
+│ │ -    margin-bottom: 10px;
+│ │ -}
+│ │ -
+│ │ -input[type="text"] {
+│ │ -    padding: 10px;
+│ │ -    margin-right: 10px;
+│ │ -    border: 1px solid #ccc;
+│ │ -    border-radius: 4px;
+│ │ -    flex: 1;
+│ │ -    font-size: 14px;
+│ │ -}
+│ │ -
+│ │ -.key-input {
+│ │ -    max-width: 40%;
+│ │ -}
+│ │ -
+│ │ -.value-input {
+│ │ -    max-width: 50%;
+│ │ -}
+│ │ -
+│ │ -button {
+│ │ -    background-color: #ff4d4d;
+│ │ -    color: white;
+│ │ -    border: none;
+│ │ -    border-radius: 4px;
+│ │ -    padding: 10px;
+│ │ -    cursor: pointer;
+│ │ -    font-size: 14px;
+│ │ -    transition: background-color 0.2s;
+│ │ -}
+│ │ -
+│ │ -button:hover {
+│ │ -    background-color: #e63939;
+│ │ -}
+│ │ -
+│ │ -#addRowBtn {
+│ │ -    background-color: #4CAF50;
+│ │ -    width: 100%;
+│ │ -    margin-top: 10px;
+│ │ -    font-size: 16px;
+│ │ -}
+│ │ -
+│ │ -#addRowBtn:hover {
+│ │ -    background-color: #45a049;
+│ │ -}
+│ │ -
+│ │ -.remove-btn {
+│ │ -    background-color: #ff4d4d;
+│ │ -    font-size: 14px;
+│ │ -    padding: 8px 12px;
+│ │ -}
+│ │ -
+│ │ -.footer {
+│ │ -    margin-top: 20px;
+│ │ -    display: flex;
+│ │ -    justify-content: space-between;
+│ │ -}
+│ │ -
+│ │ -.footer-btn {
+│ │ -    flex: 1;
+│ │ -    margin: 0 5px;
+│ │ -    padding: 10px;
+│ │ -    border: none;
+│ │ -    border-radius: 4px;
+│ │ -    font-size: 14px;
+│ │ -    cursor: pointer;
+│ │ -    transition: background-color 0.2s;
+│ │ -}
+│ │ -
+│ │ -#donate-btn {
+│ │ -    background-color: #ffd700;
+│ │ -    color: black;
+│ │ -}
+│ │ -
+│ │ -#donate-btn:hover {
+│ │ -    background-color: #e6c200;
+│ │ -}
+│ │ -
+│ │ -#share-btn {
+│ │ -    background-color: #4CAF50;
+│ │ -    color: white;
+│ │ -}
+│ │ -
+│ │ -#share-btn:hover {
+│ │ -    background-color: #45a049;
+│ │ -}
+│ │ -
+│ │ -#info-btn {
+│ │ -    background-color: #007BFF;
+│ │ -    color: white;
+│ │ -}
+│ │ -
+│ │ -#info-btn:hover {
+│ │ -    background-color: #0056b3;
+│ │ -}
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/scripts
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/GoogleForm.js
+│ ├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/scripts/GoogleForm.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,165 +1,165 @@
+│ │ │ +// import { Handlers } from './Handlers.js';
+│ │ │ +const Handlers = {
+│ │ │ +    text: {
+│ │ │ +        selector: "input[type='text'], input[type='email'], input[type='number'], input[type='tel'], input[type='url']",
+│ │ │ +        fill: (element, answer) => {
+│ │ │ +            element.value = answer;
+│ │ │ +            element.dispatchEvent(new Event('input', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +            element.dispatchEvent(new Event('change', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +        }
+│ │ │ +    },
+│ │ │ +    textarea: {
+│ │ │ +        selector: "textarea",
+│ │ │ +        fill: (element, answer) => {
+│ │ │ +            element.value = answer;
+│ │ │ +            element.dispatchEvent(new Event('input', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +            element.dispatchEvent(new Event('change', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +};
+│ │ │ +
+│ │ │ +
+│ │ │ +// import { GetBestMatch } from './LevenshteinSimilarity.js';
+│ │ │ +const threshold = 79; // TODO: Not calculated best treshold.
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Find best match for the title over the threshold
+│ │ │ + * TODO: make formData to more generic data type
+│ │ │ + */
+│ │ │ +function findBestMatch(title, formData) {
+│ │ │ +    let bestMatch = null;
+│ │ │ +    let bestScore = 0;
+│ │ │ +
+│ │ │ +    for (const key in formData) {
+│ │ │ +        const score = CalculateSimilarity(title.trim().toLowerCase(), key.trim().toLowerCase());
+│ │ │ +        if (score > threshold && score > bestScore) {
+│ │ │ +            bestScore = score;
+│ │ │ +            bestMatch = key;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return bestMatch;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Calculate similarity percent
+│ │ │ + */
+│ │ │ +function CalculateSimilarity(a, b) {
+│ │ │ +    const distance = levenshteinDistance(a, b);
+│ │ │ +    const maxLength = Math.max(a.length, b.length);
+│ │ │ +    return (1 - distance / maxLength) * 100;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Find levenshtein Distance of two string
+│ │ │ + * TODO: Might optimizing or caching needed. O(n * m)
+│ │ │ + */
+│ │ │ +function levenshteinDistance(a, b) {
+│ │ │ +    const dp = Array.from({
+│ │ │ +        length: a.length + 1
+│ │ │ +    }, () => Array(b.length + 1).fill(0));
+│ │ │ +
+│ │ │ +    for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+│ │ │ +    for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+│ │ │ +
+│ │ │ +    for (let i = 1; i <= a.length; i++) {
+│ │ │ +        for (let j = 1; j <= b.length; j++) {
+│ │ │ +            if (a[i - 1] === b[j - 1]) {
+│ │ │ +                dp[i][j] = dp[i - 1][j - 1];
+│ │ │ +            } else {
+│ │ │ +                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return dp[a.length][b.length];
+│ │ │ +}
+│ │ │ +
+│ │ │ +const GetBestMatch = findBestMatch;
+│ │ │ +
+│ │ │ +
+│ │ │ +// GoogleForm.js script beginning
+│ │ │ +let form;
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Fills inputs on forms page with the data
+│ │ │ + */
+│ │ │ +function FillGoogleForms() {
+│ │ │ +    chrome.storage.sync.get("formData", (result) => {
+│ │ │ +        if (!result["formData"]) {
+│ │ │ +            console.log("No form data found in storage.");
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +        OnDataFetch(result["formData"]);
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    function OnDataFetch(formData) {
+│ │ │ +        Object.values(Handlers).forEach(handler => {
+│ │ │ +            const fields = form.querySelectorAll(handler.selector);
+│ │ │ +            fields.forEach(field => {
+│ │ │ +                const formTitleElement = field.closest("div[role='listitem']")?.querySelector("div[role='heading']");
+│ │ │ +                if (!formTitleElement || !formTitleElement.firstChild) return;
+│ │ │ +
+│ │ │ +                const formTitle = formTitleElement.firstChild.textContent.trim();
+│ │ │ +                const bestMatch = GetBestMatch(formTitle, formData);
+│ │ │ +                if (bestMatch) {
+│ │ │ +                    const answer = formData[bestMatch];
+│ │ │ +                    handler.fill(field, answer);
+│ │ │ +                }
+│ │ │ +            });
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Observe the form changes and refill the form
+│ │ │ + */
+│ │ │ +function ObserveFormChanges() {
+│ │ │ +    const observer = new MutationObserver((mutationsList) => {
+│ │ │ +        for (const mutation of mutationsList) {
+│ │ │ +            if (mutation.type === "childList") {
+│ │ │ +                FillGoogleForms();
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +
+│ │ │ +    observer.observe(form, {
+│ │ │ +        childList: true,
+│ │ │ +        subtree: true,
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +function OnPageLoad() {
+│ │ │ +    form = document.querySelector("form");
+│ │ │ +    if (!form) {
+│ │ │ +        console.error("Form couldn't found. GoogleAutoFormFiller exiting...");
+│ │ │ +    } else {
+│ │ │ +        FillGoogleForms();
+│ │ │ +        ObserveFormChanges();
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +if (document.readyState == 'complete') {
+│ │ │ +    OnPageLoad();
+│ │ │ +} else {
+│ │ │ +    window.onload = () => OnPageLoad();
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Add listener for popup
+│ │ │ +chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+│ │ │ +    if (message.action === 'FillGoogleForms') {
+│ │ │ +        FillGoogleForms();
+│ │ │ +        sendResponse({
+│ │ │ +            status: 'Function executed'
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ -// import { Handlers } from './Handlers.js';
+│ │ │ -const Handlers = {
+│ │ │ -    text: {
+│ │ │ -        selector: "input[type='text'], input[type='email'], input[type='number'], input[type='tel'], input[type='url']",
+│ │ │ -        fill: (element, answer) => {
+│ │ │ -            element.value = answer;
+│ │ │ -            element.dispatchEvent(new Event('input', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -            element.dispatchEvent(new Event('change', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -        }
+│ │ │ -    },
+│ │ │ -    textarea: {
+│ │ │ -        selector: "textarea",
+│ │ │ -        fill: (element, answer) => {
+│ │ │ -            element.value = answer;
+│ │ │ -            element.dispatchEvent(new Event('input', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -            element.dispatchEvent(new Event('change', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -};
+│ │ │ -
+│ │ │ -
+│ │ │ -// import { GetBestMatch } from './LevenshteinSimilarity.js';
+│ │ │ -const threshold = 79; // TODO: Not calculated best treshold.
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Find best match for the title over the threshold
+│ │ │ - * TODO: make formData to more generic data type
+│ │ │ - */
+│ │ │ -function findBestMatch(title, formData) {
+│ │ │ -    let bestMatch = null;
+│ │ │ -    let bestScore = 0;
+│ │ │ -
+│ │ │ -    for (const key in formData) {
+│ │ │ -        const score = CalculateSimilarity(title.trim().toLowerCase(), key.trim().toLowerCase());
+│ │ │ -        if (score > threshold && score > bestScore) {
+│ │ │ -            bestScore = score;
+│ │ │ -            bestMatch = key;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return bestMatch;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Calculate similarity percent
+│ │ │ - */
+│ │ │ -function CalculateSimilarity(a, b) {
+│ │ │ -    const distance = levenshteinDistance(a, b);
+│ │ │ -    const maxLength = Math.max(a.length, b.length);
+│ │ │ -    return (1 - distance / maxLength) * 100;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Find levenshtein Distance of two string
+│ │ │ - * TODO: Might optimizing or caching needed. O(n * m)
+│ │ │ - */
+│ │ │ -function levenshteinDistance(a, b) {
+│ │ │ -    const dp = Array.from({
+│ │ │ -        length: a.length + 1
+│ │ │ -    }, () => Array(b.length + 1).fill(0));
+│ │ │ -
+│ │ │ -    for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+│ │ │ -    for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+│ │ │ -
+│ │ │ -    for (let i = 1; i <= a.length; i++) {
+│ │ │ -        for (let j = 1; j <= b.length; j++) {
+│ │ │ -            if (a[i - 1] === b[j - 1]) {
+│ │ │ -                dp[i][j] = dp[i - 1][j - 1];
+│ │ │ -            } else {
+│ │ │ -                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return dp[a.length][b.length];
+│ │ │ -}
+│ │ │ -
+│ │ │ -const GetBestMatch = findBestMatch;
+│ │ │ -
+│ │ │ -
+│ │ │ -// GoogleForm.js script beginning
+│ │ │ -let form;
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Fills inputs on forms page with the data
+│ │ │ - */
+│ │ │ -function FillGoogleForms() {
+│ │ │ -    chrome.storage.sync.get("formData", (result) => {
+│ │ │ -        if (!result["formData"]) {
+│ │ │ -            console.log("No form data found in storage.");
+│ │ │ -            return;
+│ │ │ -        }
+│ │ │ -        OnDataFetch(result["formData"]);
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    function OnDataFetch(formData) {
+│ │ │ -        Object.values(Handlers).forEach(handler => {
+│ │ │ -            const fields = form.querySelectorAll(handler.selector);
+│ │ │ -            fields.forEach(field => {
+│ │ │ -                const formTitleElement = field.closest("div[role='listitem']")?.querySelector("div[role='heading']");
+│ │ │ -                if (!formTitleElement || !formTitleElement.firstChild) return;
+│ │ │ -
+│ │ │ -                const formTitle = formTitleElement.firstChild.textContent.trim();
+│ │ │ -                const bestMatch = GetBestMatch(formTitle, formData);
+│ │ │ -                if (bestMatch) {
+│ │ │ -                    const answer = formData[bestMatch];
+│ │ │ -                    handler.fill(field, answer);
+│ │ │ -                }
+│ │ │ -            });
+│ │ │ -        });
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Observe the form changes and refill the form
+│ │ │ - */
+│ │ │ -function ObserveFormChanges() {
+│ │ │ -    const observer = new MutationObserver((mutationsList) => {
+│ │ │ -        for (const mutation of mutationsList) {
+│ │ │ -            if (mutation.type === "childList") {
+│ │ │ -                FillGoogleForms();
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    });
+│ │ │ -
+│ │ │ -    observer.observe(form, {
+│ │ │ -        childList: true,
+│ │ │ -        subtree: true,
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -function OnPageLoad() {
+│ │ │ -    form = document.querySelector("form");
+│ │ │ -    if (!form) {
+│ │ │ -        console.error("Form couldn't found. GoogleAutoFormFiller exiting...");
+│ │ │ -    } else {
+│ │ │ -        FillGoogleForms();
+│ │ │ -        ObserveFormChanges();
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -if (document.readyState == 'complete') {
+│ │ │ -    OnPageLoad();
+│ │ │ -} else {
+│ │ │ -    window.onload = () => OnPageLoad();
+│ │ │ -}
+│ │ │ -
+│ │ │ -// Add listener for popup
+│ │ │ -chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+│ │ │ -    if (message.action === 'FillGoogleForms') {
+│ │ │ -        FillGoogleForms();
+│ │ │ -        sendResponse({
+│ │ │ -            status: 'Function executed'
+│ │ │ -        });
+│ │ │ -    }
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/Handlers.js
+│ ├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/scripts/Handlers.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,49 +1,49 @@
+│ │ │ +export const Handlers = {
+│ │ │ +    text: {
+│ │ │ +        selector: "input[type='text'], input[type='email'], input[type='number'], input[type='tel'], input[type='url']",
+│ │ │ +        fill: (element, answer) => {
+│ │ │ +            element.value = answer;
+│ │ │ +            element.dispatchEvent(new Event('input', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +            element.dispatchEvent(new Event('change', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +        }
+│ │ │ +    },
+│ │ │ +    textarea: {
+│ │ │ +        selector: "textarea",
+│ │ │ +        fill: (element, answer) => {
+│ │ │ +            element.value = answer;
+│ │ │ +            element.dispatchEvent(new Event('input', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +            element.dispatchEvent(new Event('change', {
+│ │ │ +                bubbles: true
+│ │ │ +            }));
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +    // date: {
+│ │ │ +    //     selector: "input[type='date']",
+│ │ │ +    //     fill: (element, answer) => {
+│ │ │ +    //         element.value = answer; // YYYY-MM-DD formatını kontrol et
+│ │ │ +    //     }
+│ │ │ +    // },
+│ │ │ +    // time: {
+│ │ │ +    //     selector: "input[type='time']",
+│ │ │ +    //     fill: (element, answer) => {
+│ │ │ +    //         element.value = answer; // HH:MM formatını kontrol et
+│ │ │ +    //     }
+│ │ │ +    // },
+│ │ │ +    // multipleChoice: {
+│ │ │ +    //     selector: "div[role='radiogroup']",
+│ │ │ +    //     fill: (element, answer) => {
+│ │ │ +    //         const options = element.querySelectorAll("div[role='radio']");
+│ │ │ +    //         options.forEach(option => {
+│ │ │ +    //             if (option.textContent.trim() === answer) {
+│ │ │ +    //                 option.click(); // Seçeneği işaretle
+│ │ │ +    //             }
+│ │ │ +    //         });
+│ │ │ +    //     }
+│ │ │ +    // }
+│ │ │ -export const Handlers = {
+│ │ │ -    text: {
+│ │ │ -        selector: "input[type='text'], input[type='email'], input[type='number'], input[type='tel'], input[type='url']",
+│ │ │ -        fill: (element, answer) => {
+│ │ │ -            element.value = answer;
+│ │ │ -            element.dispatchEvent(new Event('input', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -            element.dispatchEvent(new Event('change', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -        }
+│ │ │ -    },
+│ │ │ -    textarea: {
+│ │ │ -        selector: "textarea",
+│ │ │ -        fill: (element, answer) => {
+│ │ │ -            element.value = answer;
+│ │ │ -            element.dispatchEvent(new Event('input', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -            element.dispatchEvent(new Event('change', {
+│ │ │ -                bubbles: true
+│ │ │ -            }));
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -    // date: {
+│ │ │ -    //     selector: "input[type='date']",
+│ │ │ -    //     fill: (element, answer) => {
+│ │ │ -    //         element.value = answer; // YYYY-MM-DD formatını kontrol et
+│ │ │ -    //     }
+│ │ │ -    // },
+│ │ │ -    // time: {
+│ │ │ -    //     selector: "input[type='time']",
+│ │ │ -    //     fill: (element, answer) => {
+│ │ │ -    //         element.value = answer; // HH:MM formatını kontrol et
+│ │ │ -    //     }
+│ │ │ -    // },
+│ │ │ -    // multipleChoice: {
+│ │ │ -    //     selector: "div[role='radiogroup']",
+│ │ │ -    //     fill: (element, answer) => {
+│ │ │ -    //         const options = element.querySelectorAll("div[role='radio']");
+│ │ │ -    //         options.forEach(option => {
+│ │ │ -    //             if (option.textContent.trim() === answer) {
+│ │ │ -    //                 option.click(); // Seçeneği işaretle
+│ │ │ -    //             }
+│ │ │ -    //         });
+│ │ │ -    //     }
+│ │ │ -    // }
+│ │ │  };
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/LevenshteinSimilarity.js
+│ ├── +++ /workspace/pipeline_output/GoogleFormsAutoFiller/scripts/LevenshteinSimilarity.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,57 +1,57 @@
+│ │ │ +const threshold = 80; // TODO: Not calculated best treshold.
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Find best match for the title over the threshold
+│ │ │ + * TODO: make formData to more generic data type
+│ │ │ + */
+│ │ │ +function findBestMatch(title, formData) {
+│ │ │ +    let bestMatch = null;
+│ │ │ +    let bestScore = 0;
+│ │ │ +
+│ │ │ +    for (const key in formData) {
+│ │ │ +        const score = CalculateSimilarity(title.trim(), key.trim());
+│ │ │ +        if (score > threshold && score > bestScore) {
+│ │ │ +            bestScore = score;
+│ │ │ +            bestMatch = key;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return bestMatch;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Calculate similarity percent
+│ │ │ + */
+│ │ │ +function CalculateSimilarity(a, b) {
+│ │ │ +    const distance = levenshteinDistance(a, b);
+│ │ │ +    const maxLength = Math.max(a.length, b.length);
+│ │ │ +    return (1 - distance / maxLength) * 100;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Find levenshtein Distance of two string
+│ │ │ + * TODO: Might optimizing or caching needed. O(n * m)
+│ │ │ + */
+│ │ │ +function levenshteinDistance(a, b) {
+│ │ │ +    const dp = Array.from({
+│ │ │ +        length: a.length + 1
+│ │ │ +    }, () => Array(b.length + 1).fill(0));
+│ │ │ +
+│ │ │ +    for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+│ │ │ +    for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+│ │ │ +
+│ │ │ +    for (let i = 1; i <= a.length; i++) {
+│ │ │ +        for (let j = 1; j <= b.length; j++) {
+│ │ │ +            if (a[i - 1] === b[j - 1]) {
+│ │ │ +                dp[i][j] = dp[i - 1][j - 1];
+│ │ │ +            } else {
+│ │ │ +                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return dp[a.length][b.length];
+│ │ │ +}
+│ │ │ +
+│ │ │ -const threshold = 80; // TODO: Not calculated best treshold.
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Find best match for the title over the threshold
+│ │ │ - * TODO: make formData to more generic data type
+│ │ │ - */
+│ │ │ -function findBestMatch(title, formData) {
+│ │ │ -    let bestMatch = null;
+│ │ │ -    let bestScore = 0;
+│ │ │ -
+│ │ │ -    for (const key in formData) {
+│ │ │ -        const score = CalculateSimilarity(title.trim(), key.trim());
+│ │ │ -        if (score > threshold && score > bestScore) {
+│ │ │ -            bestScore = score;
+│ │ │ -            bestMatch = key;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return bestMatch;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Calculate similarity percent
+│ │ │ - */
+│ │ │ -function CalculateSimilarity(a, b) {
+│ │ │ -    const distance = levenshteinDistance(a, b);
+│ │ │ -    const maxLength = Math.max(a.length, b.length);
+│ │ │ -    return (1 - distance / maxLength) * 100;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Find levenshtein Distance of two string
+│ │ │ - * TODO: Might optimizing or caching needed. O(n * m)
+│ │ │ - */
+│ │ │ -function levenshteinDistance(a, b) {
+│ │ │ -    const dp = Array.from({
+│ │ │ -        length: a.length + 1
+│ │ │ -    }, () => Array(b.length + 1).fill(0));
+│ │ │ -
+│ │ │ -    for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+│ │ │ -    for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+│ │ │ -
+│ │ │ -    for (let i = 1; i <= a.length; i++) {
+│ │ │ -        for (let j = 1; j <= b.length; j++) {
+│ │ │ -            if (a[i - 1] === b[j - 1]) {
+│ │ │ -                dp[i][j] = dp[i - 1][j - 1];
+│ │ │ -            } else {
+│ │ │ -                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return dp[a.length][b.length];
+│ │ │ -}
+│ │ │ -
+│ │ │  export const GetBestMatch = findBestMatch;

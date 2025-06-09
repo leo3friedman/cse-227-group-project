@@ -1,0 +1,32 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/screenity/build
+├── file list
+│ @@ -1,9 +1,8 @@
+│  _locales
+│ -_metadata
+│  assets
+│  background.bundle.js
+│  backup-favicon.ico
+│  backup.bundle.js
+│  backup.html
+│  camera.bundle.js
+│  camera.html
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/screenity/build/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -80,15 +80,14 @@
+│ │          "scripting"
+│ │      ],
+│ │      "sandbox": {
+│ │          "pages": [
+│ │              "editor.html"
+│ │          ]
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.1.13",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

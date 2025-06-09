@@ -1,0 +1,44 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ollama-ui
+  - files: _metadata, snake.html, test.js
+  + files: .git, .gitignore, LICENSE, Makefile, README.md, build.sh, favicon.ico, generate_integrity_hash.sh, https-test, package-lock.json, resources.hash, run-locally.sh, screenshot1.jpg, screenshot2.jpg
+
+---/workspace/pipeline_output/chromex_data/api.js <-> +++/workspace/pipeline_output/ollama-ui/api.js; File type: js
+  - Original: 3–4
+  - Original: 32–32
+  - Original: 50–50
+  - Original: 53–53
+  + Modified: 30–69
+
+---/workspace/pipeline_output/chromex_data/chat.css <-> +++/workspace/pipeline_output/ollama-ui/chat.css; File type: css
+  + Modified: 63–85
+
+---/workspace/pipeline_output/chromex_data/chat.js <-> +++/workspace/pipeline_output/ollama-ui/chat.js; File type: js
+  + Modified: 21–21
+  - Original: 163–163
+  + Modified: 153–180
+  - Original: 219–219
+  + Modified: 236–240
+  - Original: 241–241
+  + Modified: 259–261
+  + Modified: 279–283
+  - Original: 306–306
+  + Modified: 303–363
+
+---/workspace/pipeline_output/chromex_data/index.html <-> +++/workspace/pipeline_output/ollama-ui/index.html; File type: html
+  - Original: 22–24
+  - Original: 26–32
+  - Original: 37–44
+  - Original: 51–62
+  - Original: 65–65
+  - Original: 71–72
+  + Modified: 6–80
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/ollama-ui/manifest.json; File type: json
+  - Original: 9–9
+  - Original: 22–22 -> Update URL
+  + Modified: 9–11
+
+---/workspace/pipeline_output/chromex_data/resources <-> +++/workspace/pipeline_output/ollama-ui/resources
+  - files: 
+  + files: jquery-3.7.1.min.js
+

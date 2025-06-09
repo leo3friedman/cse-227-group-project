@@ -1,0 +1,30 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/better-yt-shorts/dist
+├── file list
+│ @@ -1,7 +1,6 @@
+│  _locales
+│ -_metadata
+│  assets
+│  index.html
+│  manifest.json
+│  service-worker-loader.js
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/better-yt-shorts/dist/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -28,15 +28,14 @@
+│ │          "48": "src/assets/icons/bys-48.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "__MSG_extName__",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.7.2",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "https://*.youtube.com/*"
+│ │              ],
+│ │              "resources": [

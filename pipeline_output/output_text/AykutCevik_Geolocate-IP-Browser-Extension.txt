@@ -1,0 +1,53 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/Geolocate-IP-Browser-Extension
+├── file list
+│ @@ -1,8 +1,14 @@
+│ -_metadata
+│ +.git
+│ +.github
+│ +.gitignore
+│ +LICENSE
+│ +README.md
+│  background.js
+│ +build.sh
+│  css
+│  img
+│  js
+│  manifest.json
+│  options.html
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/Geolocate-IP-Browser-Extension/img
+│ ├── file list
+│ │ @@ -1,5 +1,7 @@
+│ │ +LICENSE
+│ │  flags
+│ │  icon.png
+│ │  icon128.png
+│ │  icon16.png
+│ │ +icon48.png
+│ │ +icon_full.png
+│ │ -icon48.png
+│ │   --- /workspace/pipeline_output/chromex_data/img/flags
+│ ├── +++ /workspace/pipeline_output/Geolocate-IP-Browser-Extension/img/flags
+│ │ ├── file list
+│ │ │ @@ -1 +1,3 @@
+│ │ │ -48
+│ │ │ +48
+│ │ │ +Hello.txt
+│ │ │ +LICENSE.txt
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/Geolocate-IP-Browser-Extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -24,10 +24,9 @@
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "notifications",
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.3"
+│ │  }

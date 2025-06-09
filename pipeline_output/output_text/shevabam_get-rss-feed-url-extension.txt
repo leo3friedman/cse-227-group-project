@@ -1,0 +1,2288 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/get-rss-feed-url-extension
+├── file list
+│ @@ -1,10 +1,12 @@
+│ +.git
+│ +.gitignore
+│  LICENSE.md
+│  README.md
+│ -_metadata
+│  background.html
+│  css
+│  docs
+│  img
+│  js
+│  manifest.json
+│ +package-lock.json
+│  popup.html
+│   --- /workspace/pipeline_output/chromex_data/LICENSE.md
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/LICENSE.md
+│┄ Ordering differences only
+│ @@ -1,21 +1,21 @@
+│ -MIT License
+│ -
+│ -Copyright (c) 2017 
+│ -
+│ -Permission is hereby granted, free of charge, to any person obtaining a copy
+│ -of this software and associated documentation files (the "Software"), to deal
+│ -in the Software without restriction, including without limitation the rights
+│ -to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ -copies of the Software, and to permit persons to whom the Software is
+│ -furnished to do so, subject to the following conditions:
+│ -
+│ -The above copyright notice and this permission notice shall be included in all
+│ -copies or substantial portions of the Software.
+│ -
+│ -THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ -IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ -FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ -AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ -LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ -OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│ +MIT License
+│ +
+│ +Copyright (c) 2017 
+│ +
+│ +Permission is hereby granted, free of charge, to any person obtaining a copy
+│ +of this software and associated documentation files (the "Software"), to deal
+│ +in the Software without restriction, including without limitation the rights
+│ +to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+│ +copies of the Software, and to permit persons to whom the Software is
+│ +furnished to do so, subject to the following conditions:
+│ +
+│ +The above copyright notice and this permission notice shall be included in all
+│ +copies or substantial portions of the Software.
+│ +
+│ +THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+│ +IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+│ +FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+│ +AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+│ +LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+│ +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+│  SOFTWARE.
+│   --- /workspace/pipeline_output/chromex_data/README.md
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/README.md
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,131 +1,131 @@
+│ -<p align="center">
+│ -<a href="https://chrome.google.com/webstore/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn?hl=fr"><img src="docs/get-rss-feed-url-extension_1.png"/></a>
+│ -</p>
+│ -
+│ -
+│ -# What is Get RSS Feed URL Extension?
+│ -
+│ -
+│ -**Get RSS Feed URL is a Google Chrome extension that provides links to the various RSS/Atom feeds of a website.**
+│ -
+│ -Indeed, websites do not always provide a direct link to the RSS feed. It is then necessary to look in the source code of the website and find the URL of the feed.
+│ -
+│ -This extension makes it possible to avoid this manipulation because the URLs of the RSS feeds of the website are displayed directly and can be copied with one click!
+│ -
+│ -In addition, this extension allows you to easily retrieve the RSS feed from several sites that do not offer one natively:
+│ -
+│ -* **Reddit:** the extension can retrieve RSS feeds from your Reddit homepage but also from a Reddit sub, a profile or post comments
+│ -* **Kickstarter:** the RSS feed of a Kickstarter project is retrieved
+│ -* **Vimeo:** RSS feed from a Vimeo channel
+│ -* **Github:** the extension retrieves RSS feeds from a Github repository *(releases, commits, tags)* and from a Github user *(activity)*
+│ -* **Gitlab:** same as Github
+│ -* **Medium:** retrieves the RSS feed of a page with a keyword (tag)
+│ -
+│ -![](docs/get-rss-feed-url-extension_github-repo.png)  
+│ -*Github repository*
+│ -
+│ -![](docs/get-rss-feed-url-extension_medium-tag.png)  
+│ -*Medium tag page*
+│ -
+│ -![](docs/get-rss-feed-url-extension_reddit-sub.png)  
+│ -*Subreddit*
+│ -
+│ -
+│ -# Install
+│ -
+│ -Install this extension from [**Chrome Web Store**](https://chrome.google.com/webstore/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn) or [**Microsfot Edge Store**](https://microsoftedge.microsoft.com/addons/detail/get-rss-feed-url/pgbelohmepchkohpdldadopkblkgbjom).
+│ -
+│ -
+│ -# Usage
+│ -
+│ -After installing the extension, display it in your browser:
+│ -
+│ -![](docs/get-rss-feed-url-extension_2.png)
+│ -
+│ -Then go to a site and click on the extension button to display the different RSS feeds found:
+│ -
+│ -![](docs/get-rss-feed-url-extension_3.png)
+│ -
+│ -You can also open this popup from the keyboard shortcut: `Alt+Shift+R`. You can [edit it in your Chrome settings](chrome://extensions/shortcuts) (Extensions > Keyboard shortcuts).
+│ -
+│ -You can copy the URL of an RSS feed by clicking on the "Copy URL" button.
+│ -If you want to copy the URLs of all RSS feeds found, click "Copy all URLs".
+│ -
+│ -
+│ -# Feedback
+│ -
+│ -If you encounter a problem using Get RSS Feed URL extension, or would like to request an enhancement, feel free to create an issue or say hello on [Twitter/X](https://twitter.com/shevabam)!
+│ -
+│ -
+│ -# Privacy Policy
+│ -
+│ -The extension does not collect any user information or other information. Some data can be requested using the XHR API (only GET requests) in order to provide more context to retrieve a website's RSS feed.
+│ -
+│ -The extension does not store any data on the browser or on the computer.
+│ -
+│ -
+│ -
+│ ----
+│ -
+│ -
+│ -
+│ -# Qu'est-ce que Get RSS Feed URL Extension ?
+│ -
+│ -
+│ -**Get RSS Feed URL est une extension Google Chrome qui permet d'obtenir les liens vers les différents flux RSS/Atom d'un site Internet.**
+│ -
+│ -En effet, les sites Internet ne mettent pas toujours à disposition un lien direct vers le flux RSS. Il faut alors chercher dans le code source et trouver l'URL du flux.
+│ -
+│ -Cette extension permet d'éviter cette manipulation car les URL des flux RSS du site Internet sont affichés directement et peuvent être copiés d'un simple clic !
+│ -
+│ -De plus, cette extension vous permet de récupérer facilement le flux RSS de plusieurs sites qui n'en proposent pas nativement :
+│ -
+│ -* **Reddit :** l'extension arrive à récupérer les flux RSS de votre homepage Reddit mais aussi d'un sub Reddit, d'un profil ou des commentaires d'un post
+│ -* **Kickstarter :** le flux RSS d'un projet Kickstarter est récupéré
+│ -* **Vimeo :** flux RSS d'une chaîne Vimeo
+│ -* **Github :** l'extension récupère les flux RSS d'un dépôt Github *(releases, commits, tags)* et d'un utilisateur Github *(activité)*
+│ -* **Gitlab :** idem que Github
+│ -* **Medium :** récupère le flux RSS d'une page d'un mot-clé (tag)
+│ -
+│ -![](docs/get-rss-feed-url-extension_github-repo.png)  
+│ -*Github repository*
+│ -
+│ -![](docs/get-rss-feed-url-extension_medium-tag.png)  
+│ -*Medium tag page*
+│ -
+│ -![](docs/get-rss-feed-url-extension_reddit-sub.png)  
+│ -*Subreddit*
+│ -
+│ -
+│ -# Installation
+│ -
+│ -Installez l'extension à partir du [**Chrome Web Store**](https://chrome.google.com/webstore/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn?hl=fr) ou sur [**Microsfot Edge Store**](https://microsoftedge.microsoft.com/addons/detail/get-rss-feed-url/pgbelohmepchkohpdldadopkblkgbjom).
+│ -
+│ -
+│ -# Utilisation
+│ -
+│ -Après avoir installé l'extension, affichez-la dans votre barre :
+│ -
+│ -![](docs/get-rss-feed-url-extension_2.png)
+│ -
+│ -Rendez-vous ensuite sur un site et cliquez sur le bouton de l'extension pour afficher les différents flux RSS trouvés :
+│ -
+│ -![](docs/get-rss-feed-url-extension_3.png)
+│ -
+│ -Vous pouvez aussi ouvrir cette popup à partir du raccourci clavier : `Alt+Shift+R`. Vous pouvez le [modifier dans vos paramètres Chrome](chrome://extensions/shortcuts) (Extensions > Raccourcis clavier).
+│ -
+│ -Vous pouvez copier l'URL d'un flux RSS en cliquant sur le bouton "Copy URL".  
+│ -Si vous souhaitez copier les URL de tous les flux RSS trouvés, cliquez sur "Copy all URLs".
+│ -
+│ -
+│ -# Feedback
+│ -
+│ -Si vous rencontrez un problème avec l'extension Get RSS Feed URL, ou que vous souhaitez une évolution, n'hésitez pas à créer une *issue* ou à me contacter sur [Twitter/X](https://twitter.com/shevabam) !
+│ -
+│ -
+│ -# Politique de confidentialité
+│ -
+│ -L'extension ne collecte aucune information sur l'utilisateur ou d'autres informations. Certaines données peuvent être demandées à l'aide de l'API XHR (uniquement les requêtes GET) afin de fournir plus de contexte pour récupérer le flux RSS d'un site Internet.
+│ -
+│ -L'extension ne stocke aucune donnée sur le navigateur ou sur l'ordinateur. 
+│ -
+│ +<p align="center">
+│ +<a href="https://chrome.google.com/webstore/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn?hl=fr"><img src="docs/get-rss-feed-url-extension_1.png"/></a>
+│ +</p>
+│ +
+│ +
+│ +# What is Get RSS Feed URL Extension?
+│ +
+│ +
+│ +**Get RSS Feed URL is a Google Chrome extension that provides links to the various RSS/Atom feeds of a website.**
+│ +
+│ +Indeed, websites do not always provide a direct link to the RSS feed. It is then necessary to look in the source code of the website and find the URL of the feed.
+│ +
+│ +This extension makes it possible to avoid this manipulation because the URLs of the RSS feeds of the website are displayed directly and can be copied with one click!
+│ +
+│ +In addition, this extension allows you to easily retrieve the RSS feed from several sites that do not offer one natively:
+│ +
+│ +* **Reddit:** the extension can retrieve RSS feeds from your Reddit homepage but also from a Reddit sub, a profile or post comments
+│ +* **Kickstarter:** the RSS feed of a Kickstarter project is retrieved
+│ +* **Vimeo:** RSS feed from a Vimeo channel
+│ +* **Github:** the extension retrieves RSS feeds from a Github repository *(releases, commits, tags)* and from a Github user *(activity)*
+│ +* **Gitlab:** same as Github
+│ +* **Medium:** retrieves the RSS feed of a page with a keyword (tag)
+│ +
+│ +![](docs/get-rss-feed-url-extension_github-repo.png)  
+│ +*Github repository*
+│ +
+│ +![](docs/get-rss-feed-url-extension_medium-tag.png)  
+│ +*Medium tag page*
+│ +
+│ +![](docs/get-rss-feed-url-extension_reddit-sub.png)  
+│ +*Subreddit*
+│ +
+│ +
+│ +# Install
+│ +
+│ +Install this extension from [**Chrome Web Store**](https://chrome.google.com/webstore/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn) or [**Microsfot Edge Store**](https://microsoftedge.microsoft.com/addons/detail/get-rss-feed-url/pgbelohmepchkohpdldadopkblkgbjom).
+│ +
+│ +
+│ +# Usage
+│ +
+│ +After installing the extension, display it in your browser:
+│ +
+│ +![](docs/get-rss-feed-url-extension_2.png)
+│ +
+│ +Then go to a site and click on the extension button to display the different RSS feeds found:
+│ +
+│ +![](docs/get-rss-feed-url-extension_3.png)
+│ +
+│ +You can also open this popup from the keyboard shortcut: `Alt+Shift+R`. You can [edit it in your Chrome settings](chrome://extensions/shortcuts) (Extensions > Keyboard shortcuts).
+│ +
+│ +You can copy the URL of an RSS feed by clicking on the "Copy URL" button.
+│ +If you want to copy the URLs of all RSS feeds found, click "Copy all URLs".
+│ +
+│ +
+│ +# Feedback
+│ +
+│ +If you encounter a problem using Get RSS Feed URL extension, or would like to request an enhancement, feel free to create an issue or say hello on [Twitter/X](https://twitter.com/shevabam)!
+│ +
+│ +
+│ +# Privacy Policy
+│ +
+│ +The extension does not collect any user information or other information. Some data can be requested using the XHR API (only GET requests) in order to provide more context to retrieve a website's RSS feed.
+│ +
+│ +The extension does not store any data on the browser or on the computer.
+│ +
+│ +
+│ +
+│ +---
+│ +
+│ +
+│ +
+│ +# Qu'est-ce que Get RSS Feed URL Extension ?
+│ +
+│ +
+│ +**Get RSS Feed URL est une extension Google Chrome qui permet d'obtenir les liens vers les différents flux RSS/Atom d'un site Internet.**
+│ +
+│ +En effet, les sites Internet ne mettent pas toujours à disposition un lien direct vers le flux RSS. Il faut alors chercher dans le code source et trouver l'URL du flux.
+│ +
+│ +Cette extension permet d'éviter cette manipulation car les URL des flux RSS du site Internet sont affichés directement et peuvent être copiés d'un simple clic !
+│ +
+│ +De plus, cette extension vous permet de récupérer facilement le flux RSS de plusieurs sites qui n'en proposent pas nativement :
+│ +
+│ +* **Reddit :** l'extension arrive à récupérer les flux RSS de votre homepage Reddit mais aussi d'un sub Reddit, d'un profil ou des commentaires d'un post
+│ +* **Kickstarter :** le flux RSS d'un projet Kickstarter est récupéré
+│ +* **Vimeo :** flux RSS d'une chaîne Vimeo
+│ +* **Github :** l'extension récupère les flux RSS d'un dépôt Github *(releases, commits, tags)* et d'un utilisateur Github *(activité)*
+│ +* **Gitlab :** idem que Github
+│ +* **Medium :** récupère le flux RSS d'une page d'un mot-clé (tag)
+│ +
+│ +![](docs/get-rss-feed-url-extension_github-repo.png)  
+│ +*Github repository*
+│ +
+│ +![](docs/get-rss-feed-url-extension_medium-tag.png)  
+│ +*Medium tag page*
+│ +
+│ +![](docs/get-rss-feed-url-extension_reddit-sub.png)  
+│ +*Subreddit*
+│ +
+│ +
+│ +# Installation
+│ +
+│ +Installez l'extension à partir du [**Chrome Web Store**](https://chrome.google.com/webstore/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn?hl=fr) ou sur [**Microsfot Edge Store**](https://microsoftedge.microsoft.com/addons/detail/get-rss-feed-url/pgbelohmepchkohpdldadopkblkgbjom).
+│ +
+│ +
+│ +# Utilisation
+│ +
+│ +Après avoir installé l'extension, affichez-la dans votre barre :
+│ +
+│ +![](docs/get-rss-feed-url-extension_2.png)
+│ +
+│ +Rendez-vous ensuite sur un site et cliquez sur le bouton de l'extension pour afficher les différents flux RSS trouvés :
+│ +
+│ +![](docs/get-rss-feed-url-extension_3.png)
+│ +
+│ +Vous pouvez aussi ouvrir cette popup à partir du raccourci clavier : `Alt+Shift+R`. Vous pouvez le [modifier dans vos paramètres Chrome](chrome://extensions/shortcuts) (Extensions > Raccourcis clavier).
+│ +
+│ +Vous pouvez copier l'URL d'un flux RSS en cliquant sur le bouton "Copy URL".  
+│ +Si vous souhaitez copier les URL de tous les flux RSS trouvés, cliquez sur "Copy all URLs".
+│ +
+│ +
+│ +# Feedback
+│ +
+│ +Si vous rencontrez un problème avec l'extension Get RSS Feed URL, ou que vous souhaitez une évolution, n'hésitez pas à créer une *issue* ou à me contacter sur [Twitter/X](https://twitter.com/shevabam) !
+│ +
+│ +
+│ +# Politique de confidentialité
+│ +
+│ +L'extension ne collecte aucune information sur l'utilisateur ou d'autres informations. Certaines données peuvent être demandées à l'aide de l'API XHR (uniquement les requêtes GET) afin de fournir plus de contexte pour récupérer le flux RSS d'un site Internet.
+│ +
+│ +L'extension ne stocke aucune donnée sur le navigateur ou sur l'ordinateur. 
+│ +
+│   --- /workspace/pipeline_output/chromex_data/background.html
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/background.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,14 +1,14 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -<body>
+│ -
+│ -<div id="feeds"></div>
+│ -
+│ -<div id="rss-feed-url_response"></div>
+│ -
+│ -<script src="js/config.js"></script>
+│ -<script src="js/functions.js"></script>
+│ -<script src="js/background.js"></script>
+│ -
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +<body>
+│ +
+│ +<div id="feeds"></div>
+│ +
+│ +<div id="rss-feed-url_response"></div>
+│ +
+│ +<script src="js/config.js"></script>
+│ +<script src="js/functions.js"></script>
+│ +<script src="js/background.js"></script>
+│ +
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/css
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/css
+│ │   --- /workspace/pipeline_output/chromex_data/css/popup.css
+│ ├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/css/popup.css
+│ │┄ Ordering differences only
+│ │ @@ -1,127 +1,127 @@
+│ │ +body.rss-feed-url {
+│ │ +    font-size: 14px;
+│ │ +    font-family: sans-serif;
+│ │ +    width: 300px;
+│ │ +    background-color: #fff;
+│ │ +}
+│ │ +
+│ │ +.rss-feed-url_content {
+│ │ +    min-height: 50px;
+│ │ +}
+│ │ +.rss-feed-url #feeds {
+│ │ +    padding: 10px 0;
+│ │ +    max-height: 300px;
+│ │ +    overflow-x: hidden;
+│ │ +    overflow-y: auto;
+│ │ +}
+│ │ +.rss-feed-url #feeds table {
+│ │ +    width: 100%;
+│ │ +    border-collapse: collapse;
+│ │ +}
+│ │ +.rss-feed-url #feeds table tr:hover td {
+│ │ +    background-color: rgba(255, 156, 0, 0.1);
+│ │ +}
+│ │ +.rss-feed-url #feeds table td.feed-title {
+│ │ +    max-width: 100px;
+│ │ +    overflow: hidden;
+│ │ +    text-overflow: ellipsis;
+│ │ +    white-space: nowrap;
+│ │ +    padding: 8px 5px;
+│ │ +}
+│ │ +.rss-feed-url #feeds table td.feed-copy {
+│ │ +    width: 60px;
+│ │ +    text-align: right;
+│ │ +}
+│ │ +.rss-feed-url #feeds a.link {
+│ │ +    color: #000;
+│ │ +    text-decoration: underline;
+│ │ +    font-size: 14px;
+│ │ +}
+│ │ +.rss-feed-url #feeds a.link:hover {
+│ │ +    text-decoration: none;
+│ │ +}
+│ │ +.rss-feed-url #feeds span.feed-url {
+│ │ +    display: block;
+│ │ +    font-size: 10px;
+│ │ +}
+│ │ +.rss-feed-url #feeds a.copyButton {
+│ │ +    background-color: #ff9c00;
+│ │ +    color: #fff;
+│ │ +    font-size: 10px;
+│ │ +    padding: 5px;
+│ │ +    text-decoration: none;
+│ │ +    border-radius: 4px;
+│ │ +    display: inline-block;
+│ │ +}
+│ │ +.rss-feed-url #feeds a.copyButton:hover {
+│ │ +    background-color: #e48e04;
+│ │ +}
+│ │ +
+│ │ +.rss-feed-url #feeds .copyAllLinks-container {
+│ │ +    text-align: right;
+│ │ +    margin-top: 5px;
+│ │ +}
+│ │ +.rss-feed-url #feeds a#copyAllLinks {
+│ │ +    color: #ff9c00;
+│ │ +    font-size: 10px;
+│ │ +}
+│ │ +.rss-feed-url #feeds a#copyAllLinks:hover {
+│ │ +    text-decoration: none;
+│ │ +}
+│ │ +
+│ │ +.rss-feed-url header {
+│ │ +    background-color: #ff9c00;
+│ │ +    padding: 10px;
+│ │ +    border-radius: 5px;
+│ │ +}
+│ │ +.rss-feed-url header h1 {
+│ │ +    font-size: 18px;
+│ │ +    font-weight: normal;
+│ │ +    letter-spacing: 1px;
+│ │ +    text-align: center;
+│ │ +    color: #fff;
+│ │ +    font-family: sans-serif;
+│ │ +}
+│ │ +
+│ │ +.rss-feed-url footer {
+│ │ +    background-color: #f0f0f0;
+│ │ +    text-align: center;
+│ │ +    font-size: .7rem;
+│ │ +    color: #888;
+│ │ +    padding: .6rem;
+│ │ +    border-radius: 5px;
+│ │ +}
+│ │ +.rss-feed-url footer a {
+│ │ +    color: #888;
+│ │ +}
+│ │ +.rss-feed-url footer a:hover {
+│ │ +    text-decoration: none;
+│ │ +}
+│ │ +span.rss-feed-url__bullet {
+│ │ +    padding: 0 1rem;
+│ │ +  }
+│ │ +
+│ │ +.rss-feed-url #rss-feed-url_response {
+│ │ +    display: none;
+│ │ +}
+│ │ +
+│ │ +
+│ │ +@keyframes loader-anim { 
+│ │ +    50% { 
+│ │ +        box-shadow: #B1B1B1 65px 0, #B1B1B1 120px 0, #B1B1B1 -65px 0, #B1B1B1 -120px 0; 
+│ │ +        transform: scale(.7) 
+│ │ +    } 
+│ │ +} 
+│ │ +
+│ │ +.loader {
+│ │ +    margin-top: 30px;
+│ │ +    width: 10px;
+│ │ +    height: 10px;
+│ │ +    background: #B1B1B1; 
+│ │ +    border-radius: 50%;
+│ │ +    position: absolute;
+│ │ +    top: calc(50% - 20px); 
+│ │ +    left: calc(50% - 20px); 
+│ │ +    box-shadow: #B1B1B1 20px 0, #B1B1B1 40px 0, #B1B1B1 -20px 0, #B1B1B1 -40px 0;
+│ │ +    animation: loader-anim 1s infinite;
+│ │ -body.rss-feed-url {
+│ │ -    font-size: 14px;
+│ │ -    font-family: sans-serif;
+│ │ -    width: 300px;
+│ │ -    background-color: #fff;
+│ │ -}
+│ │ -
+│ │ -.rss-feed-url_content {
+│ │ -    min-height: 50px;
+│ │ -}
+│ │ -.rss-feed-url #feeds {
+│ │ -    padding: 10px 0;
+│ │ -    max-height: 300px;
+│ │ -    overflow-x: hidden;
+│ │ -    overflow-y: auto;
+│ │ -}
+│ │ -.rss-feed-url #feeds table {
+│ │ -    width: 100%;
+│ │ -    border-collapse: collapse;
+│ │ -}
+│ │ -.rss-feed-url #feeds table tr:hover td {
+│ │ -    background-color: rgba(255, 156, 0, 0.1);
+│ │ -}
+│ │ -.rss-feed-url #feeds table td.feed-title {
+│ │ -    max-width: 100px;
+│ │ -    overflow: hidden;
+│ │ -    text-overflow: ellipsis;
+│ │ -    white-space: nowrap;
+│ │ -    padding: 8px 5px;
+│ │ -}
+│ │ -.rss-feed-url #feeds table td.feed-copy {
+│ │ -    width: 60px;
+│ │ -    text-align: right;
+│ │ -}
+│ │ -.rss-feed-url #feeds a.link {
+│ │ -    color: #000;
+│ │ -    text-decoration: underline;
+│ │ -    font-size: 14px;
+│ │ -}
+│ │ -.rss-feed-url #feeds a.link:hover {
+│ │ -    text-decoration: none;
+│ │ -}
+│ │ -.rss-feed-url #feeds span.feed-url {
+│ │ -    display: block;
+│ │ -    font-size: 10px;
+│ │ -}
+│ │ -.rss-feed-url #feeds a.copyButton {
+│ │ -    background-color: #ff9c00;
+│ │ -    color: #fff;
+│ │ -    font-size: 10px;
+│ │ -    padding: 5px;
+│ │ -    text-decoration: none;
+│ │ -    border-radius: 4px;
+│ │ -    display: inline-block;
+│ │ -}
+│ │ -.rss-feed-url #feeds a.copyButton:hover {
+│ │ -    background-color: #e48e04;
+│ │ -}
+│ │ -
+│ │ -.rss-feed-url #feeds .copyAllLinks-container {
+│ │ -    text-align: right;
+│ │ -    margin-top: 5px;
+│ │ -}
+│ │ -.rss-feed-url #feeds a#copyAllLinks {
+│ │ -    color: #ff9c00;
+│ │ -    font-size: 10px;
+│ │ -}
+│ │ -.rss-feed-url #feeds a#copyAllLinks:hover {
+│ │ -    text-decoration: none;
+│ │ -}
+│ │ -
+│ │ -.rss-feed-url header {
+│ │ -    background-color: #ff9c00;
+│ │ -    padding: 10px;
+│ │ -    border-radius: 5px;
+│ │ -}
+│ │ -.rss-feed-url header h1 {
+│ │ -    font-size: 18px;
+│ │ -    font-weight: normal;
+│ │ -    letter-spacing: 1px;
+│ │ -    text-align: center;
+│ │ -    color: #fff;
+│ │ -    font-family: sans-serif;
+│ │ -}
+│ │ -
+│ │ -.rss-feed-url footer {
+│ │ -    background-color: #f0f0f0;
+│ │ -    text-align: center;
+│ │ -    font-size: .7rem;
+│ │ -    color: #888;
+│ │ -    padding: .6rem;
+│ │ -    border-radius: 5px;
+│ │ -}
+│ │ -.rss-feed-url footer a {
+│ │ -    color: #888;
+│ │ -}
+│ │ -.rss-feed-url footer a:hover {
+│ │ -    text-decoration: none;
+│ │ -}
+│ │ -span.rss-feed-url__bullet {
+│ │ -    padding: 0 1rem;
+│ │ -  }
+│ │ -
+│ │ -.rss-feed-url #rss-feed-url_response {
+│ │ -    display: none;
+│ │ -}
+│ │ -
+│ │ -
+│ │ -@keyframes loader-anim { 
+│ │ -    50% { 
+│ │ -        box-shadow: #B1B1B1 65px 0, #B1B1B1 120px 0, #B1B1B1 -65px 0, #B1B1B1 -120px 0; 
+│ │ -        transform: scale(.7) 
+│ │ -    } 
+│ │ -} 
+│ │ -
+│ │ -.loader {
+│ │ -    margin-top: 30px;
+│ │ -    width: 10px;
+│ │ -    height: 10px;
+│ │ -    background: #B1B1B1; 
+│ │ -    border-radius: 50%;
+│ │ -    position: absolute;
+│ │ -    top: calc(50% - 20px); 
+│ │ -    left: calc(50% - 20px); 
+│ │ -    box-shadow: #B1B1B1 20px 0, #B1B1B1 40px 0, #B1B1B1 -20px 0, #B1B1B1 -40px 0;
+│ │ -    animation: loader-anim 1s infinite;
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/js
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/js
+│ │   --- /workspace/pipeline_output/chromex_data/js/background.js
+│ ├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/js/background.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,52 +1,52 @@
+│ │ │ +importScripts('utilities.js');
+│ │ │ +importScripts('functions.js');
+│ │ │ +
+│ │ │ +chrome.tabs.onActivated.addListener(function(activeInfo) {
+│ │ │ +    // updateIcon(activeInfo.tabId);
+│ │ │ +});
+│ │ │ +
+│ │ │ +//listen for current tab to be changed
+│ │ │ +chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+│ │ │ +    // updateIcon(tabId);
+│ │ │ +});
+│ │ │ +
+│ │ │ +function updateIcon(tabId) {
+│ │ │ +    chrome.tabs.get(tabId, function(change) {
+│ │ │ +
+│ │ │ +        chrome.tabs.get(tabId, function(tab) {
+│ │ │ +            var url = tab.url;
+│ │ │ +
+│ │ │ +            getFeedsURLs(url, function(feeds) {
+│ │ │ +
+│ │ │ +                nbFeeds = feeds.length;
+│ │ │ +
+│ │ │ +                // console.log('nbFeeds (bg) : '+nbFeeds);
+│ │ │ +
+│ │ │ +                if (nbFeeds == 0) {
+│ │ │ +                    chrome.action.setIcon({
+│ │ │ +                        path: {
+│ │ │ +                            "48": "/img/icon_grey-48.png"
+│ │ │ +                        },
+│ │ │ +                        tabId: tabId
+│ │ │ +                    });
+│ │ │ +                    chrome.action.setBadgeText({
+│ │ │ +                        text: "",
+│ │ │ +                        tabId: tabId
+│ │ │ +                    });
+│ │ │ +                } else {
+│ │ │ +                    chrome.action.setIcon({
+│ │ │ +                        path: {
+│ │ │ +                            "48": "/img/icon_default-48.png"
+│ │ │ +                        },
+│ │ │ +                        tabId: tabId
+│ │ │ +                    });
+│ │ │ +                    chrome.action.setBadgeText({
+│ │ │ +                        text: nbFeeds.toString(),
+│ │ │ +                        tabId: tabId
+│ │ │ +                    });
+│ │ │ +                }
+│ │ │ +
+│ │ │ +            });
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ -importScripts('utilities.js');
+│ │ │ -importScripts('functions.js');
+│ │ │ -
+│ │ │ -chrome.tabs.onActivated.addListener(function(activeInfo) {
+│ │ │ -    // updateIcon(activeInfo.tabId);
+│ │ │ -});
+│ │ │ -
+│ │ │ -//listen for current tab to be changed
+│ │ │ -chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+│ │ │ -    // updateIcon(tabId);
+│ │ │ -});
+│ │ │ -
+│ │ │ -function updateIcon(tabId) {
+│ │ │ -    chrome.tabs.get(tabId, function(change) {
+│ │ │ -
+│ │ │ -        chrome.tabs.get(tabId, function(tab) {
+│ │ │ -            var url = tab.url;
+│ │ │ -
+│ │ │ -            getFeedsURLs(url, function(feeds) {
+│ │ │ -
+│ │ │ -                nbFeeds = feeds.length;
+│ │ │ -
+│ │ │ -                // console.log('nbFeeds (bg) : '+nbFeeds);
+│ │ │ -
+│ │ │ -                if (nbFeeds == 0) {
+│ │ │ -                    chrome.action.setIcon({
+│ │ │ -                        path: {
+│ │ │ -                            "48": "/img/icon_grey-48.png"
+│ │ │ -                        },
+│ │ │ -                        tabId: tabId
+│ │ │ -                    });
+│ │ │ -                    chrome.action.setBadgeText({
+│ │ │ -                        text: "",
+│ │ │ -                        tabId: tabId
+│ │ │ -                    });
+│ │ │ -                } else {
+│ │ │ -                    chrome.action.setIcon({
+│ │ │ -                        path: {
+│ │ │ -                            "48": "/img/icon_default-48.png"
+│ │ │ -                        },
+│ │ │ -                        tabId: tabId
+│ │ │ -                    });
+│ │ │ -                    chrome.action.setBadgeText({
+│ │ │ -                        text: nbFeeds.toString(),
+│ │ │ -                        tabId: tabId
+│ │ │ -                    });
+│ │ │ -                }
+│ │ │ -
+│ │ │ -            });
+│ │ │ -        });
+│ │ │ -    });
+│ │ │  };
+│ │   --- /workspace/pipeline_output/chromex_data/js/functions.js
+│ ├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/js/functions.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,630 +1,630 @@
+│ │ │ +/**
+│ │ │ + * Get HTML source code froms URL
+│ │ │ + */
+│ │ │ +function getHtmlSource(url, callback) {
+│ │ │ +    fetch(url, {
+│ │ │ +            method: 'get'
+│ │ │ +        })
+│ │ │ +        .then(function(response) {
+│ │ │ +            if (response.status == 200) {
+│ │ │ +                response.text().then(function(data) {
+│ │ │ +                    callback(data);
+│ │ │ +                })
+│ │ │ +            } else {
+│ │ │ +                render('Unable to find feed');
+│ │ │ +            }
+│ │ │ +        })
+│ │ │ +        .catch(function(error) {
+│ │ │ +            render('Error: ' + error.message);
+│ │ │ +        });
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Extacts link tag with some filters
+│ │ │ + */
+│ │ │ +function extractLinkTags(html) {
+│ │ │ +    // let regex = /<link\s+[^>]*\btype=['"][^'"]+['"][^>]*>/gi;
+│ │ │ +
+│ │ │ +    // Excludes link tags with:
+│ │ │ +    //   rel="stylesheet"
+│ │ │ +    //   rel="icon"
+│ │ │ +    //   rel="search"
+│ │ │ +    //   type="text/javascript"
+│ │ │ +    //   type="image/"
+│ │ │ +    //   type="font/"
+│ │ │ +    let regex = /<link\s+(?![^>]*\b(?:rel=['"](stylesheet|icon|search)['"]|type=['"](text\/javascript|image\/(.*)|font\/(.*))['"]))[^>]*\btype=['"][^'"]+['"][^>]*>/gi;
+│ │ │ +
+│ │ │ +    let match = html.match(regex);
+│ │ │ +
+│ │ │ +    return match || [];
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +const SERVICES_TO_CHECK = [
+│ │ │ +    // 'Youtube', 
+│ │ │ +    'RedditRoot',
+│ │ │ +    'RedditSub',
+│ │ │ +    'RedditUser',
+│ │ │ +    'RedditPostComments',
+│ │ │ +    'Kickstarter',
+│ │ │ +    'Vimeo',
+│ │ │ +    'GithubRepo',
+│ │ │ +    'GithubUser',
+│ │ │ +    'GitlabRepo',
+│ │ │ +    'GitlabUser',
+│ │ │ +    'MediumTag'
+│ │ │ +];
+│ │ │ +
+│ │ │ +function checkIfUrlIsKnown(url) {
+│ │ │ +    let match = false;
+│ │ │ +    let check = {};
+│ │ │ +
+│ │ │ +    for (const service of SERVICES_TO_CHECK) {
+│ │ │ +        const method = 'get' + service + 'Rss';
+│ │ │ +        check = this[method](url);
+│ │ │ +
+│ │ │ +        match = check.match;
+│ │ │ +
+│ │ │ +        if (match === true) {
+│ │ │ +            break;
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (match === true) {
+│ │ │ +        return check.feeds;
+│ │ │ +    } else {
+│ │ │ +        return false;
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feeds URLs
+│ │ │ + */
+│ │ │ +function getFeedsURLs(url, callback) {
+│ │ │ +
+│ │ │ +    switch (parseUrl(url).protocol) {
+│ │ │ +        case "chrome:":
+│ │ │ +        case "chrome-extension:":
+│ │ │ +        case "about:":
+│ │ │ +        case "vivaldi:":
+│ │ │ +        case "edge:":
+│ │ │ +        case "chrome-devtools:":
+│ │ │ +        case "devtools:":
+│ │ │ +            render('Unable to find feed');
+│ │ │ +            return false;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    var getFeedUrl = checkIfUrlIsKnown(url);
+│ │ │ +
+│ │ │ +    if (false !== getFeedUrl && getFeedUrl.length > 0) {
+│ │ │ +        callback(getFeedUrl);
+│ │ │ +    } else {
+│ │ │ +        getHtmlSource(url, (response) => {
+│ │ │ +            if (response != '') {
+│ │ │ +                let linkTags = extractLinkTags(response);
+│ │ │ +                // console.log(linkTags);
+│ │ │ +
+│ │ │ +                document.getElementById('rss-feed-url_response').innerHTML = linkTags;
+│ │ │ +            }
+│ │ │ +
+│ │ │ +            searchFeed(url, callback);
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Search RSS Feed in source code
+│ │ │ + */
+│ │ │ +async function searchFeed(url, callback) {
+│ │ │ +    var feeds_urls = [];
+│ │ │ +
+│ │ │ +    if (document.getElementById('rss-feed-url_response').innerHTML != '') {
+│ │ │ +        const types = [
+│ │ │ +            'application/rss+xml',
+│ │ │ +            'application/atom+xml',
+│ │ │ +            'application/rdf+xml',
+│ │ │ +            'application/rss',
+│ │ │ +            'application/atom',
+│ │ │ +            'application/rdf',
+│ │ │ +            'text/rss+xml',
+│ │ │ +            'text/atom+xml',
+│ │ │ +            'text/rdf+xml',
+│ │ │ +            'text/rss',
+│ │ │ +            'text/atom',
+│ │ │ +            'text/rdf'
+│ │ │ +        ];
+│ │ │ +
+│ │ │ +        var links = document.getElementById('rss-feed-url_response').querySelectorAll("#rss-feed-url_response link[type]");
+│ │ │ +
+│ │ │ +        document.getElementById('rss-feed-url_response').innerHTML = '';
+│ │ │ +
+│ │ │ +        for (var i = 0; i < links.length; i++) {
+│ │ │ +
+│ │ │ +            if (links[i].hasAttribute('type') && types.indexOf(links[i].getAttribute('type')) !== -1) {
+│ │ │ +
+│ │ │ +                var feed_url = links[i].getAttribute('href');
+│ │ │ +
+│ │ │ +                // If feed's url starts with "//"
+│ │ │ +                if (feed_url.startsWith('//')) {
+│ │ │ +                    feed_url = "http:" + feed_url;
+│ │ │ +                }
+│ │ │ +                // If feed's url starts with "/"
+│ │ │ +                else if (feed_url.startsWith('/')) {
+│ │ │ +                    feed_url = url.split('/')[0] + '//' + url.split('/')[2] + feed_url;
+│ │ │ +                }
+│ │ │ +                // If feed's url starts with http or https
+│ │ │ +                else if (/^(http|https):\/\//i.test(feed_url)) {
+│ │ │ +                    feed_url = feed_url;
+│ │ │ +                }
+│ │ │ +                // If feed's has no slash
+│ │ │ +                else if (!feed_url.match(/\//)) {
+│ │ │ +                    feed_url = url.substr(0, url.lastIndexOf("/")) + '/' + feed_url;
+│ │ │ +                } else {
+│ │ │ +                    feed_url = url + "/" + feed_url.replace(/^\//g, '');
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                var feed = {
+│ │ │ +                    type: links[i].getAttribute('type'),
+│ │ │ +                    url: feed_url,
+│ │ │ +                    title: links[i].getAttribute('title') || feed_url
+│ │ │ +                };
+│ │ │ +
+│ │ │ +                feeds_urls.push(feed);
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (feeds_urls.length === 0) {
+│ │ │ +
+│ │ │ +        var test_feed = await tryToGetFeedURL(url);
+│ │ │ +
+│ │ │ +        if (test_feed !== null) {
+│ │ │ +            feeds_urls.push(test_feed);
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    callback(feeds_urls);
+│ │ │ +
+│ │ │ +    if (feeds_urls.length === 0) {
+│ │ │ +        render('Unable to find feed');
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of Youtube channel or user
+│ │ │ + */
+│ │ │ +function getYoutubeRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/(channel|user|c).+/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +        let query = '';
+│ │ │ +        let title = '';
+│ │ │ +
+│ │ │ +        let path = new URL(url).pathname;
+│ │ │ +
+│ │ │ +        if (path.startsWith('/channel/')) {
+│ │ │ +            let channel_id = path.substr('/channel/'.length).split('/')[0];
+│ │ │ +            query = 'channel_id=' + channel_id;
+│ │ │ +            title = channel_id;
+│ │ │ +        } else if (path.startsWith('/c/')) {
+│ │ │ +            let channel_id = path.substr('/c/'.length).split('/')[0];
+│ │ │ +            query = 'user=' + channel_id;
+│ │ │ +            title = channel_id;
+│ │ │ +        } else if (path.startsWith('/user/')) {
+│ │ │ +            let user_id = path.substr('/user/'.length).split('/')[0];
+│ │ │ +            query = 'user=' + user_id;
+│ │ │ +            title = user_id;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        if (query != '') {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: 'https://www.youtube.com/feeds/videos.xml?' + query,
+│ │ │ +                title: title
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL for the Reddit homepage
+│ │ │ + */
+│ │ │ +function getRedditRootRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com(\/)?$/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let feed_url = !url.endsWith('/') ? url + '/' : url;
+│ │ │ +        feed_url += '.rss';
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of a subreddit
+│ │ │ + */
+│ │ │ +function getRedditSubRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com\/r\/(.+)/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ +        feed_url += '.rss';
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of a reddit user
+│ │ │ + */
+│ │ │ +function getRedditUserRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com\/user\/(.+)/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ +        feed_url += '.rss';
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL for reddit post comments
+│ │ │ + */
+│ │ │ +function getRedditPostCommentsRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com\/r\/(.+)\/comments\/(.+)\/(.+)/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ +        feed_url += '.rss';
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of kickstarter
+│ │ │ + */
+│ │ │ +function getKickstarterRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?kickstarter\.com/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ +        feed_url = feed_url.split('?')[0] + '/posts.atom';
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of vimeo
+│ │ │ + */
+│ │ │ +function getVimeoRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?vimeo\.com\/([a-zA-Z](.+))(\/videos)?/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let feed_url = url.endsWith('/videos') ? url.replace(/\/videos$/, '') + '/rss' : url + '/videos/rss';
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of Github repo
+│ │ │ + */
+│ │ │ +function getGithubRepoRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?github\.com\/([a-zA-Z0-9](.+))\/([a-zA-Z0-9](.+))$/i;
+│ │ │ +    let matches = url.match(regex);
+│ │ │ +
+│ │ │ +    if (matches) {
+│ │ │ +        datas.match = true;
+│ │ │ +        let repoUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ +        repoUrl = repoUrl.replace(/\/(releases|commits|tags)$/, '');
+│ │ │ +
+│ │ │ +        datas.feeds.push({
+│ │ │ +            url: repoUrl + '/releases.atom',
+│ │ │ +            title: 'Repo releases'
+│ │ │ +        });
+│ │ │ +        datas.feeds.push({
+│ │ │ +            url: repoUrl + '/commits.atom',
+│ │ │ +            title: 'Repo commits'
+│ │ │ +        });
+│ │ │ +        datas.feeds.push({
+│ │ │ +            url: repoUrl + '/tags.atom',
+│ │ │ +            title: 'Repo tags'
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/*
+│ │ │ + * Get RSS feed URL of Github user
+│ │ │ + */
+│ │ │ +function getGithubUserRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?github\.com\/([a-zA-Z0-9](.+))$/i;
+│ │ │ +    let matches = url.match(regex);
+│ │ │ +
+│ │ │ +    if (matches) {
+│ │ │ +        datas.match = true;
+│ │ │ +        let userUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ +        datas.feeds.push({
+│ │ │ +            url: userUrl + '.atom',
+│ │ │ +            title: 'User activity'
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of Gitlab repo
+│ │ │ + */
+│ │ │ +function getGitlabRepoRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?gitlab\.com\/([a-zA-Z0-9](.+))\/([a-zA-Z0-9](.+))$/i;
+│ │ │ +    let matches = url.match(regex);
+│ │ │ +
+│ │ │ +    if (matches) {
+│ │ │ +        datas.match = true;
+│ │ │ +        let repoUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ +
+│ │ │ +        datas.feeds.push({
+│ │ │ +            url: repoUrl + '.atom',
+│ │ │ +            title: 'Repo commits'
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/*
+│ │ │ + * Get RSS feed URL of Gitlab user
+│ │ │ + */
+│ │ │ +function getGitlabUserRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?gitlab\.com\/([a-zA-Z0-9](.+))$/i;
+│ │ │ +    let matches = url.match(regex);
+│ │ │ +
+│ │ │ +    if (matches) {
+│ │ │ +        datas.match = true;
+│ │ │ +        let userUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ +        datas.feeds.push({
+│ │ │ +            url: userUrl + '.atom',
+│ │ │ +            title: 'User activity'
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Get RSS feed URL of a medium tag page
+│ │ │ + */
+│ │ │ +function getMediumTagRss(url) {
+│ │ │ +    let datas = {
+│ │ │ +        match: false,
+│ │ │ +        feeds: []
+│ │ │ +    };
+│ │ │ +
+│ │ │ +    let regex = /^(http(s)?:\/\/)?((w){3}.)?medium\.com\/tag\/(.+)/i;
+│ │ │ +    let has_match = regex.test(url);
+│ │ │ +
+│ │ │ +    if (has_match) {
+│ │ │ +        datas.match = true;
+│ │ │ +
+│ │ │ +        let tag = url.match(regex)[5];
+│ │ │ +
+│ │ │ +        let feed_url = url.replace(/(\/tag)/, '/feed$1');
+│ │ │ +
+│ │ │ +        if (feed_url) {
+│ │ │ +            datas.feeds.push({
+│ │ │ +                url: feed_url,
+│ │ │ +                title: tag ?? feed_url
+│ │ │ +            });
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return datas;
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Prints message in #feeds
+│ │ │ + */
+│ │ │ +function render(content) {
+│ │ │ +    document.getElementById('feeds').innerHTML = content;
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Copy to clipboard text with notification
+│ │ │ + */
+│ │ │ +function copyToClipboard(text, notification) {
+│ │ │ +    navigator.clipboard.writeText(text);
+│ │ │ +
+│ │ │ +    chrome.notifications.create('get-rss-feed-url-copy', {
+│ │ │ +        type: "basic",
+│ │ │ +        title: notification.title || "Get RSS Feeds URLs",
+│ │ │ +        message: notification.message,
+│ │ │ +        iconUrl: "img/notif_" + notification.type + ".png"
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Attempt to find an RSS feed URL by providing a suffix
+│ │ │ + */
+│ │ │ +async function tryToGetFeedURL(tabUrl) {
+│ │ │ +    var url_datas = parseUrl(tabUrl);
+│ │ │ +    var feed = null;
+│ │ │ +    var isFound = false;
+│ │ │ +
+│ │ │ +    var tests = ['/feed', '/rss', '/rss.xml', '/feed.xml', '/rss/news.xml', '/articles/feed', '/rss/index.html'];
+│ │ │ +
+│ │ │ +    for (var t = 0; t < tests.length; t++) {
+│ │ │ +        if (isFound === false) {
+│ │ │ +            var feed_url = url_datas.origin + tests[t];
+│ │ │ +
+│ │ │ +            let response = await fetch(feed_url, {
+│ │ │ +                method: 'get'
+│ │ │ +            });
+│ │ │ +
+│ │ │ +            if (!response.ok || (response.status >= 200 && response.status < 400)) {
+│ │ │ +                let urlContent = await response.text();
+│ │ │ +
+│ │ │ +                var oParser = new DOMParser();
+│ │ │ +                var oDOM = oParser.parseFromString(urlContent, "application/xml");
+│ │ │ +
+│ │ │ +                var getRssTag = oDOM.getElementsByTagName('rss');
+│ │ │ +                var getFeedTag = oDOM.getElementsByTagName('feed');
+│ │ │ +
+│ │ │ +                if (getRssTag.length > 0 || getFeedTag.length > 0) {
+│ │ │ +
+│ │ │ +                    if (getRssTag.length > 0) {
+│ │ │ +                        var getChannelTag = getRssTag['0'].getElementsByTagName('channel');
+│ │ │ +                    } else if (getFeedTag.length > 0) {
+│ │ │ +                        var getChannelTag = getFeedTag['0'];
+│ │ │ +                    }
+│ │ │ +
+│ │ │ +                    if (getChannelTag !== false) {
+│ │ │ +                        isFound = true;
+│ │ │ +
+│ │ │ +                        feed = {
+│ │ │ +                            type: '',
+│ │ │ +                            url: feed_url,
+│ │ │ +                            title: feed_url
+│ │ │ +                        };
+│ │ │ +
+│ │ │ +                        return feed;
+│ │ │ +                    }
+│ │ │ +                }
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    return feed;
+│ │ │ -/**
+│ │ │ - * Get HTML source code froms URL
+│ │ │ - */
+│ │ │ -function getHtmlSource(url, callback) {
+│ │ │ -    fetch(url, {
+│ │ │ -            method: 'get'
+│ │ │ -        })
+│ │ │ -        .then(function(response) {
+│ │ │ -            if (response.status == 200) {
+│ │ │ -                response.text().then(function(data) {
+│ │ │ -                    callback(data);
+│ │ │ -                })
+│ │ │ -            } else {
+│ │ │ -                render('Unable to find feed');
+│ │ │ -            }
+│ │ │ -        })
+│ │ │ -        .catch(function(error) {
+│ │ │ -            render('Error: ' + error.message);
+│ │ │ -        });
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Extacts link tag with some filters
+│ │ │ - */
+│ │ │ -function extractLinkTags(html) {
+│ │ │ -    // let regex = /<link\s+[^>]*\btype=['"][^'"]+['"][^>]*>/gi;
+│ │ │ -
+│ │ │ -    // Excludes link tags with:
+│ │ │ -    //   rel="stylesheet"
+│ │ │ -    //   rel="icon"
+│ │ │ -    //   rel="search"
+│ │ │ -    //   type="text/javascript"
+│ │ │ -    //   type="image/"
+│ │ │ -    //   type="font/"
+│ │ │ -    let regex = /<link\s+(?![^>]*\b(?:rel=['"](stylesheet|icon|search)['"]|type=['"](text\/javascript|image\/(.*)|font\/(.*))['"]))[^>]*\btype=['"][^'"]+['"][^>]*>/gi;
+│ │ │ -
+│ │ │ -    let match = html.match(regex);
+│ │ │ -
+│ │ │ -    return match || [];
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -const SERVICES_TO_CHECK = [
+│ │ │ -    // 'Youtube', 
+│ │ │ -    'RedditRoot',
+│ │ │ -    'RedditSub',
+│ │ │ -    'RedditUser',
+│ │ │ -    'RedditPostComments',
+│ │ │ -    'Kickstarter',
+│ │ │ -    'Vimeo',
+│ │ │ -    'GithubRepo',
+│ │ │ -    'GithubUser',
+│ │ │ -    'GitlabRepo',
+│ │ │ -    'GitlabUser',
+│ │ │ -    'MediumTag'
+│ │ │ -];
+│ │ │ -
+│ │ │ -function checkIfUrlIsKnown(url) {
+│ │ │ -    let match = false;
+│ │ │ -    let check = {};
+│ │ │ -
+│ │ │ -    for (const service of SERVICES_TO_CHECK) {
+│ │ │ -        const method = 'get' + service + 'Rss';
+│ │ │ -        check = this[method](url);
+│ │ │ -
+│ │ │ -        match = check.match;
+│ │ │ -
+│ │ │ -        if (match === true) {
+│ │ │ -            break;
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (match === true) {
+│ │ │ -        return check.feeds;
+│ │ │ -    } else {
+│ │ │ -        return false;
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feeds URLs
+│ │ │ - */
+│ │ │ -function getFeedsURLs(url, callback) {
+│ │ │ -
+│ │ │ -    switch (parseUrl(url).protocol) {
+│ │ │ -        case "chrome:":
+│ │ │ -        case "chrome-extension:":
+│ │ │ -        case "about:":
+│ │ │ -        case "vivaldi:":
+│ │ │ -        case "edge:":
+│ │ │ -        case "chrome-devtools:":
+│ │ │ -        case "devtools:":
+│ │ │ -            render('Unable to find feed');
+│ │ │ -            return false;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    var getFeedUrl = checkIfUrlIsKnown(url);
+│ │ │ -
+│ │ │ -    if (false !== getFeedUrl && getFeedUrl.length > 0) {
+│ │ │ -        callback(getFeedUrl);
+│ │ │ -    } else {
+│ │ │ -        getHtmlSource(url, (response) => {
+│ │ │ -            if (response != '') {
+│ │ │ -                let linkTags = extractLinkTags(response);
+│ │ │ -                // console.log(linkTags);
+│ │ │ -
+│ │ │ -                document.getElementById('rss-feed-url_response').innerHTML = linkTags;
+│ │ │ -            }
+│ │ │ -
+│ │ │ -            searchFeed(url, callback);
+│ │ │ -        });
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Search RSS Feed in source code
+│ │ │ - */
+│ │ │ -async function searchFeed(url, callback) {
+│ │ │ -    var feeds_urls = [];
+│ │ │ -
+│ │ │ -    if (document.getElementById('rss-feed-url_response').innerHTML != '') {
+│ │ │ -        const types = [
+│ │ │ -            'application/rss+xml',
+│ │ │ -            'application/atom+xml',
+│ │ │ -            'application/rdf+xml',
+│ │ │ -            'application/rss',
+│ │ │ -            'application/atom',
+│ │ │ -            'application/rdf',
+│ │ │ -            'text/rss+xml',
+│ │ │ -            'text/atom+xml',
+│ │ │ -            'text/rdf+xml',
+│ │ │ -            'text/rss',
+│ │ │ -            'text/atom',
+│ │ │ -            'text/rdf'
+│ │ │ -        ];
+│ │ │ -
+│ │ │ -        var links = document.getElementById('rss-feed-url_response').querySelectorAll("#rss-feed-url_response link[type]");
+│ │ │ -
+│ │ │ -        document.getElementById('rss-feed-url_response').innerHTML = '';
+│ │ │ -
+│ │ │ -        for (var i = 0; i < links.length; i++) {
+│ │ │ -
+│ │ │ -            if (links[i].hasAttribute('type') && types.indexOf(links[i].getAttribute('type')) !== -1) {
+│ │ │ -
+│ │ │ -                var feed_url = links[i].getAttribute('href');
+│ │ │ -
+│ │ │ -                // If feed's url starts with "//"
+│ │ │ -                if (feed_url.startsWith('//')) {
+│ │ │ -                    feed_url = "http:" + feed_url;
+│ │ │ -                }
+│ │ │ -                // If feed's url starts with "/"
+│ │ │ -                else if (feed_url.startsWith('/')) {
+│ │ │ -                    feed_url = url.split('/')[0] + '//' + url.split('/')[2] + feed_url;
+│ │ │ -                }
+│ │ │ -                // If feed's url starts with http or https
+│ │ │ -                else if (/^(http|https):\/\//i.test(feed_url)) {
+│ │ │ -                    feed_url = feed_url;
+│ │ │ -                }
+│ │ │ -                // If feed's has no slash
+│ │ │ -                else if (!feed_url.match(/\//)) {
+│ │ │ -                    feed_url = url.substr(0, url.lastIndexOf("/")) + '/' + feed_url;
+│ │ │ -                } else {
+│ │ │ -                    feed_url = url + "/" + feed_url.replace(/^\//g, '');
+│ │ │ -                }
+│ │ │ -
+│ │ │ -                var feed = {
+│ │ │ -                    type: links[i].getAttribute('type'),
+│ │ │ -                    url: feed_url,
+│ │ │ -                    title: links[i].getAttribute('title') || feed_url
+│ │ │ -                };
+│ │ │ -
+│ │ │ -                feeds_urls.push(feed);
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    if (feeds_urls.length === 0) {
+│ │ │ -
+│ │ │ -        var test_feed = await tryToGetFeedURL(url);
+│ │ │ -
+│ │ │ -        if (test_feed !== null) {
+│ │ │ -            feeds_urls.push(test_feed);
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    callback(feeds_urls);
+│ │ │ -
+│ │ │ -    if (feeds_urls.length === 0) {
+│ │ │ -        render('Unable to find feed');
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of Youtube channel or user
+│ │ │ - */
+│ │ │ -function getYoutubeRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/(channel|user|c).+/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -        let query = '';
+│ │ │ -        let title = '';
+│ │ │ -
+│ │ │ -        let path = new URL(url).pathname;
+│ │ │ -
+│ │ │ -        if (path.startsWith('/channel/')) {
+│ │ │ -            let channel_id = path.substr('/channel/'.length).split('/')[0];
+│ │ │ -            query = 'channel_id=' + channel_id;
+│ │ │ -            title = channel_id;
+│ │ │ -        } else if (path.startsWith('/c/')) {
+│ │ │ -            let channel_id = path.substr('/c/'.length).split('/')[0];
+│ │ │ -            query = 'user=' + channel_id;
+│ │ │ -            title = channel_id;
+│ │ │ -        } else if (path.startsWith('/user/')) {
+│ │ │ -            let user_id = path.substr('/user/'.length).split('/')[0];
+│ │ │ -            query = 'user=' + user_id;
+│ │ │ -            title = user_id;
+│ │ │ -        }
+│ │ │ -
+│ │ │ -        if (query != '') {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: 'https://www.youtube.com/feeds/videos.xml?' + query,
+│ │ │ -                title: title
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL for the Reddit homepage
+│ │ │ - */
+│ │ │ -function getRedditRootRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com(\/)?$/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let feed_url = !url.endsWith('/') ? url + '/' : url;
+│ │ │ -        feed_url += '.rss';
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of a subreddit
+│ │ │ - */
+│ │ │ -function getRedditSubRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com\/r\/(.+)/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ -        feed_url += '.rss';
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of a reddit user
+│ │ │ - */
+│ │ │ -function getRedditUserRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com\/user\/(.+)/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ -        feed_url += '.rss';
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL for reddit post comments
+│ │ │ - */
+│ │ │ -function getRedditPostCommentsRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?reddit\.com\/r\/(.+)\/comments\/(.+)\/(.+)/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ -        feed_url += '.rss';
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of kickstarter
+│ │ │ - */
+│ │ │ -function getKickstarterRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?kickstarter\.com/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let feed_url = url.endsWith('/') ? url.slice(0, -1) : url;
+│ │ │ -        feed_url = feed_url.split('?')[0] + '/posts.atom';
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of vimeo
+│ │ │ - */
+│ │ │ -function getVimeoRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?vimeo\.com\/([a-zA-Z](.+))(\/videos)?/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let feed_url = url.endsWith('/videos') ? url.replace(/\/videos$/, '') + '/rss' : url + '/videos/rss';
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of Github repo
+│ │ │ - */
+│ │ │ -function getGithubRepoRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?github\.com\/([a-zA-Z0-9](.+))\/([a-zA-Z0-9](.+))$/i;
+│ │ │ -    let matches = url.match(regex);
+│ │ │ -
+│ │ │ -    if (matches) {
+│ │ │ -        datas.match = true;
+│ │ │ -        let repoUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ -        repoUrl = repoUrl.replace(/\/(releases|commits|tags)$/, '');
+│ │ │ -
+│ │ │ -        datas.feeds.push({
+│ │ │ -            url: repoUrl + '/releases.atom',
+│ │ │ -            title: 'Repo releases'
+│ │ │ -        });
+│ │ │ -        datas.feeds.push({
+│ │ │ -            url: repoUrl + '/commits.atom',
+│ │ │ -            title: 'Repo commits'
+│ │ │ -        });
+│ │ │ -        datas.feeds.push({
+│ │ │ -            url: repoUrl + '/tags.atom',
+│ │ │ -            title: 'Repo tags'
+│ │ │ -        });
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/*
+│ │ │ - * Get RSS feed URL of Github user
+│ │ │ - */
+│ │ │ -function getGithubUserRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?github\.com\/([a-zA-Z0-9](.+))$/i;
+│ │ │ -    let matches = url.match(regex);
+│ │ │ -
+│ │ │ -    if (matches) {
+│ │ │ -        datas.match = true;
+│ │ │ -        let userUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ -        datas.feeds.push({
+│ │ │ -            url: userUrl + '.atom',
+│ │ │ -            title: 'User activity'
+│ │ │ -        });
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of Gitlab repo
+│ │ │ - */
+│ │ │ -function getGitlabRepoRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?gitlab\.com\/([a-zA-Z0-9](.+))\/([a-zA-Z0-9](.+))$/i;
+│ │ │ -    let matches = url.match(regex);
+│ │ │ -
+│ │ │ -    if (matches) {
+│ │ │ -        datas.match = true;
+│ │ │ -        let repoUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ -
+│ │ │ -        datas.feeds.push({
+│ │ │ -            url: repoUrl + '.atom',
+│ │ │ -            title: 'Repo commits'
+│ │ │ -        });
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/*
+│ │ │ - * Get RSS feed URL of Gitlab user
+│ │ │ - */
+│ │ │ -function getGitlabUserRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?gitlab\.com\/([a-zA-Z0-9](.+))$/i;
+│ │ │ -    let matches = url.match(regex);
+│ │ │ -
+│ │ │ -    if (matches) {
+│ │ │ -        datas.match = true;
+│ │ │ -        let userUrl = matches[0].replace(/\/$/, ''); // Remove trailing slash
+│ │ │ -        datas.feeds.push({
+│ │ │ -            url: userUrl + '.atom',
+│ │ │ -            title: 'User activity'
+│ │ │ -        });
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Get RSS feed URL of a medium tag page
+│ │ │ - */
+│ │ │ -function getMediumTagRss(url) {
+│ │ │ -    let datas = {
+│ │ │ -        match: false,
+│ │ │ -        feeds: []
+│ │ │ -    };
+│ │ │ -
+│ │ │ -    let regex = /^(http(s)?:\/\/)?((w){3}.)?medium\.com\/tag\/(.+)/i;
+│ │ │ -    let has_match = regex.test(url);
+│ │ │ -
+│ │ │ -    if (has_match) {
+│ │ │ -        datas.match = true;
+│ │ │ -
+│ │ │ -        let tag = url.match(regex)[5];
+│ │ │ -
+│ │ │ -        let feed_url = url.replace(/(\/tag)/, '/feed$1');
+│ │ │ -
+│ │ │ -        if (feed_url) {
+│ │ │ -            datas.feeds.push({
+│ │ │ -                url: feed_url,
+│ │ │ -                title: tag ?? feed_url
+│ │ │ -            });
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return datas;
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Prints message in #feeds
+│ │ │ - */
+│ │ │ -function render(content) {
+│ │ │ -    document.getElementById('feeds').innerHTML = content;
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Copy to clipboard text with notification
+│ │ │ - */
+│ │ │ -function copyToClipboard(text, notification) {
+│ │ │ -    navigator.clipboard.writeText(text);
+│ │ │ -
+│ │ │ -    chrome.notifications.create('get-rss-feed-url-copy', {
+│ │ │ -        type: "basic",
+│ │ │ -        title: notification.title || "Get RSS Feeds URLs",
+│ │ │ -        message: notification.message,
+│ │ │ -        iconUrl: "img/notif_" + notification.type + ".png"
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Attempt to find an RSS feed URL by providing a suffix
+│ │ │ - */
+│ │ │ -async function tryToGetFeedURL(tabUrl) {
+│ │ │ -    var url_datas = parseUrl(tabUrl);
+│ │ │ -    var feed = null;
+│ │ │ -    var isFound = false;
+│ │ │ -
+│ │ │ -    var tests = ['/feed', '/rss', '/rss.xml', '/feed.xml', '/rss/news.xml', '/articles/feed', '/rss/index.html'];
+│ │ │ -
+│ │ │ -    for (var t = 0; t < tests.length; t++) {
+│ │ │ -        if (isFound === false) {
+│ │ │ -            var feed_url = url_datas.origin + tests[t];
+│ │ │ -
+│ │ │ -            let response = await fetch(feed_url, {
+│ │ │ -                method: 'get'
+│ │ │ -            });
+│ │ │ -
+│ │ │ -            if (!response.ok || (response.status >= 200 && response.status < 400)) {
+│ │ │ -                let urlContent = await response.text();
+│ │ │ -
+│ │ │ -                var oParser = new DOMParser();
+│ │ │ -                var oDOM = oParser.parseFromString(urlContent, "application/xml");
+│ │ │ -
+│ │ │ -                var getRssTag = oDOM.getElementsByTagName('rss');
+│ │ │ -                var getFeedTag = oDOM.getElementsByTagName('feed');
+│ │ │ -
+│ │ │ -                if (getRssTag.length > 0 || getFeedTag.length > 0) {
+│ │ │ -
+│ │ │ -                    if (getRssTag.length > 0) {
+│ │ │ -                        var getChannelTag = getRssTag['0'].getElementsByTagName('channel');
+│ │ │ -                    } else if (getFeedTag.length > 0) {
+│ │ │ -                        var getChannelTag = getFeedTag['0'];
+│ │ │ -                    }
+│ │ │ -
+│ │ │ -                    if (getChannelTag !== false) {
+│ │ │ -                        isFound = true;
+│ │ │ -
+│ │ │ -                        feed = {
+│ │ │ -                            type: '',
+│ │ │ -                            url: feed_url,
+│ │ │ -                            title: feed_url
+│ │ │ -                        };
+│ │ │ -
+│ │ │ -                        return feed;
+│ │ │ -                    }
+│ │ │ -                }
+│ │ │ -            }
+│ │ │ -        }
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    return feed;
+│ │ │  }
+│ │   --- /workspace/pipeline_output/chromex_data/js/popup.js
+│ ├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/js/popup.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,76 +1,76 @@
+│ │ │ +document.addEventListener('DOMContentLoaded', function() {
+│ │ │ +    chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, function(tabs) {
+│ │ │ +        var tab = tabs[0];
+│ │ │ +        var url = tab.url;
+│ │ │ +
+│ │ │ +        getFeedsURLs(url, function(feeds) {
+│ │ │ +
+│ │ │ +            if (feeds.length > 0) {
+│ │ │ +                var html = '<table id="feeds-list">';
+│ │ │ +                for (i = 0; i < feeds.length; i++) {
+│ │ │ +                    html += '<tr>';
+│ │ │ +                    html += '<td class="feed-title">';
+│ │ │ +                    html += '<a class="link" href="' + feeds[i].url + '" title="Open feed URL" data-tabtitle="' + tab.title + '" target="_blank">' + feeds[i].title + '</a>';
+│ │ │ +                    html += '<span class="feed-url">' + truncate(feeds[i].url, 50) + '</span>';
+│ │ │ +                    html += '</td>';
+│ │ │ +                    html += '<td class="feed-copy">';
+│ │ │ +                    html += '<a class="copyButton copyLink" title="Copy feed URL" href="#">Copy URL</a>';
+│ │ │ +                    html += '</td>';
+│ │ │ +                    html += '</tr>';
+│ │ │ +                }
+│ │ │ +                html += '</table>';
+│ │ │ +
+│ │ │ +                html += '<div class="copyAllLinks-container">';
+│ │ │ +                html += '<a id="copyAllLinks" class="" title="Copy all feeds URLs" href="#">Copy all URLs</a>';
+│ │ │ +                html += '</div>';
+│ │ │ +
+│ │ │ +                render(html);
+│ │ │ +
+│ │ │ +
+│ │ │ +                // Copy to clipboard feed URL
+│ │ │ +                var copyButtons = document.getElementsByClassName('copyLink');
+│ │ │ +
+│ │ │ +                for (let i = 0; i < copyButtons.length; i++) {
+│ │ │ +                    copyButtons[i].addEventListener("click", function() {
+│ │ │ +                        var feed = this.parentNode.parentNode.querySelector('a.link');
+│ │ │ +                        var url = feed.getAttribute('href');
+│ │ │ +                        var tabTitle = feed.getAttribute('data-tabtitle');
+│ │ │ +
+│ │ │ +                        copyToClipboard(url, {
+│ │ │ +                            type: "success",
+│ │ │ +                            title: tabTitle,
+│ │ │ +                            message: "Feed URL copied in clipboard!"
+│ │ │ +                        });
+│ │ │ +                    });
+│ │ │ +                }
+│ │ │ +
+│ │ │ +
+│ │ │ +                // Copy to clipboard all feeds URLs
+│ │ │ +                var copyButtonAll = document.getElementById('copyAllLinks');
+│ │ │ +
+│ │ │ +                copyButtonAll.addEventListener("click", function() {
+│ │ │ +                    var feeds_list = document.getElementById('feeds-list').querySelectorAll('.feed-title a.link');
+│ │ │ +
+│ │ │ +                    var text = '';
+│ │ │ +                    for (var j = 0; j < feeds_list.length; j++) {
+│ │ │ +                        text += feeds_list[j] + "\n";
+│ │ │ +                    }
+│ │ │ +                    var textToCopy = text.substring(0, text.length - 1);
+│ │ │ +
+│ │ │ +                    copyToClipboard(textToCopy, {
+│ │ │ +                        type: "success",
+│ │ │ +                        title: '',
+│ │ │ +                        message: "Feeds URLs copied in clipboard!"
+│ │ │ +                    });
+│ │ │ +                });
+│ │ │ +
+│ │ │ +            } else {
+│ │ │ +                render("No feed found");
+│ │ │ +            }
+│ │ │ +
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ -document.addEventListener('DOMContentLoaded', function() {
+│ │ │ -    chrome.tabs.query({
+│ │ │ -        active: true,
+│ │ │ -        currentWindow: true
+│ │ │ -    }, function(tabs) {
+│ │ │ -        var tab = tabs[0];
+│ │ │ -        var url = tab.url;
+│ │ │ -
+│ │ │ -        getFeedsURLs(url, function(feeds) {
+│ │ │ -
+│ │ │ -            if (feeds.length > 0) {
+│ │ │ -                var html = '<table id="feeds-list">';
+│ │ │ -                for (i = 0; i < feeds.length; i++) {
+│ │ │ -                    html += '<tr>';
+│ │ │ -                    html += '<td class="feed-title">';
+│ │ │ -                    html += '<a class="link" href="' + feeds[i].url + '" title="Open feed URL" data-tabtitle="' + tab.title + '" target="_blank">' + feeds[i].title + '</a>';
+│ │ │ -                    html += '<span class="feed-url">' + truncate(feeds[i].url, 50) + '</span>';
+│ │ │ -                    html += '</td>';
+│ │ │ -                    html += '<td class="feed-copy">';
+│ │ │ -                    html += '<a class="copyButton copyLink" title="Copy feed URL" href="#">Copy URL</a>';
+│ │ │ -                    html += '</td>';
+│ │ │ -                    html += '</tr>';
+│ │ │ -                }
+│ │ │ -                html += '</table>';
+│ │ │ -
+│ │ │ -                html += '<div class="copyAllLinks-container">';
+│ │ │ -                html += '<a id="copyAllLinks" class="" title="Copy all feeds URLs" href="#">Copy all URLs</a>';
+│ │ │ -                html += '</div>';
+│ │ │ -
+│ │ │ -                render(html);
+│ │ │ -
+│ │ │ -
+│ │ │ -                // Copy to clipboard feed URL
+│ │ │ -                var copyButtons = document.getElementsByClassName('copyLink');
+│ │ │ -
+│ │ │ -                for (let i = 0; i < copyButtons.length; i++) {
+│ │ │ -                    copyButtons[i].addEventListener("click", function() {
+│ │ │ -                        var feed = this.parentNode.parentNode.querySelector('a.link');
+│ │ │ -                        var url = feed.getAttribute('href');
+│ │ │ -                        var tabTitle = feed.getAttribute('data-tabtitle');
+│ │ │ -
+│ │ │ -                        copyToClipboard(url, {
+│ │ │ -                            type: "success",
+│ │ │ -                            title: tabTitle,
+│ │ │ -                            message: "Feed URL copied in clipboard!"
+│ │ │ -                        });
+│ │ │ -                    });
+│ │ │ -                }
+│ │ │ -
+│ │ │ -
+│ │ │ -                // Copy to clipboard all feeds URLs
+│ │ │ -                var copyButtonAll = document.getElementById('copyAllLinks');
+│ │ │ -
+│ │ │ -                copyButtonAll.addEventListener("click", function() {
+│ │ │ -                    var feeds_list = document.getElementById('feeds-list').querySelectorAll('.feed-title a.link');
+│ │ │ -
+│ │ │ -                    var text = '';
+│ │ │ -                    for (var j = 0; j < feeds_list.length; j++) {
+│ │ │ -                        text += feeds_list[j] + "\n";
+│ │ │ -                    }
+│ │ │ -                    var textToCopy = text.substring(0, text.length - 1);
+│ │ │ -
+│ │ │ -                    copyToClipboard(textToCopy, {
+│ │ │ -                        type: "success",
+│ │ │ -                        title: '',
+│ │ │ -                        message: "Feeds URLs copied in clipboard!"
+│ │ │ -                    });
+│ │ │ -                });
+│ │ │ -
+│ │ │ -            } else {
+│ │ │ -                render("No feed found");
+│ │ │ -            }
+│ │ │ -
+│ │ │ -        });
+│ │ │ -    });
+│ │ │  });
+│ │   --- /workspace/pipeline_output/chromex_data/js/utilities.js
+│ ├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/js/utilities.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,24 +1,24 @@
+│ │ │ +/**
+│ │ │ + * Parse an URL to return host, protocol, ...
+│ │ │ + */
+│ │ │ +function parseUrl(string) {
+│ │ │ +    return new URL(string);
+│ │ │ +}
+│ │ │ +
+│ │ │ +/**
+│ │ │ + * Truncate string in the middle
+│ │ │ + */
+│ │ │ +function truncate(fullStr, strLen, separator) {
+│ │ │ +    if (fullStr.length <= strLen) return fullStr;
+│ │ │ +
+│ │ │ +    separator = separator || '...';
+│ │ │ +
+│ │ │ +    var sepLen = separator.length,
+│ │ │ +        charsToShow = strLen - sepLen,
+│ │ │ +        frontChars = Math.ceil(charsToShow / 2),
+│ │ │ +        backChars = Math.floor(charsToShow / 2);
+│ │ │ +
+│ │ │ +    return fullStr.substr(0, frontChars) +
+│ │ │ +        separator +
+│ │ │ +        fullStr.substr(fullStr.length - backChars);
+│ │ │ -/**
+│ │ │ - * Parse an URL to return host, protocol, ...
+│ │ │ - */
+│ │ │ -function parseUrl(string) {
+│ │ │ -    return new URL(string);
+│ │ │ -}
+│ │ │ -
+│ │ │ -/**
+│ │ │ - * Truncate string in the middle
+│ │ │ - */
+│ │ │ -function truncate(fullStr, strLen, separator) {
+│ │ │ -    if (fullStr.length <= strLen) return fullStr;
+│ │ │ -
+│ │ │ -    separator = separator || '...';
+│ │ │ -
+│ │ │ -    var sepLen = separator.length,
+│ │ │ -        charsToShow = strLen - sepLen,
+│ │ │ -        frontChars = Math.ceil(charsToShow / 2),
+│ │ │ -        backChars = Math.floor(charsToShow / 2);
+│ │ │ -
+│ │ │ -    return fullStr.substr(0, frontChars) +
+│ │ │ -        separator +
+│ │ │ -        fullStr.substr(fullStr.length - backChars);
+│ │ │  };
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -23,10 +23,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Get RSS Feed URL",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "notifications"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "3.0.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/get-rss-feed-url-extension/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,36 +1,36 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -<head>
+│ -    <meta charset="utf-8">
+│ -    <title></title>
+│ -    <link rel="stylesheet" href="css/popup.css">
+│ -</head>
+│ -<body class="rss-feed-url">
+│ -
+│ -<header>
+│ -    <h1>Get RSS Feeds URLs</h1>
+│ -</header>
+│ -
+│ -<div class="rss-feed-url_content">
+│ -
+│ -    <div id="feeds">
+│ -        <div class="loader"></div>
+│ -    </div>
+│ -
+│ -</div>
+│ -
+│ -
+│ -<footer>
+│ -    By <a href="https://shevarezo.fr" target="_blank">shevabam</a><span class="rss-feed-url__bullet">•</span><a href="https://github.com/shevabam/get-rss-feed-url-extension" target="_blank">More infos</a>
+│ -</footer>
+│ -
+│ -
+│ -<div id="rss-feed-url_response"></div>
+│ -
+│ -
+│ -<script src="js/utilities.js"></script>
+│ -<script src="js/functions.js"></script>
+│ -<script src="js/popup.js"></script>
+│ -
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +<head>
+│ +    <meta charset="utf-8">
+│ +    <title></title>
+│ +    <link rel="stylesheet" href="css/popup.css">
+│ +</head>
+│ +<body class="rss-feed-url">
+│ +
+│ +<header>
+│ +    <h1>Get RSS Feeds URLs</h1>
+│ +</header>
+│ +
+│ +<div class="rss-feed-url_content">
+│ +
+│ +    <div id="feeds">
+│ +        <div class="loader"></div>
+│ +    </div>
+│ +
+│ +</div>
+│ +
+│ +
+│ +<footer>
+│ +    By <a href="https://shevarezo.fr" target="_blank">shevabam</a><span class="rss-feed-url__bullet">•</span><a href="https://github.com/shevabam/get-rss-feed-url-extension" target="_blank">More infos</a>
+│ +</footer>
+│ +
+│ +
+│ +<div id="rss-feed-url_response"></div>
+│ +
+│ +
+│ +<script src="js/utilities.js"></script>
+│ +<script src="js/functions.js"></script>
+│ +<script src="js/popup.js"></script>
+│ +
+│ +</body>
+│  </html>

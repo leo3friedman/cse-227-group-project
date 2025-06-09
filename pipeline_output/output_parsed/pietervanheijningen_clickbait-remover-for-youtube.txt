@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/clickbait-remover-for-youtube
+  - files: _metadata, options_popup.html
+  + files: .git, .github, .gitignore, LICENSE, changelog.md, createZips.sh, firefox_manifest.json, options_popup.html, package-lock.json, readme.md
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/clickbait-remover-for-youtube/_locales
+  - files: tr
+  + files: tr, zh_TW
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/clickbait-remover-for-youtube/manifest.json; File type: json
+  - Original: 46–46 -> Update URL
+

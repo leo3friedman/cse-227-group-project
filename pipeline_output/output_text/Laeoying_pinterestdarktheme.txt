@@ -1,0 +1,992 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/pinterestdarktheme/chrome
+├── file list
+│ @@ -1,6 +1,5 @@
+│ -_metadata
+│  icon.png
+│  main.css
+│  main.js
+│  manifest.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/main.css
+├── +++ /workspace/pipeline_output/pinterestdarktheme/chrome/main.css
+│ @@ -1,257 +1,258 @@
+│ -  :root {
+│ -      --pdt-d1: black;
+│ -      --pdt-d2: rgb(20, 20, 20);
+│ -      --pdt-d3: rgb(30, 30, 30);
+│ -      --pdt-l1: white;
+│ -      --pdt-l2: rgb(160, 160, 160);
+│ -      --pdt-l3: rgb(120, 120, 120);
+│ -      --pdt-f1: brightness(10%);
+│ -      --pdt-f2: brightness(20%);
+│ -      background-color: var(--pdt-d1);
+│ -  }
+│ -
+│ -  body {
+│ -      --g-colorSchemeName: darkMode;
+│ -      --color-text-default: var(--pdt-l1);
+│ -      --color-text-subtle: var(--pdt-l2);
+│ -      --color-icon-subtle: var(--pdt-l2);
+│ -      --color-icon-default: var(--pdt-l3);
+│ -      --color-background-default: var(--pdt-d1);
+│ -      --color-background-box-default: var(--pdt-d1);
+│ -      --color-background-button-secondary-default: var(--pdt-d3);
+│ -      --color-background-button-secondary-hover: var(--pdt-d4);
+│ -      --color-background-tabs-default-base: var(--pdt-d1);
+│ -      --color-background-tabs-default-hover: var(--pdt-d3);
+│ -      --color-background-tabs-default-active: var(--pdt-d4);
+│ -      --color-border-popover-primary: var(--pdt-d1);
+│ -      --color-background-popover-primary: var(--pdt-d2);
+│ -      --color-background-box-secondary: var(--pdt-d3);
+│ -      --color-background-overlay: var(--pdt-d3);
+│ -      --color-background-box-darkwash: var(--pdt-d4);
+│ -      --color-background-button-white-default: var(--pdt-d3);
+│ -      --color-background-button-white-hover: var(--pdt-d4);
+│ -      --color-background-formfield-primary: var(--pdt-d3);
+│ -      --color-background-combobox-item-hover: var(--pdt-d4);
+│ -      --color-background-tag-primary-default: var(--pdt-d2);
+│ -      --color-text-formfield-default: var(--pdt-l1);
+│ -      --color-background-box-warning-weak: var(--pdt-d2);
+│ -      --color-background-box-lightwash: var(--pdt-d3);
+│ -      --color-background-box-light: var(--pdt-d3);
+│ -      --color-background-switch-default-selected: var(--pdt-l1);
+│ -      --color-background-switch-default-unselected: var(--pdt-d2);
+│ -      --color-background-selected-base: var(--pdt-l1);
+│ -      --color-background-box-selected: var(--pdt-d4);
+│ -      --color-background-button-tertiary-hover: var(--pdt-d2);
+│ -      --color-background-secondary-base: var(--pdt-d2);
+│ -      --color-text-dark: var(--pdt-l1);
+│ -      --color-border-container: var(--pdt-d3);
+│ -      --color-icon-dark: var(--pdt-l1);
+│ -      --color-background-datepicker-container: var(--pdt-d1);
+│ -      --elevation-datepicker: 0 0 8px rgb(from var(--pdt-l1) r g b / 10%);
+│ -      --color-background-formfield-primary: var(--pdt-d2);
+│ -      --elevation-floating: 0 0 8px rgb(from var(--pdt-l2) r g b / 10%);
+│ -      --color-background-mask-wash: rgb(from var(--pdt-l1) r g b / 4%);
+│ -      --color-text-inverse: white;
+│ -      --color-background-button-disabled-default: var(--pdt-d3);
+│ -      background-color: var(--pdt-d1) !important;
+│ -      z-index: 0;
+│ -      color: var(--pdt-l1);
+│ -  }
+│ -
+│ -  /* Scrollbar */
+│ -  ::-webkit-scrollbar {
+│ -      width: 13px;
+│ -  }
+│ -
+│ -  ::-webkit-scrollbar-track {
+│ -      background: var(--pdt-d3);
+│ -  }
+│ -
+│ -  ::-webkit-scrollbar-thumb {
+│ -      background: var(--pdt-d4);
+│ -  }
+│ -
+│ -  ::-moz-scrollbar {
+│ -      width: 13px;
+│ -  }
+│ -
+│ -  ::-moz-scrollbar-track {
+│ -      background: var(--pdt-d3);
+│ -  }
+│ -
+│ -  ::-moz-scrollbar-thumb {
+│ -      background: var(--pdt-d4);
+│ -  }
+│ -
+│ -  ::-ms-scrollbar {
+│ -      width: 13px;
+│ -  }
+│ -
+│ -  ::-ms-scrollbar-track {
+│ -      background: var(--pdt-d3);
+│ -  }
+│ -
+│ -  ::-ms-scrollbar-thumb {
+│ -      background: var(--pdt-d4);
+│ -  }
+│ -
+│ -  /* More Ideas Board */
+│ -  div:has(>.moreIdeasBoardRepCarousel)>div:nth-child(n + 3) {
+│ -      filter: var(--pdt-f1, brightness(10%));
+│ -  }
+│ -
+│ -  div:has(>div[data-root-margin="more-ideas-tabs"]) {
+│ -      background-color: transparent !important;
+│ -  }
+│ -
+│ -  /* Seach Bar */
+│ -  input[data-test-id="search-box-input"] {
+│ -      background-color: transparent !important;
+│ -  }
+│ -
+│ -  #searchBoxContainer>div>div:nth-child(2) {
+│ -      background-color: var(--pdt-l3) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="dynamic-search-placeholder"]>div.QLY {
+│ -      background-image: linear-gradient(to top, rgba(255, 255, 255, 0), var(--pdt-d2)) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="dynamic-search-placeholder"]>div.ojN {
+│ -      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--pdt-d2)) !important;
+│ -  }
+│ -
+│ -  /* Post */
+│ -  div[data-test-id="closeup-title"] {
+│ -      background: transparent;
+│ -  }
+│ -
+│ -  div[data-test-id="inline-comment-composer-container"] {
+│ -      border-color: var(--pdt-l3) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="pinrep-source-link"] {
+│ -      background-color: var(--pdt-d3) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="more-description-container"],
+│ -  div[data-test-id="less-description-container"] {
+│ -      background-color: var(--color-background-box-default) !important;
+│ -  }
+│ -
+│ -  div:has(>div>div>div>div[data-test-id="visual-content-container"]) {
+│ -      border-radius: 32px;
+│ -  }
+│ -
+│ -  div:has(>div[data-test-id="closeup-lego-container"]) {
+│ -      box-shadow: 0 1px 20px 0 rgb(from var(--pdt-l2) r g b / 10%) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="lego-share-social-bar-auth"] button {
+│ -      background-color: var(--pdt-d1) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="more-description-container"]>div.MIw {
+│ -      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--pdt-d1) 100%) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="peek-variant-shopping-module-container"]>div:last-child {
+│ -      background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, var(--pdt-d1) 100%) !important;
+│ -  }
+│ -
+│ -  div:has(>div[data-test-id="self-profile-header"]) {
+│ -      background-color: var(--pdt-d1) !important;
+│ -  }
+│ -
+│ -  /* Album Preview */
+│ -  div[data-test-id="profile-board-card"] div,
+│ -  div[data-test-id="pwt-grid-item"] div {
+│ -      border-color: var(--pdt-d1) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="persistent-one-click-save"] div:has(>div >svg) {
+│ -      background-color: var(--pdt-d2) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="pinRepSelectionBorder"]:has(svg[height="24"]) {
+│ -      border-color: var(--pdt-d1) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="pinRepSelectionBorder"]:has(svg[height="12"]) {
+│ -      border-color: var(--pdt-l1) !important;
+│ -      box-shadow: var(--pdt-d1) 0px 0px 0px 3px inset !important;
+│ -  }
+│ -
+│ -  div:has(>div>div>[data-test-id="visual-content-container"]) {
+│ -      box-shadow: none !important;
+│ -  }
+│ -
+│ -  /* Image Search */
+│ -  div[data-test-id="shop-button"] {
+│ -      background-color: rgb(from var(--color-background-box-default) r g b / 90%) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="visual-search-cropper"] .v2cropperHandle,
+│ -  div[data-test-id="visual-search-cropper"] .v2cropSection {
+│ -      filter: var(--pdt-f1, brightness(20%));
+│ -  }
+│ -
+│ -  /* Pin Creation */
+│ -  div[data-test-id="storyboard-selector-board"] button {
+│ -      background-color: var(--pdt-d2) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="storyboard-selector-board"] button>div:not([data-test-id="board-dropdown-placeholder"]) span {
+│ -      color: var(--pdt-l1) !important;
+│ -  }
+│ -
+│ -  div:has(>div[data-test-id="editor-with-mentions"]) {
+│ -      border-radius: var(--rounding-600);
+│ -      color: var(--pdt-l1) !important;
+│ -      background-color: var(--pdt-d2) !important;
+│ -  }
+│ -
+│ -  div:has(>div[data-test-id="header-content-container"])>div:nth-child(3)>div>div>div:nth-child(2)>div:nth-child(2),
+│ -  div:has(>div[data-test-id="header-content-container"])>div:nth-child(3)>div>div>div:nth-child(2)>div>div:nth-child(2) {
+│ -      background-color: rgb(from var(--pdt-d1) r g b / 60%) !important;
+│ -  }
+│ -
+│ -  input,
+│ -  textarea,
+│ -  #searchBoxContainer>div {
+│ -      color: var(--pdt-l1) !important;
+│ -      background-color: var(--pdt-d2) !important;
+│ -  }
+│ -
+│ -  /* Settings */
+│ -  div:has(>div[data-test-id="homefeed-control-message-text"]) div[role="button"]>div>div>div:nth-child(2),
+│ -  div:has(>div >div >div >div[data-test-id="pin"])>div:nth-child(2) {
+│ -      background-color: rgb(from var(--pdt-l1) r g b / 10%) !important;
+│ -  }
+│ -
+│ -  select option {
+│ -      background-color: var(--pdt-d1);
+│ -  }
+│ -
+│ -  /* Messages */
+│ -  div:has(>div[data-test-id="send-message-to-conversation"])>div:nth-child(2) {
+│ -      background-color: var(--pdt-d2) !important;
+│ -  }
+│ -
+│ -  div[data-test-id="chat-window-container"] {
+│ -      box-shadow: rgb(from var(--pdt-l2) r g b / 10%) -3px 4px 14px 0px !important;
+│ -  }
+│ -
+│ -  /* Pinterest Generics */
+│ -  .T3r {
+│ -      background: rgb(from var(--pdt-l1) r g b / 6.4%);
+│ -  }
+│ -    /*
+│ -    THE FOLLOWING RULE SUCK
+│ -    the only thing it does is putting the icons in white, THOUGH when you put back the white theme, it stays white so you can't see it
+│ -    the thing is, the way the rule is made is weird since the svg is in a background-image url() and the fills are in the url
+│ -    i have NO IDEA how to change this :(
+│ -    */
+│ -  .DUt.Jea.KS5.mQ8.zI7.iyn.Hsu { 
+│ -    filter: invert(1);
+│ -  }
+│ +:root {
+│ +	--pdt-d1: black;
+│ +	--pdt-d2: rgb(20, 20, 20);
+│ +	--pdt-d3: rgb(30, 30, 30);
+│ +	--pdt-l1: white;
+│ +	--pdt-l2: rgb(160, 160, 160);
+│ +	--pdt-l3: rgb(120, 120, 120);
+│ +	--pdt-f1: brightness(10%);
+│ +	--pdt-f2: brightness(20%);
+│ +	background-color: var(--pdt-d1);
+│ +}
+│ +
+│ +body {
+│ +	--g-colorSchemeName: darkMode;
+│ +	--color-text-default: var(--pdt-l1);
+│ +	--color-text-subtle: var(--pdt-l2);
+│ +	--color-icon-subtle: var(--pdt-l2);
+│ +	--color-icon-default: var(--pdt-l3);
+│ +	--color-background-default: var(--pdt-d1);
+│ +	--color-background-box-default: var(--pdt-d1);
+│ +	--color-background-button-secondary-default: var(--pdt-d3);
+│ +	--color-background-button-secondary-hover: var(--pdt-d4);
+│ +	--color-background-tabs-default-base: var(--pdt-d1);
+│ +	--color-background-tabs-default-hover: var(--pdt-d3);
+│ +	--color-background-tabs-default-active: var(--pdt-d4);
+│ +	--color-border-popover-primary: var(--pdt-d1);
+│ +	--color-background-popover-primary: var(--pdt-d2);
+│ +	--color-background-box-secondary: var(--pdt-d3);
+│ +	--color-background-overlay: var(--pdt-d3);
+│ +	--color-background-box-darkwash: var(--pdt-d4);
+│ +	--color-background-button-white-default: var(--pdt-d3);
+│ +	--color-background-button-white-hover: var(--pdt-d4);
+│ +	--color-background-formfield-primary: var(--pdt-d3);
+│ +	--color-background-combobox-item-hover: var(--pdt-d4);
+│ +	--color-background-tag-primary-default: var(--pdt-d2);
+│ +	--color-text-formfield-default: var(--pdt-l1);
+│ +	--color-background-box-warning-weak: var(--pdt-d2);
+│ +	--color-background-box-lightwash: var(--pdt-d3);
+│ +	--color-background-box-light: var(--pdt-d3);
+│ +	--color-background-switch-default-selected: var(--pdt-l1);
+│ +	--color-background-switch-default-unselected: var(--pdt-d2);
+│ +	--color-background-selected-base: var(--pdt-l1);
+│ +	--color-background-box-selected: var(--pdt-d4);
+│ +	--color-background-button-tertiary-hover: var(--pdt-d2);
+│ +	--color-background-secondary-base: var(--pdt-d2);
+│ +	--color-text-dark: var(--pdt-l1);
+│ +	--color-border-container: var(--pdt-d3);
+│ +	--color-icon-dark: var(--pdt-l1);
+│ +	--color-background-datepicker-container: var(--pdt-d1);
+│ +	--elevation-datepicker: 0 0 8px rgb(from var(--pdt-l1) r g b / 10%);
+│ +	--color-background-formfield-primary: var(--pdt-d2);
+│ +	--elevation-floating: 0 0 8px rgb(from var(--pdt-l2) r g b / 10%);
+│ +	--color-background-mask-wash: rgb(from var(--pdt-l1) r g b / 4%);
+│ +	--color-text-inverse: white;
+│ +	--color-background-button-disabled-default: var(--pdt-d3);
+│ +	background-color: var(--pdt-d1) !important;
+│ +	z-index: 0;
+│ +	color: var(--pdt-l1);
+│ +}
+│ +
+│ +/* Scrollbar */
+│ +::-webkit-scrollbar {
+│ +	width: 13px;
+│ +}
+│ +
+│ +::-webkit-scrollbar-track {
+│ +	background: var(--pdt-d3);
+│ +}
+│ +
+│ +::-webkit-scrollbar-thumb {
+│ +	background: var(--pdt-d4);
+│ +}
+│ +
+│ +::-moz-scrollbar {
+│ +	width: 13px;
+│ +}
+│ +
+│ +::-moz-scrollbar-track {
+│ +	background: var(--pdt-d3);
+│ +}
+│ +
+│ +::-moz-scrollbar-thumb {
+│ +	background: var(--pdt-d4);
+│ +}
+│ +
+│ +::-ms-scrollbar {
+│ +	width: 13px;
+│ +}
+│ +
+│ +::-ms-scrollbar-track {
+│ +	background: var(--pdt-d3);
+│ +}
+│ +
+│ +::-ms-scrollbar-thumb {
+│ +	background: var(--pdt-d4);
+│ +}
+│ +
+│ +/* More Ideas Board */
+│ +div:has(>.moreIdeasBoardRepCarousel)>div:nth-child(n + 3) {
+│ +	filter: var(--pdt-f1, brightness(10%));
+│ +}
+│ +
+│ +div:has(>div[data-root-margin="more-ideas-tabs"]) {
+│ +	background-color: transparent !important;
+│ +}
+│ +
+│ +/* Seach Bar */
+│ +input[data-test-id="search-box-input"] {
+│ +	background-color: transparent !important;
+│ +}
+│ +
+│ +#searchBoxContainer>div>div:nth-child(2) {
+│ +	background-color: var(--pdt-l3) !important;
+│ +}
+│ +
+│ +div[data-test-id="dynamic-search-placeholder"]>div.QLY {
+│ +	background-image: linear-gradient(to top, rgba(255, 255, 255, 0), var(--pdt-d2)) !important;
+│ +}
+│ +
+│ +div[data-test-id="dynamic-search-placeholder"]>div.ojN {
+│ +	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--pdt-d2)) !important;
+│ +}
+│ +
+│ +/* Post */
+│ +div[data-test-id="closeup-title"] {
+│ +	background: transparent;
+│ +}
+│ +
+│ +div[data-test-id="inline-comment-composer-container"] {
+│ +	border-color: var(--pdt-l3) !important;
+│ +}
+│ +
+│ +div[data-test-id="pinrep-source-link"] {
+│ +	background-color: var(--pdt-d3) !important;
+│ +}
+│ +
+│ +div[data-test-id="more-description-container"],
+│ +div[data-test-id="less-description-container"] {
+│ +	background-color: var(--color-background-box-default) !important;
+│ +}
+│ +
+│ +div:has(>div>div>div>div[data-test-id="visual-content-container"]) {
+│ +	border-radius: 32px;
+│ +}
+│ +
+│ +div:has(>div[data-test-id="closeup-lego-container"]) {
+│ +	box-shadow: 0 1px 20px 0 rgb(from var(--pdt-l2) r g b / 10%) !important;
+│ +}
+│ +
+│ +div[data-test-id="lego-share-social-bar-auth"] button {
+│ +	background-color: var(--pdt-d1) !important;
+│ +}
+│ +
+│ +div[data-test-id="more-description-container"]>div.MIw {
+│ +	background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--pdt-d1) 100%) !important;
+│ +}
+│ +
+│ +div[data-test-id="peek-variant-shopping-module-container"]>div:last-child {
+│ +	background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, var(--pdt-d1) 100%) !important;
+│ +}
+│ +
+│ +div:has(>div[data-test-id="self-profile-header"]) {
+│ +	background-color: var(--pdt-d1) !important;
+│ +}
+│ +
+│ +/* Album Preview */
+│ +div[data-test-id="profile-board-card"] div,
+│ +div[data-test-id="pwt-grid-item"] div {
+│ +	border-color: var(--pdt-d1) !important;
+│ +}
+│ +
+│ +div[data-test-id="persistent-one-click-save"] div:has(>div >svg) {
+│ +	background-color: var(--pdt-d2) !important;
+│ +}
+│ +
+│ +div[data-test-id="pinRepSelectionBorder"]:has(svg[height="24"]) {
+│ +	border-color: var(--pdt-d1) !important;
+│ +}
+│ +
+│ +div[data-test-id="pinRepSelectionBorder"]:has(svg[height="12"]) {
+│ +	border-color: var(--pdt-l1) !important;
+│ +	box-shadow: var(--pdt-d1) 0px 0px 0px 3px inset !important;
+│ +}
+│ +
+│ +div:has(>div>div>[data-test-id="visual-content-container"]) {
+│ +	box-shadow: none !important;
+│ +}
+│ +
+│ +/* Image Search */
+│ +div[data-test-id="shop-button"] {
+│ +	background-color: rgb(from var(--color-background-box-default) r g b / 90%) !important;
+│ +}
+│ +
+│ +div[data-test-id="visual-search-cropper"] .v2cropperHandle,
+│ +div[data-test-id="visual-search-cropper"] .v2cropSection {
+│ +	filter: var(--pdt-f1, brightness(20%));
+│ +}
+│ +
+│ +/* Pin Creation */
+│ +div[data-test-id="storyboard-selector-board"] button {
+│ +	background-color: var(--pdt-d2) !important;
+│ +}
+│ +
+│ +div[data-test-id="storyboard-selector-board"] button>div:not([data-test-id="board-dropdown-placeholder"]) span {
+│ +	color: var(--pdt-l1) !important;
+│ +}
+│ +
+│ +div:has(>div[data-test-id="editor-with-mentions"]) {
+│ +	border-radius: var(--rounding-600);
+│ +	color: var(--pdt-l1) !important;
+│ +	background-color: var(--pdt-d2) !important;
+│ +}
+│ +
+│ +div:has(>div[data-test-id="header-content-container"])>div:nth-child(3)>div>div>div:nth-child(2)>div:nth-child(2),
+│ +div:has(>div[data-test-id="header-content-container"])>div:nth-child(3)>div>div>div:nth-child(2)>div>div:nth-child(2) {
+│ +	background-color: rgb(from var(--pdt-d1) r g b / 60%) !important;
+│ +}
+│ +
+│ +input,
+│ +textarea,
+│ +#searchBoxContainer>div {
+│ +	color: var(--pdt-l1) !important;
+│ +	background-color: var(--pdt-d2) !important;
+│ +}
+│ +
+│ +/* Settings */
+│ +div:has(>div[data-test-id="homefeed-control-message-text"]) div[role="button"]>div>div>div:nth-child(2),
+│ +div:has(>div >div >div >div[data-test-id="pin"])>div:nth-child(2) {
+│ +	background-color: rgb(from var(--pdt-l1) r g b / 10%) !important;
+│ +}
+│ +
+│ +select option {
+│ +	background-color: var(--pdt-d1);
+│ +}
+│ +
+│ +/* Messages */
+│ +div:has(>div[data-test-id="send-message-to-conversation"])>div:nth-child(2) {
+│ +	background-color: var(--pdt-d2) !important;
+│ +}
+│ +
+│ +div[data-test-id="chat-window-container"] {
+│ +	box-shadow: rgb(from var(--pdt-l2) r g b / 10%) -3px 4px 14px 0px !important;
+│ +}
+│ +
+│ +/* Pinterest Generics */
+│ +.T3r {
+│ +	background: rgb(from var(--pdt-l1) r g b / 6.4%);
+│ +}
+│ +
+│ +/*
+│ +  THE FOLLOWING RULE SUCK
+│ +  the only thing it does is putting the icons in white, THOUGH when you put back the white theme, it stays white so you can't see it
+│ +  the thing is, the way the rule is made is weird since the svg is in a background-image url() and the fills are in the url
+│ +  i have NO IDEA how to change this :(
+│ +*/
+│ +.DUt.Jea.KS5.mQ8.zI7.iyn.Hsu {
+│ +	filter: invert(1);
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/main.js
+├── +++ /workspace/pipeline_output/pinterestdarktheme/chrome/main.js
+│ ├── js-beautify {}
+│ │ @@ -1,57 +1,57 @@
+│ │ -function setTheme(theme) { // Update colors on page
+│ │ -    if (document.getElementById('pdt-style')) {
+│ │ -        document.getElementById('pdt-style').remove();
+│ │ -    }
+│ │ -    const styleEl = document.createElement('style');
+│ │ -    styleEl.id = 'pdt-style';
+│ │ -    const cssVars = Object.entries(theme)
+│ │ -        .map(([key, value]) => `--pdt-${key}: ${value};`)
+│ │ -        .join('');
+│ │ -
+│ │ -    styleEl.textContent = `
+│ │ -    :root {
+│ │ -      ${cssVars}
+│ │ -    }
+│ │ -  `;
+│ │ -    document.head.appendChild(styleEl);
+│ │ -}
+│ │ -
+│ │ -function setup() {
+│ │ -    console.log('%cPinterest DARK THEME injected.', 'color: red;'); // why not
+│ │ -
+│ │ -    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => { // Event listener that change theme colors
+│ │ -        setTheme(request.theme);
+│ │ -    });
+│ │ -
+│ │ -    chrome.storage.local.get('theme', (res) => { // Get from the storage the saved theme
+│ │ -        console.log(res)
+│ │ -        if (!res.theme) { // Set default theme to pitch black
+│ │ -            const defaultTheme = {
+│ │ -                "d1": "black",
+│ │ -                "d2": "rgb(20, 20, 20)",
+│ │ -                "d3": "rgb(30, 30, 30)",
+│ │ -                "d4": "rgb(50, 50, 50)",
+│ │ -                "l1": "white",
+│ │ -                "l2": "rgb(160, 160, 160)",
+│ │ -                "l3": "rgb(120, 120, 120)",
+│ │ -                "white_to_d1": "brightness(0)",
+│ │ -                "white_to_d2": "brightness(8%)"
+│ │ -            };
+│ │ -            chrome.storage.local.set({
+│ │ -                theme: defaultTheme
+│ │ -            }, () => {
+│ │ -                setTheme(defaultTheme);
+│ │ -            });
+│ │ -        } else { // Set the saved theme if it exists
+│ │ -            setTheme(res.theme);
+│ │ -            const interval = setInterval(() => { // On loading, Pinterest remove my <style> in a weird way, that's the only working solution I found
+│ │ -                if (!document.getElementById('pdt-style')) {
+│ │ -                    setTheme(res.theme);
+│ │ -                    clearInterval(interval);
+│ │ -                }
+│ │ -            }, 50);
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ +function setTheme(theme) { // Update colors on page
+│ │ +    if (document.getElementById('pdt-style')) {
+│ │ +        document.getElementById('pdt-style').remove();
+│ │ +    }
+│ │ +    const styleEl = document.createElement('style');
+│ │ +    styleEl.id = 'pdt-style';
+│ │ +    const cssVars = Object.entries(theme)
+│ │ +        .map(([key, value]) => `--pdt-${key}: ${value};`)
+│ │ +        .join('');
+│ │ +
+│ │ +    styleEl.textContent = `
+│ │ +    :root {
+│ │ +      ${cssVars}
+│ │ +    }
+│ │ +  `;
+│ │ +    document.head.appendChild(styleEl);
+│ │ +}
+│ │ +
+│ │ +function setup() {
+│ │ +    console.log('%cPinterest DARK THEME injected.', 'color: red;'); // why not
+│ │ +
+│ │ +    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => { // Event listener that change theme colors
+│ │ +        setTheme(request.theme);
+│ │ +    });
+│ │ +
+│ │ +    chrome.storage.local.get('theme', (res) => { // Get from the storage the saved theme
+│ │ +        console.log(res)
+│ │ +        if (!res.theme) { // Set default theme to pitch black
+│ │ +            const defaultTheme = {
+│ │ +                "d1": "black",
+│ │ +                "d2": "rgb(20, 20, 20)",
+│ │ +                "d3": "rgb(30, 30, 30)",
+│ │ +                "d4": "rgb(50, 50, 50)",
+│ │ +                "l1": "white",
+│ │ +                "l2": "rgb(160, 160, 160)",
+│ │ +                "l3": "rgb(120, 120, 120)",
+│ │ +                "white_to_d1": "brightness(0)",
+│ │ +                "white_to_d2": "brightness(8%)"
+│ │ +            };
+│ │ +            chrome.storage.local.set({
+│ │ +                theme: defaultTheme
+│ │ +            }, () => {
+│ │ +                setTheme(defaultTheme);
+│ │ +            });
+│ │ +        } else { // Set the saved theme if it exists
+│ │ +            setTheme(res.theme);
+│ │ +            const interval = setInterval(() => { // On loading, Pinterest remove my <style> in a weird way, that's the only working solution I found
+│ │ +                if (!document.getElementById('pdt-style')) {
+│ │ +                    setTheme(res.theme);
+│ │ +                    clearInterval(interval);
+│ │ +                }
+│ │ +            }, 50);
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │  setup();
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/pinterestdarktheme/chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -69,10 +69,9 @@
+│ │          "128": "icon.png"
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Pinterest DARK THEME",
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.3"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/popup
+├── +++ /workspace/pipeline_output/pinterestdarktheme/chrome/popup
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.html
+│ ├── +++ /workspace/pipeline_output/pinterestdarktheme/chrome/popup/popup.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,41 +1,44 @@
+│ │ +<!DOCTYPE html>
+│ │ +<html>
+│ │ +
+│ │ +<head>
+│ │ +	<style>
+│ │ +		body {
+│ │ +			background-color: black;
+│ │ +			font-family: 'Quicksand', sans-serif;
+│ │ +			color: white;
+│ │ +			text-align: center;
+│ │ +			min-width: 220px;
+│ │ +			min-height: 80px;
+│ │ +			padding: 5px;
+│ │ +		}
+│ │ +
+│ │ +		.box {
+│ │ +			width: 200px;
+│ │ +			height: 40px;
+│ │ +			display: flex;
+│ │ +			justify-content: center;
+│ │ +			align-items: center;
+│ │ +			border-radius: 5px;
+│ │ +			transition-duration: 0.2s;
+│ │ +			border: solid white 2px;
+│ │ +			cursor: pointer;
+│ │ +			user-select: none;
+│ │ +			font-size: 1.3em;
+│ │ +			margin: 10px;
+│ │ +		}
+│ │ +
+│ │ +		.box:hover {
+│ │ +			box-shadow: 0 0 10px 1px white;
+│ │ +		}
+│ │ +	</style>
+│ │ +	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+│ │ +</head>
+│ │ +
+│ │ +<body>
+│ │ +	<h1>Theme list</h1>
+│ │ +	<p>PLEASE ENABLE JAVASCRIPT TO MAKE THE THEME LIST APPEAR.</p>
+│ │ +	<script src="popup.js"></script>
+│ │ +</body>
+│ │ +
+│ │ -<!DOCTYPE html>
+│ │ -<html>
+│ │ -    <head>
+│ │ -        <style>
+│ │ -            body {
+│ │ -                background-color: black;
+│ │ -                font-family: 'Quicksand', sans-serif;
+│ │ -                color: white;
+│ │ -                text-align: center;
+│ │ -                min-width: 220px;
+│ │ -                min-height: 80px;
+│ │ -                padding: 5px;
+│ │ -            }
+│ │ -        
+│ │ -            .box {
+│ │ -                width: 200px;
+│ │ -                height: 40px;
+│ │ -                display: flex;
+│ │ -                justify-content: center;
+│ │ -                align-items: center;
+│ │ -                border-radius: 5px;
+│ │ -                transition-duration: 0.2s;
+│ │ -                border: solid white 2px;
+│ │ -                cursor: pointer;
+│ │ -                user-select: none;
+│ │ -                font-size: 1.3em;
+│ │ -                margin: 10px;
+│ │ -            }
+│ │ -            
+│ │ -            .box:hover {
+│ │ -                box-shadow: 0 0 10px 1px white;
+│ │ -            }
+│ │ -        </style>
+│ │ -        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+│ │ -    </head>
+│ │ -    <body>
+│ │ -        <h1>Theme list</h1>
+│ │ -        <p>PLEASE ENABLE JAVASCRIPT TO MAKE THE THEME LIST APPEAR.</p>
+│ │ -        <script src="popup.js"></script>
+│ │ -    </body>
+│ │  </html>
+│ │   --- /workspace/pipeline_output/chromex_data/popup/popup.js
+│ ├── +++ /workspace/pipeline_output/pinterestdarktheme/chrome/popup/popup.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,120 +1,120 @@
+│ │ │ +const themes = {
+│ │ │ +    "Black": {
+│ │ │ +        "d1": "black",
+│ │ │ +        "d2": "rgb(20, 20, 20)",
+│ │ │ +        "d3": "rgb(30, 30, 30)",
+│ │ │ +        "d4": "rgb(50, 50, 50)",
+│ │ │ +        "l1": "white",
+│ │ │ +        "l2": "rgb(160, 160, 160)",
+│ │ │ +        "l3": "rgb(120, 120, 120)",
+│ │ │ +        "white_to_d1": "brightness(0)",
+│ │ │ +        "white_to_d2": "brightness(8%)"
+│ │ │ +    },
+│ │ │ +    "White": {
+│ │ │ +        "d1": "white",
+│ │ │ +        "d2": "rgb(240, 240, 240)",
+│ │ │ +        "d3": "rgb(230, 230, 230)",
+│ │ │ +        "d4": "rgb(210, 210, 210)",
+│ │ │ +        "l1": "black",
+│ │ │ +        "l2": "rgb(80, 80, 80)",
+│ │ │ +        "l3": "rgb(40, 40, 40)",
+│ │ │ +        "white_to_d1": "brightness(100%)",
+│ │ │ +        "white_to_d2": "brightness(94%)"
+│ │ │ +    },
+│ │ │ +    "Semi-dark Purple": {
+│ │ │ +        "d1": "#2c1f3e",
+│ │ │ +        "d2": "#413451",
+│ │ │ +        "d3": "#564a65",
+│ │ │ +        "d4": "#6c6279",
+│ │ │ +        "l1": "white",
+│ │ │ +        "l2": "#9b93a4",
+│ │ │ +        "l3": "#837a8e",
+│ │ │ +        "white_to_d1": "sepia(100%) saturate(10000%) hue-rotate(183.3deg) brightness(37.5%) contrast(205%)",
+│ │ │ +        "white_to_d2": "sepia(100%) saturate(10000%) hue-rotate(183.3deg) brightness(40%) contrast(181%)"
+│ │ │ +    },
+│ │ │ +    "Dark Purple": {
+│ │ │ +        "d1": "#1b1721",
+│ │ │ +        "d2": "#302c36",
+│ │ │ +        "d3": "#46434c",
+│ │ │ +        "d4": "#5e5b63",
+│ │ │ +        "l1": "white",
+│ │ │ +        "l2": "#908e94",
+│ │ │ +        "l3": "#77747b",
+│ │ │ +        "white_to_d1": "sepia(100%) saturate(10000%) hue-rotate(183deg) brightness(20%) contrast(123%)",
+│ │ │ +        "white_to_d2": "sepia(100%) saturate(10000%) hue-rotate(182.5deg) brightness(24%) contrast(110.1%)"
+│ │ │ +    },
+│ │ │ +    "Dark Grey": {
+│ │ │ +        "d1": "#181818",
+│ │ │ +        "d2": "#2d2d2d",
+│ │ │ +        "d3": "#444444",
+│ │ │ +        "d4": "#5b5b5b",
+│ │ │ +        "l1": "white",
+│ │ │ +        "l2": "#8f8f8f",
+│ │ │ +        "l3": "#747474",
+│ │ │ +        "white_to_d1": "brightness(9.5%)",
+│ │ │ +        "white_to_d2": "brightness(17.5%)"
+│ │ │ +    },
+│ │ │ +    "Dark Blue": {
+│ │ │ +        "d1": "#191926",
+│ │ │ +        "d2": "#2e2e3a",
+│ │ │ +        "d3": "#454450",
+│ │ │ +        "d4": "#5d5c67",
+│ │ │ +        "l1": "white",
+│ │ │ +        "l2": "#908f97",
+│ │ │ +        "l3": "#76757e",
+│ │ │ +        "white_to_d1": "sepia(100%) saturate(10000%) hue-rotate(180deg) brightness(24.1%) contrast(136.2%)",
+│ │ │ +        "white_to_d2": "sepia(100%) saturate(10000%) hue-rotate(180deg) brightness(28%) contrast(123%)"
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +function regularGradient(rotation, ...colors) { // Generate gradient CSS string
+│ │ │ +    const numColors = colors.length;
+│ │ │ +    let gradient = 'linear-gradient(' + rotation + 'deg';
+│ │ │ +
+│ │ │ +    for (const id in colors) {
+│ │ │ +        const color = colors[id];
+│ │ │ +        const sperc = parseFloat(Number(id) / numColors * 100 + 0.25).toFixed(2) + '%';
+│ │ │ +        const ePerc = parseFloat((Number(id) + 1) / numColors * 100 - 0.25).toFixed(2) + '%';
+│ │ │ +        gradient += ', ' + color + ' ' + sperc;
+│ │ │ +        gradient += ', ' + color + ' ' + ePerc;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    gradient += ')';
+│ │ │ +    return gradient;
+│ │ │ +}
+│ │ │ +
+│ │ │ +function sendTheme(theme) { // Send a message to the active tab to change theme
+│ │ │ +    chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, function(tabs) {
+│ │ │ +        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +            theme: themes[theme]
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +function setup() {
+│ │ │ +    document.querySelector('p').remove(); // Remove the message that says enable JavaScript
+│ │ │ +
+│ │ │ +    for (const [key, theme] of Object.entries(themes)) { // Create the theme list
+│ │ │ +
+│ │ │ +        const div = document.createElement('div');
+│ │ │ +        div.classList.add('box');
+│ │ │ +        div.textContent = key;
+│ │ │ +        div.style.background = regularGradient(100, theme.d1, theme.d2, theme.d3, theme.d4);
+│ │ │ +        div.style.color = theme.l1;
+│ │ │ +
+│ │ │ +        div.addEventListener('click', () => {
+│ │ │ +            chrome.storage.local.set({
+│ │ │ +                theme: theme
+│ │ │ +            }, () => {
+│ │ │ +                sendTheme(key);
+│ │ │ +            });
+│ │ │ +        })
+│ │ │ +
+│ │ │ +        document.body.appendChild(div);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ -const themes = {
+│ │ │ -    "Black": {
+│ │ │ -        "d1": "black",
+│ │ │ -        "d2": "rgb(20, 20, 20)",
+│ │ │ -        "d3": "rgb(30, 30, 30)",
+│ │ │ -        "d4": "rgb(50, 50, 50)",
+│ │ │ -        "l1": "white",
+│ │ │ -        "l2": "rgb(160, 160, 160)",
+│ │ │ -        "l3": "rgb(120, 120, 120)",
+│ │ │ -        "white_to_d1": "brightness(0)",
+│ │ │ -        "white_to_d2": "brightness(8%)"
+│ │ │ -    },
+│ │ │ -    "White": {
+│ │ │ -        "d1": "white",
+│ │ │ -        "d2": "rgb(240, 240, 240)",
+│ │ │ -        "d3": "rgb(230, 230, 230)",
+│ │ │ -        "d4": "rgb(210, 210, 210)",
+│ │ │ -        "l1": "black",
+│ │ │ -        "l2": "rgb(80, 80, 80)",
+│ │ │ -        "l3": "rgb(40, 40, 40)",
+│ │ │ -        "white_to_d1": "brightness(100%)",
+│ │ │ -        "white_to_d2": "brightness(94%)"
+│ │ │ -    },
+│ │ │ -    "Semi-dark Purple": {
+│ │ │ -        "d1": "#2c1f3e",
+│ │ │ -        "d2": "#413451",
+│ │ │ -        "d3": "#564a65",
+│ │ │ -        "d4": "#6c6279",
+│ │ │ -        "l1": "white",
+│ │ │ -        "l2": "#9b93a4",
+│ │ │ -        "l3": "#837a8e",
+│ │ │ -        "white_to_d1": "sepia(100%) saturate(10000%) hue-rotate(183.3deg) brightness(37.5%) contrast(205%)",
+│ │ │ -        "white_to_d2": "sepia(100%) saturate(10000%) hue-rotate(183.3deg) brightness(40%) contrast(181%)"
+│ │ │ -    },
+│ │ │ -    "Dark Purple": {
+│ │ │ -        "d1": "#1b1721",
+│ │ │ -        "d2": "#302c36",
+│ │ │ -        "d3": "#46434c",
+│ │ │ -        "d4": "#5e5b63",
+│ │ │ -        "l1": "white",
+│ │ │ -        "l2": "#908e94",
+│ │ │ -        "l3": "#77747b",
+│ │ │ -        "white_to_d1": "sepia(100%) saturate(10000%) hue-rotate(183deg) brightness(20%) contrast(123%)",
+│ │ │ -        "white_to_d2": "sepia(100%) saturate(10000%) hue-rotate(182.5deg) brightness(24%) contrast(110.1%)"
+│ │ │ -    },
+│ │ │ -    "Dark Grey": {
+│ │ │ -        "d1": "#181818",
+│ │ │ -        "d2": "#2d2d2d",
+│ │ │ -        "d3": "#444444",
+│ │ │ -        "d4": "#5b5b5b",
+│ │ │ -        "l1": "white",
+│ │ │ -        "l2": "#8f8f8f",
+│ │ │ -        "l3": "#747474",
+│ │ │ -        "white_to_d1": "brightness(9.5%)",
+│ │ │ -        "white_to_d2": "brightness(17.5%)"
+│ │ │ -    },
+│ │ │ -    "Dark Blue": {
+│ │ │ -        "d1": "#191926",
+│ │ │ -        "d2": "#2e2e3a",
+│ │ │ -        "d3": "#454450",
+│ │ │ -        "d4": "#5d5c67",
+│ │ │ -        "l1": "white",
+│ │ │ -        "l2": "#908f97",
+│ │ │ -        "l3": "#76757e",
+│ │ │ -        "white_to_d1": "sepia(100%) saturate(10000%) hue-rotate(180deg) brightness(24.1%) contrast(136.2%)",
+│ │ │ -        "white_to_d2": "sepia(100%) saturate(10000%) hue-rotate(180deg) brightness(28%) contrast(123%)"
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │ -function regularGradient(rotation, ...colors) { // Generate gradient CSS string
+│ │ │ -    const numColors = colors.length;
+│ │ │ -    let gradient = 'linear-gradient(' + rotation + 'deg';
+│ │ │ -
+│ │ │ -    for (const id in colors) {
+│ │ │ -        const color = colors[id];
+│ │ │ -        const sperc = parseFloat(Number(id) / numColors * 100 + 0.25).toFixed(2) + '%';
+│ │ │ -        const ePerc = parseFloat((Number(id) + 1) / numColors * 100 - 0.25).toFixed(2) + '%';
+│ │ │ -        gradient += ', ' + color + ' ' + sperc;
+│ │ │ -        gradient += ', ' + color + ' ' + ePerc;
+│ │ │ -    }
+│ │ │ -
+│ │ │ -    gradient += ')';
+│ │ │ -    return gradient;
+│ │ │ -}
+│ │ │ -
+│ │ │ -function sendTheme(theme) { // Send a message to the active tab to change theme
+│ │ │ -    chrome.tabs.query({
+│ │ │ -        active: true,
+│ │ │ -        currentWindow: true
+│ │ │ -    }, function(tabs) {
+│ │ │ -        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ -            theme: themes[theme]
+│ │ │ -        });
+│ │ │ -    });
+│ │ │ -}
+│ │ │ -
+│ │ │ -function setup() {
+│ │ │ -    document.querySelector('p').remove(); // Remove the message that says enable JavaScript
+│ │ │ -
+│ │ │ -    for (const [key, theme] of Object.entries(themes)) { // Create the theme list
+│ │ │ -
+│ │ │ -        const div = document.createElement('div');
+│ │ │ -        div.classList.add('box');
+│ │ │ -        div.textContent = key;
+│ │ │ -        div.style.background = regularGradient(100, theme.d1, theme.d2, theme.d3, theme.d4);
+│ │ │ -        div.style.color = theme.l1;
+│ │ │ -
+│ │ │ -        div.addEventListener('click', () => {
+│ │ │ -            chrome.storage.local.set({
+│ │ │ -                theme: theme
+│ │ │ -            }, () => {
+│ │ │ -                sendTheme(key);
+│ │ │ -            });
+│ │ │ -        })
+│ │ │ -
+│ │ │ -        document.body.appendChild(div);
+│ │ │ -    }
+│ │ │ -}
+│ │ │ -
+│ │ │  setup();

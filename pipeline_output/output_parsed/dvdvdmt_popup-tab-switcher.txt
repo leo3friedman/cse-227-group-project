@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/popup-tab-switcher/src
+  - files: _metadata, background.js, content.js, settings
+  + files: background, background.ts, content-script, service-factory.ts, settings, styles, utils
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/popup-tab-switcher/src/manifest.json; File type: json
+  - Original: 50–50 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/settings <-> +++/workspace/pipeline_output/popup-tab-switcher/src/settings
+  - files: index.js, index.js.LICENSE.txt
+  + files: index.ts, solid-js
+

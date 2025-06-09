@@ -1,0 +1,110 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-ssh-agent
+├── file list
+│ @@ -1,8 +1,29 @@
+│ +.bazelignore
+│ +.bazelrc
+│ +.bazelversion
+│ +.devcontainer
+│ +.git
+│ +.github
+│ +.gitignore
+│ +.vscode
+│ +BUILD.bazel
+│  CONTRIBUTING.md
+│  LICENSE
+│ +MODULE.bazel
+│  README.md
+│ -_metadata
+│ +build_defs
+│  go
+│ +go.mod
+│ +go.sum
+│  html
+│  img
+│ -manifest.json
+│ +manifest-beta.json
+│ +manifest.json
+│ +node_modules
+│ +nogo
+│ +nogo-config.json
+│ +package-lock.json
+│ +package.json
+│ +pnpm-lock.yaml
+│ +release
+│ +test
+│   --- /workspace/pipeline_output/chromex_data/go
+├── +++ /workspace/pipeline_output/chrome-ssh-agent/go
+│ ├── file list
+│ │ @@ -1,2 +1,13 @@
+│ │ +agentport
+│ │ +app
+│ │  background
+│ │ +dom
+│ │ +jsutil
+│ │ +keys
+│ │ +lock
+│ │ +message
+│ │ +options
+│ │ +optionsui
+│ │ +storage
+│ │ +testing
+│ │ +testutil
+│ │ -options
+│ │   --- /workspace/pipeline_output/chromex_data/go/background
+│ ├── +++ /workspace/pipeline_output/chrome-ssh-agent/go/background
+│ │ ├── file list
+│ │ │ @@ -1 +1,2 @@
+│ │ │ -background.wasm
+│ │ │ +BUILD.bazel
+│ │ │ +main.go
+│ │   --- /workspace/pipeline_output/chromex_data/go/options
+│ ├── +++ /workspace/pipeline_output/chrome-ssh-agent/go/options
+│ │ ├── file list
+│ │ │ @@ -1 +1,2 @@
+│ │ │ -options.wasm
+│ │ │ +BUILD.bazel
+│ │ │ +main.go
+│   --- /workspace/pipeline_output/chromex_data/html
+├── +++ /workspace/pipeline_output/chrome-ssh-agent/html
+│ ├── file list
+│ │ @@ -1,6 +1,8 @@
+│ │ +BUILD.bazel
+│ │ +app.ts
+│ │ +background.ts
+│ │ -background-bundle.js
+│ │ -background-bundle.js.map
+│ │ -options-bundle.js
+│ │ -options-bundle.js.map
+│ │  options.html
+│ │ +options.ts
+│ │ +style.css
+│ │ +tsconfig.json
+│ │ +wasm_exec.d.ts
+│ │ -style.css
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/chrome-ssh-agent/img
+│ ├── file list
+│ │ @@ -1,5 +1,8 @@
+│ │ +BUILD.bazel
+│ │ +README.md
+│ │  icon128.png
+│ │ +icon128.xcf
+│ │  screenshot-add.png
+│ │  screenshot-connect.png
+│ │  screenshot-list.png
+│ │  screenshot-passphrase.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-ssh-agent/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -31,10 +31,9 @@
+│ │      "options_page": "html/options.html",
+│ │      "options_ui": {
+│ │          "page": "html/options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.29"
+│ │  }

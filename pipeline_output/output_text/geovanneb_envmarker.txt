@@ -1,0 +1,2496 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/envmarker/app
+├── file list
+│ @@ -1,9 +1,10 @@
+│  _locales
+│ -_metadata
+│  background.js
+│ -background.js.map
+│ +build-safari.sh
+│ +config
+│  html
+│  images
+│  manifest.json
+│ +manifest_firefox.json
+│  scripts
+│  styles
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/envmarker/app/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,84 +1,132 @@
+│ │ -function loadScript(e) {
+│ │ -    return new Promise(((t, r) => {
+│ │ -        const i = document.createElement("script");
+│ │ -        i.src = e, i.onload = t, i.onerror = r, document.head.appendChild(i)
+│ │ -    }))
+│ │ +// background.js
+│ │ +
+│ │ +// Helper: load a script dynamically; returns a Promise.
+│ │ +function loadScript(src) {
+│ │ +    return new Promise((resolve, reject) => {
+│ │ +        const s = document.createElement("script");
+│ │ +        s.src = src;
+│ │ +        s.onload = resolve;
+│ │ +        s.onerror = reject;
+│ │ +        document.head.appendChild(s);
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Load util.js: use importScripts if available; otherwise, dynamically load.
+│ │ +if (typeof importScripts === 'function') {
+│ │ +    importScripts("scripts/util.js");
+│ │ +} else {
+│ │ +    loadScript("scripts/util.js").catch(err => {
+│ │ +        console.error("Error loading util.js:", err);
+│ │ +    });
+│ │  }
+│ │ -"function" == typeof importScripts ? importScripts("scripts/util.js") : loadScript("scripts/util.js").catch((e => {
+│ │ -    console.error("Error loading util.js:", e)
+│ │ -}));
+│ │ -var ENV_SETTINGS = [],
+│ │ -    HOSTED_FILE = "",
+│ │ -    AUTO_IMPORT = 0;
+│ │  
+│ │ +var ENV_SETTINGS = [];
+│ │ +var HOSTED_FILE = "";
+│ │ +var AUTO_IMPORT = 0;
+│ │ +
+│ │ +// Import file hosted on the Internet
+│ │  function _requestFile() {
+│ │ -    AUTO_IMPORT && _validateURL(HOSTED_FILE) && fetch(HOSTED_FILE).then((e => e.json())).then((e => {
+│ │ -        _mergeSettings(e, ENV_SETTINGS, HOSTED_FILE, AUTO_IMPORT, (function() {}))
+│ │ -    })).catch((e => {
+│ │ -        console.log("Environment Marker: Something went wrong when trying to retrieve the file from the URL.")
+│ │ -    }))
+│ │ +    if (AUTO_IMPORT && _validateURL(HOSTED_FILE)) {
+│ │ +        fetch(HOSTED_FILE)
+│ │ +            .then(res => res.json())
+│ │ +            .then((out) => {
+│ │ +                _mergeSettings(out, ENV_SETTINGS, HOSTED_FILE, AUTO_IMPORT, function() {});
+│ │ +            })
+│ │ +            .catch(err => {
+│ │ +                console.log('Environment Marker: Something went wrong when trying to retrieve the file from the URL.');
+│ │ +            });
+│ │ +    }
+│ │  }
+│ │  
+│ │  function _importHostedFile() {
+│ │      chrome.storage.sync.get({
+│ │          current_state: {
+│ │ -            last_update: (new Date).getTime(),
+│ │ +            last_update: new Date().getTime(),
+│ │              env_settings: [{
+│ │ -                uuid: "0ac126c8-9aff-452b-b76c-941104854128",
+│ │ -                name: "EXAMPLE",
+│ │ -                address: "environmentmarker.io",
+│ │ -                color: "0000ff",
+│ │ +                uuid: '0ac126c8-9aff-452b-b76c-941104854128',
+│ │ +                name: 'EXAMPLE',
+│ │ +                address: 'environmentmarker.io',
+│ │ +                color: '0000ff',
+│ │                  position: 1
+│ │              }],
+│ │              hosted_file: "",
+│ │              auto_import: 0
+│ │          }
+│ │ -    }, (function(e) {
+│ │ -        ENV_SETTINGS = e.current_state.env_settings, HOSTED_FILE = e.current_state.hosted_file, AUTO_IMPORT = e.current_state.auto_import, _requestFile()
+│ │ -    }))
+│ │ +    }, function(data) {
+│ │ +        ENV_SETTINGS = data.current_state.env_settings;
+│ │ +        HOSTED_FILE = data.current_state.hosted_file;
+│ │ +        AUTO_IMPORT = data.current_state.auto_import;
+│ │ +        _requestFile();
+│ │ +    });
+│ │  }
+│ │  
+│ │ -function initializeFirebase() {
+│ │ -    firebase.initializeApp({
+│ │ -        apiKey: "AIzaSyC9luFF4Kuv7d6aoT98g0qmjoDAzceODLA",
+│ │ -        authDomain: "environment-marker-app.firebaseapp.com",
+│ │ -        projectId: "environment-marker-app",
+│ │ -        storageBucket: "environment-marker-app.firebasestorage.app",
+│ │ -        messagingSenderId: "862253132817",
+│ │ -        appId: "1:862253132817:web:aacfd57887c153b8de95b0",
+│ │ -        measurementId: "G-LQKPX1VWZZ"
+│ │ +chrome.runtime.onInstalled.addListener(() => {
+│ │ +    // Create alarm after extension installation/upgraded to refresh config JSON file.
+│ │ +    chrome.alarms.create('auto_import', {
+│ │ +        periodInMinutes: 1
+│ │      });
+│ │ -    const e = firebase.remoteConfig();
+│ │ -    e.settings = {
+│ │ -        minimumFetchIntervalMillis: 36e5
+│ │ -    }, e.defaultConfig = {
+│ │ +});
+│ │ +
+│ │ +// Alarm listener to reimport data from host.
+│ │ +chrome.alarms.onAlarm.addListener((alarm) => {
+│ │ +    if (alarm.name === "auto_import") {
+│ │ +        _importHostedFile();
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +// Function to initialize Firebase functionality.
+│ │ +function initializeFirebase() {
+│ │ +    // The placeholder %%FIREBASE_CONFIG%% will be replaced at build time.
+│ │ +    const config = % % FIREBASE_CONFIG % % ;
+│ │ +
+│ │ +    firebase.initializeApp(config);
+│ │ +
+│ │ +    const remoteConfig = firebase.remoteConfig();
+│ │ +
+│ │ +    remoteConfig.settings = {
+│ │ +        minimumFetchIntervalMillis: 3600000,
+│ │ +    };
+│ │ +    remoteConfig.defaultConfig = {
+│ │          alert_messages: JSON.stringify({
+│ │              messages: []
+│ │          })
+│ │ -    }, e.fetchAndActivate().then((() => {
+│ │ -        const t = e.getString("alert_messages");
+│ │ -        var r = JSON.parse(t);
+│ │ -        chrome.storage.sync.set({
+│ │ -            alert_messages: r.messages
+│ │ -        }, (function() {}))
+│ │ -    })).catch((e => {
+│ │ -        console.error("Error fetching remote config:", e)
+│ │ -    }))
+│ │ +    };
+│ │ +
+│ │ +    remoteConfig.fetchAndActivate()
+│ │ +        .then(() => {
+│ │ +            const configString = remoteConfig.getString('alert_messages');
+│ │ +            var configFile = JSON.parse(configString);
+│ │ +            // Save the alert messages to storage.
+│ │ +            chrome.storage.sync.set({
+│ │ +                alert_messages: configFile.messages
+│ │ +            }, function() {});
+│ │ +        })
+│ │ +        .catch((err) => {
+│ │ +            console.error('Error fetching remote config:', err);
+│ │ +        });
+│ │  }
+│ │ -chrome.runtime.onInstalled.addListener((() => {
+│ │ -    chrome.alarms.create("auto_import", {
+│ │ -        periodInMinutes: 1
+│ │ -    })
+│ │ -})), chrome.alarms.onAlarm.addListener((e => {
+│ │ -    "auto_import" === e.name && _importHostedFile()
+│ │ -}));
+│ │ +
+│ │ +// Load Firebase libraries conditionally.
+│ │  try {
+│ │ -    self.window = self, "function" == typeof importScripts ? (importScripts("scripts/libs/firebase/firebase-app-compat.js", "scripts/libs/firebase/firebase-remote-config-compat.js"), initializeFirebase()) : loadScript("scripts/libs/firebase/firebase-app-compat.js").then((() => loadScript("scripts/libs/firebase/firebase-remote-config-compat.js"))).then((() => {
+│ │ -        initializeFirebase()
+│ │ -    })).catch((e => {
+│ │ -        console.error("Error loading Firebase scripts:", e)
+│ │ -    }))
+│ │ +    self.window = self;
+│ │ +    if (typeof importScripts === 'function') {
+│ │ +        // In Chrome (service worker), importScripts works.
+│ │ +        importScripts(
+│ │ +            'scripts/libs/firebase/firebase-app-compat.js',
+│ │ +            'scripts/libs/firebase/firebase-remote-config-compat.js'
+│ │ +        );
+│ │ +        initializeFirebase();
+│ │ +    } else {
+│ │ +        // In Firefox (background page), load via dynamic script injection.
+│ │ +        loadScript('scripts/libs/firebase/firebase-app-compat.js')
+│ │ +            .then(() => loadScript('scripts/libs/firebase/firebase-remote-config-compat.js'))
+│ │ +            .then(() => {
+│ │ +                initializeFirebase();
+│ │ +            })
+│ │ +            .catch(err => {
+│ │ +                console.error("Error loading Firebase scripts:", err);
+│ │ +            });
+│ │ +    }
+│ │  } catch (e) {
+│ │ -    console.error("Firebase initialization error:", e)
+│ │ -}
+│ │ -//# sourceMappingURL=background.js.map
+│ │ +    console.error('Firebase initialization error:', e);
+│ │ +}
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/envmarker/app/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -42,10 +42,9 @@
+│ │      "name": "__MSG_appName__",
+│ │      "options_page": "html/options.html",
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.1"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/scripts
+├── +++ /workspace/pipeline_output/envmarker/app/scripts
+│ ├── file list
+│ │ @@ -1,9 +1,4 @@
+│ │ -libs
+│ │  modal.js
+│ │ -modal.js.map
+│ │  options.js
+│ │ -options.js.map
+│ │  popup.js
+│ │ +util.js
+│ │ -popup.js.map
+│ │ -util.js
+│ │ -util.js.map
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/modal.js
+│ ├── +++ /workspace/pipeline_output/envmarker/app/scripts/modal.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,125 +1,246 @@
+│ │ │ +chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+│ │ │ +    switch (request.action) {
+│ │ │ +        case 'isDisabled':
+│ │ │ +            if (!document.getElementById('chrome-envmarker')) {
+│ │ │ +                sendResponse({
+│ │ │ +                    isDisabled: 'notSet'
+│ │ │ +                });
+│ │ │ +            } else {
+│ │ │ +                if (document.getElementById('chrome-envmarker')) {
+│ │ │ +                    sendResponse({
+│ │ │ +                        isDisabled: document.getElementById('chrome-envmarker').style.display == 'none'
+│ │ │ +                    });
+│ │ │ +                } else {
+│ │ │ +                    sendResponse({
+│ │ │ +                        isDisabled: 'notSet'
+│ │ │ +                    });
+│ │ │ +                }
+│ │ │ +            }
+│ │ │ -chrome.runtime.onMessage.addListener((function(t, e, n) {
+│ │ │ -    switch (t.action) {
+│ │ │ -        case "isDisabled":
+│ │ │ -            document.getElementById("chrome-envmarker") && document.getElementById("chrome-envmarker") ? n({
+│ │ │ -                isDisabled: "none" == document.getElementById("chrome-envmarker").style.display
+│ │ │ -            }) : n({
+│ │ │ -                isDisabled: "notSet"
+│ │ │ -            });
+│ │ │              break;
+│ │ │ +        case 'toggle':
+│ │ │ +            var marker = document.getElementById('chrome-envmarker');
+│ │ │ +            if (marker.style.display == 'none') {
+│ │ │ +                marker.style.display = 'block';
+│ │ │ +            } else {
+│ │ │ +                marker.style.display = 'none';
+│ │ │ +            }
+│ │ │ +            sendResponse(true);
+│ │ │ -        case "toggle":
+│ │ │ -            var r = document.getElementById("chrome-envmarker");
+│ │ │ -            "none" == r.style.display ? r.style.display = "block" : r.style.display = "none", n(!0);
+│ │ │              break;
+│ │ │ +        case 'getConfig':
+│ │ │ +            sendResponse({
+│ │ │ -        case "getConfig":
+│ │ │ -            n({
+│ │ │                  currentConfig: CURRENT_CONFIG
+│ │ │              });
+│ │ │              break;
+│ │ │ +        case 'getDomain':
+│ │ │ +            sendResponse({
+│ │ │ -        case "getDomain":
+│ │ │ -            n({
+│ │ │                  domain: CURRENT_DOMAIN
+│ │ │              });
+│ │ │              break;
+│ │ │ +        case 'setConfig':
+│ │ │ +            _setConfig(request.parameter);
+│ │ │ +            sendResponse({
+│ │ │ +                success: true
+│ │ │ +            });
+│ │ │ +            break;
+│ │ │ +            return true;
+│ │ │ +    }
+│ │ │ +    return true;
+│ │ │ +});
+│ │ │ -        case "setConfig":
+│ │ │ -            _setConfig(t.parameter), n({
+│ │ │ -                success: !0
+│ │ │ -            })
+│ │ │ -    }
+│ │ │ -    return !0
+│ │ │ -}));
+│ │ │ -var PLUGIN_STATE = {
+│ │ │ -        regexList: [],
+│ │ │ -        strictList: [],
+│ │ │ -        lastUpdate: null
+│ │ │ -    },
+│ │ │ -    CURRENT_CONFIG = void 0,
+│ │ │ -    CURRENT_LOCATION = window.location.href,
+│ │ │ -    CURRENT_DOMAIN = window.location.hostname,
+│ │ │ -    ENV_SETTINGS = [],
+│ │ │ -    HOSTED_FILE = "",
+│ │ │ -    AUTO_IMPORT = 0;
+│ │ │  
+│ │ │ +var PLUGIN_STATE = {};
+│ │ │ +PLUGIN_STATE.regexList = [];
+│ │ │ +PLUGIN_STATE.strictList = [];
+│ │ │ +PLUGIN_STATE.lastUpdate = null;
+│ │ │ +
+│ │ │ +var CURRENT_CONFIG = undefined;
+│ │ │ +var CURRENT_LOCATION = window.location.href;
+│ │ │ +var CURRENT_DOMAIN = window.location.hostname;
+│ │ │ +var ENV_SETTINGS = [];
+│ │ │ +var HOSTED_FILE = "";
+│ │ │ +var AUTO_IMPORT = 0;
+│ │ │ +
+│ │ │ +// verify settings and add label if necessary
+│ │ │  function _addEnvironmentLabel() {
+│ │ │      chrome.storage.sync.get({
+│ │ │          current_state: {
+│ │ │ +            last_update: new Date().getTime(),
+│ │ │ -            last_update: (new Date).getTime(),
+│ │ │              env_settings: [{
+│ │ │ +                uuid: '0ac126c8-9aff-452b-b76c-941104854128',
+│ │ │ +                name: 'EXAMPLE',
+│ │ │ +                address: 'environmentmarker.io',
+│ │ │ +                color: 'rgba(0, 85, 188, 1)',
+│ │ │ -                uuid: "0ac126c8-9aff-452b-b76c-941104854128",
+│ │ │ -                name: "EXAMPLE",
+│ │ │ -                address: "environmentmarker.io",
+│ │ │ -                color: "rgba(0, 85, 188, 1)",
+│ │ │                  position: 1
+│ │ │              }],
+│ │ │              hosted_file: "",
+│ │ │              auto_import: 0
+│ │ │          }
+│ │ │ +    }, function(data) {
+│ │ │ +        ENV_SETTINGS = data.current_state.env_settings;
+│ │ │ +        HOSTED_FILE = data.current_state.hosted_file;
+│ │ │ +        AUTO_IMPORT = data.current_state.auto_import;
+│ │ │ +        if (!PLUGIN_STATE.lastUpdate || data.current_state.last_update > PLUGIN_STATE.lastUpdate) {
+│ │ │ +            _updateMatchers(data.current_state.env_settings, data.current_state.last_update);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        for (var i = 0; i < PLUGIN_STATE.strictList.length; i++) {
+│ │ │ +            if (CURRENT_LOCATION.indexOf(PLUGIN_STATE.strictList[i].address) > -1) {
+│ │ │ +                CURRENT_CONFIG = PLUGIN_STATE.strictList[i];
+│ │ │ +                _addMarker(CURRENT_CONFIG);
+│ │ │ +                return;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +        for (var i = 0; i < PLUGIN_STATE.regexList.length; i++) {
+│ │ │ +            if (PLUGIN_STATE.regexList[i].regex.test(CURRENT_DOMAIN)) {
+│ │ │ +                CURRENT_CONFIG = PLUGIN_STATE.regexList[i];
+│ │ │ +                _addMarker(CURRENT_CONFIG);
+│ │ │ +                return;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ -    }, (function(t) {
+│ │ │ -        ENV_SETTINGS = t.current_state.env_settings, HOSTED_FILE = t.current_state.hosted_file, AUTO_IMPORT = t.current_state.auto_import, (!PLUGIN_STATE.lastUpdate || t.current_state.last_update > PLUGIN_STATE.lastUpdate) && _updateMatchers(t.current_state.env_settings, t.current_state.last_update);
+│ │ │ -        for (var e = 0; e < PLUGIN_STATE.strictList.length; e++)
+│ │ │ -            if (CURRENT_LOCATION.indexOf(PLUGIN_STATE.strictList[e].address) > -1) return void _addMarker(CURRENT_CONFIG = PLUGIN_STATE.strictList[e]);
+│ │ │ -        for (e = 0; e < PLUGIN_STATE.regexList.length; e++)
+│ │ │ -            if (PLUGIN_STATE.regexList[e].regex.test(CURRENT_DOMAIN)) return void _addMarker(CURRENT_CONFIG = PLUGIN_STATE.regexList[e])
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +function _addMarker(item) {
+│ │ │ +    var envmarker = document.getElementById('chrome-envmarker');
+│ │ │ +    if (envmarker && envmarker.length != 0) {
+│ │ │ +        envmarker.parentNode.removeChild(envmarker);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    var position = item.position || '1';
+│ │ │ +    var wrapperDiv = document.createElement('div');
+│ │ │ +    wrapperDiv.id = 'chrome-envmarker';
+│ │ │ +
+│ │ │ +    if (item.color.length === 6) {
+│ │ │ +        item.color = '#' + item.color;
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (position === '5') {
+│ │ │ +        // Moldure style
+│ │ │ +        wrapperDiv.setAttribute('style', `
+│ │ │ +			position: fixed;
+│ │ │ +			top: 0;
+│ │ │ +			left: 0;
+│ │ │ +			right: 0;
+│ │ │ +			bottom: 0;
+│ │ │ +			border: 8px solid ${item.color};
+│ │ │ +			z-index: 2147483647;
+│ │ │ +			pointer-events: none;
+│ │ │ +			user-select: none;
+│ │ │ +		`);
+│ │ │ +    } else {
+│ │ │ +        // Regular ribbon style
+│ │ │ +        var positionStyle = 'right: -72px; top: 45px; transform: rotate(45deg);';
+│ │ │ +        var ribbonWidth = '290px';
+│ │ │ +        var ribbonHeight = '55px';
+│ │ │ +
+│ │ │ +        switch (position) {
+│ │ │ +            case '2':
+│ │ │ +                positionStyle = 'left: -72px; top: 45px; transform: rotate(-45deg);';
+│ │ │ +                break;
+│ │ │ +            case '3':
+│ │ │ +                positionStyle = 'right: -72px; bottom: 45px; transform: rotate(-45deg);';
+│ │ │ -function _addMarker(t) {
+│ │ │ -    var e = document.getElementById("chrome-envmarker");
+│ │ │ -    e && 0 != e.length && e.parentNode.removeChild(e);
+│ │ │ -    var n = t.position || "1",
+│ │ │ -        r = document.createElement("div");
+│ │ │ -    if (r.id = "chrome-envmarker", 6 === t.color.length && (t.color = "#" + t.color), "5" === n) r.setAttribute("style", `\n\t\t\tposition: fixed;\n\t\t\ttop: 0;\n\t\t\tleft: 0;\n\t\t\tright: 0;\n\t\t\tbottom: 0;\n\t\t\tborder: 8px solid ${t.color};\n\t\t\tz-index: 2147483647;\n\t\t\tpointer-events: none;\n\t\t\tuser-select: none;\n\t\t`);
+│ │ │ -    else {
+│ │ │ -        var o = "right: -72px; top: 45px; transform: rotate(45deg);",
+│ │ │ -            i = "55px";
+│ │ │ -        switch (n) {
+│ │ │ -            case "2":
+│ │ │ -                o = "left: -72px; top: 45px; transform: rotate(-45deg);";
+│ │ │                  break;
+│ │ │ +            case '4':
+│ │ │ +                positionStyle = 'left: -72px; bottom: 45px; transform: rotate(45deg);';
+│ │ │ -            case "3":
+│ │ │ -                o = "right: -72px; bottom: 45px; transform: rotate(-45deg);";
+│ │ │                  break;
+│ │ │ -            case "4":
+│ │ │ -                o = "left: -72px; bottom: 45px; transform: rotate(45deg);"
+│ │ │          }
+│ │ │ +
+│ │ │ +        wrapperDiv.setAttribute('style', `
+│ │ │ +			text-shadow: -1px -1px 0 #555, 1px -1px 0 #555, -1px 1px 0 #555, 1px 1px 0 #555;
+│ │ │ +			position: fixed;
+│ │ │ +			${positionStyle}
+│ │ │ +			background-color: ${item.color};
+│ │ │ +			z-index: 2147483647;
+│ │ │ +			height: ${ribbonHeight};
+│ │ │ +			width: ${ribbonWidth};
+│ │ │ +			overflow-x: hidden;
+│ │ │ +			box-shadow: 7px 0px 9px #000;
+│ │ │ +			color: #fff;
+│ │ │ +			pointer-events: none;
+│ │ │ +			user-select: none;
+│ │ │ +		`);
+│ │ │ +
+│ │ │ +        var textDiv = document.createElement('div');
+│ │ │ +        textDiv.id = 'chrome-envmarker-text';
+│ │ │ +        textDiv.setAttribute('style', `
+│ │ │ +			margin: 0 45px;
+│ │ │ +			line-height: ${ribbonHeight};
+│ │ │ +			height: 100%;
+│ │ │ +			width: calc(100% - 90px);
+│ │ │ +			overflow: hidden;
+│ │ │ +			text-align: center;
+│ │ │ +			font-family: Arial, sans-serif;
+│ │ │ +			${item.fontSize && item.fontSize !== 'auto' ? `font-size: ${item.fontSize};` : ''}
+│ │ │ +		`);
+│ │ │ +        textDiv.innerText = item.name;
+│ │ │ +        wrapperDiv.appendChild(textDiv);
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    document.body.appendChild(wrapperDiv);
+│ │ │ +
+│ │ │ +    if (position !== '5' && (!item.fontSize || item.fontSize === 'auto')) {
+│ │ │ +        // Only use textFit if fontSize is not set or is set to 'auto'
+│ │ │ +        textFit(document.getElementById("chrome-envmarker-text"), {
+│ │ │ +            minFontSize: 15,
+│ │ │ +            maxFontSize: 45,
+│ │ │ +            detectMultiLine: true,
+│ │ │ +            alignVert: true,
+│ │ │ +            alignHoriz: true,
+│ │ │ +            multiLine: false,
+│ │ │ +            reProcess: true
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ -        r.setAttribute("style", `\n\t\t\ttext-shadow: -1px -1px 0 #555, 1px -1px 0 #555, -1px 1px 0 #555, 1px 1px 0 #555;\n\t\t\tposition: fixed;\n\t\t\t${o}\n\t\t\tbackground-color: ${t.color};\n\t\t\tz-index: 2147483647;\n\t\t\theight: ${i};\n\t\t\twidth: 290px;\n\t\t\toverflow-x: hidden;\n\t\t\tbox-shadow: 7px 0px 9px #000;\n\t\t\tcolor: #fff;\n\t\t\tpointer-events: none;\n\t\t\tuser-select: none;\n\t\t`);
+│ │ │ -        var s = document.createElement("div");
+│ │ │ -        s.id = "chrome-envmarker-text", s.setAttribute("style", `\n\t\t\tmargin: 0 45px;\n\t\t\tline-height: ${i};\n\t\t\theight: 100%;\n\t\t\twidth: calc(100% - 90px);\n\t\t\toverflow: hidden;\n\t\t\ttext-align: center;\n\t\t\tfont-family: Arial, sans-serif;\n\t\t\t${t.fontSize&&"auto"!==t.fontSize?`font-size: ${t.fontSize};`:""}\n\t\t`), s.innerText = t.name, r.appendChild(s)
+│ │ │ -    }
+│ │ │ -    document.body.appendChild(r), "5" === n || t.fontSize && "auto" !== t.fontSize || textFit(document.getElementById("chrome-envmarker-text"), {
+│ │ │ -        minFontSize: 15,
+│ │ │ -        maxFontSize: 45,
+│ │ │ -        detectMultiLine: !0,
+│ │ │ -        alignVert: !0,
+│ │ │ -        alignHoriz: !0,
+│ │ │ -        multiLine: !1,
+│ │ │ -        reProcess: !0
+│ │ │ -    })
+│ │ │  }
+│ │ │  
+│ │ │ +function _updateMatchers(env_settings, last_update) {
+│ │ │ +    PLUGIN_STATE.regexList = [];
+│ │ │ +    PLUGIN_STATE.strictList = [];
+│ │ │ +    env_settings.forEach(function(item) {
+│ │ │ +        if (!!item && !!item.address && item.address.startsWith('regex:')) {
+│ │ │ +            item.regex = new RegExp(item.address.substring('regex:'.length, item.address.length));
+│ │ │ +            PLUGIN_STATE.regexList.push(item);
+│ │ │ +        } else {
+│ │ │ +            PLUGIN_STATE.strictList.push(item);
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ +    PLUGIN_STATE.lastUpdate = last_update;
+│ │ │ -function _updateMatchers(t, e) {
+│ │ │ -    PLUGIN_STATE.regexList = [], PLUGIN_STATE.strictList = [], t.forEach((function(t) {
+│ │ │ -        t && t.address && t.address.startsWith("regex:") ? (t.regex = new RegExp(t.address.substring(6, t.address.length)), PLUGIN_STATE.regexList.push(t)) : PLUGIN_STATE.strictList.push(t)
+│ │ │ -    })), PLUGIN_STATE.lastUpdate = e
+│ │ │  }
+│ │ │  
+│ │ │ +function _setConfig(config) {
+│ │ │ +    // Find the index of the object based on uuid
+│ │ │ +    obj_index = ENV_SETTINGS.findIndex(function(obj) {
+│ │ │ +        return obj.uuid == config.uuid
+│ │ │ +    });
+│ │ │ +    if (obj_index === -1) {
+│ │ │ +        // Last try, might be a legacy config file.
+│ │ │ +        obj_index = ENV_SETTINGS.findIndex(function(obj) {
+│ │ │ +            return obj.address === config.address
+│ │ │ +        });
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    if (obj_index !== -1) {
+│ │ │ +        // Update item
+│ │ │ +        ENV_SETTINGS[obj_index] = config;
+│ │ │ +    } else {
+│ │ │ +        // Might be a legacy configuration file
+│ │ │ +        ENV_SETTINGS.push(config);
+│ │ │ +    }
+│ │ │ +    // Persist data
+│ │ │ +    chrome.storage.sync.set({
+│ │ │ -function _setConfig(t) {
+│ │ │ -    obj_index = ENV_SETTINGS.findIndex((function(e) {
+│ │ │ -        return e.uuid == t.uuid
+│ │ │ -    })), -1 === obj_index && (obj_index = ENV_SETTINGS.findIndex((function(e) {
+│ │ │ -        return e.address === t.address
+│ │ │ -    }))), -1 !== obj_index ? ENV_SETTINGS[obj_index] = t : ENV_SETTINGS.push(t), chrome.storage.sync.set({
+│ │ │          current_state: {
+│ │ │ +            last_update: new Date().getTime(),
+│ │ │ -            last_update: (new Date).getTime(),
+│ │ │              env_settings: ENV_SETTINGS,
+│ │ │              hosted_file: HOSTED_FILE,
+│ │ │              auto_import: AUTO_IMPORT
+│ │ │          }
+│ │ │ +    }, function() {
+│ │ │ +        //Refresh marker
+│ │ │ +        _addEnvironmentLabel();
+│ │ │ +    });
+│ │ │ -    }, (function() {
+│ │ │ -        _addEnvironmentLabel()
+│ │ │ -    }))
+│ │ │  }
+│ │ │ +
+│ │ │ +_addEnvironmentLabel();
+│ │ │ +
+│ │ │ +// detect dinamic URL update
+│ │ │ +window.onhashchange = function() {
+│ │ │ +    _addEnvironmentLabel();
+│ │ │ +}
+│ │ │ -_addEnvironmentLabel(), window.onhashchange = function() {
+│ │ │ -    _addEnvironmentLabel()
+│ │ │ -};
+│ │ │ -//# sourceMappingURL=modal.js.map
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/options.js
+│ ├── +++ /workspace/pipeline_output/envmarker/app/scripts/options.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,205 +1,436 @@
+│ │ │ +// saves options to chrome.storage
+│ │ │  function save_options() {
+│ │ │ +    var configs = document.getElementsByTagName('tr');
+│ │ │ +    var configs_array = [];
+│ │ │ +    for (var i = 0; i < configs.length; i++) {
+│ │ │ +        var uuid = configs[i].querySelector('.uuid') && configs[i].querySelector('.uuid').value || uuidv4();
+│ │ │ +        var name = configs[i].querySelector('.name') && configs[i].querySelector('.name').value;
+│ │ │ +        var address = configs[i].querySelector('.address') && configs[i].querySelector('.address').value;
+│ │ │ +        var color = configs[i].querySelector('.color') && configs[i].querySelector('.color').value;
+│ │ │ +        var fontSize = configs[i].querySelector('.font-size') && configs[i].querySelector('.font-size').value;
+│ │ │ +        var position = configs[i].querySelector('.position') && configs[i].querySelector('.position').value;
+│ │ │ +
+│ │ │ +        if (uuid && name && address && color && position) {
+│ │ │ +            var obj = {
+│ │ │ +                uuid: uuid,
+│ │ │ +                name: name,
+│ │ │ +                address: address,
+│ │ │ +                color: color,
+│ │ │ +                fontSize: fontSize || 'auto',
+│ │ │ +                position: position
+│ │ │ +            }
+│ │ │ +            configs_array.push(obj);
+│ │ │ -    for (var t = document.getElementsByTagName("tr"), e = [], n = 0; n < t.length; n++) {
+│ │ │ -        var o = t[n].querySelector(".uuid") && t[n].querySelector(".uuid").value || uuidv4(),
+│ │ │ -            s = t[n].querySelector(".name") && t[n].querySelector(".name").value,
+│ │ │ -            i = t[n].querySelector(".address") && t[n].querySelector(".address").value,
+│ │ │ -            r = t[n].querySelector(".color") && t[n].querySelector(".color").value,
+│ │ │ -            d = t[n].querySelector(".font-size") && t[n].querySelector(".font-size").value,
+│ │ │ -            a = t[n].querySelector(".position") && t[n].querySelector(".position").value;
+│ │ │ -        if (o && s && i && r && a) {
+│ │ │ -            var c = {
+│ │ │ -                uuid: o,
+│ │ │ -                name: s,
+│ │ │ -                address: i,
+│ │ │ -                color: r,
+│ │ │ -                fontSize: d || "auto",
+│ │ │ -                position: a
+│ │ │ -            };
+│ │ │ -            e.push(c)
+│ │ │          }
+│ │ │      }
+│ │ │ +
+│ │ │ +    var hosted_file = document.getElementById("hosted-file") && document.getElementById("hosted-file").value;
+│ │ │ +    var auto_import = document.getElementById("auto-import") && document.getElementById("auto-import").checked ? 1 : 0;
+│ │ │ +
+│ │ │ -    var l = document.getElementById("hosted-file") && document.getElementById("hosted-file").value,
+│ │ │ -        u = document.getElementById("auto-import") && document.getElementById("auto-import").checked ? 1 : 0;
+│ │ │      chrome.storage.sync.set({
+│ │ │          current_state: {
+│ │ │ +            last_update: new Date().getTime(),
+│ │ │ +            env_settings: configs_array,
+│ │ │ +            hosted_file: hosted_file,
+│ │ │ +            auto_import: auto_import
+│ │ │ +        }
+│ │ │ +    }, function() {
+│ │ │ +        // Update status to let user know options were saved.
+│ │ │ +        var status = document.getElementById('status');
+│ │ │ +        status.classList.add('success');
+│ │ │ +        setTimeout(function() {
+│ │ │ +            status.classList.remove('success');
+│ │ │ +        }, 1200);
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +// deletes a line
+│ │ │ +function _deleteAction(e) {
+│ │ │ +    e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode);
+│ │ │ -            last_update: (new Date).getTime(),
+│ │ │ -            env_settings: e,
+│ │ │ -            hosted_file: l,
+│ │ │ -            auto_import: u
+│ │ │ -        }
+│ │ │ -    }, (function() {
+│ │ │ -        var t = document.getElementById("status");
+│ │ │ -        t.classList.add("success"), setTimeout((function() {
+│ │ │ -            t.classList.remove("success")
+│ │ │ -        }), 1200)
+│ │ │ -    }))
+│ │ │ -}
+│ │ │ -
+│ │ │ -function _deleteAction(t) {
+│ │ │ -    t.target.parentNode.parentNode.parentNode.removeChild(t.target.parentNode.parentNode)
+│ │ │  }
+│ │ │  
+│ │ │ +// adds delete behavior to the last column
+│ │ │  function _addDeleteAction() {
+│ │ │ +    var deletebuttons = document.getElementsByClassName('delete');
+│ │ │ +    for (var i = 0; i < deletebuttons.length; i++) {
+│ │ │ +        deletebuttons[i].addEventListener('click', _deleteAction, false);
+│ │ │ +    }
+│ │ │ -    for (var t = document.getElementsByClassName("delete"), e = 0; e < t.length; e++) t[e].addEventListener("click", _deleteAction, !1)
+│ │ │  }
+│ │ │  
+│ │ │ +// restore settings stored in chrome.storage.
+│ │ │  function restore_options() {
+│ │ │ +    updateAlertMessages();
+│ │ │ +
+│ │ │ +    _i18n();
+│ │ │ +
+│ │ │ +    chrome.storage.sync.get({
+│ │ │ +            current_state: {
+│ │ │ +                env_settings: [{
+│ │ │ +                    uuid: '0ac126c8-9aff-452b-b76c-941104854128',
+│ │ │ +                    name: 'EXAMPLE',
+│ │ │ +                    address: 'environmentmarker.io',
+│ │ │ +                    color: 'rgba(0, 85, 188, 1)',
+│ │ │ +                    position: 1,
+│ │ │ +                }, ],
+│ │ │ +                hosted_file: "",
+│ │ │ +                auto_import: 0,
+│ │ │ +            },
+│ │ │ +        },
+│ │ │ +        function(data) {
+│ │ │ +            var items = data.current_state;
+│ │ │ +
+│ │ │ +            for (var i = 0; i < items.env_settings.length; i++) {
+│ │ │ +                var envItem = items.env_settings[i];
+│ │ │ +                var selectedPosition = envItem.position || 1;
+│ │ │ +                var uuid = envItem.uuid ? envItem.uuid : uuidv4();
+│ │ │ +
+│ │ │ +                // Build the position select element
+│ │ │ +                var positionSelect = `
+│ │ │ +			<td>
+│ │ │ +			  <select class="position">
+│ │ │ +				<option ${selectedPosition == 1 ? 'selected="selected"' : ''} value="1">
+│ │ │ +				  ${chrome.i18n.getMessage('__TopRight__')}
+│ │ │ +				</option>
+│ │ │ +				<option ${selectedPosition == 2 ? 'selected="selected"' : ''} value="2">
+│ │ │ +				  ${chrome.i18n.getMessage('__TopLeft__')}
+│ │ │ +				</option>
+│ │ │ +				<option ${selectedPosition == 3 ? 'selected="selected"' : ''} value="3">
+│ │ │ +				  ${chrome.i18n.getMessage('__BottomRight__')}
+│ │ │ +				</option>
+│ │ │ +				<option ${selectedPosition == 4 ? 'selected="selected"' : ''} value="4">
+│ │ │ +				  ${chrome.i18n.getMessage('__BottomLeft__')}
+│ │ │ +				</option>
+│ │ │ +				<option ${selectedPosition == 5 ? 'selected="selected"' : ''} value="5">
+│ │ │ +				  ${chrome.i18n.getMessage('__Moldure__')}
+│ │ │ +				</option>
+│ │ │ +			  </select>
+│ │ │ +			  <div class="position-container">
+│ │ │ +				<div class="position-preview" style="--preview-color: ${envItem.color}" data-position="${selectedPosition}">
+│ │ │ +					<div class="preview-box">
+│ │ │ +						<div class="preview-ribbon"></div>
+│ │ │ +						<div class="preview-moldure"></div>
+│ │ │ +					</div>
+│ │ │ +				</div>
+│ │ │ +			  </div>
+│ │ │ +			</td>`;
+│ │ │ +
+│ │ │ +                if (envItem.color.length === 6) {
+│ │ │ +                    envItem.color = hexToRgba(envItem.color);
+│ │ │ +                }
+│ │ │ +
+│ │ │ +                // Build the complete table row HTML
+│ │ │ +                var rowHTML = `
+│ │ │ +			<tr>
+│ │ │ +			  <td>
+│ │ │ +				<input class="uuid" type="hidden" value="${uuid}">
+│ │ │ +				<input class="name" value="${envItem.name}" />
+│ │ │ +			  </td>
+│ │ │ +			  <td>
+│ │ │ +				<input class="address" value="${envItem.address}" />
+│ │ │ +			  </td>
+│ │ │ +			  <td>
+│ │ │ +				<input class="color" data-jscolor="" value="${envItem.color}" />
+│ │ │ +			  </td>
+│ │ │ +			  <td>
+│ │ │ +				<select class="font-size">
+│ │ │ +				  ${generateFontSizeOptions(envItem.fontSize)}
+│ │ │ +				</select>
+│ │ │ +			  </td>
+│ │ │ +			  ${positionSelect}
+│ │ │ +			  <td>
+│ │ │ +				<button class="delete" title="Remove"></button>
+│ │ │ +			  </td>
+│ │ │ +			</tr>`;
+│ │ │ +
+│ │ │ +                // Create a container for the row and add it to the table body
+│ │ │ +                var template = document.createElement('tbody');
+│ │ │ +                template.innerHTML = rowHTML;
+│ │ │ +                document.getElementById('tbody').appendChild(template.firstElementChild);
+│ │ │ +
+│ │ │ +                _addDeleteAction();
+│ │ │ +
+│ │ │ +                // After adding the row, set up the preview listeners
+│ │ │ +                const rows = document.getElementById('tbody').getElementsByTagName('tr');
+│ │ │ +                setupPreviewListeners(rows[rows.length - 1]);
+│ │ │ +                updatePreview(rows[rows.length - 1]);
+│ │ │ +                //Refresh picker
+│ │ │ +                add_colorpicker(document.getElementById('tbody'));
+│ │ │ +            }
+│ │ │ +
+│ │ │ +            document.getElementById('hosted-file').value =
+│ │ │ +                data.current_state && data.current_state.hosted_file ?
+│ │ │ +                data.current_state.hosted_file :
+│ │ │ +                "";
+│ │ │ +            document.getElementById('auto-import').checked =
+│ │ │ +                data.current_state && data.current_state.auto_import ?
+│ │ │ +                data.current_state.auto_import :
+│ │ │ +                0;
+│ │ │ -    updateAlertMessages(), _i18n(), chrome.storage.sync.get({
+│ │ │ -        current_state: {
+│ │ │ -            env_settings: [{
+│ │ │ -                uuid: "0ac126c8-9aff-452b-b76c-941104854128",
+│ │ │ -                name: "EXAMPLE",
+│ │ │ -                address: "environmentmarker.io",
+│ │ │ -                color: "rgba(0, 85, 188, 1)",
+│ │ │ -                position: 1
+│ │ │ -            }],
+│ │ │ -            hosted_file: "",
+│ │ │ -            auto_import: 0
+│ │ │ -        }
+│ │ │ -    }, (function(t) {
+│ │ │ -        for (var e = t.current_state, n = 0; n < e.env_settings.length; n++) {
+│ │ │ -            var o = e.env_settings[n],
+│ │ │ -                s = o.position || 1,
+│ │ │ -                i = o.uuid ? o.uuid : uuidv4(),
+│ │ │ -                r = `\n\t\t\t<td>\n\t\t\t  <select class="position">\n\t\t\t\t<option ${1==s?'selected="selected"':""} value="1">\n\t\t\t\t  ${chrome.i18n.getMessage("__TopRight__")}\n\t\t\t\t</option>\n\t\t\t\t<option ${2==s?'selected="selected"':""} value="2">\n\t\t\t\t  ${chrome.i18n.getMessage("__TopLeft__")}\n\t\t\t\t</option>\n\t\t\t\t<option ${3==s?'selected="selected"':""} value="3">\n\t\t\t\t  ${chrome.i18n.getMessage("__BottomRight__")}\n\t\t\t\t</option>\n\t\t\t\t<option ${4==s?'selected="selected"':""} value="4">\n\t\t\t\t  ${chrome.i18n.getMessage("__BottomLeft__")}\n\t\t\t\t</option>\n\t\t\t\t<option ${5==s?'selected="selected"':""} value="5">\n\t\t\t\t  ${chrome.i18n.getMessage("__Moldure__")}\n\t\t\t\t</option>\n\t\t\t  </select>\n\t\t\t  <div class="position-container">\n\t\t\t\t<div class="position-preview" style="--preview-color: ${o.color}" data-position="${s}">\n\t\t\t\t\t<div class="preview-box">\n\t\t\t\t\t\t<div class="preview-ribbon"></div>\n\t\t\t\t\t\t<div class="preview-moldure"></div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t  </div>\n\t\t\t</td>`;
+│ │ │ -            6 === o.color.length && (o.color = hexToRgba(o.color));
+│ │ │ -            var d = `\n\t\t\t<tr>\n\t\t\t  <td>\n\t\t\t\t<input class="uuid" type="hidden" value="${i}">\n\t\t\t\t<input class="name" value="${o.name}" />\n\t\t\t  </td>\n\t\t\t  <td>\n\t\t\t\t<input class="address" value="${o.address}" />\n\t\t\t  </td>\n\t\t\t  <td>\n\t\t\t\t<input class="color" data-jscolor="" value="${o.color}" />\n\t\t\t  </td>\n\t\t\t  <td>\n\t\t\t\t<select class="font-size">\n\t\t\t\t  ${generateFontSizeOptions(o.fontSize)}\n\t\t\t\t</select>\n\t\t\t  </td>\n\t\t\t  ${r}\n\t\t\t  <td>\n\t\t\t\t<button class="delete" title="Remove"></button>\n\t\t\t  </td>\n\t\t\t</tr>`,
+│ │ │ -                a = document.createElement("tbody");
+│ │ │ -            a.innerHTML = d, document.getElementById("tbody").appendChild(a.firstElementChild), _addDeleteAction();
+│ │ │ -            const t = document.getElementById("tbody").getElementsByTagName("tr");
+│ │ │ -            setupPreviewListeners(t[t.length - 1]), updatePreview(t[t.length - 1]), add_colorpicker(document.getElementById("tbody"))
+│ │ │          }
+│ │ │ +    );
+│ │ │ -        document.getElementById("hosted-file").value = t.current_state && t.current_state.hosted_file ? t.current_state.hosted_file : "", document.getElementById("auto-import").checked = t.current_state && t.current_state.auto_import ? t.current_state.auto_import : 0
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │  function updateAlertMessages() {
+│ │ │ +    chrome.storage.sync.get('alert_messages', function(result) {
+│ │ │ +        var messages = result.alert_messages;
+│ │ │ +        var message_container = document.getElementById('notifications-container');
+│ │ │ +        message_container.innerHTML = '';
+│ │ │ +        message_container.appendChild(_updateAlertMessages(messages));
+│ │ │ +    });
+│ │ │ -    chrome.storage.sync.get("alert_messages", (function(t) {
+│ │ │ -        var e = t.alert_messages,
+│ │ │ -            n = document.getElementById("notifications-container");
+│ │ │ -        n.innerHTML = "", n.appendChild(_updateAlertMessages(e))
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +chrome.storage.onChanged.addListener(function(changes, namespace) {
+│ │ │ +    document.getElementById('tbody').innerHTML = '';
+│ │ │ +    restore_options();
+│ │ │ +    return true;
+│ │ │ +});
+│ │ │ +
+│ │ │ +// Add more button action
+│ │ │  function add_more() {
+│ │ │ +    // Create a new table row container
+│ │ │ +    var template = document.createElement('tr');
+│ │ │ +
+│ │ │ +    // Build the position select element
+│ │ │ +    var positionSelect = `
+│ │ │ +	  <td>
+│ │ │ +		<select class="position">
+│ │ │ +		  <option selected="selected" value="1">${chrome.i18n.getMessage('__TopRight__')}</option>
+│ │ │ +		  <option value="2">${chrome.i18n.getMessage('__TopLeft__')}</option>
+│ │ │ +		  <option value="3">${chrome.i18n.getMessage('__BottomRight__')}</option>
+│ │ │ +		  <option value="4">${chrome.i18n.getMessage('__BottomLeft__')}</option>
+│ │ │ +		  <option value="5">${chrome.i18n.getMessage('__Moldure__')}</option>
+│ │ │ +		</select>
+│ │ │ +		<div class="position-container">
+│ │ │ +			<div class="position-preview" style="--preview-color: rgba(1,1,1,1)" data-position="1">
+│ │ │ +			  <div class="preview-box">
+│ │ │ +				<div class="preview-ribbon"></div>
+│ │ │ +				<div class="preview-moldure"></div>
+│ │ │ +			  </div>
+│ │ │ +			</div>
+│ │ │ +		</div>
+│ │ │ +	  </td>`;
+│ │ │ +
+│ │ │ +    // Generate random color for preview
+│ │ │ +    const randomColor = hexToRgba((Math.random() * 0xFFFFFF << 0).toString(16));
+│ │ │ +
+│ │ │ +    var rowHTML = `
+│ │ │ +	  <tr>
+│ │ │ +		<td>
+│ │ │ +		  <input class="uuid" type="hidden" value="${uuidv4()}">
+│ │ │ +		  <input class="name" />
+│ │ │ +		</td>
+│ │ │ +		<td>
+│ │ │ +		  <input class="address" />
+│ │ │ +		</td>
+│ │ │ +		<td>
+│ │ │ +		  <input class="color" data-jscolor="" value="${randomColor}" />
+│ │ │ +		</td>
+│ │ │ +		<td>
+│ │ │ +		  <select class="font-size">
+│ │ │ +			${generateFontSizeOptions()}
+│ │ │ +		  </select>
+│ │ │ +		</td>
+│ │ │ +		${positionSelect}
+│ │ │ +		<td>
+│ │ │ +		  <button class="delete" title="Remove"></button>
+│ │ │ +		</td>
+│ │ │ +	  </tr>`;
+│ │ │ +
+│ │ │ +    // Set the innerHTML and add the row to the table body
+│ │ │ +    template.innerHTML = rowHTML;
+│ │ │ +    document.getElementById('tbody').appendChild(template);
+│ │ │ +
+│ │ │ +    // Reinstall jscolor and add delete action for the new row
+│ │ │ +    add_colorpicker(document.getElementById('tbody'));
+│ │ │ +    _addDeleteAction();
+│ │ │ +
+│ │ │ +    updatePreview(template);
+│ │ │ +
+│ │ │ +    // After adding the new row, set up the preview listeners
+│ │ │ +    setupPreviewListeners(template);
+│ │ │ -    var t = document.createElement("tr"),
+│ │ │ -        e = `\n\t  <td>\n\t\t<select class="position">\n\t\t  <option selected="selected" value="1">${chrome.i18n.getMessage("__TopRight__")}</option>\n\t\t  <option value="2">${chrome.i18n.getMessage("__TopLeft__")}</option>\n\t\t  <option value="3">${chrome.i18n.getMessage("__BottomRight__")}</option>\n\t\t  <option value="4">${chrome.i18n.getMessage("__BottomLeft__")}</option>\n\t\t  <option value="5">${chrome.i18n.getMessage("__Moldure__")}</option>\n\t\t</select>\n\t\t<div class="position-container">\n\t\t\t<div class="position-preview" style="--preview-color: rgba(1,1,1,1)" data-position="1">\n\t\t\t  <div class="preview-box">\n\t\t\t\t<div class="preview-ribbon"></div>\n\t\t\t\t<div class="preview-moldure"></div>\n\t\t\t  </div>\n\t\t\t</div>\n\t\t</div>\n\t  </td>`;
+│ │ │ -    const n = hexToRgba((16777215 * Math.random() | 0).toString(16));
+│ │ │ -    var o = `\n\t  <tr>\n\t\t<td>\n\t\t  <input class="uuid" type="hidden" value="${uuidv4()}">\n\t\t  <input class="name" />\n\t\t</td>\n\t\t<td>\n\t\t  <input class="address" />\n\t\t</td>\n\t\t<td>\n\t\t  <input class="color" data-jscolor="" value="${n}" />\n\t\t</td>\n\t\t<td>\n\t\t  <select class="font-size">\n\t\t\t${generateFontSizeOptions()}\n\t\t  </select>\n\t\t</td>\n\t\t${e}\n\t\t<td>\n\t\t  <button class="delete" title="Remove"></button>\n\t\t</td>\n\t  </tr>`;
+│ │ │ -    t.innerHTML = o, document.getElementById("tbody").appendChild(t), add_colorpicker(document.getElementById("tbody")), _addDeleteAction(), updatePreview(t), setupPreviewListeners(t)
+│ │ │  }
+│ │ │  
+│ │ │ +// download the current settings as json
+│ │ │  function exportSettings() {
+│ │ │      chrome.storage.sync.get({
+│ │ │          current_state: {
+│ │ │              env_settings: []
+│ │ │          }
+│ │ │ +    }, function(data) {
+│ │ │ +        var items = data.current_state;
+│ │ │ +        var a = document.createElement('a');
+│ │ │ +        a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(JSON.stringify(items.env_settings)));
+│ │ │ +        a.setAttribute('download', 'envmarker.json');
+│ │ │ +        a.click();
+│ │ │ +    });
+│ │ │ +}
+│ │ │ +
+│ │ │ +// import settings from a file
+│ │ │ +function importSettings(e) {
+│ │ │ +    var f = e.target.files[0];
+│ │ │ +    if (f) {
+│ │ │ +        var r = new FileReader();
+│ │ │ +        r.onload = function(e) {
+│ │ │ +            var newconfig = e.target.result;
+│ │ │ +            var status = document.getElementById('local-import-status');
+│ │ │ -    }, (function(t) {
+│ │ │ -        var e = t.current_state,
+│ │ │ -            n = document.createElement("a");
+│ │ │ -        n.setAttribute("href", "data:text/plain;charset=utf-u," + encodeURIComponent(JSON.stringify(e.env_settings))), n.setAttribute("download", "envmarker.json"), n.click()
+│ │ │ -    }))
+│ │ │ -}
+│ │ │  
+│ │ │ -function importSettings(t) {
+│ │ │ -    var e = t.target.files[0];
+│ │ │ -    if (e) {
+│ │ │ -        var n = new FileReader;
+│ │ │ -        n.onload = function(t) {
+│ │ │ -            var e = t.target.result,
+│ │ │ -                n = document.getElementById("local-import-status");
+│ │ │              try {
+│ │ │ +                // Try to parse the JSON first to validate it
+│ │ │ +                const parsedConfig = JSON.parse(newconfig);
+│ │ │ +
+│ │ │ -                const t = JSON.parse(e);
+│ │ │                  chrome.storage.sync.get({
+│ │ │                      current_state: {
+│ │ │ +                        last_update: new Date().getTime(),
+│ │ │ -                        last_update: (new Date).getTime(),
+│ │ │                          env_settings: [{
+│ │ │ +                            uuid: '0ac126c8-9aff-452b-b76c-941104854128',
+│ │ │ +                            name: 'EXAMPLE',
+│ │ │ +                            address: 'environmentmarker.io',
+│ │ │ +                            color: 'rgba(0, 85, 188, 1)',
+│ │ │ -                            uuid: "0ac126c8-9aff-452b-b76c-941104854128",
+│ │ │ -                            name: "EXAMPLE",
+│ │ │ -                            address: "environmentmarker.io",
+│ │ │ -                            color: "rgba(0, 85, 188, 1)",
+│ │ │                              position: 1
+│ │ │                          }],
+│ │ │                          hosted_file: "",
+│ │ │                          auto_import: 0
+│ │ │                      }
+│ │ │ +                }, function(data) {
+│ │ │ +                    ENV_SETTINGS = data.current_state.env_settings;
+│ │ │ +                    HOSTED_FILE = document.getElementById('hosted-file').value;
+│ │ │ +                    AUTO_IMPORT = document.getElementById('auto-import').checked;
+│ │ │ +
+│ │ │ +                    _mergeSettings(parsedConfig, ENV_SETTINGS, HOSTED_FILE, AUTO_IMPORT, function() {
+│ │ │ +                        status.classList.add('success');
+│ │ │ +                        setTimeout(function() {
+│ │ │ +                            status.classList.remove('success');
+│ │ │ +                            location.reload();
+│ │ │ +                        }, 1500);
+│ │ │ +                    });
+│ │ │ +                });
+│ │ │ +            } catch (e) {
+│ │ │ +                status.classList.add('error-parsing-json');
+│ │ │ +                setTimeout(function() {
+│ │ │ +                    status.classList.remove('error-parsing-json');
+│ │ │ +                }, 1500);
+│ │ │ -                }, (function(e) {
+│ │ │ -                    ENV_SETTINGS = e.current_state.env_settings, HOSTED_FILE = document.getElementById("hosted-file").value, AUTO_IMPORT = document.getElementById("auto-import").checked, _mergeSettings(t, ENV_SETTINGS, HOSTED_FILE, AUTO_IMPORT, (function() {
+│ │ │ -                        n.classList.add("success"), setTimeout((function() {
+│ │ │ -                            n.classList.remove("success"), location.reload()
+│ │ │ -                        }), 1500)
+│ │ │ -                    }))
+│ │ │ -                }))
+│ │ │ -            } catch (t) {
+│ │ │ -                n.classList.add("error-parsing-json"), setTimeout((function() {
+│ │ │ -                    n.classList.remove("error-parsing-json")
+│ │ │ -                }), 1500)
+│ │ │              }
+│ │ │ +        }
+│ │ │ +        r.readAsText(f);
+│ │ │ -        }, n.readAsText(e)
+│ │ │      } else {
+│ │ │ +        var status = document.getElementById('local-import-status');
+│ │ │ +        status.classList.add('error');
+│ │ │ +        setTimeout(function() {
+│ │ │ +            status.classList.remove('error');
+│ │ │ +        }, 1500);
+│ │ │ -        var o = document.getElementById("local-import-status");
+│ │ │ -        o.classList.add("error"), setTimeout((function() {
+│ │ │ -            o.classList.remove("error")
+│ │ │ -        }), 1500)
+│ │ │      }
+│ │ │  }
+│ │ │  
+│ │ │ +// import file hosted on the Internet
+│ │ │  function importHostedFile() {
+│ │ │ +    var url = document.getElementById('hosted-file').value;
+│ │ │ +    document.getElementById('hosted-file').disabled = true;
+│ │ │ +    document.getElementById('btn-import').disabled = true;
+│ │ │ +    document.getElementById('auto-import').disabled = true;
+│ │ │ +    var status = document.getElementById('import-status');
+│ │ │ +    status.classList.add('loading');
+│ │ │ +
+│ │ │ +    if (_validateURL(url)) {
+│ │ │ +        fetch(url)
+│ │ │ +            .then(res => res.json())
+│ │ │ +            .then((out) => {
+│ │ │ +                chrome.storage.sync.get({
+│ │ │ +                    current_state: {
+│ │ │ +                        last_update: new Date().getTime(),
+│ │ │ +                        env_settings: [{
+│ │ │ +                            uuid: '0ac126c8-9aff-452b-b76c-941104854128',
+│ │ │ +                            name: 'EXAMPLE',
+│ │ │ +                            address: 'environmentmarker.io',
+│ │ │ +                            color: 'rgba(0, 85, 188, 1)',
+│ │ │ +                            position: 1
+│ │ │ +                        }],
+│ │ │ +                        hosted_file: "",
+│ │ │ +                        auto_import: 0
+│ │ │ +                    }
+│ │ │ +                }, function(data) {
+│ │ │ +                    ENV_SETTINGS = data.current_state.env_settings;
+│ │ │ +                    HOSTED_FILE = document.getElementById('hosted-file').value;
+│ │ │ +                    AUTO_IMPORT = document.getElementById("auto-import") && document.getElementById("auto-import").checked ? 1 : 0;
+│ │ │ +
+│ │ │ +                    _mergeSettings(out, ENV_SETTINGS, HOSTED_FILE, AUTO_IMPORT, function() {
+│ │ │ +                        // Update status to let user know options were saved.
+│ │ │ +                        var status = document.getElementById('import-status');
+│ │ │ +                        status.classList.remove('loading');
+│ │ │ +                        status.classList.add('success');
+│ │ │ +                        setTimeout(function() {
+│ │ │ +                            status.classList.remove('success');
+│ │ │ +                            location.reload();
+│ │ │ +                        }, 1500);
+│ │ │ +                    });
+│ │ │ +                });
+│ │ │ +            })
+│ │ │ +            .catch(err => {
+│ │ │ +                // Update status to let user know options were saved.
+│ │ │ +                var status = document.getElementById('import-status');
+│ │ │ +                status.classList.remove('loading');
+│ │ │ +                status.classList.add('error');
+│ │ │ +                setTimeout(function() {
+│ │ │ +                    status.classList.remove('error');
+│ │ │ +                }, 1500);
+│ │ │ +                document.getElementById('hosted-file').disabled = false;
+│ │ │ +                document.getElementById('btn-import').disabled = false;
+│ │ │ +                document.getElementById('auto-import').disabled = false;
+│ │ │ +            });
+│ │ │ +    } else {
+│ │ │ +        var status = document.getElementById('import-status');
+│ │ │ +        status.classList.remove('loading');
+│ │ │ +        status.classList.add('error-url');
+│ │ │ +        setTimeout(function() {
+│ │ │ +            status.classList.remove('error-url');
+│ │ │ +        }, 1500);
+│ │ │ +        document.getElementById('hosted-file').disabled = false;
+│ │ │ +        document.getElementById('btn-import').disabled = false;
+│ │ │ +        document.getElementById('auto-import').disabled = false;
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Update the updatePreview function and add event listeners
+│ │ │ +function updatePreview(row) {
+│ │ │ +    const colorInput = row.querySelector('.color');
+│ │ │ +    const positionSelect = row.querySelector('.position');
+│ │ │ +    const preview = row.querySelector('.position-preview');
+│ │ │ +
+│ │ │ +    if (preview && colorInput) {
+│ │ │ +        var color = colorInput.value;
+│ │ │ +        if (color.length === 6) {
+│ │ │ +            color = hexToRgba(color);
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        preview.style.setProperty('--preview-color', color);
+│ │ │ +        preview.setAttribute('data-position', positionSelect.value);
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Add function to set up preview listeners for a row
+│ │ │ +function setupPreviewListeners(row) {
+│ │ │ +    const colorInput = row.querySelector('.color');
+│ │ │ +    const positionSelect = row.querySelector('.position');
+│ │ │ +
+│ │ │ +    if (colorInput) {
+│ │ │ +        colorInput.addEventListener('change', () => updatePreview(row));
+│ │ │ +    }
+│ │ │ +    if (positionSelect) {
+│ │ │ +        positionSelect.addEventListener('change', () => updatePreview(row));
+│ │ │ +    }
+│ │ │ +}
+│ │ │ +
+│ │ │ +// Add this function to generate font size options
+│ │ │ +function generateFontSizeOptions(selectedSize = 'auto') {
+│ │ │ +    let options = '<option value="auto" ' + (selectedSize === 'auto' ? 'selected="selected"' : '') + '>Auto</option>';
+│ │ │ +    for (let size = 5; size <= 60; size += 5) {
+│ │ │ +        options += `<option value="${size}px" ${selectedSize === size + 'px' ? 'selected="selected"' : ''}>${size}px</option>`;
+│ │ │ -    var t, e = document.getElementById("hosted-file").value;
+│ │ │ -    (document.getElementById("hosted-file").disabled = !0, document.getElementById("btn-import").disabled = !0, document.getElementById("auto-import").disabled = !0, (t = document.getElementById("import-status")).classList.add("loading"), _validateURL(e)) ? fetch(e).then((t => t.json())).then((t => {
+│ │ │ -        chrome.storage.sync.get({
+│ │ │ -            current_state: {
+│ │ │ -                last_update: (new Date).getTime(),
+│ │ │ -                env_settings: [{
+│ │ │ -                    uuid: "0ac126c8-9aff-452b-b76c-941104854128",
+│ │ │ -                    name: "EXAMPLE",
+│ │ │ -                    address: "environmentmarker.io",
+│ │ │ -                    color: "rgba(0, 85, 188, 1)",
+│ │ │ -                    position: 1
+│ │ │ -                }],
+│ │ │ -                hosted_file: "",
+│ │ │ -                auto_import: 0
+│ │ │ -            }
+│ │ │ -        }, (function(e) {
+│ │ │ -            ENV_SETTINGS = e.current_state.env_settings, HOSTED_FILE = document.getElementById("hosted-file").value, AUTO_IMPORT = document.getElementById("auto-import") && document.getElementById("auto-import").checked ? 1 : 0, _mergeSettings(t, ENV_SETTINGS, HOSTED_FILE, AUTO_IMPORT, (function() {
+│ │ │ -                var t = document.getElementById("import-status");
+│ │ │ -                t.classList.remove("loading"), t.classList.add("success"), setTimeout((function() {
+│ │ │ -                    t.classList.remove("success"), location.reload()
+│ │ │ -                }), 1500)
+│ │ │ -            }))
+│ │ │ -        }))
+│ │ │ -    })).catch((t => {
+│ │ │ -        var e = document.getElementById("import-status");
+│ │ │ -        e.classList.remove("loading"), e.classList.add("error"), setTimeout((function() {
+│ │ │ -            e.classList.remove("error")
+│ │ │ -        }), 1500), document.getElementById("hosted-file").disabled = !1, document.getElementById("btn-import").disabled = !1, document.getElementById("auto-import").disabled = !1
+│ │ │ -    })): ((t = document.getElementById("import-status")).classList.remove("loading"), t.classList.add("error-url"), setTimeout((function() {
+│ │ │ -        t.classList.remove("error-url")
+│ │ │ -    }), 1500), document.getElementById("hosted-file").disabled = !1, document.getElementById("btn-import").disabled = !1, document.getElementById("auto-import").disabled = !1)
+│ │ │ -}
+│ │ │ -
+│ │ │ -function updatePreview(t) {
+│ │ │ -    const e = t.querySelector(".color"),
+│ │ │ -        n = t.querySelector(".position"),
+│ │ │ -        o = t.querySelector(".position-preview");
+│ │ │ -    if (o && e) {
+│ │ │ -        var s = e.value;
+│ │ │ -        6 === s.length && (s = hexToRgba(s)), o.style.setProperty("--preview-color", s), o.setAttribute("data-position", n.value)
+│ │ │      }
+│ │ │ +    return options;
+│ │ │  }
+│ │ │  
+│ │ │ +initialize_colorpicker();
+│ │ │ +document.addEventListener('DOMContentLoaded', restore_options);
+│ │ │ +document.getElementById('save').addEventListener('click', save_options);
+│ │ │ +document.getElementById('auto-import').addEventListener('click', save_options);
+│ │ │ +document.getElementById('more').addEventListener('click', add_more);
+│ │ │ +document.getElementById('export').addEventListener('click', exportSettings);
+│ │ │ +document.getElementById('import').addEventListener('change', importSettings);
+│ │ │ +document.getElementById('btn-import').addEventListener('click', importHostedFile);
+│ │ │ -function setupPreviewListeners(t) {
+│ │ │ -    const e = t.querySelector(".color"),
+│ │ │ -        n = t.querySelector(".position");
+│ │ │ -    e && e.addEventListener("change", (() => updatePreview(t))), n && n.addEventListener("change", (() => updatePreview(t)))
+│ │ │ -}
+│ │ │ -
+│ │ │ -function generateFontSizeOptions(t = "auto") {
+│ │ │ -    let e = '<option value="auto" ' + ("auto" === t ? 'selected="selected"' : "") + ">Auto</option>";
+│ │ │ -    for (let n = 5; n <= 60; n += 5) e += `<option value="${n}px" ${t===n+"px"?'selected="selected"':""}>${n}px</option>`;
+│ │ │ -    return e
+│ │ │ -}
+│ │ │ -chrome.storage.onChanged.addListener((function(t, e) {
+│ │ │ -    return document.getElementById("tbody").innerHTML = "", restore_options(), !0
+│ │ │ -})), initialize_colorpicker(), document.addEventListener("DOMContentLoaded", restore_options), document.getElementById("save").addEventListener("click", save_options), document.getElementById("auto-import").addEventListener("click", save_options), document.getElementById("more").addEventListener("click", add_more), document.getElementById("export").addEventListener("click", exportSettings), document.getElementById("import").addEventListener("change", importSettings), document.getElementById("btn-import").addEventListener("click", importHostedFile);
+│ │ │ -//# sourceMappingURL=options.js.map
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/popup.js
+│ ├── +++ /workspace/pipeline_output/envmarker/app/scripts/popup.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,97 +1,189 @@
+│ │ │ +//Set initial button label
+│ │ │  function set_button_label() {
+│ │ │      chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, function(tabs) {
+│ │ │ +        if (!tabs[0]) {
+│ │ │ +            handleInvalidTab();
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +            action: 'isDisabled'
+│ │ │ +        }, function(response) {
+│ │ │ +            if (chrome.runtime.lastError) {
+│ │ │ +                console.log(chrome.runtime.lastError);
+│ │ │ +                handleInvalidTab();
+│ │ │ +                return;
+│ │ │ +            }
+│ │ │ +            if (!response || response.isDisabled === 'notSet') {
+│ │ │ +                document.getElementById('popup-text').innerText = chrome.i18n.getMessage('__ToggleNotPossible__');
+│ │ │ +                document.getElementById('popup-button').style.display = 'none';
+│ │ │ +            } else {
+│ │ │ +                document.getElementById('popup-text').innerText = chrome.i18n.getMessage('__TemporarilyToggle__');
+│ │ │ +                document.getElementById('popup-button').style.display = 'block';
+│ │ │ +                document.getElementById('popup-button').innerText = chrome.i18n.getMessage(response.isDisabled ? '__ShowLabel__' : '__HideLabel__');
+│ │ │ +            }
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ -        active: !0,
+│ │ │ -        currentWindow: !0
+│ │ │ -    }, (function(e) {
+│ │ │ -        e[0] ? chrome.tabs.sendMessage(e[0].id, {
+│ │ │ -            action: "isDisabled"
+│ │ │ -        }, (function(e) {
+│ │ │ -            if (chrome.runtime.lastError) return console.log(chrome.runtime.lastError), void handleInvalidTab();
+│ │ │ -            e && "notSet" !== e.isDisabled ? (document.getElementById("popup-text").innerText = chrome.i18n.getMessage("__TemporarilyToggle__"), document.getElementById("popup-button").style.display = "block", document.getElementById("popup-button").innerText = chrome.i18n.getMessage(e.isDisabled ? "__ShowLabel__" : "__HideLabel__")) : (document.getElementById("popup-text").innerText = chrome.i18n.getMessage("__ToggleNotPossible__"), document.getElementById("popup-button").style.display = "none")
+│ │ │ -        })) : handleInvalidTab()
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +//Set initial quick config values
+│ │ │  function set_default_values() {
+│ │ │      chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, function(tabs) {
+│ │ │ +        if (!tabs[0]) {
+│ │ │ +            handleInvalidTab();
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +            action: 'getConfig'
+│ │ │ +        }, function(response) {
+│ │ │ +            if (chrome.runtime.lastError) {
+│ │ │ +                handleInvalidTab();
+│ │ │ +                return;
+│ │ │ +            }
+│ │ │ +            if (response && response.currentConfig) {
+│ │ │ +                document.getElementById('uuid').value = response.currentConfig.uuid || uuidv4();
+│ │ │ +                document.getElementById('name').value = response.currentConfig.name;
+│ │ │ +                document.getElementById('address').value = response.currentConfig.address;
+│ │ │ +                document.getElementById('color').value = response.currentConfig.color.toString();
+│ │ │ +                document.getElementById('color').dispatchEvent(new Event('change'));
+│ │ │ +                document.getElementById('fontSize').value = response.currentConfig.fontSize || 'auto';
+│ │ │ +                document.getElementById('position').value = response.currentConfig.position;
+│ │ │ +                document.getElementById('position').dispatchEvent(new Event('change'));
+│ │ │ +                document.getElementById('add').value = chrome.i18n.getMessage('__Save__');
+│ │ │ +            } else {
+│ │ │ +                document.getElementById('uuid').value = uuidv4();
+│ │ │ +                chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +                    action: 'getDomain'
+│ │ │ +                }, function(response) {
+│ │ │ +                    if (response && response.domain) {
+│ │ │ +                        document.getElementById('address').value = response.domain;
+│ │ │ +                        document.getElementById('name').value = response.domain.replace(/\./g, '').toUpperCase();
+│ │ │ +                    }
+│ │ │ +                });
+│ │ │ +                document.getElementById('color').value = hexToRgba((Math.random() * 0xFFFFFF << 0).toString(16));
+│ │ │ +                document.getElementById('position').value = '1';
+│ │ │ +                document.getElementById('position').dispatchEvent(new Event('change'));
+│ │ │ +                document.getElementById('color').dispatchEvent(new Event('change'));
+│ │ │ +                document.getElementById('fontSize').value = 'auto';
+│ │ │ +            }
+│ │ │ +            add_colorpicker(document.getElementById('color'));
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ -        active: !0,
+│ │ │ -        currentWindow: !0
+│ │ │ -    }, (function(e) {
+│ │ │ -        e[0] ? chrome.tabs.sendMessage(e[0].id, {
+│ │ │ -            action: "getConfig"
+│ │ │ -        }, (function(t) {
+│ │ │ -            chrome.runtime.lastError ? handleInvalidTab() : (t && t.currentConfig ? (document.getElementById("uuid").value = t.currentConfig.uuid || uuidv4(), document.getElementById("name").value = t.currentConfig.name, document.getElementById("address").value = t.currentConfig.address, document.getElementById("color").value = t.currentConfig.color.toString(), document.getElementById("color").dispatchEvent(new Event("change")), document.getElementById("fontSize").value = t.currentConfig.fontSize || "auto", document.getElementById("position").value = t.currentConfig.position, document.getElementById("position").dispatchEvent(new Event("change")), document.getElementById("add").value = chrome.i18n.getMessage("__Save__")) : (document.getElementById("uuid").value = uuidv4(), chrome.tabs.sendMessage(e[0].id, {
+│ │ │ -                action: "getDomain"
+│ │ │ -            }, (function(e) {
+│ │ │ -                e && e.domain && (document.getElementById("address").value = e.domain, document.getElementById("name").value = e.domain.replace(/\./g, "").toUpperCase())
+│ │ │ -            })), document.getElementById("color").value = hexToRgba((16777215 * Math.random() | 0).toString(16)), document.getElementById("position").value = "1", document.getElementById("position").dispatchEvent(new Event("change")), document.getElementById("color").dispatchEvent(new Event("change")), document.getElementById("fontSize").value = "auto"), add_colorpicker(document.getElementById("color")))
+│ │ │ -        })) : handleInvalidTab()
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │  function saveData() {
+│ │ │ +    var config = {
+│ │ │ +        uuid: document.getElementById('uuid').value,
+│ │ │ +        name: document.getElementById('name').value,
+│ │ │ +        address: document.getElementById('address').value,
+│ │ │ +        color: document.getElementById('color').value,
+│ │ │ +        fontSize: document.getElementById('fontSize').value,
+│ │ │ +        position: document.getElementById('position').value
+│ │ │ -    var e = {
+│ │ │ -        uuid: document.getElementById("uuid").value,
+│ │ │ -        name: document.getElementById("name").value,
+│ │ │ -        address: document.getElementById("address").value,
+│ │ │ -        color: document.getElementById("color").value,
+│ │ │ -        fontSize: document.getElementById("fontSize").value,
+│ │ │ -        position: document.getElementById("position").value
+│ │ │      };
+│ │ │ +
+│ │ │      chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, function(tabs) {
+│ │ │ +        if (!tabs[0]) {
+│ │ │ +            handleInvalidTab();
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +            action: 'setConfig',
+│ │ │ +            parameter: config
+│ │ │ +        }, function(response) {
+│ │ │ +            if (chrome.runtime.lastError) {
+│ │ │ +                handleInvalidTab();
+│ │ │ +                return;
+│ │ │ +            }
+│ │ │ +            // Result handling if needed
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ -        active: !0,
+│ │ │ -        currentWindow: !0
+│ │ │ -    }, (function(t) {
+│ │ │ -        t[0] ? chrome.tabs.sendMessage(t[0].id, {
+│ │ │ -            action: "setConfig",
+│ │ │ -            parameter: e
+│ │ │ -        }, (function(e) {
+│ │ │ -            chrome.runtime.lastError && handleInvalidTab()
+│ │ │ -        })) : handleInvalidTab()
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +//Toggle button label
+│ │ │  function toggle_label() {
+│ │ │      chrome.tabs.query({
+│ │ │ +        active: true,
+│ │ │ +        currentWindow: true
+│ │ │ +    }, function(tabs) {
+│ │ │ +        if (!tabs[0]) {
+│ │ │ +            handleInvalidTab();
+│ │ │ +            return;
+│ │ │ +        }
+│ │ │ +
+│ │ │ +        chrome.tabs.sendMessage(tabs[0].id, {
+│ │ │ +            action: 'toggle'
+│ │ │ +        }, function(response) {
+│ │ │ +            if (chrome.runtime.lastError) {
+│ │ │ +                handleInvalidTab();
+│ │ │ +                return;
+│ │ │ +            }
+│ │ │ +            set_button_label();
+│ │ │ +        });
+│ │ │ +    });
+│ │ │ -        active: !0,
+│ │ │ -        currentWindow: !0
+│ │ │ -    }, (function(e) {
+│ │ │ -        e[0] ? chrome.tabs.sendMessage(e[0].id, {
+│ │ │ -            action: "toggle"
+│ │ │ -        }, (function(e) {
+│ │ │ -            chrome.runtime.lastError ? handleInvalidTab() : set_button_label()
+│ │ │ -        })) : handleInvalidTab()
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +//Open configuration screen
+│ │ │  function open_configuration() {
+│ │ │ +    if (chrome.runtime.openOptionsPage) {
+│ │ │ +        chrome.runtime.openOptionsPage();
+│ │ │ +    } else {
+│ │ │ +        window.open(chrome.runtime.getURL('options.html'));
+│ │ │ +    }
+│ │ │ -    chrome.runtime.openOptionsPage ? chrome.runtime.openOptionsPage() : window.open(chrome.runtime.getURL("options.html"))
+│ │ │  }
+│ │ │  
+│ │ │ +// Update the updatePreview function and add event listeners
+│ │ │  function updatePreview() {
+│ │ │ +    const colorInput = document.getElementById('color');
+│ │ │ +    const positionSelect = document.getElementById('position');
+│ │ │ +    const preview = document.querySelector('.preview-box');
+│ │ │ +
+│ │ │ +    if (preview && colorInput) {
+│ │ │ +        let color = colorInput.value;
+│ │ │ +        // Ensure color has a proper format
+│ │ │ +        preview.style.setProperty('--preview-color', color);
+│ │ │ +        preview.setAttribute('data-position', positionSelect.value);
+│ │ │ -    const e = document.getElementById("color"),
+│ │ │ -        t = document.getElementById("position"),
+│ │ │ -        n = document.querySelector(".preview-box");
+│ │ │ -    if (n && e) {
+│ │ │ -        let o = e.value;
+│ │ │ -        n.style.setProperty("--preview-color", o), n.setAttribute("data-position", t.value)
+│ │ │      }
+│ │ │  }
+│ │ │  
+│ │ │  function updateAlertMessages() {
+│ │ │ +    chrome.storage.sync.get('alert_messages', function(result) {
+│ │ │ +        var messages = result.alert_messages;
+│ │ │ +        var message_container = document.getElementById('notifications-container');
+│ │ │ +        message_container.innerHTML = '';
+│ │ │ +        message_container.appendChild(_updateAlertMessages(messages));
+│ │ │ +    });
+│ │ │ -    chrome.storage.sync.get("alert_messages", (function(e) {
+│ │ │ -        var t = e.alert_messages,
+│ │ │ -            n = document.getElementById("notifications-container");
+│ │ │ -        n.innerHTML = "", n.appendChild(_updateAlertMessages(t))
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │  function set_initial_config() {
+│ │ │ +    set_button_label();
+│ │ │ +    set_default_values();
+│ │ │ +    updatePreview();
+│ │ │ +    updateAlertMessages();
+│ │ │ +    _i18n();
+│ │ │ +    document.getElementById('go-to-options').addEventListener('click', open_configuration);
+│ │ │ -    set_button_label(), set_default_values(), updatePreview(), updateAlertMessages(), _i18n(), document.getElementById("go-to-options").addEventListener("click", open_configuration)
+│ │ │  }
+│ │ │  
+│ │ │  function handleInvalidTab() {
+│ │ │ +    document.getElementById('error-message').innerText = chrome.i18n.getMessage('__EnvMarkerNotAvailableError__');
+│ │ │ +    document.getElementById('popup-button').style.display = 'none';
+│ │ │ +    document.getElementById('hide-show').style.display = 'none';
+│ │ │ +    document.getElementById('quick-configuration').style.display = 'none';
+│ │ │ -    document.getElementById("error-message").innerText = chrome.i18n.getMessage("__EnvMarkerNotAvailableError__"), document.getElementById("popup-button").style.display = "none", document.getElementById("hide-show").style.display = "none", document.getElementById("quick-configuration").style.display = "none"
+│ │ │  }
+│ │ │ +
+│ │ │ +initialize_colorpicker();
+│ │ │ +document.addEventListener('DOMContentLoaded', set_initial_config);
+│ │ │ +document.getElementById('popup-button').addEventListener('click', toggle_label);
+│ │ │ +document.getElementById('quick-configuration').addEventListener('submit', saveData);
+│ │ │ +document.getElementById('position').addEventListener('change', updatePreview);
+│ │ │ +document.getElementById('color').addEventListener('change', updatePreview);
+│ │ │ -initialize_colorpicker(), document.addEventListener("DOMContentLoaded", set_initial_config), document.getElementById("popup-button").addEventListener("click", toggle_label), document.getElementById("quick-configuration").addEventListener("submit", saveData), document.getElementById("position").addEventListener("change", updatePreview), document.getElementById("color").addEventListener("change", updatePreview);
+│ │ │ -//# sourceMappingURL=popup.js.map
+│ │   --- /workspace/pipeline_output/chromex_data/scripts/util.js
+│ ├── +++ /workspace/pipeline_output/envmarker/app/scripts/util.js
+│ │ ├── js-beautify {}
+│ │ │ @@ -1,85 +1,155 @@
+│ │ │ +// Generates a new uuid
+│ │ │  function uuidv4() {
+│ │ │ +    var dt = new Date().getTime();
+│ │ │ +    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+│ │ │ +        var r = (dt + Math.random() * 16) % 16 | 0;
+│ │ │ +        dt = Math.floor(dt / 16);
+│ │ │ +        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+│ │ │ +    });
+│ │ │ +    return uuid;
+│ │ │ -    var e = (new Date).getTime();
+│ │ │ -    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (function(t) {
+│ │ │ -        var n = (e + 16 * Math.random()) % 16 | 0;
+│ │ │ -        return e = Math.floor(e / 16), ("x" == t ? n : 3 & n | 8).toString(16)
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +// Checks if URL is valid
+│ │ │ +function _validateURL(url) {
+│ │ │ +    if (!url) {
+│ │ │ +        console.log('Environment Marker: Missing URL address.');
+│ │ │ +        return false;
+│ │ │ +    }
+│ │ │ +    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+│ │ │ +        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+│ │ │ +        '((\\d{1,3}\\.){3}\\d{1,3}))|' + // OR ip (v4) address
+│ │ │ +        'localhost' + // OR localhost
+│ │ │ +        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+│ │ │ +        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+│ │ │ +        '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+│ │ │ +    var result = pattern.test(url);
+│ │ │ +    if (!result) {
+│ │ │ +        console.log('Environment Marker: Invalid URL format.');
+│ │ │ +    }
+│ │ │ +    return result;
+│ │ │ -function _validateURL(e) {
+│ │ │ -    if (!e) return console.log("Environment Marker: Missing URL address."), !1;
+│ │ │ -    var t = new RegExp("^(https?:\\/\\/)?((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))|localhost(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$", "i").test(e);
+│ │ │ -    return t || console.log("Environment Marker: Invalid URL format."), t
+│ │ │  }
+│ │ │  
+│ │ │ +// Gets the index of an array of configuration based on uuid
+│ │ │ +function _get_index(uuid, config) {
+│ │ │ +    i = 0;
+│ │ │ +    for (var item in config) {
+│ │ │ +        if (config[item].uuid == uuid)
+│ │ │ +            break;
+│ │ │ +        i++;
+│ │ │ -function _get_index(e, t) {
+│ │ │ -    for (var n in i = 0, t) {
+│ │ │ -        if (t[n].uuid == e) break;
+│ │ │ -        i++
+│ │ │      }
+│ │ │ +    return i;
+│ │ │ -    return i
+│ │ │  }
+│ │ │  
+│ │ │ +// Merges imported settings with current one
+│ │ │ +function _mergeSettings(newconfig, env_settings, hosted_file, auto_import, callback) {
+│ │ │ +    var config = newconfig.slice();
+│ │ │ +
+│ │ │ +    for (var i = 0; i < env_settings.length; i++) {
+│ │ │ +        var exists = false;
+│ │ │ +        for (var j = 0; j < newconfig.length; j++) {
+│ │ │ +            if (env_settings[i].uuid && env_settings[i].uuid == newconfig[j].uuid) {
+│ │ │ +                exists = true;
+│ │ │ +                // Keep position set locally
+│ │ │ +                config[_get_index(env_settings[i].uuid, config)].position = env_settings[i].position;
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +        if (!exists) {
+│ │ │ +            config.push(env_settings[i]);
+│ │ │ +        }
+│ │ │ -function _mergeSettings(e, t, n, r, i) {
+│ │ │ -    for (var o = e.slice(), a = 0; a < t.length; a++) {
+│ │ │ -        for (var s = !1, l = 0; l < e.length; l++) t[a].uuid && t[a].uuid == e[l].uuid && (s = !0, o[_get_index(t[a].uuid, o)].position = t[a].position);
+│ │ │ -        s || o.push(t[a])
+│ │ │      }
+│ │ │ +
+│ │ │ +    // Set configuration.
+│ │ │      chrome.storage.sync.set({
+│ │ │          current_state: {
+│ │ │ +            last_update: new Date().getTime(),
+│ │ │ +            env_settings: config,
+│ │ │ +            hosted_file: hosted_file,
+│ │ │ +            auto_import: auto_import
+│ │ │ -            last_update: (new Date).getTime(),
+│ │ │ -            env_settings: o,
+│ │ │ -            hosted_file: n,
+│ │ │ -            auto_import: r
+│ │ │          }
+│ │ │ +    }, function() {
+│ │ │ +        console.log('Environment Marker: Successfully merged config.');
+│ │ │ +        callback();
+│ │ │ +    });
+│ │ │ +
+│ │ │ -    }, (function() {
+│ │ │ -        console.log("Environment Marker: Successfully merged config."), i()
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │ +function _updateAlertMessages(messages) {
+│ │ │ +    var message_container = document.createElement('div');
+│ │ │ +    message_container.innerHTML = '';
+│ │ │ +    for (var i = 0; i < messages.length; i++) {
+│ │ │ +        var message = messages[i];
+│ │ │ +        var div = document.createElement('div');
+│ │ │ +        div.className = 'alert alert-' + message.type;
+│ │ │ +        div.role = 'alert';
+│ │ │ +        // Add message content, but prevent remote scripts from being executed
+│ │ │ +        div.innerHTML = message.content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+│ │ │ +        message_container.appendChild(div);
+│ │ │ -function _updateAlertMessages(e) {
+│ │ │ -    var t = document.createElement("div");
+│ │ │ -    t.innerHTML = "";
+│ │ │ -    for (var n = 0; n < e.length; n++) {
+│ │ │ -        var r = e[n],
+│ │ │ -            i = document.createElement("div");
+│ │ │ -        i.className = "alert alert-" + r.type, i.role = "alert", i.innerHTML = r.content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ""), t.appendChild(i)
+│ │ │      }
+│ │ │ +    return message_container;
+│ │ │ -    return t
+│ │ │  }
+│ │ │  
+│ │ │  function _i18n() {
+│ │ │ +    document.querySelectorAll('[data-i18n]').forEach(el => {
+│ │ │ +        var translated_string = chrome.i18n.getMessage(el.dataset.i18n);
+│ │ │ +        if (translated_string) {
+│ │ │ +            if (el.type == 'submit' && el.tagName == 'INPUT') {
+│ │ │ +
+│ │ │ +                el.value = chrome.i18n.getMessage(el.dataset.i18n);
+│ │ │ +            } else {
+│ │ │ +                el.innerHTML = chrome.i18n.getMessage(el.dataset.i18n);
+│ │ │ +            }
+│ │ │ +        }
+│ │ │ +    });
+│ │ │ -    document.querySelectorAll("[data-i18n]").forEach((e => {
+│ │ │ -        chrome.i18n.getMessage(e.dataset.i18n) && ("submit" == e.type && "INPUT" == e.tagName ? e.value = chrome.i18n.getMessage(e.dataset.i18n) : e.innerHTML = chrome.i18n.getMessage(e.dataset.i18n))
+│ │ │ -    }))
+│ │ │  }
+│ │ │  
+│ │ │  function initialize_colorpicker() {
+│ │ │ +
+│ │ │      jscolor.presets.default = {
+│ │ │ +        position: 'right',
+│ │ │ +        previewPosition: 'left',
+│ │ │ +        backgroundColor: '#f3f3f3',
+│ │ │ +        borderColor: '#bbbbbb',
+│ │ │ +        controlBorderColor: '#bbbbbb',
+│ │ │ +        format: 'rgba',
+│ │ │ +        alphaChannel: true,
+│ │ │ -        position: "right",
+│ │ │ -        previewPosition: "left",
+│ │ │ -        backgroundColor: "#f3f3f3",
+│ │ │ -        borderColor: "#bbbbbb",
+│ │ │ -        controlBorderColor: "#bbbbbb",
+│ │ │ -        format: "rgba",
+│ │ │ -        alphaChannel: !0
+│ │ │      }
+│ │ │ +
+│ │ │  }
+│ │ │  
+│ │ │ +function add_colorpicker(rootNode) {
+│ │ │ +    jscolor.install(rootNode);
+│ │ │ -function add_colorpicker(e) {
+│ │ │ -    jscolor.install(e)
+│ │ │  }
+│ │ │  
+│ │ │ +function hexToRgba(hex) {
+│ │ │ +    // Remove any leading #
+│ │ │ +    hex = hex.replace(/^#/, '');
+│ │ │ +
+│ │ │ +    // Expand shorthand forms (e.g. "03F" or "03FA") to full form
+│ │ │ +    if (hex.length === 3 || hex.length === 4) {
+│ │ │ +        hex = hex.split('').map(function(char) {
+│ │ │ +            return char + char;
+│ │ │ +        }).join('');
+│ │ │ +    }
+│ │ │ +
+│ │ │ +    let r, g, b, a = 255;
+│ │ │ +
+│ │ │ +    if (hex.length === 6) {
+│ │ │ +        // No alpha provided, assume fully opaque
+│ │ │ +        r = parseInt(hex.substring(0, 2), 16);
+│ │ │ +        g = parseInt(hex.substring(2, 4), 16);
+│ │ │ +        b = parseInt(hex.substring(4, 6), 16);
+│ │ │ +    } else if (hex.length === 8) {
+│ │ │ +        // With alpha
+│ │ │ +        r = parseInt(hex.substring(0, 2), 16);
+│ │ │ +        g = parseInt(hex.substring(2, 4), 16);
+│ │ │ +        b = parseInt(hex.substring(4, 6), 16);
+│ │ │ +        a = parseInt(hex.substring(6, 8), 16);
+│ │ │ +    } else {
+│ │ │ +        throw new Error("Invalid hex color format.");
+│ │ │ -function hexToRgba(e) {
+│ │ │ -    3 !== (e = e.replace(/^#/, "")).length && 4 !== e.length || (e = e.split("").map((function(e) {
+│ │ │ -        return e + e
+│ │ │ -    })).join(""));
+│ │ │ -    let t, n, r, i = 255;
+│ │ │ -    if (6 === e.length) t = parseInt(e.substring(0, 2), 16), n = parseInt(e.substring(2, 4), 16), r = parseInt(e.substring(4, 6), 16);
+│ │ │ -    else {
+│ │ │ -        if (8 !== e.length) throw new Error("Invalid hex color format.");
+│ │ │ -        t = parseInt(e.substring(0, 2), 16), n = parseInt(e.substring(2, 4), 16), r = parseInt(e.substring(4, 6), 16), i = parseInt(e.substring(6, 8), 16)
+│ │ │      }
+│ │ │ +
+│ │ │ +    // Convert alpha value from 0-255 to 0-1 range with two decimal precision
+│ │ │ +    let alpha = (a / 255).toFixed(2);
+│ │ │ +
+│ │ │ +    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+│ │ │ +}
+│ │ │ -    return `rgba(${t}, ${n}, ${r}, ${(i/255).toFixed(2)})`
+│ │ │ -}
+│ │ │ -//# sourceMappingURL=util.js.map
+│   --- /workspace/pipeline_output/chromex_data/styles
+├── +++ /workspace/pipeline_output/envmarker/app/styles
+│ ├── file list
+│ │ @@ -1,8 +1,4 @@
+│ │  layout.css
+│ │ -layout.css.map
+│ │  options.css
+│ │ -options.css.map
+│ │  popup.css
+│ │ +preview.css
+│ │ -popup.css.map
+│ │ -preview.css
+│ │ -preview.css.map
+│ │   --- /workspace/pipeline_output/chromex_data/styles/layout.css
+│ ├── +++ /workspace/pipeline_output/envmarker/app/styles/layout.css
+│ │ @@ -1,38 +1,429 @@
+│ │ +* { box-sizing:border-box; }
+│ │ +
+│ │ +body, button, td {
+│ │ +  font-family: DM Sans, sans-serif;
+│ │ +  font-size: 16px;
+│ │ +  color: rgb(48, 57, 66);
+│ │ +}
+│ │ +
+│ │ +body {
+│ │ +  background-color: white;
+│ │ +  margin-left: 20px;
+│ │ +  margin-right: 0px;
+│ │ +  overflow-x: hidden;
+│ │ +}
+│ │ +
+│ │ +.container,.container-fluid,.container-xxl,.container-xl,.container-lg,.container-md,.container-sm {
+│ │ +    --bs-gutter-x: 1rem;
+│ │ +    --bs-gutter-y: 0;
+│ │ +    width: 100%;
+│ │ +    padding-right: calc(var(--bs-gutter-x) * .5);
+│ │ +    padding-left: calc(var(--bs-gutter-x) * .5);
+│ │ +    margin-right: auto;
+│ │ +    margin-left: auto
+│ │ +}
+│ │ +
+│ │ +.container-md {
+│ │ +    min-height: calc(100vh - 40px);
+│ │ +}
+│ │ +
+│ │ +@media (min-width: 576px) {
+│ │ +    .container-sm,.container {
+│ │ +        max-width:540px
+│ │ +    }
+│ │ +  }
+│ │ +  
+│ │ +  @media (min-width: 768px) {
+│ │ +    .container-md,.container-sm,.container {
+│ │ +        max-width:720px
+│ │ +    }
+│ │ +  }
+│ │ +  
+│ │ +  @media (min-width: 992px) {
+│ │ +    .container-lg,.container-md,.container-sm,.container {
+│ │ +        max-width:960px
+│ │ +    }
+│ │ +  }
+│ │ +  
+│ │ +  @media (min-width: 1200px) {
+│ │ +    .container-xl,.container-lg,.container-md,.container-sm,.container {
+│ │ +        max-width:1140px
+│ │ +    }
+│ │ +  }
+│ │ +  
+│ │ +  @media (min-width: 1400px) {
+│ │ +    .container-xxl,.container-xl,.container-lg,.container-md,.container-sm,.container {
+│ │ +        max-width:1320px
+│ │ +    }
+│ │ +  }
+│ │ +
+│ │ +  @media (max-width: 1180px) {
+│ │ +    .col-9 {
+│ │ +      width: calc(100% - 15px) !important;;
+│ │ +    }
+│ │ +  }
+│ │ +  
+│ │ +  .row {
+│ │ +    --bs-gutter-x: 1rem;
+│ │ +    --bs-gutter-y: 0;
+│ │ +    display: flex;
+│ │ +    flex-wrap: wrap;
+│ │ +    margin-top: calc(-1 * var(--bs-gutter-y));
+│ │ +    margin-right: calc(-.5 * var(--bs-gutter-x));
+│ │ +    margin-left: calc(-.5 * var(--bs-gutter-x))
+│ │ +  }
+│ │ +  
+│ │ +  .row p {
+│ │ +    margin: 0px;
+│ │ +  }
+│ │ +  
+│ │ +  .row>* {
+│ │ +    flex-shrink: 0;
+│ │ +    width: 100%;
+│ │ +    max-width: 100%;
+│ │ +    padding-right: calc(var(--bs-gutter-x) * .5);
+│ │ +    padding-left: calc(var(--bs-gutter-x) * .5);
+│ │ +  }
+│ │ +  
+│ │ +  .justify-content-center {
+│ │ +    justify-content: center !important;
+│ │ +  }
+│ │ +
+│ │ +  .col-2 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: calc(16% - 10px);
+│ │ +    padding-right: 10px;
+│ │ +  }
+│ │ +
+│ │ +  .col-3 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: 25%;
+│ │ +    padding-right: 10px;
+│ │ +  }
+│ │ +  
+│ │ +  .col-4 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: calc(33% - 10px);
+│ │ +    padding-right: 10px;
+│ │ +  }
+│ │ +  
+│ │ +  .col-5 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: calc(45% - 7px);
+│ │ +    padding-right: 10px;
+│ │ +  }
+│ │ +
+│ │ +  .col-6 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: calc(50% - 10px);
+│ │ +    padding-right: 10px;
+│ │ +  }
+│ │ +
+│ │ +  .col-8 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: calc(65% - 10px);
+│ │ +    padding-right: 10px;
+│ │ +  }
+│ │ +  
+│ │ +  .col-9 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: calc(75% - 15px);
+│ │ +    padding: 0 15px;
+│ │ +  }
+│ │ +  
+│ │ +  .col-12 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: 100%;
+│ │ +  }
+│ │ +
+│ │ +  .mt-0 {
+│ │ +    margin-top: 0px;
+│ │ +  }
+│ │ +
+│ │ +  .mt-5 {
+│ │ +    margin-top: 5px;
+│ │ +  }
+│ │ +  
+│ │ +  .mt-10 {
+│ │ +    margin-top: 10px;
+│ │ +  }
+│ │ +
+│ │ +  .mt-15 {
+│ │ +    margin-top: 15px;
+│ │ +  }
+│ │ +  
+│ │ +  .mt-20 {
+│ │ +    margin-top: 20px;
+│ │ +  }
+│ │ +
+│ │ +  .p-0 {
+│ │ +    padding: 0px;
+│ │ +  }
+│ │ +
+│ │ +  .p-10 {
+│ │ +    padding: 10px;
+│ │ +  }
+│ │ +
+│ │ +  .p-15 {
+│ │ +    padding: 15px;
+│ │ +  }
+│ │ +  
+│ │ +  .m-15 {
+│ │ +    margin: 15px;
+│ │ +  }
+│ │ +  
+│ │ +  h1 {
+│ │ +    font-size: 36px;
+│ │ +    line-height: 40px;
+│ │ +    font-weight: 700;
+│ │ +    margin-top: 0px;
+│ │ +    margin-bottom: 5px;
+│ │ +  }
+│ │ +
+│ │ +  h2 {
+│ │ +    line-height: 35px;
+│ │ +    font-size: 1.625rem;
+│ │ +    line-height: 40px;
+│ │ +    font-weight: 700;
+│ │ +  }
+│ │ +  
+│ │ +  h3 {
+│ │ +    color: black;
+│ │ +    line-height: 13px;
+│ │ +    font-weight: normal;
+│ │ +    margin-bottom: 11px;
+│ │ +  }
+│ │ +  
+│ │ +  p {
+│ │ +    line-height: 1.4em;
+│ │ +    font-weight: 400;
+│ │ +  }
+│ │ +  
+│ │ +  .container-md input.form-input,
+│ │ +  #table input {
+│ │ +    display: block;
+│ │ +    width: 100%;
+│ │ +    padding: .4rem 0.5rem;
+│ │ +    font-size: 0.8125rem;
+│ │ +    font-weight: 400;
+│ │ +    line-height: 1.5;
+│ │ +    color: #555;
+│ │ +    background-color: #fff;
+│ │ +    background-clip: padding-box;
+│ │ +    border: 1px solid #e8ebf3;
+│ │ +    -webkit-appearance: none;
+│ │ +    -moz-appearance: none;
+│ │ +    appearance: none;
+│ │ +    border-radius: .25rem;
+│ │ +    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+│ │ +  }
+│ │ +  
+│ │ +  .container-md select {
+│ │ +    display: block;
+│ │ +    width: 100%;
+│ │ +    padding: 0.4rem 2rem 0.4rem 0.5rem;
+│ │ +    -moz-padding-start: calc(1rem - 3px);
+│ │ +    font-size: 0.8125rem;
+│ │ +    font-weight: 400;
+│ │ +    line-height: 1.5;
+│ │ +    color: #000444;
+│ │ +    background-color: #ffffff;
+│ │ +    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23435177' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+│ │ +    background-repeat: no-repeat;
+│ │ +    background-position: right 0.5rem center;
+│ │ +    background-size: 16px 12px;
+│ │ +    border: 1px solid #e8ebf3;
+│ │ +    border-radius: 0.25rem;
+│ │ +    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+│ │ +    appearance: none;
+│ │ +  }
+│ │ +
+│ │ +  .container-md select.position {
+│ │ +    width: 80%;
+│ │ +    display: block;
+│ │ +    float: left;
+│ │ +  }
+│ │ +  
+│ │ +  label {
+│ │ +    display: block;
+│ │ +  }
+│ │ +  
+│ │ +  label:hover {
+│ │ +    color: black;
+│ │ +  }
+│ │ +  
+│ │ +  label[for] {
+│ │ +    display: inline;
+│ │ +  }
+│ │ +  
+│ │ +  button {
+│ │ +    padding-left: 20px;
+│ │ +    padding-right: 20px;
+│ │ +  }
+│ │ +
+│ │ +
+│ │ +input,
+│ │ +select {
+│ │ +	width: 100%;
+│ │ +}
+│ │ +
+│ │ +input[type="checkbox"] {
+│ │ +  width: 15px;
+│ │ +}
+│ │ +
+│ │ +.btn-design {
+│ │ +  background-color: rgb(239, 239, 239);
+│ │ +  color: rgb(48, 57, 66);
+│ │ +  border: 1px solid #a9adb4;
+│ │ +  cursor: pointer;
+│ │ +  margin-top: 15px;
+│ │ +  display: inline-block;
+│ │ +  padding: 0.4rem 1rem;
+│ │ +  text-align: center;
+│ │ +  text-decoration: none;
+│ │ +  vertical-align: middle;
+│ │ +  cursor: pointer;
+│ │ +  user-select: none;
+│ │ +  border-radius: 0.25rem;
+│ │ +  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+│ │ +}
+│ │ +
+│ │ +.btn-design.mt-10 {
+│ │ +  margin-top: 10px;
+│ │ +}
+│ │ +
+│ │ +.btn-design:hover {
+│ │ +  background-color: #626262;
+│ │ +  color: white;
+│ │ +}
+│ │ +
+│ │ +.btn-design:disabled,
+│ │ +.btn-design:disabled:hover {
+│ │ +  color: #a9adb4;
+│ │ +  background-color: rgb(239, 239, 239);
+│ │ +}
+│ │ +
+│ │ +.btn-design:disabled:hover {
+│ │ +  cursor: not-allowed;
+│ │ +}
+│ │ +
+│ │ +.btn-save.btn-design {
+│ │ +  background-color: rgb(254, 77, 76);
+│ │ +  color: white;
+│ │ +}
+│ │ +
+│ │ +.btn-save.btn-design:hover {
+│ │ +  background-color: #d61f1f;
+│ │ +  border: 1px solid #d61f1f;
+│ │ +  color: #fff
+│ │ +}
+│ │ +
+│ │ +.border {
+│ │ +  border: 1px solid rgb(232, 235, 243);
+│ │ +}
+│ │ +
+│ │ +button.delete {
+│ │ +  display: block;
+│ │ +  width: 20px;
+│ │ +  height: 20px;
+│ │ +  border: 0px;
+│ │ +  margin: auto;
+│ │ +  padding: 0px;
+│ │ +  outline: none;
+│ │ +  cursor: pointer;
+│ │ +  background: url("/images/delete.png") no-repeat;
+│ │ +  background-size: 20px 20px;
+│ │ +}
+│ │ +
+│ │ +#notifications-container{
+│ │ +    margin: 5px 5px 5px 0px;
+│ │ +}
+│ │ +
+│ │ +div.status {
+│ │ +  margin: 15px 5px 0px 0px;
+│ │ +}
+│ │ +
+│ │ +div.status > div {
+│ │ +  display: none;
+│ │ +}
+│ │ +
+│ │ +div.status.success .alert-success,
+│ │ +div.status.success .alert-success-light.success,
+│ │ +div.status.loading .alert-success-light.loading {
+│ │ +  display: block !important;
+│ │ +}
+│ │ +
+│ │ +div.status.error .alert-danger,
+│ │ +div.status.error .alert-danger-light {
+│ │ +  display: block !important;
+│ │ +}
+│ │ +
+│ │ +div.status.error-url .alert-danger.error-url,
+│ │ +div.status.error-url .alert-danger-light.error-url,
+│ │ +div.status.error-parsing-json .alert-danger-light.error-parsing-json {
+│ │ +  display: block !important;
+│ │ +}
+│ │ +
+│ │ +.alert-success {
+│ │ +    color: #12583e;
+│ │ +    background-color: #d5f8eb;
+│ │ +    border: 1px solid #abf1d7;
+│ │ +    box-sizing: border-box;
+│ │ +    padding: 10px;
+│ │ +    border-radius: 5px;
+│ │ +    margin: 5px 5px 5px 0;
+│ │ +    width: 100%;
+│ │ +}
+│ │ +
+│ │ +.alert-warning {
+│ │ +    color: #995f28;
+│ │ +    background-color: #ffecd9;
+│ │ +    border: 1px solid #ffe2c7;
+│ │ +    box-sizing: border-box;
+│ │ +    padding: 10px;
+│ │ +    border-radius: 5px;
+│ │ +    margin: 5px 5px 5px 0;
+│ │ +    width: 100%;
+│ │ +}
+│ │ +
+│ │ +.alert-danger {
+│ │ +    color: #8f2e34;
+│ │ +    background-color: #fcdbdd;
+│ │ +    border: 1px solid #facacc;
+│ │ +    box-sizing: border-box;
+│ │ +    padding: 10px;
+│ │ +    border-radius: 5px;
+│ │ +    margin: 5px 5px 5px 0;
+│ │ +    width: 100%;
+│ │ +}
+│ │ +
+│ │ +.alert-success-light {
+│ │ +  color: #22b783;
+│ │ +  background-color: transparent;
+│ │ +  box-sizing: border-box;
+│ │ +  padding: 10px;
+│ │ +  border-radius: 5px;
+│ │ +  margin: 5px 5px 5px 0;
+│ │ +  width: 100%;
+│ │ +}
+│ │ +
+│ │ +.alert-warning-light {
+│ │ +  color: #ff9f43;
+│ │ +  background-color: transparent;
+│ │ +  box-sizing: border-box;
+│ │ +  padding: 10px;
+│ │ +  border-radius: 5px;
+│ │ +  margin: 5px 5px 5px 0;
+│ │ +  width: 100%;
+│ │ +}
+│ │ +
+│ │ +.alert-danger-light {
+│ │ +  color: #ef4d56;
+│ │ +  background-color: transparent;
+│ │ +  box-sizing: border-box;
+│ │ +  padding: 10px;
+│ │ +  border-radius: 5px;
+│ │ +  margin: 5px 5px 5px 0;
+│ │ +  width: 100%;
+│ │ +}
+│ │ +  
+│ │ -*{box-sizing:border-box}body,button,td{font-family:DM Sans,sans-serif;font-size:16px;color:#303942}
+│ │ -body{background-color:white;margin-left:20px;margin-right:0;overflow-x:hidden}.container,.container-fluid,.container-xxl,.container-xl,.container-lg,.container-md,.container-sm{--bs-gutter-x:1rem;--bs-gutter-y:0;width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-x) * .5);margin-right:auto;margin-left:auto}
+│ │ -.container-md{min-height:calc(100vh - 40px)}@media(min-width:576px){.container-sm,.container{max-width:540px}
+│ │ -}@media(min-width:768px){.container-md,.container-sm,.container{max-width:720px}}
+│ │ -@media(min-width:992px){.container-lg,.container-md,.container-sm,.container{max-width:960px}
+│ │ -}@media(min-width:1200px){.container-xl,.container-lg,.container-md,.container-sm,.container{max-width:1140px}
+│ │ -}@media(min-width:1400px){.container-xxl,.container-xl,.container-lg,.container-md,.container-sm,.container{max-width:1320px}
+│ │ -}@media(max-width:1180px){.col-9{width:calc(100% - 15px) !important}}.row{--bs-gutter-x:1rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));margin-right:calc(-.5 * var(--bs-gutter-x));margin-left:calc(-.5 * var(--bs-gutter-x))}
+│ │ -.row p{margin:0}.row>*{flex-shrink:0;width:100%;max-width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-x) * .5)}
+│ │ -.justify-content-center{justify-content:center !important}.col-2{flex:0 0 auto;width:calc(16% - 10px);padding-right:10px}
+│ │ -.col-3{flex:0 0 auto;width:25%;padding-right:10px}.col-4{flex:0 0 auto;width:calc(33% - 10px);padding-right:10px}
+│ │ -.col-5{flex:0 0 auto;width:calc(45% - 7px);padding-right:10px}.col-6{flex:0 0 auto;width:calc(50% - 10px);padding-right:10px}
+│ │ -.col-8{flex:0 0 auto;width:calc(65% - 10px);padding-right:10px}.col-9{flex:0 0 auto;width:calc(75% - 15px);padding:0 15px}
+│ │ -.col-12{flex:0 0 auto;width:100%}.mt-0{margin-top:0}.mt-5{margin-top:5px}.mt-10{margin-top:10px}
+│ │ -.mt-15{margin-top:15px}.mt-20{margin-top:20px}.p-0{padding:0}.p-10{padding:10px}.p-15{padding:15px}
+│ │ -.m-15{margin:15px}h1{font-size:36px;line-height:40px;font-weight:700;margin-top:0;margin-bottom:5px}
+│ │ -h2{line-height:35px;font-size:1.625rem;line-height:40px;font-weight:700}h3{color:black;line-height:13px;font-weight:normal;margin-bottom:11px}
+│ │ -p{line-height:1.4em;font-weight:400}.container-md input.form-input,#table input{display:block;width:100%;padding:.4rem .5rem;font-size:.8125rem;font-weight:400;line-height:1.5;color:#555;background-color:#fff;background-clip:padding-box;border:1px solid #e8ebf3;-webkit-appearance:none;-moz-appearance:none;appearance:none;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+│ │ -.container-md select{display:block;width:100%;padding:.4rem 2rem .4rem .5rem;-moz-padding-start:calc(1rem - 3px);font-size:.8125rem;font-weight:400;line-height:1.5;color:#000444;background-color:#fff;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23435177' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right .5rem center;background-size:16px 12px;border:1px solid #e8ebf3;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;appearance:none}
+│ │ -.container-md select.position{width:80%;display:block;float:left}label{display:block}
+│ │ -label:hover{color:black}label[for]{display:inline}button{padding-left:20px;padding-right:20px}
+│ │ -input,select{width:100%}input[type="checkbox"]{width:15px}.btn-design{background-color:#efefef;color:#303942;border:1px solid #a9adb4;cursor:pointer;margin-top:15px;display:inline-block;padding:.4rem 1rem;text-align:center;text-decoration:none;vertical-align:middle;cursor:pointer;user-select:none;border-radius:.25rem;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+│ │ -.btn-design.mt-10{margin-top:10px}.btn-design:hover{background-color:#626262;color:white}
+│ │ -.btn-design:disabled,.btn-design:disabled:hover{color:#a9adb4;background-color:#efefef}
+│ │ -.btn-design:disabled:hover{cursor:not-allowed}.btn-save.btn-design{background-color:#fe4d4c;color:white}
+│ │ -.btn-save.btn-design:hover{background-color:#d61f1f;border:1px solid #d61f1f;color:#fff}
+│ │ -.border{border:1px solid #e8ebf3}button.delete{display:block;width:20px;height:20px;border:0;margin:auto;padding:0;outline:0;cursor:pointer;background:url("/images/delete.png") no-repeat;background-size:20px 20px}
+│ │ -#notifications-container{margin:5px 5px 5px 0}div.status{margin:15px 5px 0 0}div.status>div{display:none}
+│ │ -div.status.success .alert-success,div.status.success .alert-success-light.success,div.status.loading .alert-success-light.loading{display:block !important}
+│ │ -div.status.error .alert-danger,div.status.error .alert-danger-light{display:block !important}
+│ │ -div.status.error-url .alert-danger.error-url,div.status.error-url .alert-danger-light.error-url,div.status.error-parsing-json .alert-danger-light.error-parsing-json{display:block !important}
+│ │ -.alert-success{color:#12583e;background-color:#d5f8eb;border:1px solid #abf1d7;box-sizing:border-box;padding:10px;border-radius:5px;margin:5px 5px 5px 0;width:100%}
+│ │ -.alert-warning{color:#995f28;background-color:#ffecd9;border:1px solid #ffe2c7;box-sizing:border-box;padding:10px;border-radius:5px;margin:5px 5px 5px 0;width:100%}
+│ │ -.alert-danger{color:#8f2e34;background-color:#fcdbdd;border:1px solid #facacc;box-sizing:border-box;padding:10px;border-radius:5px;margin:5px 5px 5px 0;width:100%}
+│ │ -.alert-success-light{color:#22b783;background-color:transparent;box-sizing:border-box;padding:10px;border-radius:5px;margin:5px 5px 5px 0;width:100%}
+│ │ -.alert-warning-light{color:#ff9f43;background-color:transparent;box-sizing:border-box;padding:10px;border-radius:5px;margin:5px 5px 5px 0;width:100%}
+│ │ -.alert-danger-light{color:#ef4d56;background-color:transparent;box-sizing:border-box;padding:10px;border-radius:5px;margin:5px 5px 5px 0;width:100%}
+│ │ -/*# sourceMappingURL=layout.css.map */
+│ │   --- /workspace/pipeline_output/chromex_data/styles/options.css
+│ ├── +++ /workspace/pipeline_output/envmarker/app/styles/options.css
+│ │ @@ -1,20 +1,225 @@
+│ │ +@media (max-width: 990px) {
+│ │ +  .col-4, 
+│ │ +  .col-5,
+│ │ +  .col-6 {
+│ │ +    flex: 0 0 auto;
+│ │ +    width: 100%;
+│ │ +  }
+│ │ +
+│ │ +  .import-export-row .col-4,
+│ │ +  .import-export-row .col-5,
+│ │ +  .import-export-row .col-6 {
+│ │ +    margin: 10px 0px;
+│ │ +  }
+│ │ +}
+│ │ +
+│ │ +.import-export-row .col-6 > div {
+│ │ +  height: 100%;
+│ │ +}
+│ │ +
+│ │ +.top-title {
+│ │ +  padding-left: 4px;
+│ │ +}
+│ │ +
+│ │ +#cast-icon {
+│ │ +  width: 36px;
+│ │ +  height: 36px;
+│ │ +  line-height: 18px;
+│ │ +  vertical-align: middle;
+│ │ +}
+│ │ +
+│ │ +header {
+│ │ +  display: block;
+│ │ +  padding-top: 10px;
+│ │ +  padding-bottom: 8px;
+│ │ +  min-width: 600px;
+│ │ +}
+│ │ +
+│ │ +section {
+│ │ +  -webkit-padding-start: 18px;
+│ │ +  margin-bottom: 24px;
+│ │ +  margin-top: 8px;
+│ │ +  max-width: 600px;
+│ │ +}
+│ │ +
+│ │ +.device-icon {
+│ │ +  padding-top: 11px;
+│ │ +  padding-right: 3px;
+│ │ +}
+│ │ +
+│ │ +#cast-devices-section .selected {
+│ │ +  background-color: rgb(208, 208, 208);
+│ │ +}
+│ │ +
+│ │ +#cast-devices-section .selected:hover {
+│ │ +  background-color: rgb(187, 206, 233);
+│ │ +}
+│ │ +
+│ │ +#cast-devices-section .not-selected:hover {
+│ │ +  background-color: rgb(228, 236, 247);
+│ │ +}
+│ │ +
+│ │ +.checkbox {
+│ │ +  height: 30px;
+│ │ +}
+│ │ +
+│ │ +.controlled-setting-with-label {
+│ │ +  -webkit-box-align: center;
+│ │ +  display: -webkit-box;
+│ │ +  padding-bottom: 7px;
+│ │ +  padding-top: 7px;
+│ │ +}
+│ │ +
+│ │ +.options-sections section {
+│ │ +  margin-top: 8px;
+│ │ +  margin-bottom: 24px;
+│ │ +  max-width: none;
+│ │ +}
+│ │ +
+│ │ +.setup-section p {
+│ │ +  color: #909090;
+│ │ +}
+│ │ +
+│ │ +.hidden {
+│ │ +  visibility: collapse
+│ │ +}
+│ │ +
+│ │ +.ng-invalid {
+│ │ +  background-color: #f77;
+│ │ +}
+│ │ +
+│ │ +.savedMessage {
+│ │ +  display: inline;
+│ │ +}
+│ │ +
+│ │ +a {
+│ │ +  text-decoration: none;
+│ │ +}
+│ │ +
+│ │ +.fixed-top {
+│ │ +  position: fixed;
+│ │ +  top: 0;
+│ │ +  background-color: white;
+│ │ +  border-bottom: 1px solid #e0e0e0;
+│ │ +}
+│ │ +
+│ │ +.fixed-bottom {
+│ │ +  position: fixed;
+│ │ +  bottom: 0;
+│ │ +  left: 0;
+│ │ +  border-top: 1px solid rgb(181, 199, 222);
+│ │ +  background-color: white;
+│ │ +  width: 100%;
+│ │ +  padding-bottom: 25px;
+│ │ +  padding-left: 15px;
+│ │ +  padding-right: 15px;
+│ │ +  padding-top: 15px;
+│ │ +}
+│ │ +
+│ │ +.scrolling-disabled {
+│ │ +  overflow: hidden;
+│ │ +}
+│ │ +
+│ │ +.custom-domain {
+│ │ +  padding-left: 15px;
+│ │ +  padding-top: 3px;
+│ │ +  padding-bottom: 2px;
+│ │ +}
+│ │ +
+│ │ +input[type="radio"]:disabled+label{
+│ │ +  color:#ccc;
+│ │ +}
+│ │ +
+│ │ +input.import-label {
+│ │ +  cursor: pointer;
+│ │ +}
+│ │ +
+│ │ +label.import-label {
+│ │ +  margin-right: 5px;
+│ │ +}
+│ │ +
+│ │ +/* Additional styles specific to options page */
+│ │ +.position-container {
+│ │ +    display: flex;
+│ │ +    justify-content: center;
+│ │ +    align-items: center;
+│ │ +}
+│ │ +
+│ │ +.position-preview {
+│ │ +    margin: 0 auto;
+│ │ +    width: 22px;
+│ │ +    height: 22px;
+│ │ +    position: relative;
+│ │ +}
+│ │ +
+│ │ +.preview-box {
+│ │ +    width: 100%;
+│ │ +    height: 100%;
+│ │ +    border: 1px solid #ccc;
+│ │ +    position: relative;
+│ │ +    box-sizing: border-box;
+│ │ +}
+│ │ +
+│ │ +.table-responsive {
+│ │ +    width: 100%;
+│ │ +    margin: 0;
+│ │ +    padding: 0;
+│ │ +    overflow-x: auto;
+│ │ +}
+│ │ +
+│ │ +table {
+│ │ +    border-collapse: collapse;
+│ │ +    width: 100%;
+│ │ +    min-width: 670px;
+│ │ +    table-layout: fixed;
+│ │ +}
+│ │ +
+│ │ +table td {
+│ │ +    padding: 5px;
+│ │ +    vertical-align: middle;
+│ │ +    word-break: break-word;
+│ │ +}
+│ │ +
+│ │ +.position select {
+│ │ +    width: 100%;
+│ │ +}
+│ │ +
+│ │ +input.jscolor {
+│ │ +    width: 100%;
+│ │ +}
+│ │ +
+│ │ +.config-container {
+│ │ +    width: 100%;
+│ │ +    padding: 0;
+│ │ +    margin: 0;
+│ │ +}
+│ │ +
+│ │ +thead td {
+│ │ +    font-weight: bold;
+│ │ +    background-color: #f8f9fa;
+│ │ +}
+│ │ +
+│ │ +/* Adjust column widths */
+│ │ +table td:nth-child(1) { 
+│ │ +    width: 17%;
+│ │ +}
+│ │ +
+│ │ +table td:nth-child(2) { 
+│ │ +    width: 25%;
+│ │ +}
+│ │ +
+│ │ +table td:nth-child(3) {
+│ │ +    width: 23%;
+│ │ +}
+│ │ +
+│ │ +table td:nth-child(4) { 
+│ │ +  width: 12%;
+│ │ +}
+│ │ +
+│ │ +table td:nth-child(5) { 
+│ │ +  width: 18%;
+│ │ +}
+│ │ +
+│ │ +table td:nth-child(6) {
+│ │ +  width: 5%;
+│ │ +}
+│ │ -@media(max-width:990px){.col-4,.col-5,.col-6{flex:0 0 auto;width:100%}.import-export-row .col-4,.import-export-row .col-5,.import-export-row .col-6{margin:10px 0}
+│ │ -}.import-export-row .col-6>div{height:100%}.top-title{padding-left:4px}#cast-icon{width:36px;height:36px;line-height:18px;vertical-align:middle}
+│ │ -header{display:block;padding-top:10px;padding-bottom:8px;min-width:600px}section{-webkit-padding-start:18px;margin-bottom:24px;margin-top:8px;max-width:600px}
+│ │ -.device-icon{padding-top:11px;padding-right:3px}#cast-devices-section .selected{background-color:#d0d0d0}
+│ │ -#cast-devices-section .selected:hover{background-color:#bbcee9}#cast-devices-section .not-selected:hover{background-color:#e4ecf7}
+│ │ -.checkbox{height:30px}.controlled-setting-with-label{-webkit-box-align:center;display:-webkit-box;padding-bottom:7px;padding-top:7px}
+│ │ -.options-sections section{margin-top:8px;margin-bottom:24px;max-width:none}.setup-section p{color:#909090}
+│ │ -.hidden{visibility:collapse}.ng-invalid{background-color:#f77}.savedMessage{display:inline}
+│ │ -a{text-decoration:none}.fixed-top{position:fixed;top:0;background-color:white;border-bottom:1px solid #e0e0e0}
+│ │ -.fixed-bottom{position:fixed;bottom:0;left:0;border-top:1px solid #b5c7de;background-color:white;width:100%;padding-bottom:25px;padding-left:15px;padding-right:15px;padding-top:15px}
+│ │ -.scrolling-disabled{overflow:hidden}.custom-domain{padding-left:15px;padding-top:3px;padding-bottom:2px}
+│ │ -input[type="radio"]:disabled+label{color:#ccc}input.import-label{cursor:pointer}
+│ │ -label.import-label{margin-right:5px}.position-container{display:flex;justify-content:center;align-items:center}
+│ │ -.position-preview{margin:0 auto;width:22px;height:22px;position:relative}.preview-box{width:100%;height:100%;border:1px solid #ccc;position:relative;box-sizing:border-box}
+│ │ -.table-responsive{width:100%;margin:0;padding:0;overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:670px;table-layout:fixed}
+│ │ -table td{padding:5px;vertical-align:middle;word-break:break-word}.position select{width:100%}
+│ │ -input.jscolor{width:100%}.config-container{width:100%;padding:0;margin:0}thead td{font-weight:bold;background-color:#f8f9fa}
+│ │ -table td:nth-child(1){width:17%}table td:nth-child(2){width:25%}table td:nth-child(3){width:23%}
+│ │ -table td:nth-child(4){width:12%}table td:nth-child(5){width:18%}table td:nth-child(6){width:5%}
+│ │ -/*# sourceMappingURL=options.css.map */
+│ │   --- /workspace/pipeline_output/chromex_data/styles/popup.css
+│ ├── +++ /workspace/pipeline_output/envmarker/app/styles/popup.css
+│ │ @@ -1,3 +1,23 @@
+│ │ +body {
+│ │ +  padding: 0px;
+│ │ +  margin: 0px;
+│ │ +  min-width: 470px;
+│ │ +  font-size: 13px;
+│ │ +}
+│ │ +
+│ │ +#popup-text {
+│ │ +    display: block;
+│ │ +}
+│ │ +
+│ │ +button.btn-save.btn-design, button.btn-design {
+│ │ +  font-size: 13px;
+│ │ +}
+│ │ +
+│ │ +#add {
+│ │ +  width: 100px;
+│ │ +}
+│ │ +
+│ │ +#notifications-container {
+│ │ +  margin: 0px 0px 10px 0px;
+│ │ +  width: 100%;
+│ │ +}
+│ │ -body{padding:0;margin:0;min-width:470px;font-size:13px}#popup-text{display:block}
+│ │ -button.btn-save.btn-design,button.btn-design{font-size:13px}#add{width:100px}#notifications-container{margin:0 0 10px 0;width:100%}
+│ │ -/*# sourceMappingURL=popup.css.map */
+│ │   --- /workspace/pipeline_output/chromex_data/styles/preview.css
+│ ├── +++ /workspace/pipeline_output/envmarker/app/styles/preview.css
+│ │ @@ -1,10 +1,65 @@
+│ │ +.position-container {
+│ │ +    display: flex;
+│ │ +    align-items: center;
+│ │ +    gap: 15px;
+│ │ +}
+│ │ +
+│ │ +.position-preview {
+│ │ +    width: 30px;
+│ │ +    height: 30px;
+│ │ +}
+│ │ +
+│ │ +#table .position-preview {
+│ │ +    margin-left: 5px;
+│ │ +    margin-top: 2px;
+│ │ +}
+│ │ +
+│ │ +.preview-box {
+│ │ +    width: 30px;
+│ │ +    height: 30px;
+│ │ +    border: 1px solid #ccc;
+│ │ +}
+│ │ +
+│ │ +.preview-ribbon {
+│ │ +    width: 0;
+│ │ +    height: 0;
+│ │ +    content: '';
+│ │ +    border-width: 14px;
+│ │ +    border-style: solid;
+│ │ +    display: none;
+│ │ +}
+│ │ +
+│ │ +.preview-moldure {
+│ │ +    border: 5px solid var(--preview-color, #fff);
+│ │ +    width: 100%;
+│ │ +    height: 100%;
+│ │ +    display: none;
+│ │ +}
+│ │ +
+│ │ +/* Position classes */
+│ │ +[data-position="1"] .preview-ribbon {
+│ │ +    border-color: var(--preview-color, #fff) var(--preview-color, #000) #fff #fff;
+│ │ +}
+│ │ +
+│ │ +[data-position="2"] .preview-ribbon {
+│ │ +    border-color: var(--preview-color, #fff) #fff #fff var(--preview-color, #fff);
+│ │ +}
+│ │ +
+│ │ +[data-position="3"] .preview-ribbon {
+│ │ +    border-color: #fff var(--preview-color, #fff) var(--preview-color, #fff) #fff;
+│ │ +}
+│ │ +
+│ │ +[data-position="4"] .preview-ribbon {
+│ │ +    border-color: #fff #fff var(--preview-color, #fff) var(--preview-color, #fff);
+│ │ +}
+│ │ +
+│ │ +[data-position="5"] .preview-moldure {
+│ │ +    display: block;
+│ │ +}
+│ │ +
+│ │ +[data-position="1"] .preview-ribbon,
+│ │ +[data-position="2"] .preview-ribbon,
+│ │ +[data-position="3"] .preview-ribbon,
+│ │ +[data-position="4"] .preview-ribbon {
+│ │ +    display: block;
+│ │ +} 
+│ │ -.position-container{display:flex;align-items:center;gap:15px}.position-preview{width:30px;height:30px}
+│ │ -#table .position-preview{margin-left:5px;margin-top:2px}.preview-box{width:30px;height:30px;border:1px solid #ccc}
+│ │ -.preview-ribbon{width:0;height:0;content:'';border-width:14px;border-style:solid;display:none}
+│ │ -.preview-moldure{border:5px solid var(--preview-color,#fff);width:100%;height:100%;display:none}
+│ │ -[data-position="1"] .preview-ribbon{border-color:var(--preview-color,#fff) var(--preview-color,#000) #fff #fff}
+│ │ -[data-position="2"] .preview-ribbon{border-color:var(--preview-color,#fff) #fff #fff var(--preview-color,#fff)}
+│ │ -[data-position="3"] .preview-ribbon{border-color:#fff var(--preview-color,#fff) var(--preview-color,#fff) #fff}
+│ │ -[data-position="4"] .preview-ribbon{border-color:#fff #fff var(--preview-color,#fff) var(--preview-color,#fff)}
+│ │ -[data-position="5"] .preview-moldure{display:block}[data-position="1"] .preview-ribbon,[data-position="2"] .preview-ribbon,[data-position="3"] .preview-ribbon,[data-position="4"] .preview-ribbon{display:block}
+│ │ -/*# sourceMappingURL=preview.css.map */

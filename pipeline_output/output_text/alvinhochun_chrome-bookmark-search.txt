@@ -1,0 +1,1933 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/chrome-bookmark-search/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  background.js
+│  icon128.png
+│  icon16.png
+│  icon48.png
+│  manifest.json
+│  notification_install.html
+│  notification_install.js
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,166 +1,166 @@
+│ │ -importScripts("search_common.js");
+│ │ -
+│ │ -function createTab(url) {
+│ │ -    chrome.tabs.create({
+│ │ -        'url': url
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function nav(url, disposition) {
+│ │ -    if (jsMatch.test(url)) {
+│ │ -        console.error("Internal code error");
+│ │ -    } else {
+│ │ -        switch (disposition) {
+│ │ -            case "newForegroundTab":
+│ │ -                chrome.tabs.create({
+│ │ -                    'url': url
+│ │ -                });
+│ │ -                break;
+│ │ -            case "newBackgroundTab":
+│ │ -                chrome.tabs.create({
+│ │ -                    'url': url,
+│ │ -                    'active': false
+│ │ -                });
+│ │ -                break;
+│ │ -            case "currentTab":
+│ │ -            default:
+│ │ -                chrome.tabs.update({
+│ │ -                    'url': url
+│ │ -                });
+│ │ -        }
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -function execJS(js) {
+│ │ -    chrome.tabs.update({
+│ │ -        'url': "javascript:" + js
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function escapeXML(str) {
+│ │ -    return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+│ │ -}
+│ │ -
+│ │ -// Check whether new version is installed
+│ │ -chrome.runtime.onInstalled.addListener(async function(details) {
+│ │ -    // Set default options and check existing options
+│ │ -    const options = await chrome.storage.sync.get({
+│ │ -        'tabbed': "disposition",
+│ │ -        'matchname': "true",
+│ │ -        'maxcount': 5,
+│ │ -        'searchalgorithm': "v2"
+│ │ -    });
+│ │ -
+│ │ -    // Links open in new tab? (=false)
+│ │ -    switch (options["tabbed"]) {
+│ │ -        case "true":
+│ │ -            options["tabbed"] = "newForegroundTab";
+│ │ -            break;
+│ │ -        case "currentTab":
+│ │ -        case "newForegroundTab":
+│ │ -        case "newBackgroundTab":
+│ │ -        case "disposition":
+│ │ -            break;
+│ │ -        default:
+│ │ -            options["tabbed"] = "disposition";
+│ │ -    }
+│ │ -    // Automatically match full name? (=true)
+│ │ -    if ('matchname' in options) {
+│ │ -        if (options["matchname"] != "true") {
+│ │ -            options["matchname"] = "";
+│ │ -        }
+│ │ -    } else {
+│ │ -        options["matchname"] = true;
+│ │ -    }
+│ │ -    // Maximum displayed items (=5)
+│ │ -    if (!options["maxcount"] || parseInt(options["maxcount"]) < 2) {
+│ │ -        options["maxcount"] = 5;
+│ │ -    }
+│ │ -    // Search algorithm (=v2)
+│ │ -    if (["builtin", "v2"].indexOf(options["searchalgorithm"]) == -1) {
+│ │ -        if (options["searchsortv2"] === "") {
+│ │ -            options["searchalgorithm"] = "builtin";
+│ │ -        } else {
+│ │ -            options["searchalgorithm"] = "v2";
+│ │ -        }
+│ │ -        if ("searchsortv2" in options) {
+│ │ -            options.removeItem("searchsortv2");
+│ │ -        }
+│ │ -    }
+│ │ -
+│ │ -    // Save options
+│ │ -    chrome.storage.sync.set(options);
+│ │ -
+│ │ -    // Shows the installed/updated prompt
+│ │ -    if (details.reason == "install") {
+│ │ -        const notificationId = "chrome-bookmark-search-installed";
+│ │ -        chrome.notifications.create(notificationId, {
+│ │ -            'type': "basic",
+│ │ -            'title': "Bookmark Search v" + chrome.runtime.getManifest().version + " installed!",
+│ │ -            'message': "To use this extension, just type bm on the omnibox (address bar).\n\nClick to view the options page.",
+│ │ -            'iconUrl': "icon48.png"
+│ │ -        });
+│ │ -        chrome.notifications.onClicked.addListener(function(id) {
+│ │ -            if (id !== notificationId) {
+│ │ -                return;
+│ │ -            }
+│ │ -            createTab(chrome.runtime.getURL("options.html"));
+│ │ -        });
+│ │ -    } else if (details.reason == "update") {
+│ │ -        const notificationId = "chrome-bookmark-search-updated";
+│ │ -        chrome.notifications.create(notificationId, {
+│ │ -            'type': "basic",
+│ │ -            'title': "Bookmark Search updated to v" + chrome.runtime.getManifest().version + "!",
+│ │ -            'message': "Click to view the detailed changelog.",
+│ │ -            'iconUrl': "icon48.png"
+│ │ -        });
+│ │ -        chrome.notifications.onClicked.addListener(function(id) {
+│ │ -            if (id !== notificationId) {
+│ │ -                return;
+│ │ -            }
+│ │ -            createTab(chrome.runtime.getURL("whatsnew.html") + "?v" + details.previousVersion);
+│ │ -        });
+│ │ -        // Open upgrade.html in the background,
+│ │ -        // after saving the "previousVersion" to storage.local.
+│ │ -        chrome.storage.local.set({
+│ │ -            'previousVersion': details.previousVersion
+│ │ -        });
+│ │ -        chrome.tabs.create({
+│ │ -            'url': chrome.runtime.getURL("upgrade.html"),
+│ │ -            'active': false
+│ │ -        });
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -chrome.omnibox.onInputChanged.addListener(async function(text, suggest) {
+│ │ -    const options = await chrome.storage.sync.get(["searchalgorithm"]);
+│ │ -    await chrome.storage.local.set({
+│ │ -        's_automatchText': text
+│ │ -    });
+│ │ -    searchInput(text, options["searchalgorithm"], suggest, chrome.omnibox.setDefaultSuggestion, async function(url) {
+│ │ -        await chrome.storage.local.set({
+│ │ -            's_automatchUrl': url
+│ │ -        });
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -chrome.omnibox.onInputEntered.addListener(async function(text, disposition) {
+│ │ -    const options = await chrome.storage.sync.get(["tabbed"]);
+│ │ -    if (options["tabbed"] != "disposition") {
+│ │ -        disposition = options["tabbed"];
+│ │ -    }
+│ │ -    const local = await chrome.storage.local.get(["s_automatchText", "s_automatchUrl"]);
+│ │ -    if (local["s_automatchUrl"] && local["s_automatchText"] == text) {
+│ │ -        text = "go " + local["s_automatchUrl"];
+│ │ -        local["s_automatchText"] = "";
+│ │ -        local["s_automatchUrl"] = "";
+│ │ -        await chrome.storage.local.set(local);
+│ │ -    }
+│ │ -    if (urlGoMatch.test(text)) { // is "go addr"
+│ │ -        nav(text.substr(3), disposition);
+│ │ -    } else if (text.substr(0, 1) == "?") {
+│ │ -        nav("chrome://bookmarks/?q=" + text.substr(1), disposition);
+│ │ -    } else {
+│ │ -        nav("chrome://bookmarks/?q=" + text, disposition);
+│ │ -    }
+│ │ +importScripts("search_common.js");
+│ │ +
+│ │ +function createTab(url) {
+│ │ +    chrome.tabs.create({
+│ │ +        'url': url
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function nav(url, disposition) {
+│ │ +    if (jsMatch.test(url)) {
+│ │ +        console.error("Internal code error");
+│ │ +    } else {
+│ │ +        switch (disposition) {
+│ │ +            case "newForegroundTab":
+│ │ +                chrome.tabs.create({
+│ │ +                    'url': url
+│ │ +                });
+│ │ +                break;
+│ │ +            case "newBackgroundTab":
+│ │ +                chrome.tabs.create({
+│ │ +                    'url': url,
+│ │ +                    'active': false
+│ │ +                });
+│ │ +                break;
+│ │ +            case "currentTab":
+│ │ +            default:
+│ │ +                chrome.tabs.update({
+│ │ +                    'url': url
+│ │ +                });
+│ │ +        }
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +function execJS(js) {
+│ │ +    chrome.tabs.update({
+│ │ +        'url': "javascript:" + js
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function escapeXML(str) {
+│ │ +    return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+│ │ +}
+│ │ +
+│ │ +// Check whether new version is installed
+│ │ +chrome.runtime.onInstalled.addListener(async function(details) {
+│ │ +    // Set default options and check existing options
+│ │ +    const options = await chrome.storage.sync.get({
+│ │ +        'tabbed': "disposition",
+│ │ +        'matchname': "true",
+│ │ +        'maxcount': 5,
+│ │ +        'searchalgorithm': "v2"
+│ │ +    });
+│ │ +
+│ │ +    // Links open in new tab? (=false)
+│ │ +    switch (options["tabbed"]) {
+│ │ +        case "true":
+│ │ +            options["tabbed"] = "newForegroundTab";
+│ │ +            break;
+│ │ +        case "currentTab":
+│ │ +        case "newForegroundTab":
+│ │ +        case "newBackgroundTab":
+│ │ +        case "disposition":
+│ │ +            break;
+│ │ +        default:
+│ │ +            options["tabbed"] = "disposition";
+│ │ +    }
+│ │ +    // Automatically match full name? (=true)
+│ │ +    if ('matchname' in options) {
+│ │ +        if (options["matchname"] != "true") {
+│ │ +            options["matchname"] = "";
+│ │ +        }
+│ │ +    } else {
+│ │ +        options["matchname"] = true;
+│ │ +    }
+│ │ +    // Maximum displayed items (=5)
+│ │ +    if (!options["maxcount"] || parseInt(options["maxcount"]) < 2) {
+│ │ +        options["maxcount"] = 5;
+│ │ +    }
+│ │ +    // Search algorithm (=v2)
+│ │ +    if (["builtin", "v2"].indexOf(options["searchalgorithm"]) == -1) {
+│ │ +        if (options["searchsortv2"] === "") {
+│ │ +            options["searchalgorithm"] = "builtin";
+│ │ +        } else {
+│ │ +            options["searchalgorithm"] = "v2";
+│ │ +        }
+│ │ +        if ("searchsortv2" in options) {
+│ │ +            options.removeItem("searchsortv2");
+│ │ +        }
+│ │ +    }
+│ │ +
+│ │ +    // Save options
+│ │ +    chrome.storage.sync.set(options);
+│ │ +
+│ │ +    // Shows the installed/updated prompt
+│ │ +    if (details.reason == "install") {
+│ │ +        const notificationId = "chrome-bookmark-search-installed";
+│ │ +        chrome.notifications.create(notificationId, {
+│ │ +            'type': "basic",
+│ │ +            'title': "Bookmark Search v" + chrome.runtime.getManifest().version + " installed!",
+│ │ +            'message': "To use this extension, just type bm on the omnibox (address bar).\n\nClick to view the options page.",
+│ │ +            'iconUrl': "icon48.png"
+│ │ +        });
+│ │ +        chrome.notifications.onClicked.addListener(function(id) {
+│ │ +            if (id !== notificationId) {
+│ │ +                return;
+│ │ +            }
+│ │ +            createTab(chrome.runtime.getURL("options.html"));
+│ │ +        });
+│ │ +    } else if (details.reason == "update") {
+│ │ +        const notificationId = "chrome-bookmark-search-updated";
+│ │ +        chrome.notifications.create(notificationId, {
+│ │ +            'type': "basic",
+│ │ +            'title': "Bookmark Search updated to v" + chrome.runtime.getManifest().version + "!",
+│ │ +            'message': "Click to view the detailed changelog.",
+│ │ +            'iconUrl': "icon48.png"
+│ │ +        });
+│ │ +        chrome.notifications.onClicked.addListener(function(id) {
+│ │ +            if (id !== notificationId) {
+│ │ +                return;
+│ │ +            }
+│ │ +            createTab(chrome.runtime.getURL("whatsnew.html") + "?v" + details.previousVersion);
+│ │ +        });
+│ │ +        // Open upgrade.html in the background,
+│ │ +        // after saving the "previousVersion" to storage.local.
+│ │ +        chrome.storage.local.set({
+│ │ +            'previousVersion': details.previousVersion
+│ │ +        });
+│ │ +        chrome.tabs.create({
+│ │ +            'url': chrome.runtime.getURL("upgrade.html"),
+│ │ +            'active': false
+│ │ +        });
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +chrome.omnibox.onInputChanged.addListener(async function(text, suggest) {
+│ │ +    const options = await chrome.storage.sync.get(["searchalgorithm"]);
+│ │ +    await chrome.storage.local.set({
+│ │ +        's_automatchText': text
+│ │ +    });
+│ │ +    searchInput(text, options["searchalgorithm"], suggest, chrome.omnibox.setDefaultSuggestion, async function(url) {
+│ │ +        await chrome.storage.local.set({
+│ │ +            's_automatchUrl': url
+│ │ +        });
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +chrome.omnibox.onInputEntered.addListener(async function(text, disposition) {
+│ │ +    const options = await chrome.storage.sync.get(["tabbed"]);
+│ │ +    if (options["tabbed"] != "disposition") {
+│ │ +        disposition = options["tabbed"];
+│ │ +    }
+│ │ +    const local = await chrome.storage.local.get(["s_automatchText", "s_automatchUrl"]);
+│ │ +    if (local["s_automatchUrl"] && local["s_automatchText"] == text) {
+│ │ +        text = "go " + local["s_automatchUrl"];
+│ │ +        local["s_automatchText"] = "";
+│ │ +        local["s_automatchUrl"] = "";
+│ │ +        await chrome.storage.local.set(local);
+│ │ +    }
+│ │ +    if (urlGoMatch.test(text)) { // is "go addr"
+│ │ +        nav(text.substr(3), disposition);
+│ │ +    } else if (text.substr(0, 1) == "?") {
+│ │ +        nav("chrome://bookmarks/?q=" + text.substr(1), disposition);
+│ │ +    } else {
+│ │ +        nav("chrome://bookmarks/?q=" + text, disposition);
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,15 +17,14 @@
+│ │      },
+│ │      "options_page": "options.html",
+│ │      "permissions": [
+│ │          "bookmarks",
+│ │          "notifications",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0.0",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [
+│   --- /workspace/pipeline_output/chromex_data/notification_install.html
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/notification_install.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,24 +1,24 @@
+│ -<html>
+│ -<head>
+│ -<script type="text/javascript" src="notification_install.js"></script>
+│ -<script type="text/javascript" src="page_common.js"></script>
+│ -</head>
+│ -<body style="font-size:10pt;">
+│ -<div>
+│ -<b>Bookmark Search <span style="color:red;" name="version">this version</span> is installed!</b><br />
+│ -<br />
+│ -<table style="border:none;font-size:10pt;">
+│ -<tr>
+│ -<td style="vertical-align:top;">
+│ -<img src="icon48.png" width="48" height="48" />
+│ -</td>
+│ -<td>
+│ -To use this extension, just type <span style="font-family:monospace;background-color:#eeeeee;padding:1px 5px 1px 5px;">bm&nbsp;</span> on the omnibox (address bar).
+│ -</td>
+│ -</tr>
+│ -</table>
+│ -Please also check the <a href="options.html" target="_blank">options page</a>.<br />
+│ -<a href="whatsnew.html?vnone" target="_blank">Click here</a> to see the change log.
+│ -</div>
+│ -</body>
+│ -</html>
+│ +<html>
+│ +<head>
+│ +<script type="text/javascript" src="notification_install.js"></script>
+│ +<script type="text/javascript" src="page_common.js"></script>
+│ +</head>
+│ +<body style="font-size:10pt;">
+│ +<div>
+│ +<b>Bookmark Search <span style="color:red;" name="version">this version</span> is installed!</b><br />
+│ +<br />
+│ +<table style="border:none;font-size:10pt;">
+│ +<tr>
+│ +<td style="vertical-align:top;">
+│ +<img src="icon48.png" width="48" height="48" />
+│ +</td>
+│ +<td>
+│ +To use this extension, just type <span style="font-family:monospace;background-color:#eeeeee;padding:1px 5px 1px 5px;">bm&nbsp;</span> on the omnibox (address bar).
+│ +</td>
+│ +</tr>
+│ +</table>
+│ +Please also check the <a href="options.html" target="_blank">options page</a>.<br />
+│ +<a href="whatsnew.html?vnone" target="_blank">Click here</a> to see the change log.
+│ +</div>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/notification_install.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/notification_install.js
+│┄ xxd not available in path. Falling back to Python hexlify.
+│┄ Format-specific differences are supported for JavaScript files but no file-specific differences were detected; falling back to a binary diff. file(1) reports: ASCII text, with CRLF line terminators
+│ @@ -1,2 +1,2 @@
+│  77696e646f772e6164644576656e744c697374656e657228226c6f6164222c20
+│ -66756e6374696f6e28297b0d0a7d293b0d0a
+│ +66756e6374696f6e28297b0a7d293b0a
+│   --- /workspace/pipeline_output/chromex_data/notification_update.html
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/notification_update.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,28 +1,28 @@
+│ -<html>
+│ -<head>
+│ -<script type="text/javascript" src="notification_update.js"></script>
+│ -<script type="text/javascript" src="page_common.js"></script>
+│ -</head>
+│ -<body style="font-size:10pt;">
+│ -<div>
+│ -<b>Bookmark Search is updated to <span style="color:red;" name="version">this version</span>!</b><br />
+│ -<br />
+│ -<table style="border:none;font-size:10pt;">
+│ -<tr>
+│ -<td style="vertical-align:top;">
+│ -<img src="icon48.png" width="48" height="48" />
+│ -</td>
+│ -<td>
+│ -Some important recent changes:
+│ -<ul style="margin:4px;padding-left:12px;">
+│ -<li>Migrated to Manifest V3, so this extension remains available in the Chrome Web Store.</li>
+│ -<li>Dropped support for JavaScript bookmarklets, because Chrome and other browsers enforce Content Security Policy on bookmarklets.</li>
+│ -</ul>
+│ -</td>
+│ -</tr>
+│ -</table>
+│ -Please also check the <a href="options.html" target="_blank">options page</a>.<br />
+│ -<a id="changeloglink" href="whatsnew.html" target="_blank">Click here</a> for a full list of changes.
+│ -</div>
+│ -</body>
+│ -</html>
+│ +<html>
+│ +<head>
+│ +<script type="text/javascript" src="notification_update.js"></script>
+│ +<script type="text/javascript" src="page_common.js"></script>
+│ +</head>
+│ +<body style="font-size:10pt;">
+│ +<div>
+│ +<b>Bookmark Search is updated to <span style="color:red;" name="version">this version</span>!</b><br />
+│ +<br />
+│ +<table style="border:none;font-size:10pt;">
+│ +<tr>
+│ +<td style="vertical-align:top;">
+│ +<img src="icon48.png" width="48" height="48" />
+│ +</td>
+│ +<td>
+│ +Some important recent changes:
+│ +<ul style="margin:4px;padding-left:12px;">
+│ +<li>Migrated to Manifest V3, so this extension remains available in the Chrome Web Store.</li>
+│ +<li>Dropped support for JavaScript bookmarklets, because Chrome and other browsers enforce Content Security Policy on bookmarklets.</li>
+│ +</ul>
+│ +</td>
+│ +</tr>
+│ +</table>
+│ +Please also check the <a href="options.html" target="_blank">options page</a>.<br />
+│ +<a id="changeloglink" href="whatsnew.html" target="_blank">Click here</a> for a full list of changes.
+│ +</div>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/notification_update.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/notification_update.js
+│ ├── js-beautify {}
+│ │ @@ -1,3 +1,3 @@
+│ │ -window.addEventListener("load", function() {
+│ │ -    document.getElementById("changeloglink").href = "whatsnew.html" + window.location.search;
+│ │ +window.addEventListener("load", function() {
+│ │ +    document.getElementById("changeloglink").href = "whatsnew.html" + window.location.search;
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,51 +1,51 @@
+│ -<html>
+│ -<head>
+│ -<title>Bookmark Search Extension - Options</title>
+│ -<script type="text/javascript" src="options.js"></script>
+│ -<script type="text/javascript" src="page_common.js"></script>
+│ -</head>
+│ -<body>
+│ -<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - Options</h1>
+│ -<form id="myform">
+│ -<table>
+│ -<tbody>
+│ -<tr>
+│ -<td style="text-align:right"><label for="tabbed">Open bookmarks on</label></td>
+│ -<td>
+│ -<select id="tabbed">
+│ -<option value="currentTab">the current tab</option>
+│ -<option value="newForegroundTab">new tab</option>
+│ -<option value="newBackgroundTab">new tab in background</option>
+│ -<option value="disposition">the current tab, or new tab when Alt+Enter is pressed, or background when an item is middle-clicked</option>
+│ -</select>
+│ -</td>
+│ -</tr>
+│ -<tr>
+│ -<td style="text-align:right"><label for="matchname">Automatically selects full match on <b>name</b></label></td>
+│ -<td><input type="checkbox" id="matchname" /></td>
+│ -</tr>
+│ -<tr>
+│ -<td style="text-align:right"><label for="maxcount">Maximum display items count excluding default selection <sup>[1]</sup></label></td>
+│ -<td><input type="number" id="maxcount" min="2" max="10" /></td>
+│ -</tr>
+│ -<tr>
+│ -<td style="text-align:right"><label for="searchalgorithm">Searching and sorting algorithm to use <a href="search_test.html">(Try here!)</a> </label></td>
+│ -<td>
+│ -<select id="searchalgorithm">
+│ -<option value="builtin">Chrome built-in search</option>
+│ -<option value="v2">Bookmark Search version 2</option>
+│ -</select>
+│ -</td>
+│ -</tr>
+│ -</tbody>
+│ -</table>
+│ -<input type="submit" value="Save options" />
+│ -</form>
+│ -<div id="status" style="background-color:yellow;color:red;"></div><br />
+│ -<b>Please report if you found bugs!</b>
+│ -<hr />
+│ -[1] Do note that Chrome has its own limit, so you may not display more than 5. You might be able to change the limit on chrome://flags, look for "omnibox-ui-max-autocomplete-matches".
+│ -<hr />
+│ -<a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> version <span name="version">this version</span> (<a href="whatsnew.html" target="_blank">What&apos;s new</a>)
+│ -</body>
+│ -</html>
+│ +<html>
+│ +<head>
+│ +<title>Bookmark Search Extension - Options</title>
+│ +<script type="text/javascript" src="options.js"></script>
+│ +<script type="text/javascript" src="page_common.js"></script>
+│ +</head>
+│ +<body>
+│ +<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - Options</h1>
+│ +<form id="myform">
+│ +<table>
+│ +<tbody>
+│ +<tr>
+│ +<td style="text-align:right"><label for="tabbed">Open bookmarks on</label></td>
+│ +<td>
+│ +<select id="tabbed">
+│ +<option value="currentTab">the current tab</option>
+│ +<option value="newForegroundTab">new tab</option>
+│ +<option value="newBackgroundTab">new tab in background</option>
+│ +<option value="disposition">the current tab, or new tab when Alt+Enter is pressed, or background when an item is middle-clicked</option>
+│ +</select>
+│ +</td>
+│ +</tr>
+│ +<tr>
+│ +<td style="text-align:right"><label for="matchname">Automatically selects full match on <b>name</b></label></td>
+│ +<td><input type="checkbox" id="matchname" /></td>
+│ +</tr>
+│ +<tr>
+│ +<td style="text-align:right"><label for="maxcount">Maximum display items count excluding default selection <sup>[1]</sup></label></td>
+│ +<td><input type="number" id="maxcount" min="2" max="10" /></td>
+│ +</tr>
+│ +<tr>
+│ +<td style="text-align:right"><label for="searchalgorithm">Searching and sorting algorithm to use <a href="search_test.html">(Try here!)</a> </label></td>
+│ +<td>
+│ +<select id="searchalgorithm">
+│ +<option value="builtin">Chrome built-in search</option>
+│ +<option value="v2">Bookmark Search version 2</option>
+│ +</select>
+│ +</td>
+│ +</tr>
+│ +</tbody>
+│ +</table>
+│ +<input type="submit" value="Save options" />
+│ +</form>
+│ +<div id="status" style="background-color:yellow;color:red;"></div><br />
+│ +<b>Please report if you found bugs!</b>
+│ +<hr />
+│ +[1] Do note that Chrome has its own limit, so you may not display more than 5. You might be able to change the limit on chrome://flags, look for "omnibox-ui-max-autocomplete-matches".
+│ +<hr />
+│ +<a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> version <span name="version">this version</span> (<a href="whatsnew.html" target="_blank">What&apos;s new</a>)
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/options.js
+│ ├── js-beautify {}
+│ │ @@ -1,42 +1,42 @@
+│ │ -async function save_options() {
+│ │ -    var status = document.getElementById("status");
+│ │ -    document.getElementById("maxcount").value = Number(document.getElementById("maxcount").value);
+│ │ -    if (parseInt(document.getElementById("maxcount").value) < 2) {
+│ │ -        status.textContent = "<b>Maximum items count</b> cannot be less than 2!";
+│ │ -        setTimeout(function() {
+│ │ -            status.textContent = "";
+│ │ -        }, 5000);
+│ │ -        return;
+│ │ -    }
+│ │ -    const options = {}
+│ │ -    options["tabbed"] = document.getElementById("tabbed").value;
+│ │ -    options["matchname"] = document.getElementById("matchname").checked ? "true" : "";
+│ │ -    options["maxcount"] = parseInt(document.getElementById("maxcount").value);
+│ │ -    options["searchalgorithm"] = document.getElementById("searchalgorithm").value;
+│ │ -    await chrome.storage.sync.set(options);
+│ │ -    status.textContent = "Options Saved.";
+│ │ -    setTimeout(function() {
+│ │ -        status.textContent = "";
+│ │ -    }, 1000);
+│ │ -}
+│ │ -
+│ │ -async function restore_options() {
+│ │ -    let options = await chrome.storage.sync.get([
+│ │ -        "tabbed",
+│ │ -        "matchname",
+│ │ -        "maxcount",
+│ │ -        "searchalgorithm"
+│ │ -    ]);
+│ │ -    document.getElementById("tabbed").value = options["tabbed"];
+│ │ -    document.getElementById("matchname").checked = options["matchname"];
+│ │ -    document.getElementById("maxcount").value = parseInt(options["maxcount"]);
+│ │ -    document.getElementById("searchalgorithm").value = options["searchalgorithm"];
+│ │ -}
+│ │ -
+│ │ -window.addEventListener("load", function() {
+│ │ -    restore_options();
+│ │ -    document.getElementById('myform').addEventListener("submit", function(e) {
+│ │ -        e.preventDefault();
+│ │ -        save_options();
+│ │ -    });
+│ │ +async function save_options() {
+│ │ +    var status = document.getElementById("status");
+│ │ +    document.getElementById("maxcount").value = Number(document.getElementById("maxcount").value);
+│ │ +    if (parseInt(document.getElementById("maxcount").value) < 2) {
+│ │ +        status.textContent = "<b>Maximum items count</b> cannot be less than 2!";
+│ │ +        setTimeout(function() {
+│ │ +            status.textContent = "";
+│ │ +        }, 5000);
+│ │ +        return;
+│ │ +    }
+│ │ +    const options = {}
+│ │ +    options["tabbed"] = document.getElementById("tabbed").value;
+│ │ +    options["matchname"] = document.getElementById("matchname").checked ? "true" : "";
+│ │ +    options["maxcount"] = parseInt(document.getElementById("maxcount").value);
+│ │ +    options["searchalgorithm"] = document.getElementById("searchalgorithm").value;
+│ │ +    await chrome.storage.sync.set(options);
+│ │ +    status.textContent = "Options Saved.";
+│ │ +    setTimeout(function() {
+│ │ +        status.textContent = "";
+│ │ +    }, 1000);
+│ │ +}
+│ │ +
+│ │ +async function restore_options() {
+│ │ +    let options = await chrome.storage.sync.get([
+│ │ +        "tabbed",
+│ │ +        "matchname",
+│ │ +        "maxcount",
+│ │ +        "searchalgorithm"
+│ │ +    ]);
+│ │ +    document.getElementById("tabbed").value = options["tabbed"];
+│ │ +    document.getElementById("matchname").checked = options["matchname"];
+│ │ +    document.getElementById("maxcount").value = parseInt(options["maxcount"]);
+│ │ +    document.getElementById("searchalgorithm").value = options["searchalgorithm"];
+│ │ +}
+│ │ +
+│ │ +window.addEventListener("load", function() {
+│ │ +    restore_options();
+│ │ +    document.getElementById('myform').addEventListener("submit", function(e) {
+│ │ +        e.preventDefault();
+│ │ +        save_options();
+│ │ +    });
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/page_common.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/page_common.js
+│ ├── js-beautify {}
+│ │ @@ -1,10 +1,10 @@
+│ │ -window.addEventListener("load", function() {
+│ │ -    // replace "version" with the current version
+│ │ -    var eles = document.getElementsByName("version");
+│ │ -    var len = eles.length;
+│ │ -    var vc = "v" + chrome.runtime.getManifest().version;
+│ │ -    var i;
+│ │ -    for (i = 0; i < len; i++) {
+│ │ -        eles[i].textContent = vc;
+│ │ -    }
+│ │ +window.addEventListener("load", function() {
+│ │ +    // replace "version" with the current version
+│ │ +    var eles = document.getElementsByName("version");
+│ │ +    var len = eles.length;
+│ │ +    var vc = "v" + chrome.runtime.getManifest().version;
+│ │ +    var i;
+│ │ +    for (i = 0; i < len; i++) {
+│ │ +        eles[i].textContent = vc;
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/search_common.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/search_common.js
+│ ├── js-beautify {}
+│ │ @@ -1,192 +1,192 @@
+│ │ -var urlGoMatch = /^go (https?|ftp|file|chrome(-extension)?):\/\/.+/i;
+│ │ -var jsMatch = /^javascript:.+/i;
+│ │ -
+│ │ -var bookmarks = (function() {
+│ │ -    var b = {};
+│ │ -    b.itemEachRecursive = function r(nodeArray, callback) {
+│ │ -        var len = nodeArray.length;
+│ │ -        var i;
+│ │ -        for (i = 0; i < len; i++) {
+│ │ -            var n = nodeArray[i];
+│ │ -            callback(n);
+│ │ -            if ('children' in n) {
+│ │ -                r(n.children, callback);
+│ │ -            }
+│ │ -        }
+│ │ -    };
+│ │ -    b.searchSubTrees = function(nodeArray, query, callback) {
+│ │ -        query = query.toLowerCase();
+│ │ -        var sr = [];
+│ │ -        b.itemEachRecursive(nodeArray, function(n) {
+│ │ -            if ('url' in n && (n.title.toLowerCase().indexOf(query) != -1 || ((!jsMatch.test(n.url) || n.title == "") && n.url.toLowerCase().indexOf(query) != -1))) {
+│ │ -                sr.push(n);
+│ │ -            }
+│ │ -        });
+│ │ -        callback(sr);
+│ │ -    };
+│ │ -    b.searchAll = function(query, callback) {
+│ │ -        chrome.bookmarks.getTree(function(results) {
+│ │ -            b.searchSubTrees(results, query, callback);
+│ │ -        });
+│ │ -    };
+│ │ -    b.searchAllSorted = function(query, callback) {
+│ │ -        query = query.toLowerCase();
+│ │ -        var queryLen = query.length;
+│ │ -        b.searchAll(query, function(rs) {
+│ │ -            callback(rs.sort(function(a, b) {
+│ │ -                var x = 0,
+│ │ -                    y = 0;
+│ │ -
+│ │ -                function rate(n) {
+│ │ -                    //
+│ │ -                    // Level 0: Nothing special
+│ │ -                    // Level 1: Starts with
+│ │ -                    // Level 2: Exact match
+│ │ -                    //
+│ │ -                    var t = n.title.toLowerCase();
+│ │ -                    return t == query ? 2 : (t.substr(0, queryLen) == query ? 1 : 0);
+│ │ -                }
+│ │ -                x = rate(a);
+│ │ -                y = rate(b);
+│ │ -                return y - x;
+│ │ -            }));
+│ │ -        });
+│ │ -    };
+│ │ -    b.search = function(query, algorithm, callback) {
+│ │ -        switch (algorithm) {
+│ │ -            case "v2":
+│ │ -                b.searchAllSorted(query, callback);
+│ │ -                break;
+│ │ -                // case "builtin":
+│ │ -            default:
+│ │ -                chrome.bookmarks.search(query, callback);
+│ │ -                break;
+│ │ -        }
+│ │ -    };
+│ │ -    return b;
+│ │ -})();
+│ │ -
+│ │ -var bookmarksToSuggestions = async function(b, s) {
+│ │ -    let options = await chrome.storage.sync.get(["maxcount"]);
+│ │ -    var m = parseInt(options["maxcount"]);
+│ │ -    for (let i = 0; s.length < m && i < b.length; i++) {
+│ │ -        var v = b[i];
+│ │ -        if (!v.url || jsMatch.test(v.url)) {
+│ │ -            // javascript: bookmarklets are no longer supported,
+│ │ -            // because modern websites have broken them with
+│ │ -            // Content-Security-Policy: script-src
+│ │ -            // https://issues.chromium.org/issues/40077444
+│ │ -            continue;
+│ │ -        }
+│ │ -        let description = "<url>" + escapeXML(v.url) + "</url>";
+│ │ -        if (v.title) {
+│ │ -            description = escapeXML(v.title) + "<dim> - </dim>" + description;
+│ │ -        }
+│ │ -        s.push({
+│ │ -            'bookmark': v, // searchInput needs the associated bookmark
+│ │ -            'content': "go " + v.url,
+│ │ -            'description': description
+│ │ -        });
+│ │ -    }
+│ │ -};
+│ │ -
+│ │ -var searchInput = async function(text, algorithm, suggest, setDefault, setDefaultUrl) {
+│ │ -    function clean(suggestions) {
+│ │ -        // chrome.omnibox.sendSuggestions rejects unexpected properties,
+│ │ -        // like the bookmark injected by bookmarksToSuggestions.
+│ │ -        return suggestions.map(function(s) {
+│ │ -            const t = {
+│ │ -                ...s
+│ │ -            };
+│ │ -            delete s["bookmark"];
+│ │ -            return s;
+│ │ -        });
+│ │ -    }
+│ │ -
+│ │ -    let options = await chrome.storage.sync.get(["matchname"]);
+│ │ -    if (urlGoMatch.test(text)) { // is "go addr"
+│ │ -        setDefault({
+│ │ -            'description': "Go to <url>" + escapeXML(text.substr(3)) + "</url>"
+│ │ -        });
+│ │ -        bookmarks.search(text, algorithm, async function(results) {
+│ │ -            var s = [];
+│ │ -            s.push({
+│ │ -                'content': "?" + text,
+│ │ -                'description': "Search <match>" + escapeXML(text) + "</match> in Bookmarks"
+│ │ -            });
+│ │ -            await bookmarksToSuggestions(results, s);
+│ │ -            suggest(clean(s));
+│ │ -        });
+│ │ -    } else if (text == "") {
+│ │ -        setDefaultUrl("");
+│ │ -        setDefault({
+│ │ -            'description': "Please enter keyword to search in Bookmarks"
+│ │ -        });
+│ │ -        suggest([]);
+│ │ -    } else {
+│ │ -        setDefaultUrl("");
+│ │ -        setDefault({
+│ │ -            'description': "Search <match>%s</match> in Bookmarks"
+│ │ -        });
+│ │ -        bookmarks.search(text, algorithm, async function(results) {
+│ │ -            var s = [];
+│ │ -            await bookmarksToSuggestions(results, s);
+│ │ -            // check if no result/single result/full match
+│ │ -            if (s.length == 0) {
+│ │ -                setDefaultUrl("");
+│ │ -                setDefault({
+│ │ -                    'description': "Oops, no results for <match>%s</match> in Bookmarks!"
+│ │ -                });
+│ │ -            } else if (s.length == 1) {
+│ │ -                var v = s[0].bookmark;
+│ │ -                setDefaultUrl(v.url);
+│ │ -                if (v.title) {
+│ │ -                    if (jsMatch.test(v.url)) {
+│ │ -                        setDefault({
+│ │ -                            'description': escapeXML(v.title) + "<dim> (only match) - JavaScript bookmarklet</dim>"
+│ │ -                        });
+│ │ -                    } else {
+│ │ -                        setDefault({
+│ │ -                            'description': escapeXML(v.title) + "<dim> (only match) - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ -                        });
+│ │ -                    }
+│ │ -                } else {
+│ │ -                    if (jsMatch.test(v.url)) {
+│ │ -                        setDefault({
+│ │ -                            'description': "<dim>Unnamed JavaScript bookmarklet (only match) - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ -                        });
+│ │ -                    } else {
+│ │ -                        setDefault({
+│ │ -                            'description': "<dim>Only match - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ -                        });
+│ │ -                    }
+│ │ -                }
+│ │ -                s[0] = {
+│ │ -                    'content': "?" + text,
+│ │ -                    'description': "Search <match>" + escapeXML(text) + "</match> in Bookmarks"
+│ │ -                };
+│ │ -            } else if (options["matchname"]) {
+│ │ -                var v = s[0].bookmark;
+│ │ -                if (v && v.title && v.title.toLowerCase() == text.toLowerCase()) {
+│ │ -                    setDefaultUrl(v.url);
+│ │ -                    if (jsMatch.test(v.url)) {
+│ │ -                        setDefault({
+│ │ -                            'description': "<match>" + escapeXML(v.title) + "</match><dim> - JavaScript bookmarklet</dim>"
+│ │ -                        });
+│ │ -                    } else {
+│ │ -                        setDefault({
+│ │ -                            'description': "<match>" + escapeXML(v.title) + "</match><dim> - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ -                        });
+│ │ -                    }
+│ │ -                    s[0] = {
+│ │ -                        'content': "?" + text,
+│ │ -                        'description': "Search <match>" + escapeXML(text) + "</match> in Bookmarks"
+│ │ -                    };
+│ │ -                } else {
+│ │ -                    setDefaultUrl("");
+│ │ -                }
+│ │ -            }
+│ │ -            suggest(clean(s));
+│ │ -        });
+│ │ -    }
+│ │ +var urlGoMatch = /^go (https?|ftp|file|chrome(-extension)?):\/\/.+/i;
+│ │ +var jsMatch = /^javascript:.+/i;
+│ │ +
+│ │ +var bookmarks = (function() {
+│ │ +    var b = {};
+│ │ +    b.itemEachRecursive = function r(nodeArray, callback) {
+│ │ +        var len = nodeArray.length;
+│ │ +        var i;
+│ │ +        for (i = 0; i < len; i++) {
+│ │ +            var n = nodeArray[i];
+│ │ +            callback(n);
+│ │ +            if ('children' in n) {
+│ │ +                r(n.children, callback);
+│ │ +            }
+│ │ +        }
+│ │ +    };
+│ │ +    b.searchSubTrees = function(nodeArray, query, callback) {
+│ │ +        query = query.toLowerCase();
+│ │ +        var sr = [];
+│ │ +        b.itemEachRecursive(nodeArray, function(n) {
+│ │ +            if ('url' in n && (n.title.toLowerCase().indexOf(query) != -1 || ((!jsMatch.test(n.url) || n.title == "") && n.url.toLowerCase().indexOf(query) != -1))) {
+│ │ +                sr.push(n);
+│ │ +            }
+│ │ +        });
+│ │ +        callback(sr);
+│ │ +    };
+│ │ +    b.searchAll = function(query, callback) {
+│ │ +        chrome.bookmarks.getTree(function(results) {
+│ │ +            b.searchSubTrees(results, query, callback);
+│ │ +        });
+│ │ +    };
+│ │ +    b.searchAllSorted = function(query, callback) {
+│ │ +        query = query.toLowerCase();
+│ │ +        var queryLen = query.length;
+│ │ +        b.searchAll(query, function(rs) {
+│ │ +            callback(rs.sort(function(a, b) {
+│ │ +                var x = 0,
+│ │ +                    y = 0;
+│ │ +
+│ │ +                function rate(n) {
+│ │ +                    //
+│ │ +                    // Level 0: Nothing special
+│ │ +                    // Level 1: Starts with
+│ │ +                    // Level 2: Exact match
+│ │ +                    //
+│ │ +                    var t = n.title.toLowerCase();
+│ │ +                    return t == query ? 2 : (t.substr(0, queryLen) == query ? 1 : 0);
+│ │ +                }
+│ │ +                x = rate(a);
+│ │ +                y = rate(b);
+│ │ +                return y - x;
+│ │ +            }));
+│ │ +        });
+│ │ +    };
+│ │ +    b.search = function(query, algorithm, callback) {
+│ │ +        switch (algorithm) {
+│ │ +            case "v2":
+│ │ +                b.searchAllSorted(query, callback);
+│ │ +                break;
+│ │ +                // case "builtin":
+│ │ +            default:
+│ │ +                chrome.bookmarks.search(query, callback);
+│ │ +                break;
+│ │ +        }
+│ │ +    };
+│ │ +    return b;
+│ │ +})();
+│ │ +
+│ │ +var bookmarksToSuggestions = async function(b, s) {
+│ │ +    let options = await chrome.storage.sync.get(["maxcount"]);
+│ │ +    var m = parseInt(options["maxcount"]);
+│ │ +    for (let i = 0; s.length < m && i < b.length; i++) {
+│ │ +        var v = b[i];
+│ │ +        if (!v.url || jsMatch.test(v.url)) {
+│ │ +            // javascript: bookmarklets are no longer supported,
+│ │ +            // because modern websites have broken them with
+│ │ +            // Content-Security-Policy: script-src
+│ │ +            // https://issues.chromium.org/issues/40077444
+│ │ +            continue;
+│ │ +        }
+│ │ +        let description = "<url>" + escapeXML(v.url) + "</url>";
+│ │ +        if (v.title) {
+│ │ +            description = escapeXML(v.title) + "<dim> - </dim>" + description;
+│ │ +        }
+│ │ +        s.push({
+│ │ +            'bookmark': v, // searchInput needs the associated bookmark
+│ │ +            'content': "go " + v.url,
+│ │ +            'description': description
+│ │ +        });
+│ │ +    }
+│ │ +};
+│ │ +
+│ │ +var searchInput = async function(text, algorithm, suggest, setDefault, setDefaultUrl) {
+│ │ +    function clean(suggestions) {
+│ │ +        // chrome.omnibox.sendSuggestions rejects unexpected properties,
+│ │ +        // like the bookmark injected by bookmarksToSuggestions.
+│ │ +        return suggestions.map(function(s) {
+│ │ +            const t = {
+│ │ +                ...s
+│ │ +            };
+│ │ +            delete s["bookmark"];
+│ │ +            return s;
+│ │ +        });
+│ │ +    }
+│ │ +
+│ │ +    let options = await chrome.storage.sync.get(["matchname"]);
+│ │ +    if (urlGoMatch.test(text)) { // is "go addr"
+│ │ +        setDefault({
+│ │ +            'description': "Go to <url>" + escapeXML(text.substr(3)) + "</url>"
+│ │ +        });
+│ │ +        bookmarks.search(text, algorithm, async function(results) {
+│ │ +            var s = [];
+│ │ +            s.push({
+│ │ +                'content': "?" + text,
+│ │ +                'description': "Search <match>" + escapeXML(text) + "</match> in Bookmarks"
+│ │ +            });
+│ │ +            await bookmarksToSuggestions(results, s);
+│ │ +            suggest(clean(s));
+│ │ +        });
+│ │ +    } else if (text == "") {
+│ │ +        setDefaultUrl("");
+│ │ +        setDefault({
+│ │ +            'description': "Please enter keyword to search in Bookmarks"
+│ │ +        });
+│ │ +        suggest([]);
+│ │ +    } else {
+│ │ +        setDefaultUrl("");
+│ │ +        setDefault({
+│ │ +            'description': "Search <match>%s</match> in Bookmarks"
+│ │ +        });
+│ │ +        bookmarks.search(text, algorithm, async function(results) {
+│ │ +            var s = [];
+│ │ +            await bookmarksToSuggestions(results, s);
+│ │ +            // check if no result/single result/full match
+│ │ +            if (s.length == 0) {
+│ │ +                setDefaultUrl("");
+│ │ +                setDefault({
+│ │ +                    'description': "Oops, no results for <match>%s</match> in Bookmarks!"
+│ │ +                });
+│ │ +            } else if (s.length == 1) {
+│ │ +                var v = s[0].bookmark;
+│ │ +                setDefaultUrl(v.url);
+│ │ +                if (v.title) {
+│ │ +                    if (jsMatch.test(v.url)) {
+│ │ +                        setDefault({
+│ │ +                            'description': escapeXML(v.title) + "<dim> (only match) - JavaScript bookmarklet</dim>"
+│ │ +                        });
+│ │ +                    } else {
+│ │ +                        setDefault({
+│ │ +                            'description': escapeXML(v.title) + "<dim> (only match) - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ +                        });
+│ │ +                    }
+│ │ +                } else {
+│ │ +                    if (jsMatch.test(v.url)) {
+│ │ +                        setDefault({
+│ │ +                            'description': "<dim>Unnamed JavaScript bookmarklet (only match) - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ +                        });
+│ │ +                    } else {
+│ │ +                        setDefault({
+│ │ +                            'description': "<dim>Only match - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ +                        });
+│ │ +                    }
+│ │ +                }
+│ │ +                s[0] = {
+│ │ +                    'content': "?" + text,
+│ │ +                    'description': "Search <match>" + escapeXML(text) + "</match> in Bookmarks"
+│ │ +                };
+│ │ +            } else if (options["matchname"]) {
+│ │ +                var v = s[0].bookmark;
+│ │ +                if (v && v.title && v.title.toLowerCase() == text.toLowerCase()) {
+│ │ +                    setDefaultUrl(v.url);
+│ │ +                    if (jsMatch.test(v.url)) {
+│ │ +                        setDefault({
+│ │ +                            'description': "<match>" + escapeXML(v.title) + "</match><dim> - JavaScript bookmarklet</dim>"
+│ │ +                        });
+│ │ +                    } else {
+│ │ +                        setDefault({
+│ │ +                            'description': "<match>" + escapeXML(v.title) + "</match><dim> - </dim><url>" + escapeXML(v.url) + "</url>"
+│ │ +                        });
+│ │ +                    }
+│ │ +                    s[0] = {
+│ │ +                        'content': "?" + text,
+│ │ +                        'description': "Search <match>" + escapeXML(text) + "</match> in Bookmarks"
+│ │ +                    };
+│ │ +                } else {
+│ │ +                    setDefaultUrl("");
+│ │ +                }
+│ │ +            }
+│ │ +            suggest(clean(s));
+│ │ +        });
+│ │ +    }
+│ │  };
+│   --- /workspace/pipeline_output/chromex_data/search_test.css
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/search_test.css
+│┄ Ordering differences only
+│ @@ -1,65 +1,65 @@
+│ -.omnibox-region {
+│ -    width: 800px;
+│ -    font-family: "Segoe UI", Calibri, sans-serif;
+│ -    font-size: 12pt;
+│ -}
+│ -.omnibox-input {
+│ -    border: 1px solid #AAA;
+│ -    border-radius: 2px;
+│ -    border-spacing: 0;
+│ -    width: 100%;
+│ -}
+│ -.omnibox-provider {
+│ -    border: 1px solid #888;
+│ -    border-radius: 2px;
+│ -    background-image: url('icon16.png'), -webkit-linear-gradient(top, #CCC 0%, #AAA 100%);
+│ -    background-repeat: no-repeat;
+│ -    background-position: 3px 50%, 0;
+│ -    padding: 0 2px 0 21px;
+│ -    display: inline-block;
+│ -	height: 19px;
+│ -	line-height: 19px;
+│ -	white-space: nowrap;
+│ -}
+│ -#query {
+│ -    padding: 0;
+│ -    margin: 0;
+│ -    border: none;
+│ -    font-family: "Segoe UI", Calibri, sans-serif;
+│ -    font-size: 12pt;
+│ -    outline-width: 0;
+│ -    width: 100%;
+│ -}
+│ -.omnibox-dropdown {
+│ -    border: 1px solid #AAA;
+│ -    border-radius: 4px;
+│ -}
+│ -.omnibox-dropdown-item {
+│ -    background-image: url('icon16.png');
+│ -    background-repeat: no-repeat;
+│ -    background-position: 5px 50%;
+│ -    text-overflow: ellipsis;
+│ -    padding: 0 2px 0 24px;
+│ -    height: 24px;
+│ -    white-space: pre;
+│ -    overflow: hidden;
+│ -}
+│ -.omnibox-dropdown-item:first-child {
+│ -	background-color: #00A3FF;
+│ -	color: #FFF;
+│ -}
+│ -.omnibox-dropdown-item .match {
+│ -	font-weight: bold;
+│ -}
+│ -.omnibox-dropdown-item .url {
+│ -	color: #282;
+│ -}
+│ -.omnibox-dropdown-item:first-child .url {
+│ -	color: #2F2;
+│ -}
+│ -.omnibox-dropdown-item .dim {
+│ -	color: #AAA;
+│ -}
+│ -.omnibox-dropdown-item:first-child .dim {
+│ -	color: #DDD;
+│ -}
+│ +.omnibox-region {
+│ +    width: 800px;
+│ +    font-family: "Segoe UI", Calibri, sans-serif;
+│ +    font-size: 12pt;
+│ +}
+│ +.omnibox-input {
+│ +    border: 1px solid #AAA;
+│ +    border-radius: 2px;
+│ +    border-spacing: 0;
+│ +    width: 100%;
+│ +}
+│ +.omnibox-provider {
+│ +    border: 1px solid #888;
+│ +    border-radius: 2px;
+│ +    background-image: url('icon16.png'), -webkit-linear-gradient(top, #CCC 0%, #AAA 100%);
+│ +    background-repeat: no-repeat;
+│ +    background-position: 3px 50%, 0;
+│ +    padding: 0 2px 0 21px;
+│ +    display: inline-block;
+│ +	height: 19px;
+│ +	line-height: 19px;
+│ +	white-space: nowrap;
+│ +}
+│ +#query {
+│ +    padding: 0;
+│ +    margin: 0;
+│ +    border: none;
+│ +    font-family: "Segoe UI", Calibri, sans-serif;
+│ +    font-size: 12pt;
+│ +    outline-width: 0;
+│ +    width: 100%;
+│ +}
+│ +.omnibox-dropdown {
+│ +    border: 1px solid #AAA;
+│ +    border-radius: 4px;
+│ +}
+│ +.omnibox-dropdown-item {
+│ +    background-image: url('icon16.png');
+│ +    background-repeat: no-repeat;
+│ +    background-position: 5px 50%;
+│ +    text-overflow: ellipsis;
+│ +    padding: 0 2px 0 24px;
+│ +    height: 24px;
+│ +    white-space: pre;
+│ +    overflow: hidden;
+│ +}
+│ +.omnibox-dropdown-item:first-child {
+│ +	background-color: #00A3FF;
+│ +	color: #FFF;
+│ +}
+│ +.omnibox-dropdown-item .match {
+│ +	font-weight: bold;
+│ +}
+│ +.omnibox-dropdown-item .url {
+│ +	color: #282;
+│ +}
+│ +.omnibox-dropdown-item:first-child .url {
+│ +	color: #2F2;
+│ +}
+│ +.omnibox-dropdown-item .dim {
+│ +	color: #AAA;
+│ +}
+│ +.omnibox-dropdown-item:first-child .dim {
+│ +	color: #DDD;
+│ +}
+│   --- /workspace/pipeline_output/chromex_data/search_test.html
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/search_test.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,52 +1,52 @@
+│ -<html>
+│ -<head>
+│ -<title>Bookmark Search Extension - Searching Test</title>
+│ -<link rel="stylesheet" href="search_test.css" />
+│ -<script type="text/javascript" src="search_common.js"></script>
+│ -<script type="text/javascript" src="search_test.js"></script>
+│ -<script type="text/javascript" src="page_common.js"></script>
+│ -</head>
+│ -<body>
+│ -<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - Searching Test</h1>
+│ -<table class="omnibox-region">
+│ -<tbody>
+│ -<tr>
+│ -<td style="white-space:pre;vertical-align:top;">Try here:</td>
+│ -<td>
+│ -<table class="omnibox-input">
+│ -<tbody>
+│ -<tr>
+│ -<td>
+│ -<span class="omnibox-provider">Bookmark Search</span>
+│ -</td>
+│ -<td style="width:100%;">
+│ -<input id="query" type="text" value="" autocomplete="off" spellcheck="false" />
+│ -</td>
+│ -</tr>
+│ -</tbody>
+│ -</table>
+│ -</td>
+│ -</tr>
+│ -<tr>
+│ -<td style="white-space:pre;vertical-align:top;"><input type="radio" name="searchalgorithm" id="r_builtin" value="builtin" /><label for="r_builtin">Chrome built-in search</label></td>
+│ -<td style="vertical-align:top;">
+│ -<div class="omnibox-dropdown" id="dropdown1">
+│ -<div class="omnibox-dropdown-item" id="itemdefault1">Please enter keyword to search in Bookmarks</div>
+│ -</div>
+│ -</td>
+│ -</tr>
+│ -<tr>
+│ -<td style="white-space:pre;vertical-align:top;"><input type="radio" name="searchalgorithm" id="r_v2" value="v2" /><label for="r_v2">Bookmark Search version 2</label></td>
+│ -<td style="vertical-align:top;">
+│ -<div class="omnibox-dropdown" id="dropdown2">
+│ -<div class="omnibox-dropdown-item" id="itemdefault2">Please enter keyword to search in Bookmarks</div>
+│ -</div>
+│ -</td>
+│ -</tr>
+│ -</tbody>
+│ -</table>
+│ -<div id="status" style="background-color:yellow;color:red;"></div><br />
+│ -<hr />
+│ -<a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> version <span name="version">this version</span> (<a href="whatsnew.html" target="_blank">What&apos;s new</a>)
+│ -</body>
+│ -</html>
+│ +<html>
+│ +<head>
+│ +<title>Bookmark Search Extension - Searching Test</title>
+│ +<link rel="stylesheet" href="search_test.css" />
+│ +<script type="text/javascript" src="search_common.js"></script>
+│ +<script type="text/javascript" src="search_test.js"></script>
+│ +<script type="text/javascript" src="page_common.js"></script>
+│ +</head>
+│ +<body>
+│ +<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - Searching Test</h1>
+│ +<table class="omnibox-region">
+│ +<tbody>
+│ +<tr>
+│ +<td style="white-space:pre;vertical-align:top;">Try here:</td>
+│ +<td>
+│ +<table class="omnibox-input">
+│ +<tbody>
+│ +<tr>
+│ +<td>
+│ +<span class="omnibox-provider">Bookmark Search</span>
+│ +</td>
+│ +<td style="width:100%;">
+│ +<input id="query" type="text" value="" autocomplete="off" spellcheck="false" />
+│ +</td>
+│ +</tr>
+│ +</tbody>
+│ +</table>
+│ +</td>
+│ +</tr>
+│ +<tr>
+│ +<td style="white-space:pre;vertical-align:top;"><input type="radio" name="searchalgorithm" id="r_builtin" value="builtin" /><label for="r_builtin">Chrome built-in search</label></td>
+│ +<td style="vertical-align:top;">
+│ +<div class="omnibox-dropdown" id="dropdown1">
+│ +<div class="omnibox-dropdown-item" id="itemdefault1">Please enter keyword to search in Bookmarks</div>
+│ +</div>
+│ +</td>
+│ +</tr>
+│ +<tr>
+│ +<td style="white-space:pre;vertical-align:top;"><input type="radio" name="searchalgorithm" id="r_v2" value="v2" /><label for="r_v2">Bookmark Search version 2</label></td>
+│ +<td style="vertical-align:top;">
+│ +<div class="omnibox-dropdown" id="dropdown2">
+│ +<div class="omnibox-dropdown-item" id="itemdefault2">Please enter keyword to search in Bookmarks</div>
+│ +</div>
+│ +</td>
+│ +</tr>
+│ +</tbody>
+│ +</table>
+│ +<div id="status" style="background-color:yellow;color:red;"></div><br />
+│ +<hr />
+│ +<a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> version <span name="version">this version</span> (<a href="whatsnew.html" target="_blank">What&apos;s new</a>)
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/search_test.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/search_test.js
+│ ├── js-beautify {}
+│ │ @@ -1,100 +1,100 @@
+│ │ -function escapeXML(str) {
+│ │ -    return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+│ │ -}
+│ │ -
+│ │ -function addResultDiv(id, content) {
+│ │ -    var ele = document.createElement("div");
+│ │ -    ele.className = "omnibox-dropdown-item";
+│ │ -    ele.innerHTML = content;
+│ │ -    document.getElementById("dropdown" + id).appendChild(ele);
+│ │ -}
+│ │ -
+│ │ -function clearResultDivs(id) {
+│ │ -    var dd = document.getElementById("dropdown" + id);
+│ │ -    var ch;
+│ │ -    while ((ch = dd.lastElementChild).id != "itemdefault" + id) {
+│ │ -        dd.removeChild(ch);
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -function subsDescTags(str) {
+│ │ -    return str.replace(/<match>/g, "<span class=\"match\">").replace(/<dim>/g, "<span class=\"dim\">").replace(/<url>/g, "<span class=\"url\">").replace(/<\/(match|dim|url)>/g, "</span>");
+│ │ -}
+│ │ -
+│ │ -window.addEventListener("load", function() {
+│ │ -    document.getElementById("query").focus();
+│ │ -    document.getElementById("query").addEventListener("input", function() {
+│ │ -        var val = this.value;
+│ │ -
+│ │ -        function suggest1(q) {
+│ │ -            clearResultDivs(1);
+│ │ -            var len = q.length;
+│ │ -            var i;
+│ │ -            for (i = 0; i < len; i++) {
+│ │ -                addResultDiv(1, subsDescTags(q[i].description));
+│ │ -            }
+│ │ -        }
+│ │ -
+│ │ -        function suggestDefault1(q) {
+│ │ -            document.getElementById("itemdefault1").innerHTML = subsDescTags(q.description.replace(/%s/g, escapeXML(val)));
+│ │ -        }
+│ │ -
+│ │ -        function suggest2(q) {
+│ │ -            clearResultDivs(2);
+│ │ -            var len = q.length;
+│ │ -            var i;
+│ │ -            for (i = 0; i < len; i++) {
+│ │ -                addResultDiv(2, subsDescTags(q[i].description));
+│ │ -            }
+│ │ -        }
+│ │ -
+│ │ -        function suggestDefault2(q) {
+│ │ -            document.getElementById("itemdefault2").innerHTML = subsDescTags(q.description.replace(/%s/g, escapeXML(val)));
+│ │ -        }
+│ │ -
+│ │ -        function noop() {}
+│ │ -        searchInput(val, "builtin", suggest1, suggestDefault1, noop);
+│ │ -        searchInput(val, "v2", suggest2, suggestDefault2, noop);
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -async function save_options() {
+│ │ -    const options = {}
+│ │ -    var radios = document.getElementsByName('searchalgorithm');
+│ │ -    var len = radios.length;
+│ │ -    var i;
+│ │ -    for (i = 0; i < len; i++) {
+│ │ -        if (radios[i].checked) {
+│ │ -            options["searchalgorithm"] = radios[i].value;
+│ │ -        }
+│ │ -    }
+│ │ -    await chrome.storage.sync.set(options);
+│ │ -    document.getElementById("status").textContent = "Options Saved.";
+│ │ -    setTimeout(function() {
+│ │ -        document.getElementById("status").textContent = "";
+│ │ -    }, 1000);
+│ │ -}
+│ │ -
+│ │ -async function restore_options() {
+│ │ -    const options = await chrome.storage.sync.get(["searchalgorithm"]);
+│ │ -    var radios = document.getElementsByName('searchalgorithm');
+│ │ -    var len = radios.length;
+│ │ -    var i;
+│ │ -    for (i = 0; i < len; i++) {
+│ │ -        if (radios[i].value == options["searchalgorithm"]) {
+│ │ -            radios[i].checked = true;
+│ │ -        }
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -window.addEventListener("load", function() {
+│ │ -    restore_options();
+│ │ -    var radios = document.getElementsByName('searchalgorithm');
+│ │ -    var len = radios.length;
+│ │ -    var i;
+│ │ -    for (i = 0; i < len; i++) {
+│ │ -        radios[i].addEventListener("change", function() {
+│ │ -            save_options();
+│ │ -        });
+│ │ -    }
+│ │ +function escapeXML(str) {
+│ │ +    return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+│ │ +}
+│ │ +
+│ │ +function addResultDiv(id, content) {
+│ │ +    var ele = document.createElement("div");
+│ │ +    ele.className = "omnibox-dropdown-item";
+│ │ +    ele.innerHTML = content;
+│ │ +    document.getElementById("dropdown" + id).appendChild(ele);
+│ │ +}
+│ │ +
+│ │ +function clearResultDivs(id) {
+│ │ +    var dd = document.getElementById("dropdown" + id);
+│ │ +    var ch;
+│ │ +    while ((ch = dd.lastElementChild).id != "itemdefault" + id) {
+│ │ +        dd.removeChild(ch);
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +function subsDescTags(str) {
+│ │ +    return str.replace(/<match>/g, "<span class=\"match\">").replace(/<dim>/g, "<span class=\"dim\">").replace(/<url>/g, "<span class=\"url\">").replace(/<\/(match|dim|url)>/g, "</span>");
+│ │ +}
+│ │ +
+│ │ +window.addEventListener("load", function() {
+│ │ +    document.getElementById("query").focus();
+│ │ +    document.getElementById("query").addEventListener("input", function() {
+│ │ +        var val = this.value;
+│ │ +
+│ │ +        function suggest1(q) {
+│ │ +            clearResultDivs(1);
+│ │ +            var len = q.length;
+│ │ +            var i;
+│ │ +            for (i = 0; i < len; i++) {
+│ │ +                addResultDiv(1, subsDescTags(q[i].description));
+│ │ +            }
+│ │ +        }
+│ │ +
+│ │ +        function suggestDefault1(q) {
+│ │ +            document.getElementById("itemdefault1").innerHTML = subsDescTags(q.description.replace(/%s/g, escapeXML(val)));
+│ │ +        }
+│ │ +
+│ │ +        function suggest2(q) {
+│ │ +            clearResultDivs(2);
+│ │ +            var len = q.length;
+│ │ +            var i;
+│ │ +            for (i = 0; i < len; i++) {
+│ │ +                addResultDiv(2, subsDescTags(q[i].description));
+│ │ +            }
+│ │ +        }
+│ │ +
+│ │ +        function suggestDefault2(q) {
+│ │ +            document.getElementById("itemdefault2").innerHTML = subsDescTags(q.description.replace(/%s/g, escapeXML(val)));
+│ │ +        }
+│ │ +
+│ │ +        function noop() {}
+│ │ +        searchInput(val, "builtin", suggest1, suggestDefault1, noop);
+│ │ +        searchInput(val, "v2", suggest2, suggestDefault2, noop);
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +async function save_options() {
+│ │ +    const options = {}
+│ │ +    var radios = document.getElementsByName('searchalgorithm');
+│ │ +    var len = radios.length;
+│ │ +    var i;
+│ │ +    for (i = 0; i < len; i++) {
+│ │ +        if (radios[i].checked) {
+│ │ +            options["searchalgorithm"] = radios[i].value;
+│ │ +        }
+│ │ +    }
+│ │ +    await chrome.storage.sync.set(options);
+│ │ +    document.getElementById("status").textContent = "Options Saved.";
+│ │ +    setTimeout(function() {
+│ │ +        document.getElementById("status").textContent = "";
+│ │ +    }, 1000);
+│ │ +}
+│ │ +
+│ │ +async function restore_options() {
+│ │ +    const options = await chrome.storage.sync.get(["searchalgorithm"]);
+│ │ +    var radios = document.getElementsByName('searchalgorithm');
+│ │ +    var len = radios.length;
+│ │ +    var i;
+│ │ +    for (i = 0; i < len; i++) {
+│ │ +        if (radios[i].value == options["searchalgorithm"]) {
+│ │ +            radios[i].checked = true;
+│ │ +        }
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +window.addEventListener("load", function() {
+│ │ +    restore_options();
+│ │ +    var radios = document.getElementsByName('searchalgorithm');
+│ │ +    var len = radios.length;
+│ │ +    var i;
+│ │ +    for (i = 0; i < len; i++) {
+│ │ +        radios[i].addEventListener("change", function() {
+│ │ +            save_options();
+│ │ +        });
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/upgrade.html
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/upgrade.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,10 +1,10 @@
+│ -<html>
+│ -<head>
+│ -<title>Bookmark Search Extension - Upgrade</title>
+│ -<script type="text/javascript" src="upgrade.js"></script>
+│ -</head>
+│ -<body>
+│ -<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - Upgrade</h1>
+│ -<p>Please wait while this extension upgrades.</p>
+│ -</body>
+│ -</html>
+│ +<html>
+│ +<head>
+│ +<title>Bookmark Search Extension - Upgrade</title>
+│ +<script type="text/javascript" src="upgrade.js"></script>
+│ +</head>
+│ +<body>
+│ +<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - Upgrade</h1>
+│ +<p>Please wait while this extension upgrades.</p>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/upgrade.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/upgrade.js
+│ ├── js-beautify {}
+│ │ @@ -1,49 +1,49 @@
+│ │ -// versionCompare(a, b) compares two semantic version numbers and returns:
+│ │ -//   -1 when a < b
+│ │ -//    0 when a = b
+│ │ -//   +1 when a > b
+│ │ -// If either a or b are not version numbers, this returns undefined
+│ │ -// since comparisons with undefined are always false.
+│ │ -function versionCompare(a, b) {
+│ │ -    const re = /^\d+(?:\.\d+)+$/; // e.g. "1.2.3.4"
+│ │ -    if (!a || !b || !re.test(a) || !re.test(b)) {
+│ │ -        return undefined;
+│ │ -    }
+│ │ -    return a.localeCompare(b, undefined, {
+│ │ -        'numeric': true,
+│ │ -        'sensitivity': "base"
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -async function upgrade(prev) {
+│ │ -    if (versionCompare(prev, "2.0.0") < 0) {
+│ │ -        // These options were in version 1.4.3 and are still supported in 2.0.0.
+│ │ -        const keys = ["tabbed", "matchname", "maxcount", "searchalgorithm"];
+│ │ -        // Move options in localStorage to storage.sync,
+│ │ -        // since localStorage is unavailable to Manifest V3 extensions.
+│ │ -        const options = {};
+│ │ -        for (const k of keys) {
+│ │ -            if (k in localStorage) {
+│ │ -                options[k] = localStorage[k];
+│ │ -            }
+│ │ -        }
+│ │ -        // Clobber any options in storage.sync,
+│ │ -        // since the user's old options should override any defaults.
+│ │ -        await chrome.storage.sync.set(options);
+│ │ -        // Only delete the options that were successfully moved.
+│ │ -        for (const k of Object.keys(options)) {
+│ │ -            delete localStorage[k];
+│ │ -        }
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -// This page expects the "previousVersion" of this extension in storage.local.
+│ │ -window.addEventListener("load", async function() {
+│ │ -    const local = await chrome.storage.local.get(["previousVersion"]);
+│ │ -    const prev = local["previousVersion"];
+│ │ -    if (prev) {
+│ │ -        await upgrade(prev);
+│ │ -    }
+│ │ -    await chrome.storage.local.remove(["previousVersion"]);
+│ │ -    window.close();
+│ │ +// versionCompare(a, b) compares two semantic version numbers and returns:
+│ │ +//   -1 when a < b
+│ │ +//    0 when a = b
+│ │ +//   +1 when a > b
+│ │ +// If either a or b are not version numbers, this returns undefined
+│ │ +// since comparisons with undefined are always false.
+│ │ +function versionCompare(a, b) {
+│ │ +    const re = /^\d+(?:\.\d+)+$/; // e.g. "1.2.3.4"
+│ │ +    if (!a || !b || !re.test(a) || !re.test(b)) {
+│ │ +        return undefined;
+│ │ +    }
+│ │ +    return a.localeCompare(b, undefined, {
+│ │ +        'numeric': true,
+│ │ +        'sensitivity': "base"
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +async function upgrade(prev) {
+│ │ +    if (versionCompare(prev, "2.0.0") < 0) {
+│ │ +        // These options were in version 1.4.3 and are still supported in 2.0.0.
+│ │ +        const keys = ["tabbed", "matchname", "maxcount", "searchalgorithm"];
+│ │ +        // Move options in localStorage to storage.sync,
+│ │ +        // since localStorage is unavailable to Manifest V3 extensions.
+│ │ +        const options = {};
+│ │ +        for (const k of keys) {
+│ │ +            if (k in localStorage) {
+│ │ +                options[k] = localStorage[k];
+│ │ +            }
+│ │ +        }
+│ │ +        // Clobber any options in storage.sync,
+│ │ +        // since the user's old options should override any defaults.
+│ │ +        await chrome.storage.sync.set(options);
+│ │ +        // Only delete the options that were successfully moved.
+│ │ +        for (const k of Object.keys(options)) {
+│ │ +            delete localStorage[k];
+│ │ +        }
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +// This page expects the "previousVersion" of this extension in storage.local.
+│ │ +window.addEventListener("load", async function() {
+│ │ +    const local = await chrome.storage.local.get(["previousVersion"]);
+│ │ +    const prev = local["previousVersion"];
+│ │ +    if (prev) {
+│ │ +        await upgrade(prev);
+│ │ +    }
+│ │ +    await chrome.storage.local.remove(["previousVersion"]);
+│ │ +    window.close();
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/whatsnew.html
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/whatsnew.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,105 +1,105 @@
+│ -<html>
+│ -<head>
+│ -<title>Bookmark Search Extension - What's New</title>
+│ -<script type="text/javascript" src="whatsnew.js"></script>
+│ -<script type="text/javascript" src="page_common.js"></script>
+│ -</head>
+│ -<body>
+│ -<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - What's New</h1>
+│ -<span id="msg_firstinstall" style="display:none;color:red">
+│ -Thanks for installing Bookmark Search <span name="version">this version</span>!<br />
+│ -Please also check the <a href="options.html" target="_blank">options page</a>.
+│ -</span>
+│ -<span id="msg_update" style="display:none;color:red">
+│ -Here are the changes from <span id="version_old">old version</span> to <span name="version">this version</span>!<br />
+│ -Please also check the <a href="options.html" target="_blank">options page for any new options.</a>
+│ -</span>
+│ -<span id="msg_this" style="display:none;color:red">
+│ -This version is <span name="version">this version</span>.
+│ -</span>
+│ -<h2>Version 2.0.0</h2>
+│ -<ul id="v2.0.0">
+│ -<li><strong>Migrate to Manifest V3</strong>, since Manifest V2 is being obsoleted. Otherwise, the Chrome Web Store would have disabled and removed this extension. (Thanks <span style="font-style:italic;">sfllaw</span> for the patch.)</li>
+│ -<li><strong>Remove support for JavaScript bookmarklets</strong>, because Chrome and other browsers enforce Content Security Policy on bookmarklets. (Thanks <span style="font-style:italic;">sfllaw</span> for the patch.)</li>
+│ -<li>Fix the built-in search so it doesn't break on bookmark folders. (Thanks <span style="font-style:italic;">sfllaw</span> for the patch.)</li>
+│ -<li>Modify small icon to make it look better in dark mode.</li>
+│ -</ul>
+│ -<h2>Version 1.4.3</h2>
+│ -<ul id="v1.4.3">
+│ -<li>Fix the bookmark page search link on more recent Chrome versions. (Thanks <span style="font-style:italic;">nbegley</span> for the patch.)</li>
+│ -<li>Fix a typo. (Thanks <span style="font-style:italic;">nbegley</span> for the patch.)</li>
+│ -</ul>
+│ -<h2>Version 1.4.2.1</h2>
+│ -<ul id="v1.4.2.1">
+│ -<li>Pressing arrow keys or switching windows could cause automatic matches (first match item) to be forgotten. Some code has been modified to prevent this from happening. (Thanks <span style="font-style:italic;">northtea</span> for pointing it out)</li>
+│ -</ul>
+│ -<h2>Version 1.4.2</h2>
+│ -<ul id="v1.4.2">
+│ -<li>JavaScript bookmarklets now requires a lesser permission. If you had enabled JavaScript bookmarklets before, you'll need to re-enable it.</li>
+│ -<li>You may now choose where bookmarks are opened with the keyboard. The option is available in the options page. With this option, you can open bookmarks on a new foreground tab by pressing <kbd>Alt</kbd> + <kbd>Enter</kbd>, or on a new background tab by clicking on an item with the middle mouse button.</li>
+│ -<li>Fixed a minor bug which sometimes causes the wrong page to be opened.</li>
+│ -</ul>
+│ -<h2>Version 1.4.1</h2>
+│ -<ul id="v1.4.1">
+│ -<li>Made the searching algorithm selection option more clearer.</li>
+│ -<li>Added <a href="search_test.html" target="_blank">a page</a> to test different searching algorithm.</li>
+│ -</ul>
+│ -<h2>Version 1.4</h2>
+│ -<ul id="v1.4">
+│ -<li>Implemented a new searching and sorting algorithm which should give better and more useful results in general.</li>
+│ -</ul>
+│ -<h2>Version 1.3.4</h2>
+│ -<ul id="v1.3.4">
+│ -<li>Removed an optional permission which is no longer needed.</li>
+│ -<li>Changed the way of informing version updated.</li>
+│ -</ul>
+│ -<h2>Version 1.3.3</h2>
+│ -<ul id="v1.3.3">
+│ -<li>Changed the bookmark manager's page back to chrome://bookmarks/ (which I forgot to change in 1.3.2).</li>
+│ -<li>Changed the way of invoking JavaScript bookmarklet due to some security concern.</li>
+│ -</ul>
+│ -<h2>Version 1.3.2</h2>
+│ -<ul id="v1.3.2">
+│ -<li>Slightly improved the options page.</li>
+│ -<li>The extension will now ask you to enable JavaScript bookmarklet support when attempt to use one.</li>
+│ -<li>Minor code changes produces slight unnoticeable performance increase.</li>
+│ -<li>Chrome will now unload this extension when not being used, so it will not consume any system resources when idle.</li>
+│ -</ul>
+│ -<span style="color:gray;font-style:italic;">Version 1.3.1 is not released.</span>
+│ -<h2>Version 1.3</h2>
+│ -<ul id="v1.3">
+│ -<li>(internal) Switched to manifest version 2.</li>
+│ -<li>The persist permission to "your data on all websites" and "your tabs and browsing activity" is removed.<br />
+│ -Instead an option is added for enabling support for JavaScript bookmarklet.<br />
+│ -The related permissions will be requested only when the option is enabled.</li>
+│ -<li>A bug that prevents automatically navigating to the only match when the option "Automatically selects full match on name" is disabled is fixed.</li>
+│ -</ul>
+│ -<h2>Version 1.2.2</h2>
+│ -<ul id="v1.2.2">
+│ -<li>Javascript bookmarks had never worked before due to lack of permission. This version should have fixed it.</li>
+│ -</ul>
+│ -<h2>Version 1.2.1</h2>
+│ -<ul id="v1.2.1">
+│ -<li>Due to my carelessness, a full match will pops out both the selected page and the bookmark search page. This is likely fixed.</li>
+│ -<li>Automatically selects if there is only one search result.</li>
+│ -<li>Allow setting the maximum items to show.</li>
+│ -<li>The option page should work fine.</li>
+│ -<li>Some minor improvements.</li>
+│ -</ul>
+│ -<h2>Version 1.2</h2>
+│ -<ul id="v1.2">
+│ -<li><b>Bookmark Search</b> can now automatically select the full match. (see <a href="options.html" target="_blank">Options</a>)</li>
+│ -<li>Display is improved. It now shows both name and address.</li>
+│ -<li>Some minor improvements.</li>
+│ -<li>The icons are updated, although they are still...</li>
+│ -</ul>
+│ -<h2>Version 1.1</h2>
+│ -<ul id="v1.1">
+│ -<li>The search keyword has changed to "<b>bm</b>"!</li>
+│ -</ul>
+│ -<h2>Version 1.0</h2>
+│ -<ul id="v1.0">
+│ -<li>First release!</li>
+│ -</ul>
+│ -</body>
+│ -</html>
+│ +<html>
+│ +<head>
+│ +<title>Bookmark Search Extension - What's New</title>
+│ +<script type="text/javascript" src="whatsnew.js"></script>
+│ +<script type="text/javascript" src="page_common.js"></script>
+│ +</head>
+│ +<body>
+│ +<h1><a href="https://chrome.google.com/webstore/detail/hhmokalkpaiacdofbcddkogifepbaijk" target="_blank">Bookmark Search</a> Extension - What's New</h1>
+│ +<span id="msg_firstinstall" style="display:none;color:red">
+│ +Thanks for installing Bookmark Search <span name="version">this version</span>!<br />
+│ +Please also check the <a href="options.html" target="_blank">options page</a>.
+│ +</span>
+│ +<span id="msg_update" style="display:none;color:red">
+│ +Here are the changes from <span id="version_old">old version</span> to <span name="version">this version</span>!<br />
+│ +Please also check the <a href="options.html" target="_blank">options page for any new options.</a>
+│ +</span>
+│ +<span id="msg_this" style="display:none;color:red">
+│ +This version is <span name="version">this version</span>.
+│ +</span>
+│ +<h2>Version 2.0.0</h2>
+│ +<ul id="v2.0.0">
+│ +<li><strong>Migrate to Manifest V3</strong>, since Manifest V2 is being obsoleted. Otherwise, the Chrome Web Store would have disabled and removed this extension. (Thanks <span style="font-style:italic;">sfllaw</span> for the patch.)</li>
+│ +<li><strong>Remove support for JavaScript bookmarklets</strong>, because Chrome and other browsers enforce Content Security Policy on bookmarklets. (Thanks <span style="font-style:italic;">sfllaw</span> for the patch.)</li>
+│ +<li>Fix the built-in search so it doesn't break on bookmark folders. (Thanks <span style="font-style:italic;">sfllaw</span> for the patch.)</li>
+│ +<li>Modify small icon to make it look better in dark mode.</li>
+│ +</ul>
+│ +<h2>Version 1.4.3</h2>
+│ +<ul id="v1.4.3">
+│ +<li>Fix the bookmark page search link on more recent Chrome versions. (Thanks <span style="font-style:italic;">nbegley</span> for the patch.)</li>
+│ +<li>Fix a typo. (Thanks <span style="font-style:italic;">nbegley</span> for the patch.)</li>
+│ +</ul>
+│ +<h2>Version 1.4.2.1</h2>
+│ +<ul id="v1.4.2.1">
+│ +<li>Pressing arrow keys or switching windows could cause automatic matches (first match item) to be forgotten. Some code has been modified to prevent this from happening. (Thanks <span style="font-style:italic;">northtea</span> for pointing it out)</li>
+│ +</ul>
+│ +<h2>Version 1.4.2</h2>
+│ +<ul id="v1.4.2">
+│ +<li>JavaScript bookmarklets now requires a lesser permission. If you had enabled JavaScript bookmarklets before, you'll need to re-enable it.</li>
+│ +<li>You may now choose where bookmarks are opened with the keyboard. The option is available in the options page. With this option, you can open bookmarks on a new foreground tab by pressing <kbd>Alt</kbd> + <kbd>Enter</kbd>, or on a new background tab by clicking on an item with the middle mouse button.</li>
+│ +<li>Fixed a minor bug which sometimes causes the wrong page to be opened.</li>
+│ +</ul>
+│ +<h2>Version 1.4.1</h2>
+│ +<ul id="v1.4.1">
+│ +<li>Made the searching algorithm selection option more clearer.</li>
+│ +<li>Added <a href="search_test.html" target="_blank">a page</a> to test different searching algorithm.</li>
+│ +</ul>
+│ +<h2>Version 1.4</h2>
+│ +<ul id="v1.4">
+│ +<li>Implemented a new searching and sorting algorithm which should give better and more useful results in general.</li>
+│ +</ul>
+│ +<h2>Version 1.3.4</h2>
+│ +<ul id="v1.3.4">
+│ +<li>Removed an optional permission which is no longer needed.</li>
+│ +<li>Changed the way of informing version updated.</li>
+│ +</ul>
+│ +<h2>Version 1.3.3</h2>
+│ +<ul id="v1.3.3">
+│ +<li>Changed the bookmark manager's page back to chrome://bookmarks/ (which I forgot to change in 1.3.2).</li>
+│ +<li>Changed the way of invoking JavaScript bookmarklet due to some security concern.</li>
+│ +</ul>
+│ +<h2>Version 1.3.2</h2>
+│ +<ul id="v1.3.2">
+│ +<li>Slightly improved the options page.</li>
+│ +<li>The extension will now ask you to enable JavaScript bookmarklet support when attempt to use one.</li>
+│ +<li>Minor code changes produces slight unnoticeable performance increase.</li>
+│ +<li>Chrome will now unload this extension when not being used, so it will not consume any system resources when idle.</li>
+│ +</ul>
+│ +<span style="color:gray;font-style:italic;">Version 1.3.1 is not released.</span>
+│ +<h2>Version 1.3</h2>
+│ +<ul id="v1.3">
+│ +<li>(internal) Switched to manifest version 2.</li>
+│ +<li>The persist permission to "your data on all websites" and "your tabs and browsing activity" is removed.<br />
+│ +Instead an option is added for enabling support for JavaScript bookmarklet.<br />
+│ +The related permissions will be requested only when the option is enabled.</li>
+│ +<li>A bug that prevents automatically navigating to the only match when the option "Automatically selects full match on name" is disabled is fixed.</li>
+│ +</ul>
+│ +<h2>Version 1.2.2</h2>
+│ +<ul id="v1.2.2">
+│ +<li>Javascript bookmarks had never worked before due to lack of permission. This version should have fixed it.</li>
+│ +</ul>
+│ +<h2>Version 1.2.1</h2>
+│ +<ul id="v1.2.1">
+│ +<li>Due to my carelessness, a full match will pops out both the selected page and the bookmark search page. This is likely fixed.</li>
+│ +<li>Automatically selects if there is only one search result.</li>
+│ +<li>Allow setting the maximum items to show.</li>
+│ +<li>The option page should work fine.</li>
+│ +<li>Some minor improvements.</li>
+│ +</ul>
+│ +<h2>Version 1.2</h2>
+│ +<ul id="v1.2">
+│ +<li><b>Bookmark Search</b> can now automatically select the full match. (see <a href="options.html" target="_blank">Options</a>)</li>
+│ +<li>Display is improved. It now shows both name and address.</li>
+│ +<li>Some minor improvements.</li>
+│ +<li>The icons are updated, although they are still...</li>
+│ +</ul>
+│ +<h2>Version 1.1</h2>
+│ +<ul id="v1.1">
+│ +<li>The search keyword has changed to "<b>bm</b>"!</li>
+│ +</ul>
+│ +<h2>Version 1.0</h2>
+│ +<ul id="v1.0">
+│ +<li>First release!</li>
+│ +</ul>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/whatsnew.js
+├── +++ /workspace/pipeline_output/chrome-bookmark-search/src/whatsnew.js
+│ ├── js-beautify {}
+│ │ @@ -1,21 +1,21 @@
+│ │ -var versions = ["v2.0.0", "v1.4.3", "v1.4.2.1", "v1.4.2", "v1.4.1", "v1.4", "v1.3.4", "v1.3.3", "v1.3.2", "v1.3", "v1.2.2", "v1.2.1", "v1.2", "v1.1", "v1.0"];
+│ │ -
+│ │ -window.addEventListener("load", function() {
+│ │ -    var v = window.location.search.substr(1) || versions[0];
+│ │ -    var i;
+│ │ -    var vi = versions.indexOf(v);
+│ │ -    if (vi == -1) {
+│ │ -        vi = versions.length;
+│ │ -    }
+│ │ -    for (i = vi - 1; i >= 0; i--) {
+│ │ -        document.getElementById(versions[i]).style.backgroundColor = "yellow";
+│ │ -    }
+│ │ -    if (vi == 0) {
+│ │ -        document.getElementById("msg_this").style.display = "";
+│ │ -    } else if (vi < versions.length) {
+│ │ -        document.getElementById("version_old").textContent = v;
+│ │ -        document.getElementById("msg_update").style.display = "";
+│ │ -    } else {
+│ │ -        document.getElementById("msg_firstinstall").style.display = "";
+│ │ -    }
+│ │ +var versions = ["v2.0.0", "v1.4.3", "v1.4.2.1", "v1.4.2", "v1.4.1", "v1.4", "v1.3.4", "v1.3.3", "v1.3.2", "v1.3", "v1.2.2", "v1.2.1", "v1.2", "v1.1", "v1.0"];
+│ │ +
+│ │ +window.addEventListener("load", function() {
+│ │ +    var v = window.location.search.substr(1) || versions[0];
+│ │ +    var i;
+│ │ +    var vi = versions.indexOf(v);
+│ │ +    if (vi == -1) {
+│ │ +        vi = versions.length;
+│ │ +    }
+│ │ +    for (i = vi - 1; i >= 0; i--) {
+│ │ +        document.getElementById(versions[i]).style.backgroundColor = "yellow";
+│ │ +    }
+│ │ +    if (vi == 0) {
+│ │ +        document.getElementById("msg_this").style.display = "";
+│ │ +    } else if (vi < versions.length) {
+│ │ +        document.getElementById("version_old").textContent = v;
+│ │ +        document.getElementById("msg_update").style.display = "";
+│ │ +    } else {
+│ │ +        document.getElementById("msg_firstinstall").style.display = "";
+│ │ +    }
+│ │  });

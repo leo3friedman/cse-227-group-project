@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ethereum-gas-prices-browser-extension/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  assets
+│  background.js
+│  fonts
+│  icons
+│  introduction.css
+│  introduction.html
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ethereum-gas-prices-browser-extension/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -22,10 +22,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Ethereum Gas Prices",
+│ │      "permissions": [
+│ │          "alarms",
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.4.2"
+│ │  }

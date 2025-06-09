@@ -1,0 +1,26 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/GooglePhotosDirectLink/extension
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  direct.js
+│  direct_styles.css
+│  img
+│  jquery-1.11.1.min.js
+│  manifest.json
+│  options.html
+│  options.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/GooglePhotosDirectLink/extension/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -26,10 +26,9 @@
+│ │      "options_page": "options.html",
+│ │      "page_action": {
+│ │          "default_icon": "img/GPDL-logo-19.png"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.0"
+│ │  }

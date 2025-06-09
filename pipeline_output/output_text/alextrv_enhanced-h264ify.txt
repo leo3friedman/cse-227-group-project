@@ -1,0 +1,34 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/enhanced-h264ify
+├── file list
+│ @@ -1,9 +1,10 @@
+│ +.git
+│  LICENSE
+│  README.md
+│  _locales
+│ -_metadata
+│  icons
+│  manifest.json
+│  options.html
+│  options.js
+│ +package-lock.json
+│  src
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/enhanced-h264ify/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -34,15 +34,14 @@
+│ │      "name": "enhanced-h264ify",
+│ │      "options_ui": {
+│ │          "page": "options.html"
+│ │      },
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2.1",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "*://*.youtube.com/*",
+│ │                  "*://*.youtube-nocookie.com/*",
+│ │                  "*://*.youtu.be/*"

@@ -1,0 +1,1402 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/twitch-points-autoclicker/src
+├── file list
+│ @@ -1,8 +1,7 @@
+│ -_metadata
+│  arrive-2.4.1.min.js
+│  background.js
+│  banner.png
+│  fonts
+│  icon128.png
+│  icon48.png
+│  icons
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,165 +1,165 @@
+│ │ -// Check if any Twitch Pages are opened and manually inject twitch-clicker.js if needed
+│ │ -setTimeout(function() {
+│ │ -    console.log('Checking content script status');
+│ │ -
+│ │ -    // Gets all twitch tabs
+│ │ -    chrome.tabs.query({
+│ │ -        url: '*://*.twitch.tv/*',
+│ │ -    }, function(tabs) {
+│ │ -        console.log(tabs);
+│ │ -        // If no Twitch tabs exist, stop the precheck.
+│ │ -        if (!Array.isArray(tabs) || !tabs.length) {
+│ │ -            console.log('No matching tabs found.');
+│ │ -            return null;
+│ │ -        }
+│ │ -        tabs.forEach(function(tab) {
+│ │ -            // Initializes handshake with potential twitch-clicker.js script inside the tab
+│ │ -            chrome.tabs.sendMessage(tab.id, {
+│ │ -                text: 'check'
+│ │ -            }, function(msg) {
+│ │ -                if (chrome.runtime.lastError) {
+│ │ -                    msg = {};
+│ │ -                } else {
+│ │ -                    msg = msg || {};
+│ │ -                }
+│ │ -
+│ │ -                // If handshake fails (twitch-clicker.js doesn't exist in the tab) - inject the main script and its reverse dependency
+│ │ -                if (msg.status != 'confirmed') {
+│ │ -                    chrome.tabs.executeScript(tab.id, {
+│ │ -                        file: 'arrive-2.4.1.min.js'
+│ │ -                    });
+│ │ -                    chrome.tabs.executeScript(tab.id, {
+│ │ -                        file: 'twitch-clicker.js'
+│ │ -                    });
+│ │ -                }
+│ │ -            });
+│ │ -        });
+│ │ -    })
+│ │ -}, 1000);
+│ │ -
+│ │ -// Fired when first installed, new extension update or chrome update is installed
+│ │ -chrome.runtime.onInstalled.addListener(function() {
+│ │ -    var firstLaunch;
+│ │ -    var showBrowserNotifications;
+│ │ -    var current_version;
+│ │ -    var last_version;
+│ │ -
+│ │ -    chrome.storage.sync.get({
+│ │ -        last_version: null,
+│ │ -        showBrowserNotifications: true
+│ │ -    }, function(items) {
+│ │ -        showBrowserNotifications = items.showBrowserNotifications;
+│ │ -        current_version = chrome.runtime.getManifest().version;
+│ │ -
+│ │ -        if (!items.last_version) {
+│ │ -            firstLaunch = true;
+│ │ -            last_version = current_version;
+│ │ -        } else {
+│ │ -            firstLaunch = false;
+│ │ -            last_version = items.last_version;
+│ │ -        }
+│ │ -
+│ │ -        // Show notifications
+│ │ -        var options = null;
+│ │ -        if (showBrowserNotifications && firstLaunch) {
+│ │ -            options = {
+│ │ -                type: 'basic',
+│ │ -                title: 'New extension installed!',
+│ │ -                message: 'Channel Points Autoclicker has been installed!',
+│ │ -                iconUrl: 'icon128.png',
+│ │ -                buttons: [{
+│ │ -                    title: 'View recent updates',
+│ │ -                    iconUrl: 'icons/open.svg'
+│ │ -                }, {
+│ │ -                    title: 'Do not show updates',
+│ │ -                    iconUrl: 'icons/no.svg'
+│ │ -                }]
+│ │ -            };
+│ │ -            chrome.notifications.create(options, function(id) {
+│ │ -                updateNotificationID = id;
+│ │ -            });
+│ │ -        }
+│ │ -        if (showBrowserNotifications && (current_version != last_version)) {
+│ │ -            options = {
+│ │ -                type: 'basic',
+│ │ -                title: 'New update available!',
+│ │ -                message: 'Channel Points Autoclicker has been updated to: v' + current_version,
+│ │ -                iconUrl: 'icon128.png',
+│ │ -                buttons: [{
+│ │ -                    title: 'View recent updates',
+│ │ -                    iconUrl: 'icons/open.svg'
+│ │ -                }, {
+│ │ -                    title: 'Do not show updates',
+│ │ -                    iconUrl: 'icons/no.svg'
+│ │ -                }]
+│ │ -            };
+│ │ -            chrome.notifications.create(options, function(id) {
+│ │ -                updateNotificationID = id;
+│ │ -            });
+│ │ -        }
+│ │ -
+│ │ -        // Save preferences
+│ │ -        chrome.storage.sync.set({
+│ │ -            last_version: current_version,
+│ │ -            showBrowserNotifications: showBrowserNotifications
+│ │ -        }, function() {});
+│ │ -    });
+│ │ -});
+│ │ -
+│ │ -// Handle Notification button clicking
+│ │ -chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
+│ │ -    if (notifId === updateNotificationID) {
+│ │ -        if (btnIdx === 0) {
+│ │ -            chrome.tabs.create({
+│ │ -                url: chrome.extension.getURL('updates.html')
+│ │ -            });
+│ │ -            chrome.notifications.clear(notifId);
+│ │ -        } else if (btnIdx === 1) {
+│ │ -            chrome.storage.sync.set({
+│ │ -                showBrowserNotifications: false
+│ │ -            }, function() {});
+│ │ -            chrome.notifications.clear(notifId);
+│ │ -        }
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -// Handle content script sending update for bonus points clicks
+│ │ -chrome.runtime.onMessage.addListener(
+│ │ -    function(request, sender, sendResponse) {
+│ │ -        if (request.clickedBonusPoints) {
+│ │ -            chrome.storage.sync.get({
+│ │ -                clickedBonusPoints: 0,
+│ │ -            }, function(items) {
+│ │ -                var clickedNum = items.clickedBonusPoints + 1;
+│ │ -                chrome.storage.sync.set({
+│ │ -                    clickedBonusPoints: clickedNum
+│ │ -                }, function() {});
+│ │ -            });
+│ │ -        }
+│ │ -    });
+│ │ -
+│ │ -// Handle URL change for Twitch Tabs to prevent bonus points detection from breaking
+│ │ -chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+│ │ -    if (details.frameId === 0) { // indicates the navigation happens in the tab content window, not in a subframe
+│ │ -        if (!(details.url.toUpperCase().indexOf('twitch.tv'.toUpperCase()) !== -1)) {
+│ │ -            // Not a Twitch.tv tab, ignoring
+│ │ -            return
+│ │ -        }
+│ │ -
+│ │ -        chrome.tabs.sendMessage(details.tabId, {
+│ │ -            urlChanged: 1
+│ │ -        }, function(msg) {
+│ │ -            if (chrome.runtime.lastError) {
+│ │ -                msg = {};
+│ │ -            } else {
+│ │ -                msg = msg || {};
+│ │ -            }
+│ │ -        });
+│ │ -        console.log("onHistoryStateUpdated");
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -// Create popup for the extension button
+│ │ -chrome.browserAction.setPopup({
+│ │ -    popup: 'popup.html'
+│ │ +// Check if any Twitch Pages are opened and manually inject twitch-clicker.js if needed
+│ │ +setTimeout(function() {
+│ │ +    console.log('Checking content script status');
+│ │ +
+│ │ +    // Gets all twitch tabs
+│ │ +    chrome.tabs.query({
+│ │ +        url: '*://*.twitch.tv/*',
+│ │ +    }, function(tabs) {
+│ │ +        console.log(tabs);
+│ │ +        // If no Twitch tabs exist, stop the precheck.
+│ │ +        if (!Array.isArray(tabs) || !tabs.length) {
+│ │ +            console.log('No matching tabs found.');
+│ │ +            return null;
+│ │ +        }
+│ │ +        tabs.forEach(function(tab) {
+│ │ +            // Initializes handshake with potential twitch-clicker.js script inside the tab
+│ │ +            chrome.tabs.sendMessage(tab.id, {
+│ │ +                text: 'check'
+│ │ +            }, function(msg) {
+│ │ +                if (chrome.runtime.lastError) {
+│ │ +                    msg = {};
+│ │ +                } else {
+│ │ +                    msg = msg || {};
+│ │ +                }
+│ │ +
+│ │ +                // If handshake fails (twitch-clicker.js doesn't exist in the tab) - inject the main script and its reverse dependency
+│ │ +                if (msg.status != 'confirmed') {
+│ │ +                    chrome.tabs.executeScript(tab.id, {
+│ │ +                        file: 'arrive-2.4.1.min.js'
+│ │ +                    });
+│ │ +                    chrome.tabs.executeScript(tab.id, {
+│ │ +                        file: 'twitch-clicker.js'
+│ │ +                    });
+│ │ +                }
+│ │ +            });
+│ │ +        });
+│ │ +    })
+│ │ +}, 1000);
+│ │ +
+│ │ +// Fired when first installed, new extension update or chrome update is installed
+│ │ +chrome.runtime.onInstalled.addListener(function() {
+│ │ +    var firstLaunch;
+│ │ +    var showBrowserNotifications;
+│ │ +    var current_version;
+│ │ +    var last_version;
+│ │ +
+│ │ +    chrome.storage.sync.get({
+│ │ +        last_version: null,
+│ │ +        showBrowserNotifications: true
+│ │ +    }, function(items) {
+│ │ +        showBrowserNotifications = items.showBrowserNotifications;
+│ │ +        current_version = chrome.runtime.getManifest().version;
+│ │ +
+│ │ +        if (!items.last_version) {
+│ │ +            firstLaunch = true;
+│ │ +            last_version = current_version;
+│ │ +        } else {
+│ │ +            firstLaunch = false;
+│ │ +            last_version = items.last_version;
+│ │ +        }
+│ │ +
+│ │ +        // Show notifications
+│ │ +        var options = null;
+│ │ +        if (showBrowserNotifications && firstLaunch) {
+│ │ +            options = {
+│ │ +                type: 'basic',
+│ │ +                title: 'New extension installed!',
+│ │ +                message: 'Channel Points Autoclicker has been installed!',
+│ │ +                iconUrl: 'icon128.png',
+│ │ +                buttons: [{
+│ │ +                    title: 'View recent updates',
+│ │ +                    iconUrl: 'icons/open.svg'
+│ │ +                }, {
+│ │ +                    title: 'Do not show updates',
+│ │ +                    iconUrl: 'icons/no.svg'
+│ │ +                }]
+│ │ +            };
+│ │ +            chrome.notifications.create(options, function(id) {
+│ │ +                updateNotificationID = id;
+│ │ +            });
+│ │ +        }
+│ │ +        if (showBrowserNotifications && (current_version != last_version)) {
+│ │ +            options = {
+│ │ +                type: 'basic',
+│ │ +                title: 'New update available!',
+│ │ +                message: 'Channel Points Autoclicker has been updated to: v' + current_version,
+│ │ +                iconUrl: 'icon128.png',
+│ │ +                buttons: [{
+│ │ +                    title: 'View recent updates',
+│ │ +                    iconUrl: 'icons/open.svg'
+│ │ +                }, {
+│ │ +                    title: 'Do not show updates',
+│ │ +                    iconUrl: 'icons/no.svg'
+│ │ +                }]
+│ │ +            };
+│ │ +            chrome.notifications.create(options, function(id) {
+│ │ +                updateNotificationID = id;
+│ │ +            });
+│ │ +        }
+│ │ +
+│ │ +        // Save preferences
+│ │ +        chrome.storage.sync.set({
+│ │ +            last_version: current_version,
+│ │ +            showBrowserNotifications: showBrowserNotifications
+│ │ +        }, function() {});
+│ │ +    });
+│ │ +});
+│ │ +
+│ │ +// Handle Notification button clicking
+│ │ +chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
+│ │ +    if (notifId === updateNotificationID) {
+│ │ +        if (btnIdx === 0) {
+│ │ +            chrome.tabs.create({
+│ │ +                url: chrome.extension.getURL('updates.html')
+│ │ +            });
+│ │ +            chrome.notifications.clear(notifId);
+│ │ +        } else if (btnIdx === 1) {
+│ │ +            chrome.storage.sync.set({
+│ │ +                showBrowserNotifications: false
+│ │ +            }, function() {});
+│ │ +            chrome.notifications.clear(notifId);
+│ │ +        }
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +// Handle content script sending update for bonus points clicks
+│ │ +chrome.runtime.onMessage.addListener(
+│ │ +    function(request, sender, sendResponse) {
+│ │ +        if (request.clickedBonusPoints) {
+│ │ +            chrome.storage.sync.get({
+│ │ +                clickedBonusPoints: 0,
+│ │ +            }, function(items) {
+│ │ +                var clickedNum = items.clickedBonusPoints + 1;
+│ │ +                chrome.storage.sync.set({
+│ │ +                    clickedBonusPoints: clickedNum
+│ │ +                }, function() {});
+│ │ +            });
+│ │ +        }
+│ │ +    });
+│ │ +
+│ │ +// Handle URL change for Twitch Tabs to prevent bonus points detection from breaking
+│ │ +chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+│ │ +    if (details.frameId === 0) { // indicates the navigation happens in the tab content window, not in a subframe
+│ │ +        if (!(details.url.toUpperCase().indexOf('twitch.tv'.toUpperCase()) !== -1)) {
+│ │ +            // Not a Twitch.tv tab, ignoring
+│ │ +            return
+│ │ +        }
+│ │ +
+│ │ +        chrome.tabs.sendMessage(details.tabId, {
+│ │ +            urlChanged: 1
+│ │ +        }, function(msg) {
+│ │ +            if (chrome.runtime.lastError) {
+│ │ +                msg = {};
+│ │ +            } else {
+│ │ +                msg = msg || {};
+│ │ +            }
+│ │ +        });
+│ │ +        console.log("onHistoryStateUpdated");
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +// Create popup for the extension button
+│ │ +chrome.browserAction.setPopup({
+│ │ +    popup: 'popup.html'
+│ │  })
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -39,14 +39,13 @@
+│ │      "permissions": [
+│ │          "*://*.twitch.tv/*",
+│ │          "tabs",
+│ │          "storage",
+│ │          "notifications",
+│ │          "webNavigation"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.1",
+│ │      "web_accessible_resources": [
+│ │          "arrive-2.4.1.min.js",
+│ │          "twitch-clicker.js"
+│ │      ]
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/options.html
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/options.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,97 +1,97 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -<head>
+│ -    <title>Channel Points Autoclicker Options</title>
+│ -    <style type="text/css">
+│ -        @font-face { font-family: Whitney; src: url('./fonts/whitney-regular.woff'); }
+│ -        @font-face { font-family: Whitney; font-weight: bold; src: url('./fonts/whitney-bold.woff'); }
+│ -        @font-face { font-family: Whitney; font-weight: 200; src: url('./fonts/whitney-regular.woff'); }
+│ -        body {
+│ -            padding-top: 10px;
+│ -            align-items: center;
+│ -            text-align: center;
+│ -            margin: 10px;
+│ -            white-space: nowrap;
+│ -            font-weight: normal;
+│ -            font-size: 18px;
+│ -            background-color: #76737b;
+│ -            color: white;
+│ -            font-family: Whitney, Arial, sans-serif;
+│ -        }
+│ -        button {
+│ -            font-family : inherit;
+│ -            font-size: 1em;
+│ -			
+│ -			padding-bottom: 3px;
+│ -            border: 2px solid hsla(0,0%,100%,1);
+│ -            border-radius: 20px;
+│ -            height: 35px;
+│ -            width: auto;
+│ -            text-align: center;
+│ -            font-family: inherit;
+│ -            font-size: 1em;
+│ -            color: #fff;
+│ -            background-color: rgba(63,66,70,.1);
+│ -            text-decoration: none;
+│ -            opacity: 1;
+│ -        }
+│ -		button:hover {
+│ -			color: #cdb3ff;
+│ -			border: 2px solid #cdb3ff;
+│ -            cursor: pointer;
+│ -            opacity: 1;
+│ -        }
+│ -        select {
+│ -            font-family: inherit;
+│ -            font-size: 1em;
+│ -            background-color: #e6e6e6;
+│ -        }
+│ -        #icon_example {
+│ -            height: 30px;
+│ -        }
+│ -		#main-container {
+│ -			width: 705px;
+│ -			margin: 0 auto;
+│ -            text-align: left;
+│ -		}
+│ -		table {
+│ -			border-spacing: 5px;
+│ -			margin: 0 auto;
+│ -		}
+│ -		.right-td {
+│ -			text-align: right;
+│ -		}
+│ -    </style>
+│ -</head>
+│ -<body>
+│ -
+│ -<img src="banner.png" alt="Twitch Channel Points Autoclicker" align="middle" style="text-align: center"><br><br><br>
+│ -
+│ -<div id="main-container">
+│ -	<table>
+│ -		<tr>
+│ -			<td>Browser Notifications enabled: </td>
+│ -			<td class="right-td"><input type="checkbox" id="showBrowserNotifications"></td>
+│ -		</tr>
+│ -		<tr>
+│ -			<td>Display number of times bonus points were collected with the help of the extension:</td>
+│ -			<td class="right-td"><input type="checkbox" id="showAccumulatedPoints"></td>
+│ -		</tr>
+│ -		<tr>
+│ -			<td>Hide bonus channel points chests visually:</td>
+│ -			<td class="right-td"><input type="checkbox" id="hideBonusChests"></td>
+│ -		</tr>
+│ -		<tr style="height: 20px;"></tr>
+│ -		<tr>
+│ -			<td><button id="save">Save Settings</button></td>
+│ -			<td class="right-td"><button id="updates">View Updates</button></td>
+│ -		</tr>
+│ -		<tr>
+│ -		<td><div id="status"></div></td>
+│ -		</tr>
+│ -	</table>
+│ -</div>
+│ -
+│ -<script src="options.js"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +<head>
+│ +    <title>Channel Points Autoclicker Options</title>
+│ +    <style type="text/css">
+│ +        @font-face { font-family: Whitney; src: url('./fonts/whitney-regular.woff'); }
+│ +        @font-face { font-family: Whitney; font-weight: bold; src: url('./fonts/whitney-bold.woff'); }
+│ +        @font-face { font-family: Whitney; font-weight: 200; src: url('./fonts/whitney-regular.woff'); }
+│ +        body {
+│ +            padding-top: 10px;
+│ +            align-items: center;
+│ +            text-align: center;
+│ +            margin: 10px;
+│ +            white-space: nowrap;
+│ +            font-weight: normal;
+│ +            font-size: 18px;
+│ +            background-color: #76737b;
+│ +            color: white;
+│ +            font-family: Whitney, Arial, sans-serif;
+│ +        }
+│ +        button {
+│ +            font-family : inherit;
+│ +            font-size: 1em;
+│ +			
+│ +			padding-bottom: 3px;
+│ +            border: 2px solid hsla(0,0%,100%,1);
+│ +            border-radius: 20px;
+│ +            height: 35px;
+│ +            width: auto;
+│ +            text-align: center;
+│ +            font-family: inherit;
+│ +            font-size: 1em;
+│ +            color: #fff;
+│ +            background-color: rgba(63,66,70,.1);
+│ +            text-decoration: none;
+│ +            opacity: 1;
+│ +        }
+│ +		button:hover {
+│ +			color: #cdb3ff;
+│ +			border: 2px solid #cdb3ff;
+│ +            cursor: pointer;
+│ +            opacity: 1;
+│ +        }
+│ +        select {
+│ +            font-family: inherit;
+│ +            font-size: 1em;
+│ +            background-color: #e6e6e6;
+│ +        }
+│ +        #icon_example {
+│ +            height: 30px;
+│ +        }
+│ +		#main-container {
+│ +			width: 705px;
+│ +			margin: 0 auto;
+│ +            text-align: left;
+│ +		}
+│ +		table {
+│ +			border-spacing: 5px;
+│ +			margin: 0 auto;
+│ +		}
+│ +		.right-td {
+│ +			text-align: right;
+│ +		}
+│ +    </style>
+│ +</head>
+│ +<body>
+│ +
+│ +<img src="banner.png" alt="Twitch Channel Points Autoclicker" align="middle" style="text-align: center"><br><br><br>
+│ +
+│ +<div id="main-container">
+│ +	<table>
+│ +		<tr>
+│ +			<td>Browser Notifications enabled: </td>
+│ +			<td class="right-td"><input type="checkbox" id="showBrowserNotifications"></td>
+│ +		</tr>
+│ +		<tr>
+│ +			<td>Display number of times bonus points were collected with the help of the extension:</td>
+│ +			<td class="right-td"><input type="checkbox" id="showAccumulatedPoints"></td>
+│ +		</tr>
+│ +		<tr>
+│ +			<td>Hide bonus channel points chests visually:</td>
+│ +			<td class="right-td"><input type="checkbox" id="hideBonusChests"></td>
+│ +		</tr>
+│ +		<tr style="height: 20px;"></tr>
+│ +		<tr>
+│ +			<td><button id="save">Save Settings</button></td>
+│ +			<td class="right-td"><button id="updates">View Updates</button></td>
+│ +		</tr>
+│ +		<tr>
+│ +		<td><div id="status"></div></td>
+│ +		</tr>
+│ +	</table>
+│ +</div>
+│ +
+│ +<script src="options.js"></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/options.js
+│ ├── js-beautify {}
+│ │ @@ -1,67 +1,67 @@
+│ │ -// Saves options to chrome.storage
+│ │ -function save_options() {
+│ │ -    var showBrowserNotifications = document.getElementById('showBrowserNotifications').checked;
+│ │ -    var showAccumulatedPoints = document.getElementById('showAccumulatedPoints').checked;
+│ │ -    var hideBonusChests = document.getElementById('hideBonusChests').checked;
+│ │ -
+│ │ -    chrome.storage.sync.set({
+│ │ -        showBrowserNotifications: showBrowserNotifications,
+│ │ -        showAccumulatedPoints: showAccumulatedPoints,
+│ │ -        hideBonusChests: hideBonusChests,
+│ │ -    }, function() {
+│ │ -        // Update status to let user know options were saved.
+│ │ -        var status = document.getElementById('status');
+│ │ -        status.textContent = 'Options saved!';
+│ │ -        setTimeout(function() {
+│ │ -            status.textContent = '';
+│ │ -        }, 750);
+│ │ -    });
+│ │ -
+│ │ -    // Gets all twitch tabs
+│ │ -    chrome.tabs.query({
+│ │ -        url: '*://*.twitch.tv/*',
+│ │ -    }, function(tabs) {
+│ │ -        // If no Twitch tabs exist, stop the precheck.
+│ │ -        if (!Array.isArray(tabs) || !tabs.length) {
+│ │ -            return null;
+│ │ -        }
+│ │ -        tabs.forEach(function(tab) {
+│ │ -            // Initializes handshake with potential twitch-clicker.js script inside the tab
+│ │ -            chrome.tabs.sendMessage(tab.id, {
+│ │ -                hideBonusChests: hideBonusChests
+│ │ -            }, function(msg) {
+│ │ -                if (chrome.runtime.lastError) {
+│ │ -                    msg = {};
+│ │ -                } else {
+│ │ -                    msg = msg || {};
+│ │ -                }
+│ │ -
+│ │ -            });
+│ │ -        });
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -// Restores Options state using the preferences saved in chrome.storage
+│ │ -function restore_options() {
+│ │ -    chrome.storage.sync.get({
+│ │ -        showBrowserNotifications: true,
+│ │ -        showAccumulatedPoints: false,
+│ │ -        hideBonusChests: false,
+│ │ -    }, function(items) {
+│ │ -        document.getElementById('showBrowserNotifications').checked = items.showBrowserNotifications;
+│ │ -        document.getElementById('showAccumulatedPoints').checked = items.showAccumulatedPoints;
+│ │ -        document.getElementById('hideBonusChests').checked = items.hideBonusChests;
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -// Creates a new tab with extension updates log
+│ │ -function open_updates() {
+│ │ -    chrome.tabs.create({
+│ │ -        url: chrome.extension.getURL('updates.html')
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -// Main loady thingy
+│ │ -document.addEventListener('DOMContentLoaded', restore_options);
+│ │ -document.getElementById('updates').addEventListener('click', open_updates);
+│ │ +// Saves options to chrome.storage
+│ │ +function save_options() {
+│ │ +    var showBrowserNotifications = document.getElementById('showBrowserNotifications').checked;
+│ │ +    var showAccumulatedPoints = document.getElementById('showAccumulatedPoints').checked;
+│ │ +    var hideBonusChests = document.getElementById('hideBonusChests').checked;
+│ │ +
+│ │ +    chrome.storage.sync.set({
+│ │ +        showBrowserNotifications: showBrowserNotifications,
+│ │ +        showAccumulatedPoints: showAccumulatedPoints,
+│ │ +        hideBonusChests: hideBonusChests,
+│ │ +    }, function() {
+│ │ +        // Update status to let user know options were saved.
+│ │ +        var status = document.getElementById('status');
+│ │ +        status.textContent = 'Options saved!';
+│ │ +        setTimeout(function() {
+│ │ +            status.textContent = '';
+│ │ +        }, 750);
+│ │ +    });
+│ │ +
+│ │ +    // Gets all twitch tabs
+│ │ +    chrome.tabs.query({
+│ │ +        url: '*://*.twitch.tv/*',
+│ │ +    }, function(tabs) {
+│ │ +        // If no Twitch tabs exist, stop the precheck.
+│ │ +        if (!Array.isArray(tabs) || !tabs.length) {
+│ │ +            return null;
+│ │ +        }
+│ │ +        tabs.forEach(function(tab) {
+│ │ +            // Initializes handshake with potential twitch-clicker.js script inside the tab
+│ │ +            chrome.tabs.sendMessage(tab.id, {
+│ │ +                hideBonusChests: hideBonusChests
+│ │ +            }, function(msg) {
+│ │ +                if (chrome.runtime.lastError) {
+│ │ +                    msg = {};
+│ │ +                } else {
+│ │ +                    msg = msg || {};
+│ │ +                }
+│ │ +
+│ │ +            });
+│ │ +        });
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Restores Options state using the preferences saved in chrome.storage
+│ │ +function restore_options() {
+│ │ +    chrome.storage.sync.get({
+│ │ +        showBrowserNotifications: true,
+│ │ +        showAccumulatedPoints: false,
+│ │ +        hideBonusChests: false,
+│ │ +    }, function(items) {
+│ │ +        document.getElementById('showBrowserNotifications').checked = items.showBrowserNotifications;
+│ │ +        document.getElementById('showAccumulatedPoints').checked = items.showAccumulatedPoints;
+│ │ +        document.getElementById('hideBonusChests').checked = items.hideBonusChests;
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Creates a new tab with extension updates log
+│ │ +function open_updates() {
+│ │ +    chrome.tabs.create({
+│ │ +        url: chrome.extension.getURL('updates.html')
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Main loady thingy
+│ │ +document.addEventListener('DOMContentLoaded', restore_options);
+│ │ +document.getElementById('updates').addEventListener('click', open_updates);
+│ │  document.getElementById('save').addEventListener('click', save_options);
+│   --- /workspace/pipeline_output/chromex_data/popup.html
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/popup.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,69 +1,69 @@
+│ -<!doctype html>
+│ -<html>
+│ -<head>
+│ -	<title>Channel Points Autoclicker Popup</title>
+│ -	<style type='text/css'>
+│ -		@font-face { font-family: Whitney; src: url('./fonts/whitney-regular.woff'); }
+│ -		@font-face { font-family: Whitney; font-weight: bold; src: url('./fonts/whitney-bold.woff'); }
+│ -		@font-face { font-family: Whitney; font-weight: 200; src: url('./fonts/whitney-light.woff'); }
+│ -		body {
+│ -            padding-bottom: 20px;
+│ -			margin-top: 0px;
+│ -			width: 200px;
+│ -			height: 90px;
+│ -			align-items: center;
+│ -            font-size: 15px;
+│ -			background-color: #76737b;
+│ -			font-family: Whitney, Arial, sans-serif;
+│ -            -webkit-font-smoothing: subpixel-antialiased;
+│ -		}
+│ -		a {
+│ -            color: black;
+│ -			text-decoration: none;
+│ -		}
+│ -        a:hover {
+│ -            font-size: 16px;
+│ -        }
+│ -        #settings {
+│ -            padding-bottom: 3px;
+│ -            border-radius: 20px;
+│ -            height: 35px;
+│ -            width: 80px;
+│ -            float: right;
+│ -            text-align: center;
+│ -            font-family: inherit;
+│ -            font-size: 1em;
+│ -            background-color: rgba(63,66,70, 0);
+│ -            text-decoration: none;
+│ -            opacity: 1;
+│ -			color: #cdb3ff;
+│ -			border: 2px solid #cdb3ff;
+│ -        }
+│ -        #settings:hover {
+│ -            cursor: pointer;
+│ -            opacity: 1;
+│ -			color: #fff;
+│ -			border: 2px solid hsla(0,0%,100%,1);
+│ -			color: #000;
+│ -			border: 2px solid hsla(0,0%,0%,1);
+│ -        }
+│ -		#accumulatedPoints {
+│ -			padding-top: 4px;
+│ -			padding-left: 10px;
+│ -			font-size: 24px;
+│ -			font-weight: bold;
+│ -			float: left;
+│ -			color: #7d5bbe;
+│ -			text-shadow: -1.4px 0 black, 0 1.4px black, 1.4px 0 black, 0 -1.4px black;
+│ -		}
+│ -	</style>
+│ -</head>
+│ -
+│ -<body>
+│ -	<img src='banner.png' id='Twitch Channel Points Autoclicker' style="width:200px;margin-bottom:10px;">
+│ -    <div id='accumulatedPoints'></div>
+│ -    <button id='settings'>Settings</button>
+│ -
+│ -	<script src='popup.js'></script>
+│ -</body>
+│ -</html>
+│ +<!doctype html>
+│ +<html>
+│ +<head>
+│ +	<title>Channel Points Autoclicker Popup</title>
+│ +	<style type='text/css'>
+│ +		@font-face { font-family: Whitney; src: url('./fonts/whitney-regular.woff'); }
+│ +		@font-face { font-family: Whitney; font-weight: bold; src: url('./fonts/whitney-bold.woff'); }
+│ +		@font-face { font-family: Whitney; font-weight: 200; src: url('./fonts/whitney-light.woff'); }
+│ +		body {
+│ +            padding-bottom: 20px;
+│ +			margin-top: 0px;
+│ +			width: 200px;
+│ +			height: 90px;
+│ +			align-items: center;
+│ +            font-size: 15px;
+│ +			background-color: #76737b;
+│ +			font-family: Whitney, Arial, sans-serif;
+│ +            -webkit-font-smoothing: subpixel-antialiased;
+│ +		}
+│ +		a {
+│ +            color: black;
+│ +			text-decoration: none;
+│ +		}
+│ +        a:hover {
+│ +            font-size: 16px;
+│ +        }
+│ +        #settings {
+│ +            padding-bottom: 3px;
+│ +            border-radius: 20px;
+│ +            height: 35px;
+│ +            width: 80px;
+│ +            float: right;
+│ +            text-align: center;
+│ +            font-family: inherit;
+│ +            font-size: 1em;
+│ +            background-color: rgba(63,66,70, 0);
+│ +            text-decoration: none;
+│ +            opacity: 1;
+│ +			color: #cdb3ff;
+│ +			border: 2px solid #cdb3ff;
+│ +        }
+│ +        #settings:hover {
+│ +            cursor: pointer;
+│ +            opacity: 1;
+│ +			color: #fff;
+│ +			border: 2px solid hsla(0,0%,100%,1);
+│ +			color: #000;
+│ +			border: 2px solid hsla(0,0%,0%,1);
+│ +        }
+│ +		#accumulatedPoints {
+│ +			padding-top: 4px;
+│ +			padding-left: 10px;
+│ +			font-size: 24px;
+│ +			font-weight: bold;
+│ +			float: left;
+│ +			color: #7d5bbe;
+│ +			text-shadow: -1.4px 0 black, 0 1.4px black, 1.4px 0 black, 0 -1.4px black;
+│ +		}
+│ +	</style>
+│ +</head>
+│ +
+│ +<body>
+│ +	<img src='banner.png' id='Twitch Channel Points Autoclicker' style="width:200px;margin-bottom:10px;">
+│ +    <div id='accumulatedPoints'></div>
+│ +    <button id='settings'>Settings</button>
+│ +
+│ +	<script src='popup.js'></script>
+│ +</body>
+│ +</html>
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/popup.js
+│ ├── js-beautify {}
+│ │ @@ -1,33 +1,33 @@
+│ │ -function open_settings() {
+│ │ -    chrome.tabs.create({
+│ │ -        url: chrome.extension.getURL('options.html')
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -document.addEventListener('DOMContentLoaded', function() {
+│ │ -    var accumulatedPointsDiv = document.getElementById('accumulatedPoints');
+│ │ -
+│ │ -    document.getElementById('settings').addEventListener('click', open_settings);
+│ │ -
+│ │ -    chrome.storage.sync.get({
+│ │ -        showAccumulatedPoints: false,
+│ │ -        clickedBonusPoints: 0
+│ │ -    }, function(items) {
+│ │ -        var showAccumulatedPoints = items.showAccumulatedPoints;
+│ │ -        var clickedBonusPoints = items.clickedBonusPoints;
+│ │ -        if (showAccumulatedPoints) {
+│ │ -            if (clickedBonusPoints > 99999) {
+│ │ -                if (clickedBonusPoints > 999999) {
+│ │ -                    clickedBonusPoints = (clickedBonusPoints / 1000000).toFixed(2);
+│ │ -                    clickedBonusPoints += 'M';
+│ │ -                } else {
+│ │ -                    clickedBonusPoints = (clickedBonusPoints / 1000).toFixed(2);
+│ │ -                    clickedBonusPoints += 'K';
+│ │ -                }
+│ │ -            }
+│ │ -            accumulatedPointsDiv.textContent = 'Collected ' + clickedBonusPoints.toString() + ' times!';
+│ │ -        } else {
+│ │ -            accumulatedPointsDiv.textContent = '';
+│ │ -        }
+│ │ -    });
+│ │ +function open_settings() {
+│ │ +    chrome.tabs.create({
+│ │ +        url: chrome.extension.getURL('options.html')
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +document.addEventListener('DOMContentLoaded', function() {
+│ │ +    var accumulatedPointsDiv = document.getElementById('accumulatedPoints');
+│ │ +
+│ │ +    document.getElementById('settings').addEventListener('click', open_settings);
+│ │ +
+│ │ +    chrome.storage.sync.get({
+│ │ +        showAccumulatedPoints: false,
+│ │ +        clickedBonusPoints: 0
+│ │ +    }, function(items) {
+│ │ +        var showAccumulatedPoints = items.showAccumulatedPoints;
+│ │ +        var clickedBonusPoints = items.clickedBonusPoints;
+│ │ +        if (showAccumulatedPoints) {
+│ │ +            if (clickedBonusPoints > 99999) {
+│ │ +                if (clickedBonusPoints > 999999) {
+│ │ +                    clickedBonusPoints = (clickedBonusPoints / 1000000).toFixed(2);
+│ │ +                    clickedBonusPoints += 'M';
+│ │ +                } else {
+│ │ +                    clickedBonusPoints = (clickedBonusPoints / 1000).toFixed(2);
+│ │ +                    clickedBonusPoints += 'K';
+│ │ +                }
+│ │ +            }
+│ │ +            accumulatedPointsDiv.textContent = 'Collected ' + clickedBonusPoints.toString() + ' times!';
+│ │ +        } else {
+│ │ +            accumulatedPointsDiv.textContent = '';
+│ │ +        }
+│ │ +    });
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/twitch-clicker.js
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/twitch-clicker.js
+│ ├── js-beautify {}
+│ │ @@ -1,114 +1,114 @@
+│ │ -var true_check = false;
+│ │ -
+│ │ -// Finds the right element, clicks the bonus button
+│ │ -function clickPoints() {
+│ │ -    console.log('Element detected.')
+│ │ -
+│ │ -    // Get all clickable buttons inside 'community-points-summary'
+│ │ -    var elems = document.querySelector('.community-points-summary').querySelectorAll('button');
+│ │ -
+│ │ -    // Click each button, except for the first, which is the points spending menu
+│ │ -    elems.forEach(function(currentElem, index, arr) {
+│ │ -        if (index != 0) {
+│ │ -            // Click the button and display the console log
+│ │ -            console.log('Twitch Points Autoclicker: Clicked!');
+│ │ -            currentElem.click();
+│ │ -
+│ │ -            // Record the collection to the storage
+│ │ -            updateClicks();
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -function updateClicks() {
+│ │ -    chrome.runtime.sendMessage({
+│ │ -        clickedBonusPoints: 1
+│ │ -    }, function(response) {
+│ │ -        if (chrome.runtime.lastError) {
+│ │ -            msg = {};
+│ │ -        } else {
+│ │ -            msg = msg || {};
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -// Check if user is opted into hiding bonus chests and hide them accordingly
+│ │ -function hideBonusPointsSection() {
+│ │ -    chrome.storage.sync.get({
+│ │ -        hideBonusChests: false,
+│ │ -    }, function(items) {
+│ │ -        var hideBonusChests = items.hideBonusChests;
+│ │ -
+│ │ -        if (hideBonusChests) {
+│ │ -            var value = "none";
+│ │ -        } else {
+│ │ -            var value = "block";
+│ │ -        }
+│ │ -
+│ │ -        if (document.body.contains(document.getElementsByClassName('community-points-summary')[0])) {
+│ │ -            // Chests themselves
+│ │ -            document.getElementsByClassName('community-points-summary')[0].children[1].style.display = value;
+│ │ -            // Floaty +50 text
+│ │ -            document.getElementsByClassName('community-points-summary')[0].children[0].children[3].style.display = value;
+│ │ -        }
+│ │ -    });
+│ │ -}
+│ │ -
+│ │ -//Answer background.js handshake
+│ │ -chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+│ │ -    if (msg.text === 'check') {
+│ │ -        sendResponse({
+│ │ -            status: 'confirmed'
+│ │ -        });
+│ │ -    }
+│ │ -    if ('hideBonusChests' in msg) {
+│ │ -        sendResponse({
+│ │ -            status: 'ok'
+│ │ -        });
+│ │ -        hideBonusPointsSection();
+│ │ -    }
+│ │ -    if ('urlChanged' in msg) {
+│ │ -        true_check = true;
+│ │ -        setTimeout(checkPage, 5000);
+│ │ -        sendResponse({
+│ │ -            status: 'ok'
+│ │ -        })
+│ │ -    }
+│ │ -});
+│ │ -
+│ │ -function checkPage() {
+│ │ -    // Prevent firing script upon simultaneous redirects and fast page switching
+│ │ -    if (!true_check) {
+│ │ -        return
+│ │ -    }
+│ │ -    true_check = false;
+│ │ -
+│ │ -    Arrive.unbindAllArrive();
+│ │ -
+│ │ -    if (document.body.contains(document.getElementsByClassName('community-points-summary')[0])) {
+│ │ -        // Presumably on a channel page that already contains the points section div
+│ │ -        console.log('Detected inside of a channel page.');
+│ │ -
+│ │ -        // Pre-check
+│ │ -        clickPoints();
+│ │ -
+│ │ -        hideBonusPointsSection();
+│ │ -
+│ │ -        document.getElementsByClassName('community-points-summary').arrive('button', clickPoints);
+│ │ -    } else {
+│ │ -        // Presumably outside of a channel page
+│ │ -        console.log('Detected outside of a channel page.');
+│ │ -    }
+│ │ -}
+│ │ -
+│ │ -// Run main functions after 10 second delay to let other extensions load and potentially modify HTML
+│ │ -function main() {
+│ │ -    setTimeout(function() {
+│ │ -        console.log('Twitch Points Autoclicker: Initialized!');
+│ │ -
+│ │ -        true_check = true;
+│ │ -        checkPage();
+│ │ -    }, 10000);
+│ │ -}
+│ │ -
+│ │ +var true_check = false;
+│ │ +
+│ │ +// Finds the right element, clicks the bonus button
+│ │ +function clickPoints() {
+│ │ +    console.log('Element detected.')
+│ │ +
+│ │ +    // Get all clickable buttons inside 'community-points-summary'
+│ │ +    var elems = document.querySelector('.community-points-summary').querySelectorAll('button');
+│ │ +
+│ │ +    // Click each button, except for the first, which is the points spending menu
+│ │ +    elems.forEach(function(currentElem, index, arr) {
+│ │ +        if (index != 0) {
+│ │ +            // Click the button and display the console log
+│ │ +            console.log('Twitch Points Autoclicker: Clicked!');
+│ │ +            currentElem.click();
+│ │ +
+│ │ +            // Record the collection to the storage
+│ │ +            updateClicks();
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +function updateClicks() {
+│ │ +    chrome.runtime.sendMessage({
+│ │ +        clickedBonusPoints: 1
+│ │ +    }, function(response) {
+│ │ +        if (chrome.runtime.lastError) {
+│ │ +            msg = {};
+│ │ +        } else {
+│ │ +            msg = msg || {};
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +// Check if user is opted into hiding bonus chests and hide them accordingly
+│ │ +function hideBonusPointsSection() {
+│ │ +    chrome.storage.sync.get({
+│ │ +        hideBonusChests: false,
+│ │ +    }, function(items) {
+│ │ +        var hideBonusChests = items.hideBonusChests;
+│ │ +
+│ │ +        if (hideBonusChests) {
+│ │ +            var value = "none";
+│ │ +        } else {
+│ │ +            var value = "block";
+│ │ +        }
+│ │ +
+│ │ +        if (document.body.contains(document.getElementsByClassName('community-points-summary')[0])) {
+│ │ +            // Chests themselves
+│ │ +            document.getElementsByClassName('community-points-summary')[0].children[1].style.display = value;
+│ │ +            // Floaty +50 text
+│ │ +            document.getElementsByClassName('community-points-summary')[0].children[0].children[3].style.display = value;
+│ │ +        }
+│ │ +    });
+│ │ +}
+│ │ +
+│ │ +//Answer background.js handshake
+│ │ +chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+│ │ +    if (msg.text === 'check') {
+│ │ +        sendResponse({
+│ │ +            status: 'confirmed'
+│ │ +        });
+│ │ +    }
+│ │ +    if ('hideBonusChests' in msg) {
+│ │ +        sendResponse({
+│ │ +            status: 'ok'
+│ │ +        });
+│ │ +        hideBonusPointsSection();
+│ │ +    }
+│ │ +    if ('urlChanged' in msg) {
+│ │ +        true_check = true;
+│ │ +        setTimeout(checkPage, 5000);
+│ │ +        sendResponse({
+│ │ +            status: 'ok'
+│ │ +        })
+│ │ +    }
+│ │ +});
+│ │ +
+│ │ +function checkPage() {
+│ │ +    // Prevent firing script upon simultaneous redirects and fast page switching
+│ │ +    if (!true_check) {
+│ │ +        return
+│ │ +    }
+│ │ +    true_check = false;
+│ │ +
+│ │ +    Arrive.unbindAllArrive();
+│ │ +
+│ │ +    if (document.body.contains(document.getElementsByClassName('community-points-summary')[0])) {
+│ │ +        // Presumably on a channel page that already contains the points section div
+│ │ +        console.log('Detected inside of a channel page.');
+│ │ +
+│ │ +        // Pre-check
+│ │ +        clickPoints();
+│ │ +
+│ │ +        hideBonusPointsSection();
+│ │ +
+│ │ +        document.getElementsByClassName('community-points-summary').arrive('button', clickPoints);
+│ │ +    } else {
+│ │ +        // Presumably outside of a channel page
+│ │ +        console.log('Detected outside of a channel page.');
+│ │ +    }
+│ │ +}
+│ │ +
+│ │ +// Run main functions after 10 second delay to let other extensions load and potentially modify HTML
+│ │ +function main() {
+│ │ +    setTimeout(function() {
+│ │ +        console.log('Twitch Points Autoclicker: Initialized!');
+│ │ +
+│ │ +        true_check = true;
+│ │ +        checkPage();
+│ │ +    }, 10000);
+│ │ +}
+│ │ +
+│ │  main();
+│   --- /workspace/pipeline_output/chromex_data/updates.html
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/updates.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,64 +1,64 @@
+│ -<!DOCTYPE html>
+│ -<html>
+│ -<head>
+│ -    <title>Channel Points Autoclicker Updates</title>
+│ -	<link rel="icon" href="icon128.png">
+│ -    <style type="text/css">
+│ -        @font-face { font-family: Whitney; src: url('./fonts/whitney-regular.woff'); }
+│ -        @font-face { font-family: Whitney; font-weight: bold; src: url('./fonts/whitney-bold.woff'); }
+│ -        @font-face { font-family: Whitney; font-weight: 200; src: url('./fonts/whitney-regular.woff'); }
+│ -        body {
+│ -            padding-top: 10px;
+│ -            margin: 10px;
+│ -            align-items: center;
+│ -            text-align: center;
+│ -            white-space: nowrap;
+│ -            font-size: 18px;
+│ -            background-color: #76737b;
+│ -            color: white;
+│ -            font-family: Whitney, Arial, sans-serif;
+│ -        }
+│ -		h1 {
+│ -			padding-left: 40px;
+│ -			margin-bottom: 0;
+│ -			font-weight: bold;
+│ -		}
+│ -		#date {
+│ -			padding-left: 40px;
+│ -			margin-top: 0;
+│ -		}
+│ -		#filler {
+│ -			width: 600px;
+│ -			margin: 0 auto;
+│ -			text-align: left;
+│ -		}
+│ -        .vdesc {
+│ -            margin: 0 auto;
+│ -            text-align: left;
+│ -
+│ -        }
+│ -		a {
+│ -			color: #cdb3ff;
+│ -		}
+│ -		a:visited {
+│ -			color: #551a8b;
+│ -		}
+│ -    </style>
+│ -</head>
+│ -<body>
+│ -
+│ -<img src="banner.png" alt="Twitch Channel Points Autoclicker" align="middle" style="text-align: center"><br><br><br>
+│ -
+│ -<div id="filler">
+│ -    <h1>1.3</h1>
+│ -	<p id="date">1/11/2019</p>
+│ -    <ul class="vdesc">
+│ -        <li>This is an example of the changes.</li>
+│ -        <li>If you are seeing this, javascript was blocked by the browser :(</li>
+│ -    </ul>
+│ -    <br>
+│ -</div>
+│ -
+│ -<script src="updates.js"></script>
+│ -</body>
+│ +<!DOCTYPE html>
+│ +<html>
+│ +<head>
+│ +    <title>Channel Points Autoclicker Updates</title>
+│ +	<link rel="icon" href="icon128.png">
+│ +    <style type="text/css">
+│ +        @font-face { font-family: Whitney; src: url('./fonts/whitney-regular.woff'); }
+│ +        @font-face { font-family: Whitney; font-weight: bold; src: url('./fonts/whitney-bold.woff'); }
+│ +        @font-face { font-family: Whitney; font-weight: 200; src: url('./fonts/whitney-regular.woff'); }
+│ +        body {
+│ +            padding-top: 10px;
+│ +            margin: 10px;
+│ +            align-items: center;
+│ +            text-align: center;
+│ +            white-space: nowrap;
+│ +            font-size: 18px;
+│ +            background-color: #76737b;
+│ +            color: white;
+│ +            font-family: Whitney, Arial, sans-serif;
+│ +        }
+│ +		h1 {
+│ +			padding-left: 40px;
+│ +			margin-bottom: 0;
+│ +			font-weight: bold;
+│ +		}
+│ +		#date {
+│ +			padding-left: 40px;
+│ +			margin-top: 0;
+│ +		}
+│ +		#filler {
+│ +			width: 600px;
+│ +			margin: 0 auto;
+│ +			text-align: left;
+│ +		}
+│ +        .vdesc {
+│ +            margin: 0 auto;
+│ +            text-align: left;
+│ +
+│ +        }
+│ +		a {
+│ +			color: #cdb3ff;
+│ +		}
+│ +		a:visited {
+│ +			color: #551a8b;
+│ +		}
+│ +    </style>
+│ +</head>
+│ +<body>
+│ +
+│ +<img src="banner.png" alt="Twitch Channel Points Autoclicker" align="middle" style="text-align: center"><br><br><br>
+│ +
+│ +<div id="filler">
+│ +    <h1>1.3</h1>
+│ +	<p id="date">1/11/2019</p>
+│ +    <ul class="vdesc">
+│ +        <li>This is an example of the changes.</li>
+│ +        <li>If you are seeing this, javascript was blocked by the browser :(</li>
+│ +    </ul>
+│ +    <br>
+│ +</div>
+│ +
+│ +<script src="updates.js"></script>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/updates.js
+├── +++ /workspace/pipeline_output/twitch-points-autoclicker/src/updates.js
+│ ├── js-beautify {}
+│ │ @@ -1,63 +1,63 @@
+│ │ -var updates = {
+│ │ -    '1.6': [
+│ │ -        '13 January 2021',
+│ │ -        'Changed Accumulated Points to be Number of times clicked, since Twitch hides the total amount of points.',
+│ │ -        'Updated detection for changing the page, so the script doesn\'t break.'
+│ │ -    ],
+│ │ -    '1.5.5': [
+│ │ -        '07 August 2020',
+│ │ -        'Bug Fixed: Updated to accommodate twitch layout changes.'
+│ │ -    ],
+│ │ -    '1.5.3': [
+│ │ -        '05 May 2020',
+│ │ -        'Bug Fixed: Collected points counter is now fixed.'
+│ │ -    ],
+│ │ -    '1.5.2': [
+│ │ -        '14 Apr 2020',
+│ │ -        'Bug Fixed: Extension couldn\'t properly parse accumulated channel points to store, if the "." was used instead of "," separator based on locale.',
+│ │ -        'Tad more code optimization.'
+│ │ -    ],
+│ │ -    '1.5.1': [
+│ │ -        '04 Dec 2019',
+│ │ -        'Bug Fixed: Extension fails to work when switching pages on Twitch website.',
+│ │ -        'More code optimization.'
+│ │ -    ],
+│ │ -    '1.5': [
+│ │ -        '02 Dec 2019',
+│ │ -        'Code optimization.',
+│ │ -        'Bug Fixed: mysterious red chests are now being clicked!',
+│ │ -        'Updated bonus points button detection (in case of future updates).',
+│ │ -        'Added Popup page to the extension.',
+│ │ -        'Added Settings page to the extension.',
+│ │ -        'Added option to track points gained through extension.',
+│ │ -        'Added option to hide bonus chests.',
+│ │ -        'Added notifications for updates (can toggle off in settings page).',
+│ │ -        '2 new permissions: <a href=https://xinitrc.ca/autoclicker-permissions/#storage>Storage</a> and <a href=https://xinitrc.ca/autoclicker-permissions/#displayNotifications>Display Notifications</a>.'
+│ │ -    ],
+│ │ -    '1.4': [
+│ │ -        '26 Oct 2019',
+│ │ -        'No user-facing changes.',
+│ │ -        'Optimized and commented the code.',
+│ │ -        'Extension uploaded publically to <a href=https://github.com/xinitrc-dev/twitch-points-autoclicker>GitHub!</a>'
+│ │ -    ],
+│ │ -    '1.3': [
+│ │ -        '24 Oct 2019',
+│ │ -        'Added precheck when the extension is launched/installed <br>to see if a twitch page is already opened.',
+│ │ -        '1 new permission: <a href=https://xinitrc.ca/autoclicker-permissions/#browsingHistory>Read your browsing history</a>'
+│ │ -    ]
+│ │ -};
+│ │ -
+│ │ -var data = '';
+│ │ -
+│ │ -for (version in updates) {
+│ │ -    data += '<h1>' + version + '</h1>' +
+│ │ -        '<p id="date">' + updates[version][0] + '</p>' +
+│ │ -        '<ul class="vdesc">';
+│ │ -    for (i = 1, len = updates[version].length; i < len; i++) {
+│ │ -        data += '<li>' + updates[version][i] + '</li>';
+│ │ -    }
+│ │ -    data += '</ul><br>';
+│ │ -}
+│ │ -
+│ │ -var filler = document.getElementById('filler');
+│ │ +var updates = {
+│ │ +    '1.6': [
+│ │ +        '13 January 2021',
+│ │ +        'Changed Accumulated Points to be Number of times clicked, since Twitch hides the total amount of points.',
+│ │ +        'Updated detection for changing the page, so the script doesn\'t break.'
+│ │ +    ],
+│ │ +    '1.5.5': [
+│ │ +        '07 August 2020',
+│ │ +        'Bug Fixed: Updated to accommodate twitch layout changes.'
+│ │ +    ],
+│ │ +    '1.5.3': [
+│ │ +        '05 May 2020',
+│ │ +        'Bug Fixed: Collected points counter is now fixed.'
+│ │ +    ],
+│ │ +    '1.5.2': [
+│ │ +        '14 Apr 2020',
+│ │ +        'Bug Fixed: Extension couldn\'t properly parse accumulated channel points to store, if the "." was used instead of "," separator based on locale.',
+│ │ +        'Tad more code optimization.'
+│ │ +    ],
+│ │ +    '1.5.1': [
+│ │ +        '04 Dec 2019',
+│ │ +        'Bug Fixed: Extension fails to work when switching pages on Twitch website.',
+│ │ +        'More code optimization.'
+│ │ +    ],
+│ │ +    '1.5': [
+│ │ +        '02 Dec 2019',
+│ │ +        'Code optimization.',
+│ │ +        'Bug Fixed: mysterious red chests are now being clicked!',
+│ │ +        'Updated bonus points button detection (in case of future updates).',
+│ │ +        'Added Popup page to the extension.',
+│ │ +        'Added Settings page to the extension.',
+│ │ +        'Added option to track points gained through extension.',
+│ │ +        'Added option to hide bonus chests.',
+│ │ +        'Added notifications for updates (can toggle off in settings page).',
+│ │ +        '2 new permissions: <a href=https://xinitrc.ca/autoclicker-permissions/#storage>Storage</a> and <a href=https://xinitrc.ca/autoclicker-permissions/#displayNotifications>Display Notifications</a>.'
+│ │ +    ],
+│ │ +    '1.4': [
+│ │ +        '26 Oct 2019',
+│ │ +        'No user-facing changes.',
+│ │ +        'Optimized and commented the code.',
+│ │ +        'Extension uploaded publically to <a href=https://github.com/xinitrc-dev/twitch-points-autoclicker>GitHub!</a>'
+│ │ +    ],
+│ │ +    '1.3': [
+│ │ +        '24 Oct 2019',
+│ │ +        'Added precheck when the extension is launched/installed <br>to see if a twitch page is already opened.',
+│ │ +        '1 new permission: <a href=https://xinitrc.ca/autoclicker-permissions/#browsingHistory>Read your browsing history</a>'
+│ │ +    ]
+│ │ +};
+│ │ +
+│ │ +var data = '';
+│ │ +
+│ │ +for (version in updates) {
+│ │ +    data += '<h1>' + version + '</h1>' +
+│ │ +        '<p id="date">' + updates[version][0] + '</p>' +
+│ │ +        '<ul class="vdesc">';
+│ │ +    for (i = 1, len = updates[version].length; i < len; i++) {
+│ │ +        data += '<li>' + updates[version][i] + '</li>';
+│ │ +    }
+│ │ +    data += '</ul><br>';
+│ │ +}
+│ │ +
+│ │ +var filler = document.getElementById('filler');
+│ │  filler.innerHTML = data;

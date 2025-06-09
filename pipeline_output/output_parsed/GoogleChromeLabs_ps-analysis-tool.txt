@@ -1,0 +1,7 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ps-analysis-tool/packages/extension/src
+  - files: _locales, _metadata, assets, content-script.js, content-script.js.LICENSE.txt, data, devtools, icons, popup, service-worker.js, service-worker.js.LICENSE.txt
+  + files: @types, constants.ts, contentScript, serviceWorker, store, utils, view, worker
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/ps-analysis-tool/packages/extension/src/manifest.json; File type: json
+  - Original: 46–46 -> Update URL
+

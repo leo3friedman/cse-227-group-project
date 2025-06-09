@@ -1,0 +1,23 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/json-viewer/chrome
+├── file list
+│ @@ -1,5 +1,2 @@
+│ -LICENSE
+│ -_metadata
+│ -dist
+│  icon.png
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/json-viewer/chrome/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -17,10 +17,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "JSON Viewer",
+│ │      "offline_enabled": true,
+│ │      "permissions": [
+│ │          "storage"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.2.0"
+│ │  }

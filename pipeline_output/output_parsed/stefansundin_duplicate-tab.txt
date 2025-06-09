@@ -1,0 +1,11 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/duplicate-tab/chrome
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/duplicate-tab/chrome/manifest.json; File type: json
+  - Original: 47–47 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/sw.js <-> +++/workspace/pipeline_output/duplicate-tab/chrome/sw.js; File type: js
+  - Original: 166–169
+  + Modified: 166–166
+

@@ -1,0 +1,25 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/carrot/carrot
+  - files: _metadata, polyfill, src
+  + files: src, tests
+
+---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/carrot/carrot/icons
+  - files: icon128.png, icon16.png, icon32.png, icon48.png
+  + files: icon.svg
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/carrot/carrot/manifest.json; File type: json
+  - Original: 3–3
+  - Original: 8–8
+  - Original: 17–17
+  - Original: 30–33
+  - Original: 44–44 -> Update URL
+  + Modified: 3–38
+
+---/workspace/pipeline_output/chromex_data/src/background/background.js <-> +++/workspace/pipeline_output/carrot/carrot/src/background/background.js; File type: js
+  - Original: 23–908
+
+---/workspace/pipeline_output/chromex_data/src/options/options.html <-> +++/workspace/pipeline_output/carrot/carrot/src/options/options.html; File type: html
+  - Original: 37–37
+
+---/workspace/pipeline_output/chromex_data/src/popup/popup.html <-> +++/workspace/pipeline_output/carrot/carrot/src/popup/popup.html; File type: html
+  - Original: 34–34
+

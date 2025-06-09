@@ -1,0 +1,100 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ieview-we
+├── file list
+│ @@ -1,9 +1,20 @@
+│ +.git
+│ +.gitignore
+│ +.gitmodules
+│ +LICENSE
+│ +Makefile
+│ +README.md
+│  _locales
+│ -_metadata
+│  background.js
+│  common
+│  extlib
+│ +host
+│ +managed-storage
+│  managed_schema.json
+│  manifest.json
+│  misc
+│ -options
+│ +node_modules
+│ +options
+│ +package-lock.json
+│ +package.json
+│ +submodules
+│   --- /workspace/pipeline_output/chromex_data/extlib
+├── +++ /workspace/pipeline_output/ieview-we/extlib
+│ ├── file list
+│ │ @@ -1,4 +1 @@
+│ │ +.gitkeep
+│ │ -Configs.js
+│ │ -Options.js
+│ │ -browser-polyfill.min.js
+│ │ -l10n.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ieview-we/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,11 +1,16 @@
+│ │  {
+│ │ +    "applications": {
+│ │ +        "gecko": {
+│ │ +            "id": "ieview-we@clear-code.com",
+│ │ +            "strict_min_version": "52.0"
+│ │ +        }
+│ │ +    },
+│ │      "background": {
+│ │          "scripts": [
+│ │ -            "extlib/browser-polyfill.min.js",
+│ │              "extlib/Configs.js",
+│ │              "common/common.js",
+│ │              "background.js"
+│ │          ]
+│ │      },
+│ │      "default_locale": "en",
+│ │      "description": "__MSG_extensionDescription__",
+│ │ @@ -24,13 +29,9 @@
+│ │          "storage",
+│ │          "alarms",
+│ │          "tabs",
+│ │          "webRequest",
+│ │          "webRequestBlocking",
+│ │          "<all_urls>"
+│ │      ],
+│ │ -    "storage": {
+│ │ -        "managed_schema": "managed_schema.json"
+│ │ -    },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.6.6"
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/misc
+├── +++ /workspace/pipeline_output/ieview-we/misc
+│ ├── file list
+│ │ @@ -1 +1,3 @@
+│ │ +128x128.png
+│ │ +440x280.png
+│ │ +screenshot.png
+│ │ -128x128.png
+│   --- /workspace/pipeline_output/chromex_data/options
+├── +++ /workspace/pipeline_output/ieview-we/options
+│ │   --- /workspace/pipeline_output/chromex_data/options/options.html
+│ ├── +++ /workspace/pipeline_output/ieview-we/options/options.html
+│ │┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ │ @@ -1,15 +1,15 @@
+│ │  <!DOCTYPE html>
+│ │  <!-- This Source Code Form is subject to the terms of the Mozilla Public
+│ │     - License, v. 2.0. If a copy of the MPL was not distributed with this
+│ │     - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+│ │  <html>
+│ │    <head>
+│ │      <meta charset="UTF-8">
+│ │ +    <!--script type="application/javascript" src="/extlib/browser-polyfill.min.js"></script-->
+│ │ -    <script type="application/javascript" src="/extlib/browser-polyfill.min.js"></script>
+│ │      <script type="application/javascript" src="/extlib/Configs.js"></script>
+│ │      <script type="application/javascript" src="/common/common.js"></script>
+│ │      <script type="application/javascript" src="/extlib/Options.js"></script>
+│ │      <script type="application/javascript" src="/extlib/l10n.js"></script>
+│ │      <script type="application/javascript" src="/options/init.js"></script>
+│ │    </head>
+│ │    <style>

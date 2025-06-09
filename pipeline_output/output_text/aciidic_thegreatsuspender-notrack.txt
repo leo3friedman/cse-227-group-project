@@ -1,0 +1,54 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/thegreatsuspender-notrack/src
+├── file list
+│ @@ -1,9 +1,8 @@
+│  _locales
+│ -_metadata
+│  about.html
+│  broken.html
+│  css
+│  debug.html
+│  font
+│  history.html
+│  img
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/thegreatsuspender-notrack/src/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/thegreatsuspender-notrack/src/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/thegreatsuspender-notrack/src/_locales/en/messages.json
+│ │ │ ├── Pretty-printed
+│ │ │ │ @@ -32,15 +32,15 @@
+│ │ │ │      "ext_default_title": {
+│ │ │ │          "message": "The Great Suspender"
+│ │ │ │      },
+│ │ │ │      "ext_extension_description": {
+│ │ │ │          "message": "Make your computer run smoothly by suspending the tabs you aren't using"
+│ │ │ │      },
+│ │ │ │      "ext_extension_name": {
+│ │ │ │ -        "message": "The Great Suspender (notrack)"
+│ │ │ │ +        "message": "The Great Suspender"
+│ │ │ │      },
+│ │ │ │      "html_about_browserstack": {
+│ │ │ │          "message": "browserstack"
+│ │ │ │      },
+│ │ │ │      "html_about_browserstack_prefix": {
+│ │ │ │          "message": "Thank you also to"
+│ │ │ │      },
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/thegreatsuspender-notrack/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -99,13 +99,12 @@
+│ │          "chrome://favicon/*",
+│ │          "contextMenus",
+│ │          "cookies"
+│ │      ],
+│ │      "storage": {
+│ │          "managed_schema": "managed-storage-schema.json"
+│ │      },
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "7.1.12",
+│ │      "web_accessible_resources": [
+│ │          "suspended.html"
+│ │      ]
+│ │  }

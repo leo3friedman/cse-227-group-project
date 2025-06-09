@@ -1,0 +1,22 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/spotify-web-ads-remover
+  - files: _metadata
+  + files: .git, .gitignore, README.md, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/injected/ads_removal.js <-> +++/workspace/pipeline_output/spotify-web-ads-remover/injected/ads_removal.js; File type: js
+  - Original: 393–393
+
+---/workspace/pipeline_output/chromex_data/injected/ws_hook.js <-> +++/workspace/pipeline_output/spotify-web-ads-remover/injected/ws_hook.js; File type: js
+  - Original: 1–91
+  + Modified: 1–91
+
+---/workspace/pipeline_output/chromex_data/lib/moduleraid.js <-> +++/workspace/pipeline_output/spotify-web-ads-remover/lib/moduleraid.js; File type: js
+  - Original: 1–67
+  + Modified: 1–67
+
+---/workspace/pipeline_output/chromex_data/lib/sweetalert.min.js <-> +++/workspace/pipeline_output/spotify-web-ads-remover/lib/sweetalert.min.js; File type: js
+  - Original: 1–1449
+  + Modified: 1–1449
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/spotify-web-ads-remover/manifest.json; File type: json
+  - Original: 44–44 -> Update URL
+

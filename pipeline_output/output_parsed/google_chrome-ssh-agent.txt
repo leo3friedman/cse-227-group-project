@@ -1,0 +1,27 @@
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-ssh-agent
+  - files: _metadata, manifest.json
+  + files: .bazelignore, .bazelrc, .bazelversion, .devcontainer, .git, .github, .gitignore, .vscode, BUILD.bazel, MODULE.bazel, build_defs, go.mod, go.sum, manifest-beta.json, manifest.json, node_modules, nogo, nogo-config.json, package-lock.json, package.json, pnpm-lock.yaml, release, test
+
+---/workspace/pipeline_output/chromex_data/go <-> +++/workspace/pipeline_output/chrome-ssh-agent/go
+  - files: options
+  + files: agentport, app, dom, jsutil, keys, lock, message, options, optionsui, storage, testing, testutil
+
+---/workspace/pipeline_output/chromex_data/go/background <-> +++/workspace/pipeline_output/chrome-ssh-agent/go/background
+  - files: background.wasm
+  + files: BUILD.bazel, main.go
+
+---/workspace/pipeline_output/chromex_data/go/options <-> +++/workspace/pipeline_output/chrome-ssh-agent/go/options
+  - files: options.wasm
+  + files: BUILD.bazel, main.go
+
+---/workspace/pipeline_output/chromex_data/html <-> +++/workspace/pipeline_output/chrome-ssh-agent/html
+  - files: background-bundle.js, background-bundle.js.map, options-bundle.js, options-bundle.js.map, style.css
+  + files: BUILD.bazel, app.ts, background.ts, options.ts, style.css, tsconfig.json, wasm_exec.d.ts
+
+---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/chrome-ssh-agent/img
+  - files: 
+  + files: BUILD.bazel, README.md, icon128.xcf
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/chrome-ssh-agent/manifest.json; File type: json
+  - Original: 38–38 -> Update URL
+

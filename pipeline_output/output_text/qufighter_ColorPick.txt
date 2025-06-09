@@ -1,0 +1,2624 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/ColorPick/src
+├── file list
+│ @@ -1,11 +1,12 @@
+│  Cr.js
+│  _locales
+│ -_metadata
+│  background.js
+│ +build.awk
+│ +build.sh
+│  calibrate.js
+│  chrome_buy.js
+│  color-input.user.js
+│  colorgame.user.js
+│  colorgame_sponsors_hidpi.json
+│  colorgame_sponsors_lodpi.json
+│  colorpick.user.js
+│   --- /workspace/pipeline_output/chromex_data/Cr.js
+├── +++ /workspace/pipeline_output/ColorPick/src/Cr.js
+│ ├── js-beautify {}
+│ │ @@ -1,202 +1,202 @@
+│ │ -// Cr.elm [create element] by Sam Larison -- Sam @ Vidsbee.com -- Cr.js
+│ │ -// https://github.com/qufighter/Cr
+│ │ -var Cr = {
+│ │ -    /*******************************************************************************
+│ │ -     Usage A:
+│ │ -             Cr.elm('div',{'id':'hello','event':['click',function(){alert('hi');}]},[
+│ │ -               Cr.txt('text inside block element'),
+│ │ -               Cr.elm('hr',{'style':'clear:both;'})
+│ │ -             ],document.body);
+│ │ -
+│ │ -     Usage B:
+│ │ -             var myelm = Cr.elm('div',{'id':'hello','event':['click',function(){alert('hi');}]},[
+│ │ -               Cr.txt('text inside block element'),
+│ │ -               Cr.elm('hr',{'style':'clear:both;'})
+│ │ -             ]);
+│ │ -
+│ │ -             document.body.appendChild(myelm);
+│ │ -                O R
+│ │ -             Cr.insertNode(myelm, document.body);
+│ │ -
+│ │ -     Creates:
+│ │ -             <div id="hello">
+│ │ -               text inside block element
+│ │ -               <hr style="clear:both;">
+│ │ -             </div>
+│ │ -
+│ │ -             Where clicking the text or hr displays 'hi'
+│ │ -
+│ │ -     Pattern:
+│ │ -             Cr.elm('div',{'attribute':'one'},[Cr.txt('children')],document.body);
+│ │ -
+│ │ -             <body><div attribute="one">children</div></body>
+│ │ -
+│ │ -       Conclusions: you may nest Cr.elm calls in exactly the same way
+│ │ -                    as you would nest HTML elements.
+│ │ -     Parameters:
+│ │ -       (nodeType,
+│ │ -              node type such as 'img' 'div' or 'a'
+│ │ -       attributes, an object {} that contains attributes.  Special Attributes:
+│ │ -              'childNodes' may be used instead of the following parameter, addchilds
+│ │ -                  {'href':'#','childNodes':[Cr.txt('click me')]}
+│ │ -              'events' may be used to specify events as follows:
+│ │ -                  {'href':'#','events':[['mouseover',callfn,false],['mouseout',callfn2]]}
+│ │ -                  the format for each event is [eventType,callback,useCapture], you may also
+│ │ -                  specify a single event.
+│ │ -
+│ │ -                  to make this more readable, helper functions return these arrays
+│ │ -                  {'event': Cr.event('mouseover',callfn)}
+│ │ -                  {'events': Cr.events(
+│ │ -                    Cr.event('mouseover',callfn, true),
+│ │ -                    Cr.evt(['mouseout',callfn2])
+│ │ -                  )}
+│ │ -
+│ │ -                  or specify as an object
+│ │ -                  {events:{'click':doSomething,'mouseout':callfn2}}
+│ │ -
+│ │ -       addchilds, an array [] containing nodes to be appended as children, could be
+│ │ -              an array of calls to Cr.elm which create this array of nodes.
+│ │ -       appnedTo); Append To should ONLY be specified on the last element that needs to be created
+│ │ -              which means the TOP level element (the final parameter on the first
+│ │ -              and outter most call to Cr.elm).
+│ │ -     Empty Patteren:
+│ │ -              Cr.elm('div',{},[],document.body);
+│ │ -    *******************************************************************************/
+│ │ -    doc: typeof document != 'undefined' ? document : null,
+│ │ -    elm: function(nodeType, attributes, addchilds, appnedTo) {
+│ │ -        var ne = this.doc.createElement(nodeType),
+│ │ -            i, l, lev, a;
+│ │ -        if (attributes) {
+│ │ -            if (lev = (attributes.event || attributes.events)) {
+│ │ -                if (typeof(lev[0]) == 'string')
+│ │ -                    ne.addEventListener(lev[0], lev[1], lev[2]);
+│ │ -                else if (lev.length)
+│ │ -                    for (i = 0, l = lev.length; i < l; i++)
+│ │ -                        ne.addEventListener(lev[i][0], lev[i][1], lev[i][2]);
+│ │ -                else if (Object.keys(lev).length)
+│ │ -                    for (i in lev) ne.addEventListener(i, lev[i]);
+│ │ -            }
+│ │ -            if (attributes.childNodes) {
+│ │ -                if (appnedTo || (addchilds && addchilds.length)) {
+│ │ -                    console.warn("Cr Exception: if providing attributes.childNodes; 3 args max, addchilds argument becomes final argument appnedTo");
+│ │ -                    if (addchilds.length) {
+│ │ -                        attributes.childNodes = attributes.childNodes.concat(addchilds);
+│ │ -                        addchilds = appnedTo;
+│ │ -                    }
+│ │ -                }
+│ │ -                appnedTo = addchilds;
+│ │ -                addchilds = attributes.childNodes;
+│ │ -            }
+│ │ -            for (i in attributes) {
+│ │ -                a = attributes[i];
+│ │ -                if (i.substring(0, 5) == 'event' || i == 'childNodes') {
+│ │ -                    //handled earlier
+│ │ -                } else if (i == 'checked' || i == 'selected') {
+│ │ -                    if (a) ne.setAttribute(i, i);
+│ │ -                } else if (a || a == false) ne.setAttribute(i, '' + a); // omit undefined or null value attributes, preserve false,0 value
+│ │ -            }
+│ │ -        }
+│ │ -        if (addchilds) {
+│ │ -            if (addchilds.length) {
+│ │ -                for (i = 0, l = addchilds.length; i < l; i++) {
+│ │ -                    if (addchilds[i]) ne.appendChild(addchilds[i]); //you probably forgot a comma when calling the function
+│ │ -                }
+│ │ -            } else if (addchilds.length !== 0)
+│ │ -                console.warn('Cr Exception: child nodes must be an array: [...]');
+│ │ -        }
+│ │ -        if (appnedTo) {
+│ │ -            this.insertNode(ne, appnedTo);
+│ │ -        }
+│ │ -        return ne; //identifier unexpected error pointing here means you're missing a comma on the row before inside an array of nodes addchilds
+│ │ -    },
+│ │ -    /*Cr.txt creates text nodes, does not support HTML entiteis */
+│ │ -    txt: function(textContent) {
+│ │ -        return this.doc.createTextNode(textContent);
+│ │ -    },
+│ │ -    /*Cr.ent creates text nodes that may or may not contain HTML entities.  From a
+│ │ -    single entity to many entities interspersed with text are all supported by this */
+│ │ -    ent: function(textContent) {
+│ │ -        return this.doc.createTextNode(this.unescapeHtml(textContent));
+│ │ -    },
+│ │ -    /*Cr.frag creates a document fragment */
+│ │ -    frag: function(nodes) {
+│ │ -        var f = this.doc.createDocumentFragment();
+│ │ -        if (nodes) this.insertNodes(nodes, f);
+│ │ -        return f;
+│ │ -    },
+│ │ -    /*Cr.css creates style attribute from map */
+│ │ -    css: function(map) {
+│ │ -        var o = "",
+│ │ -            k;
+│ │ -        for (k in map)
+│ │ -            o += k + ':' + map[k] + ';';
+│ │ -        return o;
+│ │ -    },
+│ │ -    /*Cr.classList creates list from array */
+│ │ -    classList: function(arr, seperator) {
+│ │ -        seperator = seperator || ' '; // default class list
+│ │ -        return arr.join(seperator);
+│ │ -    },
+│ │ -    /*Cr.keys returns an array containing the keys with truthy values */
+│ │ -    keys: function(map, allKeys) {
+│ │ -        var keys = Object.keys(map);
+│ │ -        if (allKeys) return keys;
+│ │ -        for (var k = 0, l = keys.length, ret = []; k < l; k++) {
+│ │ -            if (map[keys[k]]) ret.push(keys[k]);
+│ │ -        }
+│ │ -        return ret;
+│ │ -    },
+│ │ -    /*Cr.listKeys creates list from truthy keys */
+│ │ -    listKeys: function(map, seperator) {
+│ │ -        return this.classList(this.keys(map), seperator);
+│ │ -    },
+│ │ -    /*Cr.events creates event arrays, or just use array literals */
+│ │ -    evt: function(eventType, callback, useCapture) {
+│ │ -        return Array.prototype.slice.call(arguments);
+│ │ -    },
+│ │ -    evts: null, // (evt0, evt1, evtN...)
+│ │ -    event: null,
+│ │ -    events: null,
+│ │ -    /*Cr.paragraphs creates an array of nodes that may or may not contain HTML entities.*/
+│ │ -    paragraphs: function(textContent) {
+│ │ -        var textPieces = textContent.split("\n");
+│ │ -        var elmArray = [];
+│ │ -        for (var i = 0, l = textPieces.length; i < l; i++) {
+│ │ -            elmArray.push(Cr.elm('p', {}, [Cr.ent(textPieces[i])]));
+│ │ -        }
+│ │ -        return elmArray;
+│ │ -    },
+│ │ -    insertNode: function(newNode, parentElem, optionalInsertBefore) {
+│ │ -        if (!parentElem) parentElem = this.doc.body;
+│ │ -        if (optionalInsertBefore && optionalInsertBefore.parentNode == parentElem) {
+│ │ -            parentElem.insertBefore(newNode, optionalInsertBefore);
+│ │ -        } else {
+│ │ -            parentElem.appendChild(newNode);
+│ │ -        }
+│ │ -    },
+│ │ -    insertNodes: function(newNodes, parentElem, optionalInsertBefore) {
+│ │ -        if (newNodes.nodeType)
+│ │ -            this.insertNode(newNodes, parentElem, optionalInsertBefore);
+│ │ -        else {
+│ │ -            for (var i = 0, l = newNodes.length; i < l; i++) {
+│ │ -                this.insertNode(newNodes[i], parentElem, optionalInsertBefore);
+│ │ -            }
+│ │ -        }
+│ │ -    },
+│ │ -    empty: function(node) {
+│ │ -        while (node.lastChild) node.removeChild(node.lastChild);
+│ │ -        return node;
+│ │ -    },
+│ │ -    unescapeHtml: function(str) { //trick used to make HTMLentiites work inside textNodes
+│ │ -        // https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it
+│ │ -        var txt = this.doc.createElement("textarea");
+│ │ -        txt.innerHTML = str; // arguable you should still sanitize this string, most if not all browsers will not evaluate script in this context though
+│ │ -        // only the text is returned, the txt area node is discarded and never added to the DOM
+│ │ -        // other than Cr.ent this function is never used.
+│ │ -        return txt.value;
+│ │ -    }
+│ │ -};
+│ │ -
+│ │ -Cr.evts = Cr.evt,
+│ │ -    Cr.event = Cr.evt,
+│ │ +// Cr.elm [create element] by Sam Larison -- Sam @ Vidsbee.com -- Cr.js
+│ │ +// https://github.com/qufighter/Cr
+│ │ +var Cr = {
+│ │ +    /*******************************************************************************
+│ │ +     Usage A:
+│ │ +             Cr.elm('div',{'id':'hello','event':['click',function(){alert('hi');}]},[
+│ │ +               Cr.txt('text inside block element'),
+│ │ +               Cr.elm('hr',{'style':'clear:both;'})
+│ │ +             ],document.body);
+│ │ +
+│ │ +     Usage B:
+│ │ +             var myelm = Cr.elm('div',{'id':'hello','event':['click',function(){alert('hi');}]},[
+│ │ +               Cr.txt('text inside block element'),
+│ │ +               Cr.elm('hr',{'style':'clear:both;'})
+│ │ +             ]);
+│ │ +
+│ │ +             document.body.appendChild(myelm);
+│ │ +                O R
+│ │ +             Cr.insertNode(myelm, document.body);
+│ │ +
+│ │ +     Creates:
+│ │ +             <div id="hello">
+│ │ +               text inside block element
+│ │ +               <hr style="clear:both;">
+│ │ +             </div>
+│ │ +
+│ │ +             Where clicking the text or hr displays 'hi'
+│ │ +
+│ │ +     Pattern:
+│ │ +             Cr.elm('div',{'attribute':'one'},[Cr.txt('children')],document.body);
+│ │ +
+│ │ +             <body><div attribute="one">children</div></body>
+│ │ +
+│ │ +       Conclusions: you may nest Cr.elm calls in exactly the same way
+│ │ +                    as you would nest HTML elements.
+│ │ +     Parameters:
+│ │ +       (nodeType,
+│ │ +              node type such as 'img' 'div' or 'a'
+│ │ +       attributes, an object {} that contains attributes.  Special Attributes:
+│ │ +              'childNodes' may be used instead of the following parameter, addchilds
+│ │ +                  {'href':'#','childNodes':[Cr.txt('click me')]}
+│ │ +              'events' may be used to specify events as follows:
+│ │ +                  {'href':'#','events':[['mouseover',callfn,false],['mouseout',callfn2]]}
+│ │ +                  the format for each event is [eventType,callback,useCapture], you may also
+│ │ +                  specify a single event.
+│ │ +
+│ │ +                  to make this more readable, helper functions return these arrays
+│ │ +                  {'event': Cr.event('mouseover',callfn)}
+│ │ +                  {'events': Cr.events(
+│ │ +                    Cr.event('mouseover',callfn, true),
+│ │ +                    Cr.evt(['mouseout',callfn2])
+│ │ +                  )}
+│ │ +
+│ │ +                  or specify as an object
+│ │ +                  {events:{'click':doSomething,'mouseout':callfn2}}
+│ │ +
+│ │ +       addchilds, an array [] containing nodes to be appended as children, could be
+│ │ +              an array of calls to Cr.elm which create this array of nodes.
+│ │ +       appnedTo); Append To should ONLY be specified on the last element that needs to be created
+│ │ +              which means the TOP level element (the final parameter on the first
+│ │ +              and outter most call to Cr.elm).
+│ │ +     Empty Patteren:
+│ │ +              Cr.elm('div',{},[],document.body);
+│ │ +    *******************************************************************************/
+│ │ +    doc: typeof document != 'undefined' ? document : null,
+│ │ +    elm: function(nodeType, attributes, addchilds, appnedTo) {
+│ │ +        var ne = this.doc.createElement(nodeType),
+│ │ +            i, l, lev, a;
+│ │ +        if (attributes) {
+│ │ +            if (lev = (attributes.event || attributes.events)) {
+│ │ +                if (typeof(lev[0]) == 'string')
+│ │ +                    ne.addEventListener(lev[0], lev[1], lev[2]);
+│ │ +                else if (lev.length)
+│ │ +                    for (i = 0, l = lev.length; i < l; i++)
+│ │ +                        ne.addEventListener(lev[i][0], lev[i][1], lev[i][2]);
+│ │ +                else if (Object.keys(lev).length)
+│ │ +                    for (i in lev) ne.addEventListener(i, lev[i]);
+│ │ +            }
+│ │ +            if (attributes.childNodes) {
+│ │ +                if (appnedTo || (addchilds && addchilds.length)) {
+│ │ +                    console.warn("Cr Exception: if providing attributes.childNodes; 3 args max, addchilds argument becomes final argument appnedTo");
+│ │ +                    if (addchilds.length) {
+│ │ +                        attributes.childNodes = attributes.childNodes.concat(addchilds);
+│ │ +                        addchilds = appnedTo;
+│ │ +                    }
+│ │ +                }
+│ │ +                appnedTo = addchilds;
+│ │ +                addchilds = attributes.childNodes;
+│ │ +            }
+│ │ +            for (i in attributes) {
+│ │ +                a = attributes[i];
+│ │ +                if (i.substring(0, 5) == 'event' || i == 'childNodes') {
+│ │ +                    //handled earlier
+│ │ +                } else if (i == 'checked' || i == 'selected') {
+│ │ +                    if (a) ne.setAttribute(i, i);
+│ │ +                } else if (a || a == false) ne.setAttribute(i, '' + a); // omit undefined or null value attributes, preserve false,0 value
+│ │ +            }
+│ │ +        }
+│ │ +        if (addchilds) {
+│ │ +            if (addchilds.length) {
+│ │ +                for (i = 0, l = addchilds.length; i < l; i++) {
+│ │ +                    if (addchilds[i]) ne.appendChild(addchilds[i]); //you probably forgot a comma when calling the function
+│ │ +                }
+│ │ +            } else if (addchilds.length !== 0)
+│ │ +                console.warn('Cr Exception: child nodes must be an array: [...]');
+│ │ +        }
+│ │ +        if (appnedTo) {
+│ │ +            this.insertNode(ne, appnedTo);
+│ │ +        }
+│ │ +        return ne; //identifier unexpected error pointing here means you're missing a comma on the row before inside an array of nodes addchilds
+│ │ +    },
+│ │ +    /*Cr.txt creates text nodes, does not support HTML entiteis */
+│ │ +    txt: function(textContent) {
+│ │ +        return this.doc.createTextNode(textContent);
+│ │ +    },
+│ │ +    /*Cr.ent creates text nodes that may or may not contain HTML entities.  From a
+│ │ +    single entity to many entities interspersed with text are all supported by this */
+│ │ +    ent: function(textContent) {
+│ │ +        return this.doc.createTextNode(this.unescapeHtml(textContent));
+│ │ +    },
+│ │ +    /*Cr.frag creates a document fragment */
+│ │ +    frag: function(nodes) {
+│ │ +        var f = this.doc.createDocumentFragment();
+│ │ +        if (nodes) this.insertNodes(nodes, f);
+│ │ +        return f;
+│ │ +    },
+│ │ +    /*Cr.css creates style attribute from map */
+│ │ +    css: function(map) {
+│ │ +        var o = "",
+│ │ +            k;
+│ │ +        for (k in map)
+│ │ +            o += k + ':' + map[k] + ';';
+│ │ +        return o;
+│ │ +    },
+│ │ +    /*Cr.classList creates list from array */
+│ │ +    classList: function(arr, seperator) {
+│ │ +        seperator = seperator || ' '; // default class list
+│ │ +        return arr.join(seperator);
+│ │ +    },
+│ │ +    /*Cr.keys returns an array containing the keys with truthy values */
+│ │ +    keys: function(map, allKeys) {
+│ │ +        var keys = Object.keys(map);
+│ │ +        if (allKeys) return keys;
+│ │ +        for (var k = 0, l = keys.length, ret = []; k < l; k++) {
+│ │ +            if (map[keys[k]]) ret.push(keys[k]);
+│ │ +        }
+│ │ +        return ret;
+│ │ +    },
+│ │ +    /*Cr.listKeys creates list from truthy keys */
+│ │ +    listKeys: function(map, seperator) {
+│ │ +        return this.classList(this.keys(map), seperator);
+│ │ +    },
+│ │ +    /*Cr.events creates event arrays, or just use array literals */
+│ │ +    evt: function(eventType, callback, useCapture) {
+│ │ +        return Array.prototype.slice.call(arguments);
+│ │ +    },
+│ │ +    evts: null, // (evt0, evt1, evtN...)
+│ │ +    event: null,
+│ │ +    events: null,
+│ │ +    /*Cr.paragraphs creates an array of nodes that may or may not contain HTML entities.*/
+│ │ +    paragraphs: function(textContent) {
+│ │ +        var textPieces = textContent.split("\n");
+│ │ +        var elmArray = [];
+│ │ +        for (var i = 0, l = textPieces.length; i < l; i++) {
+│ │ +            elmArray.push(Cr.elm('p', {}, [Cr.ent(textPieces[i])]));
+│ │ +        }
+│ │ +        return elmArray;
+│ │ +    },
+│ │ +    insertNode: function(newNode, parentElem, optionalInsertBefore) {
+│ │ +        if (!parentElem) parentElem = this.doc.body;
+│ │ +        if (optionalInsertBefore && optionalInsertBefore.parentNode == parentElem) {
+│ │ +            parentElem.insertBefore(newNode, optionalInsertBefore);
+│ │ +        } else {
+│ │ +            parentElem.appendChild(newNode);
+│ │ +        }
+│ │ +    },
+│ │ +    insertNodes: function(newNodes, parentElem, optionalInsertBefore) {
+│ │ +        if (newNodes.nodeType)
+│ │ +            this.insertNode(newNodes, parentElem, optionalInsertBefore);
+│ │ +        else {
+│ │ +            for (var i = 0, l = newNodes.length; i < l; i++) {
+│ │ +                this.insertNode(newNodes[i], parentElem, optionalInsertBefore);
+│ │ +            }
+│ │ +        }
+│ │ +    },
+│ │ +    empty: function(node) {
+│ │ +        while (node.lastChild) node.removeChild(node.lastChild);
+│ │ +        return node;
+│ │ +    },
+│ │ +    unescapeHtml: function(str) { //trick used to make HTMLentiites work inside textNodes
+│ │ +        // https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it
+│ │ +        var txt = this.doc.createElement("textarea");
+│ │ +        txt.innerHTML = str; // arguable you should still sanitize this string, most if not all browsers will not evaluate script in this context though
+│ │ +        // only the text is returned, the txt area node is discarded and never added to the DOM
+│ │ +        // other than Cr.ent this function is never used.
+│ │ +        return txt.value;
+│ │ +    }
+│ │ +};
+│ │ +
+│ │ +Cr.evts = Cr.evt,
+│ │ +    Cr.event = Cr.evt,
+│ │      Cr.events = Cr.evt;
+│   --- /workspace/pipeline_output/chromex_data/_locales
+├── +++ /workspace/pipeline_output/ColorPick/src/_locales
+│ │   --- /workspace/pipeline_output/chromex_data/_locales/en
+│ ├── +++ /workspace/pipeline_output/ColorPick/src/_locales/en
+│ │ │   --- /workspace/pipeline_output/chromex_data/_locales/en/messages.json
+│ │ ├── +++ /workspace/pipeline_output/ColorPick/src/_locales/en/messages.json
+│ │ │ ├── Pretty-printed
+│ │ │ │ @@ -155,14 +155,17 @@
+│ │ │ │      },
+│ │ │ │      "full": {
+│ │ │ │          "message": "Full"
+│ │ │ │      },
+│ │ │ │      "generate": {
+│ │ │ │          "message": "Generate"
+│ │ │ │      },
+│ │ │ │ +    "generate_gradient": {
+│ │ │ │ +        "message": "Generate Gradient"
+│ │ │ │ +    },
+│ │ │ │      "generate_palette": {
+│ │ │ │          "message": "Generate Palette"
+│ │ │ │      },
+│ │ │ │      "getStandaloneApp": {
+│ │ │ │          "description": "'ColorPick' refers to the extName key, see that description for details, if that key is not translated leave this part of the string untranslated",
+│ │ │ │          "message": "ColorPick Standalone Application"
+│ │ │ │      },
+│ │ │ │ @@ -210,14 +213,17 @@
+│ │ │ │      },
+│ │ │ │      "licenseComFirewall": {
+│ │ │ │          "message": "Make sure your firewall is open on port 80 or contact your system administrator."
+│ │ │ │      },
+│ │ │ │      "licenseExceeded": {
+│ │ │ │          "message": "License may be in use on the maximum number of hosts.  License upgrade may resolve the issue... Launch upgrade webpage?"
+│ │ │ │      },
+│ │ │ │ +    "linear": {
+│ │ │ │ +        "message": "Linear"
+│ │ │ │ +    },
+│ │ │ │      "loadsyncOptions": {
+│ │ │ │          "message": "Sync Storage options have been loaded and saved."
+│ │ │ │      },
+│ │ │ │      "maxZoom": {
+│ │ │ │          "message": "Max Zoomed"
+│ │ │ │      },
+│ │ │ │      "maximum": {
+│ │ │ │ @@ -360,14 +366,17 @@
+│ │ │ │      "printSave": {
+│ │ │ │          "message": "print / save..."
+│ │ │ │      },
+│ │ │ │      "quarter": {
+│ │ │ │          "description": "As in 'one quarter' and to be concatenated with a color related word like tone, saturation or brightness",
+│ │ │ │          "message": "Quarter"
+│ │ │ │      },
+│ │ │ │ +    "radial": {
+│ │ │ │ +        "message": "Radial"
+│ │ │ │ +    },
+│ │ │ │      "reLoad": {
+│ │ │ │          "message": "Reload"
+│ │ │ │      },
+│ │ │ │      "reSnapPage": {
+│ │ │ │          "description": "Take a new snapshot for colors, the [r] keyboard key does this too.",
+│ │ │ │          "message": "Refresh Picture of Page [r]"
+│ │ │ │      },
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/ColorPick/src/background.js
+│ ├── js-beautify {}
+│ │ @@ -49,16 +49,16 @@
+│ │  
+│ │  function defaultIcon(force) {
+│ │      if (iconIsBitmap || appleIcon || force) {
+│ │          var iconPath = 'img/icons/no-shadow/';
+│ │          if (appleIcon) iconPath += 'apple/';
+│ │          if (resetIcon) chrome.browserAction.setIcon({
+│ │              path: {
+│ │ -                19: chrome.extension.getURL(iconPath + 'icon19.png'),
+│ │ -                38: chrome.extension.getURL(iconPath + 'icon38.png')
+│ │ +                19: chrome.runtime.getURL(iconPath + 'icon19.png'),
+│ │ +                38: chrome.runtime.getURL(iconPath + 'icon38.png')
+│ │              }
+│ │          });
+│ │          return true;
+│ │      }
+│ │      return false;
+│ │  }
+│   --- /workspace/pipeline_output/chromex_data/calibrate.js
+├── +++ /workspace/pipeline_output/ColorPick/src/calibrate.js
+│ ├── js-beautify {}
+│ │ @@ -1,38 +1,38 @@
+│ │ -function recieveScaleFromFlash(sc) {
+│ │ -    if (sc == '1') {
+│ │ -        document.getElementById('setcal').style.border = '2px solid gray';
+│ │ -        document.getElementById('setcal').value = 'Looks Good - Set Calibration'
+│ │ -        getCurrentVals()
+│ │ -    } else {
+│ │ -        document.getElementById('setcal').style.border = '3px solid red';
+│ │ -        document.getElementById('setcal').value = 'No Match - Please adjust page zoom first!'
+│ │ -    }
+│ │ -}
+│ │ -var scoffset = 0;
+│ │ -
+│ │ -function getCurrentVals() {
+│ │ -    scoffset = window.outerWidth - window.innerWidth;
+│ │ -    document.getElementById('creslt').value = scoffset;
+│ │ -    document.getElementById('allresult').style.display = "block"
+│ │ -    document.getElementById('htmtes').innerText = ((window.outerWidth - scoffset) / window.innerWidth);
+│ │ -    localStorage['cpScaleOffset'] = scoffset;
+│ │ -    localStorage['flashScalePix'] = false;
+│ │ -
+│ │ -    document.getElementById('setcal').style.marginTop = '-7px';
+│ │ -    setTimeout(function() {
+│ │ -        document.getElementById('setcal').style.marginTop = '0px';
+│ │ -    }, 1000);
+│ │ -}
+│ │ -window.onresize = function() {
+│ │ -    document.getElementById('htmtes').innerText = ((window.outerWidth - scoffset) / window.innerWidth);
+│ │ -}
+│ │ -
+│ │ -function setpre() {
+│ │ -    document.getElementById('creslt').value = localStorage['cpScaleOffset'];
+│ │ -}
+│ │ -
+│ │ -document.addEventListener('DOMContentLoaded', function() {
+│ │ -    setpre();
+│ │ -
+│ │ -    document.getElementById('setcal').addEventListener('click', getCurrentVals);
+│ │ +function recieveScaleFromFlash(sc) {
+│ │ +    if (sc == '1') {
+│ │ +        document.getElementById('setcal').style.border = '2px solid gray';
+│ │ +        document.getElementById('setcal').value = 'Looks Good - Set Calibration'
+│ │ +        getCurrentVals()
+│ │ +    } else {
+│ │ +        document.getElementById('setcal').style.border = '3px solid red';
+│ │ +        document.getElementById('setcal').value = 'No Match - Please adjust page zoom first!'
+│ │ +    }
+│ │ +}
+│ │ +var scoffset = 0;
+│ │ +
+│ │ +function getCurrentVals() {
+│ │ +    scoffset = window.outerWidth - window.innerWidth;
+│ │ +    document.getElementById('creslt').value = scoffset;
+│ │ +    document.getElementById('allresult').style.display = "block"
+│ │ +    document.getElementById('htmtes').innerText = ((window.outerWidth - scoffset) / window.innerWidth);
+│ │ +    localStorage['cpScaleOffset'] = scoffset;
+│ │ +    localStorage['flashScalePix'] = false;
+│ │ +
+│ │ +    document.getElementById('setcal').style.marginTop = '-7px';
+│ │ +    setTimeout(function() {
+│ │ +        document.getElementById('setcal').style.marginTop = '0px';
+│ │ +    }, 1000);
+│ │ +}
+│ │ +window.onresize = function() {
+│ │ +    document.getElementById('htmtes').innerText = ((window.outerWidth - scoffset) / window.innerWidth);
+│ │ +}
+│ │ +
+│ │ +function setpre() {
+│ │ +    document.getElementById('creslt').value = localStorage['cpScaleOffset'];
+│ │ +}
+│ │ +
+│ │ +document.addEventListener('DOMContentLoaded', function() {
+│ │ +    setpre();
+│ │ +
+│ │ +    document.getElementById('setcal').addEventListener('click', getCurrentVals);
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/color-input.user.js
+├── +++ /workspace/pipeline_output/ColorPick/src/color-input.user.js
+│ ├── js-beautify {}
+│ │ @@ -134,15 +134,15 @@
+│ │  
+│ │              if (!colorInputOpts.supportColorInputs) continue;
+│ │  
+│ │              var modeAfter = colorInputs[i].getAttribute('colorpick-after');
+│ │  
+│ │              var btn = document.createElement('img');
+│ │              btn.setAttribute('style', 'min-width:16px;min-height:16px;box-sizing:unset;box-shadow:none;background:unset;padding:' + (modeAfter ? '0 0 0 6px' : '0 6px 0 0') + ';cursor:pointer;');
+│ │ -            btn.setAttribute('src', chrome.extension.getURL('img/icon16.png'));
+│ │ +            btn.setAttribute('src', chrome.runtime.getURL('img/icon16.png'));
+│ │              btn.setAttribute('title', toolTipMessage);
+│ │              btn.setAttribute('class', 'colorpick-eyedropper-input-trigger');
+│ │              btn.addEventListener('click', getClickListenerForColorInput(colorInputs[i]), true);
+│ │  
+│ │              colorInputs[i].parentNode.insertBefore(btn, (modeAfter ? colorInputs[i].nextSibling : colorInputs[i]));
+│ │  
+│ │              colorInputs[i].setAttribute('colorpick-eyedropper-active', true);
+│   --- /workspace/pipeline_output/chromex_data/colorgame.user.js
+├── +++ /workspace/pipeline_output/ColorPick/src/colorgame.user.js
+│ ├── js-beautify {}
+│ │ @@ -20,44 +20,44 @@
+│ │  var uof = 'ColorPick sponsor:';
+│ │  
+│ │  var sponsors = [];
+│ │  var sponsorsPaid = [];
+│ │  var sponsorsPaidCount = 0;
+│ │  
+│ │  var sponsorsDefault = [{
+│ │ -    img: chrome.extension.getURL('img/sponsors/colordoctor.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/colordoctor.jpg'),
+│ │      title: 'Color Doctor\nhypertension tester',
+│ │      href: 'https://amzn.to/2KWw7hJ'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/waterpik.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/waterpik.jpg'),
+│ │      title: 'Waterpik\njust add water',
+│ │      href: 'https://amzn.to/2KXVEqM'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/picks.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/picks.jpg'),
+│ │      title: 'Pick\nVarious to choose from',
+│ │      href: 'https://amzn.to/31PJJC7'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/laser.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/laser.jpg'),
+│ │      title: 'Color Laser Printer\nAre you tired of refilling ink?',
+│ │      href: 'https://amzn.to/2KL8d9V'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/color.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/color.jpg'),
+│ │      title: 'Color\nmost expensive',
+│ │      href: 'https://amzn.to/2ZeTTug',
+│ │      maxw: '125px'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/prismacolor.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/prismacolor.jpg'),
+│ │      title: 'Prismacolor\nProfessional Markers etc',
+│ │      href: 'https://amzn.to/31K2kj0'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/bulb.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/bulb.jpg'),
+│ │      title: 'Color Changing LED Bulbs\nWay too cool',
+│ │      href: 'https://amzn.to/31S7pFS'
+│ │  }, {
+│ │ -    img: chrome.extension.getURL('img/sponsors/purple.jpg'),
+│ │ +    img: chrome.runtime.getURL('img/sponsors/purple.jpg'),
+│ │      title: 'The color Purple\ngo get yourself a mattress',
+│ │      href: 'https://amzn.to/2uhRjtF'
+│ │  }];
+│ │  
+│ │  // todo, each time we re-enter, we should re-roll the default sponsors... and reset to paid sponsors
+│ │  function randomizeDefaultSponsors() {
+│ │      sponsorsDefault = sponsorsDefault.sort(function() {
+│ │ @@ -103,15 +103,15 @@
+│ │  }
+│ │  
+│ │  function nextIconImage(g_moveCtr) {
+│ │      //g_moveCtr = wmMoveCtr-4
+│ │      // when this is called we already tested if(!waterm) return;
+│ │  
+│ │      if (icons[g_moveCtr % icons.length]) {
+│ │ -        waterml.src = chrome.extension.getURL(icons[g_moveCtr % icons.length]);
+│ │ +        waterml.src = chrome.runtime.getURL(icons[g_moveCtr % icons.length]);
+│ │      }
+│ │  
+│ │      //console.log('next from index', g_moveCtr, '%'+wmTipsTotal+':', g_moveCtr % wmTipsTotal, watermct)
+│ │  
+│ │      //return;
+│ │  
+│ │      waterm.firstChild.style.display = "block";
+│ │ @@ -125,15 +125,15 @@
+│ │      // the principle is that we let the ads in 1 slot early
+│ │      // targeting tips_5": {"message": "Your Ad Here
+│ │      // to replace this with an ad, but then we allow tip 0 to display (g_moveCtr==6, tip 0)
+│ │      // then all subsequent slots are ads
+│ │      if (g_moveCtr % wmTipsTotal == 5 || g_moveCtr > wmTipsTotal) {
+│ │  
+│ │  
+│ │ -        // waterml.src = chrome.extension.getURL('img/icon64.png');
+│ │ +        // waterml.src = chrome.runtime.getURL('img/icon64.png');
+│ │          // Cr.empty(watermct);
+│ │          // Cr.elm('div',{id:'tip_'+((g_moveCtr + 4)%6),childNodes:[
+│ │          //     Cr.txt('TEST!'),
+│ │          // ]}, watermct);
+│   --- /workspace/pipeline_output/chromex_data/colorpick.user.js
+├── +++ /workspace/pipeline_output/ColorPick/src/colorpick.user.js
+│ ├── js-beautify {}
+│ │ @@ -8,16 +8,16 @@
+│ │      watermct = null,
+│ │      wmMoveCtr = 0,
+│ │      wmTipsTotal = 6,
+│ │      lastMoveInc = 0,
+│ │      gameScr = false,
+│ │      hex = 'F00BAF',
+│ │      lasthex = '',
+│ │ -    rgb = null;
+│ │ -hsv = null;
+│ │ +    rgb = {};
+│ │ +hsv = {};
+│ │  scal = 1, ex = 0, ey = 0, isEnabled = false, isLocked = false, msg_bg_unavail = chrome.i18n.getMessage('bgPageUnavailable');
+│ │  var ntx = { // transition states of element n...
+│ │      def: 'box-shadow 0.5s ease-out',
+│ │      swp: 'box-shadow 0.5s ease-out, top 0.25s ease-out, left 0.25s ease-out',
+│ │      position_delay: 300,
+│ │      timeout_id: 0,
+│ │      x_state: 0,
+│ │ @@ -45,15 +45,15 @@
+│ │  var imagesRcvdCounter = 0;
+│ │  var imagesLoadedCounter = 0;
+│ │  var lastActivationMode = 0;
+│ │  var isMakingNew = false,
+│ │      lastNewTimeout = 0,
+│ │      snapshotLoadedTimeout = 0,
+│ │      imageRequestReachedBg = 0,
+│ │ -    pickHtmlUrl = chrome.extension.getURL('pick.html');
+│ │ +    pickHtmlUrl = chrome.runtime.getURL('pick.html');
+│ │  var snapModeDetected = window.location.href.indexOf(pickHtmlUrl) === 0;
+│ │  var msg_bg_unavail_snap = msg_bg_unavail,
+│ │      msg_error = 'Error',
+│ │      opts_url = pickHtmlUrl,
+│ │      msg_ext_name = 'ColorPick',
+│ │      ext_icon = pickHtmlUrl,
+│ │      ext_close = pickHtmlUrl;
+│ │ @@ -262,15 +262,15 @@
+│ │                  readonly: true,
+│ │                  size: 8,
+│ │                  style: 'max-width:75px;font-size:10pt;border:' + opts.borderValue,
+│ │                  id: 'cphexvl',
+│ │                  value: (opts.hexHasHash ? '#' : '') + hex,
+│ │                  event: ['mouseover', selectTargElm]
+│ │              }),
+│ │ -            //Cr.elm('input',{type:'image',src:chrome.extension.getURL('img/close.png'),alt:'Close',title:chrome.i18n.getMessage('closeAndExit'),id:'exitbtn',event:['click',dissableColorPickerFromHere,true]}),
+│ │ +            //Cr.elm('input',{type:'image',src:chrome.runtime.getURL('img/close.png'),alt:'Close',title:chrome.i18n.getMessage('closeAndExit'),id:'exitbtn',event:['click',dissableColorPickerFromHere,true]}),
+│ │              (opts.showPreviousClr && lhex != 'none' ? Cr.elm('input', {
+│ │                  type: 'text',
+│ │                  size: 1,
+│ │                  style: 'max-width:50px;font-size:10pt;background-color:#' + lhex + ';border:' + opts.borderValue + ';border-left:none;',
+│ │                  value: ''
+│ │              }) : 0),
+│ │              (opts.ShowRGBHSL && opts.EnableRGB && rgb ? Cr.elm('input', {
+│ │ @@ -331,51 +331,51 @@
+│ │              value: (opts.hexHasHash ? '#' : '') + hex,
+│ │              event: ['mouseover', selectTargElm]
+│ │          }),
+│ │          Cr.elm('input', {
+│ │              type: 'image',
+│ │              role: 'img',
+│ │              style: iconStyles,
+│ │ -            src: chrome.extension.getURL('img/icons/history/icon32.png'),
+│ │ +            src: chrome.runtime.getURL('img/icons/history/icon32.png'),
+│ │              title: chrome.i18n.getMessage('history'),
+│ │              id: 'cphistbtn',
+│ │              event: ['click', function(ev) {
+│ │                  chrome.runtime.sendMessage({
+│ │                      goToOrVisitTab: 'options.html?history=' + hex
+│ │                  }, function(r) {});
+│ │                  ev.preventDefault();
+│ │              }, true]
+│ │          }),
+│ │          Cr.elm('input', {
+│ │              type: 'image',
+│ │              role: 'img',
+│ │              style: iconStyles,
+│ │ -            src: chrome.extension.getURL('img/icons/palette/icon32.png'),
+│ │ +            src: chrome.runtime.getURL('img/icons/palette/icon32.png'),
+│ │              title: chrome.i18n.getMessage('generate_palette'),
+│ │              id: 'cpgenbtn',
+│ │              event: ['click', function(ev) {
+│ │                  chrome.runtime.sendMessage({
+│ │                      goToOrVisitTab: 'options.html?palette=' + hex
+│ │                  }, function(r) {});
+│ │                  ev.preventDefault();
+│ │              }, true]
+│ │          }),
+│ │          Cr.elm('a', {
+│ │              target: '_blank',
+│ │              href: 'https://vidsbee.com/ColorPick/Thanks/?search=%23' + hex + ' ' + fmt_rgb,
+│ │              childNodes: [Cr.elm('img', {
+│ │                  style: iconStyles,
+│ │ -                src: chrome.extension.getURL('img/icons/search/icon32.png')
+│ │ +                src: chrome.runtime.getURL('img/icons/search/icon32.png')
+│ │              })]
+│ │          }),
+│ │          Cr.elm('input', {
+│ │              type: 'image',
+│ │              role: 'img',
+│ │              style: iconStyles,
+│ │ -            src: chrome.extension.getURL('img/close.png'),
+│ │ +            src: chrome.runtime.getURL('img/close.png'),
+│ │              title: chrome.i18n.getMessage('closeAndExit') + ' [esc]',
+│ │              id: 'cpexitbtn',
+│ │              event: ['click', dissableColorPickerFromHere, true]
+│ │          }),
+│ │          (opts.ShowRGBHSL && opts.EnableRGB && rgb ? Cr.elm('input', {
+│ │              type: 'text',
+│ │              readonly: true,
+│ │ @@ -616,22 +616,22 @@
+│ │              exitAndDetach(); // no WithMessage here, the error dialoge won't have clickable options link
+│ │          })
+│ │          connectListener = true;
+│ │      }
+│ │      // we need to cache these values for our WithMessage error display after the extension context is invalidated...
+│ │      msg_bg_unavail_snap = chrome.i18n.getMessage('bgPageUnavailableSnap')
+│ │      msg_error = chrome.i18n.getMessage('error');
+│ │ -    opts_url = chrome.extension.getURL('options.html')
+│ │ +    opts_url = chrome.runtime.getURL('options.html')
+│ │      msg_ext_name = chrome.i18n.getMessage('extName');
+│ │ -    ext_icon = chrome.extension.getURL('img/icon64.png');
+│ │ -    ext_close = chrome.extension.getURL('img/close.png');
+│ │ +    ext_icon = chrome.runtime.getURL('img/icon64.png');
+│ │ +    ext_close = chrome.runtime.getURL('img/close.png');
+│ │  }
+│ │  
+│ │  function crosshairCss() {
+│ │ -    return 'url(' + chrome.extension.getURL('img/crosshair.png') + ') 16 16,crosshair';
+│ │ +    return 'url(' + chrome.runtime.getURL('img/crosshair.png') + ') 16 16,crosshair';
+│ │  }
+│ │  
+│ │  function prefsLoadedCompleteInit() {
+│ │      if (n && c) {
+│ │          console.log('ColorPick: erroneously called prefsLoadedCompleteInit 2x');
+│ │          return;
+│ │      }
+│ │ @@ -651,15 +651,15 @@
+│ │      }, [], document.body);
+│ │      n = Cr.elm('div', {
+│ │          id: elmid2,
+│ │          style: 'position:fixed;min-width:30px;max-width:300px;min-height:30px;box-shadow:2px 2px 2px #999;transition:' + ntx.def + '; border:' + opts.borderValue + ';z-index:2147483646;cursor:default;padding:4px;'
+│ │      }, [Cr.txt(' ')], document.body);
+│ │      if (opts.reg_chk != true || !opts.hideWatermark) {
+│ │          waterml = Cr.elm('img', {
+│ │ -            src: chrome.extension.getURL('img/icon64.png'),
+│ │ +            src: chrome.runtime.getURL('img/icon64.png'),
+│ │              width: 64,
+│ │              align: "top",
+│ │              style: 'vertical-align:top;display:inline-block;position:relative !important;padding: 0 0 5px 0 !important;margin:0 !important;'
+│ │          });
+│ │          watermct = Cr.elm('div', {
+│ │              id: 'wm-content',
+│ │              style: 'margin:7px'
+│ │ @@ -686,15 +686,15 @@
+│ │                      ]
+│ │                  }),
+│ │                  watermct
+│ │              ]
+│ │          }, document.body);
+│ │      }
+│ │      wmMoveCtr = 0;
+│ │ -    dirtyImage.src = chrome.extension.getURL('img/close.png');
+│ │ +    dirtyImage.src = chrome.runtime.getURL('img/close.png');
+│ │      document.body.addEventListener('mousemove', mmf);
+│ │      addEventListener('keyup', wk);
+│ │      addEventListener('scroll', ssf);
+│ │      addEventListener('resize', ssf);
+│ │      testWebGlAvail();
+│ │      initializeCanvas();
+│ │      remainingInit();
+│ │ @@ -1056,58 +1056,30 @@
+│ │          ictx.fillStyle = "rgba(0,0,0,0.3)"; //croshair
+│ │          //ictx.globalAlpha = 1.0;
+│ │          ictx.fillRect(startPoint, 0, 1, totalWidth);
+│ │          ictx.fillRect(0, startPoint, totalWidth, 1);
+│ │      } else {
+│ │          if (opts.allowWebGl && webGlAvail) {
+│ │              getMain3dContext();
+│ │ -            texturectx.drawImage(cvs, -ox + (64), -oy + (64));
+│ │ -            //gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, texture);
+│ │ -            gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, texture);
+│ │ -            gl.uniform1i(textureSampPosition, 0);
+│ │ -            gl.uniform1f(fishEyeScalePosition, opts.fishEye);
+│ │ -            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+│ │ -        } else {
+│ │ -            ictx = getMain2dContext();
+│ │ -            ictx.drawImage(cvs, -ox + (startPoint), -oy + (startPoint));
+│ │ -            var smi, spi, mp = opts.fishEye - 0,
+│ │ -                mpMod = opts.lessFishEye ? 0 : 1;
+│ │ -
+│ │ -            var dat = ictx.getImageData(startPoint, startPoint, 1, 1).data; //notarget
+│ │ -            //ictx.fillStyle = "rgba("+(255-data[0])+","+(255-data[1])+","+(255-data[2])+",0.9)";
+│ │ -            var d = dat[0] + dat[1] + dat[2];
+│ │ -            if (d > 192) ictx.fillStyle = "rgba(30,30,30,0.8)";
+│ │ -            else ictx.fillStyle = "rgba(225,225,225,0.8)";
+│ │ -
+│ │ -            //xx,yy
+│ │ -            for (var i = 0; i < startPoint; i += 2) {
+│ │ -                smi = startPoint - i;
+│ │ -                spi = startPoint + i;
+│ │ -                //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) //CANVAS
+│ │ -                ictx.drawImage(icvs, spi, 0, smi, totalWidth, spi + 1, 0, smi, totalWidth);
+│ │ -                ictx.drawImage(icvs, 0, 0, smi + 1, totalWidth, -1, 0, smi + 1, totalWidth);
+│ │ -                ictx.drawImage(icvs, 0, spi, totalWidth, smi, 0, spi + 1, totalWidth, smi);
+│ │ -                ictx.drawImage(icvs, 0, 0, totalWidth, smi + 1, 0, -1, totalWidth, smi + 1);
+│ │ -                if (mp < 1) mp = 1;
+│ │ -                for (var c = 0; c < mp; c++) {
+│ │ -                    if (++i >= startPoint) break;
+│ │ -                    smi = startPoint - i;
+│ │ -                    spi = startPoint + i;
+│ │ -                    ictx.drawImage(icvs, spi, 0, smi, totalWidth, spi + 1, 0, smi, totalWidth);
+│ │ -                    ictx.drawImage(icvs, 0, 0, smi + 1, totalWidth, -1, 0, smi + 1, totalWidth);
+│ │ -                    ictx.drawImage(icvs, 0, spi, totalWidth, smi, 0, spi + 1, totalWidth, smi);
+│ │ -                    ictx.drawImage(icvs, 0, 0, totalWidth, smi + 1, 0, -1, totalWidth, smi + 1);
+│ │ -                }
+│ │ -                mp -= mpMod;
+│ │ -                ictx.fillRect(spi + 1, 0, 1, totalWidth);
+│ │ -                ictx.fillRect(smi - 1, 0, 1, totalWidth);
+│ │ -                ictx.fillRect(0, spi + 1, totalWidth, 1);
+│ │ -                ictx.fillRect(0, smi - 1, totalWidth, 1);
+│ │ -                ictx.fillStyle = "rgba(255,255,255,0.4)"; // all subsequent line rendering will be transparent
+│ │ +            try {
+│ │ +                texturectx.drawImage(cvs, -ox + (64), -oy + (64));
+│ │ +                //gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, texture);
+│ │ +                gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, texture);
+│ │ +            } catch (ex) {
+│ │ +                console.warn("ColorPick tried to render the texture using WebGl but has failed due to the following error, falling back to 2d render.", ex);
+│ │ +                webGlAvail = false;
+│ │ +                ictx = handleRenderingSub2d(startPoint, ox, oy);
+│ │ +            }
+│ │ +            if (webGlAvail) {
+│ │ +                gl.uniform1i(textureSampPosition, 0);
+│ │ +                gl.uniform1f(fishEyeScalePosition, opts.fishEye);
+│ │ +                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+│ │              }
+│ │ +        } else {
+│ │ +            ictx = handleRenderingSub2d(startPoint, ox, oy);
+│ │          }
+│ │      }
+│ │  
+│ │      if (opts.iconIsBitmap) {
+│ │          var browseIconWidth = (devicePixelRatio > 1 ? 38 : 19);
+│ │          var srcBrowseIconWidth = browseIconWidth;
+│ │          if (webGlAvail && opts.pixelatedPreview && opts.allowWebGl) {
+│ │ @@ -1137,14 +1109,53 @@
+│ │  
+│ │      if (popupsShowing > 0) {
+│ │          sendDataToPopup();
+│ │      }
+│ │      isUpdating = false;
+│ │  }
+│ │  
+│ │ +function handleRenderingSub2d(startPoint, ox, oy) {
+│ │ +    var ictx;
+│ │ +    ictx = getMain2dContext();
+│ │ +    ictx.drawImage(cvs, -ox + (startPoint), -oy + (startPoint));
+│ │ +    var smi, spi, mp = opts.fishEye - 0,
+│ │ +        mpMod = opts.lessFishEye ? 0 : 1;
+│ │ +    var d = rgb.r + rgb.g + rgb.b;
+│ │ +    if (d > 192) ictx.fillStyle = "rgba(30,30,30,0.8)";
+│ │ +    else ictx.fillStyle = "rgba(225,225,225,0.8)";
+│ │ +
+│ │ +    //xx,yy
+│ │ +    for (var i = 0; i < startPoint; i += 2) {
+│ │ +        smi = startPoint - i;
+│ │ +        spi = startPoint + i;
+│ │ +        //drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) //CANVAS
+│ │ +        ictx.drawImage(icvs, spi, 0, smi, totalWidth, spi + 1, 0, smi, totalWidth);
+│ │ +        ictx.drawImage(icvs, 0, 0, smi + 1, totalWidth, -1, 0, smi + 1, totalWidth);
+│ │ +        ictx.drawImage(icvs, 0, spi, totalWidth, smi, 0, spi + 1, totalWidth, smi);
+│ │ +        ictx.drawImage(icvs, 0, 0, totalWidth, smi + 1, 0, -1, totalWidth, smi + 1);
+│ │ +        if (mp < 1) mp = 1;
+│ │ +        for (var c = 0; c < mp; c++) {
+│ │ +            if (++i >= startPoint) break;
+│ │ +            smi = startPoint - i;
+│ │ +            spi = startPoint + i;
+│ │ +            ictx.drawImage(icvs, spi, 0, smi, totalWidth, spi + 1, 0, smi, totalWidth);
+│ │ +            ictx.drawImage(icvs, 0, 0, smi + 1, totalWidth, -1, 0, smi + 1, totalWidth);
+│ │ +            ictx.drawImage(icvs, 0, spi, totalWidth, smi, 0, spi + 1, totalWidth, smi);
+│ │ +            ictx.drawImage(icvs, 0, 0, totalWidth, smi + 1, 0, -1, totalWidth, smi + 1);
+│ │ +        }
+│ │ +        mp -= mpMod;
+│ │ +        ictx.fillRect(spi + 1, 0, 1, totalWidth);
+│ │ +        ictx.fillRect(smi - 1, 0, 1, totalWidth);
+│ │ +        ictx.fillRect(0, spi + 1, totalWidth, 1);
+│ │ +        ictx.fillRect(0, smi - 1, totalWidth, 1);
+│ │ +        ictx.fillStyle = "rgba(255,255,255,0.4)"; // all subsequent line rendering will be transparent
+│ │ +    }
+│ │ +    return ictx;
+│ │ +}
+│ │ +
+│ │  function sendDataToPopup() {
+│ │      chrome.runtime.sendMessage({
+│ │          setPreview: true,
+│ │          previewURI: icvs.toDataURL(),
+│ │          hex: hex,
+│ │          lhex: lasthex,
+│ │          cr: rgb.r,
+│ │ @@ -1286,14 +1297,16 @@
+│ │          fishEyeScalePosition = gl.getUniformLocation(shaderProgram, "fishEyeScale");
+│ │  
+│ │          texture = document.createElement('canvas'); //icon canvas
+│ │          texture.width = 128,
+│ │              texture.height = 128;
+│ │          texturectx = texture.getContext("2d");
+│ │  
+│ │ +        //texturectx.drawImage(dirtyImage,0,0,1,1,0,0,1,1); // taint the canvas to prevent malicious website (or framework) from stealing zoomed view while color pick runs. To verify, select the canvas element and $0.toDataURL() to see an exception
+│ │ +
+│ │          gl.activeTexture(gl.TEXTURE0);
+│ │          snapTexture = gl.createTexture();
+│ │          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+│ │          gl.bindTexture(gl.TEXTURE_2D, snapTexture);
+│ │          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, texture);
+│ │          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+│ │          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+│   --- /workspace/pipeline_output/chromex_data/desktop_app.html
+├── +++ /workspace/pipeline_output/ColorPick/src/desktop_app.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,115 +1,115 @@
+│ -<html>
+│ -<head>
+│ -<title>Desktop - ColorPick</title>
+│ -<meta content="utf-8" http-equiv="encoding">
+│ -<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+│ -	<style>
+│ -	label{display:block;}
+│ -	body{max-width:1100px;font-family:sans-serif;}
+│ -	h3{margin:4px;}
+│ -	#req_win, #req_mac{display:none;}
+│ -	.rounded{
+│ -		border:2px solid #AAA;
+│ -		text-decoration:none;
+│ -		padding:6px;margin:3px;
+│ -		-moz-border-radius: 8px;
+│ -		border-radius: 8px;
+│ -		background-color:#9A9A9A;
+│ -		text-shadow:black 1px 1px 3px;
+│ -		color:white;
+│ -		box-shadow:black 2px 2px 2px;
+│ -	}
+│ -	.rounded:hover{
+│ -		text-shadow:black 1px 1px 2px;
+│ -		box-shadow:black 1px 1px 2px;
+│ -	}
+│ -	.registered{color:#080;font-weight:bold;}
+│ -	.unregistered{color:#F00;font-weight:bold;}
+│ -	#history{position:relative;}
+│ -	#cotd{display:none;}
+│ -</style>
+│ -	<script src="desktop_app.js"></script>
+│ -</head>
+│ -<body>
+│ -<div style="clear:both;">
+│ -
+│ -<img id="plat_prev" src="img/win32.png" style="float:left;margin-right:22px;" />
+│ -	<br/>
+│ -	<h4>Win32 and OSX ColorPick</h4>
+│ -
+│ -	Fully functional Unregistered Mode<br/><br/>
+│ -
+│ -
+│ -<div id="req_mac">
+│ -<h3>Requirements</h3>
+│ -<ul>
+│ -	<li>Intel Mac OS X 10.5+</li>
+│ -	<li>PPC Mac OS X 10.5 build available</li>
+│ -</ul>
+│ -</div>
+│ -<div id="req_win">
+│ -<h3>Requirements</h3>
+│ -<ul>
+│ -	<li>Windows XP / Vista / 7 / 8</li>
+│ -	<li><a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=5555">Microsoft Visual C++ Redistributable Package 2010</a></li>
+│ -	<li><a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=17851">Microsoft .NET Framework 4.0</a></li>
+│ -</ul>
+│ -
+│ -<span style="color:red;font-size:small;">NOTE: You must have the above two packages installed for ColorPick to run on windows.  The setup application includes these packages.</span>
+│ -
+│ -</div>
+│ -
+│ -	<br style="clear:left;"/><br/>
+│ -	<br/><center>
+│ -		<a class="rounded" target="_blank" href="http://vidsbee.com/ColorPick/Download/">Download ColorPick App</a>
+│ -		<a class="rounded" href="http://vidsbee.com/ColorPick/">Buy License</a>
+│ -		<br/><br/></center>
+│ -	<!--
+│ -	<span style="color:green;font-weight:bold;">Free ColorPick Starter License</span> (will expire over time)<br/>
+│ -		<div style="width:400px;text-align:right;">
+│ -		Name: <input style="width:300px;" type="text" onmouseover="this.select()" value="StarterLicense" /><br/>
+│ -		Key: <input style="width:300px;" type="text" onmouseover="this.select()" value="BVR883G-A2L2TC4-08Q046-0574C-D6656Q" />
+│ -		</div>
+│ -		
+│ -		<br/><center>
+│ -		<a class="rounded" target="_blank" href="http://vidsbee.com/ColorPick/Download/">Download ColorPick App!</a>
+│ -		<a class="rounded" href="http://vidsbee.com/ColorPick/">Buy License</a>
+│ -		<br/><br/>
+│ -		
+│ -		<iframe src="http://vidsbee.com/ColorPick/buy_form.php" style="width:400px;height:120px;border:none;overflow:hidden;" scrolling="no"></iframe>
+│ -		
+│ -		<br style="clear:left;"/><br/>
+│ -		&copy; <a href="http://vidsbee.com/ColorPick/">Vidsbee Enterprises</a> by Sam Larison
+│ -		</center>
+│ -	-->
+│ -	
+│ -	<!--
+│ -	Fast - Light Weight - Easy
+│ -	<br/><br/>
+│ -	Pick colors anywhere on screen!
+│ -	<br/><br/>
+│ -	Individual licenses start at $1 USD
+│ -	<br/><br/>
+│ -<a href="http://vidsbee.com/ColorPick" style="text-decoration:none;"><input type="button" value="Buy Now"><br/> PayPal or Google Wallet</a>
+│ --->
+│ -
+│ -	<!--
+│ -<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+│ -<input type="hidden" name="cmd" value="_s-xclick">
+│ -<input type="hidden" name="hosted_button_id" value="U95A2Y5PAQABG">
+│ -<table>
+│ -<tr><td><input type="hidden" name="on0" value="Order">Order</td></tr><tr><td><select name="os0">
+│ -	<option value="ColorPick Win32">ColorPick Win32 $3.00 USD</option>
+│ -	<option value="ColorPick Chrome Extension License">ColorPick Chrome Extension License $1.00 USD</option>
+│ -	<option value="ColorPick All Editions Lifetime License">ColorPick All Editions Lifetime License $10.00 USD</option>
+│ -</select> </td></tr>
+│ -</table>
+│ -<input type="hidden" name="currency_code" value="USD">
+│ -<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+│ -<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+│ -</form>
+│ --->
+│ -	
+│ -</div>
+│ -</body>
+│ +<html>
+│ +<head>
+│ +<title>Desktop - ColorPick</title>
+│ +<meta content="utf-8" http-equiv="encoding">
+│ +<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+│ +	<style>
+│ +	label{display:block;}
+│ +	body{max-width:1100px;font-family:sans-serif;}
+│ +	h3{margin:4px;}
+│ +	#req_win, #req_mac{display:none;}
+│ +	.rounded{
+│ +		border:2px solid #AAA;
+│ +		text-decoration:none;
+│ +		padding:6px;margin:3px;
+│ +		-moz-border-radius: 8px;
+│ +		border-radius: 8px;
+│ +		background-color:#9A9A9A;
+│ +		text-shadow:black 1px 1px 3px;
+│ +		color:white;
+│ +		box-shadow:black 2px 2px 2px;
+│ +	}
+│ +	.rounded:hover{
+│ +		text-shadow:black 1px 1px 2px;
+│ +		box-shadow:black 1px 1px 2px;
+│ +	}
+│ +	.registered{color:#080;font-weight:bold;}
+│ +	.unregistered{color:#F00;font-weight:bold;}
+│ +	#history{position:relative;}
+│ +	#cotd{display:none;}
+│ +</style>
+│ +	<script src="desktop_app.js"></script>
+│ +</head>
+│ +<body>
+│ +<div style="clear:both;">
+│ +
+│ +<img id="plat_prev" src="img/win32.png" style="float:left;margin-right:22px;" />
+│ +	<br/>
+│ +	<h4>Win32 and OSX ColorPick</h4>
+│ +
+│ +	Fully functional Unregistered Mode<br/><br/>
+│ +
+│ +
+│ +<div id="req_mac">
+│ +<h3>Requirements</h3>
+│ +<ul>
+│ +	<li>Intel Mac OS X 10.5+</li>
+│ +	<li>PPC Mac OS X 10.5 build available</li>
+│ +</ul>
+│ +</div>
+│ +<div id="req_win">
+│ +<h3>Requirements</h3>
+│ +<ul>
+│ +	<li>Windows XP / Vista / 7 / 8</li>
+│ +	<li><a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=5555">Microsoft Visual C++ Redistributable Package 2010</a></li>
+│ +	<li><a target="_blank" href="http://www.microsoft.com/en-us/download/details.aspx?id=17851">Microsoft .NET Framework 4.0</a></li>
+│ +</ul>
+│ +
+│ +<span style="color:red;font-size:small;">NOTE: You must have the above two packages installed for ColorPick to run on windows.  The setup application includes these packages.</span>
+│ +
+│ +</div>
+│ +
+│ +	<br style="clear:left;"/><br/>
+│ +	<br/><center>
+│ +		<a class="rounded" target="_blank" href="http://vidsbee.com/ColorPick/Download/">Download ColorPick App</a>
+│ +		<a class="rounded" href="http://vidsbee.com/ColorPick/">Buy License</a>
+│ +		<br/><br/></center>
+│ +	<!--
+│ +	<span style="color:green;font-weight:bold;">Free ColorPick Starter License</span> (will expire over time)<br/>
+│ +		<div style="width:400px;text-align:right;">
+│ +		Name: <input style="width:300px;" type="text" onmouseover="this.select()" value="StarterLicense" /><br/>
+│ +		Key: <input style="width:300px;" type="text" onmouseover="this.select()" value="BVR883G-A2L2TC4-08Q046-0574C-D6656Q" />
+│ +		</div>
+│ +		
+│ +		<br/><center>
+│ +		<a class="rounded" target="_blank" href="http://vidsbee.com/ColorPick/Download/">Download ColorPick App!</a>
+│ +		<a class="rounded" href="http://vidsbee.com/ColorPick/">Buy License</a>
+│ +		<br/><br/>
+│ +		
+│ +		<iframe src="http://vidsbee.com/ColorPick/buy_form.php" style="width:400px;height:120px;border:none;overflow:hidden;" scrolling="no"></iframe>
+│ +		
+│ +		<br style="clear:left;"/><br/>
+│ +		&copy; <a href="http://vidsbee.com/ColorPick/">Vidsbee Enterprises</a> by Sam Larison
+│ +		</center>
+│ +	-->
+│ +	
+│ +	<!--
+│ +	Fast - Light Weight - Easy
+│ +	<br/><br/>
+│ +	Pick colors anywhere on screen!
+│ +	<br/><br/>
+│ +	Individual licenses start at $1 USD
+│ +	<br/><br/>
+│ +<a href="http://vidsbee.com/ColorPick" style="text-decoration:none;"><input type="button" value="Buy Now"><br/> PayPal or Google Wallet</a>
+│ +-->
+│ +
+│ +	<!--
+│ +<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+│ +<input type="hidden" name="cmd" value="_s-xclick">
+│ +<input type="hidden" name="hosted_button_id" value="U95A2Y5PAQABG">
+│ +<table>
+│ +<tr><td><input type="hidden" name="on0" value="Order">Order</td></tr><tr><td><select name="os0">
+│ +	<option value="ColorPick Win32">ColorPick Win32 $3.00 USD</option>
+│ +	<option value="ColorPick Chrome Extension License">ColorPick Chrome Extension License $1.00 USD</option>
+│ +	<option value="ColorPick All Editions Lifetime License">ColorPick All Editions Lifetime License $10.00 USD</option>
+│ +</select> </td></tr>
+│ +</table>
+│ +<input type="hidden" name="currency_code" value="USD">
+│ +<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+│ +<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+│ +</form>
+│ +-->
+│ +	
+│ +</div>
+│ +</body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/desktop_app.js
+├── +++ /workspace/pipeline_output/ColorPick/src/desktop_app.js
+│ ├── js-beautify {}
+│ │ @@ -1,10 +1,10 @@
+│ │ -document.addEventListener('DOMContentLoaded', function() {
+│ │ -    if (document.getElementById('plat_prev')) {
+│ │ -        if (navigator.userAgent.indexOf('Windows') < 0) {
+│ │ -            document.getElementById('plat_prev').src = "img/osx.png";
+│ │ -            document.getElementById('req_mac').style.display = "block";
+│ │ -        } else {
+│ │ -            document.getElementById('req_win').style.display = "block";
+│ │ -        }
+│ │ -    }
+│ │ +document.addEventListener('DOMContentLoaded', function() {
+│ │ +    if (document.getElementById('plat_prev')) {
+│ │ +        if (navigator.userAgent.indexOf('Windows') < 0) {
+│ │ +            document.getElementById('plat_prev').src = "img/osx.png";
+│ │ +            document.getElementById('req_mac').style.display = "block";
+│ │ +        } else {
+│ │ +            document.getElementById('req_win').style.display = "block";
+│ │ +        }
+│ │ +    }
+│ │  });
+│   --- /workspace/pipeline_output/chromex_data/img
+├── +++ /workspace/pipeline_output/ColorPick/src/img
+│ │   --- /workspace/pipeline_output/chromex_data/img/AppStore.svg
+│ ├── +++ /workspace/pipeline_output/ColorPick/src/img/AppStore.svg
+│ │┄ xxd not available in path. Falling back to Python hexlify.
+│ │ @@ -1,387 +1,382 @@
+│ │  3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574
+│ │ +662d38223f3e0a3c212d2d2047656e657261746f723a2041646f626520496c6c
+│ │ +7573747261746f722031362e302e302c20535647204578706f727420506c7567
+│ │ +2d496e202e205356472056657273696f6e3a20362e3030204275696c64203029
+│ │ +20202d2d3e0a3c21444f435459504520737667205055424c494320222d2f2f57
+│ │ +33432f2f4454442053564720312e312f2f454e222022687474703a2f2f777777
+│ │ +2e77332e6f72672f47726170686963732f5356472f312e312f4454442f737667
+│ │ +31312e647464223e0a3c7376672076657273696f6e3d22312e31222069643d22
+│ │ +55535f554b5f446f776e6c6f61645f6f6e5f7468652220786d6c6e733d226874
+│ │ +74703a2f2f7777772e77332e6f72672f323030302f7376672220786d6c6e733a
+│ │ +786c696e6b3d22687474703a2f2f7777772e77332e6f72672f313939392f786c
+│ │ +696e6b220a0920783d223070782220793d22307078222077696474683d223133
+│ │ +35707822206865696768743d2234307078222076696577426f783d2230203020
+│ │ +3133352034302220656e61626c652d6261636b67726f756e643d226e65772030
+│ │ +2030203133352034302220786d6c3a73706163653d227072657365727665223e
+│ │ +0a3c673e0a093c706174682066696c6c3d22234136413641362220643d224d31
+│ │ +33302e3139372c343048342e37323943322e3132322c34302c302c33372e3837
+│ │ +322c302c33352e32363756342e37323643302c322e31322c322e3132322c302c
+│ │ +342e3732392c30683132352e3436380a0909433133322e3830332c302c313335
+│ │ +2c322e31322c3133352c342e3732367633302e353431433133352c33372e3837
+│ │ +322c3133322e3830332c34302c3133302e3139372c34304c3133302e3139372c
+│ │ +34307a222f3e0a093c7061746820643d224d3133342e3033322c33352e323638
+│ │ +63302c322e3131362d312e3731342c332e38332d332e3833342c332e38334834
+│ │ +2e373239632d322e3131392c302d332e3833392d312e3731342d332e3833392d
+│ │ +332e383356342e3732350a090963302d322e3131352c312e37322d332e383335
+│ │ +2c332e3833392d332e383335683132352e34363863322e3132312c302c332e38
+│ │ +33342c312e37322c332e3833342c332e3833354c3133342e3033322c33352e32
+│ │ +36384c3133342e3033322c33352e3236387a222f3e0a093c673e0a09093c673e
+│ │ +0a0909093c706174682066696c6c3d22234646464646462220643d224d33302e
+│ │ +3132382c31392e373834632d302e3032392d332e3232332c322e3633392d342e
+│ │ +3739312c322e3736312d342e383634632d312e3531312d322e3230332d332e38
+│ │ +35332d322e3530342d342e3637362d322e3532380a09090909632d312e393637
+│ │ +2d302e3230372d332e3837352c312e3137372d342e3837372c312e313737632d
+│ │ +312e3032322c302d322e3536352d312e3135372d342e3232382d312e31323363
+│ │ +2d322e31342c302e3033332d342e3134322c312e3237322d352e32342c332e31
+│ │ +39360a09090909632d322e3236362c332e3932332d302e3537362c392e363838
+│ │ +2c312e3539352c31322e38353963312e3038362c312e3535332c322e3335352c
+│ │ +332e3238372c342e3031362c332e32323663312e3632352d302e3036372c322e
+│ │ +3233322d312e3033362c342e3139332d312e3033360a0909090963312e393433
+│ │ +2c302c322e3531332c312e3033362c342e3230372c302e39393763312e373434
+│ │ +2d302e3032382c322e3834322d312e35362c332e38392d332e31323763312e32
+│ │ +35352d312e37382c312e3735392d332e3533332c312e3737392d332e3632330a
+│ │ +090909094333332e3530372c32342e3932342c33302e3136312c32332e363437
+│ │ +2c33302e3132382c31392e3738347a222f3e0a0909093c706174682066696c6c
+│ │ +3d22234646464646462220643d224d32362e3932382c31302e33303663302e38
+│ │ +37342d312e3039332c312e3437322d322e35382c312e3330362d342e30383963
+│ │ +2d312e3236352c302e3035362d322e3834372c302e3837352d332e3735382c31
+│ │ +2e3934340a09090909632d302e3830362c302e3934322d312e3532362c322e34
+│ │ +38362d312e33342c332e3933384332342e3535372c31322e3230352c32362e30
+│ │ +31362c31312e3338322c32362e3932382c31302e3330367a222f3e0a09093c2f
+│ │ +673e0a093c2f673e0a093c673e0a09093c706174682066696c6c3d2223464646
+│ │ +4646462220643d224d35332e3634352c33312e353034682d322e3237316c2d31
+│ │ +2e3234342d332e393039682d342e3332346c2d312e3138352c332e393039682d
+│ │ +322e3231316c342e3238342d31332e33303868322e3634364c35332e3634352c
+│ │ +33312e3530347a0a090909204d34392e3735352c32352e3935354c34382e3633
+│ │ +2c32322e3438632d302e3131392d302e3335352d302e3334322d312e3139312d
+│ │ +302e3637312d322e353037682d302e3034632d302e3133312c302e3536362d30
+│ │ +2e3334322c312e3430322d302e3633322c322e3530376c2d312e3130352c332e
+│ │ +3437350a0909094834392e3735357a222f3e0a09093c706174682066696c6c3d
+│ │ +22234646464646462220643d224d36342e3636322c32362e35383863302c312e
+│ │ +3633322d302e3434312c322e3932322d312e3332332c332e383639632d302e37
+│ │ +392c302e3834332d312e3737312c312e3236342d322e3934322c312e3236340a
+│ │ +090909632d312e3236342c302d322e3137322d302e3435342d322e3732352d31
+│ │ +2e333632682d302e303476352e303535682d322e3133325632352e3036376330
+│ │ +2d312e3032362d302e3032372d322e3037392d302e3037392d332e3135396831
+│ │ +2e3837356c302e3131392c312e35323168302e30340a09090963302e3731312d
+│ │ +312e3134362c312e37392d312e3731382c332e3233382d312e37313863312e31
+│ │ +33322c302c322e3037372c302e3434372c322e3833332c312e3334324336342e
+│ │ +3238342c32332e3934392c36342e3636322c32352e3132372c36342e3636322c
+│ │ +32362e3538387a204d36322e34392c32362e3636360a09090963302d302e3933
+│ │ +342d302e32312d312e3730342d302e3633322d322e3331632d302e3436312d30
+│ │ +2e3633322d312e30382d302e3934382d312e3835362d302e393438632d302e35
+│ │ +32362c302d312e3030342c302e3137362d312e3433312c302e3532330a090909
+│ │ +632d302e3432382c302e33352d302e3730382c302e3830372d302e3833392c31
+│ │ +2e333733632d302e3036362c302e3236342d302e3039392c302e34382d302e30
+│ │ +39392c302e363576312e3663302c302e3639382c302e3231342c312e3238372c
+│ │ +302e3634322c312e3736380a09090973302e3938342c302e3732312c312e3636
+│ │ +382c302e37323163302e3830332c302c312e3432382d302e33312c312e383735
+│ │ +2d302e3932384336322e3236362c32382e3439362c36322e34392c32372e3638
+│ │ +2c36322e34392c32362e3636367a222f3e0a09093c706174682066696c6c3d22
+│ │ +234646464646462220643d224d37352e3639392c32362e35383863302c312e36
+│ │ +33322d302e3434312c322e3932322d312e3332342c332e383639632d302e3738
+│ │ +392c302e3834332d312e37372c312e3236342d322e3934312c312e3236340a09
+│ │ -662d38223f3e0d0a3c212d2d2047656e657261746f723a2041646f626520496c
+│ │ -6c7573747261746f722031362e302e302c20535647204578706f727420506c75
+│ │ -672d496e202e205356472056657273696f6e3a20362e3030204275696c642030
+│ │ -2920202d2d3e0d0a3c21444f435459504520737667205055424c494320222d2f
+│ │ -2f5733432f2f4454442053564720312e312f2f454e222022687474703a2f2f77
+│ │ -77772e77332e6f72672f47726170686963732f5356472f312e312f4454442f73
+│ │ -766731312e647464223e0d0a3c7376672076657273696f6e3d22312e31222069
+│ │ -643d2255535f554b5f446f776e6c6f61645f6f6e5f7468652220786d6c6e733d
+│ │ -22687474703a2f2f7777772e77332e6f72672f323030302f7376672220786d6c
+│ │ -6e733a786c696e6b3d22687474703a2f2f7777772e77332e6f72672f31393939
+│ │ -2f786c696e6b220d0a0920783d223070782220793d2230707822207769647468
+│ │ -3d22313335707822206865696768743d2234307078222076696577426f783d22
+│ │ -302030203133352034302220656e61626c652d6261636b67726f756e643d226e
+│ │ -657720302030203133352034302220786d6c3a73706163653d22707265736572
+│ │ -7665223e0d0a3c673e0d0a093c706174682066696c6c3d222341364136413622
+│ │ -20643d224d3133302e3139372c343048342e37323943322e3132322c34302c30
+│ │ -2c33372e3837322c302c33352e32363756342e37323643302c322e31322c322e
+│ │ -3132322c302c342e3732392c30683132352e3436380d0a0909433133322e3830
+│ │ -332c302c3133352c322e31322c3133352c342e3732367633302e353431433133
+│ │ -352c33372e3837322c3133322e3830332c34302c3133302e3139372c34304c31
+│ │ -33302e3139372c34307a222f3e0d0a093c7061746820643d224d3133342e3033
+│ │ -322c33352e32363863302c322e3131362d312e3731342c332e38332d332e3833
+│ │ -342c332e383348342e373239632d322e3131392c302d332e3833392d312e3731
+│ │ -342d332e3833392d332e383356342e3732350d0a090963302d322e3131352c31
+│ │ -2e37322d332e3833352c332e3833392d332e383335683132352e34363863322e
+│ │ -3132312c302c332e3833342c312e37322c332e3833342c332e3833354c313334
+│ │ -2e3033322c33352e3236384c3133342e3033322c33352e3236387a222f3e0d0a
+│ │ -093c673e0d0a09093c673e0d0a0909093c706174682066696c6c3d2223464646
+│ │ -4646462220643d224d33302e3132382c31392e373834632d302e3032392d332e
+│ │ -3232332c322e3633392d342e3739312c322e3736312d342e383634632d312e35
+│ │ -31312d322e3230332d332e3835332d322e3530342d342e3637362d322e353238
+│ │ -0d0a09090909632d312e3936372d302e3230372d332e3837352c312e3137372d
+│ │ -342e3837372c312e313737632d312e3032322c302d322e3536352d312e313537
+│ │ -2d342e3232382d312e313233632d322e31342c302e3033332d342e3134322c31
+│ │ -2e3237322d352e32342c332e3139360d0a09090909632d322e3236362c332e39
+│ │ -32332d302e3537362c392e3638382c312e3539352c31322e38353963312e3038
+│ │ -362c312e3535332c322e3335352c332e3238372c342e3031362c332e32323663
+│ │ -312e3632352d302e3036372c322e3233322d312e3033362c342e3139332d312e
+│ │ -3033360d0a0909090963312e3934332c302c322e3531332c312e3033362c342e
+│ │ -3230372c302e39393763312e3734342d302e3032382c322e3834322d312e3536
+│ │ -2c332e38392d332e31323763312e3235352d312e37382c312e3735392d332e35
+│ │ -33332c312e3737392d332e3632330d0a090909094333332e3530372c32342e39
+│ │ -32342c33302e3136312c32332e3634372c33302e3132382c31392e3738347a22
+│ │ -2f3e0d0a0909093c706174682066696c6c3d22234646464646462220643d224d
+│ │ -32362e3932382c31302e33303663302e3837342d312e3039332c312e3437322d
+│ │ -322e35382c312e3330362d342e303839632d312e3236352c302e3035362d322e
+│ │ -3834372c302e3837352d332e3735382c312e3934340d0a09090909632d302e38
+│ │ -30362c302e3934322d312e3532362c322e3438362d312e33342c332e39333843
+│ │ -32342e3535372c31322e3230352c32362e3031362c31312e3338322c32362e39
+│ │ -32382c31302e3330367a222f3e0d0a09093c2f673e0d0a093c2f673e0d0a093c
+│ │ -673e0d0a09093c706174682066696c6c3d22234646464646462220643d224d35
+│ │ -332e3634352c33312e353034682d322e3237316c2d312e3234342d332e393039
+│ │ -682d342e3332346c2d312e3138352c332e393039682d322e3231316c342e3238
+│ │ -342d31332e33303868322e3634364c35332e3634352c33312e3530347a0d0a09
+│ │ -0909204d34392e3735352c32352e3935354c34382e36332c32322e3438632d30
+│ │ -2e3131392d302e3335352d302e3334322d312e3139312d302e3637312d322e35
+│ │ -3037682d302e3034632d302e3133312c302e3536362d302e3334322c312e3430
+│ │ -322d302e3633322c322e3530376c2d312e3130352c332e3437350d0a09090948
+│ │ -34392e3735357a222f3e0d0a09093c706174682066696c6c3d22234646464646
+│ │ -462220643d224d36342e3636322c32362e35383863302c312e3633322d302e34
+│ │ -34312c322e3932322d312e3332332c332e383639632d302e37392c302e383433
+│ │ -2d312e3737312c312e3236342d322e3934322c312e3236340d0a090909632d31
+│ │ -2e3236342c302d322e3137322d302e3435342d322e3732352d312e333632682d
+│ │ -302e303476352e303535682d322e3133325632352e30363763302d312e303236
+│ │ -2d302e3032372d322e3037392d302e3037392d332e31353968312e3837356c30
+│ │ -2e3131392c312e35323168302e30340d0a09090963302e3731312d312e313436
+│ │ -2c312e37392d312e3731382c332e3233382d312e37313863312e3133322c302c
+│ │ -322e3037372c302e3434372c322e3833332c312e3334324336342e3238342c32
+│ │ -332e3934392c36342e3636322c32352e3132372c36342e3636322c32362e3538
+│ │ -387a204d36322e34392c32362e3636360d0a09090963302d302e3933342d302e
+│ │ -32312d312e3730342d302e3633322d322e3331632d302e3436312d302e363332
+│ │ -2d312e30382d302e3934382d312e3835362d302e393438632d302e3532362c30
+│ │ -2d312e3030342c302e3137362d312e3433312c302e3532330d0a090909632d30
+│ │ -2e3432382c302e33352d302e3730382c302e3830372d302e3833392c312e3337
+│ │ -33632d302e3036362c302e3236342d302e3039392c302e34382d302e3039392c
+│ │ -302e363576312e3663302c302e3639382c302e3231342c312e3238372c302e36
+│ │ -34322c312e3736380d0a09090973302e3938342c302e3732312c312e3636382c
+│ │ -302e37323163302e3830332c302c312e3432382d302e33312c312e3837352d30
+│ │ -2e3932384336322e3236362c32382e3439362c36322e34392c32372e36382c36
+│ │ -322e34392c32362e3636367a222f3e0d0a09093c706174682066696c6c3d2223
+│ │ -4646464646462220643d224d37352e3639392c32362e35383863302c312e3633
+│ │ -322d302e3434312c322e3932322d312e3332342c332e383639632d302e373839
+│ │ -2c302e3834332d312e37372c312e3236342d322e3934312c312e3236340d0a09
+│ │  0909632d312e3236342c302d322e3137322d302e3435342d322e3732342d312e
+│ │  3336324836382e363776352e303535682d322e3133325632352e30363763302d
+│ │  312e3032362d302e3032372d322e3037392d302e3037392d332e31353968312e
+│ │ +3837356c302e3131392c312e35323168302e30340a09090963302e37312d312e
+│ │ +3134362c312e3738392d312e3731382c332e3233382d312e37313863312e3133
+│ │ +312c302c322e3037362c302e3434372c322e3833342c312e3334324337352e33
+│ │ +322c32332e3934392c37352e3639392c32352e3132372c37352e3639392c3236
+│ │ +2e3538387a204d37332e3532372c32362e3636360a09090963302d302e393334
+│ │ +2d302e3231312d312e3730342d302e3633332d322e3331632d302e3436312d30
+│ │ +2e3633322d312e3037382d302e3934382d312e3835352d302e393438632d302e
+│ │ +3532372c302d312e3030342c302e3137362d312e3433322c302e3532330a0909
+│ │ +09632d302e3432382c302e33352d302e3730372c302e3830372d302e3833382c
+│ │ +312e333733632d302e3036352c302e3236342d302e3039392c302e34382d302e
+│ │ +3039392c302e363576312e3663302c302e3639382c302e3231342c312e323837
+│ │ +2c302e36342c312e3736380a09090963302e3432382c302e34382c302e393834
+│ │ +2c302e3732312c312e36372c302e37323163302e3830332c302c312e3432382d
+│ │ +302e33312c312e3837352d302e3932384337332e3330332c32382e3439362c37
+│ │ +332e3532372c32372e36382c37332e3532372c32362e3636367a222f3e0a0909
+│ │ +3c706174682066696c6c3d22234646464646462220643d224d38382e3033392c
+│ │ +32372e37373263302c312e3133322d302e3339332c322e3035332d312e313832
+│ │ +2c322e373634632d302e3836372c302e3737372d322e3037342c312e3136352d
+│ │ +332e3632352c312e3136350a090909632d312e3433322c302d322e35382d302e
+│ │ +3237362d332e3434392d302e3832396c302e3439342d312e37373763302e3933
+│ │ +362c302e3536362c312e3936332c302e38352c332e3038322c302e383563302e
+│ │ +3830332c302c312e3432382d302e3138322c312e3837372d302e3534340a0909
+│ │ +0963302e3434372d302e3336322c302e36372d302e3834382c302e36372d312e
+│ │ +34353463302d302e35342d302e3138342d302e3939352d302e3535332d312e33
+│ │ +3634632d302e3336372d302e3336392d302e39382d302e3731322d312e383336
+│ │ +2d312e3032390a090909632d322e33332d302e3836392d332e3439342d322e31
+│ │ +34322d332e3439342d332e38313663302d312e3039342c302e3430382d312e39
+│ │ +39312c312e3232352d322e36383963302e3831342d302e3639392c312e392d31
+│ │ +2e3034382c332e3235382d312e3034380a09090963312e3231312c302c322e32
+│ │ +31372c302e3231312c332e30322c302e3633326c2d302e3533332c312e373338
+│ │ +632d302e37352d302e3430382d312e3539382d302e3631322d322e3534372d30
+│ │ +2e363132632d302e37352c302d312e3333362c302e3138352d312e3735362c30
+│ │ +2e3535330a090909632d302e3335352c302e3332392d302e3533332c302e3733
+│ │ +2d302e3533332c312e32303563302c302e3532362c302e3230332c302e393631
+│ │ +2c302e3631312c312e33303363302e3335352c302e3331362c312c302e363538
+│ │ +2c312e3933362c312e3032370a09090963312e3134352c302e3436312c312e39
+│ │ +38362c312c322e3532372c312e3631384338372e37372c32362e3038312c3838
+│ │ +2e3033392c32362e3835322c38382e3033392c32372e3737327a222f3e0a0909
+│ │ +3c706174682066696c6c3d22234646464646462220643d224d39352e3038382c
+│ │ +32332e353038682d322e333576342e36353963302c312e3138352c302e343134
+│ │ +2c312e3737372c312e3234342c312e37373763302e3338312c302c302e363937
+│ │ +2d302e3033332c302e3934372d302e3039396c302e3035392c312e3631390a09
+│ │ +0909632d302e34322c302e3135372d302e3937332c302e3233362d312e363538
+│ │ +2c302e323336632d302e3834322c302d312e352d302e3235372d312e3937352d
+│ │ +302e3737632d302e3437332d302e3531342d302e3731312d312e3337362d302e
+│ │ +3731312d322e353837762d342e383337682d312e34762d312e3668312e340a09
+│ │ +0909762d312e3735376c322e3039342d302e36333276322e33383968322e3335
+│ │ +5632332e3530387a222f3e0a09093c706174682066696c6c3d22234646464646
+│ │ +462220643d224d3130352e3639312c32362e36323763302c312e3437352d302e
+│ │ +3432322c322e3638362d312e3236342c332e363333632d302e3838332c302e39
+│ │ +37352d322e3035352c312e3436312d332e3531362c312e3436310a090909632d
+│ │ +312e3430382c302d322e3532392d302e3436372d332e3336352d312e34303173
+│ │ +2d312e3235342d322e3131332d312e3235342d332e35333463302d312e343837
+│ │ +2c302e34332d322e3730352c312e3239332d332e36353263302e3836312d302e
+│ │ +3934382c322e3032332d312e3432322c332e3438342d312e3432320a09090963
+│ │ +312e3430382c302c322e3534312c302e3436372c332e3339362c312e34303243
+│ │ +3130352e3238332c32342e3032312c3130352e3639312c32352e3139322c3130
+│ │ +352e3639312c32362e3632377a204d3130332e3437392c32362e3639360a0909
+│ │ +0963302d302e3838352d302e3138392d312e3634342d302e3537322d322e3237
+│ │ +37632d302e3434372d302e3736362d312e3038362d312e3134382d312e393134
+│ │ +2d312e313438632d302e3835372c302d312e3530382c302e3338332d312e3935
+│ │ +352c312e3134380a090909632d302e3338332c302e3633342d302e3537322c31
+│ │ +2e3430352d302e3537322c322e33313763302c302e3838352c302e3138392c31
+│ │ +2e3634342c302e3537322c322e32373663302e3436312c302e3736362c312e31
+│ │ +30352c312e3134382c312e3933362c312e3134380a09090963302e3831342c30
+│ │ +2c312e3435332d302e33392c312e3931342d312e313638433130332e3238312c
+│ │ +32382e3334372c3130332e3437392c32372e35382c3130332e3437392c32362e
+│ │ +3639367a222f3e0a09093c706174682066696c6c3d2223464646464646222064
+│ │ +3d224d3131322e3632312c32332e373833632d302e3231312d302e3033392d30
+│ │ +2e3433362d302e3035392d302e3637322d302e303539632d302e37352c302d31
+│ │ +2e33332c302e3238332d312e3733382c302e38350a090909632d302e3335352c
+│ │ +302e352d302e3533332c312e3133322d302e3533332c312e38393576352e3033
+│ │ +35682d322e3133316c302e30322d362e35373463302d312e3130362d302e3032
+│ │ +372d322e3131332d302e30382d332e30323168312e3835376c302e3037382c31
+│ │ +2e38333668302e3035390a09090963302e3232352d302e3633312c302e35382d
+│ │ +312e3133392c312e3036362d312e353263302e3437352d302e3334332c302e39
+│ │ +38382d302e3531342c312e3534312d302e35313463302e3139372c302c302e33
+│ │ +37352c302e3031342c302e3533332c302e3033395632332e3738337a222f3e0a
+│ │ +09093c706174682066696c6c3d22234646464646462220643d224d3132322e31
+│ │ +35362c32362e32353263302c302e3338322d302e3032352c302e3730342d302e
+│ │ +3037382c302e393637682d362e33393663302e3032352c302e3934382c302e33
+│ │ +33342c312e3637332c302e3932382c322e3137330a09090963302e3533392c30
+│ │ +2e3434372c312e3233362c302e3637312c322e3039322c302e36373163302e39
+│ │ +34372c302c312e3831312d302e3135312c322e3538382d302e3435346c302e33
+│ │ +33342c312e3438632d302e3930382c302e3339362d312e39382c302e3539332d
+│ │ +332e3231372c302e3539330a090909632d312e3438382c302d322e3635362d30
+│ │ +2e3433382d332e3530362d312e333133632d302e3834382d302e3837352d312e
+│ │ +3237332d322e30352d312e3237332d332e35323463302d312e3434372c302e33
+│ │ +39352d322e3635322c312e3138362d332e3631330a09090963302e3832382d31
+│ │ +2e3032362c312e3934372d312e3533392c332e3335352d312e35333963312e33
+│ │ +38332c302c322e34332c302e3531332c332e3134312c312e353339433132312e
+│ │ +3837332c32342e3034372c3132322e3135362c32352e3035352c3132322e3135
+│ │ +362c32362e3235327a0a090909204d3132302e3132332c32352e36393963302e
+│ │ +3031342d302e3633322d302e3132352d312e3137382d302e3431342d312e3633
+│ │ +39632d302e3336392d302e3539332d302e3933362d302e3838392d312e363939
+│ │ +2d302e383839632d302e3639372c302d312e3236342c302e3238392d312e3639
+│ │ +372c302e3836390a090909632d302e3335352c302e3436312d302e3536362c31
+│ │ +2e3031342d302e3633312c312e363538483132302e3132337a222f3e0a093c2f
+│ │ +673e0a093c673e0a09093c673e0a0909093c706174682066696c6c3d22234646
+│ │ +464646462220643d224d34392e30352c31302e30303963302c312e3137372d30
+│ │ +2e3335332c322e3036332d312e3035382c322e363538632d302e3635332c302e
+│ │ +3534392d312e3538312c302e3832342d322e3738332c302e3832340a09090909
+│ │ +632d302e3539362c302d312e3130362d302e3032362d312e3533332d302e3037
+│ │ +3856362e39383263302e3535372d302e30392c312e3135372d302e3133362c31
+│ │ +2e3830352d302e31333663312e3134352c302c322e3030382c302e3234392c32
+│ │ +2e35392c302e3734370a090909094334382e3732332c382e3135362c34392e30
+│ │ +352c382e3936312c34392e30352c31302e3030397a204d34372e3934352c3130
+│ │ +2e30333863302d302e3736332d302e3230322d312e3334382d302e3630362d31
+│ │ +2e373536632d302e3430342d302e3430372d302e3939342d302e3631312d312e
+│ │ +3737312d302e3631310a09090909632d302e33332c302d302e3631312c302e30
+│ │ +32322d302e3834342c302e30363876342e38383963302e3132392c302e30322c
+│ │ +302e3336352c302e3032392c302e3730382c302e30323963302e3830322c302c
+│ │ +312e3432312d302e3232332c312e3835372d302e3636390a090909095334372e
+│ │ +3934352c31302e3839322c34372e3934352c31302e3033387a222f3e0a090909
+│ │ +3c706174682066696c6c3d22234646464646462220643d224d35342e3930392c
+│ │ +31312e30333763302c302e3732352d302e3230372c312e3331392d302e363231
+│ │ +2c312e373835632d302e3433342c302e3437392d312e3030392c302e3731382d
+│ │ +312e3732372c302e3731380a09090909632d302e3639322c302d312e3234332d
+│ │ +302e3232392d312e3635342d302e363839632d302e34312d302e3435392d302e
+│ │ +3631352d312e3033382d302e3631352d312e37333663302d302e37332c302e32
+│ │ +31312d312e3332392c302e3633352d312e37393473302e3939342d302e363938
+│ │ +2c312e3731322d302e3639380a0909090963302e3639322c302c312e3234382c
+│ │ +302e3232392c312e3636392c302e3638384335342e3730382c392e3735372c35
+│ │ +342e3930392c31302e3333332c35342e3930392c31312e3033377a204d35332e
+│ │ +3832322c31312e30373163302d302e3433352d302e3039342d302e3830382d30
+│ │ +2e3238312d312e3131390a09090909632d302e32322d302e3337362d302e3533
+│ │ +332d302e3536342d302e39342d302e353634632d302e3432312c302d302e3734
+│ │ +312c302e3138382d302e3936312c302e353634632d302e3138382c302e333131
+│ │ +2d302e3238312c302e36392d302e3238312c312e3133380a0909090963302c30
+│ │ +2e3433352c302e3039342c302e3830382c302e3238312c312e31313963302e32
+│ │ +32372c302e3337362c302e3534332c302e3536342c302e3935312c302e353634
+│ │ +63302e342c302c302e3731342d302e3139312c302e39342d302e3537340a0909
+│ │ +09094335332e3732352c31312e3838322c35332e3832322c31312e3530362c35
+│ │ +332e3832322c31312e3037317a222f3e0a0909093c706174682066696c6c3d22
+│ │ +234646464646462220643d224d36322e3736352c382e3731396c2d312e343735
+│ │ +2c342e373134682d302e39366c2d302e3631312d322e303437632d302e313535
+│ │ +2d302e3531312d302e3238312d312e3031392d302e3337392d312e353233682d
+│ │ +302e3031390a09090909632d302e3039312c302e3531382d302e3231372c312e
+│ │ +3032352d302e3337392c312e3532336c2d302e3634392c322e303437682d302e
+│ │ +3937316c2d312e3338372d342e37313468312e3037376c302e3533332c322e32
+│ │ +343163302e3132392c302e35332c302e3233352c312e3033352c302e33322c31
+│ │ +2e3531330a0909090968302e30313963302e3037382d302e3339342c302e3230
+│ │ +372d302e3839362c302e3338392d312e3530336c302e3636392d322e32356830
+│ │ +2e3835346c302e3634312c322e32303263302e3135352c302e3533372c302e32
+│ │ +38312c312e3035342c302e3337382c312e35353268302e3032390a0909090963
+│ │ +302e3037312d302e3438352c302e3137382d312e3030322c302e33322d312e35
+│ │ +35326c302e3537322d322e3230324836322e3736357a222f3e0a0909093c7061
+│ │ +74682066696c6c3d22234646464646462220643d224d36382e3139382c31332e
+│ │ +3433334836372e3135762d322e3763302d302e3833322d302e3331362d312e32
+│ │ +34382d302e39352d312e323438632d302e3331312c302d302e3536322c302e31
+│ │ +31342d302e3735372c302e3334330a09090909632d302e3139332c302e323239
+│ │ +2d302e3239312c302e3439392d302e3239312c302e38303876322e373936682d
+│ │ +312e303438762d332e33363663302d302e3431342d302e3031332d302e383633
+│ │ +2d302e3033382d312e33343968302e3932316c302e3034392c302e3733376830
+│ │ +2e3032390a0909090963302e3132322d302e3232392c302e3330342d302e3431
+│ │ +382c302e3534332d302e35363963302e3238342d302e3137362c302e3630322d
+│ │ +302e3236352c302e39352d302e32363563302e34342c302c302e3830362c302e
+│ │ +3134322c312e3039372c302e3432370a0909090963302e3336322c302e333439
+│ │ +2c302e3534332c302e38372c302e3534332c312e3536325631332e3433337a22
+│ │ +2f3e0a0909093c706174682066696c6c3d22234646464646462220643d224d37
+│ │ +312e3038382c31332e343333682d312e30343756362e35353668312e30343756
+│ │ +31332e3433337a222f3e0a0909093c706174682066696c6c3d22234646464646
+│ │ +462220643d224d37372e3235382c31312e30333763302c302e3732352d302e32
+│ │ +30372c312e3331392d302e3632312c312e373835632d302e3433342c302e3437
+│ │ +392d312e30312c302e3731382d312e3732372c302e3731380a09090909632d30
+│ │ +2e3639332c302d312e3234342d302e3232392d312e3635342d302e363839632d
+│ │ +302e34312d302e3435392d302e3631352d312e3033382d302e3631352d312e37
+│ │ +333663302d302e37332c302e3231312d312e3332392c302e3633352d312e3739
+│ │ +3473302e3939342d302e3639382c312e3731312d302e3639380a090909096330
+│ │ +2e3639332c302c312e3234382c302e3232392c312e36372c302e363838433737
+│ │ +2e3035372c392e3735372c37372e3235382c31302e3333332c37372e3235382c
+│ │ +31312e3033377a204d37362e31372c31312e30373163302d302e3433352d302e
+│ │ +3039342d302e3830382d302e3238312d312e3131390a09090909632d302e3231
+│ │ +392d302e3337362d302e3533332d302e3536342d302e3933392d302e35363463
+│ │ +2d302e3432322c302d302e3734322c302e3138382d302e3936312c302e353634
+│ │ +632d302e3138382c302e3331312d302e3238312c302e36392d302e3238312c31
+│ │ +2e3133380a0909090963302c302e3433352c302e3039342c302e3830382c302e
+│ │ +3238312c312e31313963302e3232372c302e3337362c302e3534332c302e3536
+│ │ +342c302e3935312c302e35363463302e342c302c302e3731332d302e3139312c
+│ │ +302e3933392d302e3537340a090909094337362e3037342c31312e3838322c37
+│ │ +362e31372c31312e3530362c37362e31372c31312e3037317a222f3e0a090909
+│ │ +3c706174682066696c6c3d22234646464646462220643d224d38322e33332c31
+│ │ +332e343333682d302e3934316c2d302e3037382d302e353433682d302e303239
+│ │ +632d302e3332322c302e3433332d302e3738312c302e36352d312e3337372c30
+│ │ +2e36350a09090909632d302e3434352c302d302e3830352d302e3134332d312e
+│ │ +3037362d302e343237632d302e3234362d302e3235382d302e3336392d302e35
+│ │ +37392d302e3336392d302e393663302d302e3537362c302e32342d312e303135
+│ │ +2c302e3732332d312e3331390a0909090963302e3438322d302e3330342c312e
+│ │ +31362d302e3435332c322e3033332d302e3434365631302e3363302d302e3632
+│ │ +312d302e3332362d302e3933312d302e3937392d302e393331632d302e343635
+│ │ +2c302d302e3837352c302e3131372d312e3232392c302e3334396c2d302e3231
+│ │ +332d302e3638380a0909090963302e3433382d302e3237312c302e3937392d30
+│ │ +2e3430372c312e3631372d302e34303763312e3233322c302c312e38352c302e
+│ │ +36352c312e38352c312e393576312e3733364338322e3236322c31322e37382c
+│ │ +38322e3238352c31332e3135352c38322e33332c31332e3433337a0a09090909
+│ │ +204d38312e3234322c31312e383133762d302e373237632d312e3135362d302e
+│ │ +30322d312e3733342c302e3239372d312e3733342c302e393563302c302e3234
+│ │ +362c302e3036362c302e34332c302e3230312c302e35353363302e3133352c30
+│ │ +2e3132332c302e3330372c302e3138342c302e3531322c302e3138340a090909
+│ │ -3837356c302e3131392c312e35323168302e30340d0a09090963302e37312d31
+│ │ -2e3134362c312e3738392d312e3731382c332e3233382d312e37313863312e31
+│ │ -33312c302c322e3037362c302e3434372c322e3833342c312e3334324337352e
+│ │ -33322c32332e3934392c37352e3639392c32352e3132372c37352e3639392c32
+│ │ -362e3538387a204d37332e3532372c32362e3636360d0a09090963302d302e39
+│ │ -33342d302e3231312d312e3730342d302e3633332d322e3331632d302e343631
+│ │ -2d302e3633322d312e3037382d302e3934382d312e3835352d302e393438632d
+│ │ -302e3532372c302d312e3030342c302e3137362d312e3433322c302e3532330d
+│ │ -0a090909632d302e3432382c302e33352d302e3730372c302e3830372d302e38
+│ │ -33382c312e333733632d302e3036352c302e3236342d302e3039392c302e3438
+│ │ -2d302e3039392c302e363576312e3663302c302e3639382c302e3231342c312e
+│ │ -3238372c302e36342c312e3736380d0a09090963302e3432382c302e34382c30
+│ │ -2e3938342c302e3732312c312e36372c302e37323163302e3830332c302c312e
+│ │ -3432382d302e33312c312e3837352d302e3932384337332e3330332c32382e34
+│ │ -39362c37332e3532372c32372e36382c37332e3532372c32362e3636367a222f
+│ │ -3e0d0a09093c706174682066696c6c3d22234646464646462220643d224d3838
+│ │ -2e3033392c32372e37373263302c312e3133322d302e3339332c322e3035332d
+│ │ -312e3138322c322e373634632d302e3836372c302e3737372d322e3037342c31
+│ │ -2e3136352d332e3632352c312e3136350d0a090909632d312e3433322c302d32
+│ │ -2e35382d302e3237362d332e3434392d302e3832396c302e3439342d312e3737
+│ │ -3763302e3933362c302e3536362c312e3936332c302e38352c332e3038322c30
+│ │ -2e383563302e3830332c302c312e3432382d302e3138322c312e3837372d302e
+│ │ -3534340d0a09090963302e3434372d302e3336322c302e36372d302e3834382c
+│ │ -302e36372d312e34353463302d302e35342d302e3138342d302e3939352d302e
+│ │ -3535332d312e333634632d302e3336372d302e3336392d302e39382d302e3731
+│ │ -322d312e3833362d312e3032390d0a090909632d322e33332d302e3836392d33
+│ │ -2e3439342d322e3134322d332e3439342d332e38313663302d312e3039342c30
+│ │ -2e3430382d312e3939312c312e3232352d322e36383963302e3831342d302e36
+│ │ -39392c312e392d312e3034382c332e3235382d312e3034380d0a09090963312e
+│ │ -3231312c302c322e3231372c302e3231312c332e30322c302e3633326c2d302e
+│ │ -3533332c312e373338632d302e37352d302e3430382d312e3539382d302e3631
+│ │ -322d322e3534372d302e363132632d302e37352c302d312e3333362c302e3138
+│ │ -352d312e3735362c302e3535330d0a090909632d302e3335352c302e3332392d
+│ │ -302e3533332c302e37332d302e3533332c312e32303563302c302e3532362c30
+│ │ -2e3230332c302e3936312c302e3631312c312e33303363302e3335352c302e33
+│ │ -31362c312c302e3635382c312e3933362c312e3032370d0a09090963312e3134
+│ │ -352c302e3436312c312e3938362c312c322e3532372c312e3631384338372e37
+│ │ -372c32362e3038312c38382e3033392c32362e3835322c38382e3033392c3237
+│ │ -2e3737327a222f3e0d0a09093c706174682066696c6c3d222346464646464622
+│ │ -20643d224d39352e3038382c32332e353038682d322e333576342e3635396330
+│ │ -2c312e3138352c302e3431342c312e3737372c312e3234342c312e3737376330
+│ │ -2e3338312c302c302e3639372d302e3033332c302e3934372d302e3039396c30
+│ │ -2e3035392c312e3631390d0a090909632d302e34322c302e3135372d302e3937
+│ │ -332c302e3233362d312e3635382c302e323336632d302e3834322c302d312e35
+│ │ -2d302e3235372d312e3937352d302e3737632d302e3437332d302e3531342d30
+│ │ -2e3731312d312e3337362d302e3731312d322e353837762d342e383337682d31
+│ │ -2e34762d312e3668312e340d0a090909762d312e3735376c322e3039342d302e
+│ │ -36333276322e33383968322e33355632332e3530387a222f3e0d0a09093c7061
+│ │ -74682066696c6c3d22234646464646462220643d224d3130352e3639312c3236
+│ │ -2e36323763302c312e3437352d302e3432322c322e3638362d312e3236342c33
+│ │ -2e363333632d302e3838332c302e3937352d322e3035352c312e3436312d332e
+│ │ -3531362c312e3436310d0a090909632d312e3430382c302d322e3532392d302e
+│ │ -3436372d332e3336352d312e343031732d312e3235342d322e3131332d312e32
+│ │ -35342d332e35333463302d312e3438372c302e34332d322e3730352c312e3239
+│ │ -332d332e36353263302e3836312d302e3934382c322e3032332d312e3432322c
+│ │ -332e3438342d312e3432320d0a09090963312e3430382c302c322e3534312c30
+│ │ -2e3436372c332e3339362c312e343032433130352e3238332c32342e3032312c
+│ │ -3130352e3639312c32352e3139322c3130352e3639312c32362e3632377a204d
+│ │ -3130332e3437392c32362e3639360d0a09090963302d302e3838352d302e3138
+│ │ -392d312e3634342d302e3537322d322e323737632d302e3434372d302e373636
+│ │ -2d312e3038362d312e3134382d312e3931342d312e313438632d302e3835372c
+│ │ -302d312e3530382c302e3338332d312e3935352c312e3134380d0a090909632d
+│ │ -302e3338332c302e3633342d302e3537322c312e3430352d302e3537322c322e
+│ │ -33313763302c302e3838352c302e3138392c312e3634342c302e3537322c322e
+│ │ -32373663302e3436312c302e3736362c312e3130352c312e3134382c312e3933
+│ │ -362c312e3134380d0a09090963302e3831342c302c312e3435332d302e33392c
+│ │ -312e3931342d312e313638433130332e3238312c32382e3334372c3130332e34
+│ │ -37392c32372e35382c3130332e3437392c32362e3639367a222f3e0d0a09093c
+│ │ -706174682066696c6c3d22234646464646462220643d224d3131322e3632312c
+│ │ -32332e373833632d302e3231312d302e3033392d302e3433362d302e3035392d
+│ │ -302e3637322d302e303539632d302e37352c302d312e33332c302e3238332d31
+│ │ -2e3733382c302e38350d0a090909632d302e3335352c302e352d302e3533332c
+│ │ -312e3133322d302e3533332c312e38393576352e303335682d322e3133316c30
+│ │ -2e30322d362e35373463302d312e3130362d302e3032372d322e3131332d302e
+│ │ -30382d332e30323168312e3835376c302e3037382c312e38333668302e303539
+│ │ -0d0a09090963302e3232352d302e3633312c302e35382d312e3133392c312e30
+│ │ -36362d312e353263302e3437352d302e3334332c302e3938382d302e3531342c
+│ │ -312e3534312d302e35313463302e3139372c302c302e3337352c302e3031342c
+│ │ -302e3533332c302e3033395632332e3738337a222f3e0d0a09093c7061746820
+│ │ -66696c6c3d22234646464646462220643d224d3132322e3135362c32362e3235
+│ │ -3263302c302e3338322d302e3032352c302e3730342d302e3037382c302e3936
+│ │ -37682d362e33393663302e3032352c302e3934382c302e3333342c312e363733
+│ │ -2c302e3932382c322e3137330d0a09090963302e3533392c302e3434372c312e
+│ │ -3233362c302e3637312c322e3039322c302e36373163302e3934372c302c312e
+│ │ -3831312d302e3135312c322e3538382d302e3435346c302e3333342c312e3438
+│ │ -632d302e3930382c302e3339362d312e39382c302e3539332d332e3231372c30
+│ │ -2e3539330d0a090909632d312e3438382c302d322e3635362d302e3433382d33
+│ │ -2e3530362d312e333133632d302e3834382d302e3837352d312e3237332d322e
+│ │ -30352d312e3237332d332e35323463302d312e3434372c302e3339352d322e36
+│ │ -35322c312e3138362d332e3631330d0a09090963302e3832382d312e3032362c
+│ │ -312e3934372d312e3533392c332e3335352d312e35333963312e3338332c302c
+│ │ -322e34332c302e3531332c332e3134312c312e353339433132312e3837332c32
+│ │ -342e3034372c3132322e3135362c32352e3035352c3132322e3135362c32362e
+│ │ -3235327a0d0a090909204d3132302e3132332c32352e36393963302e3031342d
+│ │ -302e3633322d302e3132352d312e3137382d302e3431342d312e363339632d30
+│ │ -2e3336392d302e3539332d302e3933362d302e3838392d312e3639392d302e38
+│ │ -3839632d302e3639372c302d312e3236342c302e3238392d312e3639372c302e
+│ │ -3836390d0a090909632d302e3335352c302e3436312d302e3536362c312e3031
+│ │ -342d302e3633312c312e363538483132302e3132337a222f3e0d0a093c2f673e
+│ │ -0d0a093c673e0d0a09093c673e0d0a0909093c706174682066696c6c3d222346
+│ │ -46464646462220643d224d34392e30352c31302e30303963302c312e3137372d
+│ │ -302e3335332c322e3036332d312e3035382c322e363538632d302e3635332c30
+│ │ -2e3534392d312e3538312c302e3832342d322e3738332c302e3832340d0a0909
+│ │ -0909632d302e3539362c302d312e3130362d302e3032362d312e3533332d302e
+│ │ -30373856362e39383263302e3535372d302e30392c312e3135372d302e313336
+│ │ -2c312e3830352d302e31333663312e3134352c302c322e3030382c302e323439
+│ │ -2c322e35392c302e3734370d0a090909094334382e3732332c382e3135362c34
+│ │ -392e30352c382e3936312c34392e30352c31302e3030397a204d34372e393435
+│ │ -2c31302e30333863302d302e3736332d302e3230322d312e3334382d302e3630
+│ │ -362d312e373536632d302e3430342d302e3430372d302e3939342d302e363131
+│ │ -2d312e3737312d302e3631310d0a09090909632d302e33332c302d302e363131
+│ │ -2c302e3032322d302e3834342c302e30363876342e38383963302e3132392c30
+│ │ -2e30322c302e3336352c302e3032392c302e3730382c302e30323963302e3830
+│ │ -322c302c312e3432312d302e3232332c312e3835372d302e3636390d0a090909
+│ │ -095334372e3934352c31302e3839322c34372e3934352c31302e3033387a222f
+│ │ -3e0d0a0909093c706174682066696c6c3d22234646464646462220643d224d35
+│ │ -342e3930392c31312e30333763302c302e3732352d302e3230372c312e333139
+│ │ -2d302e3632312c312e373835632d302e3433342c302e3437392d312e3030392c
+│ │ -302e3731382d312e3732372c302e3731380d0a09090909632d302e3639322c30
+│ │ -2d312e3234332d302e3232392d312e3635342d302e363839632d302e34312d30
+│ │ -2e3435392d302e3631352d312e3033382d302e3631352d312e37333663302d30
+│ │ -2e37332c302e3231312d312e3332392c302e3633352d312e37393473302e3939
+│ │ -342d302e3639382c312e3731322d302e3639380d0a0909090963302e3639322c
+│ │ -302c312e3234382c302e3232392c312e3636392c302e3638384335342e373038
+│ │ -2c392e3735372c35342e3930392c31302e3333332c35342e3930392c31312e30
+│ │ -33377a204d35332e3832322c31312e30373163302d302e3433352d302e303934
+│ │ -2d302e3830382d302e3238312d312e3131390d0a09090909632d302e32322d30
+│ │ -2e3337362d302e3533332d302e3536342d302e39342d302e353634632d302e34
+│ │ -32312c302d302e3734312c302e3138382d302e3936312c302e353634632d302e
+│ │ -3138382c302e3331312d302e3238312c302e36392d302e3238312c312e313338
+│ │ -0d0a0909090963302c302e3433352c302e3039342c302e3830382c302e323831
+│ │ -2c312e31313963302e3232372c302e3337362c302e3534332c302e3536342c30
+│ │ -2e3935312c302e35363463302e342c302c302e3731342d302e3139312c302e39
+│ │ -342d302e3537340d0a090909094335332e3732352c31312e3838322c35332e38
+│ │ -32322c31312e3530362c35332e3832322c31312e3037317a222f3e0d0a090909
+│ │ -3c706174682066696c6c3d22234646464646462220643d224d36322e3736352c
+│ │ -382e3731396c2d312e3437352c342e373134682d302e39366c2d302e3631312d
+│ │ -322e303437632d302e3135352d302e3531312d302e3238312d312e3031392d30
+│ │ -2e3337392d312e353233682d302e3031390d0a09090909632d302e3039312c30
+│ │ -2e3531382d302e3231372c312e3032352d302e3337392c312e3532336c2d302e
+│ │ -3634392c322e303437682d302e3937316c2d312e3338372d342e37313468312e
+│ │ -3037376c302e3533332c322e32343163302e3132392c302e35332c302e323335
+│ │ -2c312e3033352c302e33322c312e3531330d0a0909090968302e30313963302e
+│ │ -3037382d302e3339342c302e3230372d302e3839362c302e3338392d312e3530
+│ │ -336c302e3636392d322e323568302e3835346c302e3634312c322e3230326330
+│ │ -2e3135352c302e3533372c302e3238312c312e3035342c302e3337382c312e35
+│ │ -353268302e3032390d0a0909090963302e3037312d302e3438352c302e313738
+│ │ -2d312e3030322c302e33322d312e3535326c302e3537322d322e323032483632
+│ │ -2e3736357a222f3e0d0a0909093c706174682066696c6c3d2223464646464646
+│ │ -2220643d224d36382e3139382c31332e3433334836372e3135762d322e376330
+│ │ -2d302e3833322d302e3331362d312e3234382d302e39352d312e323438632d30
+│ │ -2e3331312c302d302e3536322c302e3131342d302e3735372c302e3334330d0a
+│ │ -09090909632d302e3139332c302e3232392d302e3239312c302e3439392d302e
+│ │ -3239312c302e38303876322e373936682d312e303438762d332e33363663302d
+│ │ -302e3431342d302e3031332d302e3836332d302e3033382d312e33343968302e
+│ │ -3932316c302e3034392c302e37333768302e3032390d0a0909090963302e3132
+│ │ -322d302e3232392c302e3330342d302e3431382c302e3534332d302e35363963
+│ │ -302e3238342d302e3137362c302e3630322d302e3236352c302e39352d302e32
+│ │ -363563302e34342c302c302e3830362c302e3134322c312e3039372c302e3432
+│ │ -370d0a0909090963302e3336322c302e3334392c302e3534332c302e38372c30
+│ │ -2e3534332c312e3536325631332e3433337a222f3e0d0a0909093c7061746820
+│ │ -66696c6c3d22234646464646462220643d224d37312e3038382c31332e343333
+│ │ -682d312e30343756362e35353668312e3034375631332e3433337a222f3e0d0a
+│ │ -0909093c706174682066696c6c3d22234646464646462220643d224d37372e32
+│ │ -35382c31312e30333763302c302e3732352d302e3230372c312e3331392d302e
+│ │ -3632312c312e373835632d302e3433342c302e3437392d312e30312c302e3731
+│ │ -382d312e3732372c302e3731380d0a09090909632d302e3639332c302d312e32
+│ │ -34342d302e3232392d312e3635342d302e363839632d302e34312d302e343539
+│ │ -2d302e3631352d312e3033382d302e3631352d312e37333663302d302e37332c
+│ │ -302e3231312d312e3332392c302e3633352d312e37393473302e3939342d302e
+│ │ -3639382c312e3731312d302e3639380d0a0909090963302e3639332c302c312e
+│ │ -3234382c302e3232392c312e36372c302e3638384337372e3035372c392e3735
+│ │ -372c37372e3235382c31302e3333332c37372e3235382c31312e3033377a204d
+│ │ -37362e31372c31312e30373163302d302e3433352d302e3039342d302e383038
+│ │ -2d302e3238312d312e3131390d0a09090909632d302e3231392d302e3337362d
+│ │ -302e3533332d302e3536342d302e3933392d302e353634632d302e3432322c30
+│ │ -2d302e3734322c302e3138382d302e3936312c302e353634632d302e3138382c
+│ │ -302e3331312d302e3238312c302e36392d302e3238312c312e3133380d0a0909
+│ │ -090963302c302e3433352c302e3039342c302e3830382c302e3238312c312e31
+│ │ -313963302e3232372c302e3337362c302e3534332c302e3536342c302e393531
+│ │ -2c302e35363463302e342c302c302e3731332d302e3139312c302e3933392d30
+│ │ -2e3537340d0a090909094337362e3037342c31312e3838322c37362e31372c31
+│ │ -312e3530362c37362e31372c31312e3037317a222f3e0d0a0909093c70617468
+│ │ -2066696c6c3d22234646464646462220643d224d38322e33332c31332e343333
+│ │ -682d302e3934316c2d302e3037382d302e353433682d302e303239632d302e33
+│ │ -32322c302e3433332d302e3738312c302e36352d312e3337372c302e36350d0a
+│ │ -09090909632d302e3434352c302d302e3830352d302e3134332d312e3037362d
+│ │ -302e343237632d302e3234362d302e3235382d302e3336392d302e3537392d30
+│ │ -2e3336392d302e393663302d302e3537362c302e32342d312e3031352c302e37
+│ │ -32332d312e3331390d0a0909090963302e3438322d302e3330342c312e31362d
+│ │ -302e3435332c322e3033332d302e3434365631302e3363302d302e3632312d30
+│ │ -2e3332362d302e3933312d302e3937392d302e393331632d302e3436352c302d
+│ │ -302e3837352c302e3131372d312e3232392c302e3334396c2d302e3231332d30
+│ │ -2e3638380d0a0909090963302e3433382d302e3237312c302e3937392d302e34
+│ │ -30372c312e3631372d302e34303763312e3233322c302c312e38352c302e3635
+│ │ -2c312e38352c312e393576312e3733364338322e3236322c31322e37382c3832
+│ │ -2e3238352c31332e3135352c38322e33332c31332e3433337a0d0a0909090920
+│ │ -4d38312e3234322c31312e383133762d302e373237632d312e3135362d302e30
+│ │ -322d312e3733342c302e3239372d312e3733342c302e393563302c302e323436
+│ │ -2c302e3036362c302e34332c302e3230312c302e35353363302e3133352c302e
+│ │ -3132332c302e3330372c302e3138342c302e3531322c302e3138340d0a090909
+│ │  0963302e32332c302c302e3434352d302e3037332c302e3634312d302e323138
+│ │  63302e3139372d302e3134362c302e3331382d302e3333312c302e3336332d30
+│ │  2e3535384338312e3233362c31312e3934362c38312e3234322c31312e383834
+│ │ +2c38312e3234322c31312e3831337a222f3e0a0909093c706174682066696c6c
+│ │ +3d22234646464646462220643d224d38382e3238352c31332e343333682d302e
+│ │ +39336c2d302e3034392d302e373537682d302e303239632d302e3239372c302e
+│ │ +3537362d302e3830332c302e3836342d312e3531342c302e3836340a09090909
+│ │ +632d302e3536382c302d312e3034312d302e3232332d312e3431362d302e3636
+│ │ +39732d302e3536322d312e3032352d302e3536322d312e37333663302d302e37
+│ │ +36332c302e3230332d312e3338312c302e3631312d312e38353363302e333935
+│ │ +2d302e34342c302e3837392d302e36362c312e3435352d302e36360a09090909
+│ │ +63302e3633332c302c312e3037362c302e3231332c312e3332382c302e363468
+│ │ +302e303256362e35353668312e30343976352e3630374338382e3234382c3132
+│ │ +2e3632322c38382e32362c31332e3034352c38382e3238352c31332e3433337a
+│ │ +204d38372e3139392c31312e343435762d302e3738360a0909090963302d302e
+│ │ +3133362d302e30312d302e3234362d302e3032392d302e3333632d302e303539
+│ │ +2d302e3235322d302e3138362d302e3436342d302e3337392d302e363335632d
+│ │ +302e3139352d302e3137312d302e34332d302e3235372d302e3730312d302e32
+│ │ +35370a09090909632d302e3339312c302d302e3639372c302e3135352d302e39
+│ │ +32322c302e343636632d302e3232332c302e3331312d302e3333362c302e3730
+│ │ +382d302e3333362c312e31393363302c302e3436362c302e3130372c302e3834
+│ │ +342c302e3332322c312e3133350a0909090963302e3232372c302e33312c302e
+│ │ +3533332c302e3436352c302e3931362c302e34363563302e3334342c302c302e
+│ │ +3631392d302e3132392c302e3832382d302e3338384338372e312c31322e3036
+│ │ +392c38372e3139392c31312e3738312c38372e3139392c31312e3434357a222f
+│ │ +3e0a0909093c706174682066696c6c3d22234646464646462220643d224d3937
+│ │ +2e3234382c31312e30333763302c302e3732352d302e3230372c312e3331392d
+│ │ +302e3632312c312e373835632d302e3433342c302e3437392d312e3030382c30
+│ │ +2e3731382d312e3732372c302e3731380a09090909632d302e3639312c302d31
+│ │ +2e3234322d302e3232392d312e3635342d302e363839632d302e34312d302e34
+│ │ +35392d302e3631352d312e3033382d302e3631352d312e37333663302d302e37
+│ │ +332c302e3231312d312e3332392c302e3633352d312e37393473302e3939342d
+│ │ +302e3639382c312e3731332d302e3639380a0909090963302e3639312c302c31
+│ │ +2e3234382c302e3232392c312e3636382c302e3638384339372e3034372c392e
+│ │ +3735372c39372e3234382c31302e3333332c39372e3234382c31312e3033377a
+│ │ +204d39362e3136322c31312e30373163302d302e3433352d302e3039342d302e
+│ │ +3830382d302e3238312d312e3131390a09090909632d302e3232312d302e3337
+│ │ +362d302e3533332d302e3536342d302e3934312d302e353634632d302e34322c
+│ │ +302d302e37342c302e3138382d302e3936312c302e353634632d302e3138382c
+│ │ +302e3331312d302e3238312c302e36392d302e3238312c312e3133380a090909
+│ │ +0963302c302e3433352c302e3039342c302e3830382c302e3238312c312e3131
+│ │ +3963302e3232372c302e3337362c302e3534332c302e3536342c302e3935312c
+│ │ +302e35363463302e342c302c302e3731352d302e3139312c302e3934312d302e
+│ │ +3537340a090909094339362e3036342c31312e3838322c39362e3136322c3131
+│ │ +2e3530362c39362e3136322c31312e3037317a222f3e0a0909093c7061746820
+│ │ +66696c6c3d22234646464646462220643d224d3130322e3838332c31332e3433
+│ │ +33682d312e303437762d322e3763302d302e3833322d302e3331362d312e3234
+│ │ +382d302e3935312d312e323438632d302e3331312c302d302e3536322c302e31
+│ │ +31342d302e3735362c302e3334330a09090909732d302e3239312c302e343939
+│ │ +2d302e3239312c302e38303876322e373936682d312e303439762d332e333636
+│ │ +63302d302e3431342d302e3031322d302e3836332d302e3033372d312e333439
+│ │ +68302e39326c302e3034392c302e37333768302e3032390a0909090963302e31
+│ │ +32332d302e3232392c302e3330352d302e3431382c302e3534332d302e353639
+│ │ +63302e3238352d302e3137362c302e3630322d302e3236352c302e3935312d30
+│ │ +2e32363563302e3433392c302c302e3830352c302e3134322c312e3039362c30
+│ │ +2e3432370a0909090963302e3336332c302e3334392c302e3534332c302e3837
+│ │ +2c302e3534332c312e3536325631332e3433337a222f3e0a0909093c70617468
+│ │ +2066696c6c3d22234646464646462220643d224d3130392e3933362c392e3530
+│ │ +34682d312e31353476322e323963302c302e3538322c302e3230352c302e3837
+│ │ +332c302e3631312c302e38373363302e3138382c302c302e3334342d302e3031
+│ │ +362c302e3436372d302e3034390a090909096c302e3032372c302e373935632d
+│ │ +302e3230372c302e3037382d302e3437392c302e3131372d302e3831342c302e
+│ │ +313137632d302e3431342c302d302e3733362d302e3132362d302e3936392d30
+│ │ +2e333738632d302e3233342d302e3235322d302e33352d302e3637362d302e33
+│ │ +352d312e32373156392e3530340a09090909682d302e36383956382e37313968
+│ │ +302e36383956372e3835356c312e3032372d302e333176312e31373368312e31
+│ │ +353456392e3530347a222f3e0a0909093c706174682066696c6c3d2223464646
+│ │ +4646462220643d224d3131352e3438342c31332e343333682d312e303439762d
+│ │ +322e363863302d302e3834352d302e3331362d312e3236382d302e3934392d31
+│ │ +2e323638632d302e3438362c302d302e3831382c302e3234352d312c302e3733
+│ │ +350a09090909632d302e3033312c302e3130332d302e3034392c302e3232392d
+│ │ +302e3034392c302e33373776322e383335682d312e30343756362e3535366831
+│ │ +2e30343776322e38343168302e303263302e33332d302e3531372c302e383033
+│ │ +2d302e3737352c312e3431362d302e3737350a0909090963302e3433342c302c
+│ │ +302e3739332c302e3134322c312e3037382c302e34323763302e3335352c302e
+│ │ +3335352c302e3533332c302e3838332c302e3533332c312e3538315631332e34
+│ │ +33337a222f3e0a0909093c706174682066696c6c3d2223464646464646222064
+│ │ +3d224d3132312e3230372c31302e38353363302c302e3138382d302e3031342c
+│ │ +302e3334362d302e3033392c302e343735682d332e31343363302e3031342c30
+│ │ +2e3436362c302e3136342c302e3832312c302e3435352c312e3036370a090909
+│ │ +0963302e3236362c302e32322c302e3630392c302e33332c312e3032392c302e
+│ │ +333363302e3436352c302c302e3838392d302e3037342c312e3237312d302e32
+│ │ +32336c302e3136342c302e373238632d302e3434372c302e3139342d302e3937
+│ │ +332c302e3239312d312e3538322c302e3239310a09090909632d302e37332c30
+│ │ +2d312e3330352d302e3231352d312e3732312d302e363435632d302e3431382d
+│ │ +302e34332d302e3632352d312e3030372d302e3632352d312e37333163302d30
+│ │ +2e3731312c302e3139332d312e3330332c302e3538322d312e3737350a090909
+│ │ +0963302e3430362d302e3530342c302e3935352d302e3735362c312e3634382d
+│ │ +302e37353663302e3637382c302c312e3139332c302e3235322c312e3534312c
+│ │ +302e373536433132312e3036382c392e37372c3132312e3230372c31302e3236
+│ │ +352c3132312e3230372c31302e3835337a0a09090909204d3132302e3230372c
+│ │ +31302e35383263302e3030382d302e3331312d302e3036312d302e3537392d30
+│ │ +2e3230332d302e383035632d302e3138322d302e3239312d302e3435392d302e
+│ │ +3433372d302e3833342d302e343337632d302e3334322c302d302e3632312c30
+│ │ +2e3134322d302e3833342c302e3432370a09090909632d302e3137342c302e32
+│ │ +32372d302e3237372c302e3439382d302e3331312c302e383135483132302e32
+│ │ +30377a222f3e0a09093c2f673e0a093c2f673e0a3c2f673e0a3c2f7376673e0a
+│ │ -2c38312e3234322c31312e3831337a222f3e0d0a0909093c706174682066696c
+│ │ -6c3d22234646464646462220643d224d38382e3238352c31332e343333682d30
+│ │ -2e39336c2d302e3034392d302e373537682d302e303239632d302e3239372c30
+│ │ -2e3537362d302e3830332c302e3836342d312e3531342c302e3836340d0a0909
+│ │ -0909632d302e3536382c302d312e3034312d302e3232332d312e3431362d302e
+│ │ -363639732d302e3536322d312e3032352d302e3536322d312e37333663302d30
+│ │ -2e3736332c302e3230332d312e3338312c302e3631312d312e38353363302e33
+│ │ -39352d302e34342c302e3837392d302e36362c312e3435352d302e36360d0a09
+│ │ -09090963302e3633332c302c312e3037362c302e3231332c312e3332382c302e
+│ │ -363468302e303256362e35353668312e30343976352e3630374338382e323438
+│ │ -2c31322e3632322c38382e32362c31332e3034352c38382e3238352c31332e34
+│ │ -33337a204d38372e3139392c31312e343435762d302e3738360d0a0909090963
+│ │ -302d302e3133362d302e30312d302e3234362d302e3032392d302e3333632d30
+│ │ -2e3035392d302e3235322d302e3138362d302e3436342d302e3337392d302e36
+│ │ -3335632d302e3139352d302e3137312d302e34332d302e3235372d302e373031
+│ │ -2d302e3235370d0a09090909632d302e3339312c302d302e3639372c302e3135
+│ │ -352d302e3932322c302e343636632d302e3232332c302e3331312d302e333336
+│ │ -2c302e3730382d302e3333362c312e31393363302c302e3436362c302e313037
+│ │ -2c302e3834342c302e3332322c312e3133350d0a0909090963302e3232372c30
+│ │ -2e33312c302e3533332c302e3436352c302e3931362c302e34363563302e3334
+│ │ -342c302c302e3631392d302e3132392c302e3832382d302e3338384338372e31
+│ │ -2c31322e3036392c38372e3139392c31312e3738312c38372e3139392c31312e
+│ │ -3434357a222f3e0d0a0909093c706174682066696c6c3d222346464646464622
+│ │ -20643d224d39372e3234382c31312e30333763302c302e3732352d302e323037
+│ │ -2c312e3331392d302e3632312c312e373835632d302e3433342c302e3437392d
+│ │ -312e3030382c302e3731382d312e3732372c302e3731380d0a09090909632d30
+│ │ -2e3639312c302d312e3234322d302e3232392d312e3635342d302e363839632d
+│ │ -302e34312d302e3435392d302e3631352d312e3033382d302e3631352d312e37
+│ │ -333663302d302e37332c302e3231312d312e3332392c302e3633352d312e3739
+│ │ -3473302e3939342d302e3639382c312e3731332d302e3639380d0a0909090963
+│ │ -302e3639312c302c312e3234382c302e3232392c312e3636382c302e36383843
+│ │ -39372e3034372c392e3735372c39372e3234382c31302e3333332c39372e3234
+│ │ -382c31312e3033377a204d39362e3136322c31312e30373163302d302e343335
+│ │ -2d302e3039342d302e3830382d302e3238312d312e3131390d0a09090909632d
+│ │ -302e3232312d302e3337362d302e3533332d302e3536342d302e3934312d302e
+│ │ -353634632d302e34322c302d302e37342c302e3138382d302e3936312c302e35
+│ │ -3634632d302e3138382c302e3331312d302e3238312c302e36392d302e323831
+│ │ -2c312e3133380d0a0909090963302c302e3433352c302e3039342c302e383038
+│ │ -2c302e3238312c312e31313963302e3232372c302e3337362c302e3534332c30
+│ │ -2e3536342c302e3935312c302e35363463302e342c302c302e3731352d302e31
+│ │ -39312c302e3934312d302e3537340d0a090909094339362e3036342c31312e38
+│ │ -38322c39362e3136322c31312e3530362c39362e3136322c31312e3037317a22
+│ │ -2f3e0d0a0909093c706174682066696c6c3d22234646464646462220643d224d
+│ │ -3130322e3838332c31332e343333682d312e303437762d322e3763302d302e38
+│ │ -33322d302e3331362d312e3234382d302e3935312d312e323438632d302e3331
+│ │ -312c302d302e3536322c302e3131342d302e3735362c302e3334330d0a090909
+│ │ -09732d302e3239312c302e3439392d302e3239312c302e38303876322e373936
+│ │ -682d312e303439762d332e33363663302d302e3431342d302e3031322d302e38
+│ │ -36332d302e3033372d312e33343968302e39326c302e3034392c302e37333768
+│ │ -302e3032390d0a0909090963302e3132332d302e3232392c302e3330352d302e
+│ │ -3431382c302e3534332d302e35363963302e3238352d302e3137362c302e3630
+│ │ -322d302e3236352c302e3935312d302e32363563302e3433392c302c302e3830
+│ │ -352c302e3134322c312e3039362c302e3432370d0a0909090963302e3336332c
+│ │ -302e3334392c302e3534332c302e38372c302e3534332c312e3536325631332e
+│ │ -3433337a222f3e0d0a0909093c706174682066696c6c3d222346464646464622
+│ │ -20643d224d3130392e3933362c392e353034682d312e31353476322e32396330
+│ │ -2c302e3538322c302e3230352c302e3837332c302e3631312c302e3837336330
+│ │ -2e3138382c302c302e3334342d302e3031362c302e3436372d302e3034390d0a
+│ │ -090909096c302e3032372c302e373935632d302e3230372c302e3037382d302e
+│ │ -3437392c302e3131372d302e3831342c302e313137632d302e3431342c302d30
+│ │ -2e3733362d302e3132362d302e3936392d302e333738632d302e3233342d302e
+│ │ -3235322d302e33352d302e3637362d302e33352d312e32373156392e3530340d
+│ │ -0a09090909682d302e36383956382e37313968302e36383956372e3835356c31
+│ │ -2e3032372d302e333176312e31373368312e31353456392e3530347a222f3e0d
+│ │ -0a0909093c706174682066696c6c3d22234646464646462220643d224d313135
+│ │ -2e3438342c31332e343333682d312e303439762d322e363863302d302e383435
+│ │ -2d302e3331362d312e3236382d302e3934392d312e323638632d302e3438362c
+│ │ -302d302e3831382c302e3234352d312c302e3733350d0a09090909632d302e30
+│ │ -33312c302e3130332d302e3034392c302e3232392d302e3034392c302e333737
+│ │ -76322e383335682d312e30343756362e35353668312e30343776322e38343168
+│ │ -302e303263302e33332d302e3531372c302e3830332d302e3737352c312e3431
+│ │ -362d302e3737350d0a0909090963302e3433342c302c302e3739332c302e3134
+│ │ -322c312e3037382c302e34323763302e3335352c302e3335352c302e3533332c
+│ │ -302e3838332c302e3533332c312e3538315631332e3433337a222f3e0d0a0909
+│ │ -093c706174682066696c6c3d22234646464646462220643d224d3132312e3230
+│ │ -372c31302e38353363302c302e3138382d302e3031342c302e3334362d302e30
+│ │ -33392c302e343735682d332e31343363302e3031342c302e3436362c302e3136
+│ │ -342c302e3832312c302e3435352c312e3036370d0a0909090963302e3236362c
+│ │ -302e32322c302e3630392c302e33332c312e3032392c302e333363302e343635
+│ │ -2c302c302e3838392d302e3037342c312e3237312d302e3232336c302e313634
+│ │ -2c302e373238632d302e3434372c302e3139342d302e3937332c302e3239312d
+│ │ -312e3538322c302e3239310d0a09090909632d302e37332c302d312e3330352d
+│ │ -302e3231352d312e3732312d302e363435632d302e3431382d302e34332d302e
+│ │ -3632352d312e3030372d302e3632352d312e37333163302d302e3731312c302e
+│ │ -3139332d312e3330332c302e3538322d312e3737350d0a0909090963302e3430
+│ │ -362d302e3530342c302e3935352d302e3735362c312e3634382d302e37353663
+│ │ -302e3637382c302c312e3139332c302e3235322c312e3534312c302e37353643
+│ │ -3132312e3036382c392e37372c3132312e3230372c31302e3236352c3132312e
+│ │ -3230372c31302e3835337a0d0a09090909204d3132302e3230372c31302e3538
+│ │ -3263302e3030382d302e3331312d302e3036312d302e3537392d302e3230332d
+│ │ -302e383035632d302e3138322d302e3239312d302e3435392d302e3433372d30
+│ │ -2e3833342d302e343337632d302e3334322c302d302e3632312c302e3134322d
+│ │ -302e3833342c302e3432370d0a09090909632d302e3137342c302e3232372d30
+│ │ -2e3237372c302e3439382d302e3331312c302e383135483132302e3230377a22
+│ │ -2f3e0d0a09093c2f673e0d0a093c2f673e0d0a3c2f673e0d0a3c2f7376673e0d
+│ │ -0a
+│ │   --- /workspace/pipeline_output/chromex_data/img/icons
+│ ├── +++ /workspace/pipeline_output/ColorPick/src/img/icons
+│ │ ├── file list
+│ │ │ @@ -1,6 +1,4 @@
+│ │ │  history
+│ │ │  no-shadow
+│ │ │  palette
+│ │ │ -search
+│ │ │ -search.png
+│ │ │ -search_google
+│ │ │ +search
+│ │   --- /workspace/pipeline_output/chromex_data/img/sponsors
+│ ├── +++ /workspace/pipeline_output/ColorPick/src/img/sponsors
+│ │ ├── file list
+│ │ │ @@ -1,8 +1,7 @@
+│ │ │ -avocado-green.jpg
+│ │ │  bulb.jpg
+│ │ │  color.jpg
+│ │ │  colordoctor.jpg
+│ │ │  laser.jpg
+│ │ │  picks.jpg
+│ │ │  prismacolor.jpg
+│ │ │  purple.jpg
+│   --- /workspace/pipeline_output/chromex_data/installkey.user.js
+├── +++ /workspace/pipeline_output/ColorPick/src/installkey.user.js
+│ ├── js-beautify {}
+│ │ @@ -9,15 +9,15 @@
+│ │  
+│ │  function clickedInstallKey() {
+│ │      installKey();
+│ │  }
+│ │  
+│ │  function installKey() {
+│ │      chrome.runtime.sendMessage({
+│ │ -        goToOrVisitTab: chrome.extension.getURL('register.html') + '?k=' + rkey + '&n=' + rname
+│ │ +        goToOrVisitTab: chrome.runtime.getURL('register.html') + '?k=' + rkey + '&n=' + rname
+│ │      }, function(r) {});
+│ │  }
+│ │  destNode = document.body;
+│ │  if (document.getElementById('autoinstall.colorpick.com') && rname != 'default_reg_name') {
+│ │      destNode = document.getElementById('autoinstall.colorpick.com');
+│ │      var b = document.createElement('input');
+│ │      b.setAttribute('type', 'button');
+│   --- /workspace/pipeline_output/chromex_data/license.css
+├── +++ /workspace/pipeline_output/ColorPick/src/license.css
+│┄ Ordering differences only
+│ @@ -1,28 +1,28 @@
+│ -body{background-color:#FEE;padding:0px;margin:0px;font-family:sans-serif;}
+│ -#container{
+│ -	position:relative;
+│ -	height:146px;width:146px;
+│ -}
+│ -#license{
+│ -	height:106px;
+│ -	padding:5px;
+│ -	font-size:8pt;
+│ -	overflow:scroll;
+│ -	overflow-x:hidden;
+│ -}
+│ -#controls{
+│ -	position:absolute;
+│ -	bottom:0px;
+│ -	text-align:center;
+│ -	width:100%;
+│ -}
+│ -#controls input{font-size:8pt;}
+│ -.wide #container{
+│ -	width:506px;
+│ -	height:556px;
+│ -}
+│ -.wide #license{
+│ -	height:506px;
+│ -	font-size:10pt;
+│ -	border-bottom:1px solid #CCC;
+│ +body{background-color:#FEE;padding:0px;margin:0px;font-family:sans-serif;}
+│ +#container{
+│ +	position:relative;
+│ +	height:146px;width:146px;
+│ +}
+│ +#license{
+│ +	height:106px;
+│ +	padding:5px;
+│ +	font-size:8pt;
+│ +	overflow:scroll;
+│ +	overflow-x:hidden;
+│ +}
+│ +#controls{
+│ +	position:absolute;
+│ +	bottom:0px;
+│ +	text-align:center;
+│ +	width:100%;
+│ +}
+│ +#controls input{font-size:8pt;}
+│ +.wide #container{
+│ +	width:506px;
+│ +	height:556px;
+│ +}
+│ +.wide #license{
+│ +	height:506px;
+│ +	font-size:10pt;
+│ +	border-bottom:1px solid #CCC;
+│  }
+│   --- /workspace/pipeline_output/chromex_data/license.html
+├── +++ /workspace/pipeline_output/ColorPick/src/license.html
+│┄ Ordering differences only
+│┄ 'html2text' not available in path. Installing the 'html2text' package may produce better output.
+│ @@ -1,11 +1,11 @@
+│ -<html>
+│ -<head>
+│ -	<link href="license.css" rel="stylesheet" type="text/css">
+│ -	<script src="Cr.js"></script>
+│ -	<script src="options_prefs.js"></script>
+│ -	<script src="options_prefs_helpers.js"></script>
+│ -	<script src="license.js"></script>
+│ -	<title>ColorPick License</title>
+│ -</head>
+│ -<body></body>
+│ +<html>
+│ +<head>
+│ +	<link href="license.css" rel="stylesheet" type="text/css">
+│ +	<script src="Cr.js"></script>
+│ +	<script src="options_prefs.js"></script>
+│ +	<script src="options_prefs_helpers.js"></script>
+│ +	<script src="license.js"></script>
+│ +	<title>ColorPick License</title>
+│ +</head>
+│ +<body></body>
+│  </html>
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/ColorPick/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -14,14 +14,19 @@
+│ │              "32": "img/icons/no-shadow/icon32.png",
+│ │              "38": "img/icons/no-shadow/icon38.png",
+│ │              "48": "img/icons/no-shadow/icon48.png"
+│ │          },
+│ │          "default_popup": "popup.html",
+│ │          "default_title": "__MSG_extName__"
+│ │      },
+│ │ +    "browser_specific_settings": {
+│ │ +        "gecko": {
+│ │ +            "id": "jid1-kCS67LPIOiGf2Q@jetpack"
+│ │ +        }
+│ │ +    },
+│ │      "content_scripts": [
+│ │          {
+│ │              "js": [
+│ │                  "Cr.js",
+│ │                  "options_prefs.js",
+│ │                  "colorpick.user.js"
+│ │              ],
+│ │ @@ -67,15 +72,14 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "tabs",
+│ │          "<all_urls>",
+│ │          "storage",
+│ │          "alarms"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.0.2.38",
+│ │      "web_accessible_resources": [
+│ │          "img/icon16.png",
+│ │          "img/icon64.png",
+│ │          "img/icons/palette/icon32.png",
+│ │          "img/icons/history/icon32.png",
+│ │          "img/icons/search/icon32.png",
+│   --- /workspace/pipeline_output/chromex_data/options.css
+├── +++ /workspace/pipeline_output/ColorPick/src/options.css
+│ @@ -42,15 +42,15 @@
+│  #swatch-holder{position:absolute;width:400px;left:480px;transition:margin-top ease-out 0.1s;}
+│  .rtl #swatch-holder{left:auto;right:480px;}
+│  #swatches{border-top: 1px solid #EEE;border-bottom: 1px solid #AAA;clear: both;}
+│  .swatch-spacer{transition:margin ease-out 0.15s;}
+│  .swatch{padding:10px;transition:margin ease-in 0.15s;}
+│  #swatches.many .swatch{transition:none;}
+│  .swatch .hex{background-color:transparent;border:none;text-shadow:1px 1px 6px white;width: 72px;padding-left:10px;}
+│ -.rtl .swatch .hex{padding-left:2px;padding-right:10px;}}
+│ +.rtl .swatch .hex{padding-left:2px;padding-right:10px;}
+│  .swatch .close{float:right;cursor:pointer;}
+│  .faux-top-swatch{padding:0;margin-bottom:0 !important;}
+│  .swatchCtrl{
+│  	color:black;
+│  	padding:3px 10px 3px 0;
+│  	display:inline-block;
+│  }
+│ @@ -106,14 +106,17 @@
+│  }
+│  .options-btn{
+│  	font-size: 16px;
+│  	font-weight: bold;
+│  	border-radius: 4px;
+│  	padding: 7px;
+│  }
+│ +.gradient-preview{
+│ +	margin:5px 0;padding:8px;text-shadow:1px 1px 2px white;width:100%;position:relative;
+│ +}
+│  
+│  @media only screen and (max-width : 896px){
+│  	#swatch-holder{
+│  		position:relative;
+│  		width:auto !important;
+│  		left:0 !important;
+│  		margin-top: 0px !important;
+│   --- /workspace/pipeline_output/chromex_data/options.js
+├── +++ /workspace/pipeline_output/ColorPick/src/options.js
+│ ├── js-beautify {}
+│ │ @@ -104,15 +104,15 @@
+│ │  
+│ │      if (typeof(localStorage["iconIsBitmap"]) != 'undefined') iconbitmap = ((localStorage["iconIsBitmap"] == 'true') ? true : false);
+│ │      if (typeof(localStorage["appleIcon"]) != 'undefined') appleIcon = ((localStorage["appleIcon"] == 'true') ? true : false);
+│ │      if (!iconbitmap) {
+│ │          var iconPath = 'img/';
+│ │          if (appleIcon) iconPath += 'apple/';
+│ │          chrome.browserAction.setIcon({
+│ │ -            path: chrome.extension.getURL(iconPath + 'icon19.png')
+│ │ +            path: chrome.runtime.getURL(iconPath + 'icon19.png')
+│ │          }); //update icon (to be configurable)
+│ │      }
+│ │  
+│ │      if (typeof(localStorage["usageStatistics"]) == 'undefined') localStorage["usageStatistics"] = false;
+│ │      if (localStorage["usageStatistics"] == 'true' && !navigator.doNotTrack) {
+│ │          if (localStorage.removeItem) localStorage.removeItem("feedbackOptOut");
+│ │          else delete localStorage["feedbackOptOut"];
+│ │ @@ -495,14 +495,15 @@
+│ │      var b4 = e.target.parentNode.parentNode.firstChild;
+│ │      if (e.target.parentNode.nextSibling) b4 = e.target.parentNode.nextSibling.nextSibling;
+│ │      e.target.parentNode.parentNode.insertBefore(e.target.parentNode, b4);
+│ │  }
+│ │  
+│ │  function removeSwatch(e) {
+│ │      deleteHistoryElementWithUndo(e.target.closest('.swatch'));
+│ │ +    addOrRemovePalleteGenerationFeatureIf();
+│ │  }
+│ │  
+│ │  function colorMetaForHex(hex, associatedNode) {
+│ │      hex = cleanHex(hex);
+│ │      var rgb = fromHexClr(hex)
+│ │      return {
+│ │          node: associatedNode,
+│ │ @@ -553,14 +554,15 @@
+│ │      var swHld = document.getElementById('swatches');
+│ │      var colorElms = swHld.getElementsByClassName('hex');
+│ │      if (colorElms.length > 0 && !confirm(chrome.i18n.getMessage('clear') + ' ' + chrome.i18n.getMessage('palette') + '\n' + chrome.i18n.getMessage('deleteConfirm'))) {
+│ │          return;
+│ │      }
+│ │      Cr.empty(swHld);
+│ │      document.getElementById('clear-palette').style.display = 'none';
+│ │ +    addOrRemovePalleteGenerationFeatureIf();
+│ │  }
+│ │  
+│ │  function dedupeSwatches() {
+│ │      var swHld = document.getElementById('swatches');
+│ │      var colors = currentSwatches();
+│ │      var found = {};
+│ │      for (var c = 0, l = colors.length; c < l; c++) {
+│ │ @@ -758,15 +760,15 @@
+│ │              title: chrome.i18n.getMessage('generate_palette'),
+│ │              events: ['click', paletteForColorHex]
+│ │          }, [Cr.txt('\u25B7')]),
+│ │          Cr.elm("img", {
+│ │              class: 'close',
+│ │              draggable: false,
+│ │              align: 'top',
+│ │ -            src: chrome.extension.getURL('img/close.png'),
+│ │ +            src: chrome.runtime.getURL('img/close.png'),
+│ │              events: ['click', removeSwatch]
+│ │          })
+│ │      ], append ? swHld : null);
+│ │  }
+│ │  
+│ │  function addPalleteSwatch(hex) {
+│ │      var newSwatch = createPalleteSwatch(hex, true);
+│ │ @@ -808,14 +810,15 @@
+│ │  
+│ │              }
+│ │          }
+│ │      }
+│ │      return options;
+│ │  }
+│ │  
+│ │ +// also gradient feature is controlled here....
+│ │  function addOrRemovePalleteGenerationFeatureIf(pColorInput) {
+│ │      var pgHld = document.getElementById('generate-palette-area');
+│ │      if (pgHld) {
+│ │          Cr.empty(pgHld);
+│ │          var swHld = document.getElementById('swatches');
+│ │          var colorElms = swHld.getElementsByClassName('hex');
+│ │          var colorInput = null;
+│ │ @@ -824,14 +827,16 @@
+│ │          } else {
+│ │              colorInput = pColorInput;
+│ │          }
+│ │          if (colorInput) {
+│ │              var c = colorMetaForHex(colorInput.value);
+│ │              var options = selectOptionsForObject(paletteGenData.Modes, localStorage['lastPalleteMode']);
+│ │              var eliminatedToneKeys = {};
+│ │ +            var cVis = '#FFF';
+│ │ +            if (c.rgb.r + c.rgb.g + c.rgb.b > 382) cVis = '#000';
+│ │              var toneOptions = selectOptionsForObject(paletteGenData.Tones, localStorage['lastPalleteTone'], function(pMeta) {
+│ │                  // when 2 or more transform of this type yield the SAME result....
+│ │                  // we return false thus omitting this ineffective choice (the choice would genrate repeats (for any resultant hue angle))
+│ │                  // first though check if our key contains a portion of any eliminated key, meaning this category is redundant...
+│ │                  for (var key in eliminatedToneKeys) {
+│ │                      if (pMeta.key.indexOf(key) > -1) {
+│ │                          // console.log('key eliminating,', pMeta.key, key);
+│ │ @@ -850,25 +855,35 @@
+│ │                          eliminatedToneKeys[pMeta.key] = true;
+│ │                          return false;
+│ │                      }
+│ │                      lastResult = rgbResult;
+│ │                  }
+│ │                  return true;
+│ │              });
+│ │ -
+│ │              var holder = Cr.elm('div', {
+│ │                  class: 'transitions',
+│ │                  style: 'background-color:#999',
+│ │                  childNodes: [
+│ │                      Cr.txt(chrome.i18n.getMessage('generate_palette') + ' '),
+│ │                      Cr.elm('span', {
+│ │                          id: 'palette-gen-selection',
+│ │ -                        style: 'border:1px solid black;display:inline-block;width:1em;background-color:' + colorInput.value,
+│ │ +                        style: Cr.css({
+│ │ +                            border: '1px solid black',
+│ │ +                            display: 'inline-block',
+│ │ +                            cursor: 'pointer',
+│ │ +                            width: '0.5em',
+│ │ +                            padding: '0 0.3em',
+│ │ +                            color: cVis,
+│ │ +                            'background-color': colorInput.value
+│ │ +                        }),
+│ │                          title: colorInput.value,
+│ │ -                        childNodes: [Cr.txt(nbsp)]
+│ │ +                        childNodes: [Cr.txt((colorElms.length > 1 ? 'x' : nbsp))],
+│ │ +                        event: ['click', function() {
+│ │ +                            addOrRemovePalleteGenerationFeatureIf()
+│ │ +                        }]
+│ │                      }),
+│ │                      Cr.txt(' '),
+│ │                      Cr.elm('select', {
+│ │                          id: 'palette-gen-mode',
+│ │                          style: 'width:100px;',
+│ │                          childNodes: options
+│ │                      }),
+│ │ @@ -920,15 +935,40 @@
+│ │                  ]
+│ │              }, pgHld);
+│ │              setTimeout(function() {
+│ │                  holder.style.backgroundColor = '';
+│ │              }, 10);
+│ │              scrollIntoView(pgHld);
+│ │          }
+│ │ -    }
+│ │ +
+│ │ +        // gradient stuff, currently we disable if they pick pallete gen features to reduce confusion
+│ │ +        if (!colorInput && colorElms.length > 1) {
+│ │ +            var grad_gen_holder = Cr.elm('div', {
+│ │ +                childNodes: [
+│ │ +                    Cr.txt(chrome.i18n.getMessage('generate_gradient') + ' '),
+│ │ +                    Cr.elm('input', {
+│ │ +                        type: 'button',
+│ │ +                        value: chrome.i18n.getMessage('linear'),
+│ │ +                        name: 'linear',
+│ │ +                        event: ['click', generateGradientFromSwatchES]
+│ │ +                    }),
+│ │ +                    Cr.txt(' '),
+│ │ +                    Cr.elm('input', {
+│ │ +                        type: 'button',
+│ │ +                        value: chrome.i18n.getMessage('radial'),
+│ │ +                        name: 'radial',
+│ │ +                        event: ['click', generateGradientFromSwatchES]
+│ │ +                    }),
+│ │ +                    Cr.elm('div', {
+│ │ +                        id: 'gradient-results-area'
+│ │ +                    })
+│ │ +                ]
+│ │ +            }, pgHld);
+│ │ +        }
+│ │ +    } // if pgHld, indicating 1 or more swatches available
+│ │  }
+│ │  
+│ │  function scrollIntoView(elm) {
+│ │      if (elm.scrollIntoViewIfNeeded) elm.scrollIntoViewIfNeeded();
+│ │      else if (elm.scrollIntoView) elm.scrollIntoView();
+│ │  }
+│ │  
+│ │ @@ -1002,14 +1042,59 @@
+│ │          console.error("paletteGenData.Modes", palette_mode, "Was UNDEFINED!");
+│ │          // to hsv and back to rgb.... pointelss!
+│ │          var rgbResult = hsv2rgb(c.hsv.h, c.hsv.s, c.hsv.v);
+│ │          addPalleteSwatch(RGBtoHex(rgbResult.r, rgbResult.g, rgbResult.b));
+│ │      }
+│ │  }
+│ │  
+│ │ +function gradDimensions(grad) {
+│ │ +    if (!grad) return "";
+│ │ +    return Cr.css({
+│ │ +        width: grad.style.width,
+│ │ +        height: grad.style.height
+│ │ +    })
+│ │ +}
+│ │ +
+│ │ +function gradTextChanged(ev) {
+│ │ +    var grad = document.getElementById('gradient');
+│ │ +    grad.style = grad.value + gradDimensions(grad);
+│ │ +}
+│ │ +
+│ │ +function generateGradientFromSwatchES(ev) {
+│ │ +    var gradient_type_desired = ev.target.name || 'linear';
+│ │ +    var gradResult = document.getElementById('gradient-results-area');
+│ │ +    var grad = document.getElementById('gradient');
+│ │ +    var swHld = document.getElementById('swatches');
+│ │ +    var colorElms = swHld.getElementsByClassName('hex');
+│ │ +    //todo: add angle, and for repeating, size?
+│ │ +    // option to include stops?
+│ │ +    var gradCss = 'background: ' + gradient_type_desired + '-gradient(';
+│ │ +    //background: linear-gradient(45deg, black, transparent);
+│ │ +    //repeating-linear-gradient(45deg, black, transparent 100px)
+│ │ +    //radial-gradient(black, transparent)
+│ │ +    if (gradient_type_desired == 'linear') gradCss += '90deg, ';
+│ │ +    var stepPct = Math.floor((1 / (colorElms.length - 1)) * 100)
+│ │ +    for (var ce = 0; ce < colorElms.length; ce++) {
+│ │ +        var c = colorMetaForHex(colorElms[ce].value);
+│ │ +        gradCss += '#' + c.hex + ' ' + (ce * stepPct) + '%, ';
+│ │ +    }
+│ │ +    gradCss = gradCss.substr(0, gradCss.length - 2); // remove ', '
+│ │ +    gradCss += ');';
+│ │ +    Cr.empty(gradResult).appendChild(Cr.elm('textarea', {
+│ │ +        id: 'gradient',
+│ │ +        style: gradCss + gradDimensions(grad),
+│ │ +        'class': 'gradient-preview',
+│ │ +        events: [
+│ │ +            ['change', gradTextChanged],
+│ │ +            ['keyup', gradTextChanged]
+│ │ +        ],
+│ │ +        childNodes: [Cr.txt(gradCss)]
+│ │ +    }))
+│ │ +}
+│ │ +
+│ │  function historySwatchDragStart(ev) {
+│ │      dragMeta.active = true;
+│ │      dragMeta.setSource(ev.target.closest('.clickSwatch'), null, null);
+│ │  }
+│ │  
+│ │  function historySwatchDragOverEntry(ev) {
+│ │      dragMeta.setDest(ev.target, /*dest modify fn*/ );
+│ │ @@ -1172,15 +1257,15 @@
+│ │                      ['dragover', historySwatchDragOverEntry],
+│ │                      ['dragleave', historySwatchDragOutEntry],
+│ │                      ['drop', historySwatchDroppedEntry],
+│ │                  ]
+│ │              }, [
+│ │                  Cr.elm('img', {
+│ │                      style: 'height:1.5em;',
+│ │ -                    src: chrome.extension.getURL('img/trash.svg')
+│ │ +                    src: chrome.runtime.getURL('img/trash.svg')
+│ │                  }),
+│ │                  Cr.elm('a', {
+│ │                      id: 'hist-del-undo-btn',
+│ │                      style: 'position:absolute;left:100%;top:0px;padding-left:5px;display:none;', // undo won't work (always) if we re-create this history area!!!!! so no point in this: '+(hasUndo()?'':'none'
+│ │                      events: [
+│ │                          ['click', applyUndo]
+│ │                      ],
+│   --- /workspace/pipeline_output/chromex_data/options_prefs_helpers.js
+├── +++ /workspace/pipeline_output/ColorPick/src/options_prefs_helpers.js
+│ ├── js-beautify {}
+│ │ @@ -40,15 +40,15 @@
+│ │          tosave[i] = localStorage[i];
+│ │      }
+│ │      chromeStorageSaveALocalStor(tosave, cbf);
+│ │  }
+│ │  
+│ │  function goToOrOpenTab(tabUrl, completedCallback) {
+│ │      if (tabUrl.match(/^http/)) tabUr = tabUrl
+│ │ -    else if (!tabUrl.match(/^chrome/)) tabUrl = chrome.extension.getURL(tabUrl); // typically "options.html"
+│ │ +    else if (!tabUrl.match(/^chrome/)) tabUrl = chrome.runtime.getURL(tabUrl); // typically "options.html"
+│ │      completedCallback = completedCallback || function() {};
+│ │      chrome.tabs.query({
+│ │          url: tabUrl,
+│ │          currentWindow: true
+│ │      }, function(tabs) {
+│ │          if (tabs.length > 0) {
+│ │              chrome.tabs.update(tabs[0].id, {
+│   --- /workspace/pipeline_output/chromex_data/popup.js
+├── +++ /workspace/pipeline_output/ColorPick/src/popup.js
+│ ├── js-beautify {}
+│ │ @@ -405,15 +405,15 @@
+│ │      if (typeof(localStorage["showPreviousClr"]) != 'undefined') showPreviousClr = ((localStorage["showPreviousClr"] == 'true') ? true : false);
+│ │      if (typeof(localStorage["hexIsLowerCase"]) != 'undefined') hexIsLowerCase = ((localStorage["hexIsLowerCase"] == 'true') ? true : false);
+│ │      if (typeof(localStorage["hexHasHash"]) != 'undefined') hexHasHash = ((localStorage["hexHasHash"] == 'true') ? true : false);
+│ │      if (typeof(localStorage["popupWaitTimeout"]) != 'undefined') popupWaitTimeout = localStorage["popupWaitTimeout"] - 0;
+│ │  
+│ │      if (!(popupWaitTimeout > 10)) popupWaitTimeout = 4000;
+│ │  
+│ │ -    setPreviewSRC(chrome.extension.getURL('img/default.png'), true);
+│ │ +    setPreviewSRC(chrome.runtime.getURL('img/default.png'), true);
+│ │  
+│ │      if (useCSSValues) {
+│ │          document.getElementById('cssmode').style.display = "block";
+│ │          document.getElementById('defaultmode').style.display = "none";
+│ │      }
+│ │      if (!EnableHex && (EnableRGB || EnableHSL)) document.getElementById('hexrow').style.display = "none";
+│ │  
+│ │ @@ -535,15 +535,15 @@
+│ │      // console.log('showing error', errorType, err, 'last error', errorTypes.current, lastErr);
+│ │      if (lastErr && lastErr.ignore && lastErr.ignore[errorType]) { // to ignore subsequent errors of specified types
+│ │          console.log('error of type ' + errorType + ' ignored after occurance of error type ' + errorTypes.current);
+│ │          return;
+│ │      }
+│ │      errorTypes.current = errorType;
+│ │      // todo: delay/fade this error in??  maybe some types ???
+│ │ -    setPreviewSRC(chrome.extension.getURL('img/error' + err.image + '.png'), true);
+│ │ +    setPreviewSRC(chrome.runtime.getURL('img/error' + err.image + '.png'), true);
+│ │      if (err.chooser && !cp_chooser_booted) {
+│ │          init_color_chooser();
+│ │      }
+│ │      if (err.timer) {
+│ │          showLoadingTimer();
+│ │      }
+│ │      if (!err.no_snap) errorShowScreenshotInstead();
+│ │ @@ -593,15 +593,15 @@
+│ │  function tabScreenshotRecieved(dataUri, request) {
+│ │      if (realSrcRecieved) return;
+│ │      if (screenshotAlternativeRecieved) return;
+│ │      setPreviewSRC(dataUri, true);
+│ │      Cr.elm("a", {
+│ │          id: 'alt-snap-mode-link',
+│ │          target: '_blank',
+│ │ -        href: chrome.extension.getURL('pick.html#tab=' + request.setTabImage) + (snapExtPage ? '#extSelf' : ''),
+│ │ +        href: chrome.runtime.getURL('pick.html#tab=' + request.setTabImage) + (snapExtPage ? '#extSelf' : ''),
+│ │          event: ['click', function() {
+│ │              console.log('passing data to snap mode via localStorage...') // todo fix this
+│ │              localStorage.lastImageSnap = dataUri; // our new tab will delete this entry
+│ │          }],
+│ │          childNodes: [
+│ │              Cr.txt(chrome.i18n.getMessage('snapMode_prompt'))
+│ │          ]
+│ │ @@ -654,15 +654,15 @@
+│ │      }
+│ │  }
+│ │  
+│ │  function scriptsInjectedResult() {
+│ │      clearTimeout(scriptAliveTimeout);
+│ │      scriptAliveTimeout = 0;
+│ │      if (!isScriptAlive) {
+│ │ -        //chrome.extension.getURL('img/error'+1+'.png'); // showErrorScreen('page_slow');
+│ │ +        //chrome.runtime.getURL('img/error'+1+'.png'); // showErrorScreen('page_slow');
+│ │          // if they wait anyway, it could work....
+│ │          chrome.tabs.executeScript(tabid, {
+│ │              file: "Cr.js"
+│ │          }, function() {
+│ │              if (chrome.runtime.lastError) {
+│ │                  console.log(chrome.runtime.lastError.message);
+│ │                  showErrorScreen('conent_port');
+│ │ @@ -865,15 +865,15 @@
+│ │      popupimage({
+│ │          href: popOutUrl()
+│ │      }, chrome.i18n.getMessage('extName') + " : Extension");
+│ │      ev.preventDefault();
+│ │  }
+│ │  
+│ │  function popOutUrl() {
+│ │ -    return chrome.extension.getURL('popup.html') + '?isPopup=' + tabid + ',' + winid
+│ │ +    return chrome.runtime.getURL('popup.html') + '?isPopup=' + tabid + ',' + winid
+│ │  }
+│ │  
+│ │  function close_stop_picking(ev) {
+│ │      if (!ev || ev.type) {
+│ │          if (ev && ev.which && (ev.which === 2 || ev.which === 3)) {
+│ │              ev.preventDefault();
+│ │              ev.stopPropagation();
+│ │ @@ -1158,15 +1158,15 @@
+│ │              }, [
+│ │                  Cr.elm("span", {
+│ │                      title: chrome.i18n.getMessage('closeAndExit') + ' [esc]',
+│ │                      id: "eclose"
+│ │                  }, [
+│ │                      Cr.elm("img", {
+│ │                          align: 'top',
+│ │ -                        src: chrome.extension.getURL('img/close.png')
+│ │ +                        src: chrome.runtime.getURL('img/close.png')
+│ │                      })
+│ │                  ]),
+│ │                  Cr.elm('span', {
+│ │                      id: 'hex-prefix'
+│ │                  }, [Cr.txt("#")])
+│ │              ]),
+│ │              Cr.elm("span", {

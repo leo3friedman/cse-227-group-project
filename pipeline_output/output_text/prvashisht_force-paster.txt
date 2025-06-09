@@ -1,0 +1,28 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/force-paster
+├── file list
+│ @@ -1,5 +1,9 @@
+│ -_metadata
+│ +.git
+│ +CODE_OF_CONDUCT.md
+│ +CONTRIBUTING.md
+│ +README.md
+│  content.js
+│  icons
+│  manifest.json
+│ +package-lock.json
+│  service_worker.js
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/force-paster/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -36,10 +36,9 @@
+│ │      },
+│ │      "manifest_version": 3,
+│ │      "name": "Force Paster",
+│ │      "permissions": [
+│ │          "storage",
+│ │          "clipboardRead"
+│ │      ],
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.0"
+│ │  }

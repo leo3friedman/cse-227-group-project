@@ -1,0 +1,38 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/PopUpOFF
+├── file list
+│ @@ -1,10 +1,14 @@
+│ +.git
+│ +.github
+│ +.gitignore
+│  LICENSE
+│ -_metadata
+│ +README.md
+│  background
+│  constants
+│  content
+│  css
+│  images
+│  manifest.json
+│  options
+│ +package-lock.json
+│  popup
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/PopUpOFF/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -52,15 +52,14 @@
+│ │      "permissions": [
+│ │          "activeTab",
+│ │          "storage",
+│ │          "tabs",
+│ │          "contextMenus"
+│ │      ],
+│ │      "short_name": "PopUpOFF",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "2.1.3",
+│ │      "web_accessible_resources": [
+│ │          {
+│ │              "matches": [
+│ │                  "<all_urls>"
+│ │              ],
+│ │              "resources": [

@@ -1,0 +1,88 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/mute-tab-chrome/src
+├── file list
+│ @@ -1,4 +1,3 @@
+│ -_metadata
+│  background.js
+│  imgs
+│  manifest.json
+│   --- /workspace/pipeline_output/chromex_data/background.js
+├── +++ /workspace/pipeline_output/mute-tab-chrome/src/background.js
+│ ├── js-beautify {}
+│ │ @@ -1,52 +1,52 @@
+│ │ -'use-strict'
+│ │ +'use strict'
+│ │  let stateAllTabs = false;
+│ │  
+│ │ -chrome.commands.onCommand.addListener((command) => {
+│ │ +chrome.commands.onCommand.addListener(command => {
+│ │      switch (command) {
+│ │          case "mute_tab_current":
+│ │ -            chrome.tabs.getSelected(null, (tab) => {
+│ │ +            chrome.tabs.getSelected(null, tab => {
+│ │                  chrome.tabs.update(tab.id, {
+│ │                      muted: !tab.mutedInfo.muted
+│ │                  });
+│ │              });
+│ │              break;
+│ │  
+│ │          case "mute_tab_all":
+│ │              stateAllTabs = !stateAllTabs;
+│ │              chrome.windows.getAll({
+│ │                  populate: true
+│ │ -            }, (windowList) => {
+│ │ -                windowList.forEach((window) => {
+│ │ -                    window.tabs.forEach((tab) => {
+│ │ +            }, windowList => {
+│ │ +                windowList.forEach(window => {
+│ │ +                    window.tabs.forEach(tab => {
+│ │                          if (tab.audible || tab.mutedInfo.muted) {
+│ │                              chrome.tabs.update(tab.id, {
+│ │                                  muted: stateAllTabs
+│ │                              });
+│ │                          }
+│ │                      });
+│ │                  });
+│ │              });
+│ │              break;
+│ │  
+│ │          case "mute_tab_all_except_current":
+│ │              chrome.windows.getAll({
+│ │                  populate: true
+│ │ -            }, (windowList) => {
+│ │ -                windowList.forEach((window) => {
+│ │ -                    window.tabs.forEach((tab) => {
+│ │ +            }, windowList => {
+│ │ +                windowList.forEach(window => {
+│ │ +                    window.tabs.forEach(tab => {
+│ │                          if (tab.audible) {
+│ │                              chrome.tabs.update(tab.id, {
+│ │                                  muted: true
+│ │                              })
+│ │                          }
+│ │                      });
+│ │                  });
+│ │              });
+│ │ -            chrome.tabs.getSelected(null, (tab) => {
+│ │ +            chrome.tabs.getSelected(null, tab => {
+│ │                  chrome.tabs.update(tab.id, {
+│ │                      muted: false
+│ │                  });
+│ │              });
+│ │              break;
+│ │  
+│ │          default:
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/mute-tab-chrome/src/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -29,10 +29,9 @@
+│ │      "icons": {
+│ │          "128": "imgs/128.png",
+│ │          "16": "imgs/16.png",
+│ │          "48": "imgs/48.png"
+│ │      },
+│ │      "manifest_version": 2,
+│ │      "name": "Mute Tab Shortcuts",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "1.2.0"
+│ │  }

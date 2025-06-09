@@ -1,0 +1,118 @@
+--- /workspace/pipeline_output/chromex_data
++++ /workspace/pipeline_output/deluge-siphon
+├── file list
+│ @@ -1,14 +1,20 @@
+│ +.git
+│ +.gitignore
+│  README.md
+│  _locales
+│ -_metadata
+│ -background.min.js
+│ -content.min.css
+│ -content.min.js
+│ +chrome-bootstrap.css
+│ +content_handler.css
+│ +content_handler.js
+│ +controller_actions.js
+│ +gulpfile.js
+│  images
+│ +lib
+│  manifest.json
+│ -maps
+│ +node_modules
+│ +options.css
+│  options.html
+│ -options.min.css
+│ -options.min.js
+│ +options.js
+│ +package-lock.json
+│ +package.json
+│  popup.html
+│ -popup.min.js
+│ +popup.js
+│   --- /workspace/pipeline_output/chromex_data/images
+├── +++ /workspace/pipeline_output/deluge-siphon/images
+│ ├── file list
+│ │ @@ -1,18 +1,7 @@
+│ │  icon-128.png
+│ │ -icon-16.png
+│ │  icon-19.png
+│ │  icon-38.png
+│ │  icon-48.png
+│ │ -login-16.png
+│ │  login.png
+│ │  navbar.gif
+│ │ -notify-16.png
+│ │ -notify.png
+│ │ -notify_added-16.png
+│ │ -notify_added.png
+│ │ -notify_error-16.png
+│ │ -notify_error.png
+│ │ -notify_request-16.png
+│ │ -notify_request.png
+│ │ -options-16.png
+│ │  options.png
+│   --- /workspace/pipeline_output/chromex_data/manifest.json
+├── +++ /workspace/pipeline_output/deluge-siphon/manifest.json
+│ ├── Pretty-printed
+│ │ @@ -1,30 +1,41 @@
+│ │  {
+│ │      "author": "sbussetti",
+│ │      "background": {
+│ │          "scripts": [
+│ │ -            "background.min.js"
+│ │ +            "lib/jquery-3.0.0.min.js",
+│ │ +            "lib/utils.js",
+│ │ +            "lib/controller_communicator.js",
+│ │ +            "lib/jquery-3.0.0.min.js",
+│ │ +            "controller_actions.js"
+│ │          ]
+│ │      },
+│ │      "browser_action": {
+│ │          "defaultTitle": "delugesiphon",
+│ │          "default_icon": {
+│ │              "19": "images/icon-19.png",
+│ │              "38": "images/icon-38.png"
+│ │          },
+│ │          "default_popup": "popup.html"
+│ │      },
+│ │      "content_scripts": [
+│ │          {
+│ │              "all_frames": true,
+│ │              "css": [
+│ │ -                "content.min.css"
+│ │ +                "lib/jquery.modal.css",
+│ │ +                "content_handler.css"
+│ │              ],
+│ │              "js": [
+│ │ -                "content.min.js"
+│ │ +                "lib/jquery-3.0.0.min.js",
+│ │ +                "lib/jquery.modal.js",
+│ │ +                "lib/jsrender.min.js",
+│ │ +                "lib/jquery.serialize-object.js",
+│ │ +                "lib/utils.js",
+│ │ +                "lib/controller_communicator.js",
+│ │ +                "content_handler.js"
+│ │              ],
+│ │              "matches": [
+│ │                  "http://*/*",
+│ │                  "https://*/*",
+│ │                  "ftp://*/*",
+│ │                  "file://*/*"
+│ │              ]
+│ │ @@ -48,15 +59,14 @@
+│ │          "ftp://*/*",
+│ │          "file://*/*",
+│ │          "cookies",
+│ │          "contextMenus",
+│ │          "notifications"
+│ │      ],
+│ │      "short_name": "delugesiphon",
+│ │ -    "update_url": "https://clients2.google.com/service/update2/crx",
+│ │      "version": "0.72.6",
+│ │      "web_accessible_resources": [
+│ │          "images/*.png",
+│ │          "images/*.gif",
+│ │          "lib/images/*.png"
+│ │      ]
+│ │  }
