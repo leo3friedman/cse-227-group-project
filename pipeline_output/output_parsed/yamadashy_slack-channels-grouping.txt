@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/slack-channels-grouping/app
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/fonts/SlackChannelsGrounping-NotoSansJP-Medium.ttf <-> +++/workspace/pipeline_output/slack-channels-grouping/app/fonts/SlackChannelsGrounping-NotoSansJP-Medium.ttf; File type: ttf
   - Original: 1–48
   + Modified: 1–5
@@ -14,6 +18,14 @@
 ---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/slack-channels-grouping/app/scripts
   - files: background.js, content.js, content.js.LICENSE.txt
   + files: background.ts, content.ts
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/slack-channels-grouping/app/scripts
+  - files: background.js, content.js, content.js.LICENSE.txt
+  + files: background.ts, content.ts
+
+---/workspace/pipeline_output/chromex_data/scripts/content <-> +++/workspace/pipeline_output/slack-channels-grouping/app/scripts/content
+  - files: channe-grouper.js, channe-grouper.js.LICENSE.txt, channel-observer.js, dom-constants.js, logger.js
+  + files: channe-grouper.ts, channel-observer.ts, dom-constants.ts, logger.ts
 
 ---/workspace/pipeline_output/chromex_data/scripts/content <-> +++/workspace/pipeline_output/slack-channels-grouping/app/scripts/content
   - files: channe-grouper.js, channe-grouper.js.LICENSE.txt, channel-observer.js, dom-constants.js, logger.js

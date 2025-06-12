@@ -2,6 +2,10 @@
   - files: _metadata, background.js, fonts, options.html, popup.html, popup.js
   + files: .all-contributorsrc, .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/CCFrank4dblp
+  - files: _metadata, background.js, fonts, options.html, popup.html, popup.js
+  + files: .all-contributorsrc, .git, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/CCFrank4dblp/LICENSE
   - Original: 3–3
   + Modified: 3–3
@@ -36,10 +40,18 @@
   - files: en
   + files: en, zh_CN
 
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/CCFrank4dblp/_locales
+  - files: en
+  + files: en, zh_CN
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/CCFrank4dblp/_locales/en/messages.json; File type: json
   - Original: 4–4
   - Original: 8–8
   + Modified: 4–8
+
+---/workspace/pipeline_output/chromex_data/css <-> +++/workspace/pipeline_output/CCFrank4dblp/css
+  - files: style.css, style_popup.css
+  + files: style.css
 
 ---/workspace/pipeline_output/chromex_data/css <-> +++/workspace/pipeline_output/CCFrank4dblp/css
   - files: style.css, style_popup.css
@@ -63,6 +75,14 @@
 ---/workspace/pipeline_output/chromex_data/data <-> +++/workspace/pipeline_output/CCFrank4dblp/data
   - files: Acro.txt, ISSNs.txt, Names.txt, ccf.FullRank_Acro.js, ccf.FullRank_ISSNs.js, ccf.FullRank_Names.js
   + files: ccfFullUrl.js, ccfRankAbbr.js, ccfRankDb.js, ccfRankFull.js, ccfRankUrl.js, dataGen.js
+
+---/workspace/pipeline_output/chromex_data/data <-> +++/workspace/pipeline_output/CCFrank4dblp/data
+  - files: Acro.txt, ISSNs.txt, Names.txt, ccf.FullRank_Acro.js, ccf.FullRank_ISSNs.js, ccf.FullRank_Names.js
+  + files: ccfFullUrl.js, ccfRankAbbr.js, ccfRankDb.js, ccfRankFull.js, ccfRankUrl.js, dataGen.js
+
+---/workspace/pipeline_output/chromex_data/icon <-> +++/workspace/pipeline_output/CCFrank4dblp/icon
+  - files: 256x256.png, 512x512.png, 64x64.png, refresh.png, settings.png
+  + files: 64x64.png
 
 ---/workspace/pipeline_output/chromex_data/icon <-> +++/workspace/pipeline_output/CCFrank4dblp/icon
   - files: 256x256.png, 512x512.png, 64x64.png, refresh.png, settings.png
@@ -91,6 +111,14 @@
 ---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/CCFrank4dblp/img
   - files: GC_1.png, GC_2.png, SJR_VHB.PNG, SJR_VHB_with mouseover.PNG, SJR_VHB_with mouseover_GC.png, SJR_and_CCF.PNG, SJR_and_CCF_GC.PNG, doi link_GC.PNG, doi_link.PNG
   + files: connectedpapers.png, dblp.png, load_unpacked.png, scholar.png, wos.png
+
+---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/CCFrank4dblp/img
+  - files: GC_1.png, GC_2.png, SJR_VHB.PNG, SJR_VHB_with mouseover.PNG, SJR_VHB_with mouseover_GC.png, SJR_and_CCF.PNG, SJR_and_CCF_GC.PNG, doi link_GC.PNG, doi_link.PNG
+  + files: connectedpapers.png, dblp.png, load_unpacked.png, scholar.png, wos.png
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/CCFrank4dblp/js
+  - files: scholar_turbo.js
+  + files: connectedpapers.js, dblp.js, wos.js
 
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/CCFrank4dblp/js
   - files: scholar_turbo.js

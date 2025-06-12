@@ -2,9 +2,16 @@
   - files: _metadata
   + files: .git, .gitignore, build, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller
+  - files: _metadata
+  + files: .git, .gitignore, build, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/Changelog.md <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/Changelog.md; File type: md
   - Original: 1–9
   + Modified: 1–10
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/LICENSE
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/Readme.md <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/Readme.md; File type: md
   - Original: 1–23
@@ -17,9 +24,15 @@
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/manifest.json; File type: json
   - Original: 38–38 -> Update URL
 
+---/workspace/pipeline_output/chromex_data/popup/menu.html <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/popup/menu.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/popup/menu.js <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/popup/menu.js; File type: js
   - Original: 1–114
   + Modified: 1–114
+
+---/workspace/pipeline_output/chromex_data/popup/styles.css <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/popup/styles.css; File type: css
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/scripts/GoogleForm.js <-> +++/workspace/pipeline_output/GoogleFormsAutoFiller/scripts/GoogleForm.js; File type: js
   - Original: 1–164

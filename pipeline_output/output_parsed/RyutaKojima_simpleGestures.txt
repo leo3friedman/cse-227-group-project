@@ -2,12 +2,24 @@
   - files: _metadata, background.js, background.js.LICENSE.txt, handler.js, handler.js.LICENSE.txt
   + files: js
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/simpleGestures/src
+  - files: _metadata, background.js, background.js.LICENSE.txt, handler.js, handler.js.LICENSE.txt
+  + files: js
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/simpleGestures/src/manifest.json; File type: json
   - Original: 38–38 -> Update URL
 
 ---/workspace/pipeline_output/chromex_data/options_page <-> +++/workspace/pipeline_output/simpleGestures/src/options_page
   - files: index.js, index.js.LICENSE.txt
   + files: options_page.js
+
+---/workspace/pipeline_output/chromex_data/options_page <-> +++/workspace/pipeline_output/simpleGestures/src/options_page
+  - files: index.js, index.js.LICENSE.txt
+  + files: options_page.js
+
+---/workspace/pipeline_output/chromex_data/options_page/vendor <-> +++/workspace/pipeline_output/simpleGestures/src/options_page/vendor
+  - files: jquery-1.11.3.min.js, jquery-1.11.3.min.js.LICENSE.txt
+  + files: jquery-1.11.3.min.js
 
 ---/workspace/pipeline_output/chromex_data/options_page/vendor <-> +++/workspace/pipeline_output/simpleGestures/src/options_page/vendor
   - files: jquery-1.11.3.min.js, jquery-1.11.3.min.js.LICENSE.txt

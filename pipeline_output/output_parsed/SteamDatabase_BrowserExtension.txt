@@ -2,6 +2,10 @@
   - files: _metadata, styles
   + files: .editorconfig, .git, .gitattributes, .github, .gitignore, .stylelintrc.json, .vscode, README.md, assets, build.js, crowdin-readme.yml, crowdin.yml, eslint.config.mjs, node_modules, package-lock.json, package.json, steamdb_ext_4_15.zip, steamdb_ext_4_15_firefox.zip, styles, tsconfig.json, version.js
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/BrowserExtension
+  - files: _metadata, styles
+  + files: .editorconfig, .git, .gitattributes, .github, .gitignore, .stylelintrc.json, .vscode, README.md, assets, build.js, crowdin-readme.yml, crowdin.yml, eslint.config.mjs, node_modules, package-lock.json, package.json, steamdb_ext_4_15.zip, steamdb_ext_4_15_firefox.zip, styles, tsconfig.json, version.js
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/BrowserExtension/manifest.json; File type: json
   + Modified: 2–21
   - Original: 425–425 -> Update URL

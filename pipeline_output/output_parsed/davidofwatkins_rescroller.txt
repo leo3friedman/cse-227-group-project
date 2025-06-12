@@ -2,6 +2,10 @@
   - files: _metadata, jsconfig.json
   + files: .eslintignore, .eslintrc.json, .git, .github, .gitignore, .prettierignore, .prettierrc, .tool-versions, .vscode, build, node_modules
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/rescroller
+  - files: _metadata, jsconfig.json
+  + files: .eslintignore, .eslintrc.json, .git, .github, .gitignore, .prettierignore, .prettierrc, .tool-versions, .vscode, build, node_modules
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/rescroller/manifest.json; File type: json
   - Original: 30–30 -> Update URL
 

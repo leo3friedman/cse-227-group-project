@@ -2,6 +2,16 @@
   - files: _metadata
   + files: .git, .gitignore, .prettierrc, README.md, node_modules
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3
+  - files: _metadata
+  + files: .git, .gitignore, .prettierrc, README.md, node_modules
+
+---/workspace/pipeline_output/chromex_data/GNU_GPL_V3.txt <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/GNU_GPL_V3.txt; File type: txt
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/License.txt <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/License.txt; File type: txt
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/ar/messages.json <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/_locales/ar/messages.json; File type: json
   - Original: 1–65
   - Original: 67–104
@@ -211,6 +221,9 @@
   - Original: 91–364
   + Modified: 1–351
 
+---/workspace/pipeline_output/chromex_data/css/font-awesome-4.6.3/css/font-awesome.min.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/font-awesome-4.6.3/css/font-awesome.min.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/css/font-awesome-4.6.3/fonts/fontawesome-webfont.svg <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/font-awesome-4.6.3/fonts/fontawesome-webfont.svg; File type: svg
   - Original: 2–47
   - Original: 49–158
@@ -318,9 +331,39 @@
   - Original: 12244–12260
   + Modified: 10865–12239
 
+---/workspace/pipeline_output/chromex_data/css/opensans/opensans.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/opensans/opensans.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/options.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/options_main_page.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/options_main_page.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/popup-tabs.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/popup-tabs.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/popup.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/smoothness/jquery-ui-1.12.1.custom.min.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/smoothness/jquery-ui-1.12.1.custom.min.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/uniform.default.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/css/uniform.default.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/devtools/devtools-page.html <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/devtools/devtools-page.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/devtools/devtools-page.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/devtools/devtools-page.js; File type: js
   - Original: 1–10
   + Modified: 1–10
+
+---/workspace/pipeline_output/chromex_data/devtools/panel.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/devtools/panel.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/devtools/panel.html <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/devtools/panel.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/devtools/panel.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/devtools/panel.js; File type: js
   - Original: 1–240
@@ -386,12 +429,24 @@
   - Original: 1–866
   + Modified: 1–866
 
+---/workspace/pipeline_output/chromex_data/lib/tablesorter/theme.default.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/lib/tablesorter/theme.default.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/lib/uniform/jquery.uniform.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/lib/uniform/jquery.uniform.js; File type: js
   - Original: 1–1031
   + Modified: 1–1031
 
+---/workspace/pipeline_output/chromex_data/lib/uniform/uniform.default.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/lib/uniform/uniform.default.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/manifest.json; File type: json
   - Original: 37–37 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options_pages/block_rules.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/block_rules.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options_pages/block_rules.html <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/block_rules.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options_pages/block_rules.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/block_rules.js; File type: js
   - Original: 1–215
@@ -401,13 +456,31 @@
   - Original: 1–30
   + Modified: 1–30
 
+---/workspace/pipeline_output/chromex_data/options_pages/readonly_rules.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/readonly_rules.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options_pages/readonly_rules.html <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/readonly_rules.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/options_pages/readonly_rules.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/readonly_rules.js; File type: js
   - Original: 1–120
   + Modified: 1–120
 
+---/workspace/pipeline_output/chromex_data/options_pages/support.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/support.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options_pages/support.html <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/support.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/options_pages/support.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/support.js; File type: js
   - Original: 1–48
   + Modified: 1–48
+
+---/workspace/pipeline_output/chromex_data/options_pages/user_preferences.css <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/user_preferences.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options_pages/user_preferences.html <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/user_preferences.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options_pages/user_preferences.js <-> +++/workspace/pipeline_output/Edit-This-Cookie-V3/options_pages/user_preferences.js; File type: js
   - Original: 1–284

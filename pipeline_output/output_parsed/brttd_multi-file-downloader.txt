@@ -2,12 +2,22 @@
   - files: _metadata, popup.js
   + files: .git, README.MD, package-lock.json, popup.js, promo
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/multi-file-downloader
+  - files: _metadata, popup.js
+  + files: .git, README.MD, package-lock.json, popup.js, promo
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/multi-file-downloader/background.js; File type: js
   - Original: 1–207
   + Modified: 1–207
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/multi-file-downloader/manifest.json; File type: json
   - Original: 37–37 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.css <-> +++/workspace/pipeline_output/multi-file-downloader/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/multi-file-downloader/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/multi-file-downloader/options.js; File type: js
   - Original: 1–46
@@ -16,6 +26,12 @@
 ---/workspace/pipeline_output/chromex_data/page_script.js <-> +++/workspace/pipeline_output/multi-file-downloader/page_script.js; File type: js
   - Original: 1–149
   + Modified: 1–149
+
+---/workspace/pipeline_output/chromex_data/popup.css <-> +++/workspace/pipeline_output/multi-file-downloader/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/multi-file-downloader/popup.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/popup.js <-> +++/workspace/pipeline_output/multi-file-downloader/popup.js; File type: js
   - Original: 1–1263

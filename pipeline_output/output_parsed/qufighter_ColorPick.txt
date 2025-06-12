@@ -2,6 +2,10 @@
   - files: _metadata
   + files: build.awk, build.sh
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ColorPick/src
+  - files: _metadata
+  + files: build.awk, build.sh
+
 ---/workspace/pipeline_output/chromex_data/Cr.js <-> +++/workspace/pipeline_output/ColorPick/src/Cr.js; File type: js
   - Original: 1–201
   + Modified: 1–201
@@ -63,6 +67,9 @@
   + Modified: 1116–1154
   + Modified: 1304–1305
 
+---/workspace/pipeline_output/chromex_data/desktop_app.html <-> +++/workspace/pipeline_output/ColorPick/src/desktop_app.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/desktop_app.js <-> +++/workspace/pipeline_output/ColorPick/src/desktop_app.js; File type: js
   - Original: 1–9
   + Modified: 1–9
@@ -77,6 +84,14 @@
   - files: search, search.png, search_google
   + files: search
 
+---/workspace/pipeline_output/chromex_data/img/icons <-> +++/workspace/pipeline_output/ColorPick/src/img/icons
+  - files: search, search.png, search_google
+  + files: search
+
+---/workspace/pipeline_output/chromex_data/img/sponsors <-> +++/workspace/pipeline_output/ColorPick/src/img/sponsors
+  - files: avocado-green.jpg
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/img/sponsors <-> +++/workspace/pipeline_output/ColorPick/src/img/sponsors
   - files: avocado-green.jpg
   + files: 
@@ -84,6 +99,12 @@
 ---/workspace/pipeline_output/chromex_data/installkey.user.js <-> +++/workspace/pipeline_output/ColorPick/src/installkey.user.js; File type: js
   - Original: 16–16
   + Modified: 16–16
+
+---/workspace/pipeline_output/chromex_data/license.css <-> +++/workspace/pipeline_output/ColorPick/src/license.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/license.html <-> +++/workspace/pipeline_output/ColorPick/src/license.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/ColorPick/src/manifest.json; File type: json
   + Modified: 21–25

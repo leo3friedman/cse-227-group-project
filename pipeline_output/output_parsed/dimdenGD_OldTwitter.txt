@@ -2,6 +2,20 @@
   - files: _metadata, scripts
   + files: .git, .github, .gitignore, node_modules, pack.js, package-lock.json, package.json, scripts, test.js
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/OldTwitter
+  - files: _metadata, scripts
+  + files: .git, .github, .gitignore, node_modules, pack.js, package-lock.json, package.json, scripts, test.js
+
+---/workspace/pipeline_output/chromex_data/LIBRARIES.md <-> +++/workspace/pipeline_output/OldTwitter/LIBRARIES.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/OldTwitter/README.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/OldTwitter/_locales
+  - files: 
+  + files: locales-support.html
+
 ---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/OldTwitter/_locales
   - files: 
   + files: locales-support.html
@@ -496,6 +510,9 @@
   - Original: 1683–1806
   + Modified: 1–1742
 
+---/workspace/pipeline_output/chromex_data/_locales/readme.md <-> +++/workspace/pipeline_output/OldTwitter/_locales/readme.md; File type: md
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/ro/messages.json <-> +++/workspace/pipeline_output/OldTwitter/_locales/ro/messages.json; File type: json
   - Original: 1–69
   - Original: 71–131
@@ -745,53 +762,125 @@
   - Original: 1676–1705
   + Modified: 1–1685
 
+---/workspace/pipeline_output/chromex_data/layouts/bookmarks/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/bookmarks/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/bookmarks/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/bookmarks/script.js; File type: js
   - Original: 1–141
   + Modified: 1–141
+
+---/workspace/pipeline_output/chromex_data/layouts/bookmarks/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/bookmarks/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/header/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/header/index.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/layouts/header/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/header/script.js; File type: js
   - Original: 1–3689
   + Modified: 1–3689
 
+---/workspace/pipeline_output/chromex_data/layouts/header/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/header/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/home/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/home/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/home/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/home/script.js; File type: js
   - Original: 1–1422
   + Modified: 1–1422
+
+---/workspace/pipeline_output/chromex_data/layouts/home/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/home/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/itl/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/itl/index.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/layouts/itl/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/itl/script.js; File type: js
   - Original: 1–189
   + Modified: 1–189
 
+---/workspace/pipeline_output/chromex_data/layouts/itl/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/itl/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/lists/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/lists/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/lists/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/lists/script.js; File type: js
   - Original: 1–481
   + Modified: 1–481
+
+---/workspace/pipeline_output/chromex_data/layouts/lists/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/lists/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/notifications/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/notifications/index.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/layouts/notifications/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/notifications/script.js; File type: js
   - Original: 1–279
   + Modified: 1–279
 
+---/workspace/pipeline_output/chromex_data/layouts/notifications/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/notifications/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/profile/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/profile/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/profile/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/profile/script.js; File type: js
   - Original: 1–2709
   + Modified: 1–2709
+
+---/workspace/pipeline_output/chromex_data/layouts/profile/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/profile/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/search/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/search/index.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/layouts/search/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/search/script.js; File type: js
   - Original: 1–538
   + Modified: 1–538
 
+---/workspace/pipeline_output/chromex_data/layouts/search/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/search/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/settings/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/settings/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/settings/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/settings/script.js; File type: js
   - Original: 1–1356
   + Modified: 1–1356
+
+---/workspace/pipeline_output/chromex_data/layouts/settings/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/settings/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/topics/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/topics/index.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/layouts/topics/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/topics/script.js; File type: js
   - Original: 1–190
   + Modified: 1–190
 
+---/workspace/pipeline_output/chromex_data/layouts/topics/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/topics/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/tweet/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/tweet/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/tweet/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/tweet/script.js; File type: js
   - Original: 1–934
   + Modified: 1–934
 
+---/workspace/pipeline_output/chromex_data/layouts/tweet/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/tweet/style.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/layouts/unfollows/index.html <-> +++/workspace/pipeline_output/OldTwitter/layouts/unfollows/index.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/layouts/unfollows/script.js <-> +++/workspace/pipeline_output/OldTwitter/layouts/unfollows/script.js; File type: js
   - Original: 1–174
   + Modified: 1–174
+
+---/workspace/pipeline_output/chromex_data/layouts/unfollows/style.css <-> +++/workspace/pipeline_output/OldTwitter/layouts/unfollows/style.css; File type: css
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/libraries/coloris.min.js <-> +++/workspace/pipeline_output/OldTwitter/libraries/coloris.min.js; File type: js
   - Original: 1–475
@@ -825,6 +914,9 @@
   - Original: 1–5639
   + Modified: 1–5639
 
+---/workspace/pipeline_output/chromex_data/libraries/viewer.min.css <-> +++/workspace/pipeline_output/OldTwitter/libraries/viewer.min.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/libraries/viewer.min.js <-> +++/workspace/pipeline_output/OldTwitter/libraries/viewer.min.js; File type: js
   - Original: 1–1254
   + Modified: 1–1254
@@ -841,6 +933,13 @@
   - Original: 215–220
   - Original: 222–235
   + Modified: 1–229
+
+---/workspace/pipeline_output/chromex_data/sandbox.html <-> +++/workspace/pipeline_output/OldTwitter/sandbox.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/OldTwitter/scripts
+  - files: 
+  + files: background_v2.js
 
 ---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/OldTwitter/scripts
   - files: 

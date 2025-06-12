@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/cba/src
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/css/common.css <-> +++/workspace/pipeline_output/cba/src/css/common.css; File type: css
   - Original: 1–1
   + Modified: 1–13
@@ -13,6 +17,10 @@
 ---/workspace/pipeline_output/chromex_data/css/popup.css <-> +++/workspace/pipeline_output/cba/src/css/popup.css; File type: css
   - Original: 1–1
   + Modified: 1–152
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/cba/src/js
+  - files: back.js, browser-polyfill.min.js, cba-components.js, cba-components.js.LICENSE.txt, cs.js, jquery-1.7.2.min.js.LICENSE.txt, popup.js
+  + files: analytics.js, background, commons, cs, db, popup.js, rpc, ui
 
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/cba/src/js
   - files: back.js, browser-polyfill.min.js, cba-components.js, cba-components.js.LICENSE.txt, cs.js, jquery-1.7.2.min.js.LICENSE.txt, popup.js

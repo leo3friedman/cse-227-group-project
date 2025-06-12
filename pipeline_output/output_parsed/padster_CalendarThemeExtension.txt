@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .gitignore, README.md, bundle.py, docs, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/CalendarThemeExtension
+  - files: _metadata
+  + files: .git, .gitignore, README.md, bundle.py, docs, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/CalendarThemeExtension/background.js; File type: js
   - Original: 1–24
   + Modified: 1–24
@@ -12,6 +16,9 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/CalendarThemeExtension/manifest.json; File type: json
   - Original: 31–31 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/CalendarThemeExtension/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/CalendarThemeExtension/options.js; File type: js
   - Original: 1–414

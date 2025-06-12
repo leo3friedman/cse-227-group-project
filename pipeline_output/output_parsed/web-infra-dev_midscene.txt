@@ -2,6 +2,10 @@
   - files: _metadata, index.html, manifest.json, popup.html, scripts, static
   + files: manifest.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/midscene/apps/chrome-extension/static
+  - files: _metadata, index.html, manifest.json, popup.html, scripts, static
+  + files: manifest.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/midscene/apps/chrome-extension/static/manifest.json; File type: json
   - Original: 28–28 -> Update URL
 

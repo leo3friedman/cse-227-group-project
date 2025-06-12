@@ -2,6 +2,10 @@
   - files: LICENSE.md, _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/FastStream/chrome
+  - files: LICENSE.md, _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/background/BackgroundUtils.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/background/BackgroundUtils.mjs; File type: mjs
   + Modified: 8–19
   + Modified: 35–35
@@ -484,6 +488,9 @@
   - Original: 8070–8070
   + Modified: 8763–8770
 
+---/workspace/pipeline_output/chromex_data/player/modules/pako.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/pako.mjs; File type: mjs
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/player/modules/reencoder/demuxers.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/reencoder/demuxers.mjs; File type: mjs
   + Modified: 3–6
   + Modified: 30–97
@@ -573,6 +580,9 @@
   - Original: 3279–3279
   + Modified: 3547–3555
 
+---/workspace/pipeline_output/chromex_data/player/modules/sortable.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/sortable.mjs; File type: mjs
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/player/modules/sweetalert.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/sweetalert.mjs; File type: mjs
   - Original: 1–160
   - Original: 162–475
@@ -616,6 +626,9 @@
   + Modified: 4–8
   + Modified: 63–73
 
+---/workspace/pipeline_output/chromex_data/player/modules/vad/ort.wasm.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/vad/ort.wasm.mjs; File type: mjs
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/player/modules/vad/vad.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/vad/vad.mjs; File type: mjs
   + Modified: 2–49
   + Modified: 86–99
@@ -627,6 +640,9 @@
   + Modified: 4–4
   + Modified: 43–63
   + Modified: 81–86
+
+---/workspace/pipeline_output/chromex_data/player/modules/vtt.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/vtt.mjs; File type: mjs
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/player/modules/yt.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/modules/yt.mjs; File type: mjs
   + Modified: 10–13
@@ -939,6 +955,10 @@
 ---/workspace/pipeline_output/chromex_data/player/ui/subtitles/SubtitlesSettingsManager.mjs <-> +++/workspace/pipeline_output/FastStream/chrome/player/ui/subtitles/SubtitlesSettingsManager.mjs; File type: mjs
   + Modified: 7–116
   + Modified: 134–159
+
+---/workspace/pipeline_output/chromex_data/player/utils <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils
+  - files: 
+  + files: UpdateChecker.mjs
 
 ---/workspace/pipeline_output/chromex_data/player/utils <-> +++/workspace/pipeline_output/FastStream/chrome/player/utils
   - files: 

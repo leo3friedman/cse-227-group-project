@@ -2,6 +2,14 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/omni/src
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/omni/src/assets
+  - files: 
+  + files: .DS_Store
+
 ---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/omni/src/assets
   - files: 
   + files: .DS_Store

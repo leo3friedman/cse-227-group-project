@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-regex-search/src
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/chrome-regex-search/src/js/background.js; File type: js
   - Original: 1–8
   + Modified: 1–8
@@ -20,4 +24,7 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/chrome-regex-search/src/manifest.json; File type: json
   - Original: 63–63 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/chrome-regex-search/src/options.html; File type: html
+  - Ordering differences only
 

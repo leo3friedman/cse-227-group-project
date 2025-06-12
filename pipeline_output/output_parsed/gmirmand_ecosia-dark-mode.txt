@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/_locales/en/messages.json; File type: json
   - Original: 1–75
   + Modified: 1–74
@@ -10,9 +14,21 @@
   - Original: 1–84
   + Modified: 1–83
 
+---/workspace/pipeline_output/chromex_data/css/ecosia/main.css <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/css/ecosia/main.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/newtab.css <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/css/newtab.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/ecosia-dark-mode.html <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/ecosia-dark-mode.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/images/down-arrow.svg <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/images/down-arrow.svg; File type: svg
   - Original: 4–22
   + Modified: 4–21
+
+---/workspace/pipeline_output/chromex_data/index.html <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/index.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/js/ecosia/newtab.js <-> +++/workspace/pipeline_output/ecosia-dark-mode/dist/js/ecosia/newtab.js; File type: js
   - Original: 1–2612

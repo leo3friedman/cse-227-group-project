@@ -2,6 +2,16 @@
   - files: _metadata
   + files: .git, .gitignore, LICENSE, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/DotGit
+  - files: _metadata
+  + files: .git, .gitignore, LICENSE, README.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/DotGit/manifest.json; File type: json
   - Original: 57–57 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options/options.css <-> +++/workspace/pipeline_output/DotGit/options/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup/icon.css <-> +++/workspace/pipeline_output/DotGit/popup/icon.css; File type: css
+  - Ordering differences only
 

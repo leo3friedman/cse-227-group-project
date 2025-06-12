@@ -2,6 +2,16 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Auto-Youtube-Shorts-Scroller/extension
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Auto-Youtube-Shorts-Scroller/extension/manifest.json; File type: json
   - Original: 32–32 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup/help.html <-> +++/workspace/pipeline_output/Auto-Youtube-Shorts-Scroller/extension/popup/help.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup/install.html <-> +++/workspace/pipeline_output/Auto-Youtube-Shorts-Scroller/extension/popup/install.html; File type: html
+  - Ordering differences only
 

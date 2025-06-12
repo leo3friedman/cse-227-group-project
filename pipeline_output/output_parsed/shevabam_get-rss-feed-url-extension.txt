@@ -2,6 +2,22 @@
   - files: _metadata
   + files: .git, .gitignore, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/get-rss-feed-url-extension
+  - files: _metadata
+  + files: .git, .gitignore, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/LICENSE.md <-> +++/workspace/pipeline_output/get-rss-feed-url-extension/LICENSE.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/get-rss-feed-url-extension/README.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/background.html <-> +++/workspace/pipeline_output/get-rss-feed-url-extension/background.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/popup.css <-> +++/workspace/pipeline_output/get-rss-feed-url-extension/css/popup.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/get-rss-feed-url-extension/js/background.js; File type: js
   - Original: 1–51
   + Modified: 1–51

@@ -2,7 +2,9 @@ import os
 import tempfile
 import subprocess
 import re
-from pathlib import Path
+import glob
+
+
 
 def compare_dirs_with_diffoscope(path1, path2):
     with tempfile.NamedTemporaryFile(delete=False) as diff_file:
@@ -17,7 +19,7 @@ def compare_dirs_with_diffoscope(path1, path2):
         os.unlink(diff_file.name)
         return diff_content, len(diff_content)
 
-def compare_dirs_with_diffoscope_recorded_text(path1, path2, output_path):
+def compare_dirs_with_diffoscope_recorded(path1, path2, output_path):
     # Run diffoscope and write its output directly to output_path
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     result = subprocess.run(
@@ -28,79 +30,7 @@ def compare_dirs_with_diffoscope_recorded_text(path1, path2, output_path):
         text=True
     )
 
-def compare_dirs_with_diffoscope_recorded_html(path1, path2, output_path):
-    # Run diffoscope and write its output directly to output_path
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    result = subprocess.run(
-        ['diffoscope', '--exclude-directory-metadata=recursive',
-         '--html', output_path, path1, path2],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
-    # print(result)
-
-# def parse_diffoscope_output(diff_text, output_file_path):
-#     diff_info = []
-#     current_file = None
-#     current_diffs = []
-#     current_chunk_is_ordering = False
-#     ordering_only_file = True
-
-#     lines = diff_text.splitlines()
-
-#     # line[4:].strip() removes "+++ " or "--- " from the beginning (so we just get file location)
-#     for raw_line in lines:
-#         # Normalize line by removing diffoscope UI characters like │ ├ etc.
-#         line = re.sub(r'^[\s│├┄─]*', '', raw_line)
-
-#         # Detect start of file diff
-#         if line.startswith('--- '):
-#             # Save previous file's real diffs if any
-#             if current_file and current_diffs and not ordering_only_file:
-#                 current_file['diffs'] = current_diffs
-#                 diff_info.append(current_file)
-
-#             # Begin new file diff
-#             current_file = {'file1': line[4:].strip(), 'file2': '', 'diffs': []}
-#             current_diffs = []
-#             ordering_only_file = False  # default false; will set to True if detected
-#             current_chunk_is_ordering = False
-
-#         elif line.startswith('+++ ') and current_file:
-#             current_file['file2'] = line[4:].strip()
-
-#         elif "Ordering differences only" in line:
-#             ordering_only_file = True
-#             current_chunk_is_ordering = True
-
-#         elif line.startswith('@@') and current_file:
-#             if not current_chunk_is_ordering:
-#                 match = re.match(r'@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@', line)
-#                 if match:
-#                     line_from = int(match.group(1))
-#                     line_to = int(match.group(2))
-#                     current_diffs.append((line_from, line_to))
-#             current_chunk_is_ordering = False  # Reset after chunk is parsed
-
-#     # Final file block check
-#     if current_file and current_diffs and not ordering_only_file:
-#         current_file['diffs'] = current_diffs
-#         diff_info.append(current_file)
-
-#     # Write output
-#     with open(output_file_path, 'w') as out:
-#         for diff in diff_info:
-#             out.write(f"{diff['file1']} <-> {diff['file2']}\n")
-#             for from_line, to_line in diff['diffs']:
-#                 out.write(f"  - Original line: {from_line}, Modified line: {to_line}\n")
-#             out.write("\n")
-
 def write_ranges_with_update_url(out, orig_lines, update_url_lines):
-    """
-    orig_lines: sorted list of changed original line numbers
-    update_url_lines: set of lines that are update_url lines
-    """
     if not orig_lines:
         return
 
@@ -124,10 +54,6 @@ def write_ranges_with_update_url(out, orig_lines, update_url_lines):
         prev = line
 
 def parse_diffoscope_output(input_path: str, output_path: str):
-    # Ensure the output directory exists
-    output_dir = Path(output_path).parent
-    output_dir.mkdir(parents=True, exist_ok=True)
-
     with open(input_path, 'r') as f:
         diff_content = f.read()
     lines = diff_content.splitlines()
@@ -146,15 +72,19 @@ def parse_diffoscope_output(input_path: str, output_path: str):
 
         if line.startswith('--- '):
             if current_diffs and current_file:
-                if not (ordering_only and line_end_only):
-                    if file_list:
-                        current_file['flag'] = 1
-                    current_file['diffs'] = current_diffs
-                elif ordering_only:
-                    current_file['flag'] = 2
-                elif line_end_only:
-                    current_file['flag'] = 3
+                current_file['diffs'] = current_diffs
                 output.append(current_file)
+
+            if file_list: 
+                current_file['flag'] = 1
+                output.append(current_file)
+            elif ordering_only:
+                current_file['flag'] = 2
+                output.append(current_file)
+            elif line_end_only:
+                current_file['flag'] = 3
+                output.append(current_file)
+            
 
             current_file = {'file1': line[4:].strip(), 'file2': '', 'flag': 0, 'diffs': []}
             current_diffs = []
@@ -169,7 +99,8 @@ def parse_diffoscope_output(input_path: str, output_path: str):
             ordering_only = True
         elif "Line-ending differences only" in line:
             line_end_only = True
-        elif "file list" in line:
+        elif "file list" == line:
+            # print(line)
             file_list = True
 
         elif file_list:
@@ -243,9 +174,9 @@ def parse_diffoscope_output(input_path: str, output_path: str):
                 out.write("  + files: " + ", ".join(plus_file) + "\n\n")
 
             elif diff['flag'] == 2:
-                out.write("Ordering differences only\n")
+                out.write("  - Ordering differences only\n\n")
             elif diff['flag'] == 3:
-                out.write("Line-ending differences only\n")
+                out.write("  - Line-ending differences only\n\n")
             else:
                 for hunk in diff['diffs']:
                     if not isinstance(hunk, dict):
@@ -266,3 +197,29 @@ def parse_diffoscope_output(input_path: str, output_path: str):
                 out.write("\n")
 
     return
+
+def files_dift(input_path: str):
+    txt_files = glob.glob(f"{input_path}/*.txt")
+    file_dict_no_ordering = {}
+    file_dict_ordering = {}
+    prev_file = None
+    for file in txt_files:
+        with open(file, 'r') as f:
+            for line in f:
+                if " File type: " in line:
+                    file_type = line.split(" File type: ")[1].strip()
+                    file_dict_no_ordering[file_type] = file_dict_no_ordering.get(file_type, 0) + 1
+                    file_dict_ordering[file_type] = file_dict_ordering.get(file_type, 0) + 1
+                    prev_file = file_type
+                if ("  - Ordering differences only" == line) or ("  - Line-ending differences only" == line):
+                    file_dict_ordering[prev_file] -= 1
+    
+    print("File type differences")
+    for key, value in file_dict_no_ordering.items():
+        print(f"{key}: {value}")
+
+    print("File type differences with ordering and line ending differences removed")
+    for key, value in file_dict_ordering.items():
+        print(f"{key}: {value}")                                       
+                
+                

@@ -2,6 +2,14 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension/assets
+  - files: js, libs
+  + files: js
+
 ---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/stop-slide-scrolling/extension/assets
   - files: js, libs
   + files: js

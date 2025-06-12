@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/screenity/build
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/screenity/build/manifest.json; File type: json
   - Original: 87–87 -> Update URL
 

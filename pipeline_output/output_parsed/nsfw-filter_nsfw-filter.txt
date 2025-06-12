@@ -2,6 +2,10 @@
   - files: _metadata, models, src
   + files: models
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/nsfw-filter/dist
+  - files: _metadata, models, src
+  + files: models
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/nsfw-filter/dist/manifest.json; File type: json
   - Original: 47–47 -> Update URL
 

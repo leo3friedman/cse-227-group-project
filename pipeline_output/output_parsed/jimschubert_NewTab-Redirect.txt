@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .github, .gitignore, .jshintrc, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/NewTab-Redirect
+  - files: _metadata
+  + files: .git, .github, .gitignore, .jshintrc, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/NewTab-Redirect/README.md; File type: md
   + Modified: 22–28
 

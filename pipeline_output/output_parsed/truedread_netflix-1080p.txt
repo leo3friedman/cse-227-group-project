@@ -2,6 +2,16 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/netflix-1080p
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/netflix-1080p/LICENSE
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/netflix-1080p/README.md; File type: md
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/cadmium-playercore-6.0033.414.911-1080p.js <-> +++/workspace/pipeline_output/netflix-1080p/cadmium-playercore-6.0033.414.911-1080p.js; File type: js
   - Original: 1–131535
   + Modified: 1–131535
@@ -16,6 +26,9 @@
 ---/workspace/pipeline_output/chromex_data/netflix_max_bitrate.js <-> +++/workspace/pipeline_output/netflix-1080p/netflix_max_bitrate.js; File type: js
   - Original: 1–40
   + Modified: 1–40
+
+---/workspace/pipeline_output/chromex_data/pages/options.html <-> +++/workspace/pipeline_output/netflix-1080p/pages/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/pages/options.js <-> +++/workspace/pipeline_output/netflix-1080p/pages/options.js; File type: js
   - Original: 1–30

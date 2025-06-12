@@ -2,9 +2,21 @@
   - files: _metadata, uw-bg.js, uw-bg.js.map
   + files: install, manifest.v2.json, options, shims-vue.d.ts, uw-bg.js
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ultrawidify/src
+  - files: _metadata, uw-bg.js, uw-bg.js.map
+  + files: install, manifest.v2.json, options, shims-vue.d.ts, uw-bg.js
+
 ---/workspace/pipeline_output/chromex_data/common <-> +++/workspace/pipeline_output/ultrawidify/src/common
   - files: lib
   + files: data, enums, interfaces, js, misc
+
+---/workspace/pipeline_output/chromex_data/common <-> +++/workspace/pipeline_output/ultrawidify/src/common
+  - files: lib
+  + files: data, enums, interfaces, js, misc
+
+---/workspace/pipeline_output/chromex_data/csui <-> +++/workspace/pipeline_output/ultrawidify/src/csui
+  - files: csui-dark.html, csui-light.html, csui-popup.js.map, csui.html, csui.js.map
+  + files: 
 
 ---/workspace/pipeline_output/chromex_data/csui <-> +++/workspace/pipeline_output/ultrawidify/src/csui
   - files: csui-dark.html, csui-light.html, csui-popup.js.map, csui.html, csui.js.map
@@ -23,6 +35,10 @@
   - Original: 1–79432
   - Original: 79434–82422
   + Modified: 1–17
+
+---/workspace/pipeline_output/chromex_data/ext <-> +++/workspace/pipeline_output/ultrawidify/src/ext
+  - files: uw.js, uw.js.map
+  + files: conf, lib, uw.js
 
 ---/workspace/pipeline_output/chromex_data/ext <-> +++/workspace/pipeline_output/ultrawidify/src/ext
   - files: uw.js, uw.js.map

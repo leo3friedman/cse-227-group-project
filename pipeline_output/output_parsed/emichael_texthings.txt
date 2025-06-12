@@ -2,6 +2,10 @@
   - files: _metadata, options.html
   + files: .git, .gitignore, Makefile, options.html, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/texthings
+  - files: _metadata, options.html
+  + files: .git, .gitignore, Makefile, options.html, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/texthings/manifest.json; File type: json
   - Original: 43–43 -> Update URL
 

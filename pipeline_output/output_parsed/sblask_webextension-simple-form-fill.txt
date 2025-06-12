@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .agignore, .editorconfig, .eslintignore, .eslintrc.json, .git, .github, .gitignore, .npmrc, .travis.yml, node_modules, package.json, screenshots
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/webextension-simple-form-fill
+  - files: _metadata
+  + files: .agignore, .editorconfig, .eslintignore, .eslintrc.json, .git, .github, .gitignore, .npmrc, .travis.yml, node_modules, package.json, screenshots
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/webextension-simple-form-fill/manifest.json; File type: json
   + Modified: 2–18
   - Original: 34–34 -> Update URL

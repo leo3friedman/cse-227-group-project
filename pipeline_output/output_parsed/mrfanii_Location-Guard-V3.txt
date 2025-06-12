@@ -2,6 +2,13 @@
   - files: _metadata
   + files: .git, .gitignore, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Location-Guard-V3
+  - files: _metadata
+  + files: .git, .gitignore, README.md, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/css/leaflet.css <-> +++/workspace/pipeline_output/Location-Guard-V3/css/leaflet.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/js/common-gui.js <-> +++/workspace/pipeline_output/Location-Guard-V3/js/common-gui.js; File type: js
   - Original: 14815–14884
   - Original: 14886–14910

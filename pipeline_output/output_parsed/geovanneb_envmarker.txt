@@ -2,6 +2,10 @@
   - files: _metadata, background.js.map
   + files: build-safari.sh, config, manifest_firefox.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/envmarker/app
+  - files: _metadata, background.js.map
+  + files: build-safari.sh, config, manifest_firefox.json
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/envmarker/app/background.js; File type: js
   - Original: 1–5
   - Original: 7–12
@@ -19,6 +23,10 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/envmarker/app/manifest.json; File type: json
   - Original: 49–49 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/envmarker/app/scripts
+  - files: libs, modal.js.map, options.js.map, popup.js.map, util.js, util.js.map
+  + files: util.js
 
 ---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/envmarker/app/scripts
   - files: libs, modal.js.map, options.js.map, popup.js.map, util.js, util.js.map
@@ -95,6 +103,10 @@
   - Original: 73–81
   - Original: 83–85
   + Modified: 1–155
+
+---/workspace/pipeline_output/chromex_data/styles <-> +++/workspace/pipeline_output/envmarker/app/styles
+  - files: layout.css.map, options.css.map, popup.css.map, preview.css, preview.css.map
+  + files: preview.css
 
 ---/workspace/pipeline_output/chromex_data/styles <-> +++/workspace/pipeline_output/envmarker/app/styles
   - files: layout.css.map, options.css.map, popup.css.map, preview.css, preview.css.map

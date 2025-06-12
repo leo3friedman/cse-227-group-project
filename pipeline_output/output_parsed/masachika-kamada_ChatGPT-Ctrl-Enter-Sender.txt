@@ -2,6 +2,10 @@
   - files: _metadata, popup
   + files: .git, .github, .gitignore, README.md, README_CH.md, README_JA.md, package-lock.json, popup, tools
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender
+  - files: _metadata, popup
+  + files: .git, .github, .gitignore, README.md, README_CH.md, README_JA.md, package-lock.json, popup, tools
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/_locales/en/messages.json; File type: json
   - Original: 1–9
   + Modified: 1–8
@@ -41,9 +45,21 @@
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/manifest.json; File type: json
   - Original: 90–90 -> Update URL
 
+---/workspace/pipeline_output/chromex_data/options/options.css <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options/options.html <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options/options.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/options/options.js <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/options/options.js; File type: js
   - Original: 1–62
   + Modified: 1–62
+
+---/workspace/pipeline_output/chromex_data/popup/popup.css <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup/popup.html <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup/popup.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/popup/popup.js <-> +++/workspace/pipeline_output/ChatGPT-Ctrl-Enter-Sender/popup/popup.js; File type: js
   - Original: 1–61

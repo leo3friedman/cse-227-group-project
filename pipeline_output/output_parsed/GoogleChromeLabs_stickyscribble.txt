@@ -2,6 +2,10 @@
   - files: _metadata, manifest.json
   + files: .git, manifest.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/stickyscribble
+  - files: _metadata, manifest.json
+  + files: .git, manifest.json, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/stickyscribble/manifest.json; File type: json
   - Original: 25–25 -> Update URL
 

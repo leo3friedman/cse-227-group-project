@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .github, CHANGELOG.md, LICENSE, README, README.md, README_en.md, manifest.firefox.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/cat-catch
+  - files: _metadata
+  + files: .git, .github, CHANGELOG.md, LICENSE, README, README.md, README_en.md, manifest.firefox.json, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/cat-catch/_locales/en/messages.json; File type: json
   - Original: 1–450
   - Original: 452–628
@@ -60,6 +64,27 @@
 ---/workspace/pipeline_output/chromex_data/catch-script/webrtc.js <-> +++/workspace/pipeline_output/cat-catch/catch-script/webrtc.js; File type: js
   - Original: 1–316
   + Modified: 1–316
+
+---/workspace/pipeline_output/chromex_data/css/mobile.css <-> +++/workspace/pipeline_output/cat-catch/css/mobile.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/options.css <-> +++/workspace/pipeline_output/cat-catch/css/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/popup.css <-> +++/workspace/pipeline_output/cat-catch/css/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/preview.css <-> +++/workspace/pipeline_output/cat-catch/css/preview.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/public.css <-> +++/workspace/pipeline_output/cat-catch/css/public.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/downloader.html <-> +++/workspace/pipeline_output/cat-catch/downloader.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/install.html <-> +++/workspace/pipeline_output/cat-catch/install.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/js/background.js <-> +++/workspace/pipeline_output/cat-catch/js/background.js; File type: js
   - Original: 1–1065
@@ -129,6 +154,9 @@
   - Original: 1–102
   + Modified: 1–102
 
+---/workspace/pipeline_output/chromex_data/json.html <-> +++/workspace/pipeline_output/cat-catch/json.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/lib/StreamSaver.js <-> +++/workspace/pipeline_output/cat-catch/lib/StreamSaver.js; File type: js
   - Original: 1–346
   + Modified: 1–346
@@ -161,6 +189,18 @@
   - Original: 1–3394
   + Modified: 1–3394
 
+---/workspace/pipeline_output/chromex_data/m3u8.html <-> +++/workspace/pipeline_output/cat-catch/m3u8.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/cat-catch/manifest.json; File type: json
   - Original: 71–71 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/mpd.html <-> +++/workspace/pipeline_output/cat-catch/mpd.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/cat-catch/options.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/cat-catch/popup.html; File type: html
+  - Ordering differences only
 

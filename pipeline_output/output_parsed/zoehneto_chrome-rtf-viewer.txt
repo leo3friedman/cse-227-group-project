@@ -2,8 +2,16 @@
   - files: _metadata
   + files: .git, .gitignore, build.sh, manifest-firefox.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-rtf-viewer
+  - files: _metadata
+  + files: .git, .gitignore, build.sh, manifest-firefox.json, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/chrome-rtf-viewer/README.md; File type: md
   - Original: 12–14
+
+---/workspace/pipeline_output/chromex_data/external <-> +++/workspace/pipeline_output/chrome-rtf-viewer/external
+  - files: dompurify.2.0.7.purify.min.js
+  + files: dompurify.2.0.15.purify.min.js
 
 ---/workspace/pipeline_output/chromex_data/external <-> +++/workspace/pipeline_output/chrome-rtf-viewer/external
   - files: dompurify.2.0.7.purify.min.js

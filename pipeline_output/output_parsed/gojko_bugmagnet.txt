@@ -2,6 +2,10 @@
   - files: _metadata, extension.js, inject-value.js, options.html, options.js, paste.js
   + files: options.html
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/bugmagnet/template
+  - files: _metadata, extension.js, inject-value.js, options.html, options.js, paste.js
+  + files: options.html
+
 ---/workspace/pipeline_output/chromex_data/config.json <-> +++/workspace/pipeline_output/bugmagnet/template/config.json; File type: json
   - Original: 156–157
   + Modified: 156–157

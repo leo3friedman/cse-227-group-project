@@ -2,6 +2,10 @@
   - files: _metadata, crxviewer.css, storage-sync-polyfill.js
   + files: crxviewer.less, domain-fronter.js, manifest_firefox.json, manifest_opera.json, search-tools.less, storage-sync-polyfill.js, test-asn1.html, test-search-tools.htm, testdata
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/crxviewer/src
+  - files: _metadata, crxviewer.css, storage-sync-polyfill.js
+  + files: crxviewer.less, domain-fronter.js, manifest_firefox.json, manifest_opera.json, search-tools.less, storage-sync-polyfill.js, test-asn1.html, test-search-tools.htm, testdata
+
 ---/workspace/pipeline_output/chromex_data/asn1lite.js <-> +++/workspace/pipeline_output/crxviewer/src/asn1lite.js; File type: js
   - Original: 300–300
   + Modified: 300–300
@@ -58,8 +62,16 @@
   - files: 48.png
   + files: 48.png, icon.svg
 
+---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/crxviewer/src/icons
+  - files: 48.png
+  + files: 48.png, icon.svg
+
 ---/workspace/pipeline_output/chromex_data/lib/crx-to-zip.js <-> +++/workspace/pipeline_output/crxviewer/src/lib/crx-to-zip.js; File type: js
   + Modified: 270–275
+
+---/workspace/pipeline_output/chromex_data/lib/prettify <-> +++/workspace/pipeline_output/crxviewer/src/lib/prettify
+  - files: prism.js
+  + files: prism.js, test-prism-language-detect.js, test-prism-li-lines.js, test-prism-source-extensions.html
 
 ---/workspace/pipeline_output/chromex_data/lib/prettify <-> +++/workspace/pipeline_output/crxviewer/src/lib/prettify
   - files: prism.js

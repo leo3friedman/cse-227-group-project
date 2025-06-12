@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .github, .gitignore, LICENSE, README-en.md, README.md, images, node_modules, package-lock.json, package.json, renovate.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/cheese-knife
+  - files: _metadata
+  + files: .git, .github, .gitignore, LICENSE, README-en.md, README.md, images, node_modules, package-lock.json, package.json, renovate.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/cheese-knife/manifest.json; File type: json
   - Original: 49–49 -> Update URL
 

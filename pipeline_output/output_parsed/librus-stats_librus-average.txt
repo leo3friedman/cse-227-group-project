@@ -2,6 +2,13 @@
   - files: _metadata, materialize
   + files: .git, .gitignore, materialize, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/librus-average
+  - files: _metadata, materialize
+  + files: .git, .gitignore, materialize, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/librus-average/LICENSE
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/librus-average/_locales/en/messages.json; File type: json
   - Original: 1–23
   - Original: 27–56
@@ -11,6 +18,12 @@
   - Original: 1–24
   - Original: 26–56
   + Modified: 1–54
+
+---/workspace/pipeline_output/chromex_data/css/options.css <-> +++/workspace/pipeline_output/librus-average/css/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/options.html <-> +++/workspace/pipeline_output/librus-average/html/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/js/background_analytics_manager.js <-> +++/workspace/pipeline_output/librus-average/js/background_analytics_manager.js; File type: js
   - Original: 1–39

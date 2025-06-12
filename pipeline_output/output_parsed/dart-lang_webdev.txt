@@ -2,6 +2,10 @@
   - files: _metadata, background.dart.js, banner.dart.js, copier.dart.js, debug_info.dart.js, detector.dart.js, devtools.dart.js, lifeline_connection.dart.js, panel.dart.js, popup.dart.js, settings.dart.js, static_assets
   + files: background.dart, chrome_api.dart, cider_connection.dart, copier.dart, cross_extension_communication.dart, data_serializers.dart, data_serializers.g.dart, data_types.dart, data_types.g.dart, debug_info.dart, debug_session.dart, detector.dart, devtools.dart, logger.dart, messaging.dart, panel.dart, popup.dart, static_assets, storage.dart, utils.dart, web_api.dart
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/webdev/dwds/debug_extension/web
+  - files: _metadata, background.dart.js, banner.dart.js, copier.dart.js, debug_info.dart.js, detector.dart.js, devtools.dart.js, lifeline_connection.dart.js, panel.dart.js, popup.dart.js, settings.dart.js, static_assets
+  + files: background.dart, chrome_api.dart, cider_connection.dart, copier.dart, cross_extension_communication.dart, data_serializers.dart, data_serializers.g.dart, data_types.dart, data_types.g.dart, debug_info.dart, debug_session.dart, detector.dart, devtools.dart, logger.dart, messaging.dart, panel.dart, popup.dart, static_assets, storage.dart, utils.dart, web_api.dart
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/webdev/dwds/debug_extension/web/manifest.json; File type: json
   - Original: 54–54 -> Update URL
 

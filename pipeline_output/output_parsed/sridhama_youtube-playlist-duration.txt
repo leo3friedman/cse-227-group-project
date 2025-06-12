@@ -2,6 +2,10 @@
   - files: _metadata, manifest.json
   + files: .git, LICENSE, README.md, logo.png, manifest.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/youtube-playlist-duration
+  - files: _metadata, manifest.json
+  + files: .git, LICENSE, README.md, logo.png, manifest.json, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/app.js <-> +++/workspace/pipeline_output/youtube-playlist-duration/app.js; File type: js
   - Original: 64–64
   - Original: 69–69

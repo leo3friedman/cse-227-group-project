@@ -2,6 +2,10 @@
   - files: _metadata, css, images, js, options.html
   + files: .DS_Store, .browserslistrc, .eslintrc.yml, .git, .github, .gitignore, .gitmodules, .stylelintrc.json, LICENSE, README.md, gulpfile.esm.js, node_modules, package, package-lock.json, package.json, pnpm-lock.yaml, src
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/YAAW-for-Chrome
+  - files: _metadata, css, images, js, options.html
+  + files: .DS_Store, .browserslistrc, .eslintrc.yml, .git, .github, .gitignore, .gitmodules, .stylelintrc.json, LICENSE, README.md, gulpfile.esm.js, node_modules, package, package-lock.json, package.json, pnpm-lock.yaml, src
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/YAAW-for-Chrome/background.js; File type: js
   - Original: 28–29
   + Modified: 28–29

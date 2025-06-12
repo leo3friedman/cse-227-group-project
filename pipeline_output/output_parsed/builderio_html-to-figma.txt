@@ -2,6 +2,14 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info/js
+  - files: background.js, inject.js, popup.js
+  + files: background.js
+
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/html-to-figma/chrome-extension/info/js
   - files: background.js, inject.js, popup.js
   + files: background.js

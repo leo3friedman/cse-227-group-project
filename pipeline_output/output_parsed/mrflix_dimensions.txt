@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/dimensions/extension
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/chrome.js <-> +++/workspace/pipeline_output/dimensions/extension/chrome.js; File type: js
   + Modified: 152–154
 

@@ -2,9 +2,21 @@
   - files: _metadata
   + files: .git, LICENSE, PrivacyPolicy.md, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/RoValra
+  - files: _metadata
+  + files: .git, LICENSE, PrivacyPolicy.md, README.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/Assets <-> +++/workspace/pipeline_output/RoValra/Assets
   - files: 
   + files: ChromeWebStore_BadgeWBorder_v2_206x58.png
+
+---/workspace/pipeline_output/chromex_data/Assets <-> +++/workspace/pipeline_output/RoValra/Assets
+  - files: 
+  + files: ChromeWebStore_BadgeWBorder_v2_206x58.png
+
+---/workspace/pipeline_output/chromex_data/HiddenGames <-> +++/workspace/pipeline_output/RoValra/HiddenGames
+  - files: 
+  + files: none-btroblox.js
 
 ---/workspace/pipeline_output/chromex_data/HiddenGames <-> +++/workspace/pipeline_output/RoValra/HiddenGames
   - files: 

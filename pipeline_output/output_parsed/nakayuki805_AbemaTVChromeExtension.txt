@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/AbemaTVChromeExtension/app
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/images/abemaexticon.png <-> +++/workspace/pipeline_output/AbemaTVChromeExtension/app/images/abemaexticon.png; File type: png
   - Original: 2–124
   + Modified: 2–151
@@ -165,6 +169,10 @@
   - Original: 34–34
   - Original: 42–42 -> Update URL
   + Modified: 2–32
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/AbemaTVChromeExtension/app/scripts
+  - files: contentScript.js.LICENSE.txt, injection.js, option.js.LICENSE.txt, settingsList.js
+  + files: contentScript, injection.ts, lib, settingsList.ts
 
 ---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/AbemaTVChromeExtension/app/scripts
   - files: contentScript.js.LICENSE.txt, injection.js, option.js.LICENSE.txt, settingsList.js

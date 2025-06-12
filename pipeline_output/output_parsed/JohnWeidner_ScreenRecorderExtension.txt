@@ -2,6 +2,14 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/assets
+  - files: busy.gif
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/assets
   - files: busy.gif
   + files: 
@@ -14,6 +22,10 @@
   - Original: 31–31 -> Update URL
   - Original: 32–32
   + Modified: 31–31
+
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/src
+  - files: install.html, options.html, receiver.html
+  + files: 
 
 ---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/ScreenRecorderExtension/build/src
   - files: install.html, options.html, receiver.html

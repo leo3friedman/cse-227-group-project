@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .gitignore, .project, TermsOfUse.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/SendPage
+  - files: _metadata
+  + files: .git, .gitignore, .project, TermsOfUse.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/SendPage/README.md; File type: md
   - Original: 10–11
   - Original: 18–18

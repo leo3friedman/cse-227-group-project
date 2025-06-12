@@ -2,8 +2,16 @@
   - files: _metadata
   + files: chrome.manifest, firefox, install.rdf
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/markdown-here/src
+  - files: _metadata
+  + files: chrome.manifest, firefox, install.rdf
+
 ---/workspace/pipeline_output/chromex_data/chrome/backgroundscript.js <-> +++/workspace/pipeline_output/markdown-here/src/chrome/backgroundscript.js; File type: js
   + Modified: 66–68
+
+---/workspace/pipeline_output/chromex_data/common <-> +++/workspace/pipeline_output/markdown-here/src/common
+  - files: 
+  + files: test
 
 ---/workspace/pipeline_output/chromex_data/common <-> +++/workspace/pipeline_output/markdown-here/src/common
   - files: 

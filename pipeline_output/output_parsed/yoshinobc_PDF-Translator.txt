@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/PDF-Translator
+  - files: _metadata
+  + files: .git, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/PDF-Translator/manifest.json; File type: json
   - Original: 45–45 -> Update URL
 

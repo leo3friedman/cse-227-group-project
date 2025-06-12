@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .github, .gitignore, .hintrc, .prettierrc, LICENSE, README.md, README.zh.md, img, make.bat, makefile, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/biliplus
+  - files: _metadata
+  + files: .git, .github, .gitignore, .hintrc, .prettierrc, LICENSE, README.md, README.zh.md, img, make.bat, makefile, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/biliplus/manifest.json; File type: json
   - Original: 68–68 -> Update URL
 

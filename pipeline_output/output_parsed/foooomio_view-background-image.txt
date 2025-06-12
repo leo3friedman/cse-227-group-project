@@ -2,6 +2,10 @@
   - files: _metadata
   + files: manifest.chrome.json, manifest.firefox.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/view-background-image/src
+  - files: _metadata
+  + files: manifest.chrome.json, manifest.firefox.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/view-background-image/src/manifest.json; File type: json
   - Original: 33–33 -> Update URL
 

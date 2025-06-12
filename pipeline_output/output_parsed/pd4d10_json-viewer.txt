@@ -2,6 +2,10 @@
   - files: LICENSE, _metadata, dist
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/json-viewer/chrome
+  - files: LICENSE, _metadata, dist
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/json-viewer/chrome/manifest.json; File type: json
   - Original: 24–24 -> Update URL
 

@@ -2,6 +2,26 @@
   - files: _metadata
   + files: .git, manifest - firefox.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/PandaCrazy-Max
+  - files: _metadata
+  + files: .git, manifest - firefox.json, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/PandaCrazy-Max/README.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/PCM-Content-Script.css <-> +++/workspace/pipeline_output/PandaCrazy-Max/css/PCM-Content-Script.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/panda-crazy-max.css <-> +++/workspace/pipeline_output/PandaCrazy-Max/css/panda-crazy-max.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/help.html <-> +++/workspace/pipeline_output/PandaCrazy-Max/help.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/PandaCrazy-Max/js
+  - files: background, classes
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/PandaCrazy-Max/js
   - files: background, classes
   + files: 
@@ -216,4 +236,13 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/PandaCrazy-Max/manifest.json; File type: json
   - Original: 76–76 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/pandaCrazy.html <-> +++/workspace/pipeline_output/PandaCrazy-Max/pandaCrazy.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/PandaCrazy-Max/popup.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/searchCrazy.html <-> +++/workspace/pipeline_output/PandaCrazy-Max/searchCrazy.html; File type: html
+  - Ordering differences only
 

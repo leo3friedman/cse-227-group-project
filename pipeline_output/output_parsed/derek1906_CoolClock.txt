@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .gitignore, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/CoolClock
+  - files: _metadata
+  + files: .git, .gitignore, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/CoolClock/manifest.json; File type: json
   - Original: 46–46 -> Update URL
 

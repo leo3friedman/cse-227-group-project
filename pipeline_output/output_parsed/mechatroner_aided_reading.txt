@@ -2,6 +2,14 @@
   - files: _metadata
   + files: .eslintrc.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome
+  - files: _metadata
+  + files: .eslintrc.json
+
+---/workspace/pipeline_output/chromex_data/_locales/ru <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome/_locales/ru
+  - files: 
+  + files: description_from_webstore.txt
+
 ---/workspace/pipeline_output/chromex_data/_locales/ru <-> +++/workspace/pipeline_output/aided_reading/words_discoverer_chrome/_locales/ru
   - files: 
   + files: description_from_webstore.txt

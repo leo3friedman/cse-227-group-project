@@ -2,6 +2,14 @@
   - files: _metadata, background, content-scripts, options, popup, web-accessibles
   + files: components, core, extension, hooks, manifest.beta.json, manifest.development.json, manifest.firefox.json, manifest.ios.json, test, types
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/toolkit-for-ynab/src
+  - files: _metadata, background, content-scripts, options, popup, web-accessibles
+  + files: components, core, extension, hooks, manifest.beta.json, manifest.development.json, manifest.firefox.json, manifest.ios.json, test, types
+
+---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/toolkit-for-ynab/src/assets
+  - files: fonts, images
+  + files: common, environment
+
 ---/workspace/pipeline_output/chromex_data/assets <-> +++/workspace/pipeline_output/toolkit-for-ynab/src/assets
   - files: fonts, images
   + files: common, environment

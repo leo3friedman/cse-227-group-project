@@ -2,6 +2,13 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/AutoScroll/src
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/AutoScroll/src/LICENSE
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/data/AutoScroll.js <-> +++/workspace/pipeline_output/AutoScroll/src/data/AutoScroll.js; File type: js
   - Original: 1–512
   + Modified: 1–512
@@ -46,6 +53,9 @@
 ---/workspace/pipeline_output/chromex_data/data/lib/util/ui.js <-> +++/workspace/pipeline_output/AutoScroll/src/data/lib/util/ui.js; File type: js
   - Original: 1–1253
   + Modified: 1–1253
+
+---/workspace/pipeline_output/chromex_data/data/options.html <-> +++/workspace/pipeline_output/AutoScroll/src/data/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/data/options.js <-> +++/workspace/pipeline_output/AutoScroll/src/data/options.js; File type: js
   - Original: 1–181

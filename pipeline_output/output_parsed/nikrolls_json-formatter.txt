@@ -2,6 +2,14 @@
   - files: _metadata, manifest.json
   + files: manifest.json, sass
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/json-formatter/src
+  - files: _metadata, manifest.json
+  + files: manifest.json, sass
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/json-formatter/src/js
+  - files: content.js
+  + files: content.js, lib
+
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/json-formatter/src/js
   - files: content.js
   + files: content.js, lib

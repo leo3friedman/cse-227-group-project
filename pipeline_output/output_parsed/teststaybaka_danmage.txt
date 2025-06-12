@@ -2,6 +2,10 @@
   - files: _metadata
   + files: common, entries.json, firefox_manifest.json, interface
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension
+  - files: _metadata
+  + files: common, entries.json, firefox_manifest.json, interface
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension/_locales/en/messages.json; File type: json
   - Original: 1–163
   + Modified: 1–158
@@ -23,9 +27,21 @@
   - files: index.html, index.html.gz, index.js, index.js.gz
   + files: main.ts
 
+---/workspace/pipeline_output/chromex_data/background <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension/background
+  - files: index.html, index.html.gz, index.js, index.js.gz
+  + files: main.ts
+
 ---/workspace/pipeline_output/chromex_data/content_script <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension/content_script
   - files: index.html, index.html.gz, index.js, index.js.gz
   + files: account_tab, block_settings_tab, chat_list_tab, chat_pool.ts, chat_pool_test.ts, common, control_panel.ts, control_panel_attacher.ts, danmaku_canvas, display_settings_tab, main.ts, player_controller.ts, refresher.ts, video_id_extractor.ts
+
+---/workspace/pipeline_output/chromex_data/content_script <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension/content_script
+  - files: index.html, index.html.gz, index.js, index.js.gz
+  + files: account_tab, block_settings_tab, chat_list_tab, chat_pool.ts, chat_pool_test.ts, common, control_panel.ts, control_panel_attacher.ts, danmaku_canvas, display_settings_tab, main.ts, player_controller.ts, refresher.ts, video_id_extractor.ts
+
+---/workspace/pipeline_output/chromex_data/image <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension/image
+  - files: app_icon.png
+  + files: app_icon.png, icon.psd
 
 ---/workspace/pipeline_output/chromex_data/image <-> +++/workspace/pipeline_output/danmage/frontend/chrome_extension/image
   - files: app_icon.png

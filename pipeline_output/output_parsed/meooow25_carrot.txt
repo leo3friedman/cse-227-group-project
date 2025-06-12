@@ -2,6 +2,14 @@
   - files: _metadata, polyfill, src
   + files: src, tests
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/carrot/carrot
+  - files: _metadata, polyfill, src
+  + files: src, tests
+
+---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/carrot/carrot/icons
+  - files: icon128.png, icon16.png, icon32.png, icon48.png
+  + files: icon.svg
+
 ---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/carrot/carrot/icons
   - files: icon128.png, icon16.png, icon32.png, icon48.png
   + files: icon.svg

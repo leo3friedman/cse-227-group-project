@@ -2,6 +2,10 @@
   - files: _metadata, src
   + files: .all-contributorsrc, .git, .github, .gitignore, .gitmodules, .prettierignore, .vscode, FUNDING.json, LICENSE, README.md, STYLING.md, api, biome.json, package-lock.json, scripts, src, templates, www
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/better-lyrics
+  - files: _metadata, src
+  + files: .all-contributorsrc, .git, .github, .gitignore, .gitmodules, .prettierignore, .vscode, FUNDING.json, LICENSE, README.md, STYLING.md, api, biome.json, package-lock.json, scripts, src, templates, www
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/better-lyrics/manifest.json; File type: json
   - Original: 6–6
   - Original: 11–11
@@ -14,6 +18,14 @@
   - files: background.min.js, index.min.css, index.min.js
   + files: background.js, earlyInject.js, index.css, index.js
 
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/better-lyrics/src
+  - files: background.min.js, index.min.css, index.min.js
+  + files: background.js, earlyInject.js, index.css, index.js
+
+---/workspace/pipeline_output/chromex_data/src/core <-> +++/workspace/pipeline_output/better-lyrics/src/core
+  - files: constants.min.js, storage.min.js, utils.min.js
+  + files: constants.js, storage.js, utils.js
+
 ---/workspace/pipeline_output/chromex_data/src/core <-> +++/workspace/pipeline_output/better-lyrics/src/core
   - files: constants.min.js, storage.min.js, utils.min.js
   + files: constants.js, storage.js, utils.js
@@ -22,9 +34,21 @@
   - files: 
   + files: Sortable.min.js
 
+---/workspace/pipeline_output/chromex_data/src/libs/codemirror <-> +++/workspace/pipeline_output/better-lyrics/src/libs/codemirror
+  - files: 
+  + files: Sortable.min.js
+
 ---/workspace/pipeline_output/chromex_data/src/modules/lyrics <-> +++/workspace/pipeline_output/better-lyrics/src/modules/lyrics
   - files: lyrics.min.js, providers.min.js, translation.min.js
   + files: lyrics.js, providers.js, requestSniffer.js, translation.js
+
+---/workspace/pipeline_output/chromex_data/src/modules/lyrics <-> +++/workspace/pipeline_output/better-lyrics/src/modules/lyrics
+  - files: lyrics.min.js, providers.min.js, translation.min.js
+  + files: lyrics.js, providers.js, requestSniffer.js, translation.js
+
+---/workspace/pipeline_output/chromex_data/src/modules/settings <-> +++/workspace/pipeline_output/better-lyrics/src/modules/settings
+  - files: settings.min.js
+  + files: settings.js
 
 ---/workspace/pipeline_output/chromex_data/src/modules/settings <-> +++/workspace/pipeline_output/better-lyrics/src/modules/settings
   - files: settings.min.js
@@ -53,6 +77,14 @@
 ---/workspace/pipeline_output/chromex_data/src/modules/ui <-> +++/workspace/pipeline_output/better-lyrics/src/modules/ui
   - files: dom.min.js, observer.min.js
   + files: dom.js, observer.js
+
+---/workspace/pipeline_output/chromex_data/src/modules/ui <-> +++/workspace/pipeline_output/better-lyrics/src/modules/ui
+  - files: dom.min.js, observer.min.js
+  + files: dom.js, observer.js
+
+---/workspace/pipeline_output/chromex_data/src/options <-> +++/workspace/pipeline_output/better-lyrics/src/options
+  - files: editor.min.js, options.min.css, options.min.js
+  + files: editor.js, options.css, options.js
 
 ---/workspace/pipeline_output/chromex_data/src/options <-> +++/workspace/pipeline_output/better-lyrics/src/options
   - files: editor.min.js, options.min.css, options.min.js

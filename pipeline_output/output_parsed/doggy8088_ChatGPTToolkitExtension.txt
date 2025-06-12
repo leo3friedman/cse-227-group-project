@@ -2,6 +2,16 @@
   - files: _metadata
   + files: .git, .github, .gitignore, CUSTOM_PROMPTS.js, NOTES.md, PUBLISH.md, TODO.md, links, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ChatGPTToolkitExtension
+  - files: _metadata
+  + files: .git, .github, .gitignore, CUSTOM_PROMPTS.js, NOTES.md, PUBLISH.md, TODO.md, links, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/CHANGELOG.md <-> +++/workspace/pipeline_output/ChatGPTToolkitExtension/CHANGELOG.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/ChatGPTToolkitExtension/README.md; File type: md
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/ChatGPTToolkitExtension/_locales/en/messages.json; File type: json
   - Original: 1–12
   + Modified: 1–11

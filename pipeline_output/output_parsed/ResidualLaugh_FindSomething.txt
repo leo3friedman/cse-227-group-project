@@ -2,6 +2,19 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/FindSomething
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/CHANGELOG.md <-> +++/workspace/pipeline_output/FindSomething/CHANGELOG.md; File type: md
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/FindSomething/LICENSE
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/FindSomething/README.md; File type: md
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/ar/messages.json <-> +++/workspace/pipeline_output/FindSomething/_locales/ar/messages.json; File type: json
   - Original: 1–101
   - Original: 103–211
@@ -26,6 +39,9 @@
   - Original: 1–406
   + Modified: 1–406
 
+---/workspace/pipeline_output/chromex_data/getstarted.html <-> +++/workspace/pipeline_output/FindSomething/getstarted.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/getstarted.js <-> +++/workspace/pipeline_output/FindSomething/getstarted.js; File type: js
   - Original: 4–4
   + Modified: 4–4
@@ -33,9 +49,15 @@
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/FindSomething/manifest.json; File type: json
   - Original: 39–39 -> Update URL
 
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/FindSomething/popup.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/popup.js <-> +++/workspace/pipeline_output/FindSomething/popup.js; File type: js
   - Original: 1–182
   + Modified: 1–182
+
+---/workspace/pipeline_output/chromex_data/settings.html <-> +++/workspace/pipeline_output/FindSomething/settings.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/settings.js <-> +++/workspace/pipeline_output/FindSomething/settings.js; File type: js
   - Original: 1–161

@@ -2,6 +2,14 @@
   - files: _metadata, assets, background.js, content-script.js, dynamic-config.js, index.html, index.js
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/demado/src/public
+  - files: _metadata, assets, background.js, content-script.js, dynamic-config.js, index.html, index.js
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/demado/src/public/icons
+  - files: 480.png
+  + files: 480.png, beta
+
 ---/workspace/pipeline_output/chromex_data/icons <-> +++/workspace/pipeline_output/demado/src/public/icons
   - files: 480.png
   + files: 480.png, beta

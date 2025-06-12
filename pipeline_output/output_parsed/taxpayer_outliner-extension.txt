@@ -2,12 +2,19 @@
   - files: _metadata
   + files: .git, .gitignore, README.md, jsconfig.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/outliner-extension
+  - files: _metadata
+  + files: .git, .gitignore, README.md, jsconfig.json, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/outliner-extension/background.js; File type: js
   - Original: 1–11
   + Modified: 1–11
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/outliner-extension/manifest.json; File type: json
   - Original: 26–26 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/outliner-extension/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/outliner-extension/options.js; File type: js
   - Original: 1–161

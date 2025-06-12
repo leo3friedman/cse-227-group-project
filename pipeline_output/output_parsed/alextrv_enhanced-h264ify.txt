@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/enhanced-h264ify
+  - files: _metadata
+  + files: .git, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/enhanced-h264ify/manifest.json; File type: json
   - Original: 41–41 -> Update URL
 

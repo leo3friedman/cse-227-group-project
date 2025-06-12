@@ -2,6 +2,10 @@
   - files: _metadata, options.html
   + files: .git, .gitignore, .prettierignore, CHANGELOG.md, README.md, TODO.md, build.sh, docs, eslint.config.js, index.html, node_modules, options.html, package-lock.json, package.json, prettier.config.mjs, ship.sh, ts, tsconfig.json, watch.sh
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/tabToWindow
+  - files: _metadata, options.html
+  + files: .git, .gitignore, .prettierignore, CHANGELOG.md, README.md, TODO.md, build.sh, docs, eslint.config.js, index.html, node_modules, options.html, package-lock.json, package.json, prettier.config.mjs, ship.sh, ts, tsconfig.json, watch.sh
+
 ---/workspace/pipeline_output/chromex_data/js/tsconfig.tsbuildinfo <-> +++/workspace/pipeline_output/tabToWindow/js/tsconfig.tsbuildinfo; File type: tsbuildinfo
   - Original: 275–288
   - Original: 290–290

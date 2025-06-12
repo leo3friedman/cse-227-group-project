@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/extension/dist
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/data/bluegem.json.gz <-> +++/workspace/pipeline_output/extension/dist/data/bluegem.json.gz; File type: gz
   - Original: 1–4597
   - Original: 4601–4841

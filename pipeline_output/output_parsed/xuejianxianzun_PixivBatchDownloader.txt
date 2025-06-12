@@ -2,9 +2,17 @@
   - files: LICENSE, README-EN.md, README-JA.md, README-KO.md, README-RU.md, README-ZH-TW.md, README.md, _metadata, icon, js, lib, style
   + files: static, style, ts
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/PixivBatchDownloader/src
+  - files: LICENSE, README-EN.md, README-JA.md, README-KO.md, README-RU.md, README-ZH-TW.md, README.md, _metadata, icon, js, lib, style
+  + files: static, style, ts
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/manifest.json; File type: json
   - Original: 83–83 -> Update URL
   + Modified: 79–79
+
+---/workspace/pipeline_output/chromex_data/style <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/style
+  - files: viewer.min.css
+  + files: DoNotDownloadLastFewImages.less, Loading.less, UseDifferentNameRuleIfWorkHasTagWarp.less, blockAds.less, blockTagsForSpecificUser.less, centerPanel.less, deleteWorks.less, imageViewer.less, input.less, log.less, msgBox.less, outputWrap.less, previewWorkDetailPanel.less, rightButtons.less, search.css, search.less, selectWork.less, setUserName.less, showLargerThumbnails.less, style.less, var.less
 
 ---/workspace/pipeline_output/chromex_data/style <-> +++/workspace/pipeline_output/PixivBatchDownloader/src/style
   - files: viewer.min.css

@@ -2,6 +2,14 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Strict-Workflow
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/Strict-Workflow/_locales
+  - files: 
+  + files: pt_BR
+
 ---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/Strict-Workflow/_locales
   - files: 
   + files: pt_BR

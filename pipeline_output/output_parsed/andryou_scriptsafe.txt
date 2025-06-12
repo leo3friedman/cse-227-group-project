@@ -2,6 +2,14 @@
   - files: _metadata, manifest.json
   + files: .git, manifest.json, package-lock.json, readme.md
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/scriptsafe
+  - files: _metadata, manifest.json
+  + files: .git, manifest.json, package-lock.json, readme.md
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/scriptsafe/_locales
+  - files: 
+  + files: _reviewneeded
+
 ---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/scriptsafe/_locales
   - files: 
   + files: _reviewneeded
@@ -74,6 +82,9 @@
   - Original: 923–1130
   + Modified: 1–1103
 
+---/workspace/pipeline_output/chromex_data/_locales/it/messages.json <-> +++/workspace/pipeline_output/scriptsafe/_locales/it/messages.json; File type: json
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/ja/messages.json <-> +++/workspace/pipeline_output/scriptsafe/_locales/ja/messages.json; File type: json
   - Original: 1–99
   - Original: 101–752
@@ -141,6 +152,21 @@
   - Original: 677–996
   + Modified: 1–969
 
+---/workspace/pipeline_output/chromex_data/css/bootstrap-theme.min.css <-> +++/workspace/pipeline_output/scriptsafe/css/bootstrap-theme.min.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/bootstrap.min.css <-> +++/workspace/pipeline_output/scriptsafe/css/bootstrap.min.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/options.css <-> +++/workspace/pipeline_output/scriptsafe/css/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/popup.css <-> +++/workspace/pipeline_output/scriptsafe/css/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/recents.css <-> +++/workspace/pipeline_output/scriptsafe/css/recents.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/fonts/glyphicons-halflings-regular.svg <-> +++/workspace/pipeline_output/scriptsafe/fonts/glyphicons-halflings-regular.svg; File type: svg
   - Original: 2–137
   - Original: 139–271
@@ -195,6 +221,24 @@
   - Original: 3264–3306
   - Original: 3308–3408
   + Modified: 1840–3399
+
+---/workspace/pipeline_output/chromex_data/gpl.txt <-> +++/workspace/pipeline_output/scriptsafe/gpl.txt; File type: txt
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/background.html <-> +++/workspace/pipeline_output/scriptsafe/html/background.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/options.html <-> +++/workspace/pipeline_output/scriptsafe/html/options.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/popup.html <-> +++/workspace/pipeline_output/scriptsafe/html/popup.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/recents.html <-> +++/workspace/pipeline_output/scriptsafe/html/recents.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/updated.html <-> +++/workspace/pipeline_output/scriptsafe/html/updated.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/js/bootstrap.min.js <-> +++/workspace/pipeline_output/scriptsafe/js/bootstrap.min.js; File type: js
   - Original: 1–944

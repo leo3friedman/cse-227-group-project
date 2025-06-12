@@ -2,6 +2,10 @@
   - files: _locales, _metadata, css, fonts, images, js, libs, popup.html, rules
   + files: browser.js, service-worker.js, zadark-fonts.scss
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/zadark/src/web/vendor/edge
+  - files: _locales, _metadata, css, fonts, images, js, libs, popup.html, rules
+  + files: browser.js, service-worker.js, zadark-fonts.scss
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/zadark/src/web/vendor/edge/manifest.json; File type: json
   - Original: 86–86 -> Update URL
 

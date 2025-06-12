@@ -2,9 +2,21 @@
   - files: _metadata
   + files: .git, .github, .gitignore, LICENSE, README.md, build.sh, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Geolocate-IP-Browser-Extension
+  - files: _metadata
+  + files: .git, .github, .gitignore, LICENSE, README.md, build.sh, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/Geolocate-IP-Browser-Extension/img
   - files: icon48.png
   + files: LICENSE, icon48.png, icon_full.png
+
+---/workspace/pipeline_output/chromex_data/img <-> +++/workspace/pipeline_output/Geolocate-IP-Browser-Extension/img
+  - files: icon48.png
+  + files: LICENSE, icon48.png, icon_full.png
+
+---/workspace/pipeline_output/chromex_data/img/flags <-> +++/workspace/pipeline_output/Geolocate-IP-Browser-Extension/img/flags
+  - files: 48
+  + files: 48, Hello.txt, LICENSE.txt
 
 ---/workspace/pipeline_output/chromex_data/img/flags <-> +++/workspace/pipeline_output/Geolocate-IP-Browser-Extension/img/flags
   - files: 48

@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, LICENSE, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/RiddR
+  - files: _metadata
+  + files: .git, LICENSE, README.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/_locales/am/messages.json <-> +++/workspace/pipeline_output/RiddR/_locales/am/messages.json; File type: json
   - Original: 1–25
   - Original: 27–78
@@ -314,6 +318,9 @@
   - Original: 1–129
   - Original: 131–167
   + Modified: 1–161
+
+---/workspace/pipeline_output/chromex_data/css/options.css <-> +++/workspace/pipeline_output/RiddR/css/options.css; File type: css
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/js/TTS/SpeakIt.js <-> +++/workspace/pipeline_output/RiddR/js/TTS/SpeakIt.js; File type: js
   - Original: 50–50

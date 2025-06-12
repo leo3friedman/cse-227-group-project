@@ -2,6 +2,10 @@
   - files: _metadata, manifests
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/jscin/src/chrome
+  - files: _metadata, manifests
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/jscin/src/chrome/_locales/en/messages.json; File type: json
   - Original: 12–12
   - Original: 15–15

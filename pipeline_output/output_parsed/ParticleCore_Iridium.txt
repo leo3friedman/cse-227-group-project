@@ -2,13 +2,33 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Iridium/src/firefox
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/_locales/en_US/messages.json <-> +++/workspace/pipeline_output/Iridium/src/firefox/_locales/en_US/messages.json; File type: json
   - Original: 1–4
   + Modified: 1–4
 
+---/workspace/pipeline_output/chromex_data/css/content-script.css <-> +++/workspace/pipeline_output/Iridium/src/firefox/css/content-script.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/options.css <-> +++/workspace/pipeline_output/Iridium/src/firefox/css/options.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/font/LICENSE.txt <-> +++/workspace/pipeline_output/Iridium/src/firefox/font/LICENSE.txt; File type: txt
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/html/options.html <-> +++/workspace/pipeline_output/Iridium/src/firefox/html/options.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/img/iridium.svg <-> +++/workspace/pipeline_output/Iridium/src/firefox/img/iridium.svg; File type: svg
   - Original: 2–87
   + Modified: 2–86
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js
+  - files: chrome-wrapper.js, service-worker.js
+  + files: 
 
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/Iridium/src/firefox/js
   - files: chrome-wrapper.js, service-worker.js

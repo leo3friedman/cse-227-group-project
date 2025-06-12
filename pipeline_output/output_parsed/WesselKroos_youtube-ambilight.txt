@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/youtube-ambilight/src
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/images/donate.svg <-> +++/workspace/pipeline_output/youtube-ambilight/src/images/donate.svg; File type: svg
   - Original: 3–29
   + Modified: 3–29
@@ -15,6 +19,13 @@
   - Original: 77–77 -> Update URL
   - Original: 80–93
   + Modified: 70–89
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/youtube-ambilight/src/options.html; File type: html
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/youtube-ambilight/src/scripts
+  - files: 
+  + files: intros, libs
 
 ---/workspace/pipeline_output/chromex_data/scripts <-> +++/workspace/pipeline_output/youtube-ambilight/src/scripts
   - files: 
@@ -198,6 +209,10 @@
   - Original: 1419–1436
   - Original: 1439–1439
   + Modified: 1–341
+
+---/workspace/pipeline_output/chromex_data/styles <-> +++/workspace/pipeline_output/youtube-ambilight/src/styles
+  - files: content.css, live-chat.css
+  + files: content.scss, live-chat.scss
 
 ---/workspace/pipeline_output/chromex_data/styles <-> +++/workspace/pipeline_output/youtube-ambilight/src/styles
   - files: content.css, live-chat.css

@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .DS_Store, .git, .gitignore, Archive.zip, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/adskipper-extension
+  - files: _metadata
+  + files: .DS_Store, .git, .gitignore, Archive.zip, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/adskipper-extension/manifest.json; File type: json
   - Original: 40–40 -> Update URL
 

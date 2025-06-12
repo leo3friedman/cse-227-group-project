@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, LICENSE, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Pasty
+  - files: _metadata
+  + files: .git, LICENSE, README.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Pasty/manifest.json; File type: json
   - Original: 13–13
   - Original: 23–23 -> Update URL

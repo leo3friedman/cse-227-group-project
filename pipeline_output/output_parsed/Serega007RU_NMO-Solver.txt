@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .gitignore, PRIVACY.md, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/NMO-Solver
+  - files: _metadata
+  + files: .git, .gitignore, PRIVACY.md, README.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/NMO-Solver/background.js; File type: js
   - Original: 1–1948
   + Modified: 1–1948
@@ -13,6 +17,12 @@
 ---/workspace/pipeline_output/chromex_data/content-scripts/visible.js <-> +++/workspace/pipeline_output/NMO-Solver/content-scripts/visible.js; File type: js
   - Original: 1–13
   + Modified: 1–13
+
+---/workspace/pipeline_output/chromex_data/css/main.css <-> +++/workspace/pipeline_output/NMO-Solver/css/main.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/reset.css <-> +++/workspace/pipeline_output/NMO-Solver/css/reset.css; File type: css
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/img/spinner.svg <-> +++/workspace/pipeline_output/NMO-Solver/img/spinner.svg; File type: svg
   - Original: 2–34
@@ -31,6 +41,9 @@
 ---/workspace/pipeline_output/chromex_data/normalize-text.js <-> +++/workspace/pipeline_output/NMO-Solver/normalize-text.js; File type: js
   - Original: 1–204
   + Modified: 1–204
+
+---/workspace/pipeline_output/chromex_data/options/options.html <-> +++/workspace/pipeline_output/NMO-Solver/options/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options/options.js <-> +++/workspace/pipeline_output/NMO-Solver/options/options.js; File type: js
   - Original: 1–735

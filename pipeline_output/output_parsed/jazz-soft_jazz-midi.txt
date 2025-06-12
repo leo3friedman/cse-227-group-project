@@ -2,13 +2,23 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/jazz-midi/firefox/jazz-midi
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/background.js <-> +++/workspace/pipeline_output/jazz-midi/firefox/jazz-midi/background.js; File type: js
   - Original: 1–24
   + Modified: 1–24
 
+---/workspace/pipeline_output/chromex_data/bad.html <-> +++/workspace/pipeline_output/jazz-midi/firefox/jazz-midi/bad.html; File type: html
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/content.js <-> +++/workspace/pipeline_output/jazz-midi/firefox/jazz-midi/content.js; File type: js
   - Original: 1–35
   + Modified: 1–35
+
+---/workspace/pipeline_output/chromex_data/good.html <-> +++/workspace/pipeline_output/jazz-midi/firefox/jazz-midi/good.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/jazz-midi/firefox/jazz-midi/manifest.json; File type: json
   - Original: 43–43 -> Update URL

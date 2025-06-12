@@ -2,6 +2,10 @@
   - files: _metadata, snake.html, test.js
   + files: .git, .gitignore, LICENSE, Makefile, README.md, build.sh, favicon.ico, generate_integrity_hash.sh, https-test, package-lock.json, resources.hash, run-locally.sh, screenshot1.jpg, screenshot2.jpg
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ollama-ui
+  - files: _metadata, snake.html, test.js
+  + files: .git, .gitignore, LICENSE, Makefile, README.md, build.sh, favicon.ico, generate_integrity_hash.sh, https-test, package-lock.json, resources.hash, run-locally.sh, screenshot1.jpg, screenshot2.jpg
+
 ---/workspace/pipeline_output/chromex_data/api.js <-> +++/workspace/pipeline_output/ollama-ui/api.js; File type: js
   - Original: 3–4
   - Original: 32–32

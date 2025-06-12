@@ -2,6 +2,14 @@
   - files: _metadata, options
   + files: .git, .gitignore, .gitmodules, LICENSE, Makefile, README.md, host, managed-storage, node_modules, options, package-lock.json, package.json, submodules
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/ieview-we
+  - files: _metadata, options
+  + files: .git, .gitignore, .gitmodules, LICENSE, Makefile, README.md, host, managed-storage, node_modules, options, package-lock.json, package.json, submodules
+
+---/workspace/pipeline_output/chromex_data/extlib <-> +++/workspace/pipeline_output/ieview-we/extlib
+  - files: Configs.js, Options.js, browser-polyfill.min.js, l10n.js
+  + files: .gitkeep
+
 ---/workspace/pipeline_output/chromex_data/extlib <-> +++/workspace/pipeline_output/ieview-we/extlib
   - files: Configs.js, Options.js, browser-polyfill.min.js, l10n.js
   + files: .gitkeep
@@ -10,6 +18,10 @@
   - Original: 4–4
   + Modified: 2–7
   - Original: 31–34
+
+---/workspace/pipeline_output/chromex_data/misc <-> +++/workspace/pipeline_output/ieview-we/misc
+  - files: 128x128.png
+  + files: 128x128.png, 440x280.png, screenshot.png
 
 ---/workspace/pipeline_output/chromex_data/misc <-> +++/workspace/pipeline_output/ieview-we/misc
   - files: 128x128.png

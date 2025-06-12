@@ -2,6 +2,14 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/urlslideshow/urlslideshow
+  - files: _metadata
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/urlslideshow/urlslideshow/js
+  - files: content.js
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/js <-> +++/workspace/pipeline_output/urlslideshow/urlslideshow/js
   - files: content.js
   + files: 

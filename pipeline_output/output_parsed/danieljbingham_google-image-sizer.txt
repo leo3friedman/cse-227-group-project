@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/google-image-sizer
+  - files: _metadata
+  + files: .git, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/google-image-sizer/manifest.json; File type: json
   + Modified: 2–6
   - Original: 216–216 -> Update URL

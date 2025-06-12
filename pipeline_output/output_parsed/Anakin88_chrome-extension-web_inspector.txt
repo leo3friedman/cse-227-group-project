@@ -2,6 +2,10 @@
   - files: _metadata, manifest.json
   + files: .git, .gitignore, README.md, css, gulpfile.js, js, manifest.json, node_modules, package-lock.json, package.json, yarn.lock
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-extension-web_inspector
+  - files: _metadata, manifest.json
+  + files: .git, .gitignore, README.md, css, gulpfile.js, js, manifest.json, node_modules, package-lock.json, package.json, yarn.lock
+
 ---/workspace/pipeline_output/chromex_data/dist/init.min.js <-> +++/workspace/pipeline_output/chrome-extension-web_inspector/dist/init.min.js; File type: js
   - Original: 3–9
   - Original: 17–17

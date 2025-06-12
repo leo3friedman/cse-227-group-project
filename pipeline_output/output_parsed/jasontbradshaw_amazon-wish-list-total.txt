@@ -2,6 +2,14 @@
   - files: _metadata, manifest.json
   + files: .eslintrc, .git, .gitignore, LICENSE, README.md, icons, manifest.json, package, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/amazon-wish-list-total
+  - files: _metadata, manifest.json
+  + files: .eslintrc, .git, .gitignore, LICENSE, README.md, icons, manifest.json, package, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/images <-> +++/workspace/pipeline_output/amazon-wish-list-total/images
+  - files: icon-48.png
+  + files: badge-chrome.png, badge-firefox.png, icon-48.png, promo-440x280.png, promo-920x680.png, screenshot.png
+
 ---/workspace/pipeline_output/chromex_data/images <-> +++/workspace/pipeline_output/amazon-wish-list-total/images
   - files: icon-48.png
   + files: badge-chrome.png, badge-firefox.png, icon-48.png, promo-440x280.png, promo-920x680.png, screenshot.png

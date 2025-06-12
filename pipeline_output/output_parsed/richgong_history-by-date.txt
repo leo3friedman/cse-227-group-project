@@ -2,6 +2,14 @@
   - files: _metadata, back
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/history-by-date/chrome_ext
+  - files: _metadata, back
+  + files: 
+
+---/workspace/pipeline_output/chromex_data/dist <-> +++/workspace/pipeline_output/history-by-date/chrome_ext/dist
+  - files: blank.png, loadApp.css
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/dist <-> +++/workspace/pipeline_output/history-by-date/chrome_ext/dist
   - files: blank.png, loadApp.css
   + files: 

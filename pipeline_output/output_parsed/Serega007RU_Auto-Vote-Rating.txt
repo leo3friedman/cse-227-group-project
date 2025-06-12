@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, PRIVACY.md, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Auto-Vote-Rating
+  - files: _metadata
+  + files: .git, PRIVACY.md, README.md, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/_locales/de/messages.json <-> +++/workspace/pipeline_output/Auto-Vote-Rating/_locales/de/messages.json; File type: json
   - Original: 1–174
   - Original: 177–601
@@ -51,6 +55,12 @@
   - Original: 1–1756
   + Modified: 1–1756
 
+---/workspace/pipeline_output/chromex_data/css/main.css <-> +++/workspace/pipeline_output/Auto-Vote-Rating/css/main.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/css/reset.css <-> +++/workspace/pipeline_output/Auto-Vote-Rating/css/reset.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/images/icons/ds.svg <-> +++/workspace/pipeline_output/Auto-Vote-Rating/images/icons/ds.svg; File type: svg
   - Original: 2–139
   + Modified: 2–137
@@ -84,6 +94,9 @@
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Auto-Vote-Rating/manifest.json; File type: json
   - Original: 1–55
   + Modified: 1–53
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/Auto-Vote-Rating/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/Auto-Vote-Rating/options.js; File type: js
   - Original: 1–2776

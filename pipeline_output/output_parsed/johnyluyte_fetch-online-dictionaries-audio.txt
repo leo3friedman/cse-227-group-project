@@ -2,6 +2,16 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio
+  - files: _metadata
+  + files: .git, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/LICENSE
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/README.md; File type: md
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/_locales/en/messages.json <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/_locales/en/messages.json; File type: json
   - Original: 1–73
   + Modified: 1–72
@@ -22,12 +32,18 @@
   - Original: 1–846
   + Modified: 1–846
 
+---/workspace/pipeline_output/chromex_data/flaty.css <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/flaty.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/jquery-1.11.3.min.js <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/jquery-1.11.3.min.js; File type: js
   - Original: 1–3337
   + Modified: 1–3337
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/manifest.json; File type: json
   - Original: 197–197 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/fetch-online-dictionaries-audio/options.js; File type: js
   - Original: 1–37

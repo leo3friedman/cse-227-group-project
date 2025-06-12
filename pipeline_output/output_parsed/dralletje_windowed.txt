@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/windowed/extension
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/windowed/extension/manifest.json; File type: json
   - Original: 60–60 -> Update URL
 

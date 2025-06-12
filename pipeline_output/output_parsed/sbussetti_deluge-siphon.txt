@@ -2,6 +2,14 @@
   - files: _metadata, background.min.js, content.min.css, content.min.js, maps, options.min.css, options.min.js, popup.min.js
   + files: .git, .gitignore, chrome-bootstrap.css, content_handler.css, content_handler.js, controller_actions.js, gulpfile.js, lib, node_modules, options.css, options.js, package-lock.json, package.json, popup.js
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/deluge-siphon
+  - files: _metadata, background.min.js, content.min.css, content.min.js, maps, options.min.css, options.min.js, popup.min.js
+  + files: .git, .gitignore, chrome-bootstrap.css, content_handler.css, content_handler.js, controller_actions.js, gulpfile.js, lib, node_modules, options.css, options.js, package-lock.json, package.json, popup.js
+
+---/workspace/pipeline_output/chromex_data/images <-> +++/workspace/pipeline_output/deluge-siphon/images
+  - files: icon-16.png, login-16.png, notify-16.png, notify.png, notify_added-16.png, notify_added.png, notify_error-16.png, notify_error.png, notify_request-16.png, notify_request.png, options-16.png
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/images <-> +++/workspace/pipeline_output/deluge-siphon/images
   - files: icon-16.png, login-16.png, notify-16.png, notify.png, notify_added-16.png, notify_added.png, notify_error-16.png, notify_error.png, notify_request-16.png, notify_request.png, options-16.png
   + files: 

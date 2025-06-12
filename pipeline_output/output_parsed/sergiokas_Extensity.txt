@@ -2,4 +2,58 @@
   - files: _metadata
   + files: .git, .gitignore, BUILD.md, LICENSE.md, Makefile, README.md, TODO.md, graphics, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Extensity
+  - files: _metadata
+  + files: .git, .gitignore, BUILD.md, LICENSE.md, Makefile, README.md, TODO.md, graphics, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/js/engine.js <-> +++/workspace/pipeline_output/Extensity/js/engine.js; File type: js
+  - Original: 1–5
+  - Original: 7–36
+  - Original: 39–140
+  - Original: 142–177
+  - Original: 179–215
+  - Original: 217–218
+  + Modified: 1–397
+
+---/workspace/pipeline_output/chromex_data/js/index.js <-> +++/workspace/pipeline_output/Extensity/js/index.js; File type: js
+  - Original: 2–11
+  - Original: 13–24
+  - Original: 26–29
+  - Original: 31–33
+  - Original: 35–37
+  - Original: 39–41
+  - Original: 43–105
+  - Original: 107–110
+  + Modified: 2–207
+
+---/workspace/pipeline_output/chromex_data/js/migration.js <-> +++/workspace/pipeline_output/Extensity/js/migration.js; File type: js
+  - Original: 1–7
+  - Original: 10–26
+  + Modified: 1–73
+
+---/workspace/pipeline_output/chromex_data/js/options.js <-> +++/workspace/pipeline_output/Extensity/js/options.js; File type: js
+  - Original: 2–9
+  - Original: 11–11
+  + Modified: 2–20
+
+---/workspace/pipeline_output/chromex_data/js/profiles.js <-> +++/workspace/pipeline_output/Extensity/js/profiles.js; File type: js
+  - Original: 2–33
+  - Original: 35–37
+  - Original: 40–42
+  + Modified: 2–97
+
+---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Extensity/manifest.json; File type: json
+  - Original: 23–23 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/styles/index.css <-> +++/workspace/pipeline_output/Extensity/styles/index.css; File type: css
+  - Original: 1–1
+  + Modified: 1–280
+
+---/workspace/pipeline_output/chromex_data/styles/normalize.css <-> +++/workspace/pipeline_output/Extensity/styles/normalize.css; File type: css
+  - Original: 1–1
+  + Modified: 1–349
+
+---/workspace/pipeline_output/chromex_data/styles/options.css <-> +++/workspace/pipeline_output/Extensity/styles/options.css; File type: css
+  - Original: 1–1
+  + Modified: 1–319
+

@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .github, .gitignore, PrivacyPolicy.md, icon.png, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Chrome-Charset
+  - files: _metadata
+  + files: .git, .github, .gitignore, PrivacyPolicy.md, icon.png, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/_locales/ar/messages.json <-> +++/workspace/pipeline_output/Chrome-Charset/_locales/ar/messages.json; File type: json
   - Original: 1–41
   + Modified: 1–51

@@ -2,6 +2,14 @@
   - files: _metadata, ui
   + files: api, defaults.ts, definitions.d.ts, generators, manifest-chrome-mv3.json, manifest-firefox.json, manifest-thunderbird.json, stubs, tsconfig.json, ui, utils
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/darkreader/src
+  - files: _metadata, ui
+  + files: api, defaults.ts, definitions.d.ts, generators, manifest-chrome-mv3.json, manifest-firefox.json, manifest-thunderbird.json, stubs, tsconfig.json, ui, utils
+
+---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/darkreader/src/_locales
+  - files: ar, be, bg, bn, cs, da_DK, de, el, en, en_GB, en_US, es, es_419, fa, fa_IR, fil, fr, he, hi, id, it, ja, ko, ms, nl, no, pl, pt_BR, pt_PT, ro, ru, si, sk, sr, sv, te, th, tr, uk, vi, zh_CN, zh_TW
+  + files: ar.config, be.config, bg.config, bn.config, cs.config, da-DK.config, de.config, el.config, en-GB.config, en-US.config, en.config, es-419.config, es.config, fa-IR.config, fa.config, fil.config, fr.config, he.config, hi.config, id.config, it.config, ja.config, ko.config, ms.config, nl.config, no.config, pl.config, pt-BR.config, pt-PT.config, ro.config, ru.config, si.config, sk.config, sr.config, sv.config, te.config, th.config, tr.config, uk.config, vi.config, zh-CN.config, zh-TW.config
+
 ---/workspace/pipeline_output/chromex_data/_locales <-> +++/workspace/pipeline_output/darkreader/src/_locales
   - files: ar, be, bg, bn, cs, da_DK, de, el, en, en_GB, en_US, es, es_419, fa, fa_IR, fil, fr, he, hi, id, it, ja, ko, ms, nl, no, pl, pt_BR, pt_PT, ro, ru, si, sk, sr, sv, te, th, tr, uk, vi, zh_CN, zh_TW
   + files: ar.config, be.config, bg.config, bn.config, cs.config, da-DK.config, de.config, el.config, en-GB.config, en-US.config, en.config, es-419.config, es.config, fa-IR.config, fa.config, fil.config, fr.config, he.config, hi.config, id.config, it.config, ja.config, ko.config, ms.config, nl.config, no.config, pl.config, pt-BR.config, pt-PT.config, ro.config, ru.config, si.config, sk.config, sr.config, sv.config, te.config, th.config, tr.config, uk.config, vi.config, zh-CN.config, zh-TW.config
@@ -9,6 +17,14 @@
 ---/workspace/pipeline_output/chromex_data/background <-> +++/workspace/pipeline_output/darkreader/src/background
   - files: index.js
   + files: config-manager.ts, content-script-manager.ts, devtools.ts, extension.ts, icon-manager.ts, index.ts, make-chromium-happy.ts, make-firefox-happy.ts, messenger.ts, newsmaker.ts, tab-manager.ts, ui-highlights.ts, user-storage.ts, utils, window-theme.ts
+
+---/workspace/pipeline_output/chromex_data/background <-> +++/workspace/pipeline_output/darkreader/src/background
+  - files: index.js
+  + files: config-manager.ts, content-script-manager.ts, devtools.ts, extension.ts, icon-manager.ts, index.ts, make-chromium-happy.ts, make-firefox-happy.ts, messenger.ts, newsmaker.ts, tab-manager.ts, ui-highlights.ts, user-storage.ts, utils, window-theme.ts
+
+---/workspace/pipeline_output/chromex_data/inject <-> +++/workspace/pipeline_output/darkreader/src/inject
+  - files: color-scheme-watcher.js, fallback.js, index.js, proxy.js
+  + files: cache.ts, color-scheme-watcher.ts, detector.ts, dynamic-theme, fallback.ts, index.ts, style.ts, svg-filter.ts, utils
 
 ---/workspace/pipeline_output/chromex_data/inject <-> +++/workspace/pipeline_output/darkreader/src/inject
   - files: color-scheme-watcher.js, fallback.js, index.js, proxy.js
@@ -32,6 +48,14 @@
   - files: stylesheet-editor
   + files: connect, controls, icons, shared.less, stylesheet-editor, theme.less, utils.ts
 
+---/workspace/pipeline_output/chromex_data/ui <-> +++/workspace/pipeline_output/darkreader/src/ui
+  - files: stylesheet-editor
+  + files: connect, controls, icons, shared.less, stylesheet-editor, theme.less, utils.ts
+
+---/workspace/pipeline_output/chromex_data/ui/devtools <-> +++/workspace/pipeline_output/darkreader/src/ui/devtools
+  - files: index.html, index.js, style.css
+  + files: components, index.tsx, style.less, types.d.ts
+
 ---/workspace/pipeline_output/chromex_data/ui/devtools <-> +++/workspace/pipeline_output/darkreader/src/ui/devtools
   - files: index.html, index.js, style.css
   + files: components, index.tsx, style.less, types.d.ts
@@ -39,6 +63,14 @@
 ---/workspace/pipeline_output/chromex_data/ui/options <-> +++/workspace/pipeline_output/darkreader/src/ui/options
   - files: index.html, index.js, style.css
   + files: about, advanced, automation, body, general, hotkeys, index.tsx, site-list, style.less, tab-panel
+
+---/workspace/pipeline_output/chromex_data/ui/options <-> +++/workspace/pipeline_output/darkreader/src/ui/options
+  - files: index.html, index.js, style.css
+  + files: about, advanced, automation, body, general, hotkeys, index.tsx, site-list, style.less, tab-panel
+
+---/workspace/pipeline_output/chromex_data/ui/popup <-> +++/workspace/pipeline_output/darkreader/src/ui/popup
+  - files: index.html, index.js, style.css
+  + files: body, compatibility.js, components, index.tsx, main-page, news-section, page-viewer, style.less, theme, utils
 
 ---/workspace/pipeline_output/chromex_data/ui/popup <-> +++/workspace/pipeline_output/darkreader/src/ui/popup
   - files: index.html, index.js, style.css

@@ -2,6 +2,10 @@
   - files: _metadata, manifest.json
   + files: .agignore, .editorconfig, .eslintignore, .eslintrc.json, .git, .github, .gitignore, .npmrc, .travis.yml, icon.fodg, manifest.json, node_modules, package.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/webextension-open-tabs-next-to-current
+  - files: _metadata, manifest.json
+  + files: .agignore, .editorconfig, .eslintignore, .eslintrc.json, .git, .github, .gitignore, .npmrc, .travis.yml, icon.fodg, manifest.json, node_modules, package.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/webextension-open-tabs-next-to-current/manifest.json; File type: json
   + Modified: 2–7
   - Original: 32–32 -> Update URL

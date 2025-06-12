@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/FACE-X
+  - files: _metadata
+  + files: .git, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/README.md <-> +++/workspace/pipeline_output/FACE-X/README.md; File type: md
   - Original: 1–26
   + Modified: 1–28

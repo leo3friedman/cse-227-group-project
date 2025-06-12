@@ -2,6 +2,10 @@
   - files: _metadata
   + files: 
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/website-blocker-chrome.ext/src
+  - files: _metadata
+  + files: 
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/website-blocker-chrome.ext/src/manifest.json; File type: json
   - Original: 27–27 -> Update URL
 

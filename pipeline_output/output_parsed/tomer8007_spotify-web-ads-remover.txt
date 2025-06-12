@@ -2,6 +2,13 @@
   - files: _metadata
   + files: .git, .gitignore, README.md, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/spotify-web-ads-remover
+  - files: _metadata
+  + files: .git, .gitignore, README.md, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/LICENSE <-> +++/workspace/pipeline_output/spotify-web-ads-remover/LICENSE
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/injected/ads_removal.js <-> +++/workspace/pipeline_output/spotify-web-ads-remover/injected/ads_removal.js; File type: js
   - Original: 393–393
 
@@ -19,4 +26,10 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/spotify-web-ads-remover/manifest.json; File type: json
   - Original: 44–44 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup/popup.css <-> +++/workspace/pipeline_output/spotify-web-ads-remover/popup/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup/popup.html <-> +++/workspace/pipeline_output/spotify-web-ads-remover/popup/popup.html; File type: html
+  - Ordering differences only
 

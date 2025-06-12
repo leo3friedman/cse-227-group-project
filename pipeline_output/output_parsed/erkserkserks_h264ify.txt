@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, LICENSE, README.md, noncode, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/h264ify
+  - files: _metadata
+  + files: .git, LICENSE, README.md, noncode, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/_locales/cs/messages.json <-> +++/workspace/pipeline_output/h264ify/_locales/cs/messages.json; File type: json
   - Original: 1–15
   + Modified: 1–14
@@ -12,6 +16,9 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/h264ify/manifest.json; File type: json
   - Original: 51–51 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/options.html <-> +++/workspace/pipeline_output/h264ify/options.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/options.js <-> +++/workspace/pipeline_output/h264ify/options.js; File type: js
   - Original: 1–38

@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, .github, .gitignore, node_modules
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/Daily-Motivation
+  - files: _metadata
+  + files: .git, .github, .gitignore, node_modules
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/Daily-Motivation/manifest.json; File type: json
   - Original: 12–12 -> Update URL
 

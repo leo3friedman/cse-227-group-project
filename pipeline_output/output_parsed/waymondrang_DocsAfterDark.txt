@@ -2,6 +2,25 @@
   - files: _metadata, special.css
   + files: manifest_v2.json, special_chrome.css, special_firefox.css
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/DocsAfterDark/src
+  - files: _metadata, special.css
+  + files: manifest_v2.json, special_chrome.css, special_firefox.css
+
+---/workspace/pipeline_output/chromex_data/assets/css/dark_midnight.css <-> +++/workspace/pipeline_output/DocsAfterDark/src/assets/css/dark_midnight.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/assets/css/dark_normal.css <-> +++/workspace/pipeline_output/DocsAfterDark/src/assets/css/dark_normal.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/assets/css/default.css <-> +++/workspace/pipeline_output/DocsAfterDark/src/assets/css/default.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/assets/css/docs.css <-> +++/workspace/pipeline_output/DocsAfterDark/src/assets/css/docs.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/assets/css/light.css <-> +++/workspace/pipeline_output/DocsAfterDark/src/assets/css/light.css; File type: css
+  - Ordering differences only
+
 ---/workspace/pipeline_output/chromex_data/assets/replacements/close_18px.svg <-> +++/workspace/pipeline_output/DocsAfterDark/src/assets/replacements/close_18px.svg; File type: svg
   - Original: 4–8
   + Modified: 4–8
@@ -16,6 +35,12 @@
 
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/DocsAfterDark/src/manifest.json; File type: json
   - Original: 32–32 -> Update URL
+
+---/workspace/pipeline_output/chromex_data/popup.css <-> +++/workspace/pipeline_output/DocsAfterDark/src/popup.css; File type: css
+  - Ordering differences only
+
+---/workspace/pipeline_output/chromex_data/popup.html <-> +++/workspace/pipeline_output/DocsAfterDark/src/popup.html; File type: html
+  - Ordering differences only
 
 ---/workspace/pipeline_output/chromex_data/popup.js <-> +++/workspace/pipeline_output/DocsAfterDark/src/popup.js; File type: js
   - Original: 1–855

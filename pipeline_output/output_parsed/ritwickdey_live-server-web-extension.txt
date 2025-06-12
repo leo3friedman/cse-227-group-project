@@ -2,6 +2,14 @@
   - files: _metadata
   + files: .git, .gitignore, .vscode, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/live-server-web-extension
+  - files: _metadata
+  + files: .git, .gitignore, .vscode, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/img/screenshots <-> +++/workspace/pipeline_output/live-server-web-extension/img/screenshots
+  - files: 
+  + files: direct-setup.png, live-server-web-extension-easy-setup.png, live-server-web-extension.gif
+
 ---/workspace/pipeline_output/chromex_data/img/screenshots <-> +++/workspace/pipeline_output/live-server-web-extension/img/screenshots
   - files: 
   + files: direct-setup.png, live-server-web-extension-easy-setup.png, live-server-web-extension.gif

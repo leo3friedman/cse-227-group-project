@@ -2,6 +2,14 @@
   - files: _metadata
   + files: .git, README.md, img, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/show-rank
+  - files: _metadata
+  + files: .git, README.md, img, package-lock.json
+
+---/workspace/pipeline_output/chromex_data/data <-> +++/workspace/pipeline_output/show-rank/data
+  - files: ccfRankingFullName.js
+  + files: ccfRankingFullName.js, dataGen.js
+
 ---/workspace/pipeline_output/chromex_data/data <-> +++/workspace/pipeline_output/show-rank/data
   - files: ccfRankingFullName.js
   + files: ccfRankingFullName.js, dataGen.js

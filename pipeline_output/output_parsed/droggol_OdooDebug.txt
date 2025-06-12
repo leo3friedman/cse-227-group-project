@@ -2,6 +2,10 @@
   - files: _metadata
   + files: .git, firefox_manifest.json, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/OdooDebug
+  - files: _metadata
+  + files: .git, firefox_manifest.json, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/OdooDebug/manifest.json; File type: json
   - Original: 44–44 -> Update URL
 

@@ -2,6 +2,10 @@
   - files: _metadata, background.js, src
   + files: .git, .github, .gitignore, .prettierrc, .travis.yml, CHANGELOG.md, README.md, eslint.config.js, images, jest.config.js, package.json, screenshots, src, test, webpack.config.js, yarn.lock
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/enhanced-github
+  - files: _metadata, background.js, src
+  + files: .git, .github, .gitignore, .prettierrc, .travis.yml, CHANGELOG.md, README.md, eslint.config.js, images, jest.config.js, package.json, screenshots, src, test, webpack.config.js, yarn.lock
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/enhanced-github/manifest.json; File type: json
   - Original: 46–46 -> Update URL
 
@@ -17,6 +21,10 @@
 ---/workspace/pipeline_output/chromex_data/popup.js <-> +++/workspace/pipeline_output/enhanced-github/popup.js; File type: js
   - Original: 1–3
   + Modified: 1–5
+
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/enhanced-github/src
+  - files: inject.js.LICENSE.txt, inject.js.map
+  + files: background.js, enums, utils
 
 ---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/enhanced-github/src
   - files: inject.js.LICENSE.txt, inject.js.map

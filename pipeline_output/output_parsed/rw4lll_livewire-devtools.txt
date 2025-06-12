@@ -2,6 +2,10 @@
   - files: _metadata, build, popups
   + files: popups, src, webpack.config.js
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/livewire-devtools/shells/chrome
+  - files: _metadata, build, popups
+  + files: popups, src, webpack.config.js
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/livewire-devtools/shells/chrome/manifest.json; File type: json
   - Original: 52–52 -> Update URL
 

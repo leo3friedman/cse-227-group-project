@@ -2,12 +2,24 @@
   - files: _metadata, bower_components
   + files: .git, .gitattributes, .gitignore, package-lock.json
 
+---/workspace/pipeline_output/chromex_data <-> +++/workspace/pipeline_output/chrome-text-only-zoom
+  - files: _metadata, bower_components
+  + files: .git, .gitattributes, .gitignore, package-lock.json
+
 ---/workspace/pipeline_output/chromex_data/manifest.json <-> +++/workspace/pipeline_output/chrome-text-only-zoom/manifest.json; File type: json
   - Original: 38–38 -> Update URL
 
 ---/workspace/pipeline_output/chromex_data/node_modules <-> +++/workspace/pipeline_output/chrome-text-only-zoom/node_modules
   - files: 
   + files: .bin, .package-lock.json, coffee-script
+
+---/workspace/pipeline_output/chromex_data/node_modules <-> +++/workspace/pipeline_output/chrome-text-only-zoom/node_modules
+  - files: 
+  + files: .bin, .package-lock.json, coffee-script
+
+---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/chrome-text-only-zoom/src
+  - files: 
+  + files: js
 
 ---/workspace/pipeline_output/chromex_data/src <-> +++/workspace/pipeline_output/chrome-text-only-zoom/src
   - files: 
